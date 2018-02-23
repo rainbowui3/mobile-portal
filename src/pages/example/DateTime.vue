@@ -2,7 +2,7 @@
   <page>
        <top :title="$t('component.datetime')" :showBack="true"/>
             <card :title="$t('component.basic')">
-                <date-time  :title="$t('datetime.birthday')" :model="policy" value="effortDate" @on-change="onChange"></date-time>
+                <date-time  :title="$t('datetime.birthday')" :model="policy" value="effortDate" @onChange="onChange"></date-time>
             </card>
             <card :title="$t('datetime.format')">
                 <date-time  :title="$t('datetime.format')" :model="policy" value="endDate" :format="format"></date-time>
