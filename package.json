@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "fastclick": "^1.0.6",
-    "rainbow-mobile-core": "^2.0.4",
-    "rainbow-mobile-previewer": "^2.0.2",
+    "rainbow-mobile-core": "^2.0.0",
+    "rainbow-mobile-previewer": "^2.0.0",
     "vue": "^2.2.2",
     "vue-i18n": "^7.3.1",
     "vue-router": "^2.2.0",
