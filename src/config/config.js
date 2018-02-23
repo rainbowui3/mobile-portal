@@ -1,0 +1,6 @@
+'use strict';
+module.exports = {
+    DEFAULT_DATE_FORMATER: 'YYYY-MM-DD',
+    DEFAULT_DATETIME_FORMATER: 'YYYY-MM-DD HH:mm',
+    DEFAULT_DATETIME_SUBMIT_FORMATER: 'YYYY-MM-DD[T]HH:mm:ss',
+}

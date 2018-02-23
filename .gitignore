@@ -1,0 +1,17 @@
+#intelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# Mac
+.DS_Store
+
+#node
+node_modules/
+dist/
+#static
+public/
+npm-debug.log
+

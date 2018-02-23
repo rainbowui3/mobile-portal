@@ -1,0 +1,84 @@
+<template>
+  <page>
+       <top :title="$t('component.dialog')" :showBack="true"/>
+            <card :title="$t('component.basic')">
+              <r-switch :title="$t('dialog.show')" :model="policy" value="show1" :onClick="click"></r-switch>
+              <r-switch :title="`${$t('common.disable')}${$t('component.masker')}`" :model="policy" value="show2" :onClick="click"></r-switch>
+              <r-switch :title="$t('common.style')" :model="policy" value="show3" :onClick="click"></r-switch>
+              <r-switch :title="$t('row.longValue')" :model="policy" value="show4" :onClick="click"></r-switch>
+              <r-dialog  :model="policy" value="show1">
+                  <img :src="dialogImage" class='image'/>
+                  <div @click="policy.show1=false">
+                    <span class="vux-close">X</span>
+                  </div>
+              </r-dialog>
+               <r-dialog  :model="policy" value="show2" :disableMask="false">
+                  <img :src="dialogImage" class='image'/>
+                  <div @click="policy.show2=false">
+                    <span class="vux-close">X</span>
+                  </div>
+              </r-dialog>
+              <r-dialog  :model="policy" value="show3" :disableMask="false" :dialogStyle="{'max-width': '100%', width: '100%', height: '50%', 'background-color': 'transparent'}">
+                  <p style="color:#fff;text-align:center;" @click="policy.show3=false">
+                    <span style="font-size:30px;">Rainbow Mobile</span>
+                  </p>
+              </r-dialog>
+
+               <r-dialog  :model="policy" value="show4">
+                  <div style="height:100px;padding:15px 0;overflow:scroll;-webkit-overflow-scrolling:touch;">
+                  <p v-for="i in 20" :key="i">{{i}}</p>
+                </div>
+                  <div @click="policy.show4=false">
+                    <span class="vux-close">X</span>
+                  </div>
+              </r-dialog>
+              
+            </card>
+
+       <bottom :index="2"/>
+  </page>
+</template>
+
+<script>
+import {Page,Card,RSwitch,RDialog,Toast,RImage} from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import dialog from '../../assets/dialog.jpg';
+
+export default {
+  components: {
+    Bottom,
+    Top,
+    Page,
+    Card,
+    RSwitch,
+    Toast,
+    RDialog,
+    RImage
+  },
+  data(){
+    return {
+      dialogImage:dialog,
+      policy: {},
+    }
+  },
+  methods:{
+    click(){
+      console.log(this.policy)
+    },
+  }
+};
+</script>
+
+<style>
+  .image{
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .vux-close {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+</style>
+
