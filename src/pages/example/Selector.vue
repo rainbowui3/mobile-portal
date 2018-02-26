@@ -2,16 +2,16 @@
   <page>
        <top :title="$t('component.selector')" :showBack="true"/>
             <card :title="$t('component.basic')">
-                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="index" @onChange="onChange"></selector>
+                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="index" :onChange="onChange"></selector>
             </card>
             <card :title="$t('component.pleaseSelect')">
-                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="nullDate" @onChange="onChange"></selector>
+                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="nullDate" :onChange="onChange"></selector>
             </card>
             <card :title="$t('selector.header')">
-                <selector :header="$t('selector.sum')" :title="$t('selector.sum')" :options="options" :model="policy" value="index1" @onChange="onChange"></selector>
+                <selector :header="$t('selector.sum')" :title="$t('selector.sum')" :options="options" :model="policy" value="index1" :onChange="onChange"></selector>
             </card>
             <card :title="$t('component.readonly')">
-                <selector :readonly="true"  :title="$t('selector.sum')" :options="options" :model="policy" value="index2" @onChange="onChange"></selector>
+                <selector :readonly="true"  :title="$t('selector.sum')" :options="options" :model="policy" value="index2" :onChange="onChange"></selector>
             </card>
        <bottom :index="2"/>
   </page>
