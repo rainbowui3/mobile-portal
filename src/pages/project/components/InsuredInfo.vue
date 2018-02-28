@@ -1,12 +1,12 @@
 <<template>
-  <card>
-      <selector  :title="$t('被保人与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
-      <r-input :title="$t('被保险人姓名:')" :placeholder="$t('请填写被保险人姓名')" :model="policy" value="value2" />    
-      <selector  :title="$t('被保险人证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
-      <r-input :title="$t('被保险人证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" />      
-      <date-time  :title="$t('被保险人出生日期')" :model="policy" value="nullDate" :required="true" :onChange="onChange"></date-time>
-      <r-input :title="$t('被保险人手机号码:')" :placeholder="$t('请填写手机号码')" :model="policy" value="value2" />
-      <r-input :title="$t('被保险人电子邮箱：')" :placeholder="$t('email@email.com')" :model="policy" value="value2" :isEmail="true" :validate="false" />   
+  <card title="被保险人">
+      <selector  :title="$t('与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
+      <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" />    
+      <selector  :title="$t('证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
+      <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" />      
+      <date-time  :title="$t('出生日期')" :model="policy" value="nullDate" :required="true" :onChange="onChange"></date-time>
+      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="policy" value="value2" />
+      <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="policy" value="value2" :isEmail="true" :validate="false" />   
   </card>
 </template>
 
