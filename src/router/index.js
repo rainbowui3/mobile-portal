@@ -47,6 +47,10 @@ const Confirm = r => require.ensure([], () => r(require('@/pages/example/Confirm
 const Loading = r => require.ensure([], () => r(require('@/pages/example/Loading')), 'Loading');
 const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee')), 'Marquee');
 const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
+const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
+const AddInsured = r => require.ensure([], () => r(require('@/pages/project/components/AddInsured')), 'AddInsured');
+const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
+const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 
 
 Vue.use(Router);
@@ -286,6 +290,24 @@ const router = new Router({
       path: '/project/ly',
       name: 'Ly',
       component: Ly,
+    },
+    {
+      path: '/templateComponents/planSelection',
+      name: 'PlanSelection',
+      component: PlanSelection
+    },
+    {
+      path: '/templateComponents/addInsured',
+      name: 'AddInsured',
+      component: AddInsured
+    },{
+      path: '/templateComponents/insuranceDurationShortTerm',
+      name: 'InsuranceDurationShortTerm',
+      component: InsuranceDurationShortTerm
+    },{
+      path: '/templateComponents/proposalClauseConfirm',
+      name: 'ProposalClauseConfirm',
+      component: ProposalClauseConfirm
     },
   ],
 });

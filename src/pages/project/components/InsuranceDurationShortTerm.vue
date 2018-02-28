@@ -1,3 +1,4 @@
+//保险期限组件-极短期
 <template>
     <div>
         <card>

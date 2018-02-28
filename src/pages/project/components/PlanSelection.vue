@@ -1,3 +1,4 @@
+//方案选择组件
 <template>
     <card>
         <tab :tabItems="tabItems" />
