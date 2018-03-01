@@ -3,7 +3,7 @@ import Router from 'vue-router';
 const Home = r => require.ensure([], () => r(require('@/pages/Home')), 'Home');
 const ComponentCore = r => require.ensure([], () => r(require('@/pages/component/Core')), 'Core');
 const ComponentAdvanced = r => require.ensure([], () => r(require('@/pages/component/Advanced')), 'Advanced');
-const ComponentBusiness= r => require.ensure([], () => r(require('@/pages/component/Business')), 'Business');
+const ComponentBusiness = r => require.ensure([], () => r(require('@/pages/component/Business')), 'Business');
 const Demo = r => require.ensure([], () => r(require('@/pages/Demo')), 'Demo');
 const Donate = r => require.ensure([], () => r(require('@/pages/Donate')), 'Donate');
 const Card = r => require.ensure([], () => r(require('@/pages/example/Card')), 'Card');
@@ -48,15 +48,14 @@ const Loading = r => require.ensure([], () => r(require('@/pages/example/Loading
 const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee')), 'Marquee');
 const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
 const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
-const AddInsured = r => require.ensure([], () => r(require('@/pages/project/components/AddInsured')), 'AddInsured');
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 
 
 Vue.use(Router);
 const router = new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'Hello',
       component: Home,
@@ -297,18 +296,18 @@ const router = new Router({
       component: PlanSelection
     },
     {
-      path: '/templateComponents/addInsured',
-      name: 'AddInsured',
-      component: AddInsured
-    },{
       path: '/templateComponents/insuranceDurationShortTerm',
       name: 'InsuranceDurationShortTerm',
       component: InsuranceDurationShortTerm
-    },{
+    }, {
       path: '/templateComponents/proposalClauseConfirm',
       name: 'ProposalClauseConfirm',
       component: ProposalClauseConfirm
-    },
+    }, {
+      path: '/project/proposal/gi/insuredInfoEntryNormal',
+      name: 'InsuredInfoEntryNormal',
+      component: InsuredInfoEntryNormal
+    }
   ],
 });
 
