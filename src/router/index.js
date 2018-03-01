@@ -51,7 +51,10 @@ const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/c
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
-
+const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/ProductInfoEntryNormal')),'ProductInfoEntryNormal');
+const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
+const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
+const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 
 Vue.use(Router);
 const router = new Router({
@@ -307,7 +310,23 @@ const router = new Router({
       path: '/project/proposal/gi/insuredInfoEntryNormal',
       name: 'InsuredInfoEntryNormal',
       component: InsuredInfoEntryNormal
-    }
+    },{
+      path: '/project/proposal/gi/productInfoEntryNormal',
+      name: 'ProductInfoEntryNormal',
+      component: ProductInfoEntryNormal
+    },{
+      path: '/project/proposal/gi/productInfoEntryShortTerm',
+      name: 'ProductInfoEntryShortTerm',
+      component: ProductInfoEntryShortTerm
+    },{
+      path: '/project/proposal/gi/insuredInfoEntryShortTerm',
+      name: 'InsuredInfoEntryShortTerm',
+      component: InsuredInfoEntryShortTerm
+    },{
+      path: '/project/proposal/gi/InsuredInfoConfirmNormal',
+      name: 'InsuredInfoConfirmNormal',
+      component: InsuredInfoConfirmNormal
+    },
   ],
 });
 
