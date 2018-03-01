@@ -1,5 +1,5 @@
 <<template>
-  <card title="附属被保险人">
+  <card title="附属被保险人" class="weui-panel__hd" >
       <selector  :title="$t('与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
       <selector  :title="$t('与主被保险人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector> 
       <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" />
@@ -41,6 +41,8 @@ export default {
   
 }
 </script>
-<<style>
-
+<style>
+.weui-panel__hd {
+    text-align: left;
+}
 </style>

@@ -1,5 +1,5 @@
 <<template>
-  <card title="投保人">
+  <card title="投保人" class="weui-panel__hd" >
       <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" />
       <selector  :title="$t('证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
       <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" />
@@ -39,6 +39,8 @@ export default {
   
 }
 </script>
-<<style>
-
+<style>
+.weui-panel__hd {
+    text-align: left;
+}
 </style>
