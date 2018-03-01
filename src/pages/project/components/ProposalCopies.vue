@@ -1,5 +1,7 @@
 <template>  
+  <div>
     <selector  :title="$t('投保份数')" :options="options" :model="insurancNum" value="nullDate" :onChange="onChange" ></selector>   
+  </div>
 </template>
 
 <script>

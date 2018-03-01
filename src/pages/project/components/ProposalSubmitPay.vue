@@ -1,8 +1,8 @@
 <<template>
-    
+  
     <cell type="row" >
         <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div></cell>
-        <cell><r-button type="primary" :link="proposalInfo">{{$t('project.buy')}}</r-button></cell>
+        <cell><r-button type="primary" >{{$t('提交支付')}}</r-button></cell>
     </cell>                 
   
 </template>
@@ -17,8 +17,8 @@ export default {
     },
     data() {
         return{
-            amount:100,
-            proposalInfo:"/project/proposal/gi/insuredInfoEntryShortTerm"
+            amount:100
+            
 
         };
     }
