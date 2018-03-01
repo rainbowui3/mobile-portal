@@ -1,14 +1,16 @@
 <<template>
-  <card title="附属被保险人" class="weui-panel__hd" >
-      <selector  :title="$t('与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>
-      <selector  :title="$t('与主被保险人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector> 
-      <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" />
-      <selector  :title="$t('证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange"></selector>   
-      <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" />
-      <date-time  :title="$t('出生日期')" :model="policy" value="nullDate" :required="true" :onChange="onChange"></date-time>
-      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="policy" value="value2" />   
-      <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="policy" value="value2" :isEmail="true" :validate="false"/>
-  </card>
+  <!--<card title="附属被保险人" class="weui-panel__hd" >-->
+  <div>
+      <selector  :title="$t('与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>
+      <selector  :title="$t('与主被保险人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector> 
+      <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" :readonly="readonly"/>
+      <selector  :title="$t('证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>   
+      <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" :readonly="readonly"/>
+      <date-time  :title="$t('出生日期')" :model="policy" value="nullDate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="policy" value="value2" :readonly="readonly"/>   
+      <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="policy" value="value2" :isEmail="true" :validate="false" :readonly="readonly"/>
+  </div>
+  <!--</card>-->
 </template>
 
 <<script>
@@ -26,7 +28,7 @@ export default {
             policy:{
                 value2:''
             },
-            options:[{"key":"10000","value":"省份证"},{"key":"10001","value":"军官证"},{"key":"10002","value":"护照"}],
+            options:[{"key":"10000","value":"身份证"},{"key":"10001","value":"军官证"},{"key":"10002","value":"护照"}],
             certificate:{
                 "certificateId":"10000",
             }
@@ -37,12 +39,13 @@ export default {
         onChange:function(val) {
         this.certificate.effortDate=val;
         }
-    }
+    },
+    props:['readonly']
   
 }
 </script>
 <style>
-.weui-panel__hd {
+/*.weui-panel__hd {
     text-align: left;
-}
+}*/
 </style>

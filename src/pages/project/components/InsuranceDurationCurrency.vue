@@ -1,5 +1,7 @@
 <template>  
+  <div>
     <selector  :title="$t('保险期限')" :options="durationOptions" :model="duration" value="durationId" :onChange="onChange" ></selector>   
+  </div>
 </template>
 
 <script>
