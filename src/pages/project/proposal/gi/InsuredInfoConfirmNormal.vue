@@ -9,13 +9,13 @@
 
        </card>
        
-       <card>
-            <r-button type="primary" :onClick="clickHome" >{{$t('添加更多被保险人')}}</r-button>
-       </card>
        <card :title="$t('附属被保险人')">
            <subsidiary-insured-info v-bind:readonly="readonly"></subsidiary-insured-info>
        </card>
       
+       <card>
+            <r-button type="primary" :onClick="clickHome" >{{$t('添加更多被保险人')}}</r-button>
+       </card>
        <tab-bar>
            <proposal-submit-pay></proposal-submit-pay>
        </tab-bar>
