@@ -7,51 +7,99 @@
                     <checker :model="proposalClauseConfirm" value="value" type="icon" :onChange="onChange" />
                 </div>
             </cell>
+            <cell :span="1">
+                <div>
+                    我已阅读
+                </div>
+            </cell>
             <cell>
                 <box :padding="padding">
-                    <r-button :mini="true" v-for="(item, idx) in items" :key="idx">{{item.clauseName}}</r-button>
+                    <r-button :mini="true" :plain="true" v-for="(item,idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" :onClick="showDialog.bind(this, item, idx)">
+                        {{item.clauseName}}
+                    </r-button>
                 </box>
             </cell>
         </cell>
+        <div v-for="(item, idx) in items" :key="idx">
+            <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
+                <div>
+                    我是一个萌萌的{{item.clauseName}}
+                </div>
+                <div @click="componentSelf.dialogNameList[idx].dialogStatus=false">
+                    <span class="vux-close">X</span>
+                </div>
+            </r-dialog>
+        </div>
     </card>
 </template>
 <script>
-import { RButton, Cell, Card, Checker, Box } from "rainbow-mobile-core";
+import {
+  RButton,
+  Cell,
+  Card,
+  Checker,
+  Box,
+  RDialog,
+  RImage
+} from "rainbow-mobile-core";
 export default {
-    components: {
-        Checker,
-        Card,
-        Cell,
-        RButton,
-        Box
+  components: {
+    Checker,
+    Card,
+    Cell,
+    RButton,
+    Box,
+    RDialog,
+    RImage
+  },
+  data: function() {
+    return {
+      padding: "10px 10px",
+      items: [
+        { clauseName: "XXX条约" },
+        { clauseName: "XXX合规" },
+        { clauseName: "XXX规章" },
+        { clauseName: "XXX制度" },
+        { clauseName: "XXX文件" }
+      ],
+      proposalClauseConfirm: {
+        value: false
+      },
+      componentSelf: {
+        //组件自带的一些属性放在这里面
+        dialogNameList: []
+      }
+    };
+  },
+  methods: {
+    onChange() {
+      console.log("onRadioChange:");
     },
-    data: function() {
-        return {
-            padding:"10px 10px",
-            items:[
-                {clauseName:"XXX条约"},
-                {clauseName:"XXX合规"},
-                {clauseName:"XXX规章"},
-                {clauseName:"XXX制度"},
-                {clauseName:"XXX文件"},
-            ],
-            proposalClauseConfirm: {
-                value: false
-            },
-        };
-    },
-    methods: {
-        onChange() {
-            console.log("onRadioChange:");
-        }
-    },
-    computed: {
+    showDialog(item, idx, event) {
+      this.componentSelf.dialogNameList[idx].dialogStatus = true;
     }
+  },
+  computed: {},
+  beforeCreate: function() {},
+  created: function() {
+    //在模板渲染成html前调用，通常初始化 某些属性值，然后再渲染成视图
+    let i = 0;
+    this.items.forEach(element => {
+      let map = {
+        dialogName: "dialog" + i,
+        dialogStatus: false
+      };
+      this.componentSelf.dialogNameList.push(map);
+    });
+  },
+  mounted: function() {
+    //在模板渲染成html之后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作
+  }
 };
 </script>
 <style>
 .proposalClauseConfirmRaido {
-    text-align: left;
+  text-align: left;
 }
 </style>
 <i18n>
