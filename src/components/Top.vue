@@ -24,8 +24,8 @@ export default {
     return {
       showMenu:{},
       menuList:{
-          zh: '中文',
-          en: 'English'
+          "zh-CN": '中文',
+          "en-US": 'English'
       }
     };
   },
