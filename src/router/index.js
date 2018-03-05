@@ -47,7 +47,6 @@ const Confirm = r => require.ensure([], () => r(require('@/pages/example/Confirm
 const Loading = r => require.ensure([], () => r(require('@/pages/example/Loading')), 'Loading');
 const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee')), 'Marquee');
 const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
-const PayStatus = r => require.ensure([], () => r(require('@/pages/project/components/PayStatus')), 'PayStatus');
 const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
@@ -56,6 +55,7 @@ const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/
 const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
+const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
 
 Vue.use(Router);
 const router = new Router({
@@ -308,7 +308,7 @@ const router = new Router({
       name: 'ProposalClauseConfirm',
       component: ProposalClauseConfirm
     }, {
-      path: '/templateComponents/payStatus',
+      path: '/project/proposal/payStatus',
       name: 'PayStatus',
       component: PayStatus
     }, {
