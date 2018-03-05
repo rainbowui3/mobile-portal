@@ -14,7 +14,7 @@
             <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
         </card>
         <tab-bar>
-            <proposal-submit-pay></proposal-submit-pay>
+            <proposal-submit-pay :onClick="onClick"></proposal-submit-pay>
         </tab-bar>
 
     </page>
@@ -61,7 +61,10 @@ export default {
     InsuranceDurationShortTerm
   },
   methods: {
-    clickHom() {}
+    clickHom() {},
+    onClick:function(){
+        this.$router.push("/project/proposal/payStatus");
+    }
   },
   data() {
     return {
