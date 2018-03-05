@@ -57,9 +57,6 @@ const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/page
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 
-
-const testTemplateProposalClauseConfirm = r => require.ensure([],() => r(require('@/pages/test/testTemplateProposalClauseConfirm'),'testTemplateProposalClauseConfirm'));
-
 Vue.use(Router);
 const router = new Router({
   routes: [{
@@ -334,10 +331,6 @@ const router = new Router({
       path: '/project/proposal/gi/InsuredInfoConfirmNormal',
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
-    },{
-      path:'/templateTest/testTemplateProposalClauseConfirm',
-      name: 'testTemplateProposalClauseConfirm',
-      component: testTemplateProposalClauseConfirm
     },
   ],
 });
