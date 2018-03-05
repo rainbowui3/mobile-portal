@@ -2,15 +2,24 @@
    <page>
        <top :title="$t('project.jtyw')" :showBack="true" />
        <card :title="$t('投保人')">
-           <holder-info v-bind:readonly="readonly"></holder-info>
+           <holder-info 
+              v-bind:readonly="readonly"
+              v-bind:holderInfo="policy.holderInfo"
+           ></holder-info>
        </card>
        <card :title="$t('被保险人')">
-           <insured-info v-bind:readonly="readonly"></insured-info>
+           <insured-info 
+              v-bind:readonly="readonly"
+              v-bind:insuredInfo="policy.insuredInfo"
+               ></insured-info>
 
        </card>
        
        <card :title="$t('附属被保险人')">
-           <subsidiary-insured-info v-bind:readonly="readonly"></subsidiary-insured-info>
+           <subsidiary-insured-info 
+              v-bind:readonly="readonly"
+              v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"
+               ></subsidiary-insured-info>
        </card>
       
        <card>
@@ -33,6 +42,7 @@ import HolderInfo from "../../components/HolderInfo";
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalSubmitPay from "../../components/ProposalSubmitPay";
+// import localStorage from "../../../../sotre.js";
 
 export default {
     components:{
@@ -47,7 +57,7 @@ export default {
         SubsidiaryInsuredInfo,
         ProposalSubmitPay
     },
-    method:{
+    methods:{
         clickHom() {
 
         }
@@ -55,7 +65,8 @@ export default {
     data() {
         return{
             readonly:true
-
+            // ,
+            // policy:localStorage.fetch()
         };
     }
   

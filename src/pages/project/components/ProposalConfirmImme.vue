@@ -2,7 +2,7 @@
   
     <cell type="row" >
         <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div></cell>
-        <cell><r-button type="primary" :link="submitPay">{{$t('立即投保')}}</r-button></cell>
+        <cell><r-button type="primary" :link="linkInsuredConfirmUrl">{{$t('立即投保')}}</r-button></cell>
     </cell>                 
   
 </template>
@@ -17,11 +17,11 @@ export default {
     },
     data() {
         return{
-            amount:100,
-            submitPay:"/project/proposal/gi/InsuredInfoConfirmNormal"
+            amount:100
 
         };
-    }
+    },
+    props:["linkInsuredConfirmUrl"]
   
 }
 </script>

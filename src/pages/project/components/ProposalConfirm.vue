@@ -2,7 +2,7 @@
     
     <cell type="row" >
         <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div></cell>
-        <cell><r-button type="primary" :link="proposalInfo">{{$t('project.buy')}}</r-button></cell>
+        <cell><r-button type="primary" :link="linkInsuredInfoUrl">{{$t('project.buy')}}</r-button></cell>     
     </cell>                 
   
 </template>
@@ -21,7 +21,9 @@ export default {
             proposalInfo:"/project/proposal/gi/insuredInfoEntryShortTerm"
 
         };
-    }
+    },
+    props:["linkInsuredInfoUrl"]
+    
   
 }
 </script>

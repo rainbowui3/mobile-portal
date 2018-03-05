@@ -18,7 +18,7 @@ export default {
      }
     };
   },
-  method:{
+  methods:{
     onChange:function(val) {
       this.insurancNum.effortDate=val;
       

@@ -1,14 +1,14 @@
 <<template>
   <!--<card title="附属被保险人" class="weui-panel__hd" >-->
   <div>
-      <selector  :title="$t('与投保人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>
-      <selector  :title="$t('与主被保险人关系:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector> 
-      <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="policy" value="value2" :readonly="readonly"/>
-      <selector  :title="$t('证件类型:')" :options="options" :model="certificate" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>   
-      <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="policy" value="value2" :readonly="readonly"/>
-      <date-time  :title="$t('出生日期')" :model="policy" value="nullDate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="policy" value="value2" :readonly="readonly"/>   
-      <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="policy" value="value2" :isEmail="true" :validate="false" :readonly="readonly"/>
+      <selector  :title="$t('与投保人关系:')" :options="options" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
+      <selector  :title="$t('与主被保险人关系:')" :options="options" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> 
+      <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly"/>
+      <selector  :title="$t('证件类型:')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>   
+      <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="dubsidiaryInsuranceInfo" value="certificateNu" :readonly="readonly"/>
+      <date-time  :title="$t('出生日期')" :model="dubsidiaryInsuranceInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :readonly="readonly"/>   
+      <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly"/>
   </div>
   <!--</card>-->
 </template>
@@ -35,12 +35,12 @@ export default {
 
         };
     },
-    method:{
+    methods:{
         onChange:function(val) {
         this.certificate.effortDate=val;
         }
     },
-    props:['readonly']
+    props:['readonly','dubsidiaryInsuranceInfo']
   
 }
 </script>

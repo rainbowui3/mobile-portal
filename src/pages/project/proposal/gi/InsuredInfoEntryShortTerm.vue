@@ -2,22 +2,31 @@
    <page>
        <top :title="$t('project.jtyw')" :showBack="true" />
        <card :title="$t('投保人')">
-           <holder-info v-bind:readonly="readonly"></holder-info>
+           <holder-info 
+              v-bind:readonly="readonly"
+              v-bind:holderInfo="policy.holderInfo"
+           ></holder-info>
        </card>
        <card :title="$t('被保险人')">
-           <insured-info v-bind:readonly="readonly"></insured-info>
+           <insured-info 
+              v-bind:readonly="readonly"
+              v-bind:insuredInfo="policy.insuredInfo"
+              ></insured-info>
 
        </card>
        
        <card :title="$t('附属被保险人')">
-           <subsidiary-insured-info v-bind:readonly="readonly"></subsidiary-insured-info>
+           <subsidiary-insured-info 
+              v-bind:readonly="readonly"
+              v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"
+              ></subsidiary-insured-info>
        </card>
        <card>
             <r-button type="primary" :onClick="clickHome" >{{$t('添加更多被保险人')}}</r-button>
        </card>
       
        <tab-bar>
-           <proposal-confirm-imme></proposal-confirm-imme>
+           <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl"></proposal-confirm-imme>
        </tab-bar>
 
    </page>
@@ -33,6 +42,7 @@ import HolderInfo from "../../components/HolderInfo";
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalConfirmImme from "../../components/ProposalConfirmImme";
+// import localStorage from "../../../../sotre.js";
 
 export default {
     components:{
@@ -47,17 +57,60 @@ export default {
         SubsidiaryInsuredInfo,
         ProposalConfirmImme
     },
-    method:{
+    methods:{
         clickHom() {
 
         }
     },
     data() {
         return{
-            readonly:false
+            readonly:false,
+            linkInsuredConfirmUrl:"/project/proposal/gi/InsuredInfoConfirmNormal",
+            policy:{
+                holderInfo:{
+                    name:'',
+                    certificateId:'',
+                    certificateNum:'',
+                    birthdate:'',
+                    mobileNum:'',
+                    email:''
+                },
+                insuredInfo:{
+                    relationToHolder:'',
+                    name:'',
+                    certificateId:'',
+                    certificateNum:'',
+                    birthdate:'',
+                    mobileNum:'',
+                    email:''
+                },
+                dubsidiaryInsuranceInfo:{
+                    relationToHolder:'',
+                    relationToMainInsured:'',
+                    name:'',
+                    certificateId:'',
+                    certificateNum:'',
+                    birthdate:'',
+                    mobileNum:'',
+                    email:''
+
+                }           
+             }
          
         };
     }
+    // ,
+    // watch:{
+    //     policy:{
+    //         handler:function(policy){
+    //             localStorage.save(policy)
+    //         },
+    //         deep:true
+    //     }
+    // },
+    // mounted:function(){
+    //     console.log(this.policy)
+    // }
   
 }
 </script>

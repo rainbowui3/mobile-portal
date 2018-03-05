@@ -14,7 +14,7 @@
            <proposal-copies></proposal-copies>
        </card>
        <tab-bar>
-           <proposal-confirm></proposal-confirm>
+           <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl"></proposal-confirm>
        </tab-bar>
 
    </page>
@@ -31,6 +31,8 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
+import localStorage from "../../../../sotre.js";
+// import policyJson from "../../../../policy.json";
 export default {
     components:{
         Page,
@@ -43,7 +45,19 @@ export default {
         PlanSelection,
         ProposalCopies,
         ProposalConfirm
+    },
+    data() {
+        return{
+            linkInsuredInfoUrl:"/project/proposal/gi/insuredInfoEntryShortTerm"
+            // policy:Json.stringify(policyJson)
+            
+        };
     }
+    // ,
+    // mounted:function(){
+
+    //     console.log(this.policy)
+    // }
   
 }
 </script>
