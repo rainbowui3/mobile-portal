@@ -1,4 +1,4 @@
-<<template>
+<template>
   
     <cell type="row" >
         <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div></cell>
@@ -7,7 +7,7 @@
   
 </template>
 
-<<script>
+<script>
 import  {Card,RButton,Cell} from 'rainbow-mobile-core';
 export default {
     components:{
@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<<style>
+<style>
 .demo{
     text-align: center;
     color: #04BE02;

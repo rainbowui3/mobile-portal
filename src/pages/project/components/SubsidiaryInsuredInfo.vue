@@ -1,4 +1,4 @@
-<<template>
+<template>
   <!--<card title="附属被保险人" class="weui-panel__hd" >-->
   <div>
       <selector  :title="$t('与投保人关系:')" :options="options" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
@@ -13,7 +13,7 @@
   <!--</card>-->
 </template>
 
-<<script>
+<script>
 import { Page, Card, RInput, RButton,Selector,DateTime } from "rainbow-mobile-core";
 export default {
     components:{

@@ -1,4 +1,4 @@
-<<template>
+<template>
   <!--<card title="投保人" class="weui-panel__hd" >-->
   <div>
       <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="holderInfo" value="name" :readonly="readonly" />
@@ -11,7 +11,7 @@
   <!--</card>-->
 </template>
 
-<<script>
+<script>
 import { Page, Card, RInput, RButton,Selector,DateTime } from "rainbow-mobile-core";
 export default {
     components:{

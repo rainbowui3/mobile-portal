@@ -1,4 +1,4 @@
-<<template>
+<template>
    <page>
        <top :title="$t('project.jtyw')" :showBack="true" />
        <card>
@@ -22,7 +22,7 @@
   
 </template>
 
-<<script>
+<script>
 import {Page,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
@@ -31,7 +31,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
-import localStorage from "../../../../sotre.js";
+// import localStorage from "../../../../sotre.js";
 // import policyJson from "../../../../policy.json";
 export default {
     components:{
@@ -62,6 +62,6 @@ export default {
 }
 </script>
 
-<<style>
+<style>
 
 </style>

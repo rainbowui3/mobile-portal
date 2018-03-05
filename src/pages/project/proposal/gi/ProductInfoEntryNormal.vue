@@ -1,4 +1,4 @@
-<<template>
+<template>
    <page>
        <top :title="$t('project.jtyw')" :showBack="true" />
        <card>
@@ -22,7 +22,7 @@
   
 </template>
 
-<<script>
+<script>
 import {Page,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
@@ -48,6 +48,6 @@ export default {
 }
 </script>
 
-<<style>
+<style>
 
 </style>
