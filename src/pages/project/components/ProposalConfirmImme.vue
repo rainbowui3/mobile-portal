@@ -2,7 +2,7 @@
   
     <cell type="row" >
         <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div></cell>
-        <cell><r-button type="primary" :link="linkInsuredConfirmUrl">{{$t('立即投保')}}</r-button></cell>
+        <cell><r-button type="primary" :link="linkInsuredConfirmUrl" :onClick="_onClick">{{$t('立即投保')}}</r-button></cell>
     </cell>                 
   
 </template>
@@ -21,7 +21,15 @@ export default {
 
         };
     },
-    props:["linkInsuredConfirmUrl"]
+    props:{
+        linkInsuredConfirmUrl:String,
+        onClick:Function
+    },
+    methods:{
+        _onClick:function(event){
+            this.onClick?this.onClick(event):null;
+        }
+    }
   
 }
 </script>

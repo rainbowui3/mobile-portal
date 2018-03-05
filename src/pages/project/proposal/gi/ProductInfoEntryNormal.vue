@@ -2,7 +2,7 @@
     <page>
         <top :title="$t('project.jtyw')" :showBack="true" />
         <card>
-            <product-top></product-top>
+            <product-top :productInfo="productInfo"></product-top>
         </card>
         <card>
             <insurance-duration-currency></insurance-duration-currency>
@@ -60,19 +60,44 @@ export default {
   },
   data() {
     return {
-      policy: {
-        data1: 1,
-        data2: 2
-      }
+      productInfo: {},
+      policy: {}
     };
   },
   methods: {
     onClick: function() {
-        debugger;
-      console.log(this.policy);
-      this.$emit("productInfoEntryNormalBtn", this.policy);
       this.$router.push("/project/proposal/gi/insuredInfoEntryNormal");
     }
+  },
+  created: function() {
+    let productInfo = {
+      planConfigFlag: "个人", //方案配置分类:个人、家庭
+      subsidiaryInsuredFlag: false, //附属被保险人标识:是、否
+      productName: "xxxxx险",
+      productImagePath: "../../../assets/jtgj.jpg",
+      productDescription: "这是一个XXXX类型的产品",
+      InsuranceTerm: [
+        { key: "oneYear", value: "一年" },
+        { key: "twoYear", value: "两年" },
+        { key: "threeYear", value: "三年" }
+      ],
+      Plans: [],
+      copies: 1
+    };
+    let policy = {
+      premium: 100,
+      HolderInfo: {},
+      InsuredInfo: [],
+      SubsidiaryInsuredInfo: [],
+      effectiveDate: "",
+      expireDate: "",
+      insuranceTerm: "",
+      Plan: {},
+      productCode: "",
+      productName: ""
+    };
+    this.policy = policy;
+    this.productInfo = productInfo;
   }
 };
 </script>

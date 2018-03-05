@@ -2,8 +2,8 @@
 <template>
     <div>
         <card>
-        <date-time :title="$t('EffectiveDate')" :model="policy" value="effectiveDate" :format="timeFormat"></date-time>
-        <date-time :title="$t('ExpireDate')" :model="policy" value="expireDate" :format="timeFormat"></date-time>
+        <date-time :readonly="readonly" :title="$t('保险起期')" :model="policy" value="effectiveDate" :format="timeFormat"></date-time>
+        <date-time :readonly="readonly" :title="$t('保险止期')" :model="policy" value="expireDate" :format="timeFormat"></date-time>
         </card>
     </div>
 </template>
@@ -15,6 +15,9 @@ export default {
   components: {
     DateTime,
     Card
+  },
+  props:{
+    readonly:Boolean
   },
   data() {
     return {

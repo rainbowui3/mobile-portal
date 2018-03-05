@@ -22,8 +22,10 @@ export default {
       productName:"交通工具意外险",
       productDes:"描述性文字xxxxxxxxxxxxx"
     };
+  },
+  props:{
+    productInfo: Object,
   }
-  
 };
 </script>
 

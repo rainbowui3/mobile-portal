@@ -47,6 +47,7 @@ const Confirm = r => require.ensure([], () => r(require('@/pages/example/Confirm
 const Loading = r => require.ensure([], () => r(require('@/pages/example/Loading')), 'Loading');
 const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee')), 'Marquee');
 const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
+const PayStatus = r => require.ensure([], () => r(require('@/pages/project/components/PayStatus')), 'PayStatus');
 const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
@@ -55,6 +56,9 @@ const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/
 const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
+
+
+const testTemplateProposalClauseConfirm = r => require.ensure([],() => r(require('@/pages/test/testTemplateProposalClauseConfirm'),'testTemplateProposalClauseConfirm'));
 
 Vue.use(Router);
 const router = new Router({
@@ -307,6 +311,10 @@ const router = new Router({
       name: 'ProposalClauseConfirm',
       component: ProposalClauseConfirm
     }, {
+      path: '/templateComponents/payStatus',
+      name: 'PayStatus',
+      component: PayStatus
+    }, {
       path: '/project/proposal/gi/insuredInfoEntryNormal',
       name: 'InsuredInfoEntryNormal',
       component: InsuredInfoEntryNormal
@@ -326,6 +334,10 @@ const router = new Router({
       path: '/project/proposal/gi/InsuredInfoConfirmNormal',
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
+    },{
+      path:'/templateTest/testTemplateProposalClauseConfirm',
+      name: 'testTemplateProposalClauseConfirm',
+      component: testTemplateProposalClauseConfirm
     },
   ],
 });

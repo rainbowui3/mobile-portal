@@ -14,7 +14,7 @@
            <proposal-copies></proposal-copies>
        </card>
        <tab-bar>
-           <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl"></proposal-confirm>
+           <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl" :onClick="onClick"></proposal-confirm>
        </tab-bar>
 
    </page>
@@ -52,6 +52,11 @@ export default {
             // policy:Json.stringify(policyJson)
             
         };
+    },
+    methods:{
+        onClick:function(){
+            this.$router.push("/project/proposal/gi/insuredInfoEntryShortTerm");
+        }
     }
     // ,
     // mounted:function(){
