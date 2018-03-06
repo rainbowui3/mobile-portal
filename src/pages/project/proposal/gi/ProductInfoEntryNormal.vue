@@ -1,6 +1,6 @@
 <template>
     <page>
-        <top :title="$t('project.jtyw')" :showBack="true" />
+        <top :title="$t('安心意外保')" :showBack="true" />
         <card>
             <product-top :productInfo="productInfo"></product-top>
         </card>

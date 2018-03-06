@@ -1,20 +1,20 @@
 //方案选择组件
 <template>
-    <div>
-        <!-- <card> -->
-        <tab :tabItems="tabItems" />
-        <swiper height="400px" :model="index" onChange=this.onIndexChange>
-            <swiper-item v-for="(item,idx) in items" :key="idx">
-                <card :title="$t('保障范围')">
-                    <r-table :data="item.planData" />
-                </card>
-                <card :title="$t('投保须知')">
-                    <list :data="getListData" />
-                </card>
-            </swiper-item>
-        </swiper>
-        <!-- </card> -->
-    </div>
+  <div>
+    <!-- <card> -->
+    <tab :tabItems="tabItems" />
+    <swiper height="400px" :model="index" onChange=this.onIndexChange>
+      <swiper-item v-for="(item,idx) in items" :key="idx">
+        <card :title="$t('保障范围')">
+          <r-table :data="item.planData" />
+        </card>
+        <card :title="$t('投保须知')">
+          <list :data="getListData" />
+        </card>
+      </swiper-item>
+    </swiper>
+    <!-- </card> -->
+  </div>
 </template>
 <script>
 import {
@@ -59,7 +59,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "方案一",
+          text: "基础版",
           onClick: this.onTabItemClicked
         },
         {
@@ -67,7 +67,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "方案二",
+          text: "升级版",
           onClick: this.onTabItemClicked
         },
         {
@@ -75,7 +75,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "方案三",
+          text: "尊享版",
           onClick: this.onTabItemClicked
         }
       ];
@@ -87,7 +87,7 @@ export default {
         { label: this.$t("保险期限:"), value: "XXXXX年" },
         { label: this.$t("特殊说明:"), value: "XXXXXXXXX" }
       ];
-    }
+    },
   },
   methods: {
     onIndexChange: function(value) {
@@ -99,9 +99,9 @@ export default {
           planData: {
             head: [[{ text: "保险责任" }, { text: "保险金额" }]],
             body: [
-              [{ text: "11" }, { text: "11" }],
-              [{ text: "12" }, { text: "12" }],
-              [{ text: "13" }, { text: "13" }]
+              [{ text: "公共交通意外伤害-飞机" }, { text: "50万" }],
+              [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "40万" }],
+              [{ text: "公共交通意外伤害-汽车" }, { text: "30万" }]
             ]
           }
         },

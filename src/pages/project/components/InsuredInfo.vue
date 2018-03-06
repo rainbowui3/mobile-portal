@@ -1,7 +1,7 @@
 <template>
   <!--<card title="被保险人" class="weui-panel__hd" >-->
   <div>
-      <selector  :title="$t('与投保人关系:')" :options="options" :model="insuredInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
+      <selector  :title="$t('与投保人关系:')" :options="options1" :model="insuredInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
       <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="insuredInfo" value="name" :readonly="readonly"/>    
       <selector  :title="$t('证件类型:')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>
       <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="insuredInfo" value="certificateNum" :readonly="readonly"/>      
@@ -28,6 +28,7 @@ export default {
                 value2:''
             },
             options:[{"key":"10000","value":"身份证"},{"key":"10001","value":"军官证"},{"key":"10002","value":"护照"}],
+            options1:[{"key":"10000","value":"本人"},{"key":"10001","value":"配偶"},{"key":"10002","value":"子女"}],
             certificate:{
                 "certificateId":"10000",
             }

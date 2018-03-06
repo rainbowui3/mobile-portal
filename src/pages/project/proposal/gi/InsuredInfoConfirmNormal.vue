@@ -1,23 +1,23 @@
 <template>
-    <page>
-        <top :title="$t('project.jtyw')" :showBack="true" />
-        <insurance-duration-short-term :readonly="readonly"/>
-        <card :title="$t('投保人')">
-            <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
-        </card>
-        <card :title="$t('被保险人')">
-            <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+  <page>
+    <top :title="$t('project.jtyw')" :showBack="true" />
+    <insurance-duration-short-term :readonly="readonly" />
+    <card :title="$t('投保人')">
+      <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+    </card>
+    <card :title="$t('被保险人')">
+      <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
 
-        </card>
+    </card>
 
-        <card :title="$t('附属被保险人')">
-            <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-        </card>
-        <tab-bar>
-            <proposal-submit-pay :onClick="onClick"></proposal-submit-pay>
-        </tab-bar>
+    <card :title="$t('附属被保险人')">
+      <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+    </card>
+    <tab-bar>
+      <proposal-submit-pay :onClick="onClick"></proposal-submit-pay>
+    </tab-bar>
 
-    </page>
+  </page>
 
 </template>
 
@@ -62,8 +62,8 @@ export default {
   },
   methods: {
     clickHom() {},
-    onClick:function(){
-        this.$router.push("/project/proposal/payStatus");
+    onClick: function() {
+      this.$router.push("/project/proposal/payStatus");
     }
   },
   data() {
@@ -73,28 +73,31 @@ export default {
       // policy:localStorage.fetch()
       policy: {
         holderInfo: {
-          name: "张大帅",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         },
         insuredInfo: {
-          name: "张大帅",
+          relationToHolder: "本人",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         },
         dubsidiaryInsuranceInfo: {
-          name: "张大帅",
+          relationToHolder: "本人",
+          relationToMainInsured: "本人",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         }
       }
     };

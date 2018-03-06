@@ -72,28 +72,31 @@ export default {
       linkInsuredConfirmUrl: "/project/proposal/gi/InsuredInfoConfirmNormal",
       policy: {
         holderInfo: {
-          name: "张大帅",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         },
         insuredInfo: {
-          name: "张大帅",
+          relationToHolder:"本人",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         },
         dubsidiaryInsuranceInfo: {
-          name: "张大帅",
+          relationToHolder:"本人",
+          relationToMainInsured:"本人",
+          name: "王小明",
           certificateId: "身份证",
-          certificateNum: "xxxxxxxxxxxxxxxxxx",
+          certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
-          mobileNum: "183xxxxxxxx",
-          email: "张大帅好帅@email.com"
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
         }
       }
     };

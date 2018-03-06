@@ -20,7 +20,7 @@ export default {
     return{
       path:Jtgj,
       productName:"交通工具意外险",
-      productDes:"描述性文字xxxxxxxxxxxxx"
+      productDes:"保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。"
     };
   },
   props:{
