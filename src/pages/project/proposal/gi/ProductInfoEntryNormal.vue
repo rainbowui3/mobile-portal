@@ -6,10 +6,10 @@
         <product-top :productInfo="productInfo"></product-top>
       </card>
       <card>
-        <insurance-duration-currency></insurance-duration-currency>
+        <plan-selection></plan-selection>
       </card>
       <card>
-        <plan-selection></plan-selection>
+        <insurance-duration-currency></insurance-duration-currency>
       </card>
       <card>
         <proposal-copies></proposal-copies>
