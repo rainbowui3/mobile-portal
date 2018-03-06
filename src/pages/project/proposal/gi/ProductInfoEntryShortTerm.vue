@@ -1,18 +1,20 @@
 <template>
    <page>
        <top :title="$t('project.jtyw')" :showBack="true" />
-       <card>
-           <product-top></product-top>
-       </card>
-       <card>
-           <insurance-duration-shortTerm></insurance-duration-shortTerm>
-       </card>
-       <card>
-           <plan-selection></plan-selection>
-       </card>
-       <card>
-           <proposal-copies></proposal-copies>
-       </card>
+       <r-body>
+            <card>
+                <product-top></product-top>
+            </card>
+            <card>
+                <insurance-duration-shortTerm></insurance-duration-shortTerm>
+            </card>
+            <card>
+                <plan-selection></plan-selection>
+            </card>
+            <card>
+                <proposal-copies></proposal-copies>
+            </card>
+       </r-body>
        <tab-bar>
            <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl" :onClick="onClick"></proposal-confirm>
        </tab-bar>
@@ -23,7 +25,7 @@
 </template>
 
 <script>
-import {Page,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
+import {Page,RBody,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
 import ProductTop from "../../components/ProductTop";
@@ -44,7 +46,8 @@ export default {
         InsuranceDurationShortTerm,
         PlanSelection,
         ProposalCopies,
-        ProposalConfirm
+        ProposalConfirm,
+        RBody
     },
     data() {
         return{

@@ -1,20 +1,22 @@
 <template>
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
-    <card :title="$t('投保人')">
-      <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
-    </card>
-    <card :title="$t('被保险人')">
-      <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+    <r-body>
+        <card :title="$t('投保人')">
+          <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+        </card>
+        <card :title="$t('被保险人')">
+          <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
 
-    </card>
+        </card>
 
-    <card :title="$t('附属被保险人')">
-      <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-    </card>
-    <card>
-      <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
-    </card>
+        <card :title="$t('附属被保险人')">
+          <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+        </card>
+        <card>
+          <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
+        </card>
+    </r-body>
 
     <tab-bar>
       <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl" :onClick="onClick"></proposal-confirm-imme>
@@ -27,6 +29,7 @@
 <script>
 import {
   Page,
+  RBody,
   Card,
   RImage,
   RButton,
@@ -61,7 +64,8 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalConfirmImme,
-    ProposalClauseConfirm
+    ProposalClauseConfirm,
+    RBody
   },
   methods: {
     clickHom() {}

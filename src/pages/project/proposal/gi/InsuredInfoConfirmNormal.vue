@@ -1,18 +1,18 @@
 <template>
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
-    <insurance-duration-short-term :readonly="readonly" />
-    <card :title="$t('投保人')">
-      <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
-    </card>
-    <card :title="$t('被保险人')">
-      <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
-
-    </card>
-
-    <card :title="$t('附属被保险人')">
-      <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-    </card>
+    <r-body>
+        <insurance-duration-short-term :readonly="readonly" />
+        <card :title="$t('投保人')">
+          <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+        </card>
+        <card :title="$t('被保险人')">
+          <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+        </card>
+        <card :title="$t('附属被保险人')">
+          <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+        </card>
+    </r-body>
     <tab-bar>
       <proposal-submit-pay :onClick="onClick"></proposal-submit-pay>
     </tab-bar>
@@ -24,6 +24,7 @@
 <script>
 import {
   Page,
+  RBody,
   Card,
   RImage,
   RButton,
@@ -58,7 +59,8 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalSubmitPay,
-    InsuranceDurationShortTerm
+    InsuranceDurationShortTerm,
+    RBody
   },
   methods: {
     clickHom() {},
