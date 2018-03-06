@@ -1,21 +1,21 @@
 <template>  
   <div>
-    <selector  :title="$t('投保份数')" :options="options" :model="insurancNum" value="nullDate" :onChange="onChange" ></selector>   
+   <picker  :title="$t('投保份数')" :options="options" :model="insurancNum" value="number1"  ></picker> 
   </div>
 </template>
 
 <script>
-import {Selector} from 'rainbow-mobile-core';
+import {Picker} from 'rainbow-mobile-core';
 export default {
   components: {   
-    Selector
+    Picker
   },
   data(){
     return{
-      options:[{"key":"10000","value":"1"},{"key":"10001","value":"2"},{"key":"10002","value":"3"}],
+      options:[["1","2","3","4","5","6","7","8","9","10"]],
       insurancNum:{
-      "nullDate":null
-     }
+      "number1":["1"],
+      }
     };
   },
   methods:{
