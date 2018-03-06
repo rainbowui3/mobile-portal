@@ -1,6 +1,6 @@
 <template>
     <page>
-        <top />
+        <top :title="$t('project.jtyw')" :showBack="true" />
         <insurance-duration-short-term/>
         <card :title="$t('投保人信息')">
             <holder-info :holderInfo="holderInfo" />
@@ -77,10 +77,12 @@ export default {
   methods:{
       onClick:function(){
           this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
+      },
+      clickHome:function(){
+          console.log("lalalalala");
       }
   },
   created: function() {
-    debugger;
     console.log("created");
   },
   beforeDestroy:function(){

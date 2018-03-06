@@ -1,36 +1,45 @@
 // 投保条款确认组件
 <template>
-    <card>
-        <cell type="row">
-            <cell :span="1">
-                <div class="proposalClauseConfirmRaido">
-                    <checker :model="proposalClauseConfirm" value="value" type="icon" :onChange="onChange" />
-                </div>
-            </cell>
-            <cell :span="1">
-                <div>
-                    我已阅读
-                </div>
-            </cell>
-            <cell>
-                <box :padding="padding">
-                    <r-button :mini="true" :plain="true" v-for="(item,idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" :onClick="showDialog.bind(this, item, idx)">
-                        {{item.clauseName}}
-                    </r-button>
-                </box>
-            </cell>
-        </cell>
-        <div v-for="(item, idx) in items" :key="idx">
-            <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
-                <div>
-                    我是一个萌萌的{{item.clauseName}}
-                </div>
-                <div @click="componentSelf.dialogNameList[idx].dialogStatus=false">
-                    <span class="vux-close">X</span>
-                </div>
-            </r-dialog>
+  <card>
+    <cell type="row">
+      <cell :span="1">
+        <div class="proposalClauseConfirmRaido">
+          <checker :model="proposalClauseConfirm" value="value" type="icon" :onChange="onChange" />
         </div>
-    </card>
+      </cell>
+      <!-- <cell :span="2">
+        <div>
+          我已阅读
+        </div>
+      </cell> -->
+      <cell type="row">
+        <!-- <box :padding="padding">
+          <r-button :mini="true" :plain="true" v-for="(item,idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" :onClick="showDialog.bind(this, item, idx)">
+            {{item.clauseName}}
+          </r-button>
+        </box> -->
+        <h5>
+          <span>我已阅读</span>
+          <span v-for="(item, idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" @click="showDialog(this, item, idx)">
+            <span>《</span>
+            <a href="javascript:void(0);">{{item.clauseName}}</a>
+            <span>》</span>
+          </span>
+        </h5>
+        <!-- </box> -->
+      </cell>
+    </cell>
+    <div v-for="(item, idx) in items" :key="idx">
+      <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
+        <div>
+          我是一个萌萌的{{item.clauseName}}
+        </div>
+        <div @click="componentSelf.dialogNameList[idx].dialogStatus=false">
+          <span class="vux-close">X</span>
+        </div>
+      </r-dialog>
+    </div>
+  </card>
 </template>
 <script>
 import {
@@ -68,14 +77,16 @@ export default {
       componentSelf: {
         //组件自带的一些属性放在这里面
         dialogNameList: []
-      }
+      },
+      isLink: true
     };
   },
   methods: {
     onChange() {
       console.log("onRadioChange:");
     },
-    showDialog(item, idx, event) {
+    showDialog(event, item, idx) {
+      debugger;
       this.componentSelf.dialogNameList[idx].dialogStatus = true;
     }
   },
@@ -100,6 +111,12 @@ export default {
 <style>
 .proposalClauseConfirmRaido {
   text-align: left;
+}
+/* .links>.link>div {
+  float: left;
+} */
+.link {
+  touch-action: none;
 }
 </style>
 <i18n>

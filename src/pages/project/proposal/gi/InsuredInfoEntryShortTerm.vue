@@ -99,6 +99,9 @@ export default {
   methods:{
       onClick:function(){
           this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
+      },
+      clickHome:function(){
+        
       }
   }
   // ,

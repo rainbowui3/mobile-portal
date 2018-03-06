@@ -59,7 +59,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "item1",
+          text: "方案一",
           onClick: this.onTabItemClicked
         },
         {
@@ -67,7 +67,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "item2",
+          text: "方案二",
           onClick: this.onTabItemClicked
         },
         {
@@ -75,7 +75,7 @@ export default {
           showdot: false,
           disabled: false,
           bage: "",
-          text: "item3",
+          text: "方案三",
           onClick: this.onTabItemClicked
         }
       ];
