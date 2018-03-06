@@ -15,7 +15,7 @@
       <card>
         <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm/> 
     </r-body>
     <tab-bar>
       <proposal-confirm-imme :onClick="onClick" />
@@ -69,8 +69,8 @@ export default {
         email: "wangxm@outlook.com"
       },
       dubsidiaryInsuranceInfo: {
-        relationToHolder: "本人",
-        relationToMainInsured: "本人",
+        relationToHolder: "10000",
+        relationToMainInsured: "10000",
         name: "王小明",
         certificateId: "身份证",
         certificateNum: "295792200001018271",

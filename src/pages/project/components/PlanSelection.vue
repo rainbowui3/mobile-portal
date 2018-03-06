@@ -82,12 +82,12 @@ export default {
     },
     getListData() {
       return [
-        { label: this.$t("适用人群:"), value: "XXXXXX" },
-        { label: this.$t("每人限购:"), value: "XXXXX份" },
-        { label: this.$t("保险期限:"), value: "XXXXX年" },
-        { label: this.$t("特殊说明:"), value: "XXXXXXXXX" }
+        { label: this.$t("适用人群:"), value: "各个年龄段人群" },
+        { label: this.$t("每人限购:"), value: "10份" },
+        { label: this.$t("保险期限:"), value: "1年" },
+        { label: this.$t("特殊说明:"), value: "本产品最终解释权由中国大地保险所有" }
       ];
-    },
+    }
   },
   methods: {
     onIndexChange: function(value) {
@@ -109,9 +109,9 @@ export default {
           planData: {
             head: [[{ text: "保险责任" }, { text: "保险金额" }]],
             body: [
-              [{ text: "21" }, { text: "21" }],
-              [{ text: "22" }, { text: "22" }],
-              [{ text: "23" }, { text: "23" }]
+              [{ text: "公共交通意外伤害-飞机" }, { text: "70万" }],
+              [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "60万" }],
+              [{ text: "公共交通意外伤害-汽车" }, { text: "50万" }]
             ]
           }
         },
@@ -119,9 +119,9 @@ export default {
           planData: {
             head: [[{ text: "保险责任" }, { text: "保险金额" }]],
             body: [
-              [{ text: "31" }, { text: "31" }],
-              [{ text: "32" }, { text: "32" }],
-              [{ text: "33" }, { text: "33" }]
+              [{ text: "公共交通意外伤害-飞机" }, { text: "100万" }],
+              [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "90万" }],
+              [{ text: "公共交通意外伤害-汽车" }, { text: "80万" }]
             ]
           }
         }

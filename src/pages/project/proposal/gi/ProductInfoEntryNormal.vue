@@ -1,6 +1,6 @@
 <template>
   <page>
-    <top :title="$t('安心意外保')" :showBack="true" />
+    <top :title="$t('交通工具意外险')" :showBack="true" />
     <r-body>
       <card>
         <product-top :productInfo="productInfo"></product-top>

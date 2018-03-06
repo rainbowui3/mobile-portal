@@ -94,7 +94,7 @@ export default {
           email: "wangxm@outlook.com"
         },
         dubsidiaryInsuranceInfo: {
-          relationToHolder:"本人",
+          relationToHolder:"10000",
           relationToMainInsured:"本人",
           name: "王小明",
           certificateId: "身份证",
