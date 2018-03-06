@@ -14,18 +14,32 @@
             <card>
                 <proposal-copies></proposal-copies>
             </card>
-       </r-body>
-       <tab-bar>
-           <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl" :onClick="onClick"></proposal-confirm>
-       </tab-bar>
+        </r-body>
+        <tab-bar>
+            <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl" :onClick="onClick"></proposal-confirm>
+        </tab-bar>
+    </page>
 
-   </page>
-
-  
 </template>
 
 <script>
-import {Page,RBody,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
+import {
+  Page,
+  Card,
+  RImage,
+  RButton,
+  Swiper,
+  RSwitch,
+  DateTime,
+  Tab,
+  SwiperItem,
+  RTable,
+  List,
+  Selector,
+  TabBar,
+  Cell,
+  RBody
+} from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
 import ProductTop from "../../components/ProductTop";
@@ -36,38 +50,36 @@ import ProposalConfirm from "../../components/ProposalConfirm";
 // import localStorage from "../../../../sotre.js";
 // import policyJson from "../../../../policy.json";
 export default {
-    components:{
-        Page,
-        Card,
-        TabBar,
-        Top,
-        Bottom,
-        ProductTop,
-        InsuranceDurationShortTerm,
-        PlanSelection,
-        ProposalCopies,
-        ProposalConfirm,
-        RBody
-    },
-    data() {
-        return{
-            linkInsuredInfoUrl:"/project/proposal/gi/insuredInfoEntryShortTerm"
-            // policy:Json.stringify(policyJson)
-            
-        };
-    },
-    methods:{
-        onClick:function(){
-            this.$router.push("/project/proposal/gi/insuredInfoEntryShortTerm");
-        }
+  components: {
+    Page,
+    Card,
+    TabBar,
+    Top,
+    Bottom,
+    ProductTop,
+    InsuranceDurationShortTerm,
+    PlanSelection,
+    ProposalCopies,
+    ProposalConfirm,
+    RBody
+  },
+  data() {
+    return {
+      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm"
+      // policy:Json.stringify(policyJson)
+    };
+  },
+  methods: {
+    onClick: function() {
+      this.$router.push("/project/proposal/gi/insuredInfoEntryShortTerm");
     }
-    // ,
-    // mounted:function(){
+  }
+  // ,
+  // mounted:function(){
 
-    //     console.log(this.policy)
-    // }
-  
-}
+  //     console.log(this.policy)
+  // }
+};
 </script>
 
 <style>

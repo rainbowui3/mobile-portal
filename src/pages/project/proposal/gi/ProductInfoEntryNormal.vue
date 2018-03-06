@@ -1,23 +1,25 @@
 <template>
-    <page>
-        <top :title="$t('安心意外保')" :showBack="true" />
-        <card>
-            <product-top :productInfo="productInfo"></product-top>
-        </card>
-        <card>
-            <insurance-duration-currency></insurance-duration-currency>
-        </card>
-        <card>
-            <plan-selection></plan-selection>
-        </card>
-        <card>
-            <proposal-copies></proposal-copies>
-        </card>
-        <tab-bar>
-            <proposal-confirm :onClick="onClick"></proposal-confirm>
-        </tab-bar>
+  <page>
+    <top :title="$t('安心意外保')" :showBack="true" />
+    <r-body>
+      <card>
+        <product-top :productInfo="productInfo"></product-top>
+      </card>
+      <card>
+        <insurance-duration-currency></insurance-duration-currency>
+      </card>
+      <card>
+        <plan-selection></plan-selection>
+      </card>
+      <card>
+        <proposal-copies></proposal-copies>
+      </card>
+    </r-body>
+    <tab-bar>
+      <proposal-confirm :onClick="onClick"></proposal-confirm>
+    </tab-bar>
 
-    </page>
+  </page>
 
 </template>
 
@@ -36,7 +38,8 @@ import {
   List,
   Selector,
   TabBar,
-  Cell
+  Cell,
+  RBody
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
@@ -56,7 +59,8 @@ export default {
     InsuranceDurationCurrency,
     PlanSelection,
     ProposalCopies,
-    ProposalConfirm
+    ProposalConfirm,
+    RBody
   },
   data() {
     return {
