@@ -1,7 +1,5 @@
-import {zh_CN,en_US} from 'rainbow-mobile-core';
-
 export default {
-    en: {
+    "en-US": {
       common: {
         home: 'Home',
         more: 'More',
@@ -291,7 +289,7 @@ export default {
         address:"Address"
       }
     },
-    zh: {
+    "zh-CN": {
       common: {
         home: '主页',
         more: '更多',
