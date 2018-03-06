@@ -1,14 +1,16 @@
 <template>
   <page>
        <top :title="$t('home.exapmle')" :showBack="true"/>
+       <r-body>
             <tab :tabItems="tabItems"/>
             <r-image :list="products"/>
+       </r-body>
        <bottom :index="3"/>
   </page>
 </template>
 
 <script>
-import {Page,Tab,RImage} from 'rainbow-mobile-core';
+import {Page,Tab,RImage,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Jtgj from '../../assets/jtgj.jpg';
@@ -19,7 +21,8 @@ export default {
     Top,
     Page,
     Tab,
-    RImage
+    RImage,
+    RBody
   },
   data(){
       return {
