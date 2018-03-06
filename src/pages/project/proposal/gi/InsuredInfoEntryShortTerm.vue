@@ -16,12 +16,13 @@
         <card>
           <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
         </card>
+        <proposal-clause-confirm/>
     </r-body>
 
     <tab-bar>
       <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl" :onClick="onClick"></proposal-confirm-imme>
     </tab-bar>
-    <proposal-clause-confirm/>
+    
   </page>
 
 </template>
