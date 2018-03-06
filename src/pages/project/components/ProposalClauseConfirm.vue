@@ -20,7 +20,7 @@
         </box> -->
         <h5>
           <span>我已阅读</span>
-          <span v-for="(item, idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" @click="showDialog(this, item, idx)">
+          <span v-for="(item, idx) in items" :key="idx" value="dialogStatus" @click="showDialog(this, item, idx)">
             <span>《</span>
             <a href="javascript:void(0);">{{item.clauseName}}</a>
             <span>》</span>
@@ -86,7 +86,6 @@ export default {
       console.log("onRadioChange:");
     },
     showDialog(event, item, idx) {
-      debugger;
       this.componentSelf.dialogNameList[idx].dialogStatus = true;
     }
   },

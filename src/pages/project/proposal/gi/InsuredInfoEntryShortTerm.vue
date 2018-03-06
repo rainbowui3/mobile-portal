@@ -1,26 +1,26 @@
 <template>
-    <page>
-        <top :title="$t('project.jtyw')" :showBack="true" />
-        <card :title="$t('投保人')">
-            <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
-        </card>
-        <card :title="$t('被保险人')">
-            <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+  <page>
+    <top :title="$t('project.jtyw')" :showBack="true" />
+    <card :title="$t('投保人')">
+      <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+    </card>
+    <card :title="$t('被保险人')">
+      <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
 
-        </card>
+    </card>
 
-        <card :title="$t('附属被保险人')">
-            <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-        </card>
-        <card>
-            <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
-        </card>
+    <card :title="$t('附属被保险人')">
+      <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+    </card>
+    <card>
+      <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
+    </card>
 
-        <tab-bar>
-            <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl" :onClick="onClick"></proposal-confirm-imme>
-        </tab-bar>
-
-    </page>
+    <tab-bar>
+      <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl" :onClick="onClick"></proposal-confirm-imme>
+    </tab-bar>
+    <proposal-clause-confirm/>
+  </page>
 
 </template>
 
@@ -46,6 +46,7 @@ import HolderInfo from "../../components/HolderInfo";
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalConfirmImme from "../../components/ProposalConfirmImme";
+import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 // import localStorage from "../../../../sotre.js";
 
 export default {
@@ -59,7 +60,8 @@ export default {
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
-    ProposalConfirmImme
+    ProposalConfirmImme,
+    ProposalClauseConfirm
   },
   methods: {
     clickHom() {}
@@ -96,13 +98,11 @@ export default {
       }
     };
   },
-  methods:{
-      onClick:function(){
-          this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
-      },
-      clickHome:function(){
-        
-      }
+  methods: {
+    onClick: function() {
+      this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
+    },
+    clickHome: function() {}
   }
   // ,
   // watch:{

@@ -92,7 +92,6 @@ export default {
   methods: {
     onIndexChange: function(value) {
       console.log(value);
-      debugger;
     },
     getSwiperItems: function() {
       return [
