@@ -605,9 +605,9 @@ export default {
         planSelection:"方案选择组件",
         productTop:"产品顶部Card组件",
         proposalClauseConfirm:"投保条款确认组件",
-        proposalConfirm:"投保条款确认组件",
+        proposalConfirm:"确认投保组件",
         proposalConfirmImme:"底部确认投保组件-立即投保",
-        proposalCopies:"投保分数组件",
+        proposalCopies:"投保份数组件",
         proposalSubmitPay:"立即支付组件",
         subsidiaryInsuredInfo:"附属被保险人信息组件"     
       }

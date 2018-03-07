@@ -2,17 +2,19 @@
   <page>
        <top :title="$t('business.proposalClauseConfirm')" :showBack="true"/>
        <r-body>
+          <card>
        <proposal-clause-confirm />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RTable,RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
-import ProductTop from '../project/components/ProposalClauseConfirm';
+import { Page, Card, RTable, RBody } from "rainbow-mobile-core";
+import Bottom from "../../components/Bottom";
+import Top from "../../components/Top";
+import ProposalClauseConfirm from "../project/components/ProposalClauseConfirm";
 
 export default {
   components: {
@@ -23,8 +25,7 @@ export default {
     RTable,
     ProposalClauseConfirm,
     RBody
-  },
- 
+  }
 };
 </script>
 

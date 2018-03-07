@@ -1,8 +1,10 @@
 <template>
   <page>
-       <top :title="$t('busienss.proposalConfirm')" :showBack="true"/>
+       <top :title="$t('business.proposalConfirm')" :showBack="true"/>
        <r-body>
+          <card>
        <proposal-confirm />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>
