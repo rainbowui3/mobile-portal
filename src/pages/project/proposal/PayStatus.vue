@@ -14,14 +14,16 @@
         <h5>电子保单稍后将发送到您的邮箱，您也可到中国大地保险网站www.95590.cn下载您的点在保单</h5>
       </div>
     </card> -->
-    <card>
-      <previewer :title="$t('付款金额')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1"/>
-    </card>
+    <r-body>
+      <card>
+        <previewer :title="$t('付款金额')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
+      </card>
+    </r-body>
   </page>
 </template>
 
 <script>
-import { Page, Card, Popup } from "rainbow-mobile-core";
+import { Page, Card, Popup, RBody } from "rainbow-mobile-core";
 import { Previewer } from "rainbow-mobile-previewer";
 import Top from "@/components/Top";
 export default {
@@ -30,7 +32,8 @@ export default {
     Card,
     Top,
     Previewer,
-    Popup
+    Popup,
+    RBody
   },
   data() {
     return {
@@ -53,7 +56,7 @@ export default {
         {
           style: "default",
           text: this.$t("回到首页"),
-          link:"/"
+          link: "/"
         }
       ];
     },
