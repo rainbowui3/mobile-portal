@@ -1,14 +1,16 @@
 <template>
   <page>
        <top :title="$t('component.component')" :showBack="true"/>
+       <r-body>
          <tab :tabItems="tabItems"/>
          <grid :data="gridItems"/>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Grid} from 'rainbow-mobile-core';
+import {Page,Grid,RBody} from 'rainbow-mobile-core';
 import i18n from '../../i18n/index';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
@@ -20,7 +22,8 @@ export default {
     Top,
     Tab,
     Page,
-    Grid
+    Grid,
+    RBody
   },
   data() {
     return {}

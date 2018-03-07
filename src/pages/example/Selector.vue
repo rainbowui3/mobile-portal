@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.selector')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                 <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="index" :onChange="onChange"></selector>
             </card>
@@ -13,12 +14,13 @@
             <card :title="$t('component.readonly')">
                 <selector :readonly="true"  :title="$t('selector.sum')" :options="options" :model="policy" value="index2" :onChange="onChange"></selector>
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Selector} from 'rainbow-mobile-core';
+import {Page,Card,Selector,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import config from 'config';
@@ -28,7 +30,8 @@ export default {
     Top,
     Page,
     Card,
-    Selector
+    Selector,
+    RBody
   },
   data(){
     return {

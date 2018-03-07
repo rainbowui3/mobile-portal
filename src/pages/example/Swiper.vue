@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.swiper')" :showBack="true"/>
+       <r-body>
          <card :title="$t('component.basic')">
               <swiper :data="list"   :auto="true" :showDots="true"></swiper>
          </card>
@@ -33,13 +34,13 @@
               </swiper>
          </card>
 
-           
+       </r-body>    
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Swiper,RButton,Box,Card,SwiperItem} from 'rainbow-mobile-core';
+import {Page,Swiper,RButton,Box,Card,SwiperItem,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 export default {

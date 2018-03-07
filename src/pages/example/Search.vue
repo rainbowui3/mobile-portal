@@ -1,13 +1,15 @@
 <template>
   <page>
        <top :title="$t('component.search')" :showBack="true"/>
+       <r-body>
           <r-image :list="images"/>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RImage} from 'rainbow-mobile-core';
+import {Page,Card,RImage,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import timg from '../../assets/timg.jpg';

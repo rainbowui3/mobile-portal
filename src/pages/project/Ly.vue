@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import {Page,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
+import {Page,RBody,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RTable,List,Selector,TabBar,Cell} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Jtgj from '../../assets/jtgj.jpg';
@@ -75,7 +75,8 @@ export default {
     TabBar,
     Cell,
     RButton,
-    RSwitch
+    RSwitch,
+    
   },
   data() {
     return {

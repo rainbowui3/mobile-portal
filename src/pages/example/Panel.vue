@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.panel')" :showBack="true"/>
+       <r-body>
         <card :title="$t('panel.type1')">
                 <panel :data="list" type="1"></panel>
         </card>
@@ -16,12 +17,13 @@
         <card :title="$t('panel.type5')">
                 <panel :data="list" type="5"></panel>
         </card>  
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Panel,Card} from 'rainbow-mobile-core';
+import {Page,Panel,Card,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -31,7 +33,8 @@ export default {
     Top,
     Page,
     Card,
-    Panel
+    Panel,
+    RBody
   },
   data () {
     return {

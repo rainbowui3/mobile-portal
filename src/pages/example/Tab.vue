@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.tab')" :showBack="true"/>
+       <r-body>
               <tab :tabItems="tabItems"/>
               <card :title="$t('component.tab')">
                   <tab :tabItems="swTabItems"/>
@@ -10,12 +11,13 @@
                     <swiper-item ><div class="black"><h2 class="title fadeInUp animated">自信打不死的心态活到老</h2></div></swiper-item>
                   </swiper>
               </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Tab,Card,SwiperItem,Swiper} from 'rainbow-mobile-core';
+import {Page,Tab,Card,SwiperItem,Swiper,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -27,7 +29,8 @@ export default {
     Tab,
     Card,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    RBody
   },
   data(){
     return {

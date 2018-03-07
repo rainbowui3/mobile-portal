@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.actionsheet')" :showBack="true"/>
+        <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('component.basic')" :model="policy" value="show1"  :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.android')" :model="policy" value="show2" :onClick="click"></r-switch>
@@ -22,15 +23,23 @@
                       <p>{{$t('common.sure')}}?<br/><span style="color:red;font-size:12px;">{{$t('common.delete')}}</span></p>
             </actionsheet>
             <toast :model="policy" value="show8" :text="toastText"/>
-
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,Actionsheet,Toast,LoadingApi} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+import {
+  Page,
+  Card,
+  RSwitch,
+  Actionsheet,
+  Toast,
+  LoadingApi,
+  RBody
+} from "rainbow-mobile-core";
+import Bottom from "../../components/Bottom";
+import Top from "../../components/Top";
 export default {
   components: {
     Bottom,
@@ -39,56 +48,63 @@ export default {
     Card,
     RSwitch,
     Toast,
-    Actionsheet
+    Actionsheet,
+    RBody
   },
-  data(){
+  data() {
     return {
       policy: {
-        show8:false
+        show8: false
       },
-      autoClose:false,
-      toastText:this.$t('common.success'),
+      autoClose: false,
+      toastText: this.$t("common.success"),
       menus1: {
-        menu1: this.$t('actionsheet.friends'),
-        menu2: this.$t('actionsheet.timeline')
+        menu1: this.$t("actionsheet.friends"),
+        menu2: this.$t("actionsheet.timeline")
       },
       menus2: {
-        menu1: this.$t('common.yes'),
-        menu2: this.$t('common.no')
+        menu1: this.$t("common.yes"),
+        menu2: this.$t("common.no")
       },
-      menu5:[{
-        label: this.$t('preview.title'),
-        type: 'info'
-      }, {
-        label: 'Primary',
-        type: 'primary',
-        value: 'primary',
-        otherProp: 'hey'
-      }, {
-        label: 'Warn',
-        type: 'warn'
-      }, {
-        label: 'Disabled',
-        type: 'disabled'
-      }, {
-        label: 'Default'
-      }]
-    }
+      menu5: [
+        {
+          label: this.$t("preview.title"),
+          type: "info"
+        },
+        {
+          label: "Primary",
+          type: "primary",
+          value: "primary",
+          otherProp: "hey"
+        },
+        {
+          label: "Warn",
+          type: "warn"
+        },
+        {
+          label: "Disabled",
+          type: "disabled"
+        },
+        {
+          label: "Default"
+        }
+      ]
+    };
   },
-  methods:{
-    click(key){
-      console.log("click key=",key)
+  methods: {
+    click(key) {
+      console.log("click key=", key);
     },
-    showToast(key){
-      LoadingApi.show(this,{
-        transition: '',
-        text: this.$t('common.processing')
-      })
+    showToast(key) {
+      LoadingApi.show(this, {
+        transition: "",
+        text: this.$t("common.processing")
+      });
       setTimeout(() => {
-         LoadingApi.hide(this)
-         this.policy.show8 = true;
-      }, 2000)
-    },
+        LoadingApi.hide(this);
+        this.policy.show8 = true;
+      }, 2000);
+    }
   }
 };
 </script>

@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.switch')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                 <r-switch  :title="$t('component.required')"  :model="policy" value="status1" ></r-switch>
             </card>
@@ -11,12 +12,13 @@
                 <r-switch  :title="$t('preview.click')"  :model="policy" value="status4" :onClick="onClick"></r-switch>
 
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 export default {
@@ -26,6 +28,7 @@ export default {
     Page,
     RSwitch,
     Card,
+    RBody
   },
   data(){
       return {

@@ -3,7 +3,10 @@
        <top :title="$t('project.jtyw')" :showBack="true" />
        <r-body>
             <card>
-                <product-top></product-top>
+                <product-top 
+                    :productImgSrc="productImgSrc"
+                    :productDes="productDes">
+                </product-top>
             </card>
             <card>
                 <insurance-duration-shortTerm></insurance-duration-shortTerm>
@@ -47,8 +50,8 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
-// import localStorage from "../../../../sotre.js";
-// import policyJson from "../../../../policy.json";
+import Jtgj from '../../../../assets/jtgj.jpg';
+
 export default {
   components: {
     Page,
@@ -65,8 +68,9 @@ export default {
   },
   data() {
     return {
-      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm"
-      // policy:Json.stringify(policyJson)
+      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm",     
+      productImgSrc:Jtgj,
+      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。"
     };
   },
   methods: {

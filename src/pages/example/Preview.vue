@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.previewer')" :showBack="true"/>
+       <r-body>
           <card>
             <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
           </card>
@@ -10,12 +11,13 @@
           <card>
             <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons2" :param="param"/>
           </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card} from 'rainbow-mobile-core';
+import {Page,Card,RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
@@ -26,7 +28,8 @@ export default {
     Top,
     Page,
     Previewer,
-    Card
+    Card,
+    RBody
   },
   data(){
     return {

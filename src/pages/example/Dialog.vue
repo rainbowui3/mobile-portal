@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.dialog')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('dialog.show')" :model="policy" value="show1" :onClick="click"></r-switch>
               <r-switch :title="`${$t('common.disable')}${$t('component.masker')}`" :model="policy" value="show2" :onClick="click"></r-switch>
@@ -34,13 +35,13 @@
               </r-dialog>
               
             </card>
-
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,RDialog,Toast,RImage} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,RDialog,Toast,RImage,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import dialog from '../../assets/dialog.jpg';
@@ -54,7 +55,8 @@ export default {
     RSwitch,
     Toast,
     RDialog,
-    RImage
+    RImage,
+    RBody
   },
   data(){
     return {

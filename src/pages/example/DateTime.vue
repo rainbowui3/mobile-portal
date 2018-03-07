@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.datetime')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                 <date-time  :title="$t('datetime.birthday')" :model="policy" value="effortDate" :onChange="onChange"></date-time>
             </card>
@@ -24,13 +25,13 @@
             <card :title="$t('component.required')">
                 <date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate" :required="true"></date-time>
             </card>
-            
+       </r-body>    
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,DateTime} from 'rainbow-mobile-core';
+import {Page,Card,DateTime,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import config from 'config';
@@ -40,7 +41,8 @@ export default {
     Top,
     Page,
     DateTime,
-    Card
+    Card,
+    RBody
   },
   data(){
     return {

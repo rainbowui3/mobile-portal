@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.table')" :showBack="true"/>
+       <r-body>
        <card :title="$t('component.basic')">
                 <r-table :data="data"/>
        </card>
@@ -13,12 +14,13 @@
        <card :title="$t('table.ctrl')">
                 <r-table :data="data2" :border="true"/>
        </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RTable} from 'rainbow-mobile-core';
+import {Page,Card,RTable,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -28,7 +30,8 @@ export default {
     Top,
     Page,
     Card,
-    RTable
+    RTable,
+    RBody
   },
   data(){
     return {

@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.picker')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                 <picker  :title="$t('picker.phone')" :options="list1" :model="policy" value="value1" @onChange="onChange"></picker>
             </card>
@@ -10,13 +11,13 @@
             <card :title="$t('picker.chainedColumns')">
                 <picker  :title="$t('picker.address')" :options="list3" :model="policy" value="value3" :columns="3" :cascade="true" @onChange="onChange"></picker>
             </card>
-          
+       </r-body>  
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import { Page, Card, Picker } from "rainbow-mobile-core";
+import { Page, Card, Picker,RBody } from "rainbow-mobile-core";
 import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
 import config from "config";
@@ -26,7 +27,8 @@ export default {
     Top,
     Page,
     Card,
-    Picker
+    Picker,
+    RBody
   },
   data() {
     return {
