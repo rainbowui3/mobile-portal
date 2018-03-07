@@ -169,11 +169,6 @@ li {
 h3 {
   padding-top: 10px;
 }
-.dialogCSS {
-  /* height: 500px;
-  overflow: auto; */
-  /* background-color: rgba(250, 218, 114, 0.603); */
-}
 ul {
   padding: 15px;
 }

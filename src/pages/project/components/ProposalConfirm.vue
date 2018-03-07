@@ -26,7 +26,7 @@ export default {
   props: {
     onClick:Function,
     buttonName:String,
-    amount:String
+    // amount:String
   },
   methods: {
     _onClick: function(event) {
