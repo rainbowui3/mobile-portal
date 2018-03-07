@@ -18,7 +18,10 @@
       <proposal-clause-confirm/> 
     </r-body>
     <tab-bar>
-      <proposal-confirm-imme :onClick="onClick" />
+      <proposal-confirm 
+                :buttonName="buttonName"
+                :amount="amount"
+                :onClick="onClick"></proposal-confirm>
     </tab-bar>
   </page>
 </template>
@@ -32,7 +35,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import ProposalConfirmImme from "../../components/ProposalConfirmImme";
+import ProposalConfirm from "../../components/ProposalConfirm";
 export default {
   components: {
     Top,
@@ -44,7 +47,7 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
-    ProposalConfirmImme,
+    ProposalConfirm,
     TabBar,
     RButton,
     RBody
@@ -77,7 +80,9 @@ export default {
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
         email: "wangxm@outlook.com"
-      }
+      },
+      amount:"100",
+      buttonName:"立即投保"
     };
   },
   methods: {

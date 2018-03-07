@@ -1,19 +1,19 @@
 <template>
   <page>
         <top :title="$t('project.jtyw')" :showBack="true"/>
-            <card :imgSrc="path">
-                <div class="card-padding">
-                    <p style="font-size:14px;line-height:2.2;">{{$t('project.jtywdesc')}}</p>
-                    <p style="color:#999;font-size:12px;">{{$t('card.example3Date')}}</p>
-                </div>
+        <r-body>
+            <card>
+              <product-top :productImgSrc="productImgSrc"
+                          :productDes="productDes">
+              </product-top>
             </card>
 
-            <card :title="$t('project.poi')" >
+            <!--<card :title="$t('project.poi')" >
                 <date-time  :title="$t('datetime.startDate')"  ></date-time>
                 <date-time  :title="$t('datetime.endDate')"  ></date-time>
-            </card>
+            </card>-->
 
-             <card>
+             <!--<card>
                    <tab :tabItems="swTabItems"/>
                    <swiper :model="index">
                     <swiper-item >
@@ -32,24 +32,30 @@
                          </card>
                     </swiper-item>
                   </swiper>
+            </card>-->
+            
+            <card>
+              <plan-selection></plan-selection>
             </card>
-
-            <card :title="$t('project.notes')">
+            <card>
+              <insurance-duration-currency></insurance-duration-currency>
+            </card>
+            <!--<card :title="$t('project.notes')">
                           <list :data="list"/>
-            </card>
+            </card>-->
 
-            <card :title="$t('project.other')" >
+            <!--<card :title="$t('project.other')" >
                 <r-switch  :title="$t('project.social')"  :model="social" ></r-switch>
                 <selector  :title="$t('project.copy')" :options="options" ></selector>
-            </card>
+            </card>-->
 
-            <tab-bar>
-                    <cell type="row">
-                        <cell><div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}100`}}</div></cell>
-                        <cell><r-button type="primary">{{$t('project.buy')}}</r-button></cell>
-                    </cell>
-            </tab-bar>
-
+        </r-body>
+        <tab-bar>
+      <proposal-confirm 
+                :buttonName="buttonName"
+                :amount="amount"
+                :onClick="onClick"></proposal-confirm>
+        </tab-bar>
   </page>
 </template>
 
@@ -58,6 +64,11 @@ import {Page,RBody,Card,RImage,RButton,Swiper,RSwitch,DateTime,Tab,SwiperItem,RT
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Jtgj from '../../assets/jtgj.jpg';
+import InsuranceDurationCurrency from "./components/InsuranceDurationCurrency";
+import PlanSelection from "./components/PlanSelection";
+import ProductTop from "./components/ProductTop";
+import ProposalConfirm from "./components/ProposalConfirm";
+
 export default {
   components: {
     Top,
@@ -76,19 +87,31 @@ export default {
     Cell,
     RButton,
     RSwitch,
+    RBody,
+    InsuranceDurationCurrency,
+    PlanSelection,
+    ProductTop,
+    ProposalConfirm
     
   },
   data() {
     return {
-      path:Jtgj,
+      productImgSrc:Jtgj,
       index:0,
       social:false,
       options:[{"key":"1","value":"1份"},{"key":"2","value":"2份"},{"key":"3","value":"3份"}],
+      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",        
+      amount:"100",
+      buttonName:"确定投保"
+            
     };
   },
   methods:{
       goto(index){
           this.index=index;
+      },
+      onClick(){
+
       }
   },
   computed :{
@@ -107,6 +130,11 @@ export default {
           "body":[
             [{'text':this.$t('project.driver')},{'text':'10'}],
             [{'text':this.$t('project.passengers')},{'text':'20'}]
+          ],         
+          InsuranceTerm: [
+            { key: "oneYear", value: "一年" },
+            { key: "twoYear", value: "两年" },
+            { key: "threeYear", value: "三年" }
           ]
         }
     },

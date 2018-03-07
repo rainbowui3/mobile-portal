@@ -4,7 +4,7 @@
             <div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div>
         </cell>
         <cell>
-            <r-button type="primary" :onClick="_onClick">{{$t('project.buy')}}</r-button>
+            <r-button type="primary" :onClick="_onClick">{{buttonName}}</r-button>
         </cell>
     </cell>
 </template>
@@ -24,8 +24,9 @@ export default {
     };
   },
   props: {
-    linkInsuredInfoUrl:String,
-    onClick:Function
+    onClick:Function,
+    buttonName:String,
+    amount:String
   },
   methods: {
     _onClick: function(event) {

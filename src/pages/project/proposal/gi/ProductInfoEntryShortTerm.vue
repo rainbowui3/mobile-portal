@@ -19,7 +19,10 @@
             </card>
         </r-body>
         <tab-bar>
-            <proposal-confirm v-bind:linkInsuredInfoUrl="linkInsuredInfoUrl" :onClick="onClick"></proposal-confirm>
+            <proposal-confirm 
+                :buttonName="buttonName"
+                :amount="amount"
+                :onClick="onClick"></proposal-confirm>
         </tab-bar>
     </page>
 
@@ -70,7 +73,9 @@ export default {
     return {
       linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm",     
       productImgSrc:Jtgj,
-      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。"
+      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
+      amount:"100",
+      buttonName:"确定投保"
     };
   },
   methods: {
