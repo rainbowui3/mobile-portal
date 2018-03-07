@@ -20,7 +20,10 @@
     </r-body>
 
     <tab-bar>
-      <proposal-confirm-imme v-bind:linkInsuredConfirmUrl="linkInsuredConfirmUrl" :onClick="onClick"></proposal-confirm-imme>
+      <proposal-confirm 
+                :buttonName="buttonName"
+                :amount="amount"
+                :onClick="onClick"></proposal-confirm>
     </tab-bar>
     
   </page>
@@ -49,9 +52,8 @@ import Bottom from "../../../../components/Bottom";
 import HolderInfo from "../../components/HolderInfo";
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
-import ProposalConfirmImme from "../../components/ProposalConfirmImme";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-// import localStorage from "../../../../sotre.js";
+import ProposalConfirm from "../../components/ProposalConfirm";
 
 export default {
   components: {
@@ -64,7 +66,7 @@ export default {
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
-    ProposalConfirmImme,
+    ProposalConfirm,
     ProposalClauseConfirm,
     RBody
   },
@@ -103,7 +105,9 @@ export default {
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
         }
-      }
+      },  
+      amount:"100",
+      buttonName:"立即投保"
     };
   },
   methods: {

@@ -14,7 +14,10 @@
         </card>
     </r-body>
     <tab-bar>
-      <proposal-submit-pay :onClick="onClick"></proposal-submit-pay>
+      <proposal-confirm 
+                :buttonName="buttonName"
+                :amount="amount"
+                :onClick="onClick"></proposal-confirm>
     </tab-bar>
 
   </page>
@@ -43,7 +46,7 @@ import Bottom from "../../../../components/Bottom";
 import HolderInfo from "../../components/HolderInfo";
 import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
-import ProposalSubmitPay from "../../components/ProposalSubmitPay";
+import ProposalConfirm from "../../components/ProposalConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 // import localStorage from "../../../../sotre.js";
 
@@ -58,7 +61,7 @@ export default {
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
-    ProposalSubmitPay,
+    ProposalConfirm,
     InsuranceDurationShortTerm,
     RBody
   },
@@ -101,7 +104,9 @@ export default {
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
         }
-      }
+      },    
+      amount:"100",
+      buttonName:"提交支付"
     };
   },
   created:function(){
