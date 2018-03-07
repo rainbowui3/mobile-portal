@@ -44,10 +44,10 @@
                           <list :data="list"/>
             </card>-->
 
-            <card :title="$t('project.other')" >
+            <!--<card :title="$t('project.other')" >
                 <r-switch  :title="$t('project.social')"  :model="social" ></r-switch>
                 <selector  :title="$t('project.copy')" :options="options" ></selector>
-            </card>
+            </card>-->
 
         </r-body>
         <tab-bar>
