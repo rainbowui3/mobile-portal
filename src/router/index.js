@@ -57,6 +57,21 @@ const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/page
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
 
+// business
+const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
+const ProjectInsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
+const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
+const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/example/InsuredInfo')), 'InsuredInfo');
+const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/example/PlanSelection')), 'PlanSelection');
+const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/example/ProductTop')), 'ProductTop');
+const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirm')), 'ProposalConfirm');
+const ProjectProposalConfirmImme = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirmImme')), 'ProposalConfirmImme');
+const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
+const ProjectProposalSubmitPay = r => require.ensure([], () => r(require('@/pages/example/ProposalSubmitPay')), 'ProposalSubmitPay');
+const ProjectSubsidiaryInsuredInfo = r => require.ensure([], () => r(require('@/pages/example/SubsidiaryInsuredInfo')), 'SubsidiaryInsuredInfo');
+
+
 Vue.use(Router);
 const router = new Router({
   routes: [{
@@ -331,6 +346,68 @@ const router = new Router({
       path: '/project/proposal/gi/InsuredInfoConfirmNormal',
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
+    },
+
+    // business
+    {
+      path: '/component/example/HolderInfo',
+      name: 'ProjectHolderInfo',
+      component: ProjectHolderInfo
+    },
+    {
+      path: '/component/example/InsuranceDurationCurrency',
+      name: 'ProjectInsuranceDurationCurrency',
+      component: ProjectInsuranceDurationCurrency
+    },
+    {
+      path: '/component/example/InsuranceDurationShortTerm',
+      name: 'ProjectInsuranceDurationShortTerm',
+      component: ProjectInsuranceDurationShortTerm
+    },
+    {
+      path: '/component/example/InsuredInfo',
+      name: 'ProjectInsuredInfo',
+      component: ProjectInsuredInfo
+    },
+    {
+      path: '/component/example/PlanSelection',
+      name: 'ProjectPlanSelection',
+      component: ProjectPlanSelection
+    },
+    {
+      path: '/component/example/ProductTop',
+      name: 'ProjectProductTop',
+      component: ProjectProductTop
+    },
+    {
+      path: '/component/example/ProposalClauseConfirm',
+      name: 'ProjectProposalClauseConfirm',
+      component: ProjectProposalClauseConfirm
+    },
+    {
+      path: '/component/example/ProposalConfirm',
+      name: 'ProjectProposalConfirm',
+      component: ProjectProposalConfirm
+    },
+    {
+      path: '/component/example/ProposalConfirmImme',
+      name: 'ProjectProposalConfirmImme',
+      component: ProjectProposalConfirmImme
+    },
+    {
+      path: '/component/example/ProposalCopies',
+      name: 'ProjectProposalCopies',
+      component: ProjectProposalCopies
+    },
+    {
+      path: '/component/example/ProposalSubmitPay',
+      name: 'ProjectProposalSubmitPay',
+      component: ProjectProposalSubmitPay
+    },
+    {
+      path: '/component/example/SubsidiaryInsuredInfo',
+      name: 'ProjectSubsidiaryInsuredInfo',
+      component: ProjectSubsidiaryInsuredInfo
     },
   ],
 });
