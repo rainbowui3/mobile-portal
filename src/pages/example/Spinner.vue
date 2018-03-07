@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.spinner')" :showBack="true"/>
+       <r-body>
         <card>
             <row :title="$t('row.account')">
                 <spinner type="android"/>
@@ -33,12 +34,13 @@
                 <spinner type="spiral"/>
             </row>
         </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Spinner,Row} from 'rainbow-mobile-core';
+import {Page,Card,Spinner,Row,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -49,7 +51,8 @@ export default {
     Page,
     Card,
     Spinner,
-    Row
+    Row,
+    RBody
   },
 };
 </script>

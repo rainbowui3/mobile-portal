@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.checker')" :showBack="true"/>
+       <r-body>
             <card :title="$t('input.iconType')">
                 <checker :model="policy" value="value2" :text="`${$t('common.agree')}?`" :onChange="onChange" type="icon"/>
                 <checker :model="policy" value="value3" :text="`${$t('common.agree')}?`"  :onChange="onChange" type="icon" :plain="true"/>
@@ -20,12 +21,13 @@
              <card :title="$t('common.description')">
                 <checker :max="1" :model="policy" value="value7" :data='inlineDescList' :onChange="onChange" type="list"/>
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Checker} from 'rainbow-mobile-core';
+import {Page,Card,Checker,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -35,7 +37,8 @@ export default {
     Top,
     Page,
     Card,
-    Checker
+    Checker,
+    RBody
   },
   data(){
       return {

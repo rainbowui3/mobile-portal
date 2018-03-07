@@ -1,13 +1,15 @@
 <template>
   <page>
        <top :title="$t('component.page')" :showBack="true"/>
+       <r-body>
        <div class='page-example'>{{$t('page.info')}}</div>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page} from 'rainbow-mobile-core';
+import {Page,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -15,7 +17,8 @@ export default {
   components: {
     Bottom,
     Top,
-    Page
+    Page,
+    RBody
   },
 };
 </script>

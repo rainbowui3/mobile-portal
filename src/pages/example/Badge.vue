@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.badge')" :showBack="true"/>
+       <r-body>
         <card :title="$t('component.basic')">
                     <badge text="1"></badge>
                     <br>
@@ -20,12 +21,13 @@
                       <badge text="123"></badge>
                 </row>
         </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Badge,Row} from 'rainbow-mobile-core';
+import {Page,Card,Badge,Row,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -36,7 +38,8 @@ export default {
     Page,
     Card,
     Badge,
-    Row
+    Row,
+    RBody
   },
 };
 </script>

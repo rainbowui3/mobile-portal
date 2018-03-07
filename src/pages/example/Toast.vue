@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.toast')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('component.basic')" :model="policy" value="show1" :onClick="clickSwitch"></r-switch>
               <r-switch :title="$t('datetime.time')" :model="policy" value="show9" :onClick="clickSwitch"></r-switch>
@@ -25,13 +26,13 @@
             <toast :model="policy" value="show7" :text="$t('common.success')" :onHide="onHide" type='success'/>
             <toast :model="policy" value="show8" :text="$t('common.cancel')" :onHide="onHide" type='cancel'/>
             <toast :model="policy" value="show9" :text="$t('datetime.time')" :onHide="onHide" :time='1000'/>
-
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,Actionsheet,Toast} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,Actionsheet,Toast,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 export default {
@@ -42,7 +43,8 @@ export default {
     Card,
     RSwitch,
     Toast,
-    Actionsheet
+    Actionsheet,
+    RBody
   },
   data(){
     return {

@@ -1,16 +1,17 @@
 <template>
   <page>
        <top :title="$t('component.loading')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('dialog.show')" :model="policy" value="status1" :onClick="clickSwitch1"></r-switch>
             </card>
-
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import dialog from '../../assets/dialog.jpg';
@@ -22,7 +23,8 @@ export default {
     Page,
     Card,
     RSwitch,
-    Confirm
+    Confirm,
+    RBody
   },
   data(){
     return {

@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.grid')" :showBack="true"/>
+       <r-body>
             <card :title="$t('grid.col2')">
                        <grid :cols="2" :data="gridItems"/>
             </card>
@@ -10,12 +11,13 @@
             <card :title="$t('grid.col4')">
                        <grid  :data="gridItems3"/>
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Grid,Card} from 'rainbow-mobile-core';
+import {Page,Grid,Card,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -25,7 +27,8 @@ export default {
     Top,
     Page,
     Grid,
-    Card
+    Card,
+    RBody
   },
   computed:{
     gridItems(){

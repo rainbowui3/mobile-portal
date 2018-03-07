@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.marquee')" :showBack="true"/>
+       <r-body>
         <card :title="$t('component.basic')">
                     <marquee :data="list"/>
         </card>
@@ -9,12 +10,13 @@
                         <marquee :data="list"/>
                    </row>    
         </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Marquee,Row} from 'rainbow-mobile-core';
+import {Page,Card,Marquee,Row,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -25,7 +27,8 @@ export default {
     Page,
     Card,
     Marquee,
-    Row
+    Row,
+    RBody
   },
   data(){
       return {

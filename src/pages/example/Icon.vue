@@ -1,18 +1,20 @@
 <template>
   <page>
        <top :title="$t('component.icon')" :showBack="true"/>
+       <r-body>
         <card>
                                   <grid  :data="gridItems3"/>
         </card>
         <card>
             <previewer :title="$t('icon.aoshen')" value="479" :data="list" :buttons="buttons2"/>
         </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Grid} from 'rainbow-mobile-core';
+import {Page,Card,Grid,RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import Bottom from '../../components/Bottom';
@@ -25,7 +27,8 @@ export default {
     Page,
     Card,
     Previewer,
-    Grid
+    Grid,
+    RBody
   },
   computed:{
     gridItems3(){

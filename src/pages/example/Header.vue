@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.header')" :showBack="true"/>
+       <r-body>
        <div class='header'>
                    <r-header :title="$t('preview.title')" ></r-header>
        </div>
@@ -18,12 +19,13 @@
                        <a >Feedback</a>
                    </r-header>
        </div>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,RHeader} from 'rainbow-mobile-core';
+import {Page,RHeader,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -32,7 +34,8 @@ export default {
     Bottom,
     Top,
     Page,
-    RHeader
+    RHeader,
+    RBody
   },
   methods:{
     onClickMore(){

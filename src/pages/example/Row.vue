@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.row')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                       <row :title="$t('row.account')" :value="$t('row.protected')" :onClick="onClick"></row>
                       <row :title="$t('row.money')"  :isLoading="!money" :value="money"></row>
@@ -43,12 +44,13 @@
                         </div>
                    </row>
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Row} from 'rainbow-mobile-core';
+import {Page,Card,Row,RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
@@ -59,7 +61,8 @@ export default {
     Page,
     Row,
     Card,
-    Previewer
+    Previewer,
+    RBody
   },
   data(){
       return {

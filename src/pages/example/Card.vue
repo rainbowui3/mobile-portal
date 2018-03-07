@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.card')" :showBack="true"/>
+       <r-body>
             <card :imgSrc="path">
                 <div class="card-padding">
                     <p style="font-size:14px;line-height:2.2;">{{$t('card.example3Text')}}</p>
@@ -11,12 +12,13 @@
             <card :title="$t('card.example2Title')" :footerText="$t('common.more')" :footerLink="footerLink">
                 <p >{{ $t('common.custom') }}</p>
             </card> 
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Divider,Card} from 'rainbow-mobile-core';
+import {Page,Divider,Card,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -26,7 +28,8 @@ export default {
     Top,
     Page,
     Divider,
-    Card
+    Card,
+    RBody
   },
   data(){
       return {

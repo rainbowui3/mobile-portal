@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.cell')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                     <cell :type="row">
                         <cell><div class="flex-demo">1</div></cell>
@@ -67,13 +68,13 @@
                     </cell>
             </card>
 
-            
+       </r-body>   
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Cell,Card} from 'rainbow-mobile-core';
+import {Page,Cell,Card,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -83,7 +84,8 @@ export default {
     Top,
     Page,
     Cell,
-    Card
+    Card,
+    RBody
   },
   data(){
       return {

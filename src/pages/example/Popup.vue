@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.popup')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('common.default')" :model="policy" value="show1" :onClick="click"></r-switch>
               <r-switch :title="`${$t('common.disable')}${$t('component.masker')}`" :model="policy" value="show2" :onClick="click"></r-switch>
@@ -54,12 +55,13 @@
                         </div>
             </popup>
 
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,Actionsheet,Toast,Popup} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,Actionsheet,Toast,Popup,RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import Bottom from '../../components/Bottom';
@@ -74,7 +76,8 @@ export default {
     Toast,
     Actionsheet,
     Popup,
-    Previewer
+    Previewer,
+    RBody
   },
   data(){
     return {

@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.input')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
                 <r-input :title="$t('preview.title')" :model="policy" value="value1"/>
                 <r-input :title="$t('input.placeholder')" :placeholder="$t('component.basic')" :model="policy" value="value2"/>
@@ -55,12 +56,13 @@
                     <r-button class="weui-vcode" type="primary" >{{$t('input.vcode')}}</r-button>
                 </r-input>     
             </card>
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import { Page, Card, RInput, RButton } from "rainbow-mobile-core";
+import { Page, Card, RInput, RButton ,RBody} from "rainbow-mobile-core";
 import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
 export default {
@@ -70,7 +72,8 @@ export default {
     Page,
     RInput,
     Card,
-    RButton
+    RButton,
+    RBody
   },
   data() {
     return {

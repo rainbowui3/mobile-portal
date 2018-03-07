@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.step')" :showBack="true"/>
+       <r-body>
             <card>
                 <step :step='step' :data='list1' />
             </card>
@@ -8,13 +9,13 @@
                 <step :step='step' :data='list1'  :vertical="true" styles='height:250px'/>
             </card>
 
-          
+       </r-body>  
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,Step,RButton} from 'rainbow-mobile-core';
+import {Page,Card,Step,RButton,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -25,7 +26,8 @@ export default {
     Page,
     Card,
     Step,
-    RButton
+    RButton,
+    RBody
   },
   methods:{
       add(){

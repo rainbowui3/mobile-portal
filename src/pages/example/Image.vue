@@ -1,13 +1,15 @@
 <template>
   <page>
        <top :title="$t('component.img')" :showBack="true"/>
+       <r-body>
                             <r-image :list="images"/>
        <bottom :index="2"/>
+       </r-body>
   </page>
 </template>
 
 <script>
-import {Page,RImage,Card} from 'rainbow-mobile-core';
+import {Page,RImage,Card,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Female from '../../assets/female.jpg';
@@ -26,7 +28,8 @@ export default {
     Top,
     Page,
     RImage,
-    Card
+    Card,
+    RBody
   },
   data(){
       return {

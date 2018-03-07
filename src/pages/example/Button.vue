@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.button')" :showBack="true"/>
+       <r-body>
              <card :title="$t('component.basic')">
                <box :padding="padding">
                     <r-button type="default">{{$t('button.submit')}}</r-button>
@@ -55,12 +56,13 @@
                    </cell>
               </cell>
             </card>
+       </r-body>
        <bottom :index="3"/>
   </page>
 </template>
 
 <script>
-import {Page,Box,RButton,Card,Cell} from 'rainbow-mobile-core';
+import {Page,Box,RButton,Card,Cell,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -72,7 +74,8 @@ export default {
     Box,
     RButton,
     Card,
-    Cell
+    Cell,
+    RBody
   },
   data(){
     return {

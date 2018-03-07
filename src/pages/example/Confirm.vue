@@ -1,6 +1,7 @@
 <template>
   <page>
        <top :title="$t('component.confirm')" :showBack="true"/>
+       <r-body>
             <card :title="$t('component.basic')">
               <r-switch :title="$t('dialog.show')" :model="policy" value="show1" :onClick="click"></r-switch>
               <r-switch :title="$t('component.input')" :model="policy" value="show2" :onClick="click"></r-switch>
@@ -14,13 +15,13 @@
               <confirm :model="policy" value="show4" :closeOnConfirm="false"  :title="$t('row.title')" :onHide="onHide"  :onConfirm="onConfirm2"> {{ $t('divider.sogo') }}</confirm>
 
             </card>
-
+       </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi} from 'rainbow-mobile-core';
+import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 
@@ -31,7 +32,8 @@ export default {
     Page,
     Card,
     RSwitch,
-    Confirm
+    Confirm,
+    RBody
   },
   data(){
     return {
