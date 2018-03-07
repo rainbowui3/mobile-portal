@@ -12,7 +12,7 @@
       <card :title="$t('附属被保险人信息')">
         <subsidiary-insured-info :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
       </card>
-      <card>
+      <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
       </card>
       <proposal-clause-confirm/> 
@@ -96,5 +96,7 @@ export default {
 </script>
 
 <style>
-
+.addInsured{
+  margin-bottom: 5px;
+}
 </style>

@@ -13,7 +13,7 @@
         <card :title="$t('附属被保险人')">
           <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
         </card>
-        <card>
+        <card class="addInsuredButton">
           <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
         </card>
         <proposal-clause-confirm/>
@@ -127,5 +127,7 @@ export default {
 };
 </script>
 <style>
-
+.addInsuredButton{
+  margin-bottom: 5px;
+}
 </style>
