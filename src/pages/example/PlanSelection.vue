@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.planSelection')" :showBack="true"/>
        <r-body>
+          <card>
        <plan-selection />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>

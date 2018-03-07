@@ -94,27 +94,27 @@ export default {
           text: this.$t("business.proposalClauseConfirm"),
           link: "/component/example/proposalClauseConfirm"
         },
-        {
-          icon: "fa fa-th-list ",
-          text: this.$t("business.proposalClauseConfirm"),
-          link: "/component/example/proposalConfirm"
-        },
-        {
-          icon: "fa fa-check-square ",
-          text: this.$t("business.proposalConfirmImme"),
-          link: "/component/example/proposalConfirmImme"
-        },
+        // {
+        //   icon: "fa fa-th-list ",
+        //   text: this.$t("business.proposalConfirm"),
+        //   link: "/component/example/proposalConfirm"
+        // },
+        // {
+        //   icon: "fa fa-check-square ",
+        //   text: this.$t("business.proposalConfirmImme"),
+        //   link: "/component/example/proposalConfirmImme"
+        // },
         {
           icon: "fa fa-info-circle ",
           text: this.$t("business.proposalCopies"),
           link: "/component/example/proposalCopies"
         },
 
-        {
-          icon: "fa fa-minus ",
-          text: this.$t("business.proposalSubmitPay"),
-          link: "/component/example/proposalSubmitPay"
-        },
+        // {
+        //   icon: "fa fa-minus ",
+        //   text: this.$t("business.proposalSubmitPay"),
+        //   link: "/component/example/proposalSubmitPay"
+        // },
         {
           icon: "fa fa-comments",
           text: this.$t("business.subsidiaryInsuredInfo"),

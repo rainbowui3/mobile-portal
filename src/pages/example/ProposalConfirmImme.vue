@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.proposalConfirmImme')" :showBack="true"/>
        <r-body>
+          <card>
        <proposal-confirm-imme />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>
