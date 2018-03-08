@@ -17,12 +17,6 @@ export default {
     RButton,
     Cell
   },
-  data() {
-    return {
-      amount: 100,
-      proposalInfo: "/project/proposal/gi/insuredInfoEntryShortTerm"
-    };
-  },
   props: {
     onClick:Function,
     buttonName:String,
