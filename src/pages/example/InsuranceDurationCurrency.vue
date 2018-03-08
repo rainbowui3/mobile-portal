@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.insuranceDurationCurrency')" :showBack="true"/>
        <r-body>
+          <card>
        <insurance-duration-currency  />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>

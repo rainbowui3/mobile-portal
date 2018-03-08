@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.subsidiaryInsuredInfo')" :showBack="true"/>
        <r-body>
-       <subsidiary-insured-info />
+          <card>
+       <subsidiary-insured-info v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"/>
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>
@@ -24,6 +26,39 @@ export default {
     SubsidiaryInsuredInfo,
     RBody
   },
+ data() {
+    return {
+      policy: {
+        holderInfo: {
+          name: "王小明",
+          certificateId: "身份证",
+          certificateNum: "295792200001018271",
+          birthdate: "2000-01-01",
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
+        },
+        insuredInfo: {
+          relationToHolder: "本人",
+          name: "王小明",
+          certificateId: "身份证",
+          certificateNum: "295792200001018271",
+          birthdate: "2000-01-01",
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
+        },
+        dubsidiaryInsuranceInfo: {
+          relationToHolder: "10000",
+          relationToMainInsured: "本人",
+          name: "王小明",
+          certificateId: "身份证",
+          certificateNum: "295792200001018271",
+          birthdate: "2000-01-01",
+          mobileNum: "18398768724",
+          email: "wangxm@outlook.com"
+        }
+      }
+    };
+  }, 
  
 };
 </script>

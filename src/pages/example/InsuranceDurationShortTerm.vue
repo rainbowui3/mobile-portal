@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.insuranceDurationShortTerm')" :showBack="true"/>
        <r-body>
+          <card>
        <insurance-duration-short-term  />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>

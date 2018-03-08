@@ -2,7 +2,9 @@
   <page>
        <top :title="$t('business.proposalSubmitPay')" :showBack="true"/>
        <r-body>
+          <card>
        <proposal-submitPay />
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>

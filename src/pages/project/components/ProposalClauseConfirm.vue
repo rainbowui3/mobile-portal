@@ -30,22 +30,38 @@
         <!-- </box> -->
       </cell>
     </cell>
-    <div v-for="(item, idx) in items" :key="idx">
+    <div v-for="(item, idx) in items" :key="idx" >
       <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
         <!-- <div>
           我是一个萌萌的{{item.clauseName}}
         </div> -->
-        <div>{{item.clauseName}}</div>
-        <div>
-          <ol v-bind:class="{link:isLink}">
-            <li>1.本产品投保年龄为：出生满30天-80周岁</li><br/>
-            <li>2.本产品生效日期为投保次日零时起保</li><br/>
-            <li>3.未成年人身故保险金额以保险事故发生时中国保监会规定的未成年人身故保险金额限额为准</li><br/>
-            <li>4.本条款使用条款《大地通达公共交通工具意外伤害保险条款》</li><br/>
-          </ol>
-        </div>
-        <div @click="componentSelf.dialogNameList[idx].dialogStatus=false">
-          <span class="vux-close">X</span>
+        <div  v-bind:class="{dialogCSS:isLink}">
+          <div>
+            <h3>{{item.clauseName}}</h3>
+          </div>
+          <div v-bind:class="{clauseInfoCSS:clauseInfoCSS}">
+            <ul v-bind:class="{link:isLink}">
+              <li>1.本产品投保年龄为：出生满30天-80周岁</li>
+              <li>2.本产品生效日期为投保次日零时起保</li>
+              <li>3.未成年人身故保险金额以保险事故发生时中国保监会规定的未成年人身故保险金额限额为准</li>
+              <li>4.本条款使用条款《大地通达公共交通工具意外伤害保险条款》</li>
+              <li>1.本产品投保年龄为：出生满30天-80周岁</li>
+              <li>2.本产品生效日期为投保次日零时起保</li>
+              <li>3.未成年人身故保险金额以保险事故发生时中国保监会规定的未成年人身故保险金额限额为准</li>
+              <li>4.本条款使用条款《大地通达公共交通工具意外伤害保险条款》</li>
+              <li>1.本产品投保年龄为：出生满30天-80周岁</li>
+              <li>2.本产品生效日期为投保次日零时起保</li>
+              <li>3.未成年人身故保险金额以保险事故发生时中国保监会规定的未成年人身故保险金额限额为准</li>
+              <li>4.本条款使用条款《大地通达公共交通工具意外伤害保险条款》</li>
+              <li>1.本产品投保年龄为：出生满30天-80周岁</li>
+              <li>2.本产品生效日期为投保次日零时起保</li>
+              <li>3.未成年人身故保险金额以保险事故发生时中国保监会规定的未成年人身故保险金额限额为准</li>
+              <li>4.本条款使用条款《大地通达公共交通工具意外伤害保险条款》</li>
+            </ul>
+          </div>
+          <div @click="componentSelf.dialogNameList[idx].dialogStatus=false">
+            <span class="vux-close">X</span>
+          </div>
         </div>
       </r-dialog>
     </div>
@@ -89,7 +105,8 @@ export default {
         //组件自带的一些属性放在这里面
         dialogNameList: []
       },
-      isLink: true
+      isLink: true,
+      clauseInfoCSS: true
     };
   },
   methods: {
@@ -127,6 +144,33 @@ export default {
 } */
 .link {
   text-align: left;
+  list-style: none;
+}
+.clauseInfoCSS {
+  border-bottom: rgb(39, 112, 223) solid;
+  border-top: rgb(39, 112, 223) solid;
+  border-left: rgb(39, 112, 223) solid;
+  border-right: rgb(39, 112, 223) solid;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+   height: 500px;
+}
+li {
+  margin-left: 5px;
+  line-height: 18px;
+  padding: 4px 0px;
+  font-size: 12px;
+}
+h3 {
+  padding-top: 10px;
+}
+ul {
+  padding: 15px;
 }
 </style>
 <i18n>
