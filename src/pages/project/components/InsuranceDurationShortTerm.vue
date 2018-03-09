@@ -57,7 +57,6 @@ export default {
     }
   },
   mounted() {
-    debugger;
     console.log(this.value);
   }
 };
