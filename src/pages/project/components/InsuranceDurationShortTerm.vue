@@ -1,11 +1,9 @@
 //保险期限组件-极短期
 <template>
-    <div>
-        <card>
-        <date-time :readonly="readonly" :title="$t('保险起期')" :model="policy" value="effectiveDate" :format="timeFormat"></date-time>
-        <date-time :readonly="readonly" :title="$t('保险止期')" :model="policy" value="expireDate" :format="timeFormat"></date-time>
-        </card>
-    </div>
+  <card>
+    <date-time v-if="value[0] && value[0].bindField && value[0].bindField != ''" :readonly="readonly" :title="$t('保险起期')" :model="model" :value="value[0].bindField" :format="timeFormat" :onChange="onChange"></date-time>
+    <date-time v-if="value[1] && value[1].bindField && value[1].bindField != ''" :readonly="readonly" :title="$t('保险止期')" :model="model" :value="value[1].bindField" :format="timeFormat" :onChange="onChange"></date-time>
+  </card>
 </template>
 
 <script>
@@ -16,25 +14,51 @@ export default {
     DateTime,
     Card
   },
-  props:{
-    readonly:Boolean
+  props: {
+    //组件是否只读
+    readonly: Boolean,
+    //组件类型，day只显示年月日，minute显示年月日时分
+    type: {
+      type: String,
+      default() {
+        return "day";
+      }
+    },
+    //传入的model
+    model: {
+      type: Object
+    },
+    //传入的value
+    value: {
+      type: Array
+    },
   },
   data() {
     return {
-      policy: {
-        effectiveDate: "",
-        expireDate: ""
-      },
-      timeFormat: config.DEFAULT_DATETIME_FORMATER
+      timeFormat: ""
     };
   },
   methods: {
-    onChange(val) {
-      this.policy.effortDate = val;
+    onChange() {
+      console.log(this.model[this.value[0].bindField]);
+      console.log(this.model[this.value[1].bindField]);
     },
     VOnChange: function(event) {
       console.log(event);
     }
+  },
+  created: function() {
+    if (this.type == "day") {
+      this.timeFormat = config.DEFAULT_DATE_FORMATER;
+    } else if (this.type == "minute") {
+      this.timeFormat = config.DEFAULT_DATETIME_FORMATER;
+    } else {
+      this.timeFormat = config.DEFAULT_DATE_FORMATER;
+    }
+  },
+  mounted() {
+    debugger;
+    console.log(this.value);
   }
 };
 </script>

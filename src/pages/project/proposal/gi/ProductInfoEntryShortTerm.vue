@@ -1,15 +1,13 @@
 <template>
-   <page>
-       <top :title="$t('project.jtyw')" :showBack="true" />
-       <r-body>
+    <page>
+        <top :title="$t('project.jtyw')" :showBack="true" />
+        <r-body>
             <card>
-                <product-top 
-                    :productImgSrc="productImgSrc"
-                    :productDes="productDes">
+                <product-top :productImgSrc="productImgSrc" :productDes="productDes">
                 </product-top>
             </card>
             <card>
-                <insurance-duration-shortTerm></insurance-duration-shortTerm>
+                <insurance-duration-shortTerm type="minute" :model="policy" :value="jsonParamIDS"></insurance-duration-shortTerm>
             </card>
             <card>
                 <plan-selection></plan-selection>
@@ -19,10 +17,7 @@
             </card>
         </r-body>
         <tab-bar>
-            <proposal-confirm 
-                :buttonName="buttonName"
-                :amount="amount"
-                :onClick="onClick"></proposal-confirm>
+            <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
         </tab-bar>
     </page>
 
@@ -53,7 +48,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
-import Jtgj from '../../../../assets/jtgj.jpg';
+import Jtgj from "../../../../assets/jtgj.jpg";
 
 export default {
   components: {
@@ -71,11 +66,20 @@ export default {
   },
   data() {
     return {
-      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm",     
-      productImgSrc:Jtgj,
-      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
-      amount:"100",
-      buttonName:"确定投保"
+      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm",
+      productImgSrc: Jtgj,
+      productDes:
+        "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
+      amount: "100",
+      buttonName: "确定投保",
+      policy: {
+        effectiveDate: "",
+        expireDate: ""
+      },
+      jsonParamIDS: [
+        { bindField: "effectiveDate", required: true },
+        { bindField: "expireDate", required: false }
+      ]
     };
   },
   methods: {

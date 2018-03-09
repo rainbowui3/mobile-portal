@@ -5,20 +5,10 @@
     <cell type="row">
       <cell :span="1">
         <div class="proposalClauseConfirmRaido">
-          <checker :model="proposalClauseConfirm" value="value" type="icon" :onChange="onChange" />
+          <checker :model="proposalClauseConfirm" value="value" type="icon" :onClick="onClick" />
         </div>
       </cell>
-      <!-- <cell :span="2">
-        <div>
-          我已阅读
-        </div>
-      </cell> -->
       <cell type="row">
-        <!-- <box :padding="padding">
-          <r-button :mini="true" :plain="true" v-for="(item,idx) in items" :key="idx" :model="componentSelf.dialogNameList[idx]" value="dialogStatus" :onClick="showDialog.bind(this, item, idx)">
-            {{item.clauseName}}
-          </r-button>
-        </box> -->
         <h5>
           <span>我已阅读</span>
           <span v-for="(item, idx) in items" :key="idx" value="dialogStatus" @click="showDialog(this, item, idx)">
@@ -30,12 +20,9 @@
         <!-- </box> -->
       </cell>
     </cell>
-    <div v-for="(item, idx) in items" :key="idx" >
+    <div v-for="(item, idx) in items" :key="idx">
       <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
-        <!-- <div>
-          我是一个萌萌的{{item.clauseName}}
-        </div> -->
-        <div  v-bind:class="{dialogCSS:isLink}">
+        <div v-bind:class="{dialogCSS:isLink}">
           <div>
             <h3>{{item.clauseName}}</h3>
           </div>
@@ -110,7 +97,8 @@ export default {
     };
   },
   methods: {
-    onChange() {
+    onClick() {
+      debugger;
       console.log("onRadioChange:");
     },
     showDialog(event, item, idx) {
@@ -132,7 +120,14 @@ export default {
   },
   mounted: function() {
     //在模板渲染成html之后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作
-  }
+  },
+  // watch:{
+  //   'proposalClauseConfirm.value':{
+  //     handler:function(newVal, oldVal){
+  //       console.log(this.proposalClauseConfirm.value);
+  //     }
+  //   }
+  // }
 };
 </script>
 <style>
@@ -158,7 +153,7 @@ export default {
   margin-right: 15px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-   height: 500px;
+  height: 500px;
 }
 li {
   margin-left: 5px;

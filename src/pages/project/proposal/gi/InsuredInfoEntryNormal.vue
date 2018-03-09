@@ -2,7 +2,7 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term/>
+      <insurance-duration-short-term type="day" :model="policy" :value="jsonParamIDS" />
       <card :title="$t('投保人信息')">
         <holder-info :holderInfo="holderInfo" />
       </card>
@@ -15,13 +15,10 @@
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
       </card>
-      <proposal-clause-confirm/> 
+      <proposal-clause-confirm/>
     </r-body>
     <tab-bar>
-      <proposal-confirm 
-                :buttonName="buttonName"
-                :amount="amount"
-                :onClick="onClick"></proposal-confirm>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
     </tab-bar>
   </page>
 </template>
@@ -81,8 +78,16 @@ export default {
         mobileNum: "18398768724",
         email: "wangxm@outlook.com"
       },
-      amount:"100",
-      buttonName:"立即投保"
+      amount: "100",
+      buttonName: "立即投保",
+      policy: {
+        effectiveDate: "",
+        expireDate: ""
+      },
+      jsonParamIDS: [
+        { bindField: "effectiveDate", required: true },
+        { bindField: "expireDate", required: false }
+      ]
     };
   },
   methods: {
@@ -101,7 +106,7 @@ export default {
 </script>
 
 <style>
-.addInsured{
+.addInsured {
   margin-bottom: 5px;
 }
 </style>
