@@ -5,7 +5,7 @@
         <selector :title="$t('证件类型:')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>
         <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
         <date-time :title="$t('出生日期')" :model="holderInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-        <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="holderInfo" value="mobileNum" :readonly="readonly" />
+        <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="holderInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
         <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="holderInfo" value="email" :isEmail="false" :validate="false" :readonly="readonly"/>
     </div>
     <!--</card>-->
@@ -34,7 +34,6 @@ export default {
       },
       options: [
         { key: "10000", value: "身份证" },
-        { key: "10001", value: "军官证" },
         { key: "10002", value: "护照" }
       ],
       certificate: {

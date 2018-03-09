@@ -5,8 +5,8 @@
       <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="insuredInfo" value="name" :readonly="readonly"/>    
       <selector  :title="$t('证件类型:')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChange" :readonly="readonly"></selector>
       <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="insuredInfo" value="certificateNum" :readonly="readonly"/>      
-      <date-time  :title="$t('出生日期')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="insuredInfo" value="mobileNum" :readonly="readonly"/>
+      <date-time  :title="$t('出生日期')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>  
+      <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="insuredInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
       <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="insuredInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />   
   </div>
   <!--</card>-->
@@ -27,7 +27,7 @@ export default {
             policy:{
                 value2:''
             },
-            options:[{"key":"10000","value":"身份证"},{"key":"10001","value":"军官证"},{"key":"10002","value":"护照"}],
+            options:[{"key":"10000","value":"身份证"},{"key":"10002","value":"护照"}],
             options1:[{"key":"10000","value":"本人"},{"key":"10001","value":"配偶"},{"key":"10002","value":"子女"}],
             certificate:{
                 "certificateId":"10000",
