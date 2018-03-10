@@ -53,7 +53,7 @@ export default {
     return {
       holderInfo: {
         name: "王小明",
-        certificateId: "身份证",
+        certificateId: "10000",
         certificateNum: "295792200001018271",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
@@ -62,7 +62,7 @@ export default {
       insuredInfo: {
         relationToHolder: "本人",
         name: "王小明",
-        certificateId: "身份证",
+        certificateId: "10000",
         certificateNum: "295792200001018271",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
@@ -72,7 +72,7 @@ export default {
         relationToHolder: "10000",
         relationToMainInsured: "10000",
         name: "王小明",
-        certificateId: "身份证",
+        certificateId: "10000",
         certificateNum: "295792200001018271",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
