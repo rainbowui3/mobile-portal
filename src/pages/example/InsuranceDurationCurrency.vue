@@ -5,16 +5,22 @@
           <card>
        <insurance-duration-currency  />
         </card>
+
+        <card>
+        <insurance-duration-short-term  :model="policy" :value="jsonParamIDS"/>
+        </card>
        </r-body>
        <bottom :index="2"/>
   </page>
 </template>
 
 <script>
-import {Page,Card,RTable,RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
-import InsuranceDurationCurrency from '../project/components/InsuranceDurationCurrency';
+import { Page, Card, RTable, RBody } from "rainbow-mobile-core";
+import Bottom from "../../components/Bottom";
+import Top from "../../components/Top";
+import InsuranceDurationCurrency from "../project/components/InsuranceDurationCurrency";
+import InsuranceDurationShortTerm from "../project/components/InsuranceDurationShortTerm";
+
 
 export default {
   components: {
@@ -24,9 +30,21 @@ export default {
     Card,
     RTable,
     InsuranceDurationCurrency,
+    InsuranceDurationShortTerm,
     RBody
   },
- 
+  data() {
+    return {
+      policy: {
+        effectiveDate: "",
+        expireDate: ""
+      },
+      jsonParamIDS: [
+        { bindField: "effectiveDate", required: true },
+        { bindField: "expireDate", required: false }
+      ]
+    };
+  },
 };
 </script>
 

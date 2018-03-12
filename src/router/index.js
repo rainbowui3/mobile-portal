@@ -59,7 +59,6 @@ const PayStatus = r => require.ensure([], () => r(require('@/pages/project/propo
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
-const ProjectInsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
 const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/example/InsuredInfo')), 'InsuredInfo');
 const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/example/PlanSelection')), 'PlanSelection');
@@ -69,7 +68,6 @@ const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/
 const ProjectProposalConfirmImme = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirmImme')), 'ProposalConfirmImme');
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
 const ProjectProposalSubmitPay = r => require.ensure([], () => r(require('@/pages/example/ProposalSubmitPay')), 'ProposalSubmitPay');
-const ProjectSubsidiaryInsuredInfo = r => require.ensure([], () => r(require('@/pages/example/SubsidiaryInsuredInfo')), 'SubsidiaryInsuredInfo');
 
 
 Vue.use(Router);
@@ -359,11 +357,7 @@ const router = new Router({
       name: 'ProjectInsuranceDurationCurrency',
       component: ProjectInsuranceDurationCurrency
     },
-    {
-      path: '/component/example/InsuranceDurationShortTerm',
-      name: 'ProjectInsuranceDurationShortTerm',
-      component: ProjectInsuranceDurationShortTerm
-    },
+   
     {
       path: '/component/example/InsuredInfo',
       name: 'ProjectInsuredInfo',
@@ -404,11 +398,7 @@ const router = new Router({
       name: 'ProjectProposalSubmitPay',
       component: ProjectProposalSubmitPay
     },
-    {
-      path: '/component/example/SubsidiaryInsuredInfo',
-      name: 'ProjectSubsidiaryInsuredInfo',
-      component: ProjectSubsidiaryInsuredInfo
-    },
+   
   ],
 });
 
