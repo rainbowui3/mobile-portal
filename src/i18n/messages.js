@@ -289,18 +289,13 @@ export default {
         address:"Address"
       },
       business:{
-        holderInfo:"holderInfo",
-        insuranceDurationCurrency:"insuranceDurationCurrency",
-        insuranceDurationShortTerm:"insuranceDurationShortTerm",
-        insuredInfo:"insuredInfo",
-        planSelection:"planSelection",
-        productTop:"productTop",
-        proposalClauseConfirm:"proposalClauseConfirm",
-        proposalConfirm:"proposalConfirm",
-        proposalConfirmImme:"proposalConfirmImme",
-        proposalCopies:"proposalCopies",
-        proposalSubmitPay:"proposalSubmitPay",
-        subsidiaryInsuredInfo:"subsidiaryInsuredInfo" 
+        holderInfo:"policyHolder",
+        insuranceDurationCurrency:"insuranceData",
+        insuredInfo:"insured",
+        planSelection:"plan",
+        productTop:"product",
+        proposalClauseConfirm:"Item",
+        proposalCopies:"promine",
       }
     },
     "zh-CN": {
@@ -598,18 +593,14 @@ export default {
         address:"地址"
       },
       business:{
-        holderInfo:"投保人信息组件",
-        insuranceDurationCurrency:"保险期限组件-通用",
-        insuranceDurationShortTerm:"保险期限组件-极短期",
-        insuredInfo:"被保险人信息组件",
-        planSelection:"方案选择组件",
-        productTop:"产品顶部Card组件",
-        proposalClauseConfirm:"投保条款确认组件",
-        proposalConfirm:"确认投保组件",
-        proposalConfirmImme:"底部确认投保组件-立即投保",
-        proposalCopies:"投保份数组件",
-        proposalSubmitPay:"立即支付组件",
-        subsidiaryInsuredInfo:"附属被保险人信息组件"     
+        holderInfo:"投保人",
+        insuranceDurationCurrency:"保险期",
+        insuredInfo:"被保人",
+        planSelection:"方案",
+        productTop:"产品",
+        proposalClauseConfirm:"条款",
+        proposalCopies:"保费",
+      
       }
     }
 }
