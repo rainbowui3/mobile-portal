@@ -49,6 +49,7 @@ const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee
 const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
 const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
+const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/project/components/ChooseRelationship')), 'ChooseRelationship');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/ProductInfoEntryNormal')),'ProductInfoEntryNormal');
@@ -322,7 +323,11 @@ const router = new Router({
       path: '/templateComponents/proposalClauseConfirm',
       name: 'ProposalClauseConfirm',
       component: ProposalClauseConfirm
-    }, {
+    },{
+      path: '/templateComponents/chooseRelationship',
+      name: 'ChooseRelationship',
+      component: ChooseRelationship
+    },{
       path: '/project/proposal/payStatus',
       name: 'PayStatus',
       component: PayStatus
