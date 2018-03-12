@@ -2,11 +2,12 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term type="day" :model="policy" :value="jsonParamIDS" />
+      <insurance-duration-short-term type="day" :model="policyData" :value="jsonParamIDS" />
       <card :title="$t('投保人信息')">
         <holder-info :holderInfo="holderInfo" />
       </card>
       <card :title="$t('被保险人信息')">
+        <choose-relationship :datas="datas" :onClick="onClickInsured" />
         <insured-info :insuredInfo="insuredInfo" />
       </card>
       <card :title="$t('附属被保险人信息')">
@@ -33,6 +34,7 @@ import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import ProposalConfirm from "../../components/ProposalConfirm";
+import ChooseRelationship from "../../components/ChooseRelationship";
 export default {
   components: {
     Top,
@@ -47,10 +49,12 @@ export default {
     ProposalConfirm,
     TabBar,
     RButton,
-    RBody
+    RBody,
+    ChooseRelationship
   },
   data() {
     return {
+      policy: {},
       holderInfo: {
         name: "王小明",
         certificateId: "身份证",
@@ -60,7 +64,7 @@ export default {
         email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: "本人",
+        // relationToHolder: "本人",
         name: "王小明",
         certificateId: "身份证",
         certificateNum: "295792200001018271",
@@ -80,13 +84,39 @@ export default {
       },
       amount: "100",
       buttonName: "立即投保",
-      policy: {
-        effectiveDate: "",
-        expireDate: ""
+      policyData: {
+        // effectiveDate: "",
+        // expireDate: ""
       },
       jsonParamIDS: [
         { bindField: "effectiveDate", required: true },
         { bindField: "expireDate", required: false }
+      ],
+      datas: [
+        {
+          key: "10000",
+          value: "本人",
+          active: true,
+          onClick: this.onClickInsured
+        },
+        {
+          key: "10001",
+          value: "配偶",
+          active: false,
+          onClick: this.onClickInsured
+        },
+        {
+          key: "10002",
+          value: "子女",
+          active: false,
+          onClick: this.onClickInsured
+        },
+        {
+          key: "10003",
+          value: "父母",
+          active: false,
+          onClick: this.onClickInsured
+        }
       ]
     };
   },
@@ -96,11 +126,15 @@ export default {
     },
     clickHome: function() {
       console.log("lalalalala");
+    },
+    onClickInsured: function(index) {
+      console.log(index);
     }
   },
   created: function() {
-    console.log("created");
+    this.policy = sessionStorage.getItem("POLICY");
   },
+  mounted: function() {},
   beforeDestroy: function() {}
 };
 </script>
