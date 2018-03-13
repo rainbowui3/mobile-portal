@@ -7,11 +7,13 @@
         <holder-info :holderInfo="holderInfo" />
       </card>
       <card :title="$t('被保险人信息')">
-        <choose-relationship :datas="datas" :onClick="onClickInsured" />
-        <insured-info :insuredInfo="insuredInfo" />
+        <choose-relationship :datas="datas1" :title="'与投保人关系'" :model="policy.InsuredInfo[0]" value="relationToHolder"/>
+        <insured-info v-if="policy.InsuredInfo[0].relationToHolder && policy.InsuredInfo[0].relationToHolder != '' && policy.InsuredInfo[0].relationToHolder != '本人'" :insuredInfo="insuredInfo" />
       </card>
       <card :title="$t('附属被保险人信息')">
-        <subsidiary-insured-info :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
+        <choose-relationship :datas="datas1" :title="'与投保人关系'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder"/>
+        <choose-relationship :datas="datas1" :title="'与主被保险人关系'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured"/>
+        <subsidiary-insured-info v-if="policy.SubsidiaryInsuredInfo[0].relationToHolder && policy.SubsidiaryInsuredInfo[0].relationToHolder != '' && policy.SubsidiaryInsuredInfo[0].relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
@@ -92,32 +94,84 @@ export default {
         { bindField: "effectiveDate", required: true },
         { bindField: "expireDate", required: false }
       ],
-      datas: [
+      datas1: [
         {
-          key: "10000",
+          key: "1",
           value: "本人",
           active: true,
-          onClick: this.onClickInsured
+          // onClick: this.onClickInsured
         },
         {
-          key: "10001",
+          key: "2",
           value: "配偶",
           active: false,
-          onClick: this.onClickInsured
+          // onClick: this.onClickInsured
         },
         {
-          key: "10002",
+          key: "3",
           value: "子女",
           active: false,
-          onClick: this.onClickInsured
+          // onClick: this.onClickInsured
         },
         {
-          key: "10003",
+          key: "4",
           value: "父母",
           active: false,
-          onClick: this.onClickInsured
+          // onClick: this.onClickInsured
         }
-      ]
+      ],
+      // datas2: [
+      //   {
+      //     key: "10000",
+      //     value: "本人",
+      //     active: true,
+      //     onClick: this.onClickInsured2
+      //   },
+      //   {
+      //     key: "10001",
+      //     value: "配偶",
+      //     active: false,
+      //     onClick: this.onClickInsured2
+      //   },
+      //   {
+      //     key: "10002",
+      //     value: "子女",
+      //     active: false,
+      //     onClick: this.onClickInsured2
+      //   },
+      //   {
+      //     key: "10003",
+      //     value: "父母",
+      //     active: false,
+      //     onClick: this.onClickInsured2
+      //   }
+      // ],
+      // datas3: [
+      //   {
+      //     key: "10000",
+      //     value: "本人",
+      //     active: true,
+      //     onClick: this.onClickInsured3
+      //   },
+      //   {
+      //     key: "10001",
+      //     value: "配偶",
+      //     active: false,
+      //     onClick: this.onClickInsured3
+      //   },
+      //   {
+      //     key: "10002",
+      //     value: "子女",
+      //     active: false,
+      //     onClick: this.onClickInsured3
+      //   },
+      //   {
+      //     key: "10003",
+      //     value: "父母",
+      //     active: false,
+      //     onClick: this.onClickInsured3
+      //   }
+      // ]
     };
   },
   methods: {
@@ -127,12 +181,13 @@ export default {
     clickHome: function() {
       console.log("lalalalala");
     },
-    onClickInsured: function(index) {
-      console.log(index);
-    }
+    // onClickInsured: function(data) {
+    //   console.log(data);
+    // }
   },
   created: function() {
-    this.policy = sessionStorage.getItem("POLICY");
+    this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
+    console.log("policy", this.policy);
   },
   mounted: function() {},
   beforeDestroy: function() {}

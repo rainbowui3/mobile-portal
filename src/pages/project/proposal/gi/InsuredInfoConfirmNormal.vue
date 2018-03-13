@@ -2,22 +2,20 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-        <insurance-duration-short-term :readonly="readonly" />
-        <card :title="$t('投保人')">
-          <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
-        </card>
-        <card :title="$t('被保险人')">
-          <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
-        </card>
-        <card :title="$t('附属被保险人')">
-          <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-        </card>
+      <insurance-duration-short-term :readonly="readonly" />
+      <card :title="$t('投保人')">
+        <choose-relationship></choose-relationship>
+        <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+      </card>
+      <card :title="$t('被保险人')">
+        <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+      </card>
+      <card :title="$t('附属被保险人')">
+        <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+      </card>
     </r-body>
     <tab-bar>
-      <proposal-confirm 
-                :buttonName="buttonName"
-                :amount="amount"
-                :onClick="onClick"></proposal-confirm>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
     </tab-bar>
 
   </page>
@@ -48,6 +46,7 @@ import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
+import ChooseRelationship from "../../components/ChooseRelationship";
 // import localStorage from "../../../../sotre.js";
 
 export default {
@@ -63,7 +62,8 @@ export default {
     SubsidiaryInsuredInfo,
     ProposalConfirm,
     InsuranceDurationShortTerm,
-    RBody
+    RBody,
+    ChooseRelationship
   },
   methods: {
     clickHom() {},
@@ -104,13 +104,15 @@ export default {
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
         }
-      },    
-      amount:"100",
-      buttonName:"提交支付"
+      },
+      amount: "100",
+      buttonName: "提交支付"
     };
   },
-  created:function(){
-    this.policy.dubsidiaryInsuranceInfo.relationToHolder = sessionStorage.getItem("dubsidiaryInsuranceInfo-relationToHolder");
+  created: function() {
+    this.policy.dubsidiaryInsuranceInfo.relationToHolder = sessionStorage.getItem(
+      "dubsidiaryInsuranceInfo-relationToHolder"
+    );
     sessionStorage.removeItem("dubsidiaryInsuranceInfo-relationToHolder");
   }
 };

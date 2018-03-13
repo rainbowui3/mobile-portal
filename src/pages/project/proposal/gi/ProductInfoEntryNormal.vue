@@ -3,8 +3,7 @@
     <top :title="$t('交通工具意外险')" :showBack="true" />
     <r-body>
       <card>
-        <product-top :productImgSrc="productImgSrc"
-                     :productDes="productDes">
+        <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
       </card>
       <card>
@@ -18,10 +17,7 @@
       </card>
     </r-body>
     <tab-bar>
-      <proposal-confirm 
-                :buttonName="buttonName"
-                :amount="amount"
-                :onClick="onClick"></proposal-confirm>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
     </tab-bar>
 
   </page>
@@ -53,7 +49,7 @@ import InsuranceDurationCurrency from "../../components/InsuranceDurationCurrenc
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
-import Jtgj from '../../../../assets/jtgj.jpg';
+import Jtgj from "../../../../assets/jtgj.jpg";
 export default {
   components: {
     Page,
@@ -71,11 +67,12 @@ export default {
   data() {
     return {
       productInfo: {},
-      policy: {},   
-      productImgSrc:Jtgj,
-      productDes: "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
-      amount:"100",
-      buttonName:"确定投保"
+      policy: {},
+      productImgSrc: Jtgj,
+      productDes:
+        "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
+      amount: "100",
+      buttonName: "确定投保"
     };
   },
   methods: {
@@ -100,9 +97,37 @@ export default {
     };
     let policy = {
       premium: 100,
-      HolderInfo: {},
-      InsuredInfo: [],
-      SubsidiaryInsuredInfo: [],
+      HolderInfo: {
+        name: "",
+        certificateId: "",
+        certificateNum: "",
+        birthdate: "",
+        mobileNum: "",
+        email: ""
+      },
+      InsuredInfo: [
+        {
+          name: "",
+          certificateId: "",
+          certificateNum: "",
+          birthdate: "",
+          mobileNum: "",
+          email: "",
+          relationToHolder: ""
+        }
+      ],
+      SubsidiaryInsuredInfo: [
+        {
+          name: "",
+          certificateId: "",
+          certificateNum: "",
+          birthdate: "",
+          mobileNum: "",
+          email: "",
+          relationToHolder: "",
+          relationToMainInsured: ""
+        }
+      ],
       effectiveDate: "",
       expireDate: "",
       insuranceTerm: "",
@@ -112,6 +137,7 @@ export default {
     };
     this.policy = policy;
     this.productInfo = productInfo;
+    sessionStorage.setItem("POLICY", JSON.stringify(this.policy));
   }
 };
 </script>

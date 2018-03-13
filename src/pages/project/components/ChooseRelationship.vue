@@ -10,7 +10,7 @@
         </div>
       </cell>
     </cell>
-    <selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="insuredInfo" value="relationToHolder" :onChange="onChange"></selector>
+    <selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="selectorModel" value="selectorValue" :onChange="onChange"></selector>
   </div>
 </template>
 
@@ -46,8 +46,8 @@ export default {
       bodyClass: true,
       row: "row",
       padding: "0px",
-      insuredInfo: {
-        relationToHolder: ""
+      selectorModel: {
+        selectorValue: "1"
       },
       dataList: []
     };

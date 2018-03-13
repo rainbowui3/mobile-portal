@@ -144,8 +144,8 @@ export default {
 .clauseInfoCSS {
   border-bottom: rgb(39, 112, 223) solid;
   border-top: rgb(39, 112, 223) solid;
-  border-left: rgb(39, 112, 223) solid;
-  border-right: rgb(39, 112, 223) solid;
+  /* border-left: rgb(39, 112, 223) solid;
+  border-right: rgb(39, 112, 223) solid; */
   border-radius: 30px;
   margin-top: 10px;
   margin-bottom: 5px;
