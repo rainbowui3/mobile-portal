@@ -7,9 +7,6 @@
           <h4>{{$t('保费支付成功，您的保单出单！')}}</h4>
         </div>
         <previewer :title="$t('付款金额')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
-        <div>
-          <h5 :class="{fontColor:classStatus}">{{$t('电子保单稍后将发送到您提供的电子邮箱，您也可以在中国大地保险网站www.95590.cn下载您的保单')}}</h5>
-        </div>
       </card>
     </r-body>
   </page>
@@ -63,6 +60,8 @@ export default {
         {
           label: this.$t("保单号"),
           value: this.$t("TJAB3457890457899")
+        },{
+          value: this.$t("电子保单稍后将发送到您提供的电子邮箱，您也可以在中国大地保险网站www.95590.cn下载您的保单")
         }
         // {
         //   value: this.$t(
