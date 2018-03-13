@@ -1,19 +1,16 @@
 <template>
-  <!-- <div v-if="dataList.length < 6"> -->
   <div>
-    <cell :type="row" v-if="datas.length < 5">
+    <cell :type="row" v-if="dataList.length < 5" class="margin-bottom:5px">
       <cell :span="6" :padding="padding">
         <div v-bind:class="{titleClass:titleClass}">{{$t(title)}}</div>
       </cell>
       <cell :padding="padding">
         <div v-bind:class="{bodyClass:titleClass}">
-          <!-- <div v-bind:class="{active:item.active,unactive:!item.active}" v-for="(item,idx) in dataList" :key="idx" @click="onItemClick(item, idx, this)">{{item.bindName}}</div> -->
-          <div v-bind:class="{active:item.active,unactive:!item.active}" v-for="(item,idx) in datas" :key="idx" @click="onItemClick(item, idx, this)">{{item.value}}</div>
+          <div v-bind:class="{active:item.active,unactive:!item.active}" v-for="(item,idx) in dataList" :key="idx" @click="onItemClick(item, idx, this)">{{item.value}}</div>
         </div>
       </cell>
     </cell>
     <selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="insuredInfo" value="relationToHolder" :onChange="onChange"></selector>
-    <!-- :model="insuredInfo" value="relationToHolder" :onChange="onChange"  -->
   </div>
 </template>
 
@@ -38,7 +35,9 @@ export default {
       default() {
         return "title here";
       }
-    }
+    },
+    model: Object,
+    value: String
   },
   data() {
     return {
@@ -49,42 +48,44 @@ export default {
       padding: "0px",
       insuredInfo: {
         relationToHolder: ""
-      }
+      },
+      dataList: []
     };
   },
   methods: {
     onItemClick: function(item, idx, event) {
       if (!this.readonly) {
+        this.model[this.value] = item.value;
         let count = 0;
         if (item.active != true) {
-          this.datas.forEach(element => {
+          this.dataList.forEach(element => {
             if (count == idx) {
-              this.datas[count].active = !element.active;
+              this.dataList[count].active = !element.active;
             } else {
-              this.datas[count].active = false;
+              this.dataList[count].active = false;
             }
             count++;
           });
         }
-        count = 0;
-        this.datas.forEach(element => {
-          if (count == idx && element.onClick) {
-            element.onClick(element);
-          }
-          count++;
-        });
       }
     },
-    onChange(key) {
-      this.datas.forEach(element => {
-        if (element.key == key) {
-          element.onClick(element);
+    onChange(key){
+      this.dataList.forEach(element => {
+        if(element.key == key){
+          this.model[this.value] = element.value;
         }
       });
     }
   },
   computed: {},
-  created: function() {},
+  created: function() {
+    let dataList = [];
+    // this.datas.forEach(element => {
+    //   dataList.push(element);
+    // });
+    dataList = JSON.parse(JSON.stringify(this.datas));
+    this.dataList = dataList;
+  },
   mounted: function() {}
 };
 </script>
