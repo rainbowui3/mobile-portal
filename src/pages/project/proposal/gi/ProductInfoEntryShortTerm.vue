@@ -7,7 +7,7 @@
                 </product-top>
             </card>
             <card>
-                <insurance-duration-shortTerm type="minute" :model="policy" :value="jsonParamIDS"></insurance-duration-shortTerm>
+                <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
             </card>
             <card>
                 <plan-selection></plan-selection>
@@ -75,11 +75,7 @@ export default {
       policy: {
         effectiveDate: "",
         expireDate: ""
-      },
-      jsonParamIDS: [
-        { bindField: "effectiveDate", required: true },
-        { bindField: "expireDate", required: false }
-      ]
+      }
     };
   },
   methods: {

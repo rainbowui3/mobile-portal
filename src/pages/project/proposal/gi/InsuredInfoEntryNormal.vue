@@ -2,7 +2,7 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term type="day" :model="policyData" :value="jsonParamIDS" />
+      <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
       <card :title="$t('投保人信息')">
         <holder-info :holderInfo="holderInfo" />
       </card>
@@ -90,10 +90,6 @@ export default {
         // effectiveDate: "",
         // expireDate: ""
       },
-      jsonParamIDS: [
-        { bindField: "effectiveDate", required: true },
-        { bindField: "expireDate", required: false }
-      ],
       datas1: [
         {
           key: "1",
@@ -119,59 +115,7 @@ export default {
           active: false,
           // onClick: this.onClickInsured
         }
-      ],
-      // datas2: [
-      //   {
-      //     key: "10000",
-      //     value: "本人",
-      //     active: true,
-      //     onClick: this.onClickInsured2
-      //   },
-      //   {
-      //     key: "10001",
-      //     value: "配偶",
-      //     active: false,
-      //     onClick: this.onClickInsured2
-      //   },
-      //   {
-      //     key: "10002",
-      //     value: "子女",
-      //     active: false,
-      //     onClick: this.onClickInsured2
-      //   },
-      //   {
-      //     key: "10003",
-      //     value: "父母",
-      //     active: false,
-      //     onClick: this.onClickInsured2
-      //   }
-      // ],
-      // datas3: [
-      //   {
-      //     key: "10000",
-      //     value: "本人",
-      //     active: true,
-      //     onClick: this.onClickInsured3
-      //   },
-      //   {
-      //     key: "10001",
-      //     value: "配偶",
-      //     active: false,
-      //     onClick: this.onClickInsured3
-      //   },
-      //   {
-      //     key: "10002",
-      //     value: "子女",
-      //     active: false,
-      //     onClick: this.onClickInsured3
-      //   },
-      //   {
-      //     key: "10003",
-      //     value: "父母",
-      //     active: false,
-      //     onClick: this.onClickInsured3
-      //   }
-      // ]
+      ]
     };
   },
   methods: {
