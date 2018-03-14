@@ -2,20 +2,18 @@
 <template>
   <div>
     <tab :tabItems="tabItems" />
-    <swiper height="400px" :model="index" onChange=this.onIndexChange>
+    <swiper height="600px" :model="index" onChange=this.onIndexChange>
       <swiper-item v-for="(item,idx) in items" :key="idx">
         <card :title="$t('保障范围')">
           <r-table :data="item.planData" :class="{table:classStatus}" />
-          <div v-for="(item, idx) in items" :key="idx">
-            <row :title="'公共交通意外伤害-飞机'" :value="'50万'" :isLink="true"></row>
-            <template v-if="item.showDescription">
+          <div v-for="(coverage, idx) in coverageList" :key="idx">
+            <row :title="coverage.coverageTitle" :value="coverage.coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
+            <template v-if="coverage.showDescription">
               <div>
                 <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
               </div>
             </template>
           </div>
-          <row :title="'公共交通意外伤害-火车(地铁、轻轨)'" :value="'70万'" :isLink="true"></row>
-          <row :title="'公共交通意外伤害-汽车'" :value="'100万'" :isLink="true"></row>
         </card>
         <card :title="$t('投保须知')">
           <list :data="getListData" />
@@ -49,11 +47,14 @@ export default {
   data: function() {
     return {
       items: this.getSwiperItems(),
-      coverageItemList:[
-
-      ],
+      coverageItemList: [],
       index: 0,
-      classStatus: true
+      classStatus: true,
+      coverageList: [
+        {coverageTitle:"公共交通意外伤害-飞机", coverageAmount:"50万", coverageDescription:"-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。", showDescription: true},
+        {coverageTitle:"公共交通意外伤害-火车(地铁、轻轨)", coverageAmount:"70万", coverageDescription:"-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。", showDescription: true},
+        {coverageTitle:"公共交通意外伤害-汽车", coverageAmount:"100万", coverageDescription:"-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。", showDescription: true}
+      ]
     };
   },
   computed: {
@@ -116,28 +117,31 @@ export default {
         },
         {
           planData: {
-            head: [[{ text: "保险责任" }, { text: "保险金额" }]],
-            body: [
-              [{ text: "公共交通意外伤害-飞机" }, { text: "70万" }],
-              [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "60万" }],
-              [{ text: "公共交通意外伤害-汽车" }, { text: "50万" }]
-            ]
+            head: [[{ text: "保险责任" }, { text: "保险金额" }]]
+            // body: [
+            //   [{ text: "公共交通意外伤害-飞机" }, { text: "70万" }],
+            //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "60万" }],
+            //   [{ text: "公共交通意外伤害-汽车" }, { text: "50万" }]
+            // ]
           }
         },
         {
           planData: {
-            head: [[{ text: "保险责任" }, { text: "保险金额" }]],
-            body: [
-              [{ text: "公共交通意外伤害-飞机" }, { text: "100万" }],
-              [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "90万" }],
-              [{ text: "公共交通意外伤害-汽车" }, { text: "80万" }]
-            ]
+            head: [[{ text: "保险责任" }, { text: "保险金额" }]]
+            // body: [
+            //   [{ text: "公共交通意外伤害-飞机" }, { text: "100万" }],
+            //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "90万" }],
+            //   [{ text: "公共交通意外伤害-汽车" }, { text: "80万" }]
+            // ]
           }
         }
       ];
     },
     onTabItemClicked: function(index) {
       this.index = index;
+    },
+    openCoverageDescription(coverage, event){
+      coverage.showDescription = !coverage.showDescription;
     }
   },
   mounted: function() {
@@ -148,19 +152,6 @@ export default {
 <style>
 .weui-panel__hd {
   text-align: left;
-}
-.coverageLine {
-  overflow: hidden;
-}
-.coverage {
-  float: left;
-  margin-left: 15px;
-  color: #999999;
-}
-.coverageAmount {
-  float: right;
-  margin-right: 15px;
-  color: #999999;
 }
 .table > table > thead > tr > th:first-child {
   float: left;
@@ -182,6 +173,9 @@ export default {
   text-align: left;
   margin-right: 20px;
   font-size: 14px;
+}
+.swiperHeight{
+  min-height: 300px;
 }
 </style>
 <i18n>
