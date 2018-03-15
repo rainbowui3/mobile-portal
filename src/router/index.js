@@ -57,6 +57,12 @@ const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/page
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
+const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoStudyRisk'),'InsuredInfoStudyRisk'));
+const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
+
+const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoAccident'),'InsuredInfoAccident'));
+const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
+
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -349,6 +355,22 @@ const router = new Router({
       path: '/project/proposal/gi/InsuredInfoConfirmNormal',
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
+    },{
+      path: '/project/proposal/gi/InsuredInfoStudyRisk',
+      name: 'InsuredInfoStudyRisk',
+      component: InsuredInfoStudyRisk
+    },{
+      path: '/project/proposal/gi/InsuredInfoConfirmStudyRisk',
+      name: 'InsuredInfoConfirmStudyRisk',
+      component: InsuredInfoConfirmStudyRisk
+    },{
+      path: '/project/proposal/gi/InsuredInfoAccident',
+      name: 'InsuredInfoAccident',
+      component: InsuredInfoAccident
+    },{
+      path: '/project/proposal/gi/InsuredInfoConfirmAccident',
+      name: 'InsuredInfoConfirmAccident',
+      component: InsuredInfoConfirmAccident
     },
 
     // business
