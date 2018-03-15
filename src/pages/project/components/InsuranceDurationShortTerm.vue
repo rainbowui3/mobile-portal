@@ -28,11 +28,11 @@ export default {
     model: {
       type: Object
     },
-    effectiveDate:{
-      type:String
+    effectiveDate: {
+      type: String
     },
-    expireDate:{
-      type:String
+    expireDate: {
+      type: String
     }
   },
   data() {
@@ -54,10 +54,34 @@ export default {
     } else {
       this.timeFormat = config.DEFAULT_DATE_FORMATER;
     }
+
+    //设定起保日期默认值：当前日期后一天0时0分0秒
+    if (this.model[this.effectiveDate] == "" || this.model[this.effectiveDate] == undefined) {
+      let dd = new Date();
+      let day,
+        month,
+        year = "";
+      let d = dd.getDate() + 1;
+      let m = dd.getMonth() + 1;
+      let y = dd.getFullYear();
+      if (d.toString().length == 1) {
+        day = "0" + d.toString();
+      } else {
+        day = d.toString();
+      }
+
+      if (m.toString().length == 1) {
+        month = "0" + m.toString();
+      } else {
+        month = m.toString();
+      }
+
+      year = y.toString();
+      this.model[this.effectiveDate] = year + "-" + month + "-" + day + " " + "00:00:00";
+      this.model[this.expireDate] = (y+1).toString() + "-" + month + "-" + day + " " + "00:00:00";
+    }
   },
-  mounted() {
-    console.log(this.value);
-  }
+  mounted() {}
 };
 </script>
 <i18n> 
