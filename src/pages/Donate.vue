@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('home.donate')" :showBack="true"/>
+       <top :title="$t('common.donate')" :showBack="true"/>
         <r-body>
             <card :imgSrc="teamPath">
                     <div class="card-padding">

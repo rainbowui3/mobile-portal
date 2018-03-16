@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('component.component')" :showBack="true"/>
+       <top :title="$t('common.component')" :showBack="true"/>
         <r-body>
             <tab :tabItems="tabItems"/>
             <grid :data="gridItems"/>

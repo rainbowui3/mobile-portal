@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('home.exapmle')" :showBack="true"/>
+       <top :title="$t('common.exapmle')" :showBack="true"/>
             <r-body>
               <tab :tabItems="tabItems"/>
               <r-image :list="products"/>
