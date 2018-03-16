@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     headerHtml(){
-        return `<h6>${this.$t('home.language')}</h6>`
+        return `<h6>${this.$t('common.language')}</h6>`
     },
   }
 };

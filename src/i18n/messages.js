@@ -41,7 +41,11 @@ export default {
         description:"Description",
         style:"Style",
         api:"API",
-        processing:"Processing"
+        processing:"Processing",
+        component:"Component",
+        exapmle:"Example",
+        donate:"Donate",
+        language:"Please Select Language"
       },
       dialog:{
         show:'Show'
@@ -118,11 +122,7 @@ export default {
         required:"Required",
         number:"Number"
       },
-      home:{
-        exapmle:"Example",
-        donate:"Donate",
-        language:"Please Select Language"
-      },
+    
       project:{
         jtyw:"AUTO Insurence",
         jtywdesc:"During the period of insurance, the unlimited number of times is guaranteed outside the traffic. All kinds of vehicles are guaranteed in all directions. The number of days is up to 7 days, and only 20 yuan is needed.",
@@ -222,7 +222,6 @@ export default {
         pleaseSelect:"Please Select",
         required:"Required",
         readonly:"Readonly",
-        component:"Component",
         detail:"Component Detail",
         core:"Core",
         advanced:"Advanced",
@@ -341,8 +340,11 @@ export default {
         description:"描述",
         style:"样式",
         api:"API",
-        processing:"玩命加载中"
-
+        processing:"玩命加载中",
+        component:"组件",
+        exapmle:"实例",
+        donate:"捐助",
+        language:"请选择语言"
       },
       dialog:{
         show:'显示'
@@ -388,11 +390,7 @@ export default {
         type4:"类型4",
         type5:"类型5",
     },
-      home:{
-        exapmle:"实例",
-        donate:"捐助",
-        language:"请选择语言"
-      },
+
       actionsheet:{
         android:"安卓风格",
         showCannel:"显示取消菜单",
@@ -526,7 +524,6 @@ export default {
         required:"必填",
         pleaseSelect:"请选择",
         readonly:"只读",
-        component:"组件",
         detail:"组件明细",
         core:"核心",
         advanced:"高级",
