@@ -74,6 +74,8 @@ const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/examp
 const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirm')), 'ProposalConfirm');
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
+//  pay
+const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
 
 
 Vue.use(Router);
@@ -430,6 +432,11 @@ const router = new Router({
       name: 'ProjectProposalCopies',
       component: ProjectProposalCopies
     },
+    {
+      path: '/component/example/Payment',
+      name: 'Payment',
+      component: Payment
+    }
   ],
 });
 

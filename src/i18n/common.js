@@ -312,6 +312,7 @@ export default {
       productTop: "product",
       proposalClauseConfirm: "Item",
       proposalCopies: "promine",
+      pay:"pay",
     }
   },
   "zh-CN": {
@@ -631,7 +632,8 @@ export default {
       productTop: "产品",
       proposalClauseConfirm: "条款",
       proposalCopies: "保费",
-
+      pay:"支付",
+      payment:"确认支付"
     }
   }
 }
