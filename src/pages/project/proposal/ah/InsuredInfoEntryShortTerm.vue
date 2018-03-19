@@ -76,7 +76,7 @@ export default {
   data() {
     return {
       readonly: false,
-      linkInsuredConfirmUrl: "/project/proposal/gi/InsuredInfoConfirmNormal",
+      linkInsuredConfirmUrl: "/project/proposal/ah/InsuredInfoConfirmNormal",
       policy: {
         holderInfo: {
           name: "王小明",
@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
+      this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
     },
     clickHome: function() {}
   }

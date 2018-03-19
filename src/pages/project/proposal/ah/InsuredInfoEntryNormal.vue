@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/gi/InsuredInfoConfirmNormal");
+      this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
     },
     clickHome: function() {
       console.log("lalalalala");

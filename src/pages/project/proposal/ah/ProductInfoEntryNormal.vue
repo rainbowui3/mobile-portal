@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/gi/insuredInfoEntryNormal");
+      this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
     }
   },
   created: function() {

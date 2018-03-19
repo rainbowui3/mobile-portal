@@ -4,7 +4,7 @@
     <r-body>
       <card>
         <div>
-          <h4>{{$t('保费支付成功，您的保单出单！')}}</h4>
+          <h4>{{$t('payStatus.success')}}</h4>
         </div>
         <previewer :title="$t('付款金额')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
       </card>
@@ -16,6 +16,7 @@
 import { Page, Card, Popup, RBody } from "rainbow-mobile-core";
 import { Previewer } from "rainbow-mobile-previewer";
 import Top from "@/components/Top";
+import "../../../i18n/payStatus";
 export default {
   components: {
     Page,
@@ -46,7 +47,7 @@ export default {
       return [
         {
           style: "default",
-          text: this.$t("继续投保"),
+          text: this.$t('payStatus.again'),
           link: "/project/proposal/gi/productInfoEntryNormal"
         }
       ];
@@ -54,14 +55,14 @@ export default {
     list2() {
       return [
         {
-          label: this.$t("商品"),
+          label: this.$t('payStatus.commodity'),
           value: this.$t("xxxxxxxx险")
         },
         {
-          label: this.$t("保单号"),
+          label: this.$t('payStatus.policyNo'),
           value: this.$t("TJAB3457890457899")
         },{
-          value: this.$t("电子保单稍后将发送到您提供的电子邮箱，您也可以在中国大地保险网站www.95590.cn下载您的保单")
+          value: this.$t('payStatus.note')
         }
         // {
         //   value: this.$t(

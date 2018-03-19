@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      linkInsuredInfoUrl: "/project/proposal/gi/insuredInfoEntryShortTerm",
+      linkInsuredInfoUrl: "/project/proposal/ah/insuredInfoEntryShortTerm",
       productImgSrc: Jtgj,
       productDes:
         "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/gi/insuredInfoEntryShortTerm");
+      this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
     }
   }
   // ,
