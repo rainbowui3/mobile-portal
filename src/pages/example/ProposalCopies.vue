@@ -3,7 +3,7 @@
        <top :title="$t('business.proposalCopies')" :showBack="true"/>
        <r-body>
           <card>
-       <proposal-confirm-imme />
+       <proposal-confirm />
         </card>
        </r-body>
        <bottom :index="2"/>
@@ -14,7 +14,7 @@
 import {Page,Card,RTable,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import ProposalConfirmImme from '../project/components/ProposalConfirmImme';
+import ProposalConfirm from '../project/components/ProposalConfirm';
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     Page,
     Card,
     RTable,
-    ProposalConfirmImme,
+    ProposalConfirm,
     RBody
   },
  

@@ -73,9 +73,7 @@ const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/ex
 const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/example/ProductTop')), 'ProductTop');
 const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirm')), 'ProposalConfirm');
-const ProjectProposalConfirmImme = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirmImme')), 'ProposalConfirmImme');
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
-const ProjectProposalSubmitPay = r => require.ensure([], () => r(require('@/pages/example/ProposalSubmitPay')), 'ProposalSubmitPay');
 
 
 Vue.use(Router);
@@ -428,19 +426,9 @@ const router = new Router({
       component: ProjectProposalConfirm
     },
     {
-      path: '/component/example/ProposalConfirmImme',
-      name: 'ProjectProposalConfirmImme',
-      component: ProjectProposalConfirmImme
-    },
-    {
       path: '/component/example/ProposalCopies',
       name: 'ProjectProposalCopies',
       component: ProjectProposalCopies
-    },
-    {
-      path: '/component/example/ProposalSubmitPay',
-      name: 'ProjectProposalSubmitPay',
-      component: ProjectProposalSubmitPay
     },
   ],
 });

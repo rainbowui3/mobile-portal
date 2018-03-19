@@ -1,14 +1,15 @@
 <template>
     <div>
-        <row :title="$t('归属经办人')" :onClick="goto" isLink="true"></row>
-        <row :title="$t('代理人')" :onClick="goto" isLink="true"></row>
-        <picker  :title="$t('代理人协议')" :options="list1" :model="policy" value="value1" :onChange="onChange" :readonly="true" ></picker>
+        <row :title="$t('autoAgent.belongToHandler')" :onClick="goto" isLink="true"></row>
+        <row :title="$t('autoAgent.agent')" :onClick="goto" isLink="true"></row>
+        <picker :title="$t('autoAgent.agreementNo')" :options="list1" :model="policy" value="value1" :onChange="onChange" :readonly="true" ></picker>
         
     </div>
 </template>
 
 <script>
 import {Row,Picker} from "rainbow-mobile-core";
+import i18n from "../../../i18n/autoAgent";
 export default {
   components: { 
     Row,

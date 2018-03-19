@@ -1,15 +1,13 @@
 <template>
-    <!--<card title="被保险人" class="weui-panel__hd" >-->
     <div>
         <!-- <selector  :title="$t('与投保人关系:')" :options="options1" :model="insuredInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector> -->
-        <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="insuredInfo" value="name" :readonly="readonly" />
-        <selector :title="$t('证件类型:')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-        <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="insuredInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
-        <date-time :title="$t('出生日期')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-        <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="insuredInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
-        <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="insuredInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="insuredInfo" value="name" :readonly="readonly" />
+        <selector :title="$t('holderInfo.certificateType')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="insuredInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
+        <date-time :title="$t('holderInfo.birthday')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="insuredInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="insuredInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
     </div>
-    <!--</card>-->
 </template>
 
 <script>
@@ -23,6 +21,7 @@ import {
 } from "rainbow-mobile-core";
 import Validate from "../utils/Valitate";
 import Getbirthday from "../utils/Getbirthday";
+import i18n from "../../../i18n/holderInfo";
 export default {
   components: {
     Card,
@@ -81,7 +80,4 @@ export default {
 };
 </script>
 <style>
-/*.weui-panel__hd {
-    text-align: left;
-}*/
 </style>

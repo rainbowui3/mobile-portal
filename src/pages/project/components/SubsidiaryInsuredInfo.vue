@@ -1,17 +1,15 @@
 <template>
-  <!--<card title="附属被保险人" class="weui-panel__hd" >-->
   <!-- relationToMainInsured -->
   <div>
     <selector :title="$t('与投保人关系:')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
     <selector :title="$t('与主被保险人关系:')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector>
-    <r-input :title="$t('姓名:')" :placeholder="$t('请填写姓名')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly" />
-    <selector :title="$t('证件类型:')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-    <r-input :title="$t('证件号码:')" :placeholder="$t('请填写证件号码')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
-    <date-time :title="$t('出生日期')" :model="dubsidiaryInsuranceInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-    <r-input :title="$t('手机号码:')" :placeholder="$t('请填写手机号码')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
-    <r-input :title="$t('电子邮箱：')" :placeholder="$t('email@email.com')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly" />
+    <selector :title="$t('holderInfo.certificateType')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+    <r-input :title="$t('holderInfo.ID:')" :placeholder="$t('holderInfo.placeholderID')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
+    <date-time :title="$t('holderInfo.birthday')" :model="dubsidiaryInsuranceInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
   </div>
-  <!--</card>-->
 </template>
 
 <script>
@@ -95,7 +93,4 @@ export default {
 };
 </script>
 <style>
-/*.weui-panel__hd {
-    text-align: left;
-}*/
 </style>
