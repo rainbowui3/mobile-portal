@@ -55,7 +55,11 @@ export default {
       insured:"Insured",
       holder:"holder",
       subsidiaryInsured:"subsidiaryInsured",
-      addmore:"Add more"
+      addmore:"Add more",
+      name:"Name",
+      holderInfo:"Holder Info",
+      insuredInfo:"Insured Info",
+      subsidiaryInsuredInfo:"Subsidiary Info"
     },
     dialog: {
       show: 'Show'
@@ -364,7 +368,11 @@ export default {
       insured:"被保人",
       holder:"投保人",
       subsidiaryInsured:"附属被保险人",
-      addmore:"添加更多被保险人"
+      addmore:"添加更多被保险人",
+      name:"姓名",
+      holderInfo:"投保人信息",
+      insuredInfo:"被保人信息",
+      subsidiaryInsuredInfo:"附属被保险人信息"
     },
     dialog: {
       show: '显示'
