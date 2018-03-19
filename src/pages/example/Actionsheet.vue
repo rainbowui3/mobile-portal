@@ -1,15 +1,15 @@
 <template>
   <page>
-       <top :title="$t('component.actionsheet')" :showBack="true"/>
+       <top :title="$t('actionSheet.actionsheet')" :showBack="true"/>
         <r-body>
-            <card :title="$t('component.basic')">
-              <r-switch :title="$t('component.basic')" :model="policy" value="show1"  :onClick="click"></r-switch>
+            <card :title="$t('common.basic')">
+              <r-switch :title="$t('common.basic')" :model="policy" value="show1"  :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.android')" :model="policy" value="show2" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.showCannel')" :model="policy" value="show3" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.useArray')" :model="policy" value="show4" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.clickMask')" :model="policy" value="show5" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.tips')" :model="policy" value="show6" :onClick="click"></r-switch>
-              <r-switch :title="$t('preview.title')" :model="policy" value="show7" :onClick="click"></r-switch>
+              <r-switch :title="$t('actionsheet.title')" :model="policy" value="show7" :onClick="click"></r-switch>
 
             </card>
 
@@ -40,6 +40,7 @@ import {
 } from "rainbow-mobile-core";
 import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
+import "../../i18n/actionSheet";
 export default {
   components: {
     Bottom,
@@ -68,7 +69,7 @@ export default {
       },
       menu5: [
         {
-          label: this.$t("preview.title"),
+          label: this.$t("actionsheet.title"),
           type: "info"
         },
         {

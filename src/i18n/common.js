@@ -59,7 +59,8 @@ export default {
       name:"Name",
       holderInfo:"Holder Info",
       insuredInfo:"Insured Info",
-      subsidiaryInsuredInfo:"Subsidiary Info"
+      subsidiaryInsuredInfo:"Subsidiary Info",
+      basic:"Basic"
     },
     dialog: {
       show: 'Show'
@@ -105,16 +106,16 @@ export default {
       type4: "type4",
       type5: "type5",
     },
-    actionsheet: {
-      android: "Android Style",
-      showCannel: "Show Cannel Menu",
-      useArray: "User Array Data",
-      friends: "Share to Friends",
-      timeline: "Share to WhatsApp",
-      clickMask: "Click Mask",
-      tips: "Tips",
-      autoClose: "No Auto Close"
-    },
+    // actionsheet: {
+    //   android: "Android Style",
+    //   showCannel: "Show Cannel Menu",
+    //   useArray: "User Array Data",
+    //   friends: "Share to Friends",
+    //   timeline: "Share to WhatsApp",
+    //   clickMask: "Click Mask",
+    //   tips: "Tips",
+    //   autoClose: "No Auto Close"
+    // },
     input: {
       placeholder: "Placeholder",
       showClear: 'UnShow Clear',
@@ -372,7 +373,8 @@ export default {
       name:"姓名",
       holderInfo:"投保人信息",
       insuredInfo:"被保人信息",
-      subsidiaryInsuredInfo:"附属被保险人信息"
+      subsidiaryInsuredInfo:"附属被保险人信息",
+      basic:"基础用法"
     },
     dialog: {
       show: '显示'
@@ -419,16 +421,16 @@ export default {
       type5: "类型5",
     },
 
-    actionsheet: {
-      android: "安卓风格",
-      showCannel: "显示取消菜单",
-      useArray: "使用数组作为数据源",
-      friends: "分享给朋友",
-      timeline: "分享到朋友圈",
-      clickMask: "点击遮罩",
-      tips: "提示",
-      autoClose: "不自动关闭"
-    },
+    // actionsheet: {
+    //   android: "安卓风格",
+    //   showCannel: "显示取消菜单",
+    //   useArray: "使用数组作为数据源",
+    //   friends: "分享给朋友",
+    //   timeline: "分享到朋友圈",
+    //   clickMask: "点击遮罩",
+    //   tips: "提示",
+    //   autoClose: "不自动关闭"
+    // },
     input: {
       placeholder: "水印",
       showClear: '不显示清除',
