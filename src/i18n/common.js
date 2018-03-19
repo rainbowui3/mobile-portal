@@ -62,9 +62,9 @@ export default {
       subsidiaryInsuredInfo:"Subsidiary Info",
       basic:"Basic"
     },
-    dialog: {
-      show: 'Show'
-    },
+    // dialog: {
+    //   show: 'Show'
+    // },
     step: {
       step1: 'Step1',
       step2: 'Step2',
@@ -376,9 +376,9 @@ export default {
       subsidiaryInsuredInfo:"附属被保险人信息",
       basic:"基础用法"
     },
-    dialog: {
-      show: '显示'
-    },
+    // dialog: {
+    //   show: '显示'
+    // },
     popup: {
       fullpopup: '全屏弹出框'
     },
