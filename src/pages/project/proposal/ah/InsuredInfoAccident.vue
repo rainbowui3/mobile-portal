@@ -2,13 +2,13 @@
   <page>
       <top :title="$t('project.jtyw')" :showBack="true" />
       <r-body>
-          <card title="乘客信息">
+          <card :title="$t('insuredInfoAccident.passengerInfo')">
               <holder-info :holderInfo="passengerInfo" />
-              <r-input :title="$t('车次号')"  :model="passengerInfo" value="rainNo"  />           
-              <r-input :title="$t('姓名:')"  :model="passengerInfo" value="seatNum"  />
-              <r-switch  :title="$t('与投保人为同一人')"  :model="passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder" ></r-switch>      
+              <r-input :title="$t('insuredInfoAccident.trainNo')"  :model="passengerInfo" value="rainNo"  />           
+              <r-input :title="$t('common.name')"  :model="passengerInfo" value="seatNum"  />
+              <r-switch  :title="$t('insuredInfoAccident.sameWithHolder')"  :model="passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder" ></r-switch>      
           </card>
-          <card title="投保人信息">
+          <card :title="$t('common.holderInfo')">
               <holder-info :holderInfo="holderInfo" />
           </card>
 
@@ -27,6 +27,7 @@ import {Page,RBody,TabBar,Card,RInput,RSwitch,Selector} from "rainbow-mobile-cor
 import Top from "@/components/Top";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import HolderInfo from "../../components/HolderInfo";
+import "../../../../i18n/insuredInfoAccident";
 export default {
     components:{
         Page,

@@ -50,11 +50,21 @@ export default {
       auto: "Auto",
       gi: "GI",
       ah: "AH",
-      confirm:"Confirm"
+      confirm:"Confirm",
+      autoPassengersInsurance:"Auto Passenger Insurance",
+      insured:"Insured",
+      holder:"holder",
+      subsidiaryInsured:"subsidiaryInsured",
+      addmore:"Add more",
+      name:"Name",
+      holderInfo:"Holder Info",
+      insuredInfo:"Insured Info",
+      subsidiaryInsuredInfo:"Subsidiary Info",
+      basic:"Basic"
     },
-    dialog: {
-      show: 'Show'
-    },
+    // dialog: {
+    //   show: 'Show'
+    // },
     step: {
       step1: 'Step1',
       step2: 'Step2',
@@ -96,16 +106,16 @@ export default {
       type4: "type4",
       type5: "type5",
     },
-    actionsheet: {
-      android: "Android Style",
-      showCannel: "Show Cannel Menu",
-      useArray: "User Array Data",
-      friends: "Share to Friends",
-      timeline: "Share to WhatsApp",
-      clickMask: "Click Mask",
-      tips: "Tips",
-      autoClose: "No Auto Close"
-    },
+    // actionsheet: {
+    //   android: "Android Style",
+    //   showCannel: "Show Cannel Menu",
+    //   useArray: "User Array Data",
+    //   friends: "Share to Friends",
+    //   timeline: "Share to WhatsApp",
+    //   clickMask: "Click Mask",
+    //   tips: "Tips",
+    //   autoClose: "No Auto Close"
+    // },
     input: {
       placeholder: "Placeholder",
       showClear: 'UnShow Clear',
@@ -355,11 +365,21 @@ export default {
       auto: "车险",
       gi: "财产险",
       ah: "意健险",
-      confirm:"确定"
+      confirm:"确定",
+      autoPassengersInsurance:"司乘险",
+      insured:"被保人",
+      holder:"投保人",
+      subsidiaryInsured:"附属被保险人",
+      addmore:"添加更多被保险人",
+      name:"姓名",
+      holderInfo:"投保人信息",
+      insuredInfo:"被保人信息",
+      subsidiaryInsuredInfo:"附属被保险人信息",
+      basic:"基础用法"
     },
-    dialog: {
-      show: '显示'
-    },
+    // dialog: {
+    //   show: '显示'
+    // },
     popup: {
       fullpopup: '全屏弹出框'
     },
@@ -402,16 +422,16 @@ export default {
       type5: "类型5",
     },
 
-    actionsheet: {
-      android: "安卓风格",
-      showCannel: "显示取消菜单",
-      useArray: "使用数组作为数据源",
-      friends: "分享给朋友",
-      timeline: "分享到朋友圈",
-      clickMask: "点击遮罩",
-      tips: "提示",
-      autoClose: "不自动关闭"
-    },
+    // actionsheet: {
+    //   android: "安卓风格",
+    //   showCannel: "显示取消菜单",
+    //   useArray: "使用数组作为数据源",
+    //   friends: "分享给朋友",
+    //   timeline: "分享到朋友圈",
+    //   clickMask: "点击遮罩",
+    //   tips: "提示",
+    //   autoClose: "不自动关闭"
+    // },
     input: {
       placeholder: "水印",
       showClear: '不显示清除',

@@ -3,20 +3,20 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
-      <card :title="$t('投保人信息')">
+      <card :title="$t('common.holder')">
         <holder-info :holderInfo="holderInfo" />
       </card>
-      <card :title="$t('被保险人信息')">
-        <choose-relationship :datas="datas1" :title="'与投保人关系'" :model="policy.InsuredInfo[0]" value="relationToHolder"/>
+      <card :title="$t('common.insured')">
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.InsuredInfo[0]" value="relationToHolder"/>
         <insured-info v-if="policy.InsuredInfo[0].relationToHolder && policy.InsuredInfo[0].relationToHolder != '' && policy.InsuredInfo[0].relationToHolder != '本人'" :insuredInfo="insuredInfo" />
       </card>
-      <card :title="$t('附属被保险人信息')">
-        <choose-relationship :datas="datas1" :title="'与投保人关系'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder"/>
-        <choose-relationship :datas="datas1" :title="'与主被保险人关系'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured"/>
+      <card :title="$t('common.subsidiaryInsured')">
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder"/>
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured"/>
         <subsidiary-insured-info v-if="policy.SubsidiaryInsuredInfo[0].relationToHolder && policy.SubsidiaryInsuredInfo[0].relationToHolder != '' && policy.SubsidiaryInsuredInfo[0].relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
-        <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
+        <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
       </card>
       <proposal-clause-confirm/>
     </r-body>

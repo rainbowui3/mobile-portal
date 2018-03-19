@@ -6,22 +6,22 @@
               <insurance-duration-short-term type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"/>
           </card>
           <card>
-                <r-input :title="$t('宝贝姓名:')" :placeholder="$t('请填写宝贝姓名')" :model="holderInfo" value="name" :readonly="readonly" />
-                <selector :title="$t('宝贝证件类型:')" :options="options" :model="holderInfo" value="certificateId" :readonly="readonly"></selector>
-                <r-input :title="$t('宝贝证件号码:')" :placeholder="$t('请填写证件号码')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
-                <date-time :title="$t('宝贝出生日期')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>    
-                <r-input :title="$t('宝贝在读学校:')" :placeholder="$t('请填写学校名称')" :model="holderInfo" value="name" :readonly="readonly" />
-                <r-input :title="$t('宝贝所在班级:')" :placeholder="$t('请填写班级名称')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />          
-                <selector  :title="$t('您和宝贝的关系:')" :options="options1" :model="insuredInfo" value="relationToHolder" :readonly="readonly"></selector> 
+                <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="holderInfo" value="name" :readonly="readonly" />
+                <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="holderInfo" value="certificateId" :readonly="readonly"></selector>
+                <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
+                <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>    
+                <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="holderInfo" value="name" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />          
+                <selector  :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="insuredInfo" value="relationToHolder" :readonly="readonly"></selector> 
      
         </card>
           <card>
-                <r-input :title="$t('您的姓名:')" :placeholder="$t('请填您的真实姓名')" :model="holderInfo" value="name" :readonly="readonly" />
-                <selector :title="$t('您的证件类型:')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-                <r-input :title="$t('您的证件号码:')" :placeholder="$t('请填写您的证件号码')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
-                <date-time :title="$t('您的出生日期')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>
-                <r-input :title="$t('您的手机号码:')" :placeholder="$t('请填写您的手机号码')" :model="holderInfo" value="mobileNum" :isPhone="true" :readonly="readonly" />
-                <r-input :title="$t('您的电子邮箱：')" :placeholder="$t('email@email.com')" :model="holderInfo" value="email" :isEmail="false"  :readonly="readonly"/>
+                <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="holderInfo" value="name" :readonly="readonly" />
+                <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+                <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
+                <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>
+                <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('email@email.com')" :model="holderInfo" value="email" :isEmail="false"  :readonly="readonly"/>
           </card>
 
       </r-body>
@@ -41,6 +41,7 @@ import ProposalConfirm from "../../components/ProposalConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 import Validate from "../../utils/Valitate";
 import Getbirthday from "../../utils/Getbirthday";
+import "../../../../i18n/insuredInfoStudyRisk";
 export default {
     components:{
         Page,

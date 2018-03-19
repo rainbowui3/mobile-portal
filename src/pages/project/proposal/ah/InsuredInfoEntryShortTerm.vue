@@ -2,19 +2,19 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-        <card :title="$t('投保人')">
+        <card :title="$t('insuredInfoEntryShortTerm.holder')">
           <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
         </card>
-        <card :title="$t('被保险人')">
+        <card :title="$t('insuredInfoEntryShortTerm.insured')">
           <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
 
         </card>
 
-        <card :title="$t('附属被保险人')">
+        <card :title="$t('insuredInfoEntryShortTerm.subsidiaryInsured')">
           <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
         </card>
         <card class="addInsuredButton">
-          <r-button type="primary" :onClick="clickHome">{{$t('添加更多被保险人')}}</r-button>
+          <r-button type="primary" :onClick="clickHome">{{$t('insuredInfoEntryShortTerm.addMore')}}</r-button>
         </card>
         <proposal-clause-confirm/>
     </r-body>
@@ -54,6 +54,7 @@ import InsuredInfo from "../../components/InsuredInfo";
 import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import ProposalConfirm from "../../components/ProposalConfirm";
+import "../../../../i18n/insuredInfoEntryShortTerm";
 
 export default {
   components: {

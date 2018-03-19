@@ -1,16 +1,16 @@
 <template>
   <page>
-    <top :title="$t('project.jtyw')" :showBack="true" />
+    <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
       <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
-      <card :title="$t('投保人')">
+      <card :title="$t('common.holder')">
         <choose-relationship></choose-relationship>
         <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
       </card>
-      <card :title="$t('被保险人')">
+      <card :title="$t('common.insured')">
         <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
       </card>
-      <card :title="$t('附属被保险人')">
+      <card :title="$t('common.subsidiary')">
         <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </card>
     </r-body>

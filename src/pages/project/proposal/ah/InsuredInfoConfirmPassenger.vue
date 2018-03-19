@@ -1,19 +1,19 @@
 <template>
     <page>
-        <top :title="$t('司乘险')" :showBack="true" />
+        <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
         <r-body>
             <insurance-duration-short-term type="day" :model="policy" expireDate="expireDate" effectiveDate="effectiveDate" />
-            <card :title="$t('投保人')">
+            <card :title="$t('common.holder')">
                 <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
             </card>
-            <card :title="$t('车辆信息')">
-                <r-input :title="$t('品牌车型')" :required="true" :model="policy.carInfo" value="carModel" :onChange="getCarModel" :readonly="readonly" />
-                <r-input :title="$t('车牌号码')" :required="true" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" :readonly="readonly" />
-                <r-input :title="$t('发动机号')" :required="true" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" :readonly="readonly" />
-                <r-input :title="$t('车架号')" :required="true" :model="policy.carInfo" value="vin" :onChange="getCarModel" :readonly="readonly" />
-                <r-input :title="$t('核定座位数')" :required="true" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :readonly="readonly" />
-                <r-input :title="$t('车主')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :readonly="readonly" />
-                <selector :title="$t('车辆使用性质')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :readonly="readonly"></selector>
+            <card :title="$t('insuredInfoEntryPassenger.carInfo')">
+                <r-input :title="$t('insuredInfoEntryPassenger.model')" :required="true" :model="policy.carInfo" value="carModel" :onChange="getCarModel" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :required="true" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoEntryPassenger.engineNo')" :required="true" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoEntryPassenger.vin')" :required="true" :model="policy.carInfo" value="vin" :onChange="getCarModel" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="true" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :readonly="readonly" />
+                <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :readonly="readonly"></selector>
             </card>
             <proposal-clause-confirm/>
         </r-body>
@@ -37,6 +37,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import HolderInfo from "../../components/HolderInfo";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
+import "../../../../i18n/insuredInfoEntryPassenger";
 export default {
   components: {
     Page,
