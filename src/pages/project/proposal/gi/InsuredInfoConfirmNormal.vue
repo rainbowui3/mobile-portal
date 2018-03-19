@@ -2,7 +2,7 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term :readonly="readonly" />
+      <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
       <card :title="$t('投保人')">
         <choose-relationship></choose-relationship>
         <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
