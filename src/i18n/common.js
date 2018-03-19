@@ -60,52 +60,54 @@ export default {
       holderInfo:"Holder Info",
       insuredInfo:"Insured Info",
       subsidiaryInsuredInfo:"Subsidiary Info",
-      basic:"Basic"
+      basic:"Basic",
+      badge:"Badge",
+      row:"Row",
     },
     // dialog: {
     //   show: 'Show'
     // },
-    step: {
-      step1: 'Step1',
-      step2: 'Step2',
-      step3: 'Step3',
-      step4: 'Step4',
-    },
-    popup: {
-      fullpopup: 'Full Popup'
-    },
-    page: {
-      info: 'This is the outermost container'
-    },
-    grid: {
-      col2: '2 column',
-      col3: '3 column',
-      col4: '4 column',
-    },
-    divider: {
-      sogo: 'rainbow mobile easy&nice'
-    },
-    icon: {
-      aoshen: 'Font Awesome',
-      nojs: 'no javaScript',
-      css: 'css support',
-    },
-    row: {
-      account: "Account",
-      protected: "Protected",
-      money: "Money",
-      withdraw: "Withdraw",
-      title: "Custom Title",
-      longValue: 'Long Value',
-      collapse: "Collapse"
-    },
-    panel: {
-      type1: "type1",
-      type2: "type2",
-      type3: "type3",
-      type4: "type4",
-      type5: "type5",
-    },
+    // step: {
+    //   step1: 'Step1',
+    //   step2: 'Step2',
+    //   step3: 'Step3',
+    //   step4: 'Step4',
+    // },
+    // popup: {
+    //   fullpopup: 'Full Popup'
+    // },
+    // page: {
+    //   info: 'This is the outermost container'
+    // },
+    // grid: {
+    //   col2: '2 column',
+    //   col3: '3 column',
+    //   col4: '4 column',
+    // },
+    // divider: {
+    //   sogo: 'rainbow mobile easy&nice'
+    // },
+    // icon: {
+    //   aoshen: 'Font Awesome',
+    //   nojs: 'no javaScript',
+    //   css: 'css support',
+    // },
+    // row: {
+    //   account: "Account",
+    //   protected: "Protected",
+    //   money: "Money",
+    //   withdraw: "Withdraw",
+    //   title: "Custom Title",
+    //   longValue: 'Long Value',
+    //   collapse: "Collapse"
+    // },
+    // panel: {
+    //   type1: "type1",
+    //   type2: "type2",
+    //   type3: "type3",
+    //   type4: "type4",
+    //   type5: "type5",
+    // },
     // actionsheet: {
     //   android: "Android Style",
     //   showCannel: "Show Cannel Menu",
@@ -116,27 +118,27 @@ export default {
     //   tips: "Tips",
     //   autoClose: "No Auto Close"
     // },
-    input: {
-      placeholder: "Placeholder",
-      showClear: 'UnShow Clear',
-      iconType: "iconType",
-      validate: "Must be input 12345",
-      mask: "Mask",
-      userName: "UserName",
-      password: "Password",
-      userHolder: "Please input userName",
-      passwordHolder: "Please input passowrd",
-      max: "Max",
-      min: "Min",
-      onFocus: 'onFocus',
-      onBlur: 'onBlur',
-      onChange: 'onChange',
-      onEnter: 'onEnter',
-      email: "E-mail",
-      vcode: "vcode",
-      required: "Required",
-      number: "Number"
-    },
+    // input: {
+    //   placeholder: "Placeholder",
+    //   showClear: 'UnShow Clear',
+    //   iconType: "iconType",
+    //   validate: "Must be input 12345",
+    //   mask: "Mask",
+    //   userName: "UserName",
+    //   password: "Password",
+    //   userHolder: "Please input userName",
+    //   passwordHolder: "Please input passowrd",
+    //   max: "Max",
+    //   min: "Min",
+    //   onFocus: 'onFocus',
+    //   onBlur: 'onBlur',
+    //   onChange: 'onChange',
+    //   onEnter: 'onEnter',
+    //   email: "E-mail",
+    //   vcode: "vcode",
+    //   required: "Required",
+    //   number: "Number"
+    // },
 
     project: {
       jtyw: "AUTO Insurence",
@@ -374,52 +376,54 @@ export default {
       holderInfo:"投保人信息",
       insuredInfo:"被保人信息",
       subsidiaryInsuredInfo:"附属被保险人信息",
-      basic:"基础用法"
+      basic:"基础用法",
+      badge:"徽章",
+      row:"单元行"
     },
     // dialog: {
     //   show: '显示'
     // },
-    popup: {
-      fullpopup: '全屏弹出框'
-    },
-    step: {
-      step1: '步骤1',
-      step2: '步骤2',
-      step3: '步骤3',
-      step4: '步骤4',
-    },
-    page: {
-      info: '这是最外层的容器'
-    },
-    grid: {
-      col2: '2 列',
-      col3: '3 列',
-      col4: '4 列',
-    },
-    divider: {
-      sogo: 'rainbow mobile 好用又好看'
-    },
-    icon: {
-      aoshen: '全系采用奥森图标',
-      nojs: '无需javascript',
-      css: '全面支持css设置',
-    },
-    row: {
-      account: "账户",
-      protected: "受保护的",
-      money: "余额",
-      withdraw: "提现",
-      title: "自定义标题",
-      longValue: '长文本',
-      collapse: "折叠"
-    },
-    panel: {
-      type1: "类型1",
-      type2: "类型2",
-      type3: "类型3",
-      type4: "类型4",
-      type5: "类型5",
-    },
+    // popup: {
+    //   fullpopup: '全屏弹出框'
+    // },
+    // step: {
+    //   step1: '步骤1',
+    //   step2: '步骤2',
+    //   step3: '步骤3',
+    //   step4: '步骤4',
+    // },
+    // page: {
+    //   info: '这是最外层的容器'
+    // },
+    // grid: {
+    //   col2: '2 列',
+    //   col3: '3 列',
+    //   col4: '4 列',
+    // },
+    // divider: {
+    //   sogo: 'rainbow mobile 好用又好看'
+    // },
+    // icon: {
+    //   aoshen: '全系采用奥森图标',
+    //   nojs: '无需javascript',
+    //   css: '全面支持css设置',
+    // },
+    // row: {
+    //   account: "账户",
+    //   protected: "受保护的",
+    //   money: "余额",
+    //   withdraw: "提现",
+    //   title: "自定义标题",
+    //   longValue: '长文本',
+    //   collapse: "折叠"
+    // },
+    // panel: {
+    //   type1: "类型1",
+    //   type2: "类型2",
+    //   type3: "类型3",
+    //   type4: "类型4",
+    //   type5: "类型5",
+    // },
 
     // actionsheet: {
     //   android: "安卓风格",
@@ -431,27 +435,27 @@ export default {
     //   tips: "提示",
     //   autoClose: "不自动关闭"
     // },
-    input: {
-      placeholder: "水印",
-      showClear: '不显示清除',
-      iconType: "图标类型",
-      validate: "必须输入12345",
-      mask: "掩饰",
-      userName: "用户名",
-      password: "密码",
-      userHolder: "请输入用户名",
-      passwordHolder: "请输入密码",
-      max: "最大",
-      min: "最小",
-      onFocus: '获得焦点',
-      onBlur: '失去焦点',
-      onChange: '值改变',
-      onEnter: '回车',
-      email: "邮箱",
-      vcode: "验证码",
-      required: "必填",
-      number: "数字"
-    },
+    // input: {
+    //   placeholder: "水印",
+    //   showClear: '不显示清除',
+    //   iconType: "图标类型",
+    //   validate: "必须输入12345",
+    //   mask: "掩饰",
+    //   userName: "用户名",
+    //   password: "密码",
+    //   userHolder: "请输入用户名",
+    //   passwordHolder: "请输入密码",
+    //   max: "最大",
+    //   min: "最小",
+    //   onFocus: '获得焦点',
+    //   onBlur: '失去焦点',
+    //   onChange: '值改变',
+    //   onEnter: '回车',
+    //   email: "邮箱",
+    //   vcode: "验证码",
+    //   required: "必填",
+    //   number: "数字"
+    // },
     project: {
       jtyw: "交通意外险",
       jtywdesc: "保险期间内，不限次数的保障交通以外。各类交通工具全方位保障，保障天数长达7天，仅需20元",
