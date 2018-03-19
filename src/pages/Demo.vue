@@ -1,30 +1,29 @@
 <template>
   <page>
-       <top :title="$t('common.exapmle')" :showBack="true"/>
-            <r-body>
-              <tab :tabItems="tabItems"/>
-              <r-image :list="products"/>
-            </r-body>
-       <bottom :index="3"/>
+    <top :title="$t('demo.example')" :showBack="true" />
+    <r-body>
+      <tab :tabItems="tabItems" />
+      <r-image :list="products" />
+    </r-body>
+    <bottom :index="3" />
   </page>
 </template>
 
 <script>
-import {Page,Tab,RImage,RBody} from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
-import Female from '../assets/female.jpg';
-import Fire from '../assets/fire.png';
-import Jcx from '../assets/jcx.jpg';
-import Jtgj from '../assets/jtgj.jpg';
-import Ly from '../assets/ly.jpg';
-import Tthj from '../assets/tthj.jpg';
-import Xpx from '../assets/xpx.jpg';
-import Ycx from '../assets/ycx.jpg';
-import Ywx from '../assets/ywx.jpg';
-import Zrx from '../assets/zrx.jpg';
-
-
+import { Page, Tab, RImage, RBody } from "rainbow-mobile-core";
+import Bottom from "../components/Bottom";
+import Top from "../components/Top";
+import Female from "../assets/female.jpg";
+import Fire from "../assets/fire.png";
+import Jcx from "../assets/jcx.jpg";
+import Jtgj from "../assets/jtgj.jpg";
+import Ly from "../assets/ly.jpg";
+import Tthj from "../assets/tthj.jpg";
+import Xpx from "../assets/xpx.jpg";
+import Ycx from "../assets/ycx.jpg";
+import Ywx from "../assets/ywx.jpg";
+import Zrx from "../assets/zrx.jpg";
+import "../i18n/demo";
 
 export default {
   components: {
@@ -35,60 +34,133 @@ export default {
     RImage,
     RBody
   },
-  data(){
-      return {
-        products:[
-          {"class":"product","src":Ly,'onClick':this.goto,'param':'/project/proposal/gi/productInfoEntryNormal'},
-          {"class":"product","src":Jcx,'onClick':this.goto,'param':'/project/proposal/gi/productInfoEntryShortTerm'},
-          {"class":"product","src":Female,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Fire,'onClick':this.goto,'param':'/project/proposal/gi/InsuredInfoStudyRisk'},
-          {"class":"product","src":Jtgj,'onClick':this.goto,'param':'/project/proposal/gi/InsuredInfoAccident'},
-          {"class":"product","src":Tthj,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Xpx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Ywx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Zrx,'onClick':this.goto,'param':'/project/ly'}
-        ]
-      }
-  },
-  methods:{
-      goto(param){
-        window.location.hash=param;
-      },
-      go(index){
-        switch (index) {
-          case 0:
-            window.location.hash="/demo";
-            break;
-          case 1:
-            window.location.hash="/demo/auto";
-            break;
-          case 2:
-            window.location.hash="/demo/gi";
-            break;
-          case 3:
-            window.location.hash="/demo/ah";
-            break;
-          default:
-            window.location.hash="/demo";
-            break;
-        }
-      }
-  },
-  computed:{
-     tabItems(){
-      return [
-        { 'selected':true,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('demo.popular'),"onClick":this.go},
-        { 'selected':false,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('demo.auto'),"onClick":this.go},
-        { 'selected':false, 'showdot':true, 'disabled': false, 'badge': '1','text': this.$t('demo.gi'),"onClick":this.go},
-        { 'selected':false, 'showdot':false, 'disabled': false, 'badge': '', 'text': this.$t('demo.ah'),"onClick":this.go },
+  data() {
+    return {
+      products: [
+        {
+          class: "product",
+          src: Ly,
+          onClick: this.goto,
+          param: "/project/proposal/gi/productInfoEntryNormal"
+        },
+        {
+          class: "product",
+          src: Jcx,
+          onClick: this.goto,
+          param: "/project/proposal/gi/productInfoEntryShortTerm"
+        },
+        {
+          class: "product",
+          src: Female,
+          onClick: this.goto,
+          param: "/project/ly"
+        },
+        {
+          class: "product",
+          src: Fire,
+          onClick: this.goto,
+          param: "/project/proposal/gi/InsuredInfoStudyRisk"
+        },
+        {
+          class: "product",
+          src: Jtgj,
+          onClick: this.goto,
+          param: "/project/proposal/gi/InsuredInfoAccident"
+        },
+        {
+          class: "product",
+          src: Tthj,
+          onClick: this.goto,
+          param: "/project/ly"
+        },
+        {
+          class: "product",
+          src: Xpx,
+          onClick: this.goto,
+          param: "/project/ly"
+        },
+        {
+          class: "product",
+          src: Ycx,
+          onClick: this.goto,
+          param: "/project/ly"
+        },
+        {
+          class: "product",
+          src: Ywx,
+          onClick: this.goto,
+          param: "/project/ly"
+        },
+        { class: "product", src: Zrx, onClick: this.goto, param: "/project/ly" }
       ]
+    };
+  },
+  methods: {
+    goto(param) {
+      window.location.hash = param;
     },
+    go(index) {
+      switch (index) {
+        case 0:
+          window.location.hash = "/demo";
+          break;
+        case 1:
+          window.location.hash = "/demo/auto";
+          break;
+        case 2:
+          window.location.hash = "/demo/gi";
+          break;
+        case 3:
+          window.location.hash = "/demo/ah";
+          break;
+        default:
+          window.location.hash = "/demo";
+          break;
+      }
+    }
+  },
+  computed: {
+    tabItems() {
+      return [
+        {
+          selected: true,
+          showdot: false,
+          disabled: false,
+          badge: "",
+          text: this.$t('common.popular'),
+          onClick: this.go
+        },
+        {
+          selected: false,
+          showdot: false,
+          disabled: false,
+          badge: "",
+          text: this.$t("common.auto"),
+          onClick: this.go
+        },
+        {
+          selected: false,
+          showdot: true,
+          disabled: false,
+          badge: "1",
+          text: this.$t("common.gi"),
+          onClick: this.go
+        },
+        {
+          selected: false,
+          showdot: false,
+          disabled: false,
+          badge: "",
+          text: this.$t("common.ah"),
+          onClick: this.go
+        }
+      ];
+    }
   }
 };
 </script>
 <style>
-.product{
+.product {
   height: 220px;
 }
 </style>
