@@ -1,19 +1,19 @@
 <template>
    <page>
-       <top  :title="$t('归属经办人')" :showBack="true"/>
+       <top  :title="$t('chooseHandler.belongAgent')" :showBack="true"/>
        <r-body>
-           <card :title="$t('常用归属经办人')">     
+           <card :title="$t('chooseHandler.usualBelongAgent')">     
                <checker  :max="1" :model="policy" value="value4" :data='commonlyList' :onChange="onChange" type="list"/>
             </card>
-           <card :title="$t('其他归属经办人')">     
+           <card :title="$t('chooseHandler.otherBelongAgent')">     
                <checker  :max="1" :model="policy" value="value4" :data='otherList' :onChange="onChange" type="list"/>
             </card>
 
        </r-body>
        <tab-bar>
            <cell type="row" >
-               <cell><r-button type="primary" class="button-background">{{$t('取消')}}</r-button></cell>
-                <cell><r-button type="primary" >{{$t('确定')}}</r-button></cell>
+               <cell><r-button type="primary" class="button-background">{{$t('common.cancel')}}</r-button></cell>
+                <cell><r-button type="primary" >{{$t('common.confirm')}}</r-button></cell>
            </cell> 
        </tab-bar>
 
@@ -23,6 +23,7 @@
 <script>
 import {Page,RBody,Card,Cell,Checker,TabBar,RButton} from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
+import "../../../../i18n/chooseHandler";
 
 export default {
     components:{

@@ -1,6 +1,6 @@
 <template>
   <page>
-    <top :title="$t('交通工具意外险')" :showBack="true" />
+    <top :title="$t('productInfoEntryNormal.vehicleAccidentInsurance')" :showBack="true" />
     <r-body>
       <card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
@@ -50,6 +50,7 @@ import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import Jtgj from "../../../../assets/jtgj.jpg";
+import "../../../../i18n/productInfoEntryNormal";
 export default {
   components: {
     Page,
