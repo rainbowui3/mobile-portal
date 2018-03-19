@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('home.exapmle')" :showBack="true"/>
+       <top :title="$t('common.exapmle')" :showBack="true"/>
             <r-body>
               <tab :tabItems="tabItems"/>
               <r-image :list="products"/>
@@ -23,6 +23,9 @@ import Xpx from '../assets/xpx.jpg';
 import Ycx from '../assets/ycx.jpg';
 import Ywx from '../assets/ywx.jpg';
 import Zrx from '../assets/zrx.jpg';
+
+
+
 export default {
   components: {
     Bottom,
@@ -38,8 +41,8 @@ export default {
           {"class":"product","src":Ly,'onClick':this.goto,'param':'/project/proposal/gi/productInfoEntryNormal'},
           {"class":"product","src":Jcx,'onClick':this.goto,'param':'/project/proposal/gi/productInfoEntryShortTerm'},
           {"class":"product","src":Female,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Fire,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Jtgj,'onClick':this.goto,'param':'/project/ly'},
+          {"class":"product","src":Fire,'onClick':this.goto,'param':'/project/proposal/gi/InsuredInfoStudyRisk'},
+          {"class":"product","src":Jtgj,'onClick':this.goto,'param':'/project/proposal/gi/InsuredInfoAccident'},
           {"class":"product","src":Tthj,'onClick':this.goto,'param':'/project/ly'},
           {"class":"product","src":Xpx,'onClick':this.goto,'param':'/project/ly'},
           {"class":"product","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
