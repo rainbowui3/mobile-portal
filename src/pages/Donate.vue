@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('common.donate')" :showBack="true"/>
+       <top :title="$t('donate.donate')" :showBack="true"/>
         <r-body>
             <card :imgSrc="teamPath">
                     <div class="card-padding">
@@ -20,6 +20,7 @@ import Bottom from '../components/Bottom';
 import Top from '../components/Top';
 import team from "../assets/team.jpg";
 import weixin from "../assets/weixin.png";
+import "../i18n/donate";
 
 export default {
   components: {

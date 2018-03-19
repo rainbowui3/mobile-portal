@@ -57,18 +57,12 @@ const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/page
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
-<<<<<<< HEAD
 const InsuredInfoEntryPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryPassenger'),'InsuredInfoEntryPassenger'));
 const InsuredInfoConfirmPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmPassenger'),'InsuredInfoConfirmPassenger'));
-=======
 const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoStudyRisk'),'InsuredInfoStudyRisk'));
 const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
-
 const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoAccident'),'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
-
->>>>>>> 887d0fd6de5b171f4aac7675670b9e586412ed13
-
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
