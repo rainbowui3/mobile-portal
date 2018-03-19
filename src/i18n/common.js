@@ -140,99 +140,99 @@ export default {
     //   number: "Number"
     // },
 
-    project: {
-      jtyw: "AUTO Insurence",
-      jtywdesc: "During the period of insurance, the unlimited number of times is guaranteed outside the traffic. All kinds of vehicles are guaranteed in all directions. The number of days is up to 7 days, and only 20 yuan is needed.",
-      poi: "POI",
-      poiValue: "one years",
-      plan1: "Plan1",
-      plan2: "Plan2",
-      plan3: "Plan3",
-      ct: "Coverage",
-      premuim: "Premium",
-      driver: "Driver Coverage",
-      passengers: "Passengers Coverage",
-      desc1: 'applicable population',
-      desc1Value: "frequent business trip to work",
-      desc2: "per person limited purchase",
-      desc2Value: "1 copies",
-      desc3: "special face to face",
-      desc3Value: "meets natural disasters to avoid compensation",
-      other: "Othe information",
-      copy: "Copy",
-      buy: "Buy",
-      social: "Social Security"
-    },
+    // project: {
+    //   jtyw: "AUTO Insurence",
+    //   jtywdesc: "During the period of insurance, the unlimited number of times is guaranteed outside the traffic. All kinds of vehicles are guaranteed in all directions. The number of days is up to 7 days, and only 20 yuan is needed.",
+    //   poi: "POI",
+    //   poiValue: "one years",
+    //   plan1: "Plan1",
+    //   plan2: "Plan2",
+    //   plan3: "Plan3",
+    //   ct: "Coverage",
+    //   premuim: "Premium",
+    //   driver: "Driver Coverage",
+    //   passengers: "Passengers Coverage",
+    //   desc1: 'applicable population',
+    //   desc1Value: "frequent business trip to work",
+    //   desc2: "per person limited purchase",
+    //   desc2Value: "1 copies",
+    //   desc3: "special face to face",
+    //   desc3Value: "meets natural disasters to avoid compensation",
+    //   other: "Othe information",
+    //   copy: "Copy",
+    //   buy: "Buy",
+    //   social: "Social Security"
+    // },
     // demo:{
     //   popular:"Popular",
     //   auto:"Auto",
     //   gi:"GI",
     //   ah:"AH"
     // },
-    swiper: {
-      notauto: "not auto",
-    },
-    button: {
-      ios: "iOS Button",
-      submit: "submit",
-      primary: "primary",
-      danger: "danger",
-      link: "Link",
-      mini: "Mini",
-      plain: "Plain"
-    },
-    cell: {
-      padding: "Padding",
-      vertical: "Vertical",
-      cell: "Grid support (12 columns)",
-      order: "Flexible grid"
-    },
-    preview: {
-      totle: "Totle",
-      goods: "Goods",
-      machine: "Machine",
-      title: "Title",
-      name: "Name",
-      longName: "Long Name Long Name Long Name Long Name Long Name Long Name",
-      left: "Operation",
-      right: "Goto Home",
-      click: "Click",
-    },
-    table: {
-      border: "Table width Border",
-      merge: "Cell Merge",
-      ctrl: "Ctrl Table"
-    },
-    picker: {
-      phone: "Phone",
-      towColumn: "Double Columns",
-      chainedColumns: "Chained Columns",
-      address: "Address"
-    },
-    selector: {
-      sum: "summary",
-      header: "Option Header"
-    },
+    // swiper: {
+    //   notauto: "not auto",
+    // },
+    // button: {
+    //   ios: "iOS Button",
+    //   submit: "submit",
+    //   primary: "primary",
+    //   danger: "danger",
+    //   link: "Link",
+    //   mini: "Mini",
+    //   plain: "Plain"
+    // },
+    // cell: {
+    //   padding: "Padding",
+    //   vertical: "Vertical",
+    //   cell: "Grid support (12 columns)",
+    //   order: "Flexible grid"
+    // },
+    // preview: {
+    //   totle: "Totle",
+    //   goods: "Goods",
+    //   machine: "Machine",
+    //   title: "Title",
+    //   name: "Name",
+    //   longName: "Long Name Long Name Long Name Long Name Long Name Long Name",
+    //   left: "Operation",
+    //   right: "Goto Home",
+    //   click: "Click",
+    // },
+    // table: {
+    //   border: "Table width Border",
+    //   merge: "Cell Merge",
+    //   ctrl: "Ctrl Table"
+    // },
+    // picker: {
+    //   phone: "Phone",
+    //   towColumn: "Double Columns",
+    //   chainedColumns: "Chained Columns",
+    //   address: "Address"
+    // },
+    // selector: {
+    //   sum: "summary",
+    //   header: "Option Header"
+    // },
     form: {
     },
-    datetime: {
-      birthday: "Birthday",
-      format: "Format",
-      time: "Time",
-      hour: "Hour",
-      minute: "Minute",
-      startDate: "startDate",
-      endDate: "endDate",
-      rangeOfDate: "Range of date"
-    },
-    card: {
-      cardTitle: "Card Title",
-      example1Title: "Simple card with header and content",
-      example2Title: "Simple card with footer",
-      example3Title: "Use image and text",
-      example3Date: "Posted on January 21, 2015",
-      example3Text: "Burn yourself for your dreams, and don't be mediocre breathing. I'm not here, and the answer you give is meaningless.",
-    },
+    // datetime: {
+    //   birthday: "Birthday",
+    //   format: "Format",
+    //   time: "Time",
+    //   hour: "Hour",
+    //   minute: "Minute",
+    //   startDate: "startDate",
+    //   endDate: "endDate",
+    //   rangeOfDate: "Range of date"
+    // },
+    // card: {
+    //   cardTitle: "Card Title",
+    //   example1Title: "Simple card with header and content",
+    //   example2Title: "Simple card with footer",
+    //   example3Title: "Use image and text",
+    //   example3Date: "Posted on January 21, 2015",
+    //   example3Text: "Burn yourself for your dreams, and don't be mediocre breathing. I'm not here, and the answer you give is meaningless.",
+    // },
     component: {
       basic: "Basic",
       row: "Row",
@@ -457,102 +457,102 @@ export default {
     //   required: "必填",
     //   number: "数字"
     // },
-    project: {
-      jtyw: "交通意外险",
-      jtywdesc: "保险期间内，不限次数的保障交通以外。各类交通工具全方位保障，保障天数长达7天，仅需20元",
-      poi: "保障期限",
-      poiValue: "1年",
-      plan1: "方案1",
-      plan2: "方案2",
-      plan3: "方案3",
-      ct: "保险责任",
-      premuim: "保费",
-      driver: "司机责任",
-      passengers: "乘客责任",
-      notes: "投保须知",
-      desc1: '适用人群',
-      desc1Value: "经常出差上班族",
-      desc2: "每人限购",
-      desc2Value: "1份",
-      desc3: "特殊说面",
-      desc3Value: "遇到自然灾害免赔",
-      other: "其他信息",
-      copy: "份数",
-      buy: "确定投保",
-      social: "是否有社保"
+    // project: {
+    //   jtyw: "交通意外险",
+    //   jtywdesc: "保险期间内，不限次数的保障交通以外。各类交通工具全方位保障，保障天数长达7天，仅需20元",
+    //   poi: "保障期限",
+    //   poiValue: "1年",
+    //   plan1: "方案1",
+    //   plan2: "方案2",
+    //   plan3: "方案3",
+    //   ct: "保险责任",
+    //   premuim: "保费",
+    //   driver: "司机责任",
+    //   passengers: "乘客责任",
+    //   notes: "投保须知",
+    //   desc1: '适用人群',
+    //   desc1Value: "经常出差上班族",
+    //   desc2: "每人限购",
+    //   desc2Value: "1份",
+    //   desc3: "特殊说面",
+    //   desc3Value: "遇到自然灾害免赔",
+    //   other: "其他信息",
+    //   copy: "份数",
+    //   buy: "确定投保",
+    //   social: "是否有社保"
 
-    },
+    // },
     // demo:{
     //   popular:"最流行",
     //   auto:"车险",
     //   gi:"财产险",
     //   ah:"意健险"
     // },
-    swiper: {
-      notauto: "手动切换",
-    },
-    button: {
-      ios: "iOS 按钮",
-      submit: "提交",
-      primary: "主要",
-      danger: "危险",
-      link: "链接",
-      mini: "迷你",
-      plain: "扁平",
-    },
-    cell: {
-      padding: "间距",
-      vertical: "垂直",
-      cell: "12列栅格布局",
-      order: "弹性网格"
-    },
-    preview: {
-      totle: "共计",
-      goods: "商品",
-      machine: "小米MAX3",
-      title: "标题",
-      name: "座右铭",
-      longName: "为梦想灼伤了自己, 也不要平庸的喘息, 我要的并不在这里, 你给的答案没意义",
-      left: "辅助操作",
-      right: "跳转到首页",
-      click: "点击事件",
-    },
-    table: {
-      border: "带边框的表格",
-      merge: "单元格合并",
-      ctrl: "操作表格"
-    },
-    picker: {
-      phone: "手机",
-      towColumn: "两列",
-      chainedColumns: "级联",
-      address: "地址"
-    },
-    selector: {
-      sum: "金额",
-      header: "选项头部"
-    },
+    // swiper: {
+    //   notauto: "手动切换",
+    // },
+    // button: {
+    //   ios: "iOS 按钮",
+    //   submit: "提交",
+    //   primary: "主要",
+    //   danger: "危险",
+    //   link: "链接",
+    //   mini: "迷你",
+    //   plain: "扁平",
+    // },
+    // cell: {
+    //   padding: "间距",
+    //   vertical: "垂直",
+    //   cell: "12列栅格布局",
+    //   order: "弹性网格"
+    // },
+    // preview: {
+    //   totle: "共计",
+    //   goods: "商品",
+    //   machine: "小米MAX3",
+    //   title: "标题",
+    //   name: "座右铭",
+    //   longName: "为梦想灼伤了自己, 也不要平庸的喘息, 我要的并不在这里, 你给的答案没意义",
+    //   left: "辅助操作",
+    //   right: "跳转到首页",
+    //   click: "点击事件",
+    // },
+    // table: {
+    //   border: "带边框的表格",
+    //   merge: "单元格合并",
+    //   ctrl: "操作表格"
+    // },
+    // picker: {
+    //   phone: "手机",
+    //   towColumn: "两列",
+    //   chainedColumns: "级联",
+    //   address: "地址"
+    // },
+    // selector: {
+    //   sum: "金额",
+    //   header: "选项头部"
+    // },
     form: {
     },
-    datetime: {
-      birthday: "生日",
-      format: "格式化",
-      time: "时间",
-      hour: "小时",
-      minute: "分钟",
-      startDate: "开始日期",
-      endDate: "结束日期",
-      rangeOfDate: "时间范围"
-    },
-    card: {
-      cardTitle: "卡片标题",
-      example1Title: "带有标题和内容的简单卡片",
-      example2Title: "带有 footer 的卡片",
-      example3Title: "使用图片和文字",
-      example3Date: "2018-01-18",
-      example3Text: "为梦想灼伤了自己, 也不要平庸的喘息, 我要的并不在这里, 你给的答案没意义, 都选C.",
+    // datetime: {
+    //   birthday: "生日",
+    //   format: "格式化",
+    //   time: "时间",
+    //   hour: "小时",
+    //   minute: "分钟",
+    //   startDate: "开始日期",
+    //   endDate: "结束日期",
+    //   rangeOfDate: "时间范围"
+    // },
+    // card: {
+    //   cardTitle: "卡片标题",
+    //   example1Title: "带有标题和内容的简单卡片",
+    //   example2Title: "带有 footer 的卡片",
+    //   example3Title: "使用图片和文字",
+    //   example3Date: "2018-01-18",
+    //   example3Text: "为梦想灼伤了自己, 也不要平庸的喘息, 我要的并不在这里, 你给的答案没意义, 都选C.",
 
-    },
+    // },
     component: {
       basic: "基础用法",
       row: "单元行",
