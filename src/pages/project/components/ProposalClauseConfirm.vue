@@ -10,7 +10,7 @@
       </cell>
       <cell type="row">
         <h5>
-          <span>我已阅读</span>
+          <span>{{$t('proposalClauseConfirm.readed')}}</span>
           <span v-for="(item, idx) in items" :key="idx" value="dialogStatus" @click="showDialog(this, item, idx)">
             <span>《</span>
             <a href="javascript:void(0);">{{item.clauseName}}</a>
@@ -65,6 +65,7 @@ import {
   RDialog,
   RImage
 } from "rainbow-mobile-core";
+import "../../../i18n/proposalClauseConfirm";
 export default {
   components: {
     Checker,

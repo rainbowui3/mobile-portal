@@ -73,7 +73,7 @@ export default {
                     email: "wangxm@outlook.com"
 
                 },
-                buttonName:"立即投保",
+                buttonName:"proposalConfirm.submitPay",
                 amount:"100"
                 
                 , 

@@ -89,7 +89,7 @@ export default {
                     email: "wangxm@outlook.com"
 
                 },
-                buttonName:"立即投保",
+                buttonName:"proposalConfirm.immediatelyInsure",
                 amount:"100", 
                 options: [
                     { key: "10000", value: "身份证" },

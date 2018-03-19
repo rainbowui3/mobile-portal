@@ -1,11 +1,12 @@
 <template>  
   <div>
-   <picker  :title="$t('投保份数')" :options="options" :model="insurancNum" value="number1"  ></picker> 
+   <picker  :title="$t('proposalCopies.insuredNum')" :options="options" :model="insurancNum" value="number1"  ></picker> 
   </div>
 </template>
 
 <script>
 import {Picker} from 'rainbow-mobile-core';
+import "../../../i18n/proposalCopies";
 export default {
   components: {   
     Picker

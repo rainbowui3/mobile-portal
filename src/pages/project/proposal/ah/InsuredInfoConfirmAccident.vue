@@ -79,7 +79,7 @@ export default {
                     email: "wangxm@outlook.com"
 
                 },
-                buttonName:"提交支付",
+                buttonName:"proposalConfirm.submitPay",
                 amount:"100",
                 readonly:true,
                 policy: {

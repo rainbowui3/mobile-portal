@@ -1,14 +1,15 @@
 //保险期限组件-极短期
 <template>
   <card>
-    <date-time :readonly="readonly" :title="$t('保险起期')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
-    <date-time :readonly="readonly" :title="$t('保险止期')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
+    <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
+    <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
   </card>
 </template>
 
 <script>
 import { Card, DateTime } from "rainbow-mobile-core";
 import config from "config";
+import "../../../i18n/insuranceDurationShortTerm";
 export default {
   components: {
     DateTime,

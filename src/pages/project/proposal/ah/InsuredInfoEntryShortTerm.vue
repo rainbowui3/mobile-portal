@@ -108,7 +108,7 @@ export default {
         }
       },  
       amount:"100",
-      buttonName:"立即投保",
+      buttonName:"proposalConfirm.immediatelyInsure",
       relationToHolder:[{"key":"10000","value":"本人"},{"key":"10001","value":"配偶"},{"key":"10002","value":"子女"}],
     };
   },

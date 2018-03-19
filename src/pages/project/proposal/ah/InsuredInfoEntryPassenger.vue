@@ -60,7 +60,7 @@ export default {
         carInfo: {}
       },
       options: [{ key: "1", value: "家庭自用" }],
-      buttonName: "立即投保",
+      buttonName: "proposalConfirm.immediatelyInsure",
       amount: "100"
     };
   },
