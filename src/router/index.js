@@ -63,6 +63,8 @@ const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/pro
 const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoAccident'),'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
+const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
+const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -378,6 +380,14 @@ const router = new Router({
       path: '/project/proposal/gi/InsuredInfoConfirmAccident',
       name: 'InsuredInfoConfirmAccident',
       component: InsuredInfoConfirmAccident
+    },{
+      path: '/project/proposal/auto2e/ChooseHandler',
+      name: 'ChooseHandler',
+      component: ChooseHandler
+    },{
+      path: '/project/proposal/auto2e/ProductInfoEntryAuto',
+      name: 'ProductInfoEntryAuto',
+      component: ProductInfoEntryAuto
     },
 
     // business
