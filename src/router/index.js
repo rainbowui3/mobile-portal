@@ -51,18 +51,18 @@ const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/c
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/project/components/ChooseRelationship')), 'ChooseRelationship');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
-const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
-const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/gi/ProductInfoEntryNormal')),'ProductInfoEntryNormal');
-const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
-const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
-const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
+const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
+const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')),'ProductInfoEntryNormal');
+const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
+const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
+const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
-const InsuredInfoEntryPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryPassenger'),'InsuredInfoEntryPassenger'));
-const InsuredInfoConfirmPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmPassenger'),'InsuredInfoConfirmPassenger'));
-const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoStudyRisk'),'InsuredInfoStudyRisk'));
-const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
-const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoAccident'),'InsuredInfoAccident'));
-const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
+const InsuredInfoEntryPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoEntryPassenger'),'InsuredInfoEntryPassenger'));
+const InsuredInfoConfirmPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmPassenger'),'InsuredInfoConfirmPassenger'));
+const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoStudyRisk'),'InsuredInfoStudyRisk'));
+const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
+const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'),'InsuredInfoAccident'));
+const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
 // business
@@ -337,47 +337,47 @@ const router = new Router({
       name: 'PayStatus',
       component: PayStatus
     }, {
-      path: '/project/proposal/gi/insuredInfoEntryNormal',
+      path: '/project/proposal/ah/insuredInfoEntryNormal',
       name: 'InsuredInfoEntryNormal',
       component: InsuredInfoEntryNormal
     },{
-      path: '/project/proposal/gi/productInfoEntryNormal',
+      path: '/project/proposal/ah/productInfoEntryNormal',
       name: 'ProductInfoEntryNormal',
       component: ProductInfoEntryNormal
     },{
-      path: '/project/proposal/gi/productInfoEntryShortTerm',
+      path: '/project/proposal/ah/productInfoEntryShortTerm',
       name: 'ProductInfoEntryShortTerm',
       component: ProductInfoEntryShortTerm
     },{
-      path: '/project/proposal/gi/insuredInfoEntryShortTerm',
+      path: '/project/proposal/ah/insuredInfoEntryShortTerm',
       name: 'InsuredInfoEntryShortTerm',
       component: InsuredInfoEntryShortTerm
     },{
-      path: '/project/proposal/gi/InsuredInfoConfirmNormal',
+      path: '/project/proposal/ah/InsuredInfoConfirmNormal',
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
     },{
-      path: '/project/proposal/gi/InsuredInfoEntryPassenger',
+      path: '/project/proposal/ah/InsuredInfoEntryPassenger',
       name: 'InsuredInfoEntryPassenger',
       component: InsuredInfoEntryPassenger
     },{
-      path:'/project/proposal/gi/InsuredInfoConfirmPassenger',
+      path:'/project/proposal/ah/InsuredInfoConfirmPassenger',
       name:'InsuredInfoConfirmPassenger',
       component:InsuredInfoConfirmPassenger
     },{
-      path: '/project/proposal/gi/InsuredInfoStudyRisk',
+      path: '/project/proposal/ah/InsuredInfoStudyRisk',
       name: 'InsuredInfoStudyRisk',
       component: InsuredInfoStudyRisk
     },{
-      path: '/project/proposal/gi/InsuredInfoConfirmStudyRisk',
+      path: '/project/proposal/ah/InsuredInfoConfirmStudyRisk',
       name: 'InsuredInfoConfirmStudyRisk',
       component: InsuredInfoConfirmStudyRisk
     },{
-      path: '/project/proposal/gi/InsuredInfoAccident',
+      path: '/project/proposal/ah/InsuredInfoAccident',
       name: 'InsuredInfoAccident',
       component: InsuredInfoAccident
     },{
-      path: '/project/proposal/gi/InsuredInfoConfirmAccident',
+      path: '/project/proposal/ah/InsuredInfoConfirmAccident',
       name: 'InsuredInfoConfirmAccident',
       component: InsuredInfoConfirmAccident
     },{
