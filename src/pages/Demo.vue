@@ -41,13 +41,13 @@ export default {
           class: "product",
           src: Ly,
           onClick: this.goto,
-          param: "/project/proposal/gi/productInfoEntryNormal"
+          param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
           class: "product",
           src: Jcx,
           onClick: this.goto,
-          param: "/project/proposal/gi/productInfoEntryShortTerm"
+          param: "/project/proposal/ah/productInfoEntryShortTerm"
         },
         {
           class: "product",
@@ -59,13 +59,13 @@ export default {
           class: "product",
           src: Fire,
           onClick: this.goto,
-          param: "/project/proposal/gi/InsuredInfoStudyRisk"
+          param: "/project/proposal/ah/InsuredInfoStudyRisk"
         },
         {
           class: "product",
           src: Jtgj,
           onClick: this.goto,
-          param: "/project/proposal/gi/InsuredInfoAccident"
+          param: "/project/proposal/ah/InsuredInfoAccident"
         },
         {
           class: "product",
@@ -108,7 +108,7 @@ export default {
           window.location.hash = "/demo/auto";
           break;
         case 2:
-          window.location.hash = "/demo/gi";
+          window.location.hash = "/demo/ah";
           break;
         case 3:
           window.location.hash = "/demo/ah";
@@ -143,7 +143,7 @@ export default {
           showdot: true,
           disabled: false,
           badge: "1",
-          text: this.$t("common.gi"),
+          text: this.$t("common.ah"),
           onClick: this.go
         },
         {
