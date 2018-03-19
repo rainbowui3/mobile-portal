@@ -11,7 +11,7 @@ i18n.mergeLocaleMessage("zh-CN",{
     "holderInfo.placeholderMobile":"请填写手机号码",
     "holderInfo.placeholderEmail":"email@email.com",
     "holderInfo.relationToHolder":"与投保人关系:",
-    "holderInfo.relationToInsured":"与主被保险人关系:"
+    "holderInfo.relationToInsured":"与主被保险人关系:",
 
 });
 i18n.mergeLocaleMessage("en-US",{

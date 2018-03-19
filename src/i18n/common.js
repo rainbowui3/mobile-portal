@@ -50,7 +50,12 @@ export default {
       auto: "Auto",
       gi: "GI",
       ah: "AH",
-      confirm:"Confirm"
+      confirm:"Confirm",
+      autoPassengersInsurance:"Auto Passenger Insurance",
+      insured:"Insured",
+      holder:"holder",
+      subsidiaryInsured:"subsidiaryInsured",
+      addmore:"Add more"
     },
     dialog: {
       show: 'Show'
@@ -354,7 +359,12 @@ export default {
       auto: "车险",
       gi: "财产险",
       ah: "意健险",
-      confirm:"确定"
+      confirm:"确定",
+      autoPassengersInsurance:"司乘险",
+      insured:"被保人",
+      holder:"投保人",
+      subsidiaryInsured:"附属被保险人",
+      addmore:"添加更多被保险人"
     },
     dialog: {
       show: '显示'
