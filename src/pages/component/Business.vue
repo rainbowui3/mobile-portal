@@ -97,6 +97,18 @@ export default {
           link: "/component/example/proposalCopies"
         },
 
+        {
+          icon: "fa fa-info-circle ",
+          text: this.$t("business.proposalCopies"),
+          link: "/component/example/proposalCopies"
+        },
+
+          {
+          icon: "fa fa-info-circle ",
+          text: this.$t("business.pay"),
+          link: "/component/example/payment"
+        },
+
       ];
     }
   },
