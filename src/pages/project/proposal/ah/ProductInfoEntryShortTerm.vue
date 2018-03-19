@@ -71,7 +71,7 @@ export default {
       productDes:
         "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
       amount: "100",
-      buttonName: "确定投保",
+      buttonName: "proposalConfirm.confirmInsure",
       policy: {
         effectiveDate: "",
         expireDate: ""

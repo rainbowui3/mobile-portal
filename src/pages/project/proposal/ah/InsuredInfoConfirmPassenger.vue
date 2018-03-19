@@ -63,7 +63,7 @@ export default {
         carInfo: {}
       },
       options: [{ key: "1", value: "家庭自用" }],
-      buttonName: "提交支付",
+      buttonName: "proposalConfirm.submitPay",
       amount: "100",
       readonly: true
     };

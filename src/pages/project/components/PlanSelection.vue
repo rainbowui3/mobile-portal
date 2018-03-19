@@ -5,7 +5,7 @@
       <tab :tabItems="tabItems" />
       <swiper height="600px" :model="index" onChange=this.onIndexChange>
         <swiper-item v-for="(item,idx) in items" :key="idx">
-          <card :title="$t('保障范围')">
+          <card :title="$t('planSelection.guaranteeRate')">
             <r-table :data="item.planData" :class="{table:classStatus}" />
             <div v-for="(coverage, idx) in coverageList" :key="idx">
               <row :title="coverage.coverageTitle" :value="coverage.coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
@@ -16,15 +16,15 @@
               </template>
             </div>
           </card>
-          <card :title="$t('投保须知')">
+          <card :title="$t('planSelection.notes')">
             <list :data="getListData" />
           </card>
         </swiper-item>
       </swiper>
     </div>
     <div v-else>
-      <card :title="$t('保障范围')">
-        <selector :title="'方案'" :options="options" :model="selectorModel" value="selectorValue"></selector>
+      <card :title="$t('planSelection.guaranteeRate')">
+        <selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue"></selector>
         <r-table :data="items[0].planData" :class="{table:classStatus}" />
         <div v-for="(coverage, idx) in coverageList" :key="idx">
           <row :title="coverage.coverageTitle" :value="coverage.coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
@@ -35,7 +35,7 @@
           </template>
         </div>
       </card>
-      <card :title="$t('投保须知')">
+      <card :title="$t('planSelection.notes')">
         <list :data="getListData" />
       </card>
     </div>
@@ -54,6 +54,7 @@ import {
 } from "rainbow-mobile-core";
 import { PassThrough } from "stream";
 import { debug } from "util";
+import "../../../i18n/planSelection";
 export default {
   components: {
     Tab,

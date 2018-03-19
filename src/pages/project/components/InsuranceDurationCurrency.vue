@@ -1,11 +1,12 @@
 <template>  
   <div>
-    <selector  :title="$t('保险期限')" :options="durationOptions" :model="duration" value="durationId" :onChange="onChange" ></selector>   
+    <selector  :title="$t('insuranceDurationCurrency.poi')" :options="durationOptions" :model="duration" value="durationId" :onChange="onChange" ></selector>   
   </div>
 </template>
 
 <script>
 import {Selector} from 'rainbow-mobile-core';
+import "../../../i18n/insuranceDurationCurrency";
 export default {
   components: {   
     Selector

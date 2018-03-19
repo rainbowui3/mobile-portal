@@ -106,7 +106,7 @@ export default {
         }
       },
       amount: "100",
-      buttonName: "提交支付"
+      buttonName: "proposalConfirm.submitPay"
     };
   },
   created: function() {

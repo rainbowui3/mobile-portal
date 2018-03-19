@@ -1,16 +1,17 @@
 <template>
     <cell type="row">
         <cell>
-            <div class="demo">{{`${$t('project.premuim')}: ${$t('common.currency')}`}}{{amount}}</div>
+            <div class="demo">{{`${$t('proposalConfirm.premuim')}: ${$t('proposalConfirm.currency')}`}}{{amount}}</div>
         </cell>
         <cell>
-            <r-button type="primary" :onClick="_onClick">{{buttonName}}</r-button>
+            <r-button type="primary" :onClick="_onClick">{{$t(buttonName)}}</r-button>
         </cell>
     </cell>
 </template>
 
 <script>
 import { Card, RButton, Cell } from "rainbow-mobile-core";
+import "../../../i18n/proposalConfirm";
 export default {
   components: {
     Card,

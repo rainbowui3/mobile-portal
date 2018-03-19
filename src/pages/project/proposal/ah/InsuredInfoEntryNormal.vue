@@ -85,7 +85,7 @@ export default {
         email: "wangxm@outlook.com"
       },
       amount: "100",
-      buttonName: "立即投保",
+      buttonName: "proposalConfirm.immediatelyInsure",
       policyData: {
         // effectiveDate: "",
         // expireDate: ""
