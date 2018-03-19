@@ -43,6 +43,8 @@
 import {Page,Card,Spinner,Row,RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
+import "../../i18n/component";
+import "../../i18n/row";
 
 export default {
   components: {

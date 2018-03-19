@@ -18,6 +18,7 @@ import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
 import dialog from "../../assets/dialog.jpg";
 import "../../i18n/alert";
+import "../../i18n/component";
 
 export default {
   components: {

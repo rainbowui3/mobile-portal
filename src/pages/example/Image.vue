@@ -22,6 +22,7 @@ import Xpx from '../../assets/xpx.jpg';
 import Ycx from '../../assets/ycx.jpg';
 import Ywx from '../../assets/ywx.jpg';
 import Zrx from '../../assets/zrx.jpg';
+import "../../i18n/component";
 export default {
   components: {
     Bottom,

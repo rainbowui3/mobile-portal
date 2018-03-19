@@ -54,6 +54,9 @@ import {Page,Card,Row,RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
+import "../../i18n/component";
+import "../../i18n/row";
+import "../../i18n/card";
 export default {
   components: {
     Bottom,

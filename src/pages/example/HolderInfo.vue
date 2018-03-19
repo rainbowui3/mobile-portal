@@ -15,6 +15,7 @@ import { Page, Card, RTable, RBody } from "rainbow-mobile-core";
 import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
 import HolderInfo from "../project/components/HolderInfo";
+import "../../i18n/business";
 
 export default {
   components: {

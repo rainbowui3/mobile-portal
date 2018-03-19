@@ -39,6 +39,8 @@ import donation_off from "../../assets/donation_off.svg";
 import donation_on from "../../assets/donation_on.svg";
 import example_off from "../../assets/example_off.svg";
 import example_on from "../../assets/example_on.svg";
+import "../../i18n/component";
+import "../../i18n/home";
 export default {
   components: {
     Bottom,

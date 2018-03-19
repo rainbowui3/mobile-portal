@@ -65,6 +65,10 @@
 import { Page, Card, RInput, RButton ,RBody} from "rainbow-mobile-core";
 import Bottom from "../../components/Bottom";
 import Top from "../../components/Top";
+import "../../i18n/component";
+import "../../i18n/preview";
+import "../../i18n/input";
+import "../../i18n/picker";
 export default {
   components: {
     Bottom,

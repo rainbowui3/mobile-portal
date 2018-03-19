@@ -24,6 +24,7 @@ import Ycx from "../assets/ycx.jpg";
 import Ywx from "../assets/ywx.jpg";
 import Zrx from "../assets/zrx.jpg";
 import "../i18n/demo";
+import "../i18n/component";
 
 export default {
   components: {
