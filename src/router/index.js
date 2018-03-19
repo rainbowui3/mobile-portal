@@ -57,16 +57,14 @@ const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/page
 const InsuredInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryShortTerm'),'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmNormal'),'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
+const InsuredInfoEntryPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoEntryPassenger'),'InsuredInfoEntryPassenger'));
+const InsuredInfoConfirmPassenger = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmPassenger'),'InsuredInfoConfirmPassenger'));
 const InsuredInfoStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoStudyRisk'),'InsuredInfoStudyRisk'));
 const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmStudyRisk'),'InsuredInfoConfirmStudyRisk'));
-
 const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoAccident'),'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/gi/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
-
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
-
 const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
-
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -360,6 +358,14 @@ const router = new Router({
       name: 'InsuredInfoConfirmNormal',
       component: InsuredInfoConfirmNormal
     },{
+      path: '/project/proposal/gi/InsuredInfoEntryPassenger',
+      name: 'InsuredInfoEntryPassenger',
+      component: InsuredInfoEntryPassenger
+    },{
+      path:'/project/proposal/gi/InsuredInfoConfirmPassenger',
+      name:'InsuredInfoConfirmPassenger',
+      component:InsuredInfoConfirmPassenger
+    },{
       path: '/project/proposal/gi/InsuredInfoStudyRisk',
       name: 'InsuredInfoStudyRisk',
       component: InsuredInfoStudyRisk
@@ -437,7 +443,6 @@ const router = new Router({
       name: 'ProjectProposalSubmitPay',
       component: ProjectProposalSubmitPay
     },
-   
   ],
 });
 
