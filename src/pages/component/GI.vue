@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('home.exapmle')" :showBack="true"/>
+       <top :title="$t('demo.exapmle')" :showBack="true"/>
        <r-body>
             <tab :tabItems="tabItems"/>
             <r-image :list="products"/>
@@ -18,6 +18,7 @@ import Jcx from '../../assets/jcx.jpg';
 import Tthj from '../../assets/tthj.jpg';
 import Xpx from '../../assets/xpx.jpg';
 import Zrx from '../../assets/zrx.jpg';
+import "../../i18n/demo";
 export default {
   components: {
     Bottom,
