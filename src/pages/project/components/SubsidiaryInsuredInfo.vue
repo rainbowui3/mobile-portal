@@ -5,10 +5,10 @@
     <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector>
     <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly" />
     <selector :title="$t('holderInfo.certificateType')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
     <date-time :title="$t('holderInfo.birthday')" :model="dubsidiaryInsuranceInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
-    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
   </div>
 </template>
 

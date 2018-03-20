@@ -8,7 +8,7 @@
           <card>
                 <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="babyInfo" value="name"  />
                 <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="babyInfo" value="certificateId" :onChange="onChangeCertiType" ></selector>
-                <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="babyInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" />
+                <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="babyInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" />
                 <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="babyInfo" value="birthdate" :required="true" ></date-time>    
                 <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="babyInfo" value="school" />
                 <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="babyInfo" value="class"/>          
@@ -18,10 +18,10 @@
           <card>
                 <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="holderInfo" value="name" />
                 <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChangeCertiType"></selector>
-                <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" />
+                <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" />
                 <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true" ></date-time>
-                <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :validate="false" />
-                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="false" :validate="false"/>
+                <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :novalidate="false" />
+                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="true" :novalidate="false"/>
           </card>
 
       </r-body>
