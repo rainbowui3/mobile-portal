@@ -21,7 +21,7 @@
                 <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" />
                 <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true" ></date-time>
                 <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :validate="false" />
-                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('email@email.com')" :model="holderInfo" value="email" :isEmail="false" :validate="false"/>
+                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="false" :validate="false"/>
           </card>
 
       </r-body>
@@ -42,6 +42,8 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import Validate from "../../utils/Valitate";
 import Getbirthday from "../../utils/Getbirthday";
 import "../../../../i18n/insuredInfoStudyRisk";
+import "../../../../i18n/input";
+import "../../../../i18n/project";
 export default {
     components:{
         Page,
