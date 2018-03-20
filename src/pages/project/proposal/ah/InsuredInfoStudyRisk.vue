@@ -97,7 +97,7 @@ export default {
     },
     methods:{    
         onClick: function() {
-            this.$router.push("/project/proposal/gi/InsuredInfoConfirmStudyRisk");
+            this.$router.push("/project/proposal/ah/InsuredInfoConfirmStudyRisk");
         },
         validateNumInput(value){ 
             var isCertification = Validate.validateIdNo(value);
