@@ -70,7 +70,7 @@ export default {
           text: this.$t("business.insuranceDurationCurrency"),
           link: "/component/example/insuranceDurationCurrency"
         },
-       
+
         {
           icon: "fa fa-square-o ",
           text: this.$t("business.insuredInfo"),
@@ -104,12 +104,23 @@ export default {
           link: "/component/example/proposalCopies"
         },
 
-          {
+        {
           icon: "fa fa-info-circle ",
           text: this.$t("business.pay"),
           link: "/component/example/payment"
         },
 
+         {
+          icon: "fa fa-info-circle ",
+          text: this.$t("business.businessHome"),
+          link: "/component/example/businessHome"
+        },
+
+        {
+          icon: "fa fa-info-circle ",
+          text: this.$t("business.businessSignIn"),
+          link: "/component/example/businessSignIn"
+        },
       ];
     }
   },

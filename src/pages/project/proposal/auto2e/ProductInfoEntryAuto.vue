@@ -6,23 +6,19 @@
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
             </card>
             <card>
-                <r-switch :title="$t('productInfoEntryAuto.agentBiz')" :model="policy" value="isAgent" :onClick="onClick" />
+                <r-switch :title="$t('productInfoEntryAuto.agentBiz')" :model="policy" value="isAgent" />
                 <auto-agent v-show="policy.isAgent"></auto-agent>
             </card>
             <card>
-                <picker :title="$t('productInfoEntryAuto.riskCat')" :model="policy" :value="value" :options="q"></picker>
-                <picker :title="$t('productInfoEntryAuto.bizCode')" :model="policy" :value="value" :options="q"></picker>
-                <r-input v-if="true" :title="$t('productInfoEntryAuto.productCode')" :placeholder="$t('productInfoEntryAuto.chooseBizCodeFirst')"></r-input>
-                <picker :title="$t('productInfoEntryAuto.productCode')" :model="policy" :value="value" :options="q" v-else></picker>
+                <picker :title="$t('productInfoEntryAuto.riskCat')" :model="policy" value="riskCat" :options="riskCatOptions"></picker>
+                <picker :title="$t('productInfoEntryAuto.bizCode')" :model="policy" value="bizCode" :options="bizCodeOptions"></picker>
+                <picker v-if="productCodeData" :title="$t('productInfoEntryAuto.productCode')" :model="policy" value="proCode" :options="proCodeOptions"></picker>
+                <r-input v-else :title="$t('productInfoEntryAuto.productCode')" :placeholder="$t('productInfoEntryAuto.chooseBizCodeFirst')" :model="policy" value="proCode" :readonly="true"></r-input>
             </card>
 
         </r-body>
-        <tab-bar>
-            <cell type="row">
-                <cell>
-                    <r-button type="primary" :onClick="_onClick">{{$t('common.next')}}</r-button>
-                </cell>
-            </cell>
+        <tab-bar>         
+            <r-button type="primary" :onClick="nextOnClick">{{$t('common.next')}}</r-button>          
         </tab-bar>
 
     </page>
@@ -66,14 +62,28 @@ export default {
       row: "row",
       policy: {
         isAgent: true,
-        value1: "12"
-      }
+        value1: "12",
+        proCode:"",
+        riskCat:[],
+        bizCode:[]
+
+      },
+      proCodeOptions:[],
+      riskCatOptions:[],
+      bizCodeOptions:[],
+      productCodeData:null
     };
   },
   methods: {
-    onClick(value) {
-      this.policy.isAgent = !value;
+    nextOnClick(){      
+        this.$router.push("/project/proposal/payStatus");
+        // this.$router.push("");
+
     }
+
+  },
+  computed:{
+
   }
 };
 </script>

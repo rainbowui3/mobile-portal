@@ -109,7 +109,7 @@ export default {
             }
         },       
         onClick: function() {
-        this.$router.push("/project/proposal/gi/InsuredInfoConfirmAccident");
+        this.$router.push("/project/proposal/ah/InsuredInfoConfirmAccident");
         }
     }
   

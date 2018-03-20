@@ -68,7 +68,8 @@ i18n.mergeLocaleMessage("zh-CN", {
     "component.swipeout": "划出",
     "component.timeline": "时间走",
     "component.progress": "进度条",
-    "component.address": "地址"
+    "component.address": "地址",
+    "component.component":"组件"
 });
 i18n.mergeLocaleMessage("en-US", {
     "component.basic": "Basic",
@@ -139,5 +140,6 @@ i18n.mergeLocaleMessage("en-US", {
     "component.swipeout": "Swipeout",
     "component.timeline": "Timeline",
     "component.progress": "Progress",
-    "component.address": "Address"
+    "component.address": "Address",
+    "component.component":"component"
 });

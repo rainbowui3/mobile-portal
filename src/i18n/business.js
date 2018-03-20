@@ -8,7 +8,9 @@ i18n.mergeLocaleMessage("zh-CN", {
     "business.proposalClauseConfirm": "条款",
     "business.proposalCopies": "保费",
     "business.pay": "支付",
-    "business.payment": "确认支付"
+    "business.payment": "确认支付",
+    "business.businessHome":"首页",
+    "business.businessSignIn":"注册"
 });
 i18n.mergeLocaleMessage("en-US", {
     "business.holderInfo": "policyHolder",
@@ -19,4 +21,7 @@ i18n.mergeLocaleMessage("en-US", {
     "business.proposalClauseConfirm": "Item",
     "business.proposalCopies": "promine",
     "business.pay": "pay",
+    "business.businessHome":"Home",
+    "business.businessSignIn":"SignIn"
+
 });

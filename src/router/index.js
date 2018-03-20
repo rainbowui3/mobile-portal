@@ -51,6 +51,8 @@ const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/c
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/project/components/ChooseRelationship')), 'ChooseRelationship');
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const CarInfo = r => require.ensure([], () => r(require('@/pages/project/components/CarInfo')), 'CarInfo');
+const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')),'ProductInfoEntryNormal');
 const ProductInfoEntryShortTerm = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/ProductInfoEntryShortTerm'),'ProductInfoEntryShortTerm'));
@@ -65,6 +67,7 @@ const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/proj
 const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
+const CarAndOwnerInfoEntry = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarAndOwnerInfoEntry'),'CarAndOwnerInfoEntry'));
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -76,6 +79,10 @@ const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
 //  pay
 const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
+// home
+const BusinessHome = r => require.ensure([], () => r(require('@/pages/example/BusinessHome')), 'BusinessHome');
+// logn in
+const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
 
 
 Vue.use(Router);
@@ -333,6 +340,14 @@ const router = new Router({
       name: 'ChooseRelationship',
       component: ChooseRelationship
     },{
+      path: '/templateComponents/carInfo',
+      name: 'CarInfo',
+      component: CarInfo
+    },{
+      path: '/templateComponents/carOwner',
+      name: 'CarOwner',
+      component: CarOwner
+    },{
       path: '/project/proposal/payStatus',
       name: 'PayStatus',
       component: PayStatus
@@ -388,8 +403,12 @@ const router = new Router({
       path: '/project/proposal/auto2e/ProductInfoEntryAuto',
       name: 'ProductInfoEntryAuto',
       component: ProductInfoEntryAuto
+    },{
+      path: '/project/proposal/auto2e/CarAndOwnerInfoEntry',
+      name: 'CarAndOwnerInfoEntry',
+      component: CarAndOwnerInfoEntry
     },
-
+    
     // business
     {
       path: '/component/example/HolderInfo',
@@ -436,6 +455,16 @@ const router = new Router({
       path: '/component/example/Payment',
       name: 'Payment',
       component: Payment
+    },
+    {
+      path: '/component/example/BusinessHome',
+      name: 'BusinessHome',
+      component: BusinessHome
+    },
+    {
+      path: '/component/example/BusinessSignIn',
+      name: 'BusinessSignIn',
+      component: BusinessSignIn
     }
   ],
 });

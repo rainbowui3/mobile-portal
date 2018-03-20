@@ -54,7 +54,7 @@ export default {
           class: "product",
           src: Female,
           onClick: this.goto,
-          param: "/project/ly"
+          param: "/project/proposal/auto2e/ProductInfoEntryAuto"
         },
         {
           class: "product",

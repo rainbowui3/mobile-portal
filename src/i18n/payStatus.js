@@ -8,7 +8,7 @@ i18n.mergeLocaleMessage("zh-CN", {
     "payStatus.again":"继续投保"
 });
 i18n.mergeLocaleMessage("en-US", {
-    "payStatus.payStatus.success":"The premium payment is successful and your policy is issued!",
+    "payStatus.success":"The premium payment is successful and your policy is issued!",
     "payStatus.payment":"Payment",
     "payStatus.commodity":"Commodity",
     "payStatus.policyNo":"PolicyNo",
