@@ -12,11 +12,11 @@
                 <r-input :title="$t('common.error')" iconType="error" :model="policy" value="value5"/>
             </card>
             <card :title="$t('common.validate')">
-                <r-input :title="$t('input.validate')" :model="policy" value="value6" :validator="validateInput" :validate="false"/>
-                <r-input :title="$t('picker.phone')" :model="policy" value="value7" :isPhone="true" :validate="false"/>
-                <r-input :title="$t('input.email')" :model="policy" value="value8" :isEmail="true" :validate="false"/>
-                <r-input :title="$t('input.number')" :model="policy" value="value9" :isNumber="true" :validate="false"/>
-                <r-input :title="$t('input.required')" :model="policy" value="value10" :required="true" :validate="false"/>
+                <r-input :title="$t('input.validate')" :model="policy" value="value6" :validator="validateInput" :novalidate="false"/>
+                <r-input :title="$t('picker.phone')" :model="policy" value="value7" :isPhone="true" :novalidate="false"/>
+                <r-input :title="$t('input.email')" :model="policy" value="value8" :isEmail="true" :novalidate="false"/>
+                <r-input :title="$t('input.number')" :model="policy" value="value9" :isNumber="true"  :novalidate="false"/>
+                <r-input :title="$t('input.required')" :model="policy" value="value10" :required="true" :novalidate="false"/>
 
             </card>
             <card :title="$t('input.mask')">
@@ -53,10 +53,11 @@
                     <img class="weui-vcode-img" src="https://i.loli.net/2017/09/18/59bf7f32425d5.jpg"/>
                 </r-input>
                  <r-input :title="$t('input.vcode')" :model="policy" value="value25" :right="true">
-                    <r-button class="weui-vcode" type="primary" >{{$t('input.vcode')}}</r-button>
+                    <r-button class="weui-vcode" type="primary" >eeee</r-button>
                 </r-input>     
             </card>
        </r-body>
+
        <bottom :index="2"/>
   </page>
 </template>
@@ -104,6 +105,9 @@ export default {
     },
     onEnter() {
       console.log("this is onEnter");
+    },
+    _onClick(){
+
     }
   }
 };
