@@ -3,10 +3,10 @@
        <top  :title="$t('chooseHandler.belongAgent')" :showBack="true"/>
        <r-body>
            <card :title="$t('chooseHandler.usualBelongAgent')">     
-               <checker  :max="1" :model="policy" value="value4" :data='commonlyList' :onChange="onChange" type="list"/>
-            </card>
+               <checker  :max="1" :model="policy" value="value4" :data='commonlyList'  type="list"/>
+            </card> 
            <card :title="$t('chooseHandler.otherBelongAgent')">     
-               <checker  :max="1" :model="policy" value="value4" :data='otherList' :onChange="onChange" type="list"/>
+               <checker  :max="1" :model="policy" value="value4" :data='otherList'  type="list"/>
             </card>
 
        </r-body>
@@ -43,8 +43,14 @@ export default {
           padding:'0px',
           policy:{
             value2:"fad",
-            value4:""
+            value4:null
           }
+        }
+
+    },
+    methods:{
+        onChange(){
+
         }
 
     },
@@ -55,10 +61,10 @@ export default {
     },
     computed:{    
       commonlyList(){
-          return [{"key":"10000","value":"常用归属经办人1",'disabled':true},{"key":"100000","value":"常用归属经办人2"},{"key":"1000000","value":"常用归属经办人3"},{"key":"10000000","value":"常用归属经办人3"}]
+          return [{"key":"10003","value":"常用归属经办人1",'disabled':true},{"key":"100004","value":"常用归属经办人2"},{"key":"1000005","value":"常用归属经办人3"},{"key":"10000006","value":"常用归属经办人3"}]
       },      
       otherList(){
-          return [{"key":"10000","value":"其他归属经办人1",'disabled':true},{"key":"100000","value":"其他归属经办人2"},{"key":"1000000","value":"其他归属经办人3"},{"key":"10000000","value":"其他归属经办人3"}]
+          return [{"key":"10006","value":"其他归属经办人1",'disabled':true},{"key":"100007","value":"其他归属经办人2"},{"key":"1000008","value":"其他归属经办人3"},{"key":"10000009","value":"其他归属经办人3"}]
       }
     }
   
