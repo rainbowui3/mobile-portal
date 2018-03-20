@@ -37,6 +37,8 @@ import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import ChooseRelationship from "../../components/ChooseRelationship";
+import "../../../../i18n/project";
+import "../../../../i18n/input";
 export default {
   components: {
     Top,
