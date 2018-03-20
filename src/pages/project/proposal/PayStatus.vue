@@ -6,7 +6,7 @@
         <div>
           <h4>{{$t('payStatus.success')}}</h4>
         </div>
-        <previewer :title="$t('付款金额')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
+        <previewer :title="$t('payStatus.payment')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
       </card>
     </r-body>
   </page>
@@ -17,6 +17,7 @@ import { Page, Card, Popup, RBody } from "rainbow-mobile-core";
 import { Previewer } from "rainbow-mobile-previewer";
 import Top from "@/components/Top";
 import "../../../i18n/payStatus";
+import "../../../i18n/project";
 export default {
   components: {
     Page,
@@ -56,11 +57,11 @@ export default {
       return [
         {
           label: this.$t('payStatus.commodity'),
-          value: this.$t("xxxxxxxx险")
+          value: "xxxxxxxx险"
         },
         {
           label: this.$t('payStatus.policyNo'),
-          value: this.$t("TJAB3457890457899")
+          value: "TJAB3457890457899"
         },{
           value: this.$t('payStatus.note')
         }
