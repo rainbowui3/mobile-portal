@@ -1,9 +1,9 @@
 //保险期限组件-极短期
 <template>
-  <card>
+  <div>
     <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
     <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
-  </card>
+  </div>
 </template>
 
 <script>
