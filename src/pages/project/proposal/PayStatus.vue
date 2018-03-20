@@ -49,7 +49,7 @@ export default {
         {
           style: "default",
           text: this.$t('payStatus.again'),
-          link: "/project/proposal/gi/productInfoEntryNormal"
+          link: "/project/proposal/ah/productInfoEntryNormal"
         }
       ];
     },

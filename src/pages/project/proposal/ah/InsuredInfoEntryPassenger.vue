@@ -2,7 +2,9 @@
   <page>
     <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term type="day" :model="policy" expireDate="expireDate" effectiveDate="effectiveDate" />
+      <card :title="$t('planSelection.term')">
+        <insurance-duration-short-term type="day" :model="policy" expireDate="expireDate" effectiveDate="effectiveDate" />
+      </card>
       <card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
       </card>
@@ -36,6 +38,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import HolderInfo from "../../components/HolderInfo";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import "../../../../i18n/insuredInfoEntryPassenger";
+import "../../../../i18n/planSelection";
 export default {
   components: {
     Page,
@@ -75,15 +78,18 @@ export default {
     },
     onClick: function() {
       this.$router.push({
-        path: "/project/proposal/gi/InsuredInfoConfirmPassenger",
+        path: "/project/proposal/ah/InsuredInfoConfirmPassenger",
         name: "InsuredInfoConfirmPassenger",
-        params: [{
-          name: "test",
-          dataObj: this.policy
-        },{
-          name:"test2",
-          dataObj:this.policy
-        }]
+        params: [
+          {
+            name: "test",
+            dataObj: this.policy
+          },
+          {
+            name: "test2",
+            dataObj: this.policy
+          }
+        ]
       });
     }
   }

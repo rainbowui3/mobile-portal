@@ -41,6 +41,7 @@ import ProposalConfirm from "../../components/ProposalConfirm";
 import ChooseRelationship from "../../components/ChooseRelationship";
 import "../../../../i18n/project";
 import "../../../../i18n/input";
+import "../../../../i18n/planSelection";
 export default {
   components: {
     Top,
