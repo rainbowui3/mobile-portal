@@ -26,6 +26,9 @@ export default {
            
       list1(){
           return [{"key":"10000","value":"其他归属经办人1",'disabled':true},{"key":"100000","value":"其他归属经办人2"},{"key":"1000000","value":"其他归属经办人3"},{"key":"10000000","value":"其他归属经办人3"}]
+      },
+      goto(event){
+          window.location.hash='/project/proposal/auto2e/ChooseHandler';       
       }
   },
   props: {
