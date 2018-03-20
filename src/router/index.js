@@ -76,6 +76,10 @@ const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
 //  pay
 const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
+// home
+const BusinessHome = r => require.ensure([], () => r(require('@/pages/example/BusinessHome')), 'BusinessHome');
+// logn in
+const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
 
 
 Vue.use(Router);
@@ -436,6 +440,16 @@ const router = new Router({
       path: '/component/example/Payment',
       name: 'Payment',
       component: Payment
+    },
+    {
+      path: '/component/example/BusinessHome',
+      name: 'BusinessHome',
+      component: BusinessHome
+    },
+    {
+      path: '/component/example/BusinessSignIn',
+      name: 'BusinessSignIn',
+      component: BusinessSignIn
     }
   ],
 });
