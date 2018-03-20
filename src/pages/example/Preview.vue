@@ -54,7 +54,7 @@ export default {
     buttons1(){
       return [{
         style: 'default',
-        text: this.$t('preview.left')
+        text: this.$t('preview.left'),
       }, {
         style: 'primary',
         text: this.$t('preview.right'),
