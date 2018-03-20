@@ -2,17 +2,19 @@
   <page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
+      <card :title="$t('planSelection.term')">
+        <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+      </card>
       <card :title="$t('common.holder')">
         <holder-info :holderInfo="holderInfo" />
       </card>
       <card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.InsuredInfo[0]" value="relationToHolder"/>
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.InsuredInfo[0]" value="relationToHolder" />
         <insured-info v-if="policy.InsuredInfo[0].relationToHolder && policy.InsuredInfo[0].relationToHolder != '' && policy.InsuredInfo[0].relationToHolder != '本人'" :insuredInfo="insuredInfo" />
       </card>
       <card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder"/>
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured"/>
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured" />
         <subsidiary-insured-info v-if="policy.SubsidiaryInsuredInfo[0].relationToHolder && policy.SubsidiaryInsuredInfo[0].relationToHolder != '' && policy.SubsidiaryInsuredInfo[0].relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
@@ -96,25 +98,25 @@ export default {
         {
           key: "1",
           value: "本人",
-          active: true,
+          active: true
           // onClick: this.onClickInsured
         },
         {
           key: "2",
           value: "配偶",
-          active: false,
+          active: false
           // onClick: this.onClickInsured
         },
         {
           key: "3",
           value: "子女",
-          active: false,
+          active: false
           // onClick: this.onClickInsured
         },
         {
           key: "4",
           value: "父母",
-          active: false,
+          active: false
           // onClick: this.onClickInsured
         }
       ]
@@ -126,7 +128,7 @@ export default {
     },
     clickHome: function() {
       console.log("lalalalala");
-    },
+    }
     // onClickInsured: function(data) {
     //   console.log(data);
     // }
