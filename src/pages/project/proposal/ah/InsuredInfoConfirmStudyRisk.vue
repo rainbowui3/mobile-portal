@@ -11,18 +11,19 @@
                 <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
                 <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>    
                 <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="holderInfo" value="name" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="holderInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />          
+                <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="holderInfo" value="certificateNum" :readonly="readonly" />          
                 <selector  :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="insuredInfo" value="relationToHolder" :readonly="readonly"></selector> 
      
         </card>
           <card>
                 <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="holderInfo" value="name" :readonly="readonly" />
-                <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+                <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :readonly="readonly"></selector>
                 <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
                 <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true"  :readonly="readonly"></date-time>
                 <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('email@email.com')" :model="holderInfo" value="email" :isEmail="false"  :readonly="readonly"/>
+                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="false"  :readonly="readonly"/>
           </card>
+          <proposal-clause-confirm/>
 
       </r-body>
       
@@ -41,6 +42,7 @@ import ProposalConfirm from "../../components/ProposalConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 import Validate from "../../utils/Valitate";
 import Getbirthday from "../../utils/Getbirthday";
+import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import "../../../../i18n/insuredInfoStudyRisk";
 export default {
     components:{
@@ -54,7 +56,8 @@ export default {
         ProposalConfirm,
         InsuranceDurationShortTerm,
         DateTime,
-        Selector
+        Selector,
+        ProposalClauseConfirm
 
     },
     data(){
@@ -89,12 +92,13 @@ export default {
                     email: "wangxm@outlook.com"
 
                 },
-                buttonName:"proposalConfirm.immediatelyInsure",
+                buttonName:"proposalConfirm.submitPay",
                 amount:"100", 
                 options: [
                     { key: "10000", value: "身份证" },
                     { key: "10002", value: "护照" }
                 ],
+                options1:[{"key":"10000","value":"父母"},{"key":"10001","value":"祖父母"}],
                 isValidateNum:false,
                 readonly:true,
                  policy: {
@@ -102,6 +106,11 @@ export default {
                     expireDate: ""
                 }
         };
+    },
+    methods:{         
+        onClick: function() {
+            this.$router.push("/project/proposal/payStatus");
+        },
     }
   
 }

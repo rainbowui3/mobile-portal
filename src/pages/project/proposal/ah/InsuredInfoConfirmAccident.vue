@@ -21,6 +21,7 @@
       <tab-bar>
         <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
       </tab-bar>
+      
   </page>
  
   
@@ -32,6 +33,7 @@ import Top from "@/components/Top";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import HolderInfo from "../../components/HolderInfo";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
+import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import "../../../../i18n/insuredInfoAccident";
 
 export default {
@@ -45,7 +47,8 @@ export default {
         RSwitch,
         ProposalConfirm,
         HolderInfo,
-        InsuranceDurationShortTerm
+        InsuranceDurationShortTerm,
+        ProposalClauseConfirm
 
     },
     data(){
@@ -88,6 +91,11 @@ export default {
                 }
                  
         };
+    },
+    methods:{         
+        onClick: function() {
+            this.$router.push("/project/proposal/payStatus");
+        },
     }
   
 }

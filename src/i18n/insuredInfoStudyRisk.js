@@ -19,7 +19,8 @@ i18n.mergeLocaleMessage("zh-CN",{
     "insuredInfoStudyRisk.birth":"您的出生日期",
     "insuredInfoStudyRisk.phoneNum":"您的手机号码",
     "insuredInfoStudyRisk.inputPhoneNum":"请填写您的手机号码",
-    "insuredInfoStudyRisk.email":"您的电子邮箱"
+    "insuredInfoStudyRisk.email":"您的电子邮箱",
+    "insuredInfoStudyRisk.inputEmail":"email@email.com"
 });
 i18n.mergeLocaleMessage("en-US",{
     "insuredInfoStudyRisk.babyName":"Child's Name",
@@ -41,6 +42,7 @@ i18n.mergeLocaleMessage("en-US",{
     "insuredInfoStudyRisk.birth":"Your birthday",
     "insuredInfoStudyRisk.phoneNum":"Your phone number",
     "insuredInfoStudyRisk.inputPhoneNum":"Please input your phone number",
-    "insuredInfoStudyRisk.email":"Your email"
+    "insuredInfoStudyRisk.email":"Your email",
+    "insuredInfoStudyRisk.inputEmail":"email@email.com"
 
 })

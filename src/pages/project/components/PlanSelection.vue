@@ -171,11 +171,11 @@ export default {
     },
     getListData() {
       return [
-        { label: this.$t("适用人群:"), value: "各个年龄段人群" },
-        { label: this.$t("每人限购:"), value: "10份" },
-        { label: this.$t("保险期限:"), value: "1年" },
+        { label: this.$t('planSelection.approvalCrowd'), value: "各个年龄段人群" },
+        { label: this.$t("planSelection.limitPurchase"), value: "10份" },
+        { label: this.$t("planSelection.term"), value: "1年" },
         {
-          label: this.$t("特殊说明:"),
+          label: this.$t("planSelection.specialInstructions"),
           value: "本产品最终解释权由中国大地保险所有"
         }
       ];

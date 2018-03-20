@@ -17,12 +17,8 @@
             </card>
 
         </r-body>
-        <tab-bar>
-            <cell type="row">
-                <cell>
-                    <r-button type="primary" :onClick="_onClick">{{$t('common.next')}}</r-button>
-                </cell>
-            </cell>
+        <tab-bar>         
+            <r-button type="primary" :onClick="_onClick">{{$t('common.next')}}</r-button>          
         </tab-bar>
 
     </page>

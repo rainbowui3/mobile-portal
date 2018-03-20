@@ -2,15 +2,19 @@
   <page>
     <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
-      <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate"/>
+      <card :title="$t('planSelection.term')">
+        <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+      </card>
       <card :title="$t('common.holder')">
-        <choose-relationship></choose-relationship>
         <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
       </card>
       <card :title="$t('common.insured')">
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
         <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
       </card>
-      <card :title="$t('common.subsidiary')">
+      <card :title="$t('common.subsidiaryInsured')">
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" />
         <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </card>
     </r-body>
@@ -47,6 +51,9 @@ import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 import ChooseRelationship from "../../components/ChooseRelationship";
+import "../../../../i18n/planSelection";
+import "../../../../i18n/input";
+
 // import localStorage from "../../../../sotre.js";
 
 export default {
@@ -74,6 +81,10 @@ export default {
   data() {
     return {
       readonly: true,
+      policyData: {
+        effectiveDate: "",
+        expireDate: ""
+      },
       // ,
       // policy:localStorage.fetch()
       policy: {
@@ -106,7 +117,33 @@ export default {
         }
       },
       amount: "100",
-      buttonName: "proposalConfirm.submitPay"
+      buttonName: "proposalConfirm.submitPay",
+      datas1: [
+        {
+          key: "1",
+          value: "本人",
+          active: true
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "2",
+          value: "配偶",
+          active: false
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "3",
+          value: "子女",
+          active: false
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "4",
+          value: "父母",
+          active: false
+          // onClick: this.onClickInsured
+        }
+      ]
     };
   },
   created: function() {
