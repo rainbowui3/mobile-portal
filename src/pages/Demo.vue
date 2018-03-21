@@ -42,31 +42,59 @@ export default {
           class: "product",
           src: Ly,
           onClick: this.goto,
-          param: "/project/proposal/ah/productInfoEntryNormal"
+          param:{
+            name:"ProductInfoEntryNormal",
+            url:"/project/proposal/ah/productInfoEntryNormal",
+            flag:"1"
+          } 
+          // param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
           class: "product",
           src: Jcx,
           onClick: this.goto,
-          param: "/project/proposal/ah/productInfoEntryShortTerm"
+          param:{
+            name:"ProductInfoEntryShortTerm",
+            url:"/project/proposal/ah/productInfoEntryShortTerm",
+            flag:"2"
+          } 
+          
+          // param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
           class: "product",
           src: Female,
           onClick: this.goto,
-          param: "/project/proposal/auto2e/ProductInfoEntryAuto"
+          param:{
+            name:"ProductInfoEntryNormal",
+            url:"/project/proposal/ah/productInfoEntryNormal",
+            flag:"3"
+          } 
+          
+          // param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
           class: "product",
           src: Fire,
           onClick: this.goto,
-          param: "/project/proposal/ah/InsuredInfoStudyRisk"
+          param:{
+            name:"ProductInfoEntryNormal",
+            url:"/project/proposal/ah/productInfoEntryNormal",
+            flag:"4"
+          } 
+          
+          // param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
           class: "product",
           src: Jtgj,
           onClick: this.goto,
-          param: "/project/proposal/ah/InsuredInfoAccident"
+          param:{
+            name:"ProductInfoEntryShortTerm",
+            url:"/project/proposal/ah/productInfoEntryShortTerm",
+            flag:"5"
+          }
+          // param: "/project/proposal/ah/InsuredInfoAccident"
         },
         {
           class: "product",
@@ -97,9 +125,16 @@ export default {
     };
   },
   methods: {
-    goto(param) {
-      window.location.hash = param;
-    },
+    goto(param) { 
+      // window.location.hash = param;
+    this.$router.push({
+        path:param.url,
+        name:param.name,
+        params:{
+            flag:param.flag
+          }
+    })
+ },
     go(index) {
       switch (index) {
         case 0:

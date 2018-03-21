@@ -73,12 +73,26 @@ export default {
       productDes:
         "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
       amount: "100",
-      buttonName: "proposalConfirm.confirmInsure"
+      buttonName: "proposalConfirm.confirmInsure",
+      templateFlag:""
     };
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
+      switch(this.templateFlag) {
+        case"1":
+         this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
+        break;
+        case"3":
+          this.$router.push("/project/proposal/ah/InsuredInfoStudyRisk");
+        break;
+        case"4":
+         this.$router.push("/project/proposal/ah/InsuredInfoEntryPassenger");
+        break;
+        default: 
+          this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
+          break;
+      }
     }
   },
   created: function() {
@@ -136,9 +150,13 @@ export default {
       productCode: "",
       productName: ""
     };
+    let templateFlag = this.$route.params.flag
     this.policy = policy;
     this.productInfo = productInfo;
+    this.templateFlag = templateFlag;
     sessionStorage.setItem("POLICY", JSON.stringify(this.policy));
+    
+    // console.log(this.$route.params.flag);
   }
 };
 </script>

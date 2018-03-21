@@ -75,14 +75,30 @@ export default {
       policy: {
         effectiveDate: "",
         expireDate: ""
-      }
+      },
+      templateFlag:""
     };
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+      switch(this.templateFlag) {
+        case"2":
+         this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+        break;
+        case"5":
+          this.$router.push("/project/proposal/ah/InsuredInfoAccident");
+        break;
+        default: 
+          this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+          break;
+      }
+      // this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
     }
-  }
+  },
+   created: function() {
+    let templateFlag = this.$route.params.flag
+    this.templateFlag = templateFlag;
+   }
   // ,
   // mounted:function(){
 

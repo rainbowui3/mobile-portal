@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     nextOnClick(){      
-        this.$router.push("/project/proposal/payStatus");
+        this.$router.push("/project/proposal/auto2e/AutoPlan");
         // this.$router.push("");
 
     }

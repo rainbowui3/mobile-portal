@@ -1,7 +1,7 @@
 <template>
     <div>
-        <row :title="$t('autoAgent.belongToHandler')" :onClick="goto" :isLink="true"></row>
-        <row :title="$t('autoAgent.agent')" :onClick="goto" :isLink="true"></row>
+        <row :title="$t('autoAgent.belongToHandler')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
+        <row :title="$t('autoAgent.agent')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
         <picker :title="$t('autoAgent.agreementNo')" :options="list1" :model="policy" value="value1" :onChange="onChange" :readonly="true" ></picker>
         
     </div>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
         policy:{
-            value1:[]
+            value1:[],
         },
         list1: [["其他归属经办人1","其他归属经办人2","其他归属经办人3","其他归属经办人4"]]
     };

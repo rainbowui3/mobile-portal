@@ -8,7 +8,7 @@
           <card :title="$t('insuredInfoAccident.passengerInfo')">
               <holder-info :holderInfo="passengerInfo" :readonly="readonly"/>
               <r-input :title="$t('insuredInfoAccident.trainNo')"  :model="passengerInfo" value="rainNo"  :readonly="readonly"/>           
-              <r-input :title="$t('common.name')"  :model="passengerInfo" value="seatNum"  :readonly="readonly"/>
+              <r-input :title="$t('insuredInfoAccident.seatNo')"  :model="passengerInfo" value="seatNum"  :readonly="readonly"/>
               <r-switch  :title="$t('insuredInfoAccident.sameWithHolder')"  :model="passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>      
           </card>
           <card :title="$t('common.holderInfo')">
