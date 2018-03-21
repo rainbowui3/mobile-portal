@@ -8,7 +8,7 @@
           <card :title="$t('planSelection.guaranteeRate')">
             <r-table :data="item.planData" :class="{table:classStatus}" />
             <div v-for="(coverage, idx) in coverageList" :key="idx">
-              <row :title="coverage.coverageTitle" :value="coverage.coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
+              <row :title="coverage.coverageTitle" :model="coverage" value="coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
               <template v-if="coverage.showDescription">
                 <div>
                   <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
@@ -27,7 +27,7 @@
         <selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue"></selector>
         <r-table :data="items[0].planData" :class="{table:classStatus}" />
         <div v-for="(coverage, idx) in coverageList" :key="idx">
-          <row :title="coverage.coverageTitle" :value="coverage.coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
+          <row :title="coverage.coverageTitle" :model="coverage" value="coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
           <template v-if="coverage.showDescription">
             <div>
               <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
