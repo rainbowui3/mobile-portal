@@ -3,10 +3,10 @@
         <!-- <selector  :title="$t('与投保人关系:')" :options="options1" :model="insuredInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector> -->
         <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="insuredInfo" value="name" :readonly="readonly" />
         <selector :title="$t('holderInfo.certificateType')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="insuredInfo" value="certificateNum" :validator="validateNumInput" :validate="isValidateNum" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="insuredInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
         <date-time :title="$t('holderInfo.birthday')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="insuredInfo" value="mobileNum" :isPhone="true" :validate="false" :readonly="readonly" />
-        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="insuredInfo" value="email" :isEmail="true" :validate="false" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="insuredInfo" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="insuredInfo" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
     </div>
 </template>
 
