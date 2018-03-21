@@ -21,7 +21,9 @@ i18n.mergeLocaleMessage("zh-CN", {
     "project.other": "其他信息",
     "project.copy": "份数",
     "project.buy": "确定投保",
-    "project.social": "是否有社保"
+    "project.social": "是否有社保",
+    "project.studyRisk": "学平险",
+    "project.accident": "乘意险",
 });
 i18n.mergeLocaleMessage("en-US", {
     "project.jtyw": "AUTO Insurence",
@@ -44,5 +46,7 @@ i18n.mergeLocaleMessage("en-US", {
     "project.other": "Othe information",
     "project.copy": "Copy",
     "project.buy": "Buy",
-    "project.social": "Social Security"
+    "project.social": "Social Security",    
+    "project.studyRisk": "Study Risk",
+    "project.accident": "Accident",
 });

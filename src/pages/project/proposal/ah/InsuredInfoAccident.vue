@@ -1,6 +1,6 @@
 <template>
   <page>
-      <top :title="$t('project.jtyw')" :showBack="true" />
+      <top :title="$t('project.accident')" :showBack="true" />
       <r-body>
           <card :title="$t('insuredInfoAccident.passengerInfo')">
               <holder-info :holderInfo="passengerInfo" />

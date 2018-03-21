@@ -1,6 +1,6 @@
 <template>
   <page>
-      <top :title="$t('project.jtyw')" :showBack="true" />
+      <top :title="$t('project.accident')" :showBack="true" />
       <r-body>     
           <card>
               <insurance-duration-short-term :readonly="readonly"  :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"/>
