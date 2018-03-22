@@ -127,6 +127,7 @@ export default {
   methods: {
     goto(param) { 
       // window.location.hash = param;
+      sessionStorage.setItem("ROUTE_FLAG", param.flag);
     this.$router.push({
         path:param.url,
         name:param.name,
