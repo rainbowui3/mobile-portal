@@ -1,6 +1,6 @@
 <template>
   <page>
-    <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
+    <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
         <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
@@ -10,12 +10,12 @@
       </card>
       <card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true"/>
-        <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
       </card>
       <card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true"/>
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true"/>
-        <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+        <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </card>
     </r-body>
     <tab-bar>
@@ -53,6 +53,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import ChooseRelationship from "../../components/ChooseRelationship";
 import "../../../../i18n/planSelection";
 import "../../../../i18n/input";
+import "../../../../i18n/project";
 
 // import localStorage from "../../../../sotre.js";
 
