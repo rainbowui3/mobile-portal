@@ -74,7 +74,7 @@ export default {
                     email: "wangxm@outlook.com"
 
                 },
-                buttonName:"proposalConfirm.submitPay",
+                buttonName:"proposalConfirm.immediatelyInsure",
                 amount:"100"
                 
                 , 
