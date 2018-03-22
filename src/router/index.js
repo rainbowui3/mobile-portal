@@ -71,6 +71,8 @@ const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/pr
 const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
 const AutoPlan = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPlan'),'AutoPlan'));
 const CarAndOwnerInfoEntry = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarAndOwnerInfoEntry'),'CarAndOwnerInfoEntry'));
+const CarAndOwnerInfoEntryOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarAndOwnerInfoEntryOneWay'),'CarAndOwnerInfoEntryOneWay'));
+const ChooseCar = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseCar'),'ChooseCar'));
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -416,6 +418,14 @@ const router = new Router({
       path: '/project/proposal/auto2e/CarAndOwnerInfoEntry',
       name: 'CarAndOwnerInfoEntry',
       component: CarAndOwnerInfoEntry
+    },{
+      path: '/project/proposal/auto2e/CarAndOwnerInfoEntryOneWay',
+      name: 'CarAndOwnerInfoEntryOneWay',
+      component: CarAndOwnerInfoEntryOneWay
+    },{
+      path: '/project/proposal/auto2e/ChooseCar',
+      name: 'ChooseCar',
+      component: ChooseCar
     },
     
     // business
