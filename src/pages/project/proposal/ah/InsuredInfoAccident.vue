@@ -28,6 +28,7 @@ import Top from "@/components/Top";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import HolderInfo from "../../components/HolderInfo";
 import "../../../../i18n/insuredInfoAccident";
+import "../../../../i18n/input";
 export default {
     components:{
         Page,
@@ -47,7 +48,7 @@ export default {
                     holderInfo: {
                     name: "王小明",
                     certificateId: "10000",
-                    certificateNum: "295792200001018271",
+                    certificateNum: "65300119520705283x",
                     birthdate: "2000-01-01",
                     mobileNum: "18398768724",
                     email: "wangxm@outlook.com"
@@ -56,7 +57,7 @@ export default {
                     relationToHolder:"本人",
                     name: "王小明",
                     certificateId: "10000",
-                    certificateNum: "295792200001018271",
+                    certificateNum: "65300119520705283x",
                     birthdate: "2000-01-01",
                     mobileNum: "18398768724",
                     email: "wangxm@outlook.com"
@@ -65,7 +66,7 @@ export default {
                     relationToHolder:true,
                     name: "王小明",
                     certificateId: "10000",
-                    certificateNum: "295792200001018271",
+                    certificateNum: "65300119520705283x",
                     birthdate: "2000-01-01",
                     mobileNum: "18398768724",
                     rainNo: "G203",

@@ -35,6 +35,7 @@ import HolderInfo from "../../components/HolderInfo";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import "../../../../i18n/insuredInfoAccident";
+import "../../../../i18n/input";
 
 export default {
     components:{
