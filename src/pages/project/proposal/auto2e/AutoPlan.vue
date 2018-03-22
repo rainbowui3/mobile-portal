@@ -14,7 +14,7 @@
                     </cell>
                   </cell>          
                   <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
-                  <row :title="$t('autoPlan.carShipTax')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
+                  <row :title="$t('autoPlan.carShipTax')" :model="policy" value="" :onClick="gotoVehicleAndVesse" :isLink="true"></row>
                 </div>
                
             </card>
@@ -133,6 +133,9 @@ export default {
     },
     onChange(){
 
+    },
+    gotoVehicleAndVesse(event){
+      window.location.hash="/project/proposal/auto2e/AutoVehicleAndVesselTax";
     },
     goto(event){
       window.location.hash="";

@@ -63,6 +63,7 @@ export default {
       basic:"Basic",
       badge:"Badge",
       row:"Row",
+      confirm:"Confirm"
     },
     // dialog: {
     //   show: 'Show'
@@ -379,7 +380,8 @@ export default {
       subsidiaryInsuredInfo:"附属被保险人信息",
       basic:"基础用法",
       badge:"徽章",
-      row:"单元行"
+      row:"单元行",
+      confirm:"确认"
     },
     // dialog: {
     //   show: '显示'
