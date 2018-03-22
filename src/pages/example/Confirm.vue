@@ -13,7 +13,6 @@
               <confirm :model="policy" value="show2" :showInput="true" inputType="number" :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</confirm>
               <confirm :model="policy" value="show3" theme="android"  :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</confirm>
               <confirm :model="policy" value="show4" :closeOnConfirm="false"  :title="$t('row.title')" :onHide="onHide"  :onConfirm="onConfirm2"> {{ $t('divider.sogo') }}</confirm>
-
             </card>
        </r-body>
        <bottom :index="2"/>
