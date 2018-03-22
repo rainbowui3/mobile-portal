@@ -112,7 +112,7 @@ export default {
         }
       },
       amount: "100",
-      buttonName: "proposalConfirm.immediatelyInsure",
+      buttonName: "proposalConfirm.confirmInsure",
       relationToHolder: [
         { key: "10000", value: "本人" },
         { key: "10001", value: "配偶" },
