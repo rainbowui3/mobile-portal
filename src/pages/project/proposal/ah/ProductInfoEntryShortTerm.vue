@@ -7,7 +7,7 @@
                 </product-top>
             </card>
             <card>
-                <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
+                <insurance-duration-shortTerm type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
             </card>
             <card>
                 <plan-selection></plan-selection>
@@ -49,6 +49,7 @@ import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import Jtgj from "../../../../assets/jtgj.jpg";
+import "../../../../i18n/project";
 
 export default {
   components: {

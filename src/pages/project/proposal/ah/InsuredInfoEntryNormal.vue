@@ -9,13 +9,13 @@
         <holder-info :holderInfo="holderInfo" />
       </card>
       <card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.InsuredInfo[0]" value="relationToHolder" />
-        <insured-info v-if="policy.InsuredInfo[0].relationToHolder && policy.InsuredInfo[0].relationToHolder != '' && policy.InsuredInfo[0].relationToHolder != '本人'" :insuredInfo="insuredInfo" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="insuredInfo" value="relationToHolder" />
+        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :insuredInfo="insuredInfo" />
       </card>
       <card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToHolder" />
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.SubsidiaryInsuredInfo[0]" value="relationToMainInsured" />
-        <subsidiary-insured-info v-if="policy.SubsidiaryInsuredInfo[0].relationToHolder && policy.SubsidiaryInsuredInfo[0].relationToHolder != '' && policy.SubsidiaryInsuredInfo[0].relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="dubsidiaryInsuranceInfo" value="relationToHolder" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" />
+        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
@@ -65,26 +65,26 @@ export default {
       holderInfo: {
         name: "王小明",
         certificateId: "10000",
-        certificateNum: "295792200001018271",
+        certificateNum: "65300119520705283x",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
         email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        // relationToHolder: "本人",
+        relationToHolder: "本人",
         name: "王小明",
         certificateId: "10000",
-        certificateNum: "295792200001018271",
+        certificateNum: "65300119520705283x",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
         email: "wangxm@outlook.com"
       },
       dubsidiaryInsuranceInfo: {
-        relationToHolder: "10000",
-        relationToMainInsured: "10000",
+        relationToHolder: "本人",
+        relationToMainInsured: "本人",
         name: "王小明",
         certificateId: "10000",
-        certificateNum: "295792200001018271",
+        certificateNum: "65300119520705283x",
         birthdate: "2000-01-01",
         mobileNum: "18398768724",
         email: "wangxm@outlook.com"

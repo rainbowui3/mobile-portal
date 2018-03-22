@@ -91,7 +91,7 @@ export default {
         holderInfo: {
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
@@ -100,7 +100,7 @@ export default {
           relationToHolder: "本人",
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
@@ -110,7 +110,7 @@ export default {
           relationToMainInsured: "本人",
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"

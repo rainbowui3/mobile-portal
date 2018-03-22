@@ -57,7 +57,10 @@ export default {
     }
 
     //设定起保日期默认值：当前日期后一天0时0分0秒
-    if (this.model[this.effectiveDate] == "" || this.model[this.effectiveDate] == undefined) {
+    if (
+      this.model[this.effectiveDate] == "" ||
+      this.model[this.effectiveDate] == undefined
+    ) {
       let dd = new Date();
       let day,
         month,
@@ -78,8 +81,16 @@ export default {
       }
 
       year = y.toString();
-      this.model[this.effectiveDate] = year + "-" + month + "-" + day + " " + "00:00:00";
-      this.model[this.expireDate] = (y+1).toString() + "-" + month + "-" + day + " " + "00:00:00";
+      if (this.type == "day") {
+        this.model[this.effectiveDate] = year + "-" + month + "-" + day;
+        this.model[this.expireDate] =
+          (y + 1).toString() + "-" + month + "-" + day;
+      } else {
+        this.model[this.effectiveDate] =
+          year + "-" + month + "-" + day + " " + "00:00:00";
+        this.model[this.expireDate] =
+          (y + 1).toString() + "-" + month + "-" + day + " " + "00:00:00";
+      }
     }
   },
   mounted() {}
