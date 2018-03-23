@@ -112,8 +112,8 @@ export default {
 
          {
           icon: "fa fa-info-circle ",
-          text: this.$t("business.businessHome"),
-          link: "/component/example/businessHome"
+          text: this.$t("business.businessThumbnail"),
+          link: "/component/example/businessThumbnail"
         },
 
         {
