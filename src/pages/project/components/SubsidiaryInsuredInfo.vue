@@ -76,7 +76,7 @@ export default {
     console.log(this.dubsidiaryInsuranceInfo.relationToHolder);
   },
   created: function() {
-    sessionStorage.setItem("dubsidiaryInsuranceInfo-relationToHolder", "10000");
+    sessionStorage.setItem("dubsidiaryInsuranceInfo-relationToHolder", "本人");
   },
   computed: {
     onChangeCertiType: function() {

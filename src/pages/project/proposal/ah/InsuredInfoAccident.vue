@@ -8,7 +8,7 @@
                 <r-input :title="$t('insuredInfoAccident.seatNo')" :model="passengerInfo" value="seatNum" />
                 <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder"></r-switch>
             </card>
-            <card v-if="passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
+            <card v-if="!passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
                 <holder-info :holderInfo="holderInfo" />
             </card>
 

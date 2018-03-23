@@ -11,7 +11,7 @@
               <r-input :title="$t('insuredInfoAccident.seatNo')"  :model="passengerInfo" value="seatNum"  :readonly="readonly"/>
               <r-switch  :title="$t('insuredInfoAccident.sameWithHolder')"  :model="passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>      
           </card>
-          <card v-if="this.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
+          <card v-if="!this.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
               <holder-info :holderInfo="holderInfo" :readonly="readonly" />
           </card>    
           <proposal-clause-confirm/>
