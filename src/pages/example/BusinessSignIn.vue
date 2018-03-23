@@ -2,9 +2,9 @@
   <page>
        <top :title="$t('businessSignIn.SignIn')" :showBack="true"/>
        <r-body>
-         <card>
+         <div class="sign">
              <sign-in />
-         </card>
+         </div>
        </r-body>
        <bottom :index="2"/>
   </page>
@@ -31,5 +31,6 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style >
+
 </style>
