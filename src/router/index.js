@@ -90,7 +90,7 @@ const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/e
 //  pay
 const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
 // home
-const BusinessHome = r => require.ensure([], () => r(require('@/pages/example/BusinessHome')), 'BusinessHome');
+const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/example/BusinessThumbnail')), 'BusinessThumbnail');
 // logn in
 const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
 
@@ -497,9 +497,9 @@ const router = new Router({
       component: Payment
     },
     {
-      path: '/component/example/BusinessHome',
-      name: 'BusinessHome',
-      component: BusinessHome
+      path: '/component/example/BusinessThumbnail',
+      name: 'businessThumbnail',
+      component: BusinessThumbnail
     },
     {
       path: '/component/example/BusinessSignIn',
