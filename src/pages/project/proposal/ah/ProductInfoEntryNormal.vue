@@ -79,6 +79,7 @@ export default {
   },
   methods: {
     onClick: function() {
+      this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
       switch(this.templateFlag) {
         case"1":
          this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");

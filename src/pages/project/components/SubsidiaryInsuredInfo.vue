@@ -1,8 +1,8 @@
 <template>
   <!-- relationToMainInsured -->
   <div>
-    <selector :title="$t('holderInfo.relationToHolder')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
-    <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector>
+    <!-- <selector :title="$t('holderInfo.relationToHolder')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
+    <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> -->
     <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly" />
     <selector :title="$t('holderInfo.certificateType')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
     <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />

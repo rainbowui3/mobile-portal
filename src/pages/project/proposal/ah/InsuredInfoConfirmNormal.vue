@@ -1,6 +1,6 @@
 <template>
   <page>
-    <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
+    <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
         <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
@@ -9,13 +9,13 @@
         <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
       </card>
       <card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true"/>
-        <insured-info v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:insuredInfo="policy.insuredInfo"></insured-info>
       </card>
-      <card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true"/>
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true"/>
-        <subsidiary-insured-info v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+      <card :title="$t('common.subsidiaryInsured')"> 
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true" />
+        <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:dubsidiaryInsuranceInfo="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </card>
     </r-body>
     <tab-bar>
@@ -53,6 +53,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import ChooseRelationship from "../../components/ChooseRelationship";
 import "../../../../i18n/planSelection";
 import "../../../../i18n/input";
+import "../../../../i18n/project";
 
 // import localStorage from "../../../../sotre.js";
 
@@ -91,7 +92,7 @@ export default {
         holderInfo: {
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
@@ -100,7 +101,7 @@ export default {
           relationToHolder: "本人",
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
@@ -110,7 +111,7 @@ export default {
           relationToMainInsured: "本人",
           name: "王小明",
           certificateId: "身份证",
-          certificateNum: "130903199503210324",
+          certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"

@@ -1,25 +1,25 @@
 <template>
-    <page>
-        <top :title="$t('project.jtyw')" :showBack="true" />
-        <r-body>
-            <card>
-                <product-top :productImgSrc="productImgSrc" :productDes="productDes">
-                </product-top>
-            </card>
-            <card>
-                <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
-            </card>
-            <card>
-                <plan-selection></plan-selection>
-            </card>
-            <card>
-                <proposal-copies></proposal-copies>
-            </card>
-        </r-body>
-        <tab-bar>
-            <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-        </tab-bar>
-    </page>
+  <page>
+    <top :title="$t('project.jtyw')" :showBack="true" />
+    <r-body>
+      <card>
+        <product-top :productImgSrc="productImgSrc" :productDes="productDes">
+        </product-top>
+      </card>
+      <card>
+        <insurance-duration-shortTerm type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
+      </card>
+      <card>
+        <plan-selection></plan-selection>
+      </card>
+      <card>
+        <proposal-copies></proposal-copies>
+      </card>
+    </r-body>
+    <tab-bar>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
+    </tab-bar>
+  </page>
 
 </template>
 
@@ -49,6 +49,7 @@ import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import Jtgj from "../../../../assets/jtgj.jpg";
+import "../../../../i18n/project";
 
 export default {
   components: {
@@ -76,29 +77,30 @@ export default {
         effectiveDate: "",
         expireDate: ""
       },
-      templateFlag:""
+      templateFlag: ""
     };
   },
   methods: {
     onClick: function() {
-      switch(this.templateFlag) {
-        case"2":
-         this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
-        break;
-        case"5":
+      this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      switch (this.templateFlag) {
+        case "2":
+          this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+          break;
+        case "5":
           this.$router.push("/project/proposal/ah/InsuredInfoAccident");
-        break;
-        default: 
+          break;
+        default:
           this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
           break;
       }
       // this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
     }
   },
-   created: function() {
-    let templateFlag = this.$route.params.flag
+  created: function() {
+    let templateFlag = this.$route.params.flag;
     this.templateFlag = templateFlag;
-   }
+  }
   // ,
   // mounted:function(){
 
