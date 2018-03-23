@@ -1,32 +1,65 @@
 <template>
-    <div>
-        <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType"/>
-        <r-input :title="$t('holderInfo.name')" :model="model" value="name" :placeholder="$t('holderInfo.placeholderName')"/>
-        <selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType"/>
-        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="idNo"/>
-        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="tel"/>
-        <r-input :title="$t('carOwner.address')" :placeholder="$t('carOwner.inputAddr')" :model="model" value="address"/>
-        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email"/>
-    </div>
+  <div>
+    <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="required" :novalidate="novalidate"/>
+    <r-input :title="$t('holderInfo.name')" :model="model" value="name" :placeholder="$t('holderInfo.placeholderName')" :required="required" :novalidate="novalidate"/>
+    <selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType" :required="required" :novalidate="novalidate"/>
+    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="idNo" :required="required" :validator="validateInput" :novalidate="novalidate"/>
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="tel" :required="required" :novalidate="novalidate"/>
+    <r-input :title="$t('carOwner.address')" :placeholder="$t('carOwner.inputAddr')" :model="model" value="address" :required="required" :novalidate="novalidate"/>
+    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :required="required" :novalidate="novalidate"/>
+  </div>
 </template>
 
 <script>
-import { Selector,RInput } from "rainbow-mobile-core";
+import { Selector, RInput } from "rainbow-mobile-core";
 import "../../../i18n/carOwner";
 import "../../../i18n/holderInfo";
+import Validate from "../utils/Valitate";
+import Getbirthday from "../utils/Getbirthday";
 export default {
   components: {
-    Selector,RInput
+    Selector,
+    RInput
   },
-  props: {},
+  props: {
+    required: {
+      type: Boolean,
+      default: false
+    },
+    novalidate: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       model: {},
-      options_cusType:[{"key":"1","value":"个人"},{"key":"2","value":"机关"},{"key":"3","value":"企业"}],
-      options_certType:[{"key":"1","value":"身份证"},{"key":"2","value":"护照"}],
+      options_cusType: [
+        { key: "1", value: "个人" },
+        { key: "2", value: "机关" },
+        { key: "3", value: "企业" }
+      ],
+      options_certType: [
+        { key: "1", value: "身份证" },
+        { key: "2", value: "护照" }
+      ]
     };
   },
-  methods: {}
+  methods: {
+    validateInput:function(value){
+      if(this.model.indiIdType == "1"){
+        let result = Validate.validateIdNo(value);
+        return {
+          valid: result === true,
+          msg:this.$t('carOwner.validateId')
+        };
+      }else{
+        return {
+          valid: true
+        }
+      }
+    }
+  }
 };
 </script>
 

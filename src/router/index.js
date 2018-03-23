@@ -66,7 +66,7 @@ const InsuredInfoConfirmStudyRisk = r => require.ensure([],() => r(require('@/pa
 const InsuredInfoAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'),'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([],() => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'),'InsuredInfoConfirmAccident'));
 
-//auto
+//auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseHandler'),'ChooseHandler'));
 const AutoPlan = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPlan'),'AutoPlan'));
@@ -74,6 +74,10 @@ const CarAndOwnerInfoEntry = r => require.ensure([],() => r(require('@/pages/pro
 const CarAndOwnerInfoEntryOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarAndOwnerInfoEntryOneWay'),'CarAndOwnerInfoEntryOneWay'));
 const ChooseCar = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ChooseCar'),'ChooseCar'));
 const AutoVehicleAndVesselTax = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoVehicleAndVesselTax'),'AutoVehicleAndVesselTax'));
+const CarDetails = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetails'),'CarDetails'));
+const CarDetailsMotor = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsMotor'),'CarDetailsMotor'));
+const CarDetailsOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'),'CarDetailsOneWay'));
+
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -402,7 +406,7 @@ const router = new Router({
       name: 'InsuredInfoConfirmAccident',
       component: InsuredInfoConfirmAccident
     },
-    //auto
+    //auto2e
     {
       path: '/project/proposal/auto2e/ChooseHandler',
       name: 'ChooseHandler',
@@ -431,6 +435,18 @@ const router = new Router({
       path: '/project/proposal/auto2e/AutoVehicleAndVesselTax',
       name: 'AutoVehicleAndVesselTax',
       component: AutoVehicleAndVesselTax
+    },{
+      path: '/project/proposal/auto2e/CarDetails',
+      name: 'CarDetails',
+      component: CarDetails
+    },{
+      path: '/project/proposal/auto2e/CarDetailsMotor',
+      name: 'CarDetailsMotor',
+      component: CarDetailsMotor
+    },{
+      path: '/project/proposal/auto2e/CarDetailsOneWay',
+      name: 'CarDetailsOneWay',
+      component: CarDetailsOneWay
     },
     
     // business

@@ -3,19 +3,17 @@
     <top :title="$t('carAndOwnerInfoEntry.carAndOwnerInfo')" :showBack="true" />
     <r-body>
       <card :title="$t('carInfo.carInfo')">
-        <car-info :model="model" />
+        <car-info :model="model" :required="true" :novalidate="false" />
         <r-switch :title="$t('carAndOwnerInfoEntry.isTransferVehicle')" :model="model" value="isTransferVehicle" />
-        <date-time :title="$t('carAndOwnerInfoEntry.vehicleTransferRegDate')" :model="model" value="vehicleTransferRegDate" />
+        <date-time :title="$t('carAndOwnerInfoEntry.vehicleTransferRegDate')" :model="model" value="vehicleTransferRegDate" :required="true" :novalidate="false" />
       </card>
       <card :title="$t('carAndOwnerInfoEntry.carOwnerInfo')">
-        <car-owner/>
+        <car-owner :model="model" :required="true" :novalidate="false" />
       </card>
       <div class="linka" @click="onMoreInfoClick()">
         <a href="javascript:void(0);">{{$t('carAndOwnerInfoEntry.moreCarInfo')}}</a>
       </div>
-      <tab-bar>
-        <r-button type="primary">{{$t('common.next')}}</r-button>
-      </tab-bar>
+      <r-button type="primary">{{$t('common.next')}}</r-button>
     </r-body>
   </page>
 </template>
@@ -52,11 +50,28 @@ export default {
   },
   data() {
     return {
-      model: {}
+      model: {
+        isTransferVehicle: false
+      }
     };
   },
   methods: {
-    onMoreInfoClick: function() {}
+    onMoreInfoClick: function() {
+      //跳转暂时根据过户车标志来判断：false:跳转到机动车更多车辆信息页面，true:跳转到摩托车页面
+      if (this.model.isTransferVehicle) {
+        this.$router.push({
+          path: "/project/proposal/auto2e/CarDetailsMotor",
+          name: "CarDetailsMotor",
+          params: {}
+        });
+      } else {
+        this.$router.push({
+          path: "/project/proposal/auto2e/CarDetails",
+          name: "CarDetails",
+          params: {}
+        });
+      }
+    }
   }
 };
 </script>
