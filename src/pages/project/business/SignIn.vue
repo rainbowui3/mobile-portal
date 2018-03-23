@@ -1,6 +1,5 @@
 <template>
   <div class="signInContent">
-    <span class="siginFoot">注册</span>
     <div class="siginImg">
       <img :src= "Logo1" />
       <img :src= "Logo2" />
@@ -20,7 +19,7 @@
     <div class="contentInput">
       <r-button type="primary">{{$t('businessSignIn.login')}}</r-button>
     </div>
-    <span class="forget">忘记密码 ? </span>
+    <span class="forget">忘记密码 ? | 注册</span>
                 
 
     <div class="other">
@@ -83,14 +82,6 @@ export default {
 <style>
 .other{
   margin-top: 40px;
-}
-.siginFoot {
-  margin: 10px 10px 0 0;
-  display: inline-block;
-  display: flex;
-  justify-content: flex-end;
-  color: #1b1b1b;
-  font-size: 18px;
 }
 .siginImg {
   width: 80%;
