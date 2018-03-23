@@ -1,6 +1,6 @@
 <template>
   <page>
-    <top :title="$t('project.jtyw')" :showBack="true" />
+    <top :title="$t('project.jtyw')"/>
     <r-body>
       <card>
         <div>
