@@ -2,8 +2,11 @@
   <div class="signInContent">
     <span class="siginFoot">注册</span>
     <div class="siginImg">
-      <r-image :list="images"/>
+      <img :src= "Logo1" />
+      <img :src= "Logo2" />
+      <img :src= "Logo3" />
     </div>
+    <div class="rainbow">Rainbow</div>
 
     <div>
       <r-input  :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
@@ -22,7 +25,7 @@
 
     <div class="other">
        <divider>{{$t('businessSignIn.way')}}</divider>
-        <grid :cols="3" :data="gridItems"/>
+       <grid :cols="3" :data="gridItems"/>
     </div>
 
   </div>
@@ -30,7 +33,12 @@
 
 <script>
 import { Card, RImage, RInput, RButton, Box, Grid , Divider} from "rainbow-mobile-core";
-import Logo from "../../../assets/logo.png";
+import Logo1 from "../../../assets/u505.png";
+import Logo2 from "../../../assets/u507.png";
+import Logo3 from "../../../assets/u509.png";
+import WeChat from "../../../assets/weChat.png";
+import Webo from "../../../assets/webo.png";
+import F from "../../../assets/f.png";
 import "../../../i18n/businessSignIn";
 
 export default {
@@ -45,20 +53,28 @@ export default {
   },
   data() {
     return {
-      images: [{ class: "image", src: Logo }],
+      images: [
+        { class: "image", src: Logo1 },
+        { class: "image", src: Logo2 },
+        { class: "image", src: Logo3 }
+      ],
       policy: {
         valueUsername: "",
         valuePassword: ""
-      }
+      },
+      Logo1:Logo1,
+      Logo2:Logo2,
+      Logo3:Logo3
+
     };
   },
   methods: {},
   computed: {
     gridItems() {
       return [
-        { icon: "fa fa-address-card"},
-        { icon: "fa fa-address-card"},
-        { icon: "fa fa-address-card"}
+        { "img": WeChat},
+        { "img": Webo},
+        { "img": F}
       ];
     },
   }
@@ -77,8 +93,30 @@ export default {
   font-size: 18px;
 }
 .siginImg {
-  width: 50%;
-  margin: 50px auto 20px auto;
+  width: 80%;
+  margin: 20px auto 0px auto;
+  height: 90px;
+  position: relative;
+}
+.siginImg>:nth-child(1){
+  position: absolute;
+  left: 85px;
+}
+.siginImg>:nth-child(2){
+   position: absolute;
+    left: 95px;
+    top: 8px;
+}
+.siginImg>:nth-child(3){
+    position: absolute;
+    left: 105px;
+    top: 8px;
+}
+.rainbow{
+  font-size: 26px;
+  width:100px;
+  text-align: center;
+  margin: 0 auto 60px auto;
 }
 .signInContent {
   margin: 0 5px;
@@ -86,9 +124,23 @@ export default {
 .contentInput {
   margin: 20px auto 10px auto;
 }
+
+.contentInput >.weui-btn {
+background: linear-gradient(90deg, rgba(255, 204, 0, 1) 0%, rgba(255, 204, 0, 1) 42%, rgba(245, 130, 32, 1) 100%, rgba(245, 130, 32, 1) 100%);
+}
 .forget {
   width: 100%;
   display: inline-block;
   text-align: center;
+}
+.other>:nth-child(2)>.weui-grids{
+   background-color: #eee;
+}
+.other>:nth-child(2)>.weui-grids::before,
+.other>:nth-child(2)>.weui-grids::after,
+.other>:nth-child(2)>.weui-grids>a::after,
+.other>:nth-child(2)>.weui-grids>a::before
+{
+   border:0;
 }
 </style>

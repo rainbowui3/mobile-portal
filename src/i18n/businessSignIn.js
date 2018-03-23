@@ -1,8 +1,8 @@
 import i18n from "./index";
 i18n.mergeLocaleMessage("zh-CN", {
     "businessSignIn.SignIn": "注册",
-    "businessSignIn.Username":"用户名",
-    "businessSignIn.Password":"密码",
+    "businessSignIn.Username":"请输入用户名",
+    "businessSignIn.Password":"请输入密码",
     "businessSignIn.login":"登录",
     "businessSignIn.way":"其他登录方式"
 });
