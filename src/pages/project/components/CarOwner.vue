@@ -1,12 +1,11 @@
 <template>
   <div>
-    <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="required" :novalidate="novalidate"/>
-    <r-input :title="$t('holderInfo.name')" :model="model" value="name" :placeholder="$t('holderInfo.placeholderName')" :required="required" :novalidate="novalidate"/>
-    <selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType" :required="required" :novalidate="novalidate"/>
-    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="idNo" :required="required" :validator="validateInput" :novalidate="novalidate"/>
-    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="tel" :required="required" :novalidate="novalidate"/>
-    <r-input :title="$t('carOwner.address')" :placeholder="$t('carOwner.inputAddr')" :model="model" value="address" :required="required" :novalidate="novalidate"/>
-    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :required="required" :novalidate="novalidate"/>
+    <r-input :title="$t('holderInfo.name')" :model="model" value="name" :placeholder="$t('holderInfo.placeholderName')" :required="required" :novalidate="novalidate" />
+    <selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType" :required="required" :novalidate="novalidate" />
+    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="idNo" :required="required" :validator="validateInput" :novalidate="novalidate" />
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="tel" :required="required" :novalidate="novalidate" />
+    <r-input :title="$t('carOwner.address')" :placeholder="$t('carOwner.inputAddr')" :model="model" value="address" :required="required" :novalidate="novalidate" />
+    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email"/>
   </div>
 </template>
 
@@ -34,11 +33,6 @@ export default {
   data() {
     return {
       model: {},
-      options_cusType: [
-        { key: "1", value: "个人" },
-        { key: "2", value: "机关" },
-        { key: "3", value: "企业" }
-      ],
       options_certType: [
         { key: "1", value: "身份证" },
         { key: "2", value: "护照" }
@@ -46,17 +40,17 @@ export default {
     };
   },
   methods: {
-    validateInput:function(value){
-      if(this.model.indiIdType == "1"){
+    validateInput: function(value) {
+      if (this.model.indiIdType == "1") {
         let result = Validate.validateIdNo(value);
         return {
           valid: result === true,
-          msg:this.$t('carOwner.validateId')
+          msg: this.$t("carOwner.validateId")
         };
-      }else{
+      } else {
         return {
           valid: true
-        }
+        };
       }
     }
   }

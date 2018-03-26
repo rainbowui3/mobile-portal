@@ -77,6 +77,7 @@ const AutoVehicleAndVesselTax = r => require.ensure([],() => r(require('@/pages/
 const CarDetails = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetails'),'CarDetails'));
 const CarDetailsMotor = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsMotor'),'CarDetailsMotor'));
 const CarDetailsOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'),'CarDetailsOneWay'));
+const AutoSupplementInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSupplementInfo'),'AutoSupplementInfo'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -447,6 +448,10 @@ const router = new Router({
       path: '/project/proposal/auto2e/CarDetailsOneWay',
       name: 'CarDetailsOneWay',
       component: CarDetailsOneWay
+    },{
+      path: '/project/proposal/auto2e/AutoSupplementInfo',
+      name: 'AutoSupplementInfo',
+      component: AutoSupplementInfo
     },
     
     // business

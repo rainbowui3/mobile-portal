@@ -7,6 +7,7 @@
         <r-input :title="$t('carAndOwnerInfoEntryOneWay.vehicleInvoiceNo')" :model="model" value="vehicleInvoiceNo" :placeholder="$t('carAndOwnerInfoEntryOneWay.inputVehicleInvoiceNo')" :required="true" :novalidate="false"/>
       </card>
       <card :title="$t('carAndOwnerInfoEntry.carOwnerInfo')">
+        <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false"/>
         <car-owner :model="model" :required="true" :novalidate="false"/>
       </card>
       <div class="linka" @click="onMoreInfoClick()">
@@ -28,7 +29,8 @@ import {
   TabBar,
   RSwitch,
   DateTime,
-  RInput
+  RInput,
+  Selector
 } from "rainbow-mobile-core";
 import CarInfo from "../../components/CarInfo";
 import CarOwner from "../../components/CarOwner";
@@ -51,14 +53,20 @@ export default {
     TabBar,
     RSwitch,
     DateTime,
-    RInput
+    RInput,
+    Selector
   },
   data() {
     return {
       model: {},
       showModel: {
         modelSelectShow: false
-      }
+      },
+      options_cusType: [
+        { key: "1", value: "个人" },
+        { key: "2", value: "机关" },
+        { key: "3", value: "企业" }
+      ],
     };
   },
   methods: {

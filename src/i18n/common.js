@@ -63,7 +63,9 @@ export default {
       basic:"Basic",
       badge:"Badge",
       row:"Row",
-      confirm:"Confirm"
+      confirm:"Confirm",
+      mobile:"mobile",
+      inputMobile:"Please input mobile",
     },
     // dialog: {
     //   show: 'Show'
@@ -381,7 +383,9 @@ export default {
       basic:"基础用法",
       badge:"徽章",
       row:"单元行",
-      confirm:"确认"
+      confirm:"确认",
+      mobile:"移动电话",
+      inputMobile:"请输入移动电话"
     },
     // dialog: {
     //   show: '显示'

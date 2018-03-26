@@ -8,6 +8,7 @@
         <date-time :title="$t('carAndOwnerInfoEntry.vehicleTransferRegDate')" :model="model" value="vehicleTransferRegDate" :required="true" :novalidate="false" />
       </card>
       <card :title="$t('carAndOwnerInfoEntry.carOwnerInfo')">
+        <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false" />
         <car-owner :model="model" :required="true" :novalidate="false" />
       </card>
       <div class="linka" @click="onMoreInfoClick()">
@@ -26,7 +27,8 @@ import {
   RButton,
   TabBar,
   RSwitch,
-  DateTime
+  DateTime,
+  Selector
 } from "rainbow-mobile-core";
 import CarInfo from "../../components/CarInfo";
 import CarOwner from "../../components/CarOwner";
@@ -46,13 +48,19 @@ export default {
     RButton,
     TabBar,
     RSwitch,
-    DateTime
+    DateTime,
+    Selector
   },
   data() {
     return {
       model: {
         isTransferVehicle: false
-      }
+      },
+      options_cusType: [
+        { key: "1", value: "个人" },
+        { key: "2", value: "机关" },
+        { key: "3", value: "企业" }
+      ],
     };
   },
   methods: {
