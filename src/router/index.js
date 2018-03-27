@@ -78,6 +78,7 @@ const CarDetails = r => require.ensure([],() => r(require('@/pages/project/propo
 const CarDetailsMotor = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsMotor'),'CarDetailsMotor'));
 const CarDetailsOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'),'CarDetailsOneWay'));
 const AutoSupplementInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSupplementInfo'),'AutoSupplementInfo'));
+const AutoPay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPay'),'AutoPay'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -452,6 +453,10 @@ const router = new Router({
       path: '/project/proposal/auto2e/AutoSupplementInfo',
       name: 'AutoSupplementInfo',
       component: AutoSupplementInfo
+    },{
+      path: '/project/proposal/auto2e/AutoPay',
+      name: 'AutoPay',
+      component: AutoPay
     },
     
     // business
