@@ -3,7 +3,7 @@
         <top :title="$t('common.pay')" :showBack="true" />
         <r-body>
             <card>
-                <div>
+                <div class="border">
                     <cell>
                         <div class="title">{{$t('autoPay.proposalNum')}}{{model.proposalNum}}{{$t('autoPay.content')}}</div>
                     </cell>
@@ -65,5 +65,8 @@ export default {
 }
 .button {
   text-align: right;
+}
+.border{
+    margin: 10px;
 }
 </style>

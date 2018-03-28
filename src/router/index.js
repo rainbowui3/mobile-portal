@@ -79,6 +79,8 @@ const CarDetailsMotor = r => require.ensure([],() => r(require('@/pages/project/
 const CarDetailsOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'),'CarDetailsOneWay'));
 const AutoSupplementInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSupplementInfo'),'AutoSupplementInfo'));
 const AutoPay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPay'),'AutoPay'));
+const AutoSendUnderwriting = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSendUnderwriting'),'AutoSendUnderwriting'));
+const AutoProposalInfoConfirm = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoProposalInfoConfirm'),'AutoProposalInfoConfirm'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -457,6 +459,14 @@ const router = new Router({
       path: '/project/proposal/auto2e/AutoPay',
       name: 'AutoPay',
       component: AutoPay
+    },{
+      path: '/project/proposal/auto2e/AutoSendUnderwriting',
+      name: 'AutoSendUnderwriting',
+      component: AutoSendUnderwriting
+    },{
+      path: '/project/proposal/auto2e/AutoProposalInfoConfirm',
+      name: 'AutoProposalInfoConfirm',
+      component: AutoProposalInfoConfirm
     },
     
     // business
