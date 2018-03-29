@@ -14,7 +14,7 @@
       <div class="linka" @click="onMoreInfoClick()">
         <a href="javascript:void(0);">{{$t('carAndOwnerInfoEntry.moreCarInfo')}}</a>
       </div>
-      <r-button type="primary">{{$t('common.next')}}</r-button>
+      <r-button type="primary" :onClick="nextClick">{{$t('common.next')}}</r-button>
     </r-body>
   </page>
 </template>
@@ -79,6 +79,9 @@ export default {
           params: {}
         });
       }
+    },
+    nextClick(){
+       this.$router.push("/project/proposal/auto2e/AutoPlan");
     }
   }
 };
