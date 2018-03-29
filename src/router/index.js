@@ -78,6 +78,23 @@ const CarDetails = r => require.ensure([],() => r(require('@/pages/project/propo
 const CarDetailsMotor = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsMotor'),'CarDetailsMotor'));
 const CarDetailsOneWay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'),'CarDetailsOneWay'));
 const AutoSupplementInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSupplementInfo'),'AutoSupplementInfo'));
+const AutoPremiumInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPremiumInfo'),'AutoPremiumInfo'));
+const AutoCFeeInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoCFeeInfo'),'AutoCFeeInfo'));
+const AutoFloatRateInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoFloatRateInfo'),'AutoFloatRateInfo'));
+const VehicleLoss = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/VehicleLoss'),'VehicleLoss'));
+const ThirdDutyMian = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/ThirdDutyMian'),'ThirdDutyMian'));
+const CarRobberyMain = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarRobberyMain'),'CarRobberyMain'));
+const DriverDutyMian = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/DriverDutyMian'),'DriverDutyMian'));
+const PassengerDutyMian = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/PassengerDutyMian'),'PassengerDutyMian'));
+const GlassCrushAdditional = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/GlassCrushAdditional'),'GlassCrushAdditional'));
+const NaturalDamage = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/NaturalDamage'),'NaturalDamage'));
+const NewEquipmenLoss = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/NewEquipmenLoss'),'NewEquipmenLoss'));
+const CarBodyScratchLoss = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarBodyScratchLoss'),'CarBodyScratchLoss'));
+const EngineWadLoss = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/EngineWadLoss'),'EngineWadLoss'));
+const RepairPayment = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/RepairPayment'),'RepairPayment'));
+const CarGoods = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarGoods'),'CarGoods'));
+const MetalDamage = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/MetalDamage'),'MetalDamage'));
+const AppointRepairShop = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AppointRepairShop'),'AppointRepairShop'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -452,6 +469,74 @@ const router = new Router({
       path: '/project/proposal/auto2e/AutoSupplementInfo',
       name: 'AutoSupplementInfo',
       component: AutoSupplementInfo
+    },{
+      path: '/project/proposal/auto2e/AutoPremiumInfo',
+      name: 'AutoPremiumInfo',
+      component: AutoPremiumInfo
+    },{
+      path: '/project/proposal/auto2e/AutoCFeeInfo',
+      name: 'AutoCFeeInfo',
+      component: AutoCFeeInfo
+    },{
+      path: '/project/proposal/auto2e/AutoFloatRateInfo',
+      name: 'AutoFloatRateInfo',
+      component: AutoFloatRateInfo
+    },{
+      path: '/project/proposal/auto2e/VehicleLoss',
+      name: 'VehicleLoss',
+      component: VehicleLoss
+    },{
+      path: '/project/proposal/auto2e/ThirdDutyMian',
+      name: 'ThirdDutyMian',
+      component: ThirdDutyMian
+    },{
+      path: '/project/proposal/auto2e/CarRobberyMain',
+      name: 'CarRobberyMain',
+      component: CarRobberyMain
+    },{
+      path: '/project/proposal/auto2e/DriverDutyMian',
+      name: 'DriverDutyMian',
+      component: DriverDutyMian
+    },{
+      path: '/project/proposal/auto2e/PassengerDutyMian',
+      name: 'PassengerDutyMian',
+      component: PassengerDutyMian
+    },{
+      path: '/project/proposal/auto2e/GlassCrushAdditional',
+      name: 'GlassCrushAdditional',
+      component: GlassCrushAdditional
+    },{
+      path: '/project/proposal/auto2e/NaturalDamage',
+      name: 'NaturalDamage',
+      component: NaturalDamage
+    },{
+      path: '/project/proposal/auto2e/NewEquipmenLoss',
+      name: 'NewEquipmenLoss',
+      component: NewEquipmenLoss
+    },{
+      path: '/project/proposal/auto2e/CarBodyScratchLoss',
+      name: 'CarBodyScratchLoss',
+      component: CarBodyScratchLoss
+    },{
+      path: '/project/proposal/auto2e/EngineWadLoss',
+      name: 'EngineWadLoss',
+      component: EngineWadLoss
+    },{
+      path: '/project/proposal/auto2e/RepairPayment',
+      name: 'RepairPayment',
+      component: RepairPayment
+    },{
+      path: '/project/proposal/auto2e/CarGoods',
+      name: 'CarGoods',
+      component: CarGoods
+    },{
+      path: '/project/proposal/auto2e/MetalDamage',
+      name: 'MetalDamage',
+      component: MetalDamage
+    },{
+      path: '/project/proposal/auto2e/AppointRepairShop',
+      name: 'AppointRepairShop',
+      component: AppointRepairShop
     },
     
     // business
