@@ -95,6 +95,9 @@ const RepairPayment = r => require.ensure([],() => r(require('@/pages/project/pr
 const CarGoods = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/CarGoods'),'CarGoods'));
 const MetalDamage = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/MetalDamage'),'MetalDamage'));
 const AppointRepairShop = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AppointRepairShop'),'AppointRepairShop'));
+const AutoPay = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoPay'),'AutoPay'));
+const AutoSendUnderwriting = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoSendUnderwriting'),'AutoSendUnderwriting'));
+const AutoProposalInfoConfirm = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2e/AutoProposalInfoConfirm'),'AutoProposalInfoConfirm'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -537,6 +540,18 @@ const router = new Router({
       path: '/project/proposal/auto2e/AppointRepairShop',
       name: 'AppointRepairShop',
       component: AppointRepairShop
+    },{
+      path: '/project/proposal/auto2e/AutoPay',
+      name: 'AutoPay',
+      component: AutoPay
+    },{
+      path: '/project/proposal/auto2e/AutoSendUnderwriting',
+      name: 'AutoSendUnderwriting',
+      component: AutoSendUnderwriting
+    },{
+      path: '/project/proposal/auto2e/AutoProposalInfoConfirm',
+      name: 'AutoProposalInfoConfirm',
+      component: AutoProposalInfoConfirm
     },
     
     // business

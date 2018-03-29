@@ -259,7 +259,6 @@ export default {
   methods: {
     modifyAgreement: function(data) {
       //Todo:将选中的特别约定挂在保单模型上，或者从保单模型上取下特约
-      debugger;
     },
     onClick: function(data, idx) {
       //Todo:展示特别约定详细信息
