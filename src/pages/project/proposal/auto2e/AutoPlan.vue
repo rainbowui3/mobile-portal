@@ -30,21 +30,21 @@
                     </cell>
                   </cell>               
                   <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
-                  <row :title="$t('atuoPlan.vehicleLoss')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.thirdDutyMian')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.carRobberyMain')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.driverDutyMian')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.passengerDutyMian')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.glassCrushAdditional')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.naturalDamage')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.newEquipmenLoss')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.carBodyScratchLoss')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.engineWadLoss')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.repairPayment')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.carGoods')" :model="policy" value="value" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.metalDamage')" :model="policy" value="value" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.notFoundThirdAdditional')" :model="policy" value="value" :onClick="goto" :isLink="true"></row>
-                  <row :title="$t('autoPlan.appointRepairShop')" :model="policy" value="value" :onClick="goto" :isLink="true"></row>
+                  <row :title="$t('atuoPlan.vehicleLoss')" :model="policy" value="value" link="/project/proposal/auto2e/VehicleLoss"></row>
+                  <row :title="$t('autoPlan.thirdDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/ThirdDutyMian"></row>
+                  <row :title="$t('autoPlan.carRobberyMain')" :model="policy" value="value" link="/project/proposal/auto2e/CarRobberyMain"></row>
+                  <row :title="$t('autoPlan.driverDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/DriverDutyMian"></row>
+                  <row :title="$t('autoPlan.passengerDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/PassengerDutyMian"></row>
+                  <row :title="$t('autoPlan.glassCrushAdditional')" :model="policy" value="value" link="/project/proposal/auto2e/GlassCrushAdditional"></row>
+                  <row :title="$t('autoPlan.naturalDamage')" :model="policy" value="value" link="/project/proposal/auto2e/NaturalDamage"></row>
+                  <row :title="$t('autoPlan.newEquipmenLoss')" :model="policy" value="value" link="/project/proposal/auto2e/NewEquipmenLoss"></row>
+                  <row :title="$t('autoPlan.carBodyScratchLoss')" :model="policy" value="value" link="/project/proposal/auto2e/CarBodyScratchLoss"></row>
+                  <row :title="$t('autoPlan.engineWadLoss')" :model="policy" value="value" link="/project/proposal/auto2e/EngineWadLoss"></row>
+                  <row :title="$t('autoPlan.repairPayment')" :model="policy" value="value" link="/project/proposal/auto2e/RepairPayment"></row>
+                  <row :title="$t('autoPlan.carGoods')" :model="policy" value="value" link="/project/proposal/auto2e/CarGoods"></row>
+                  <row :title="$t('autoPlan.metalDamage')" :model="policy" value="value" link="/project/proposal/auto2e/MetalDamage"></row>
+                  <row :title="$t('autoPlan.notFoundThirdAdditional')" :model="policy" value="value"  :isLink="true"></row>
+                  <row :title="$t('autoPlan.appointRepairShop')" :model="policy" value="value" link="/project/proposal/auto2e/AppointRepairShop"></row>
                   <r-input :title="$t('autoPlan.expectationDiscount')"  :model="policy" value="discount" :readonly="true"></r-input>
                   <row :title="$t('autoPlan.jointSales')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
                 
@@ -127,7 +127,7 @@ export default {
   },
   methods: {
     calculatePremium(){      
-        this.$router.push("/project/proposal/payStatus");
+        this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
         // this.$router.push("");
 
     },
@@ -138,7 +138,7 @@ export default {
       window.location.hash="/project/proposal/auto2e/AutoVehicleAndVesselTax";
     },
     goto(event){
-      window.location.hash="";
+      // window.location.hash="/project/proposal/auto2e/VehicleLoss";
     }
 
   },

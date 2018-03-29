@@ -100,7 +100,11 @@ export default {
           class: "product",
           src: Tthj,
           onClick: this.goto,
-          param: "/project/ly"
+          param: {
+            name:"ProductInfoEntryAuto",
+            url:"/project/proposal/auto2e/ProductInfoEntryAuto",
+            flag:"6"
+          }
         },
         {
           class: "product",
