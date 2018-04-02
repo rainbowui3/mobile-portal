@@ -9,7 +9,11 @@ i18n.mergeLocaleMessage("zh-CN", {
     "autoProposalInfoConfirm.effectiveDate_comp":"交强险起期",
     "autoProposalInfoConfirm.expireDate_comp":"交强险止期",
     "autoProposalInfoConfirm.effectiveImmediately":"即时生效",
-    "autoProposalInfoConfirm.specialAgreement":"特别约定条款"
+    "autoProposalInfoConfirm.specialAgreement":"特别约定条款",
+    "autoProposalInfoConfirm.specialAgreementName":"特约名称",
+    "autoProposalInfoConfirm.usageScope":"适用范围",
+    "autoProposalInfoConfirm.vdea":"商业险",
+    "autoProposalInfoConfirm.dfa":"交强险",
 
 });
 i18n.mergeLocaleMessage("en-US", {
@@ -22,6 +26,11 @@ i18n.mergeLocaleMessage("en-US", {
     "autoProposalInfoConfirm.effectiveDate_comp":"Effective Comp",
     "autoProposalInfoConfirm.expireDate_comp":"Expire Comp",
     "autoProposalInfoConfirm.effectiveImmediately":"Eff now",
-    "autoProposalInfoConfirm.specialAgreement":"Special Agreement"
+    "autoProposalInfoConfirm.specialAgreement":"Special Agreement",
+    "autoProposalInfoConfirm.specialAgreementName":"Agreement Name",
+    "autoProposalInfoConfirm.usageScope":"Scope",
+    "autoProposalInfoConfirm.vdea":"Commercial",
+    "autoProposalInfoConfirm.dfa":"Compulsory",
+    
 
 });
