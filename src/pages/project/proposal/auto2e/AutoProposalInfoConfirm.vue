@@ -54,9 +54,9 @@
                 </row>
             </card>
             <card v-for="(item,idx) in specialAgreementList" :key="idx" @click.native="onDetailClick(item)">
-                <row title="特别约定" :model="item" value="ProductElementCode" />
-                <row title="特约名称" :model="item" value="ProductElementName" />
-                <row title="适用范围" :model="item" value="usage" />
+                <row :title="$t('autoSupplementInfo.specialAgreement')" :model="item" value="ProductElementCode" />
+                <row :title="$t('autoProposalInfoConfirm.specialAgreementName')" :model="item" value="ProductElementName" />
+                <row :title="$t('autoProposalInfoConfirm.usageScope')" :model="item" value="usage" />
                 <r-dialog :model="item" value="show" :disableMask="false">
                     <row :title="$t('autoSupplementInfo.agreementContent')" :model="pageModel" value="title" />
                     <div class="agreementContent">{{item.Content}}</div>

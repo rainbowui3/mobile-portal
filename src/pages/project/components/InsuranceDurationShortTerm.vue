@@ -85,11 +85,11 @@ export default {
         this.model[this.effectiveDate] = year + "-" + month + "-" + day;
         this.model[this.expireDate] =
           (y + 1).toString() + "-" + month + "-" + day;
-      } else {
+      } else{
         this.model[this.effectiveDate] =
-          year + "-" + month + "-" + day + " " + "00:00:00";
+          year + "-" + month + "-" + day + " " + "00:00";
         this.model[this.expireDate] =
-          (y + 1).toString() + "-" + month + "-" + day + " " + "00:00:00";
+          (y + 1).toString() + "-" + month + "-" + day + " " + "00:00";
       }
     }
   },
