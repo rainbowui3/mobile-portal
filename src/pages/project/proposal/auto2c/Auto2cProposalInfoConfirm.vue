@@ -13,7 +13,7 @@
       <card>
         <row :model="pageModel" :title="$t('carInfo.carInfo')" class="cardTitle">
           <div>
-            <span class="fa fa-edit" v-on:click="gotoCarInfo" />
+            <span class="fa fa-edit" v-on:click="gotoCarInfo"/>
           </div>
         </row>
         <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />

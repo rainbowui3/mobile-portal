@@ -102,6 +102,7 @@ const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages
 const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cProposalInfoConfirm'), 'Auto2cProposalInfoConfirm'));
 const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
 const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
+const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cPlan'), 'Auto2cPlan'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -570,6 +571,10 @@ const router = new Router({
     path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
     name: 'Auto2cDrivingLicenseInfo',
     component: Auto2cDrivingLicenseInfo
+  }, {
+    path: '/project/proposal/auto2c/Auto2cPlan',
+    name: 'Auto2cPlan',
+    component: Auto2cPlan
   },
 
   // business
