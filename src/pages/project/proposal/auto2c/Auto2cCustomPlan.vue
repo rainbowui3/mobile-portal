@@ -32,7 +32,7 @@
                  <!--<row :title="$t('auto2cCustomPlan.notFoundThirdAdditional')" :model="policy" value="value"  :isLink="true"></row>-->
                 <r-switch  :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="policy" value="appointRepairShop" ></r-switch>
                 <!--<row :title="$t('auto2cCustomPlan.appointRepairShop')" :model="policy" value="value" link="/project/proposal/auto2e/AppointRepairShop"></row>-->
-               <r-input :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="policy" value="value13" :middle="true">
+               <r-input :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="policy" value="appointRepairShop" :middle="true">
                     <span class="fa fa-bicycle fa-2x"/>
                 </r-input>
             </card>
@@ -90,7 +90,7 @@ export default {
         hoursFormat:config.DEFAULT_HOURS_FORMATER,
         row: "row",
         policy: {
-            value13:"iiii",
+            appointRepairShop:"",
             commEffectiveDate:"",
             compEffectiveDate:"",
             carRobberyMain:false,
