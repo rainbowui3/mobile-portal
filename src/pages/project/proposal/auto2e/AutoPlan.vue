@@ -19,7 +19,7 @@
                
             </card>
             <card>
-                <r-switch  :title="$t('autoPlan.commercialInsurance')"  :model="policy" value="isComm" ></r-switch>
+                <r-switch  :title="$t('autoPlan.commericalInsurance')"  :model="policy" value="isComm" ></r-switch>
                 <div v-show="policy.isComm">
                   <cell type="row">
                     <cell>
@@ -30,7 +30,7 @@
                     </cell>
                   </cell>               
                   <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
-                  <row :title="$t('atuoPlan.vehicleLoss')" :model="policy" value="value" link="/project/proposal/auto2e/VehicleLoss"></row>
+                  <row :title="$t('autoPlan.vehicleLoss')" :model="policy" value="value" link="/project/proposal/auto2e/VehicleLoss"></row>
                   <row :title="$t('autoPlan.thirdDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/ThirdDutyMian"></row>
                   <row :title="$t('autoPlan.carRobberyMain')" :model="policy" value="value" link="/project/proposal/auto2e/CarRobberyMain"></row>
                   <row :title="$t('autoPlan.driverDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/DriverDutyMian"></row>
