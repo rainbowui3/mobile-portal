@@ -1,12 +1,11 @@
 <template>
     <page>
-        <top :showBack="true" :title="$t('auto2cPlan.title')" />
+        <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
             <tab :tabItems="tabItems" class="tab" />
             <swiper :model="index">
-                <swiper-item>
+                <swiper-item v-for="(plan,idx) in planList" :key="idx">
                     <card>
-                        <row title="fdsafsafdsa" :model="pageModel" />
                         <div>
                             <div class="planName">
                                 {{"xxxxx险"}}
@@ -19,12 +18,7 @@
                             </div>
                         </div>
                     </card>
-                </swiper-item>
-                <swiper-item>
-                    {{2}}
-                </swiper-item>
-                <swiper-item>
-                    {{3}}
+
                 </swiper-item>
             </swiper>
         </r-body>
@@ -33,19 +27,21 @@
         </tab-bar>
     </page>
 </template>
-
 <script>
 import {
   Page,
   RBody,
-  TabBar,
   Card,
-  Cell,
+  RSwitch,
+  Picker,
+  RInput,
+  TabBar,
+  RButton,
   Tab,
   Swiper,
   SwiperItem,
-  RButton,
-  Row
+  Row,
+  List
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import "../../../../i18n/auto2cPlan";
@@ -55,7 +51,6 @@ export default {
     RBody,
     TabBar,
     Card,
-    Cell,
     Tab,
     Swiper,
     SwiperItem,
@@ -66,7 +61,39 @@ export default {
   data() {
     return {
       index: 0,
-      pageModel: {}
+      pageModel: {},
+      planList: [
+        {
+          planName: "自选方案",
+          description: "灵活搭配",
+          selectedPlans: [
+            { name: "交强险", isNonDeductible: false, value: "投保" },
+            { name: "机动车损失险", isNonDeductible: true, value: "" },
+            { name: "第三者责任险", isNonDeductible: true, value: "30万" },
+            { name: "司机责任险", isNonDeductible: true, value: "1万" },
+            { name: "乘客责任险", isNonDeductible: true, value: "1万" },
+            { name: "盗抢险", isNonDeductible: true, value: "" }
+          ]
+        },
+        {
+          planName: "热销方案",
+          description: "高性价比",
+          selectedPlans: [
+            { name: "交强险", isNonDeductible: false, value: "投保" },
+            { name: "机动车损失险", isNonDeductible: true, value: "" },
+            { name: "第三者责任险", isNonDeductible: true, value: "30万" },
+            { name: "司机责任险", isNonDeductible: true, value: "1万" },
+            { name: "乘客责任险", isNonDeductible: true, value: "1万" }
+          ]
+        },
+        {
+          planName: "基础方案",
+          description: "安全出行",
+          selectedPlans: [
+            { name: "第三者责任险", isNonDeductible: true, value: "30万" }
+          ]
+        }
+      ]
     };
   },
   computed: {
@@ -107,7 +134,6 @@ export default {
   }
 };
 </script>
-
 <style>
 .tab > div {
   height: 100px;
@@ -118,13 +144,13 @@ export default {
 .planName {
   float: left;
   font-size: 17px;
-  padding: 10px 5px 10px 15px;
+  padding: 10px 10px 10px 15px;
 }
 .planAddition {
   float: left;
   font-size: 13px;
   margin: 15px 0 15px 0;
-  background: blue;
+  background: #ffcc33;
   color: white;
 }
 .planAmount {
@@ -133,3 +159,5 @@ export default {
   padding: 10px 15px;
 }
 </style>
+
+

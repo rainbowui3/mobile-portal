@@ -1,11 +1,11 @@
 import i18n from "./index";
 i18n.mergeLocaleMessage("zh-CN",{
   "autoPlan.compulsoryInsurance":"交强险",
-  "autoPlan.commercialInsurance":"商业险",
+  "autoPlan.commericalInsurance":"商业险",
   "autoPlan.carShipTax":"车船税",
   "autoPlan.effectImmediately":"即时生效",
   "autoPlan.shortInsurance":"短期单",
-  "atuoPlan.vehicleLoss":"车辆损失保险",
+  "autoPlan.vehicleLoss":"车辆损失保险",
   "autoPlan.thirdDutyMian":"第三者责任保险",
   "autoPlan.carRobberyMain":"全车盗抢损失险",
   "autoPlan.driverDutyMian":"车上人员责任保险(司机)",
@@ -42,11 +42,11 @@ i18n.mergeLocaleMessage("zh-CN",{
 });
 i18n.mergeLocaleMessage("en-US",{
   "autoPlan.compulsoryInsurance":"Compulsory Insurance",
-  "autoPlan.commercialInsurance":"CommercialInsurance",
+  "autoPlan.commericalInsurance":"CommericalInsurance",
   "autoPlan.carShipTax":"CarShipTax",    
   "autoPlan.effectImmediately":"EffectImmediately",
   "autoPlan.shortInsurance":"ShortInsurance",
-  "atuoPlan.vehicleLoss":"Vehicle Loss",
+  "autoPlan.vehicleLoss":"Vehicle Loss",
   "autoPlan.thirdDutyMian":"ThirdDutyMain",
   "autoPlan.carRobberyMain":"CarRobberyMain",
   "autoPlan.driverDutyMian":"DriverDutyMian",
