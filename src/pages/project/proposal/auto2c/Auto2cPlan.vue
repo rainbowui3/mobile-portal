@@ -2,28 +2,31 @@
     <page>
         <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
-            <tab :tabItems="tabItems" class="tab" />
-            <swiper :model="index">
-                <swiper-item v-for="(plan,idx) in planList" :key="idx">
-                    <card>
-                        <div>
-                            <div class="planName">
-                                {{"xxxxx险"}}
-                            </div>
-                            <div class="planAddition">
-                                {{"不计免赔"}}
-                            </div>
-                            <div class="planAmount">
-                                {{"15000元"}}
-                            </div>
-                        </div>
-                    </card>
-
-                </swiper-item>
-            </swiper>
+            <card>
+                <tab :tabItems="tabItems" class="tab" />
+                <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
+                    <div class="planName">
+                        {{selectedPlan.name}}
+                    </div>
+                    <div class="planAddition" v-if="selectedPlan.isNonDeductible">
+                        {{"不计免赔"}}
+                    </div>
+                    <div class="planAmount">
+                        {{selectedPlan.value}}
+                    </div>
+                </div>
+            </card>
         </r-body>
         <tab-bar>
-            <r-button type="primary">{{$t('common.confirm')}}</r-button>
+            <card class="bottom">
+                <hr/>
+                <div class="customPlan">
+                    <span v-on:click="gotoCustomPlan">
+                        <a href="javascript:void(0);" class="link">{{"修改投保方案"}}</a>
+                    </span>
+                </div>
+                <r-button type="primary">{{$t('common.confirm')}}</r-button>
+            </card>
         </tab-bar>
     </page>
 </template>
@@ -41,7 +44,9 @@ import {
   Swiper,
   SwiperItem,
   Row,
-  List
+  List,
+  Divider,
+  Cell
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import "../../../../i18n/auto2cPlan";
@@ -56,7 +61,9 @@ export default {
     SwiperItem,
     RButton,
     Top,
-    Row
+    Row,
+    Divider,
+    Cell
   },
   data() {
     return {
@@ -130,6 +137,10 @@ export default {
     goto: function(index) {
       console.log(index);
       this.index = index;
+    },
+    gotoCustomPlan:function(){
+        console.log("gotoCustomPlan");
+        //Todo:跳转到自定义险种页面
     }
   }
 };
@@ -157,6 +168,23 @@ export default {
   float: right;
   font-size: 17px;
   padding: 10px 15px;
+}
+.selectedPlan {
+  width: 100%;
+  display: inline-block;
+}
+.bottom {
+  width: 100%;
+}
+.customPlan {
+  text-align: center;
+  height: 40px;
+  padding-top: 10px;
+}
+.link {
+  color: #4d93e4;
+ font-size: 14px;
+
 }
 </style>
 
