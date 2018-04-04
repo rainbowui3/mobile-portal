@@ -20,7 +20,7 @@
             </card>
         </r-body>
         <tab-bar>
-            <r-button type="primary">{{$t('auto2cDrivingLicenseInfo.quotationNow')}}</r-button>
+            <r-button type="primary" :onClick="quotationClick">{{$t('auto2cDrivingLicenseInfo.quotationNow')}}</r-button>
         </tab-bar>
     </page>
 </template>
@@ -67,7 +67,14 @@ export default {
       ]
     };
   },
-  methods: {}
+  methods: {
+      quotationClick(){
+          this.$router.push({
+             paht:"/project/proposal/auto2c/Auto2cPlan",
+             name:"Auto2cPlan"
+          })
+      }
+  }
 };
 </script>
 

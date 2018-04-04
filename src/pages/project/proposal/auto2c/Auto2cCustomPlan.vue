@@ -85,7 +85,7 @@
 
         </r-body>
         <tab-bar>         
-            <r-button type="primary" :onClick="calculatePremium">{{$t('auto2cCustomPlan.calculatePremium')}}</r-button>          
+            <r-button type="primary" :onClick="calculatePremium">{{$t('common.confirm')}}</r-button>          
         </tab-bar>
 
     </page>
@@ -109,6 +109,7 @@ import {
 import Top from "../../../../components/Top";
 import AutoAgent from "../../components/AutoAgent";
 import "../../../../i18n/auto2cCustomPlan";
+// import RowAndChecker from "../../components/RowAndChecker"
 import config from "config";
 
 export default {
@@ -127,6 +128,7 @@ export default {
     Checker,
     Row,
     DateTime,
+    // RowAndChecker
   },
   data() {
     return {
@@ -155,15 +157,15 @@ export default {
             vehicleLossSDEW:true,
 
         },
-        proCodeOptions:[],
-        riskCatOptions:[],
-        bizCodeOptions:[],
-        productCodeData:null
+        model:[{
+            isNonDeductible:false,
+            
+
+        }]
     };
   },
   methods: {
     calculatePremium(){      
-        this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
     },
     resetClick(){
 

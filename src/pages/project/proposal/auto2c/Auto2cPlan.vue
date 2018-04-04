@@ -25,7 +25,7 @@
                         <a href="javascript:void(0);" class="link">{{"修改投保方案"}}</a>
                     </span>
                 </div>
-                <r-button type="primary">{{$t('common.confirm')}}</r-button>
+                <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
             </card>
         </tab-bar>
     </page>
@@ -147,6 +147,12 @@ export default {
           params:{}
 
         });
+    },
+    confirmClick(){
+      this.$router.push({
+        path:"/project/proposal/auto2c/Auto2cProposalInfoConfirm",
+        name:"Auto2cProposalInfoConfirm"
+      })
     }
   }
 };

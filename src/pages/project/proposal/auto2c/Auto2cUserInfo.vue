@@ -77,7 +77,10 @@ export default {
   },
   methods: {
     nextOnClick(){      
-        this.$router.push("/project/proposal/auto2C/Auto2cPlan");
+        this.$router.push({
+            path:"/project/proposal/auto2c/Auto2cDrivingLicenseInfo",
+            name:"Auto2cDrivingLicenseInfo"
+        });
     },
     goto(){
 

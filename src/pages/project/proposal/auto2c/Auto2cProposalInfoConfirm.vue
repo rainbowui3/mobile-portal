@@ -43,7 +43,7 @@
       <proposal-clause-confirm />
     </r-body>
     <tab-bar>
-      <r-button type="primary">{{$t('auto2cProposalInfoConfirm.payNow')}}</r-button>
+      <r-button type="primary" :onClick="gotoPay">{{$t('auto2cProposalInfoConfirm.payNow')}}</r-button>
     </tab-bar>
   </page>
 </template>
@@ -130,6 +130,12 @@ export default {
       this.$router.push({
         path: "/project/proposal/auto2c/Auto2cDrivingLicenseInfo",
         name: "Auto2cDrivingLicenseInfo"
+      });
+    },
+    gotoPay(){     
+      this.$router.push({
+        path: "/project/proposal/auto2c//project/proposal/auto2e/AutoPay",
+        name: "AutoPay"
       });
     }
   }
