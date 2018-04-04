@@ -27,7 +27,7 @@ export default {
   data(){
       return {
         products:[
-          {"class":"product","src":Jtgj,'action':this.goto,'param':'/project/ly'},
+          {class:"product",src:Jtgj,onClick:this.goto,param:'/project/proposal/auto2C/Auto2cUserInfo'},
         ]
       }
   },
