@@ -3,7 +3,7 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <card>
-                <r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>
+                <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
                 <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
                 <selector :title="$t('autoPlan.franchise')" :options="options" :model="policy" value="franchise"></selector>
                 <r-input  :title="$t('autoPlan.deductibles')"  :model="policy" value="deductibles" :isNumber="true" :novalidate="false" ></r-input>
