@@ -55,7 +55,6 @@ const CarInfo = r => require.ensure([], () => r(require('@/pages/project/compone
 const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
 const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
 
-
 //ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
@@ -69,9 +68,13 @@ const InsuredInfoStudyRisk = r => require.ensure([], () => r(require('@/pages/pr
 const InsuredInfoConfirmStudyRisk = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmStudyRisk'), 'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'), 'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'), 'InsuredInfoConfirmAccident'));
+const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
+const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealth'), 'InsuredInfoEntryHealth'));
 const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
 const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
 const HealthInform = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInform'), 'HealthInform'));
+const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
+
 
 
 //auto2e
@@ -448,6 +451,14 @@ const router = new Router({
     name: 'InsuredInfoConfirmAccident',
     component: InsuredInfoConfirmAccident
   },{
+    path: '/project/proposal/ah/ProductInfoEntryHealth',
+    name: 'ProductInfoEntryHealth',
+    component: ProductInfoEntryHealth
+  },{
+    path: '/project/proposal/ah/InsuredInfoEntryHealth',
+    name: 'InsuredInfoEntryHealth',
+    component: InsuredInfoEntryHealth
+  },{
     path: '/project/proposal/ah/InsuredInfoEntryHealthSub',
     name: 'InsuredInfoEntryHealthSub',
     component: InsuredInfoEntryHealthSub
@@ -459,6 +470,10 @@ const router = new Router({
     path: '/project/proposal/ah/HealthInform',
     name: 'HealthInform',
     component: HealthInform
+  },{
+    path: '/project/proposal/ah/InsuredInfoConfirmHealth',
+    name: 'InsuredInfoConfirmHealth',
+    component: InsuredInfoConfirmHealth
   },
 
 
