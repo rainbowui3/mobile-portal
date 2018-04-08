@@ -1,0 +1,167 @@
+<template>
+  <page>
+    <top :title="$t('insuredInfoEntryHealthSub.title')" :showBack="true" />
+    <r-body>
+      <!-- 保险期限选择 -->
+      <card>
+        <insurance-duration-short-term type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+      </card>
+      <!-- 投保人信息 -->
+      <card :title="$t('common.holderInfo')">
+        <holder-info :holderInfo="policy.holderInfo" />
+      </card>
+      <!-- 被保人信息 -->
+      <card :title="$t('common.insuredInfo')">
+        <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder != '1'" :insuredInfo="policy.insuredInfo" />
+        <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+      </card>
+      <!-- 附属被保险人信息 -->
+      <card :title="$t('common.subsidiaryInsuredInfo')">
+        <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
+        <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
+        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1'" :dubsidiaryInsuranceInfo="policy.subsidiaryInfo" />
+        <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+      </card>
+      <!-- 添加更多被保险人 -->
+      <r-button type="primary">{{$t('common.addmore')}}</r-button>
+      <!-- 保险条款确认 -->
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirmed" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+    </r-body>
+    <tab-bar>
+      <proposal-confirm amount="50" :buttonName="'proposalConfirm.immediatelyInsure'" :onClick="goto" />
+    </tab-bar>
+  </page>
+</template>
+
+<script>
+import {
+  Page,
+  Card,
+  TabBar,
+  RBody,
+  RButton,
+  Cell,
+  Selector,
+  RInput,
+  Row,
+  Toast
+} from "rainbow-mobile-core";
+import Top from "../../../../components/Top";
+import ChooseRelationship from "../../components/ChooseRelationship";
+import ProposalConfirm from "../../components/ProposalConfirm";
+import HolderInfo from "../../components/HolderInfo";
+import InsuredInfo from "../../components/InsuredInfo";
+import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
+import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
+import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
+import "../../../../i18n/insuredInfoEntryHealthSub";
+import "../../../../i18n/proposalConfirm";
+import "../../../../i18n/holderInfo";
+
+export default {
+  components: {
+    Page,
+    Card,
+    TabBar,
+    RBody,
+    RButton,
+    Cell,
+    Selector,
+    RInput,
+    Row,
+    Top,
+    ChooseRelationship,
+    ProposalConfirm,
+    HolderInfo,
+    InsuredInfo,
+    SubsidiaryInsuredInfo,
+    ProposalClauseConfirm,
+    InsuranceDurationShortTerm,
+    Toast
+  },
+  data() {
+    return {
+      policy: {
+        holderInfo: {},
+        insuredInfo: {
+          relationToHolder: "1"
+        },
+        subsidiaryInfo: {
+          relationToHolder: "1"
+        }
+      },
+      pageModel: {
+        clauseConfirmed: false,
+        toastShow: false
+      },
+      datas1: [
+        {
+          key: "1",
+          value: "本人",
+          active: true
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "2",
+          value: "配偶",
+          active: false
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "3",
+          value: "子女",
+          active: false
+          // onClick: this.onClickInsured
+        },
+        {
+          key: "4",
+          value: "父母",
+          active: false
+          // onClick: this.onClickInsured
+        }
+      ]
+    };
+  },
+  methods: {
+    goto: function() {
+      if (this.pageModel.clauseConfirmed) {
+        //Todo:跳转到下一个页面,确认页面
+        // console.log("goto");
+        this.$router.push({
+          name:"InsuredInfoConfirmHealthSub",
+          path:"/project/proposal/ah/InsuredInfoConfirmHealthSub",
+          params:{
+            policy:this.policy
+          }
+        });
+      } else {
+        this.pageModel.toastShow = true;
+      }
+    },
+    gotoHealthInfo: function() {
+      console.log("gotoHealthInfo");
+    }
+  },
+  watch: {
+    "pageModel.clauseConfirmed": {
+      handler: function() {
+        // console.log(this.pageModel.clauseConfirmed);
+      }
+    },
+    "policy.subsidiaryInfo.relationToHolder": {
+      handler: function() {
+        // console.log(this.policy.subsidiaryInfo.relationToHolder);
+      },
+      deep: true
+    }
+  },
+  computed: {}
+};
+</script>
+
+<style>
+
+</style>

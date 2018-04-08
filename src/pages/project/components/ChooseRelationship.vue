@@ -62,6 +62,7 @@ export default {
           this.dataList.forEach(element => {
             if (count == idx) {
               this.dataList[count].active = !element.active;
+              this.model[this.value] = this.dataList[count].key;
             } else {
               this.dataList[count].active = false;
             }
@@ -80,12 +81,20 @@ export default {
   },
   computed: {},
   created: function() {
+    //将入参list脱绑
     let dataList = [];
-    // this.datas.forEach(element => {
-    //   dataList.push(element);
-    // });
     dataList = JSON.parse(JSON.stringify(this.datas));
     this.dataList = dataList;
+    //根据传入的model[value]的值来进行选项上的初始化
+    if(this.model[this.value] && this.model[this.value] != ""){
+      this.dataList.forEach(element => {
+        if(element.key == this.model[this.value]){
+          element.active = true;
+        }else{
+          element.active = false;
+        }
+      });
+    }
   },
   mounted: function() {}
 };

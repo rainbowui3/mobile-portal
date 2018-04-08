@@ -5,7 +5,7 @@
     <cell type="row">
       <cell :span="1">
         <div class="proposalClauseConfirmRaido">
-          <checker :model="proposalClauseConfirm" value="value" type="icon" :onClick="onClick" />
+          <checker :model="model" :value="value" type="icon" :onClick="onClick" />
         </div>
       </cell>
       <cell type="row">
@@ -76,6 +76,16 @@ export default {
     RDialog,
     RImage
   },
+  props:{
+    model:{
+      type:Object,
+      default:this.model
+    },
+    value:{
+      type:String,
+      default:"value"      
+    }
+  },
   data: function() {
     return {
       padding: "10px 10px",
@@ -99,7 +109,6 @@ export default {
   },
   methods: {
     onClick() {
-      debugger;
       console.log("onRadioChange:");
     },
     showDialog(event, item, idx) {
