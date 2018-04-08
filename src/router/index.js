@@ -53,6 +53,9 @@ const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/proj
 const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const CarInfo = r => require.ensure([], () => r(require('@/pages/project/components/CarInfo')), 'CarInfo');
 const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
+const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
+
+//ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
 const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
@@ -65,6 +68,14 @@ const InsuredInfoStudyRisk = r => require.ensure([], () => r(require('@/pages/pr
 const InsuredInfoConfirmStudyRisk = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmStudyRisk'), 'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'), 'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'), 'InsuredInfoConfirmAccident'));
+const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
+const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealth'), 'InsuredInfoEntryHealth'));
+const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
+const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
+const HealthInform = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInform'), 'HealthInform'));
+const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
+
+
 
 //auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
@@ -390,6 +401,12 @@ const router = new Router({
     name: 'PayStatus',
     component: PayStatus
   }, {
+    path: '/templateComponents/TreeTest',
+    name: 'TreeTest',
+    component: TreeTest
+  }, 
+  //ah
+  {
     path: '/project/proposal/ah/insuredInfoEntryNormal',
     name: 'InsuredInfoEntryNormal',
     component: InsuredInfoEntryNormal
@@ -433,7 +450,34 @@ const router = new Router({
     path: '/project/proposal/ah/InsuredInfoConfirmAccident',
     name: 'InsuredInfoConfirmAccident',
     component: InsuredInfoConfirmAccident
+  },{
+    path: '/project/proposal/ah/ProductInfoEntryHealth',
+    name: 'ProductInfoEntryHealth',
+    component: ProductInfoEntryHealth
+  },{
+    path: '/project/proposal/ah/InsuredInfoEntryHealth',
+    name: 'InsuredInfoEntryHealth',
+    component: InsuredInfoEntryHealth
+  },{
+    path: '/project/proposal/ah/InsuredInfoEntryHealthSub',
+    name: 'InsuredInfoEntryHealthSub',
+    component: InsuredInfoEntryHealthSub
+  },{
+    path: '/project/proposal/ah/InsuredInfoConfirmHealthSub',
+    name: 'InsuredInfoConfirmHealthSub',
+    component: InsuredInfoConfirmHealthSub
+  },{
+    path: '/project/proposal/ah/HealthInform',
+    name: 'HealthInform',
+    component: HealthInform
+  },{
+    path: '/project/proposal/ah/InsuredInfoConfirmHealth',
+    name: 'InsuredInfoConfirmHealth',
+    component: InsuredInfoConfirmHealth
   },
+
+
+
   //auto2e
   {
     path: '/project/proposal/auto2e/ChooseHandler',
