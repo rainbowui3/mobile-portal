@@ -65,6 +65,8 @@ const InsuredInfoStudyRisk = r => require.ensure([], () => r(require('@/pages/pr
 const InsuredInfoConfirmStudyRisk = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmStudyRisk'), 'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'), 'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'), 'InsuredInfoConfirmAccident'));
+const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
+const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealth'), 'InsuredInfoEntryHealth'));
 
 //auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
@@ -433,6 +435,14 @@ const router = new Router({
     path: '/project/proposal/ah/InsuredInfoConfirmAccident',
     name: 'InsuredInfoConfirmAccident',
     component: InsuredInfoConfirmAccident
+  },{
+    path: '/project/proposal/ah/ProductInfoEntryHealth',
+    name: 'ProductInfoEntryHealth',
+    component: ProductInfoEntryHealth
+  },{
+    path: '/project/proposal/ah/InsuredInfoEntryHealth',
+    name: 'InsuredInfoEntryHealth',
+    component: InsuredInfoEntryHealth
   },
   //auto2e
   {
