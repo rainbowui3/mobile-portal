@@ -55,7 +55,6 @@ const CarInfo = r => require.ensure([], () => r(require('@/pages/project/compone
 const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
 const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
 
-
 //ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
@@ -74,6 +73,8 @@ const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/
 const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
 const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
 const HealthInform = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInform'), 'HealthInform'));
+const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
+
 
 
 //auto2e
@@ -469,6 +470,10 @@ const router = new Router({
     path: '/project/proposal/ah/HealthInform',
     name: 'HealthInform',
     component: HealthInform
+  },{
+    path: '/project/proposal/ah/InsuredInfoConfirmHealth',
+    name: 'InsuredInfoConfirmHealth',
+    component: InsuredInfoConfirmHealth
   },
 
 
