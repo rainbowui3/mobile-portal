@@ -142,7 +142,11 @@ export default {
       }
     },
     gotoHealthInfo: function() {
-      console.log("gotoHealthInfo");
+      // console.log("gotoHealthInfo");
+      this.$router.push({
+        path:"/project/proposal/ah/",
+        name:"HealthInform"
+      })
     }
   },
   watch: {

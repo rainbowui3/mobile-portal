@@ -1,13 +1,15 @@
 <template>
-    <page>
-        <top :showBack="true" :title="$t('healthInform.title')" />
-        <r-body>
-            <tree-test :dataList="dataList" />
-        </r-body>
-        <tab-bar>
-            <r-button type="primary">{{$t('common.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+  <page>
+    <top :showBack="true" :title="$t('healthInform.title')" />
+    <r-body>
+      <card>
+        <tree-test :dataList="dataList" />
+      </card>
+    </r-body>
+    <tab-bar>
+      <r-button type="primary">{{$t('common.confirm')}}</r-button>
+    </tab-bar>
+  </page>
 </template>
 
 <script>
@@ -27,13 +29,24 @@ export default {
   data() {
     return {
       dataList: [
-        { name: "HI1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;", selected: false, hasChild: false, child: {} },
+        {
+          name:
+            "HI1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;",
+          selected: false,
+          hasChild: false,
+          child: {}
+        },
         {
           name: "HI2健康告知",
           selected: false,
           hasChild: true,
           child: [
-            { name: "HI2-1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;", selected: false, hasChild: false },
+            {
+              name:
+                "HI2-1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;",
+              selected: false,
+              hasChild: false
+            },
             { name: "HI2-2健康告知", selected: false, hasChild: false }
           ]
         },
@@ -47,7 +60,12 @@ export default {
               selected: false,
               hasChild: true,
               child: [
-                { name: "HI3-1-1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;", selected: false, hasChild: false },
+                {
+                  name:
+                    "HI3-1-1被保险人目前还有货过去曾患过癌症/恶性肿瘤、交界性肿瘤、癌前病变、原位癌或性质未明确的肿块/息肉/结节/肿瘤/新生物;",
+                  selected: false,
+                  hasChild: false
+                },
                 { name: "HI3-1-2健康告知", selected: false, hasChild: false }
               ]
             },
