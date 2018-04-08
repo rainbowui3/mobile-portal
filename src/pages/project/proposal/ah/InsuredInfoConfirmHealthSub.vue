@@ -125,7 +125,11 @@ export default {
       console.log("gotoPay");
     },
     gotoHealthInfo: function() {
-      console.log("gotoHealthInfo");
+      // console.log("gotoHealthInfo");
+      this.$router.push({
+        path:"/project/proposal/ah/HealthInformConfirm",
+        name:"HealthInformConfirm"
+      });
     }
   },
   watch: {},

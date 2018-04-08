@@ -73,6 +73,7 @@ const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/
 const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
 const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
 const HealthInform = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInform'), 'HealthInform'));
+const HealthInformConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInformConfirm'), 'HealthInformConfirm'));
 const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
 
 
@@ -470,6 +471,10 @@ const router = new Router({
     path: '/project/proposal/ah/HealthInform',
     name: 'HealthInform',
     component: HealthInform
+  },{
+    path: '/project/proposal/ah/HealthInformConfirm',
+    name: 'HealthInformConfirm',
+    component: HealthInformConfirm
   },{
     path: '/project/proposal/ah/InsuredInfoConfirmHealth',
     name: 'InsuredInfoConfirmHealth',

@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(data,idx) in dataList" :key="idx">
                 <r-switch :model="data" value="selected" :title="data.name" :disabled="disabled"/>
-                <tree-test v-if="data.hasChild == true" :dataList="data.child" class="a"/>
+                <tree-test v-if="data.hasChild == true" :dataList="data.child" class="a" :disabled="disabled"/>
             </li>
         </ul>
     </div>
