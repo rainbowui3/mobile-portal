@@ -77,6 +77,7 @@ export default {
       console.log("getVehicleUseNatureCode");
     },
     onClick: function() {
+      console.log("a");
       this.$router.push({
         path: "/project/proposal/ah/InsuredInfoConfirmPassenger",
         name: "InsuredInfoConfirmPassenger",

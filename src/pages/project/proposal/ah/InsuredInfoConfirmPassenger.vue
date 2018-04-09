@@ -17,7 +17,9 @@
         <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :readonly="readonly" />
         <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :readonly="readonly"></selector>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
     <tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
@@ -32,7 +34,8 @@ import {
   Card,
   RInput,
   Selector,
-  TabBar
+  TabBar,
+  Toast
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
@@ -41,6 +44,7 @@ import ProposalConfirm from "../../components/ProposalConfirm";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import "../../../../i18n/insuredInfoEntryPassenger";
 import "../../../../i18n/planSelection";
+import "../../../../i18n/insuredInfoEntryHealthSub";
 export default {
   components: {
     Page,
@@ -53,7 +57,8 @@ export default {
     Selector,
     TabBar,
     ProposalConfirm,
-    ProposalClauseConfirm
+    ProposalClauseConfirm,
+    Toast
   },
   props: {},
   data() {
@@ -68,7 +73,11 @@ export default {
       options: [{ key: "1", value: "家庭自用" }],
       buttonName: "proposalConfirm.submitPay",
       amount: "100",
-      readonly: true
+      readonly: true,
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      }
     };
   },
   created: function() {},
@@ -81,20 +90,31 @@ export default {
       console.log("getVehicleUseNatureCode");
     },
     onClick: function() {
-      this.$router.push({
-        path: "/project/proposal/payStatus",
-        name: "PayStatus",
-        params: [
-          {
-            name: "test",
-            dataObj: this.policy
-          },
-          {
-            name: "test2",
-            dataObj: this.policy
-          }
-        ]
-      });
+      if (this.pageModel.clauseConfirm) {
+        this.$router.push({
+          path: "/project/proposal/payStatus",
+          name: "PayStatus",
+          params: [
+            {
+              name: "test",
+              dataObj: this.policy
+            },
+            {
+              name: "test2",
+              dataObj: this.policy
+            }
+          ]
+        });
+      } else {
+        this.pageModel.toastShow = true;
+      }
+    }
+  },
+  watch: {
+    "pageModel.clauseConfirm": {
+      handler: function() {
+        console.log(this.pageModel.clauseConfirm);
+      }
     }
   }
 };
