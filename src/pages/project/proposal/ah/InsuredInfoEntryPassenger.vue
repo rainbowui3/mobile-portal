@@ -19,7 +19,7 @@
       </card>
     </r-body>
     <tab-bar>
-      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="goto"></proposal-confirm>
     </tab-bar>
   </page>
 </template>
@@ -76,8 +76,7 @@ export default {
     getVehicleUseNatureCode: function() {
       console.log("getVehicleUseNatureCode");
     },
-    onClick: function() {
-      console.log("a");
+    goto: function() {
       this.$router.push({
         path: "/project/proposal/ah/InsuredInfoConfirmPassenger",
         name: "InsuredInfoConfirmPassenger",

@@ -13,7 +13,7 @@
       <card>
         <row :model="pageModel" :title="$t('carInfo.carInfo')" class="cardTitle">
           <div>
-            <span class="fa fa-edit" v-on:click="gotoCarInfo"/>
+            <span class="fa fa-edit" v-on:click="gotoCarInfo" />
           </div>
         </row>
         <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />
@@ -40,7 +40,9 @@
         <r-input title="保费共计" :model="model" value="sumPremium" :readonly="true" />
       </card>
       <!-- 条款确认 -->
-      <proposal-clause-confirm />
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
     <tab-bar>
       <r-button type="primary" :onClick="gotoPay">{{$t('auto2cProposalInfoConfirm.payNow')}}</r-button>
@@ -58,7 +60,8 @@ import {
   RButton,
   Row,
   RInput,
-  List
+  List,
+  Toast
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import "../../../../i18n/auto2cProposalInfoConfirm";
@@ -66,6 +69,7 @@ import "../../../../i18n/autoProposalInfoConfirm";
 import "../../../../i18n/carInfo";
 import "../../../../i18n/autoProposalInfoConfirm";
 import "../../../../i18n/insuredInfoEntryPassenger";
+import "../../../../i18n/insuredInfoEntryHealthSub";
 import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
 export default {
@@ -81,11 +85,15 @@ export default {
     ProposalClauseConfirm,
     RInput,
     InsuranceDurationShortTerm,
-    List
+    List,
+    Toast
   },
   data() {
     return {
-      pageModel: {},
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      },
       model: {
         sumPremium: "6832.56元",
         policy: [
@@ -132,11 +140,15 @@ export default {
         name: "Auto2cDrivingLicenseInfo"
       });
     },
-    gotoPay(){     
-      this.$router.push({
-        path: "/project/proposal/auto2c//project/proposal/auto2e/AutoPay",
-        name: "AutoPay"
-      });
+    gotoPay() {
+      if (this.pageModel.clauseConfirm) {
+        this.$router.push({
+          path: "/project/proposal/auto2c//project/proposal/auto2e/AutoPay",
+          name: "AutoPay"
+        });
+      } else {
+        this.pageModel.toastShow = true;
+      }
     }
   }
 };

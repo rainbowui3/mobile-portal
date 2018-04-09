@@ -13,12 +13,14 @@
         <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :model="insuredInfo" />
       </card>
       <card>
-          <row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></row>
+        <row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></row>
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
     <tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
@@ -27,7 +29,15 @@
 </template>
 
 <script>
-import { Page, Card, TabBar, RButton, RBody,Row } from "rainbow-mobile-core";
+import {
+  Page,
+  Card,
+  TabBar,
+  RButton,
+  RBody,
+  Row,
+  Toast
+} from "rainbow-mobile-core";
 import Top from "@/components/Top";
 import Bottom from "@/components/Bottom";
 import HolderInfo from "../../components/HolderInfo";
@@ -57,10 +67,15 @@ export default {
     RButton,
     RBody,
     ChooseRelationship,
-    Row
+    Row,
+    Toast
   },
   data() {
     return {
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      },
       policy: {},
       holderInfo: {
         name: "王小明",
@@ -125,24 +140,25 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push({
-          path:"/project/proposal/ah/InsuredInfoConfirmHealth",
-          name:"InsuredInfoConfirmHealth",
-          params:this.policy
-
-      });
+      if (this.pageModel.clauseConfirm) {
+        this.$router.push({
+          path: "/project/proposal/ah/InsuredInfoConfirmHealth",
+          name: "InsuredInfoConfirmHealth",
+          params: this.policy
+        });
+      } else {
+        this.pageModel.toastShow = true;
+      }
     },
     clickHome: function() {
       console.log("lalalalala");
     },
-    goto(){
-        
-    }
+    goto() {}
   },
-//   created: function() {
-//     this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
-//     console.log("policy", this.policy);
-//   },
+  //   created: function() {
+  //     this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
+  //     console.log("policy", this.policy);
+  //   },
   mounted: function() {},
   beforeDestroy: function() {}
 };
