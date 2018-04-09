@@ -6,16 +6,16 @@
         <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card :title="$t('common.holder')">
-        <holder-info :holderInfo="holderInfo" />
+        <holder-info :model="holderInfo" />
       </card>
       <card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="insuredInfo" value="relationToHolder" />
-        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :insuredInfo="insuredInfo" />
+        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :model="insuredInfo" />
       </card>
       <card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="dubsidiaryInsuranceInfo" value="relationToHolder" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" />
-        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '本人'" :dubsidiaryInsuranceInfo="dubsidiaryInsuranceInfo" />
+        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '本人'" :model="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>

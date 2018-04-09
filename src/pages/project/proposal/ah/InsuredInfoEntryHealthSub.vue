@@ -8,19 +8,19 @@
       </card>
       <!-- 投保人信息 -->
       <card :title="$t('common.holderInfo')">
-        <holder-info :holderInfo="policy.holderInfo" />
+        <holder-info :model="policy.holderInfo" />
       </card>
       <!-- 被保人信息 -->
       <card :title="$t('common.insuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
-        <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :insuredInfo="policy.insuredInfo" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.insuredInfo" />
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 附属被保险人信息 -->
       <card :title="$t('common.subsidiaryInsuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
-        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :dubsidiaryInsuranceInfo="policy.subsidiaryInfo" />
+        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.subsidiaryInfo" />
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 添加更多被保险人 -->

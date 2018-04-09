@@ -3,7 +3,7 @@
         <top :title="$t('project.accident')" :showBack="true" />
         <r-body>
             <card :title="$t('insuredInfoAccident.passengerInfo')">
-                <holder-info :holderInfo="passengerInfo" />
+                <holder-info :model="passengerInfo" />
                 <r-input :title="$t('insuredInfoAccident.trainNo')" :model="passengerInfo" value="rainNo" />
                 <r-input :title="$t('insuredInfoAccident.seatNo')" :model="passengerInfo" value="seatNum" />
                 <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder"></r-switch>

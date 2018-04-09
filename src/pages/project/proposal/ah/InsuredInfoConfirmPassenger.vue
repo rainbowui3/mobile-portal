@@ -6,7 +6,7 @@
         <insurance-duration-short-term type="day" :model="policy" expireDate="expireDate" effectiveDate="effectiveDate" />
       </card>
       <card :title="$t('common.holder')">
-        <holder-info v-bind:readonly="readonly" v-bind:holderInfo="policy.holderInfo"></holder-info>
+        <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
       </card>
       <card :title="$t('insuredInfoEntryPassenger.carInfo')">
         <r-input :title="$t('insuredInfoEntryPassenger.model')" :required="true" :model="policy.carInfo" value="carModel" :onChange="getCarModel" :readonly="readonly" />

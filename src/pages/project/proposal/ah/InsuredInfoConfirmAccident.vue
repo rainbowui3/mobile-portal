@@ -6,13 +6,13 @@
                 <insurance-duration-short-term :readonly="readonly" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
             </card>
             <card :title="$t('insuredInfoAccident.passengerInfo')">
-                <holder-info :holderInfo="passengerInfo" :readonly="readonly" />
+                <holder-info :model="passengerInfo" :readonly="readonly" />
                 <r-input :title="$t('insuredInfoAccident.trainNo')" :model="passengerInfo" value="rainNo" :readonly="readonly" />
                 <r-input :title="$t('insuredInfoAccident.seatNo')" :model="passengerInfo" value="seatNum" :readonly="readonly" />
                 <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>
             </card>
             <card v-if="!this.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
-                <holder-info :holderInfo="holderInfo" :readonly="readonly" />
+                <holder-info :model="holderInfo" :readonly="readonly" />
             </card>
             <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
             <!-- 未确认条款后弹出的提示框 -->
@@ -24,7 +24,6 @@
         </tab-bar>
 
     </page>
-
 </template>
 
 <script>
