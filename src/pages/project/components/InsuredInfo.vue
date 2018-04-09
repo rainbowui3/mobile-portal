@@ -1,12 +1,12 @@
 <template>
     <div>
-        <!-- <selector  :title="$t('与投保人关系:')" :options="options1" :model="insuredInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector> -->
-        <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="insuredInfo" value="name" :readonly="readonly" />
-        <selector :title="$t('holderInfo.certificateType')" :options="options" :model="insuredInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="insuredInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
-        <date-time :title="$t('holderInfo.birthday')" :model="insuredInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="insuredInfo" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
-        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="insuredInfo" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
+        <!-- <selector  :title="$t('与投保人关系:')" :options="options1" :model="model" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector> -->
+        <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" />
+        <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
+        <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
+        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
     </div>
 </template>
 
@@ -29,7 +29,10 @@ export default {
     Selector,
     DateTime
   },
-  props: ["readonly", "insuredInfo"],
+  props: {
+    readonly:Boolean,
+    model:Object
+  },
   data() {
     return {
       policy: {
@@ -56,7 +59,7 @@ export default {
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
       if (isCertification && !this.isValidateNum) {
-        this.insuredInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
+        this.model.birthdate = Getbirthday.getBirthdayByIdCard(value);
       }
       return {
         valid: isCertification === true,
@@ -67,11 +70,11 @@ export default {
   computed: {
     onChangeCertiType: function() {
       if (
-        this.insuredInfo.certificateId &&
-        this.insuredInfo.certificateId === "10000"
+        this.model.certificateId &&
+        this.model.certificateId === "10000"
       ) {
         this.isValidateNum = false;
-        this.validateNumInput(this.insuredInfo.certificateNum);
+        this.validateNumInput(this.model.certificateNum);
       } else {
         this.isValidateNum = true;
       }

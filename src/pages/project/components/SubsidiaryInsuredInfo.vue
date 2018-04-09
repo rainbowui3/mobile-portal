@@ -1,14 +1,14 @@
 <template>
   <!-- relationToMainInsured -->
   <div>
-    <!-- <selector :title="$t('holderInfo.relationToHolder')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
-    <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> -->
-    <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="dubsidiaryInsuranceInfo" value="name" :readonly="readonly" />
-    <selector :title="$t('holderInfo.certificateType')" :options="options" :model="dubsidiaryInsuranceInfo" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="dubsidiaryInsuranceInfo" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
-    <date-time :title="$t('holderInfo.birthday')" :model="dubsidiaryInsuranceInfo" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="dubsidiaryInsuranceInfo" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
-    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="dubsidiaryInsuranceInfo" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
+    <!-- <selector :title="$t('holderInfo.relationToHolder')" :options="options1" :model="model" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
+    <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="model" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> -->
+    <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" />
+    <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
+    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
+    <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
   </div>
 </template>
 
@@ -53,17 +53,17 @@ export default {
   methods: {
     onChange: function(val) {
       sessionStorage.setItem(
-        "dubsidiaryInsuranceInfo-relationToHolder",
-        this.dubsidiaryInsuranceInfo.relationToHolder
+        "model-relationToHolder",
+        this.model.relationToHolder
       );
-      console.log(this.dubsidiaryInsuranceInfo.relationToHolder);
-      this.dubsidiaryInsuranceInfo.relationToHolder = this.dubsidiaryInsuranceInfo.relationToHolder;
+      console.log(this.model.relationToHolder);
+      this.model.relationToHolder = this.model.relationToHolder;
       this.certificate.effortDate = val;
     },
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
       if (isCertification && !this.isValidateNum) {
-        this.dubsidiaryInsuranceInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
+        this.model.birthdate = Getbirthday.getBirthdayByIdCard(value);
       }
       return {
         valid: isCertification === true,
@@ -71,21 +71,24 @@ export default {
       };
     }
   },
-  props: ["readonly", "dubsidiaryInsuranceInfo"],
+  props: {
+    readonly: Boolean,
+    model: Object
+  },
   mounted: function() {
-    console.log(this.dubsidiaryInsuranceInfo.relationToHolder);
+    console.log(this.model.relationToHolder);
   },
   created: function() {
-    sessionStorage.setItem("dubsidiaryInsuranceInfo-relationToHolder", "本人");
+    sessionStorage.setItem("model-relationToHolder", "本人");
   },
   computed: {
     onChangeCertiType: function() {
       if (
-        this.dubsidiaryInsuranceInfo.certificateId &&
-        this.dubsidiaryInsuranceInfo.certificateId === "10000"
+        this.model.certificateId &&
+        this.model.certificateId === "10000"
       ) {
         this.isValidateNum = false;
-        this.validateNumInput(this.dubsidiaryInsuranceInfo.certificateNum);
+        this.validateNumInput(this.model.certificateNum);
       } else {
         this.isValidateNum = true;
       }
