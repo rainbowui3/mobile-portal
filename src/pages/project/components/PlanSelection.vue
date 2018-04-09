@@ -248,6 +248,9 @@ export default {
 .planSelectionSelector >div>.weui-cell__ft>span{
   color:green;
 }
+.fa{
+  color: black;
+}
 </style>
 <i18n>
 
