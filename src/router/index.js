@@ -134,6 +134,9 @@ const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/examp
 // logn in
 const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
 
+//businessPage
+const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
+
 
 Vue.use(Router);
 const router = new Router({
@@ -692,6 +695,11 @@ const router = new Router({
     path: '/component/example/BusinessSignIn',
     name: 'BusinessSignIn',
     component: BusinessSignIn
+  },
+  {
+    path: '/project/businessPage/BusinessPayment',
+    name: 'BusinessPayment',
+    component: BusinessPayment
   }
   ],
 });

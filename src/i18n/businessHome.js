@@ -1,9 +1,7 @@
 import i18n from "./index";
-i18n.mergeLocaleMessage("zh-CN", {
-    "businessHome.title": "自定义标题",
-    "businessHome.home": "首页"
+i18n.mergeLocaleMessage("zh-CN",{
+    "businessHome.title": '周末亲子邦 亲子旅行意外伤害保险'
 });
 i18n.mergeLocaleMessage("en-US", {
-    "businessHome.title": "title",
-    "businessHome.home": "home"
+    "businessPage.title": 'Weekend parent-child travel accident insurance'
 });

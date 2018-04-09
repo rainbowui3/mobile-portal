@@ -7,6 +7,8 @@
 <script>
 import { Card, RInput, Selector, Grid, Row} from "rainbow-mobile-core";
 import { Previewer } from "rainbow-mobile-previewer";
+import i18n from "../../../../i18n/pay";
+
 export default {
   components: {
     Card,

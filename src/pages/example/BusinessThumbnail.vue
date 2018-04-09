@@ -1,6 +1,6 @@
 <template>
   <page>
-       <top :title="$t('businessHome.home')" :showBack="true"/>
+       <top :title="$t('BusinessThumbnail.home')" :showBack="true"/>
        <r-body>
          <card>
          </card>
@@ -13,7 +13,7 @@
 import { Page, Card, RBody } from "rainbow-mobile-core";
 import Top from "../../components/Top";
 import Bottom from "../../components/Bottom";
-import "../../i18n/businessHome";
+import "../../i18n/businessThumbnail";
 export default {
   components: {
     Top,
