@@ -8,7 +8,9 @@
           <card :title="$t('planSelection.guaranteeRate')">
             <r-table :data="item.planData" :class="{table:classStatus}" />
             <div v-for="(coverage, idx) in coverageList" :key="idx">
-              <row :title="coverage.coverageTitle" :model="coverage" value="coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
+              <row :model="coverage" value="coverageAmount" class="fa-edit" :onClick="openCoverageDescription.bind(this, coverage)">
+                <span class="fa fa-angle-down fa-1x">{{coverage.coverageTitle}}</span>
+              </row>
               <template v-if="coverage.showDescription">
                 <div>
                   <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
@@ -24,10 +26,15 @@
     </div>
     <div v-else>
       <card :title="$t('planSelection.guaranteeRate')">
-        <selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue"></selector>
+        <selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue" class="planSelectionSelector"></selector>
         <r-table :data="items[0].planData" :class="{table:classStatus}" />
         <div v-for="(coverage, idx) in coverageList" :key="idx">
-          <row :title="coverage.coverageTitle" :model="coverage" value="coverageAmount" :isLink="true" :onClick="openCoverageDescription.bind(this, coverage)"></row>
+          <!-- <row :value="$t('row.protected')" :model="coverage" :isLink="true">
+          <span class="fa fa-lock fa-2x">{{$t('dfdsa')}}</span>
+        </row> -->
+          <row :model="coverage" value="coverageAmount" :onClick="openCoverageDescription.bind(this, coverage)">
+            <span class="fa fa-angle-down fa-1x">{{coverage.coverageTitle}}</span>
+          </row>
           <template v-if="coverage.showDescription">
             <div>
               <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
@@ -171,7 +178,10 @@ export default {
     },
     getListData() {
       return [
-        { label: this.$t('planSelection.approvalCrowd'), value: "各个年龄段人群" },
+        {
+          label: this.$t("planSelection.approvalCrowd"),
+          value: "各个年龄段人群"
+        },
         { label: this.$t("planSelection.limitPurchase"), value: "10份" },
         { label: this.$t("planSelection.term"), value: "1年" },
         {
@@ -234,6 +244,9 @@ export default {
 }
 .swiperHeight {
   min-height: 300px;
+}
+.planSelectionSelector >div>.weui-cell__ft>span{
+  color:green;
 }
 </style>
 <i18n>

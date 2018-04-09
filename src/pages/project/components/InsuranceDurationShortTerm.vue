@@ -7,13 +7,15 @@
 </template>
 
 <script>
-import { Card, DateTime } from "rainbow-mobile-core";
+import { Card, DateTime, Cell, Checker } from "rainbow-mobile-core";
 import config from "config";
 import "../../../i18n/insuranceDurationShortTerm";
 export default {
   components: {
     DateTime,
-    Card
+    Card,
+    Cell,
+    Checker
   },
   props: {
     //组件是否只读
@@ -85,7 +87,7 @@ export default {
         this.model[this.effectiveDate] = year + "-" + month + "-" + day;
         this.model[this.expireDate] =
           (y + 1).toString() + "-" + month + "-" + day;
-      } else{
+      } else {
         this.model[this.effectiveDate] =
           year + "-" + month + "-" + day + " " + "00:00";
         this.model[this.expireDate] =
