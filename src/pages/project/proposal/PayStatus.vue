@@ -3,7 +3,7 @@
     <top :title="$t('project.jtyw')"/>
     <r-body>
       <card>
-        <div>
+        <div class="successTitle">
           <h4>{{$t('payStatus.success')}}</h4>
         </div>
         <previewer :title="$t('payStatus.payment')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
@@ -85,5 +85,8 @@ export default {
 }
 .fontColor{
   color: #999999;
+}
+.successTitle{
+  text-align: center;
 }
 </style>

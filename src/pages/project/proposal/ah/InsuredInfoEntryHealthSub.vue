@@ -13,14 +13,14 @@
       <!-- 被保人信息 -->
       <card :title="$t('common.insuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
-        <insured-info v-if="policy.insuredInfo.relationToHolder != '1'" :insuredInfo="policy.insuredInfo" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :insuredInfo="policy.insuredInfo" />
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 附属被保险人信息 -->
       <card :title="$t('common.subsidiaryInsuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
-        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1'" :dubsidiaryInsuranceInfo="policy.subsidiaryInfo" />
+        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :dubsidiaryInsuranceInfo="policy.subsidiaryInfo" />
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 添加更多被保险人 -->
@@ -142,7 +142,11 @@ export default {
       }
     },
     gotoHealthInfo: function() {
-      console.log("gotoHealthInfo");
+      // console.log("gotoHealthInfo");
+      this.$router.push({
+        path:"/project/proposal/ah/",
+        name:"HealthInform"
+      })
     }
   },
   watch: {
@@ -153,7 +157,7 @@ export default {
     },
     "policy.subsidiaryInfo.relationToHolder": {
       handler: function() {
-        // console.log(this.policy.subsidiaryInfo.relationToHolder);
+        console.log(this.policy.subsidiaryInfo.relationToHolder);
       },
       deep: true
     }
