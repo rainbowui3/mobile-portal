@@ -3,14 +3,14 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card>
-        <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card :title="$t('common.holder')">
-        <holder-info :model="holderInfo" />
+        <holder-info :model="policy.holderInfo" />
       </card>
       <card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="insuredInfo" value="relationToHolder" />
-        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :model="insuredInfo" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.insuredInfo" />
       </card>
       <card>
           <row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></row>
@@ -41,6 +41,7 @@ import "../../../../i18n/project";
 import "../../../../i18n/input";
 import "../../../../i18n/planSelection";
 import "../../../../i18n/insuredInfoEntryHealthSub";
+// import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     Top,
@@ -61,40 +62,41 @@ export default {
   },
   data() {
     return {
-      policy: {},
-      holderInfo: {
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      insuredInfo: {
-        relationToHolder: "本人",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      dubsidiaryInsuranceInfo: {
-        relationToHolder: "本人",
-        relationToMainInsured: "本人",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
+      policy: {
+        policyData: {
+          // effectiveDate: "",
+          // expireDate: ""
+        },
+        holderInfo: {
+          // name: "王小明",
+          // certificateId: "10000",
+          // certificateNum: "65300119520705283x",
+          // birthdate: "2000-01-01",
+          // mobileNum: "18398768724",
+          // email: "wangxm@outlook.com"
+        },
+        insuredInfo: {
+          relationToHolder: "1",
+          // name: "王小明",
+          // certificateId: "10000",
+          // certificateNum: "65300119520705283x",
+          // birthdate: "2000-01-01",
+          // mobileNum: "18398768724",
+          // email: "wangxm@outlook.com"
+        },
+        dubsidiaryInsuranceInfo: {
+          // relationToHolder: "本人",
+          // relationToMainInsured: "本人",
+          // name: "王小明",
+          // certificateId: "10000",
+          // certificateNum: "65300119520705283x",
+          // birthdate: "2000-01-01",
+          // mobileNum: "18398768724",
+          // email: "wangxm@outlook.com"
+        }
       },
       amount: "100",
       buttonName: "proposalConfirm.immediatelyInsure",
-      policyData: {
-        // effectiveDate: "",
-        // expireDate: ""
-      },
       datas1: [
         {
           key: "1",
@@ -125,17 +127,24 @@ export default {
   },
   methods: {
     onClick: function() {
+      sessionStorage.setItem("policy",JSON.stringify(this.policy));
       this.$router.push({
           path:"/project/proposal/ah/InsuredInfoConfirmHealth",
           name:"InsuredInfoConfirmHealth",
-          params:this.policy
-
+          // params:{
+          //   policy:this.policy
+          // }
       });
     },
     clickHome: function() {
       console.log("lalalalala");
     },
     goto(){
+      this.$router.push({
+        path:"/project/proposal/ah/HealthInform",
+        name:"HealthInform",
+        params:{}
+      })
         
     }
   },

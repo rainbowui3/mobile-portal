@@ -93,6 +93,33 @@ export default {
         ]
       });
     }
+  },
+  watch:{
+    'policy.carInfo.licenseNo': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.licenseNo =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    'policy.carInfo.engineNo': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.engineNo =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    'policy.carInfo.vin': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.vin =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    
   }
 };
 </script>
