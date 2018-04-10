@@ -29,16 +29,24 @@ export default {
   data(){
       return {
         products:[
-          {"class":"product","src":Ly,'action':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Female,'action':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Ycx,'action':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Ywx,'action':this.goto,'param':'/project/ly'},
+          {class:"product",src:Ly,onClick:this.goto,param:{path:"/project/proposal/ah/ProductInfoEntryHealth",name:"ProductInfoEntryHealth",flag:"1"}},
+          {class:"product",src:Female,onClick:this.goto,param:{paht:"/project/proposal/ah/ProductInfoEntryHealth",name:"ProductInfoEntryHealth",flag:"2"}},
+          {"class":"product","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
+          {"class":"product","src":Ywx,'onClick':this.goto,'param':'/project/ly'},
         ]
       }
   },
   methods:{
       goto(param){
-        window.location.hash=param;
+        sessionStorage.setItem("ROUTE_FLAG", param.flag);
+        this.$router.push({
+          path:param.path,
+          name:param.name,
+          params:{
+            flag:param.flag
+          }
+        })
+        // window.location.hash=param;
       },
       go(index){
         switch (index) {

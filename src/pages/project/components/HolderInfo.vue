@@ -31,9 +31,6 @@ export default {
   },
   data() {
     return {
-      policy: {
-        value2: ""
-      },
       options: [
         { key: "10000", value: "身份证" },
         { key: "10002", value: "护照" }
