@@ -1,12 +1,12 @@
 <template>
     <div>
         <!-- <selector  :title="$t('与投保人关系:')" :options="options1" :model="model" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector> -->
-        <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" />
-        <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
-        <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
-        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
+        <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" :required="required"/>
+        <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly" :required="required"></selector>
+        <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" :required="required"/>
+        <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="readonly" :onChange="onChange" :readonly="readonly"></date-time>
+        <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly"/>
+        <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false"/>
     </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
   },
   props: {
     readonly:Boolean,
-    model:Object
+    model:Object,
+    required:Boolean
   },
   data() {
     return {
