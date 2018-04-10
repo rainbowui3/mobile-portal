@@ -3,7 +3,7 @@
         <top :title="$t('project.accident')" :showBack="true" />
         <r-body>
             <card>
-                <insurance-duration-short-term :readonly="readonly" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+                <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
             </card>
             <card :title="$t('insuredInfoAccident.passengerInfo')">
                 <holder-info :model="passengerInfo" :readonly="readonly" />

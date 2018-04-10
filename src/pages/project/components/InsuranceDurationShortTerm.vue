@@ -1,8 +1,8 @@
 //保险期限组件-极短期
 <template>
   <div>
-    <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
-    <date-time :readonly="readonly" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
+    <date-time :readonly="readonlyEf" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
+    <date-time :readonly="readonlyEx" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
   </div>
 </template>
 
@@ -36,6 +36,14 @@ export default {
     },
     expireDate: {
       type: String
+    },
+    readonlyEf:{
+      type:Boolean,
+      default:false
+    },
+    readonlyEx:{
+      type:Boolean,
+      default:false
     }
   },
   data() {
