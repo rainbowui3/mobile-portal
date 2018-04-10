@@ -99,7 +99,7 @@ export default {
       buttonName: "proposalConfirm.confirmInsure",
       policy: {
         poi:"1年",
-        sex:"01",
+        sex:["01"],
         social:false,
         birthday:"",
         effectiveDate: "",
