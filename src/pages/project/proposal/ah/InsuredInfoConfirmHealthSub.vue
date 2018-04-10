@@ -78,15 +78,7 @@ export default {
   },
   data() {
     return {
-      policy: {
-        holderInfo: {},
-        insuredInfo: {
-          relationToHolder: "1"
-        },
-        subsidiaryInfo: {
-          relationToHolder: "1"
-        }
-      },
+      policy: {},
       pageModel: {
         clauseConfirmed: false,
         toastShow: false
@@ -116,11 +108,16 @@ export default {
           active: false
           // onClick: this.onClickInsured
         }
-      ]
+      ],
+      readonly:false
     };
   },
   methods: {
     goto: function() {
+      this.$router.push({
+        path:"/project/proposal/payStatus",
+        name:"PayStatus",
+      })
       //Todo:跳转到下一个页面,去支付
       console.log("gotoPay");
     },
@@ -135,9 +132,7 @@ export default {
   watch: {},
   computed: {},
   created: function() {
-    if (this.$route.params.policy) {
-      this.policy = this.$route.params.policy;
-    }
+    this.policy = JSON.parse(sessionStorage.getItem("policy"));
   }
 };
 </script>

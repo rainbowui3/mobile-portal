@@ -15,10 +15,10 @@
         <!--<card>-->
           <cell :type="row">
             <cell :span="6">
-              <div class="margin_gender">{{$t('productInfoEntryHealth.gender')}}</div>
+              <div class="margin_sex">{{$t('productInfoEntryHealth.sex')}}</div>
             </cell>
             <cell class="checker_list_row">
-              <checker :max="1" :model="policy" value="value6" :data='list' :onChange="onChange" type="list" :required="true"/>
+              <checker :max="1" :model="policy" value="sex" :data='list' :onChange="onChange" type="list" :required="true"/>
             </cell>
           </cell>
 
@@ -99,7 +99,7 @@ export default {
       buttonName: "proposalConfirm.confirmInsure",
       policy: {
         poi:"1年",
-        gender:"01",
+        sex:"01",
         social:false,
         birthday:"",
         effectiveDate: "",
@@ -143,7 +143,7 @@ export default {
 .checker_list_row > div > div > .weui-cells_checkbox > label{
 float: left;
 }
-.margin_gender{
+.margin_sex{
   margin-left: 16px;
  }
 
