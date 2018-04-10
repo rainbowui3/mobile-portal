@@ -19,7 +19,9 @@
       <card class="addInsuredButton">
         <r-button type="primary" :onClick="clickHome">{{$t('insuredInfoEntryShortTerm.addMore')}}</r-button>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
 
     <tab-bar>
@@ -45,7 +47,8 @@ import {
   List,
   Selector,
   TabBar,
-  Cell
+  Cell,
+  Toast
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
@@ -56,6 +59,7 @@ import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
 import ProposalConfirm from "../../components/ProposalConfirm";
 import ChooseRelationship from "../../components/ChooseRelationship";
 import "../../../../i18n/insuredInfoEntryShortTerm";
+import "../../../../i18n/insuredInfoEntryHealthSub";
 import "../../../../i18n/input";
 import "../../../../i18n/project";
 
@@ -73,13 +77,18 @@ export default {
     ProposalConfirm,
     ProposalClauseConfirm,
     RBody,
-    ChooseRelationship
+    ChooseRelationship,
+    Toast
   },
   methods: {
     clickHom() {}
   },
   data() {
     return {
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      },
       readonly: false,
       linkInsuredConfirmUrl: "/project/proposal/ah/InsuredInfoConfirmNormal",
       policy: {
@@ -148,7 +157,11 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
+      if (this.pageModel.clauseConfirm) {
+        this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
+      } else {
+        this.pageModel.toastShow = true;
+      }
     },
     clickHome: function() {}
   }

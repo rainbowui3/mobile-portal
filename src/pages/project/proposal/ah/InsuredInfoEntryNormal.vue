@@ -20,7 +20,9 @@
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
     <tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-import { Page, Card, TabBar, RButton, RBody } from "rainbow-mobile-core";
+import { Page, Card, TabBar, RButton, RBody, Toast } from "rainbow-mobile-core";
 import Top from "@/components/Top";
 import Bottom from "@/components/Bottom";
 import HolderInfo from "../../components/HolderInfo";
@@ -42,6 +44,7 @@ import ChooseRelationship from "../../components/ChooseRelationship";
 import "../../../../i18n/project";
 import "../../../../i18n/input";
 import "../../../../i18n/planSelection";
+import "../../../../i18n/insuredInfoEntryHealthSub";
 export default {
   components: {
     Top,
@@ -57,10 +60,15 @@ export default {
     TabBar,
     RButton,
     RBody,
-    ChooseRelationship
+    ChooseRelationship,
+    Toast
   },
   data() {
     return {
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      },
       policy: {},
       holderInfo: {
         name: "王小明",
@@ -125,7 +133,11 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
+      if (this.pageModel.clauseConfirm) {
+        this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
+      } else {
+        this.pageModel.toastShow = true;
+      }
     },
     clickHome: function() {
       console.log("lalalalala");

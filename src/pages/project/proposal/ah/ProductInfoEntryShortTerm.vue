@@ -7,7 +7,8 @@
         </product-top>
       </card>
       <card>
-        <insurance-duration-shortTerm type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
+        <checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="pageModel" value="isEffectiveImmediately" class="isEffectiveImmediately" />
+        <insurance-duration-shortTerm type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="pageModel.isEffectiveImmediately"></insurance-duration-shortTerm>
       </card>
       <card>
         <plan-selection></plan-selection>
@@ -39,7 +40,8 @@ import {
   Selector,
   TabBar,
   Cell,
-  RBody
+  RBody,
+  Checker
 } from "rainbow-mobile-core";
 import Top from "../../../../components/Top";
 import Bottom from "../../../../components/Bottom";
@@ -48,6 +50,7 @@ import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortT
 import PlanSelection from "../../components/PlanSelection";
 import ProposalCopies from "../../components/ProposalCopies";
 import ProposalConfirm from "../../components/ProposalConfirm";
+import "../../../../i18n/autoPlan";
 import Jtgj from "../../../../assets/jtgj.jpg";
 import "../../../../i18n/project";
 
@@ -63,10 +66,14 @@ export default {
     PlanSelection,
     ProposalCopies,
     ProposalConfirm,
-    RBody
+    RBody,
+    Checker
   },
   data() {
     return {
+      pageModel:{
+        isEffectiveImmediately:false
+      },
       linkInsuredInfoUrl: "/project/proposal/ah/insuredInfoEntryShortTerm",
       productImgSrc: Jtgj,
       productDes:
@@ -110,5 +117,9 @@ export default {
 </script>
 
 <style>
-
+.isEffectiveImmediately {
+  float: right;
+  padding-top: 8px;
+  padding-right: 13px;
+}
 </style>

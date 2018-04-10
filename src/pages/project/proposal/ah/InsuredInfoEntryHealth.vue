@@ -13,12 +13,14 @@
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.insuredInfo" />
       </card>
       <card>
-          <row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></row>
+        <row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></row>
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
       </card>
-      <proposal-clause-confirm/>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
     <tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
@@ -27,7 +29,15 @@
 </template>
 
 <script>
-import { Page, Card, TabBar, RButton, RBody,Row } from "rainbow-mobile-core";
+import {
+  Page,
+  Card,
+  TabBar,
+  RButton,
+  RBody,
+  Row,
+  Toast
+} from "rainbow-mobile-core";
 import Top from "@/components/Top";
 import Bottom from "@/components/Bottom";
 import HolderInfo from "../../components/HolderInfo";
@@ -58,7 +68,8 @@ export default {
     RButton,
     RBody,
     ChooseRelationship,
-    Row
+    Row,
+    Toast
   },
   data() {
     return {
@@ -95,6 +106,10 @@ export default {
           // email: "wangxm@outlook.com"
         }
       },
+      pageModel: {
+        clauseConfirm: false,
+        toastShow: false
+      },
       amount: "100",
       buttonName: "proposalConfirm.immediatelyInsure",
       datas1: [
@@ -127,14 +142,15 @@ export default {
   },
   methods: {
     onClick: function() {
-      sessionStorage.setItem("policy",JSON.stringify(this.policy));
-      this.$router.push({
-          path:"/project/proposal/ah/InsuredInfoConfirmHealth",
-          name:"InsuredInfoConfirmHealth",
-          // params:{
-          //   policy:this.policy
-          // }
-      });
+      if (this.pageModel.clauseConfirm) {
+        sessionStorage.setItem("policy",JSON.stringify(this.policy));
+        this.$router.push({
+          path: "/project/proposal/ah/InsuredInfoConfirmHealth",
+          name: "InsuredInfoConfirmHealth",
+        });
+      } else {
+        this.pageModel.toastShow = true;
+      }
     },
     clickHome: function() {
       console.log("lalalalala");
@@ -148,10 +164,10 @@ export default {
         
     }
   },
-//   created: function() {
-//     this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
-//     console.log("policy", this.policy);
-//   },
+  //   created: function() {
+  //     this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
+  //     console.log("policy", this.policy);
+  //   },
   mounted: function() {},
   beforeDestroy: function() {}
 };
