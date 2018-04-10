@@ -76,7 +76,7 @@ export default {
         email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: "本人",
+        relationToHolder: "1",
         name: "王小明",
         certificateId: "10000",
         certificateNum: "130903199503210324",

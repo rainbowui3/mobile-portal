@@ -56,7 +56,7 @@ export default {
   methods: {
     onItemClick: function(item, idx, event) {
       if (!this.readonly) {
-        this.model[this.value] = item.value;
+        this.model[this.value] = item.key;
         let count = 0;
         if (item.active != true) {
           this.dataList.forEach(element => {
