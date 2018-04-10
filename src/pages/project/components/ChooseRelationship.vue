@@ -94,6 +94,8 @@ export default {
           element.active = false;
         }
       });
+    }else{
+      this.model[this.value] = this.datas[0].key;
     }
   },
   mounted: function() {}
