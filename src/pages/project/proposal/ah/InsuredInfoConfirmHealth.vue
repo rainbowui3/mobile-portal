@@ -109,7 +109,8 @@ export default {
           active: false
           // onClick: this.onClickInsured
         }
-      ]
+      ],
+      readonly:false
     };
   },
   methods: {

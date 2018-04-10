@@ -5,7 +5,8 @@
     <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="model" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> -->
     <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" />
     <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
+    <r-input v-if="isValidateNum == true" :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="false" :readonly="readonly" />
+     <r-input v-else-if="isValidateNum == false" :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :readonly="readonly" />
     <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
     <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
     <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
@@ -33,6 +34,7 @@ export default {
   },
   data() {
     return {
+      isValidateNum:true,
       policy: {
         value2: ""
       },
@@ -87,10 +89,10 @@ export default {
         this.model.certificateId &&
         this.model.certificateId === "10000"
       ) {
-        this.isValidateNum = false;
+        this.isValidateNum = true;
         this.validateNumInput(this.model.certificateNum);
       } else {
-        this.isValidateNum = true;
+        this.isValidateNum = false;
       }
     }
   }

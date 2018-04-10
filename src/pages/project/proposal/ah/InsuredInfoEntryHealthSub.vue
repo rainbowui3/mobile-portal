@@ -4,23 +4,23 @@
     <r-body>
       <!-- 保险期限选择 -->
       <card>
-        <insurance-duration-short-term type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <!-- 投保人信息 -->
       <card :title="$t('common.holderInfo')">
-        <holder-info :model="policy.holderInfo" />
+        <holder-info :model="policy.holderInfo" :required="required"/>
       </card>
       <!-- 被保人信息 -->
       <card :title="$t('common.insuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
-        <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.insuredInfo" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 附属被保险人信息 -->
       <card :title="$t('common.subsidiaryInsuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
-        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '本人'" :model="policy.subsidiaryInfo" />
+        <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '1'" :model="policy.subsidiaryInfo" :required="required"/>
         <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
       </card>
       <!-- 添加更多被保险人 -->
@@ -85,6 +85,7 @@ export default {
   data() {
     return {
       policy: {
+        policyData:{},
         holderInfo: {},
         insuredInfo: {
           relationToHolder: "1"
@@ -122,7 +123,8 @@ export default {
           active: false
           // onClick: this.onClickInsured
         }
-      ]
+      ],     
+      required:true
     };
   },
   methods: {
@@ -130,12 +132,10 @@ export default {
       if (this.pageModel.clauseConfirmed) {
         //Todo:跳转到下一个页面,确认页面
         // console.log("goto");
+        sessionStorage.setItem("policy",JSON.stringify(this.policy));
         this.$router.push({
           name:"InsuredInfoConfirmHealthSub",
           path:"/project/proposal/ah/InsuredInfoConfirmHealthSub",
-          params:{
-            policy:this.policy
-          }
         });
       } else {
         this.pageModel.toastShow = true;
@@ -144,7 +144,7 @@ export default {
     gotoHealthInfo: function() {
       // console.log("gotoHealthInfo");
       this.$router.push({
-        path:"/project/proposal/ah/",
+        path:"/project/proposal/ah/HealthInform",
         name:"HealthInform"
       })
     }
