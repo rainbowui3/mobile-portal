@@ -10,7 +10,7 @@
         <plan-selection></plan-selection>
       </card>
       <card>
-        <r-input :title="$t('productInfoEntryHealth.poi')" :model="policy" value="poi" :required="true"></r-input>
+        <r-input :title="$t('productInfoEntryHealth.poi')" :model="policy" value="poi"  :readonly="true"></r-input>
         <date-time :title="$t('productInfoEntryHealth.birthday')" :model="policy" value="birthday" :format="timeFormat" :required="true"></date-time>
         <!--<card>-->
           <cell :type="row">
@@ -109,16 +109,23 @@ export default {
     };
   },
   methods: {
-    onClick(){
-      this.$router.push({
-        path:"/project/proposal/ah/InsuredInfoEntryHealth",
-        name:"InsuredInfoEntryHealth"
-      })
-
+    onClick: function() {
+      this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      switch (this.templateFlag) {
+        case "1":
+          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");
+          break;
+        case "2":
+          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealthSub");
+          break;
+        default:
+          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");
+          break;
+      }
     },
     onChange(){
 
-    }
+    }  
   },
   created: function() {
     let templateFlag = this.$route.params.flag;
