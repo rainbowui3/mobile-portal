@@ -101,7 +101,7 @@ export default {
           email: "wangxm@outlook.com"
         },
         insuredInfo: {
-          relationToHolder: "本人",
+          relationToHolder: "1",
           name: "王小明",
           certificateId: "10000",
           certificateNum: "65300119520705283x",
@@ -110,8 +110,8 @@ export default {
           email: "wangxm@outlook.com"
         },
         dubsidiaryInsuranceInfo: {
-          relationToHolder: "本人",
-          relationToMainInsured: "本人",
+          relationToHolder: "1",
+          relationToMainInsured: "1",
           name: "王小明",
           certificateId: "10000",
           certificateNum: "65300119520705283x",

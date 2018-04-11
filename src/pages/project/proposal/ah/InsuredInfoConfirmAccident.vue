@@ -3,7 +3,7 @@
         <top :title="$t('project.accident')" :showBack="true" />
         <r-body>
             <card>
-                <insurance-duration-short-term :readonly="readonly" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+                <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
             </card>
             <card :title="$t('insuredInfoAccident.passengerInfo')">
                 <holder-info :model="passengerInfo" :readonly="readonly" />
@@ -76,7 +76,7 @@ export default {
         email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: "本人",
+        relationToHolder: "1",
         name: "王小明",
         certificateId: "10000",
         certificateNum: "130903199503210324",

@@ -5,7 +5,7 @@ i18n.mergeLocaleMessage("zh-CN",{
     "productInfoEntryHealth.social":"有无社保",
     "productInfoEntryHealth.poi": "保障期限",
     "productInfoEntryHealth.oneYear": "1年",
-    "productInfoEntryHealth.gender": "性别"
+    "productInfoEntryHealth.sex": "性别"
 });
 i18n.mergeLocaleMessage("en-US",{
     "productInfoEntryNormal.vehicleAccidentInsurance":"VehicleAccidentInsurance",  
@@ -13,5 +13,5 @@ i18n.mergeLocaleMessage("en-US",{
     "productInfoEntryHealth.social":"Social",
     "productInfoEntryHealth.poi": "POI",
     "productInfoEntryHealth.oneYear": "One Year",
-    "productInfoEntryHealth.gender": "Gender"
+    "productInfoEntryHealth.sex": "Sex"
 });

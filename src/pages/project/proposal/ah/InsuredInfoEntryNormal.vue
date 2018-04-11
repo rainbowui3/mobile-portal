@@ -10,12 +10,12 @@
       </card>
       <card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="insuredInfo" value="relationToHolder" />
-        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '本人'" :model="insuredInfo" />
+        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '1'" :model="insuredInfo" />
       </card>
       <card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="dubsidiaryInsuranceInfo" value="relationToHolder" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" />
-        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '本人'" :model="dubsidiaryInsuranceInfo" />
+        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '1'" :model="dubsidiaryInsuranceInfo" />
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
@@ -79,7 +79,7 @@ export default {
         email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: "本人",
+        relationToHolder: "1",
         name: "王小明",
         certificateId: "10000",
         certificateNum: "65300119520705283x",
@@ -88,8 +88,8 @@ export default {
         email: "wangxm@outlook.com"
       },
       dubsidiaryInsuranceInfo: {
-        relationToHolder: "本人",
-        relationToMainInsured: "本人",
+        relationToHolder: "1",
+        relationToMainInsured: "1",
         name: "王小明",
         certificateId: "10000",
         certificateNum: "65300119520705283x",
@@ -140,7 +140,6 @@ export default {
       }
     },
     clickHome: function() {
-      console.log("lalalalala");
     }
     // onClickInsured: function(data) {
     //   console.log(data);

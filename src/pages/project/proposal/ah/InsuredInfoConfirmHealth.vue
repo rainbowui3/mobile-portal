@@ -4,7 +4,7 @@
         <r-body>
             <!-- 保险期限选择 -->
             <card>
-                <insurance-duration-short-term type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
+                <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
             </card>
             <!-- 投保人信息 -->
             <card :title="$t('common.holderInfo')">
@@ -72,13 +72,13 @@ export default {
   data() {
     return {
       policy: {
-        holderInfo: {},
-        insuredInfo: {
-          relationToHolder: "1"
-        },
-        subsidiaryInfo: {
-          relationToHolder: "1"
-        }
+        // holderInfo: {},
+        // insuredInfo: {
+        //   relationToHolder: "1"
+        // },
+        // subsidiaryInfo: {
+        //   relationToHolder: "1"
+        // }
       },
       pageModel: {
         clauseConfirmed: false,
@@ -109,24 +109,37 @@ export default {
           active: false
           // onClick: this.onClickInsured
         }
-      ]
+      ],
+      readonly:false
     };
   },
   methods: {
     goto: function() {
+      sessionStorage.removeItem("policy");  
+      this.$router.push({
+        path:"/project/proposal/payStatus",
+        name:"PayStatus",
+      })
       //Todo:跳转到下一个页面,去支付
       console.log("gotoPay");
     },
     gotoHealthInfo: function() {
+      this.$router.push({
+        path:"/project/proposal/ah/HealthInform",
+        name:"HealthInform",
+        params:{}
+      })
       console.log("gotoHealthInfo");
     }
   },
   watch: {},
   computed: {},
   created: function() {
-    if (this.$route.params.policy) {
-      this.policy = this.$route.params.policy;
-    }
+    let policyStr = sessionStorage.getItem("policy");
+    this.policy  = JSON.parse(policyStr);
+    // if (this.$route.params.policy) {
+    //   this.policy = this.$route.params.policy;
+    // }   
   }
 };
 </script>

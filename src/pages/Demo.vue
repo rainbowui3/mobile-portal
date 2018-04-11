@@ -184,7 +184,7 @@ export default {
           showdot: true,
           disabled: false,
           badge: "1",
-          text: this.$t("common.ah"),
+          text: this.$t("common.gi"),
           onClick: this.go
         },
         {

@@ -9,13 +9,13 @@
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
       </card>
       <card :title="$t('insuredInfoEntryPassenger.carInfo')">
-        <r-input :title="$t('insuredInfoEntryPassenger.model')" :required="true" :model="policy.carInfo" value="carModel" :onChange="getCarModel" />
-        <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :required="true" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" />
-        <r-input :title="$t('insuredInfoEntryPassenger.engineNo')" :required="true" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" />
-        <r-input :title="$t('insuredInfoEntryPassenger.vin')" :required="true" :model="policy.carInfo" value="vin" :onChange="getCarModel" />
-        <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="true" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" />
-        <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" />
-        <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode"></selector>
+        <r-input :title="$t('insuredInfoEntryPassenger.model')" :model="policy.carInfo" value="carModel" :onChange="getCarModel" :required="true" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :required="true" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.engineNo')" :required="true" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.vin')" :required="true" :model="policy.carInfo" value="vin" :onChange="getCarModel" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="true" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :novalidate="false"/>
+        <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :required="true" :novalidate="false"></selector>
       </card>
     </r-body>
     <tab-bar>
@@ -92,6 +92,33 @@ export default {
         ]
       });
     }
+  },
+  watch:{
+    'policy.carInfo.licenseNo': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.licenseNo =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    'policy.carInfo.engineNo': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.engineNo =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    'policy.carInfo.vin': {
+      handler : function (value){
+        if(value){
+         this.policy.carInfo.vin =  value.toUpperCase();
+        }
+      },
+      deep:true
+    },
+    
   }
 };
 </script>

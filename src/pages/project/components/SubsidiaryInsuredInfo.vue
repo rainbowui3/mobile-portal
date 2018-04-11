@@ -3,11 +3,12 @@
   <div>
     <!-- <selector :title="$t('holderInfo.relationToHolder')" :options="options1" :model="model" value="relationToHolder" :onChange="onChange" :readonly="readonly"></selector>
     <selector :title="$t('holderInfo.relationToInsured')" :options="options1" :model="model" value="relationToMainInsured" :onChange="onChange" :readonly="readonly"></selector> -->
-    <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" />
-    <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly"></selector>
-    <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="isValidateNum" :readonly="readonly" />
-    <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="true" :onChange="onChange" :readonly="readonly"></date-time>
-    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" />
+    <r-input :title="$t('holderInfo.name')" :placeholder="$t('holderInfo.placeholderName')" :model="model" value="name" :readonly="readonly" :required="required" :novalidate="false"/>
+    <selector :title="$t('holderInfo.certificateType')" :options="options" :model="model" value="certificateId" :onChange="onChangeCertiType" :readonly="readonly" :required="required" :novalidate="false"></selector>
+    <r-input v-if="isValidateNum == false" :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :validator="validateNumInput" :novalidate="false" :readonly="readonly" :required="required"/>
+     <r-input v-else-if="isValidateNum == true" :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="certificateNum" :readonly="readonly" :required="required" :novalidate="false"/>
+    <date-time :title="$t('holderInfo.birthday')" :model="model" value="birthdate" :required="required" :onChange="onChange" :readonly="readonly" :novalidate="false"></date-time>
+    <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="mobileNum" :isPhone="true" :novalidate="false" :readonly="readonly" :required="required"/>
     <r-input :title="$t('holderInfo.email')" :placeholder="$t('holderInfo.placeholderEmail')" :model="model" value="email" :isEmail="true" :readonly="readonly" :novalidate="false" />
   </div>
 </template>
@@ -33,6 +34,7 @@ export default {
   },
   data() {
     return {
+      isValidateNum:false,
       policy: {
         value2: ""
       },
@@ -73,7 +75,8 @@ export default {
   },
   props: {
     readonly: Boolean,
-    model: Object
+    model: Object,
+    required:Boolean
   },
   mounted: function() {
     console.log(this.model.relationToHolder);

@@ -3,7 +3,7 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
-        <insurance-duration-short-term :readonly="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
@@ -91,26 +91,26 @@ export default {
       policy: {
         holderInfo: {
           name: "王小明",
-          certificateId: "身份证",
+          certificateId: "",
           certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
         },
         insuredInfo: {
-          relationToHolder: "本人",
+          relationToHolder: "",
           name: "王小明",
-          certificateId: "身份证",
+          certificateId: "",
           certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
           email: "wangxm@outlook.com"
         },
         dubsidiaryInsuranceInfo: {
-          relationToHolder: "本人",
-          relationToMainInsured: "本人",
+          relationToHolder: "",
+          relationToMainInsured: "1 ",
           name: "王小明",
-          certificateId: "身份证",
+          certificateId: "",
           certificateNum: "65300119520705283x",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",

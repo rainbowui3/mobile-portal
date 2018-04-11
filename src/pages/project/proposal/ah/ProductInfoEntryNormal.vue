@@ -141,7 +141,7 @@ export default {
           mobileNum: "",
           email: "",
           relationToHolder: "",
-          relationToMainInsured: ""
+          relationToMainInsured: "1"
         }
       ],
       effectiveDate: "",

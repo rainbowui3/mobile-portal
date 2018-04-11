@@ -30,7 +30,7 @@
           </div>
         </row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="model" value="region" />
-        <insurance-duration-short-term type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
+        <insurance-duration-short-term type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
       </card>
       <card>
         <list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
