@@ -3,25 +3,25 @@
         <top :title="$t('project.studyRisk')" :showBack="true" />
         <r-body>
             <card>
-                <insurance-duration-short-term type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+                <insurance-duration-short-term type="minute" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
             </card>
             <card>
-                <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="holderInfo" value="name" :readonly="readonly" />
-                <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="holderInfo" value="certificateId" :readonly="readonly"></selector>
-                <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
-                <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="holderInfo" value="birthdate" :required="true" :readonly="readonly"></date-time>
-                <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="holderInfo" value="name" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
-                <selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="insuredInfo" value="relationToHolder" :readonly="readonly"></selector>
+                <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="policy.holderInfo" value="name" :readonly="readonly" />
+                <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="policy.holderInfo" value="certificateId" :readonly="readonly"></selector>
+                <r-input :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="policy.holderInfo" value="certificateNum" :readonly="readonly" />
+                <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="policy.holderInfo" value="birthdate" :required="true" :readonly="readonly"></date-time>
+                <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="policy.holderInfo" value="name" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="policy.holderInfo" value="certificateNum" :readonly="readonly" />
+                <selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="policy.babyInfo" value="relationToHolder" :readonly="readonly"></selector>
 
             </card>
             <card>
-                <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="holderInfo" value="name" :readonly="readonly" />
-                <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :readonly="readonly"></selector>
-                <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :readonly="readonly" />
-                <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true" :readonly="readonly"></date-time>
-                <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="false" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="policy.holderInfo" value="name" :readonly="readonly" />
+                <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="policy.holderInfo" value="certificateId" :readonly="readonly"></selector>
+                <r-input :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="policy.holderInfo" value="certificateNum" :readonly="readonly" />
+                <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="policy.holderInfo" value="birthdate" :required="true" :readonly="readonly"></date-time>
+                <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="policy.holderInfo" value="mobileNum" :isPhone="true" :readonly="readonly" />
+                <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="policy.holderInfo" value="email" :isEmail="false" :readonly="readonly" />
             </card>
             <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
             <!-- 未确认条款后弹出的提示框 -->
@@ -77,34 +77,23 @@ export default {
         clauseConfirm: false,
         toastShow: false
       },
-      holderInfo: {
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "295792200001018271",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      insuredInfo: {
-        relationToHolder: "1",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "295792200001018271",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      passengerInfo: {
-        relationToHolder: true,
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "295792200001018271",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        rainNo: "G203",
-        seatNum: "12C",
-        email: "wangxm@outlook.com"
-      },
+      // holderInfo: {
+      //   name: "王小明",
+      //   certificateId: "10000",
+      //   certificateNum: "295792200001018271",
+      //   birthdate: "2000-01-01",
+      //   mobileNum: "18398768724",
+      //   email: "wangxm@outlook.com"
+      // },
+      // insuredInfo: {
+      //   relationToHolder: "1",
+      //   name: "王小明",
+      //   certificateId: "10000",
+      //   certificateNum: "295792200001018271",
+      //   birthdate: "2000-01-01",
+      //   mobileNum: "18398768724",
+      //   email: "wangxm@outlook.com"
+      // },
       buttonName: "proposalConfirm.submitPay",
       amount: "100",
       options: [
@@ -118,19 +107,23 @@ export default {
       isValidateNum: false,
       readonly: true,
       policy: {
-        effectiveDate: "",
-        expireDate: ""
+        // effectiveDate: "",
+        // expireDate: ""
       }
     };
   },
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
+        sessionStorage.removeItem("policy");
         this.$router.push("/project/proposal/payStatus");
       } else {
         this.pageModel.toastShow = true;
       }
     }
+  },
+  created: function() {
+    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
   }
 };
 </script>

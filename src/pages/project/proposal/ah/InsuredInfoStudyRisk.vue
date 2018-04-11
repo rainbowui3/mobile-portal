@@ -3,27 +3,27 @@
     <top :title="$t('project.studyRisk')" :showBack="true" />
     <r-body>
       <card>
-        <insurance-duration-short-term :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card>
-        <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="babyInfo" value="name" />
-        <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="babyInfo" value="certificateId" :onChange="onChangeCertiType.bind(this,'baby')"></selector>
-        <r-input v-if="isValidateNumBaby == false" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="babyInfo" value="certificateNum" :validator="validateNumInputBaby" :novalidate="false" />
-        <r-input v-else-if="isValidateNumBaby == true" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="babyInfo" value="certificateNum" />
-        <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="babyInfo" value="birthdate" :required="true"></date-time>
-        <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="babyInfo" value="school" />
-        <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="babyInfo" value="class" />
-        <selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="babyInfo" value="relationToHolder"></selector>
+        <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="policy.babyInfo" value="name" :required="true" :novalidate="false"/>
+        <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="policy.babyInfo" value="certificateId" :onChange="onChangeCertiType.bind(this,'baby')" :required="true"></selector>
+        <r-input v-if="isValidateNumBaby == false" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="policy.babyInfo" value="certificateNum" :validator="validateNumInputBaby" :novalidate="false" :required="true"/>
+        <r-input v-else-if="isValidateNumBaby == true" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="policy.babyInfo" value="certificateNum" :required="true" :novalidate="false"/>
+        <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="policy.babyInfo" value="birthdate" :required="true"></date-time>
+        <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="policy.babyInfo" value="school" />
+        <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="policy.babyInfo" value="class" />
+        <selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="policy.babyInfo" value="relationToHolder" :required="true"></selector>
 
       </card>
       <card>
-        <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="holderInfo" value="name" />
-        <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="holderInfo" value="certificateId" :onChange="onChangeCertiType.bind(this, 'parent')"></selector>
-        <r-input v-if="isValidateNumParent == false" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum" :validator="validateNumInputParent" :novalidate="false" />
-        <r-input v-else-if="isValidateNumParent == true" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="holderInfo" value="certificateNum"/>
-        <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="holderInfo" value="birthdate" :required="true"></date-time>
-        <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="holderInfo" value="mobileNum" :isPhone="true" :novalidate="false" />
-        <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="holderInfo" value="email" :isEmail="true" :novalidate="false" />
+        <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="policy.holderInfo" value="name" :required="true" :novalidate="false"/>
+        <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="policy.holderInfo" value="certificateId" :onChange="onChangeCertiType.bind(this, 'parent')" :required="true"></selector>
+        <r-input v-if="isValidateNumParent == false" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="policy.holderInfo" value="certificateNum" :validator="validateNumInputParent" :novalidate="false" :required="true"/>
+        <r-input v-else-if="isValidateNumParent == true" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="policy.holderInfo" value="certificateNum" :required="true" :novalidate="false"/>
+        <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="policy.holderInfo" value="birthdate" :required="true"></date-time>
+        <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="policy.holderInfo" value="mobileNum" :isPhone="true" :novalidate="false" :required="true"/>
+        <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="policy.holderInfo" value="email" :isEmail="true" :novalidate="false" />
       </card>
 
     </r-body>
@@ -70,24 +70,6 @@ export default {
   },
   data() {
     return {
-      holderInfo: {
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      babyInfo: {
-        relationToHolder: "10000",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "",
-        birthdate: "2000-01-01",
-        email: "wangxm@outlook.com",
-        school: "",
-        class: ""
-      },
       buttonName: "proposalConfirm.immediatelyInsure",
       amount: "100",
       options: [
@@ -101,20 +83,41 @@ export default {
         { key: "10001", value: "祖父母" }
       ],
       policy: {
-        effectiveDate: "",
-        expireDate: ""
+        holderInfo: {
+          // name: "王小明",
+          // certificateId: "10000",
+          // certificateNum: "",
+          // birthdate: "2000-01-01",
+          // mobileNum: "18398768724",
+          // email: "wangxm@outlook.com"
+        },
+        babyInfo: {
+          relationToHolder: "10000",
+          // name: "王小明",
+          // certificateId: "10000",
+          // certificateNum: "",
+          // birthdate: "2000-01-01",
+          // email: "wangxm@outlook.com",
+          // school: "",
+          // class: ""
+        },
+        policyData:{
+          // effectiveDate: "",
+          // expireDate: ""
+
+        }
       }
     };
   },
   methods: {
     onClick: function() {
+      sessionStorage.setItem("policy",JSON.stringify(this.policy));
       this.$router.push("/project/proposal/ah/InsuredInfoConfirmStudyRisk");
     },
     validateNumInputBaby(value) {
-      debugger;
       var isCertification = Validate.validateIdNo(value);
-      if (isCertification && this.babyInfo.certificateId == "10000") {
-        this.babyInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
+      if (isCertification && this.policy.babyInfo.certificateId == "10000") {
+        this.policy.babyInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
       }
       return {
         valid: isCertification === true,
@@ -122,10 +125,9 @@ export default {
       };
     },
     validateNumInputParent(value) {
-      debugger;
       var isCertification = Validate.validateIdNo(value);
-      if(isCertification && this.holderInfo.certificateId == "10000"){
-        this.holderInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
+      if(isCertification && this.policy.holderInfo.certificateId == "10000"){
+        this.policy.holderInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
       }
       return {
         valid: isCertification === true,
@@ -137,11 +139,11 @@ export default {
         case "baby":
           {
             if (
-              this.babyInfo.certificateId &&
-              this.babyInfo.certificateId === "10000"
+              this.policy.babyInfo.certificateId &&
+              this.policy.babyInfo.certificateId === "10000"
             ) {
               this.isValidateNumBaby = false;
-              this.validateNumInput(this.babyInfo.certificateNum);
+              this.validateNumInput(this.policy.babyInfo.certificateNum);
             } else {
               this.isValidateNumBaby = true;
             }
@@ -150,11 +152,11 @@ export default {
         case "parent":
           {
             if (
-              this.holderInfo.certificateId &&
-              this.holderInfo.certificateId === "10000"
+              this.policy.holderInfo.certificateId &&
+              this.policy.holderInfo.certificateId === "10000"
             ) {
               this.isValidateNumParent = false;
-              this.validateNumInput(this.holderInfo.certificateNum);
+              this.validateNumInput(this.policy.holderInfo.certificateNum);
             } else {
               this.isValidateNumParent = true;
             }

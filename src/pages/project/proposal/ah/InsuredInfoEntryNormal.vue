@@ -3,19 +3,19 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
-        <insurance-duration-short-term type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card :title="$t('common.holder')">
-        <holder-info :model="holderInfo" />
+        <holder-info :model="policy.holderInfo" :required="required"/>
       </card>
       <card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="insuredInfo" value="relationToHolder" />
-        <insured-info v-if="insuredInfo.relationToHolder && insuredInfo.relationToHolder != '' && insuredInfo.relationToHolder != '1'" :model="insuredInfo" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
+        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
       </card>
       <card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="dubsidiaryInsuranceInfo" value="relationToHolder" />
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="dubsidiaryInsuranceInfo" value="relationToMainInsured" />
-        <subsidiary-insured-info v-if="dubsidiaryInsuranceInfo.relationToHolder && dubsidiaryInsuranceInfo.relationToHolder != '' && dubsidiaryInsuranceInfo.relationToHolder != '1'" :model="dubsidiaryInsuranceInfo" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" />
+        <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" :model="policy.dubsidiaryInsuranceInfo" :required="required"/>
       </card>
       <card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
@@ -69,40 +69,43 @@ export default {
         clauseConfirm: false,
         toastShow: false
       },
-      policy: {},
-      holderInfo: {
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
+      policy: {
+        holderInfo: {
+        // name: "王小明",
+        // certificateId: "10000",
+        // certificateNum: "65300119520705283x",
+        // birthdate: "2000-01-01",
+        // mobileNum: "18398768724",
+        // email: "wangxm@outlook.com"
       },
       insuredInfo: {
         relationToHolder: "1",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
+        // name: "王小明",
+        // certificateId: "10000",
+        // certificateNum: "65300119520705283x",
+        // birthdate: "2000-01-01",
+        // mobileNum: "18398768724",
+        // email: "wangxm@outlook.com"
       },
       dubsidiaryInsuranceInfo: {
         relationToHolder: "1",
         relationToMainInsured: "1",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
+        // name: "王小明",
+        // certificateId: "10000",
+        // certificateNum: "65300119520705283x",
+        // birthdate: "2000-01-01",
+        // mobileNum: "18398768724",
+        // email: "wangxm@outlook.com"
       },
-      amount: "100",
-      buttonName: "proposalConfirm.immediatelyInsure",
       policyData: {
         // effectiveDate: "",
         // expireDate: ""
       },
+      },
+      
+      amount: "100",
+      buttonName: "proposalConfirm.immediatelyInsure",
+      required:true,
       datas1: [
         {
           key: "1",
@@ -134,6 +137,7 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
+        sessionStorage.setItem("policy",JSON.stringify(this.policy));
         this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
       } else {
         this.pageModel.toastShow = true;
@@ -145,10 +149,10 @@ export default {
     //   console.log(data);
     // }
   },
-  created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
-    console.log("policy", this.policy);
-  },
+  // created: function() {
+  //   this.policy = JSON.parse(sessionStorage.getItem("POLICY"));
+  //   console.log("policy", this.policy);
+  // },
   mounted: function() {},
   beforeDestroy: function() {}
 };
