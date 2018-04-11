@@ -136,6 +136,8 @@ const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/
 
 //businessPage
 const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
+//businessHome
+const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessHome')), 'BusinessHome');
 
 
 Vue.use(Router);
@@ -700,7 +702,12 @@ const router = new Router({
     path: '/project/businessPage/BusinessPayment',
     name: 'BusinessPayment',
     component: BusinessPayment
-  }
+  },
+  {
+    path: '/project/businessPage/BusinessHome',
+    name: 'BusinessHome',
+    component: BusinessHome
+  },
   ],
 });
 

@@ -6,7 +6,7 @@
                     <span class="contentOne">空中飞人</span>
                     <span class="contentTwo"> 航空意外年度险</span>
                 </div>
-                <div v-if="show">
+                <div>
                     <span class="contentThree">推荐</span>
                     <span class="icon"><img :src="icon" /></span>
                 </div>
@@ -37,9 +37,6 @@ import banner from "../../../../assets/u17.png";
 import "../../../../i18n/homeShowOne";
 
 export default {
-  props: {
-    show:Boolean,
-  },
     components: {
         Page,
         Card,
