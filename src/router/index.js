@@ -147,6 +147,12 @@ const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/bu
 //businessLogin
 const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'BusinessLogin');
 
+//AHRouters
+const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
+const AHRouterEntry = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'AHRouterEntry');
+const AHRouterConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'AHRouterConfirm');
+const AHRouterPay = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'AHRouterPay');
+
 
 Vue.use(Router);//告诉vue 使用 vue-router
 const router = new Router({
@@ -154,7 +160,6 @@ const router = new Router({
     path: '/',
     name: 'Hello',
     component: Home,
-    redirect: '/project/loadingPage'
   },
   {
     path: '/component/example/badge',
@@ -436,6 +441,80 @@ const router = new Router({
   //   //   console.log(next);
   //   // }
   // },
+
+  //ahRouters
+  {
+    path: '/proposal/ah/AHRouterProduct/:productCode/:agentCode',
+    name: 'AHRouterProduct',
+    component: AHRouterProduct,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterProductNormal',
+      component: ProductInfoEntryNormal
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterEntry/:productCode/:agentCode',
+    name: 'AHRouterEntry',
+    component: AHRouterEntry,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterEntryNormal',
+      component: InsuredInfoEntryNormal
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterConfirm/:productCode/:agentCode',
+    name: 'AHRouterConfirm',
+    component: AHRouterConfirm,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterConfirmNormal',
+      component: InsuredInfoConfirmNormal
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterPay/:productCode/:agentCode',
+    name: 'AHRouterPay',
+    component: AHRouterPay,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterPayNormal',
+      component: PayStatus
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
   //ah
   {
     path: '/project/proposal/ah/insuredInfoEntryNormal',
