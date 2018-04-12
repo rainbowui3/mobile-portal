@@ -165,7 +165,8 @@ export default {
     };
   },
   methods: {
-    calculatePremium(){      
+    calculatePremium(){         
+        this.$router.go(-1);
     },
     resetClick(){
 
