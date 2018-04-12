@@ -7,6 +7,8 @@ i18n.mergeLocaleMessage("zh-CN",{
     "businessHome.health": '健康险',
     "businessHome.cargo": '货运险',
     "businessHome.product": "热销产品",
+    "businessHome.selectProduct": "精选产品",
+    
 });
 i18n.mergeLocaleMessage("en-US", {
     "businessPage.title": 'Weekend parent-child travel accident insurance',
@@ -15,5 +17,6 @@ i18n.mergeLocaleMessage("en-US", {
     "businessHome.accident": '意外险',
     "businessHome.health": '健康险',
     "businessHome.cargo": '货运险',
+    "businessHome.selectProduct": "精选产品",
 
 });

@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="modal">
         <div class="home">
             <div class="title">
                 <div>
-                    <span class="contentOne">空中飞人</span>
-                    <span class="contentTwo"> 航空意外年度险</span>
+                    <span class="contentOne">{{showOne.name}}</span>
+                    <span class="contentTwo">{{showOne.title}}</span>
                 </div>
                 <div v-if="show">
                     <span class="contentThree">推荐</span>
@@ -13,32 +13,38 @@
             </div>
             <div class="list">
                 <div>
-                    <p>乘坐飞机造成的意外伤害</p>
-                    <p>全年有效</p>
+                    <p>{{showOne.content}}</p>
+                    <p>{{showOne.validity}}</p>
                 </div>
                 <div class="price">
-                    <span>¥38</span>
+                    <span>¥{{showOne.price}}</span>
                     <span>起</span>
                 </div>
             </div>
 
         </div>
         <div>
-            <img src="../../../../assets/u17.png" />
+            <img :src="img" />
         </div>
     </div>
 
 </template>
 
 <script>
-import { Page, List, Card, RBody } from "rainbow-mobile-core";
 import icon from "../../../../assets/u130.png";
-import banner from "../../../../assets/u17.png";
 import "../../../../i18n/homeShowOne";
 
 export default {
   props: {
+    showOne:{
+       name:String,
+       title:String,
+       content:String,
+       validity:String,
+       price:String
+    },
     show:Boolean,
+    img:String,
   },
     components: {
         Page,
@@ -49,12 +55,14 @@ export default {
     data() {
         return {
             icon: icon,
-            banner: banner
         };
     }
 };
 </script>
 <style lang="less">
+.modal{
+    margin: 10px 0;
+}
 .home {
     background-color: #fff;
     padding: 0 10px;

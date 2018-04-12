@@ -1,42 +1,45 @@
 <template>
-    <div>
-        <div class="home">
-            <div class="title">
-                <div>
-                    <span class="contentOne">空中飞人</span>
-                    <span class="contentTwo"> 航空意外年度险</span>
-                </div>
-                <div>
-                    <span class="contentThree">推荐</span>
-                    <span class="icon"><img :src="icon" /></span>
-                </div>
-            </div>
-            <div class="list">
-                <div>
-                    <p>乘坐飞机造成的意外伤害</p>
-                    <p>全年有效</p>
-                </div>
-                <div class="price">
-                    <span>¥38</span>
-                    <span>起</span>
-                </div>
-            </div>
-
-        </div>
+    <div class="showTwo">
         <div>
-            <img src="../../../../assets/u17.png" />
+            <img :src="picture">
+        </div>
+        <div class="showTwoContent">
+            <div>{{showTwo.name}}</div>
+            <div>
+                <p>{{showTwo.title}}</p>
+                <p>{{showTwo.content}}</p>
+            </div>
+            <div class="showTwoOther">
+                <span class="great">
+                    <img :src="heart"> &nbsp; {{showTwo.loveNum}}
+                </span>
+                <span class="price">
+                    <span>¥ {{showTwo.price}}</span>
+                    <span>起</span>
+                </span>
+            </div>
         </div>
     </div>
 
 </template>
 
 <script>
-import { Page, List, Card, RBody } from "rainbow-mobile-core";
-import icon from "../../../../assets/u130.png";
-import banner from "../../../../assets/u17.png";
-import "../../../../i18n/homeShowOne";
+import img from "../../../../assets/u92.png";
+import heart from "../../../../assets/u88.png";
+import "../../../../i18n/homeShowTwo";
 
 export default {
+    props: {
+        showTwo: {
+            name: String,
+            title: String,
+            contnet: String,
+            loveNum: String,
+            price: String,
+        },
+        show: Boolean,
+        picture: String
+    },
     components: {
         Page,
         Card,
@@ -45,59 +48,41 @@ export default {
     },
     data() {
         return {
-            icon: icon,
-            banner: banner
+            img: img,
+            heart: heart
         };
     }
 };
 </script>
 <style lang="less">
-.home {
+.showTwo {
     background-color: #fff;
-    padding: 0 10px;
+    padding: 10px;
+    display: flex;
 }
-.title {
+.showTwoContent {
+    margin-left: 15px;
+}
+.showTwoOther {
     display: flex;
     justify-content: space-between;
 }
-.title > div {
+.showTwoContent > div:nth-child(1) {
     font-size: 17px;
-}
-.title > div:nth-child(1) {
-    padding: 10px 0;
-}
-.title > div:nth-child(2) {
-    position: relative;
-}
-.contentOne {
-    color: #666;
-}
-.contentTwo {
     color: #282828;
 }
-.contentThree {
-    top: 2px;
-    font-size: 12px;
-    right: 15px;
-    position: absolute;
-    display: inline-block;
-    width: 10px;
-    z-index: 9;
-    color: #fff;
-}
-.icon {
-    position: absolute;
-    right: 5px;
-    top: 0;
-}
-.list {
-    padding: 10px 0;
+.showTwoContent > div:nth-child(2) {
+    margin: 8px 0;
     font-size: 14px;
     color: #515151;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
+.great {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #888888;
+}
+
 .price {
     font-size: 24px;
     color: #ff9414;
