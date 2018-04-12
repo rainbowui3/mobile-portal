@@ -217,7 +217,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .weui-panel__hd {
   text-align: left;
 }
