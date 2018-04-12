@@ -10,7 +10,10 @@ i18n.mergeLocaleMessage("zh-CN", {
     "business.pay": "支付",
     "business.payment": "确认支付",
     "business.businessThumbnail":"缩略内容",
-    "business.businessSignIn":"登录"
+    "business.businessSignIn":"登录",
+    "business.homeContent":"首页内容",
+    "business.plan":"计划",
+
 });
 i18n.mergeLocaleMessage("en-US", {
     "business.holderInfo": "policyHolder",
@@ -22,6 +25,8 @@ i18n.mergeLocaleMessage("en-US", {
     "business.proposalCopies": "promine",
     "business.pay": "pay",
     "business.businessThumbnail":"thumbnail",
-    "business.businessSignIn":"loginIn"
+    "business.businessSignIn":"loginIn",
+    "business.homeContent":"homeContent",
+    "business.plan":"plan",
 
 });

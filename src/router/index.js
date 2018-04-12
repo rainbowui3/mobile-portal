@@ -127,6 +127,9 @@ const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/examp
 const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalClauseConfirm')), 'ProposalClauseConfirm');
 const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirm')), 'ProposalConfirm');
 const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
+const HomeContent = r => require.ensure([], () => r(require('@/pages/example/HomeContent')), 'HomeContent');
+const BusinessPlan = r => require.ensure([], () => r(require('@/pages/example/BusinessPlan')), 'BusinessPlan');
+
 //  pay
 const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
 // home
@@ -139,8 +142,10 @@ const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project
 //businessHome
 const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessHome')), 'BusinessHome');
 
-//loading
-const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
+// //loading
+// const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
+//businessLogin
+const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'BusinessLogin');
 
 
 Vue.use(Router);//告诉vue 使用 vue-router
@@ -416,21 +421,21 @@ const router = new Router({
     component: TreeTest
   },
   //loadingPage
-  {
-    path: '/project/loadingPage',
-    name: 'LoadingPage',
-    component: LoadingPage,
-    // beforeEnter: (to, from, next) => {
-    //   console.log(to);
-    //   console.log(from);
-    //   console.log(next);
-    // },
-    // beforeLeave: (to, from, next) => {
-    //   console.log(to);
-    //   console.log(from);
-    //   console.log(next);
-    // }
-  },
+  // {
+  //   path: '/project/loadingPage',
+  //   name: 'LoadingPage',
+  //   component: LoadingPage,
+  //   // beforeEnter: (to, from, next) => {
+  //   //   console.log(to);
+  //   //   console.log(from);
+  //   //   console.log(next);
+  //   // },
+  //   // beforeLeave: (to, from, next) => {
+  //   //   console.log(to);
+  //   //   console.log(from);
+  //   //   console.log(next);
+  //   // }
+  // },
   //ah
   {
     path: '/project/proposal/ah/insuredInfoEntryNormal',
@@ -719,6 +724,11 @@ const router = new Router({
     component: BusinessSignIn
   },
   {
+    path: '/component/example/HomeContent',
+    name: 'HomeContent',
+    component: HomeContent
+  },
+  {
     path: '/project/businessPage/BusinessPayment',
     name: 'BusinessPayment',
     component: BusinessPayment
@@ -727,6 +737,16 @@ const router = new Router({
     path: '/project/businessPage/BusinessHome',
     name: 'BusinessHome',
     component: BusinessHome
+  },
+  {
+    path: '/project/businessPage/BusinessPlan',
+    name: 'BusinessPlan',
+    component: BusinessPlan
+  },
+  {
+    path: '/project/businessPage/BusinessLogin',
+    name: 'BusinessLogin',
+    component: BusinessLogin
   },
   ],
 });

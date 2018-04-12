@@ -5,21 +5,32 @@
       <tab :tabItems="swTabItems" />
       <swiper :model="index" :height="height">
         <swiper-item>
-          <divider>{{$t('businessHome.product')}}</divider>
-          <show-one :show="show" />
-          <div>
-            <show-one />
+          <div class="line">
+            <divider>{{$t('businessHome.product')}}</divider>
           </div>
+          <show-one :show="show" :showOne="showOne" :img="img" />
+          <div class="modal">
+            <show-one :showOne="showOne" :img="img" />
+          </div>
+          <div class="line">
+            <divider>{{$t('businessHome.selectProduct')}}</divider>
+          </div>
+          <div class="modal">
+            <show-two :showTwo="showTwo" :picture="picture" />
+          </div>
+          <div class="modal">
+            <show-two  :showTwo="showTwo" :picture="picture"/>
+          </div>
+          <div class="modal">
+            <show-two  :showTwo="showTwo" :picture="picture"/>
+          </div>
+          <div class="end">没有更多了</div>
         </swiper-item>
         <swiper-item>
-          <div class="black">
-            <h2 class="title fadeInUp animated">达到理想不太易</h2>
-          </div>
+          ...
         </swiper-item>
         <swiper-item>
-          <div class="black">
-            <h2 class="title fadeInUp animated">自信打不死的心态活到老</h2>
-          </div>
+          ...
         </swiper-item>
       </swiper>
       <bottom :index="1" />
@@ -40,6 +51,10 @@ import {
 import Bottom from "../../../components/Bottom";
 import Top from "../../../components/Top";
 import ShowOne from "../components/businessHome/ShowOne";
+import ShowTwo from "../components/businessHome/ShowTwo";
+import banner from "../../../assets/u17.png";
+import pacture from "../../../assets/u92.png";
+
 import "../../../i18n/businessHome";
 
 export default {
@@ -53,12 +68,29 @@ export default {
         SwiperItem,
         RBody,
         ShowOne,
-        Divider
+        Divider,
+        ShowTwo
     },
     data() {
         return {
+            showOne: {
+                name: "空中飞人",
+                title: "航空意外年度险",
+                content: "乘坐飞机造成的意外伤害",
+                validity: "全年有效",
+                price: "38"
+            },
+            showTwo: {
+                name: "驴友旅行意外伤害保险",
+                title: "为专业驴友们设计的短期旅行保险",
+                content: "保障跳伞、登山、热气球、滑雪等意外",
+                loveNum: "1299",
+                price: "22"
+            },
             show: true,
-            height: "1000px",
+            img: banner,
+            picture: pacture,
+            height: "1050px",
             index: 0
         };
     },
@@ -126,5 +158,13 @@ export default {
 </script>
 
 <style lang="less">
-
+.line {
+    margin-top: 10px;
+}
+.end {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #868686;
+}
 </style>

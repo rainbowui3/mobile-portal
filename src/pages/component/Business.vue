@@ -100,8 +100,8 @@ export default {
 
         {
           icon: "fa fa-info-circle ",
-          text: this.$t("business.proposalCopies"),
-          link: "/component/example/proposalCopies"
+          text: this.$t("business.homeContent"),
+          link: "/component/example/homeContent"
         },
 
         {
@@ -112,8 +112,8 @@ export default {
 
          {
           icon: "fa fa-info-circle ",
-          text: this.$t("business.businessThumbnail"),
-          link: "/component/example/businessThumbnail"
+          text: this.$t("business.plan"),
+          link: "/component/example/businessPlan"
         },
 
         {

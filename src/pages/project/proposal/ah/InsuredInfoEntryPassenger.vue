@@ -13,7 +13,7 @@
         <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :required="required" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" :novalidate="false"/>
         <r-input :title="$t('insuredInfoEntryPassenger.engineNo')" :required="required" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" :novalidate="false"/>
         <r-input :title="$t('insuredInfoEntryPassenger.vin')" :required="required" :model="policy.carInfo" value="vin" :onChange="getCarModel" :novalidate="false"/>
-        <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="required" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :novalidate="false"/>
+        <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="required" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :novalidate="false" :isNumber="true"/>
         <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="required" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :novalidate="false"/>
         <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :required="required" :novalidate="false"></selector>
       </card>
