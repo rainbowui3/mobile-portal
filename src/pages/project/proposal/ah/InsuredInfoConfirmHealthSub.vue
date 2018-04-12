@@ -114,6 +114,7 @@ export default {
   },
   methods: {
     goto: function() {
+      sessionStorage.removeItem("policy");
       this.$router.push({
         path:"/project/proposal/payStatus",
         name:"PayStatus",

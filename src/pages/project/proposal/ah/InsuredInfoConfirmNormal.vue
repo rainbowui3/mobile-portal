@@ -3,19 +3,19 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
-        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </card>
       <card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
       </card>
       <card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true" />
-        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:model="policy.insuredInfo"></insured-info>
+        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.insuredInfo"></insured-info>
       </card>
       <card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" :readonly="true" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true" />
-        <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '本人'" v-bind:readonly="readonly" v-bind:model="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
+        <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </card>
     </r-body>
     <tab-bar>
@@ -76,46 +76,47 @@ export default {
   methods: {
     clickHom() {},
     onClick: function() {
+      sessionStorage.removeItem("policy");
       this.$router.push("/project/proposal/payStatus");
     }
   },
   data() {
     return {
       readonly: true,
-      policyData: {
-        effectiveDate: "",
-        expireDate: ""
-      },
+      // policyData: {
+      //   effectiveDate: "",
+      //   expireDate: ""
+      // },
       // ,
       // policy:localStorage.fetch()
       policy: {
-        holderInfo: {
-          name: "王小明",
-          certificateId: "",
-          certificateNum: "65300119520705283x",
-          birthdate: "2000-01-01",
-          mobileNum: "18398768724",
-          email: "wangxm@outlook.com"
-        },
-        insuredInfo: {
-          relationToHolder: "",
-          name: "王小明",
-          certificateId: "",
-          certificateNum: "65300119520705283x",
-          birthdate: "2000-01-01",
-          mobileNum: "18398768724",
-          email: "wangxm@outlook.com"
-        },
-        dubsidiaryInsuranceInfo: {
-          relationToHolder: "",
-          relationToMainInsured: "1 ",
-          name: "王小明",
-          certificateId: "",
-          certificateNum: "65300119520705283x",
-          birthdate: "2000-01-01",
-          mobileNum: "18398768724",
-          email: "wangxm@outlook.com"
-        }
+        // holderInfo: {
+        //   name: "王小明",
+        //   certificateId: "",
+        //   certificateNum: "65300119520705283x",
+        //   birthdate: "2000-01-01",
+        //   mobileNum: "18398768724",
+        //   email: "wangxm@outlook.com"
+        // },
+        // insuredInfo: {
+        //   relationToHolder: "",
+        //   name: "王小明",
+        //   certificateId: "",
+        //   certificateNum: "65300119520705283x",
+        //   birthdate: "2000-01-01",
+        //   mobileNum: "18398768724",
+        //   email: "wangxm@outlook.com"
+        // },
+        // dubsidiaryInsuranceInfo: {
+        //   relationToHolder: "",
+        //   relationToMainInsured: "1 ",
+        //   name: "王小明",
+        //   certificateId: "",
+        //   certificateNum: "65300119520705283x",
+        //   birthdate: "2000-01-01",
+        //   mobileNum: "18398768724",
+        //   email: "wangxm@outlook.com"
+        // }
       },
       amount: "100",
       buttonName: "proposalConfirm.submitPay",
@@ -146,14 +147,9 @@ export default {
         }
       ]
     };
-  },
+  }, 
   created: function() {
-    this.policy.dubsidiaryInsuranceInfo.relationToHolder = sessionStorage.getItem(
-      "dubsidiaryInsuranceInfo-relationToHolder"
-    );
-    sessionStorage.removeItem("dubsidiaryInsuranceInfo-relationToHolder");
-  },
-  mounted: function() {
+    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
   }
 };
 </script>

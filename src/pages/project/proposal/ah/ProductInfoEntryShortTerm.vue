@@ -7,8 +7,8 @@
         </product-top>
       </card>
       <card>
-        <checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="pageModel" value="isEffectiveImmediately" class="isEffectiveImmediately" />
-        <insurance-duration-shortTerm type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="pageModel.isEffectiveImmediately"></insurance-duration-shortTerm>
+        <checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
+        <insurance-duration-shortTerm type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="policy.policyData.isEffectiveImmediately"></insurance-duration-shortTerm>
       </card>
       <card>
         <plan-selection></plan-selection>
@@ -71,9 +71,6 @@ export default {
   },
   data() {
     return {
-      pageModel:{
-        isEffectiveImmediately:false
-      },
       linkInsuredInfoUrl: "/project/proposal/ah/insuredInfoEntryShortTerm",
       productImgSrc: Jtgj,
       productDes:
@@ -81,8 +78,22 @@ export default {
       amount: "100",
       buttonName: "proposalConfirm.confirmInsure",
       policy: {
-        effectiveDate: "",
-        expireDate: ""
+        pageModel:{
+        },
+        policyData:{      
+          isEffectiveImmediately:false,
+          effectiveDate: "",
+          expireDate: ""
+        },
+        holderInfo:{},
+        insuredInfo:{
+          relationToHolder:"1"
+        },
+        dubsidiaryInsuranceInfo:{
+          relationToHolder:"1",
+          relationToMainInsured:"1"
+        },
+        passengerInfo:{}      
       },
       templateFlag: ""
     };
@@ -90,6 +101,7 @@ export default {
   methods: {
     onClick: function() {
       this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      sessionStorage.setItem("policy",JSON.stringify(this.policy));
       switch (this.templateFlag) {
         case "2":
           this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");

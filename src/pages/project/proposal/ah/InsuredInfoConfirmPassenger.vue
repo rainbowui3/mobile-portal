@@ -3,7 +3,7 @@
     <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
       <card :title="$t('planSelection.term')">
-        <insurance-duration-short-term type="day" :model="policy" expireDate="expireDate" effectiveDate="effectiveDate" />
+        <insurance-duration-short-term type="day" :model="policy.policyData" expireDate="expireDate" effectiveDate="effectiveDate" />
       </card>
       <card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
@@ -65,10 +65,10 @@ export default {
     return {
       readonly: true,
       policy: {
-        effectiveDate: "",
-        expireDate: "",
-        holderInfo: {},
-        carInfo: {}
+        // effectiveDate: "",
+        // expireDate: "",
+        // holderInfo: {},
+        // carInfo: {}
       },
       options: [{ key: "1", value: "家庭自用" }],
       buttonName: "proposalConfirm.submitPay",
@@ -79,8 +79,10 @@ export default {
         toastShow: false
       }
     };
+  }, 
+  created: function() {
+    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
   },
-  created: function() {},
   mounted: function() {},
   methods: {
     getCarModel: function() {
@@ -91,6 +93,7 @@ export default {
     },
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
+        sessionStorage.removeItem("policy");
         this.$router.push({
           path: "/project/proposal/payStatus",
           name: "PayStatus",

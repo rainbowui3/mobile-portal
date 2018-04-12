@@ -3,13 +3,13 @@
         <top :title="$t('project.accident')" :showBack="true" />
         <r-body>
             <card :title="$t('insuredInfoAccident.passengerInfo')">
-                <holder-info :model="passengerInfo" />
-                <r-input :title="$t('insuredInfoAccident.trainNo')" :model="passengerInfo" value="rainNo" />
-                <r-input :title="$t('insuredInfoAccident.seatNo')" :model="passengerInfo" value="seatNum" />
-                <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder"></r-switch>
+                <holder-info :model="policy.passengerInfo" :required="required"/>
+                <r-input :title="$t('insuredInfoAccident.trainNo')" :model="policy.passengerInfo" value="rainNo" />
+                <r-input :title="$t('insuredInfoAccident.seatNo')" :model="policy.passengerInfo" value="seatNum" />
+                <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="policy.passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder"></r-switch>
             </card>
-            <card v-if="!passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
-                <holder-info :holderInfo="holderInfo" />
+            <card :title="$t('common.holderInfo')">
+                <holder-info :model="policy.holderInfo" :required="required"/>
             </card>
 
         </r-body>
@@ -50,47 +50,50 @@ export default {
   },
   data() {
     return {
-      holderInfo: {
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      insuredInfo: {
-        relationToHolder: "1",
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        email: "wangxm@outlook.com"
-      },
-      passengerInfo: {
-        relationToHolder: true,
-        name: "王小明",
-        certificateId: "10000",
-        certificateNum: "65300119520705283x",
-        birthdate: "2000-01-01",
-        mobileNum: "18398768724",
-        rainNo: "G203",
-        seatNum: "12C",
-        email: "wangxm@outlook.com"
-      },
+      policy:{},
+      // holderInfo: {
+      //   name: "王小明",
+      //   certificateId: "10000",
+      //   certificateNum: "65300119520705283x",
+      //   birthdate: "2000-01-01",
+      //   mobileNum: "18398768724",
+      //   email: "wangxm@outlook.com"
+      // },
+      // insuredInfo: {
+      //   relationToHolder: "1",
+      //   name: "王小明",
+      //   certificateId: "10000",
+      //   certificateNum: "65300119520705283x",
+      //   birthdate: "2000-01-01",
+      //   mobileNum: "18398768724",
+      //   email: "wangxm@outlook.com"
+      // },
+      // passengerInfo: {
+      //   relationToHolder: true,
+      //   name: "王小明",
+      //   certificateId: "10000",
+      //   certificateNum: "65300119520705283x",
+      //   birthdate: "2000-01-01",
+      //   mobileNum: "18398768724",
+      //   rainNo: "G203",
+      //   seatNum: "12C",
+      //   email: "wangxm@outlook.com"
+      // },
       buttonName: "proposalConfirm.immediatelyInsure",
-      amount: "100"
+      amount: "100",
+      required:true,
     };
   },
   watch: {
-    passengerInfo: {
+    'policy.passengerInfo': {
       handler() {
-        if (this.passengerInfo.relationToHolder) {
-          this.holderInfo.name = this.passengerInfo.name;
-          this.holderInfo.certificateId = this.passengerInfo.certificateId;
-          this.holderInfo.certificateNum = this.passengerInfo.certificateNum;
-          this.holderInfo.birthdate = this.passengerInfo.birthdate;
-          this.holderInfo.mobileNum = this.passengerInfo.mobileNum;
+        if (this.policy.passengerInfo.relationToHolder) {
+          this.policy.holderInfo.name = this.policy.passengerInfo.name;
+          this.policy.holderInfo.certificateId = this.policy.passengerInfo.certificateId;
+          this.policy.holderInfo.certificateNum = this.policy.passengerInfo.certificateNum;
+          this.policy.holderInfo.birthdate = this.policy.passengerInfo.birthdate;
+          this.policy.holderInfo.mobileNum = this.policy.passengerInfo.mobileNum;
+          this.policy.holderInfo.email = this.policy.passengerInfo.email;
         }
       },
       deep: true
@@ -98,24 +101,45 @@ export default {
   },
   methods: {
     changeRelationToHolder() {
-      this.passengerInfo.relationToHolder = !this.passengerInfo
+      this.policy.passengerInfo.relationToHolder = !this.policy.passengerInfo
         .relationToHolder;
-      if (this.passengerInfo.relationToHolder) {
-        this.holderInfo.name = this.passengerInfo.name;
-        this.holderInfo.certificateId = this.passengerInfo.certificateId;
-        this.holderInfo.certificateNum = this.passengerInfo.certificateNum;
-        this.holderInfo.birthdate = this.passengerInfo.birthdate;
-        this.holderInfo.mobileNum = this.passengerInfo.mobileNum;
+      if (this.policy.passengerInfo.relationToHolder) {
+        this.policy.holderInfo.name = this.policy.passengerInfo.name;
+        this.policy.holderInfo.certificateId = this.policy.passengerInfo.certificateId;
+        this.policy.holderInfo.certificateNum = this.policy.passengerInfo.certificateNum;
+        this.policy.holderInfo.birthdate = this.policy.passengerInfo.birthdate;
+        this.policy.holderInfo.mobileNum = this.policy.passengerInfo.mobileNum;
+        this.policy.holderInfo.email = this.policy.passengerInfo.email;
       } else {
-        this.holderInfo = {};
+        this.policy.holderInfo = {   
+        name:"",
+        certificateId:"",
+        certificateNum:"",
+        birthdate:"",
+        mobileNum:"",
+        email:""
+        };
       }
     },
-    onClick: function() {
+    onClick: function() {    
+      sessionStorage.setItem("policy",JSON.stringify(this.policy));
       this.$router.push({
         path:"/project/proposal/ah/InsuredInfoConfirmAccident",
         name:"InsuredInfoConfirmAccident",
-        params:{relationToHolder:this.passengerInfo.relationToHolder}
+        // params:{relationToHolder:this.passengerInfo.relationToHolder}
       });
+    }
+  },
+  created: function() {
+    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy.passengerInfo = {relationToHolder:true};
+    this.policy.holderInfo={
+        name:"",
+        certificateId:"",
+        certificateNum:"",
+        birthdate:"",
+        mobileNum:"",
+        email:""
     }
   }
 };
