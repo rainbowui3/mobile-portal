@@ -115,8 +115,8 @@ const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pag
 const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
 const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
 const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cPlan'), 'Auto2cPlan'));
-const Auto2cUserInfo = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2C/Auto2cUserInfo'),'Auto2cUserInfo'));
-const Auto2cCustomPlan = r => require.ensure([],() => r(require('@/pages/project/proposal/auto2C/Auto2cCustomPlan'),'Auto2cCustomPlan'));
+const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2C/Auto2cUserInfo'), 'Auto2cUserInfo'));
+const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2C/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
@@ -141,13 +141,23 @@ const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/
 const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
 //businessHome
 const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessHome')), 'BusinessHome');
+
+// //loading
+// const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
 //businessLogin
 const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'BusinessLogin');
 //businessDetail
 const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessDetail')), 'BusinessDetail');
 
 
-Vue.use(Router);
+//AHRouters
+const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
+const AHRouterEntry = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'AHRouterEntry');
+const AHRouterConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'AHRouterConfirm');
+const AHRouterPay = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'AHRouterPay');
+
+
+Vue.use(Router);//告诉vue 使用 vue-router
 const router = new Router({
   routes: [{
     path: '/',
@@ -417,7 +427,99 @@ const router = new Router({
     path: '/templateComponents/TreeTest',
     name: 'TreeTest',
     component: TreeTest
-  }, 
+  },
+  //loadingPage
+  // {
+  //   path: '/project/loadingPage',
+  //   name: 'LoadingPage',
+  //   component: LoadingPage,
+  //   // beforeEnter: (to, from, next) => {
+  //   //   console.log(to);
+  //   //   console.log(from);
+  //   //   console.log(next);
+  //   // },
+  //   // beforeLeave: (to, from, next) => {
+  //   //   console.log(to);
+  //   //   console.log(from);
+  //   //   console.log(next);
+  //   // }
+  // },
+
+  //ahRouters
+  {
+    path: '/proposal/ah/AHRouterProduct/:productCode/:agentCode',
+    name: 'AHRouterProduct',
+    component: AHRouterProduct,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterProductNormal',
+      component: ProductInfoEntryNormal
+    },
+    {
+      path: 'shortTerm',
+      name:'AHRouterProductShortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      name:'AHRouterProductHealth',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterEntry/:productCode/:agentCode',
+    name: 'AHRouterEntry',
+    component: AHRouterEntry,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterEntryNormal',
+      component: InsuredInfoEntryNormal
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterConfirm/:productCode/:agentCode',
+    name: 'AHRouterConfirm',
+    component: AHRouterConfirm,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterConfirmNormal',
+      component: InsuredInfoConfirmNormal
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
+  {
+    path: '/proposal/ah/AHRouterPay/:productCode/:agentCode',
+    name: 'AHRouterPay',
+    component: AHRouterPay,
+    children: [{
+      path: 'normal',
+      name: 'AHRouterPayNormal',
+      component: PayStatus
+    },
+    {
+      path: 'shortTerm',
+      component: ProductInfoEntryShortTerm
+    },
+    {
+      path: 'health',
+      component: ProductInfoEntryHealth
+    }],
+  },
   //ah
   {
     path: '/project/proposal/ah/insuredInfoEntryNormal',
@@ -463,31 +565,31 @@ const router = new Router({
     path: '/project/proposal/ah/InsuredInfoConfirmAccident',
     name: 'InsuredInfoConfirmAccident',
     component: InsuredInfoConfirmAccident
-  },{
+  }, {
     path: '/project/proposal/ah/ProductInfoEntryHealth',
     name: 'ProductInfoEntryHealth',
     component: ProductInfoEntryHealth
-  },{
+  }, {
     path: '/project/proposal/ah/InsuredInfoEntryHealth',
     name: 'InsuredInfoEntryHealth',
     component: InsuredInfoEntryHealth
-  },{
+  }, {
     path: '/project/proposal/ah/InsuredInfoEntryHealthSub',
     name: 'InsuredInfoEntryHealthSub',
     component: InsuredInfoEntryHealthSub
-  },{
+  }, {
     path: '/project/proposal/ah/InsuredInfoConfirmHealthSub',
     name: 'InsuredInfoConfirmHealthSub',
     component: InsuredInfoConfirmHealthSub
-  },{
+  }, {
     path: '/project/proposal/ah/HealthInform',
     name: 'HealthInform',
     component: HealthInform
-  },{
+  }, {
     path: '/project/proposal/ah/HealthInformConfirm',
     name: 'HealthInformConfirm',
     component: HealthInformConfirm
-  },{
+  }, {
     path: '/project/proposal/ah/InsuredInfoConfirmHealth',
     name: 'InsuredInfoConfirmHealth',
     component: InsuredInfoConfirmHealth
@@ -638,15 +740,15 @@ const router = new Router({
     path: '/project/proposal/auto2c/Auto2cPlan',
     name: 'Auto2cPlan',
     component: Auto2cPlan
-  },{
-      path: '/project/proposal/auto2C/Auto2cUserInfo',
-      name: 'Auto2cUserInfo',
-      component: Auto2cUserInfo
-    },{
-      path: '/project/proposal/auto2C/Auto2cCustomPlan',
-      name: 'Auto2cCustomPlan',
-      component: Auto2cCustomPlan
-    },
+  }, {
+    path: '/project/proposal/auto2C/Auto2cUserInfo',
+    name: 'Auto2cUserInfo',
+    component: Auto2cUserInfo
+  }, {
+    path: '/project/proposal/auto2C/Auto2cCustomPlan',
+    name: 'Auto2cCustomPlan',
+    component: Auto2cCustomPlan
+  },
 
   // business
   {

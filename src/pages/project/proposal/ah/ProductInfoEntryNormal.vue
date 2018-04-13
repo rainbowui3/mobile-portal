@@ -67,6 +67,7 @@ export default {
   },
   data() {
     return {
+      typeList: [],
       productInfo: {},
       policy: {},
       productImgSrc: Jtgj,
@@ -74,29 +75,41 @@ export default {
         "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
       amount: "100",
       buttonName: "proposalConfirm.confirmInsure",
-      templateFlag:""
+      templateFlag: ""
     };
   },
   methods: {
     onClick: function() {
-      this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
-      switch(this.templateFlag) {
-        case"1":
-         this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
-        break;
-        case"3":
-          this.$router.push("/project/proposal/ah/InsuredInfoStudyRisk");
-        break;
-        case"4":
-         this.$router.push("/project/proposal/ah/InsuredInfoEntryPassenger");
-        break;
-        default: 
-          this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
-          break;
+      // this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      // switch (this.templateFlag) {
+      //   case "1":
+      //     this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
+      //     break;
+      //   case "3":
+      //     this.$router.push("/project/proposal/ah/InsuredInfoStudyRisk");
+      //     break;
+      //   case "4":
+      //     this.$router.push("/project/proposal/ah/InsuredInfoEntryPassenger");
+      //     break;
+      //   default:
+      //     this.$router.push("/project/proposal/ah/insuredInfoEntryNormal");
+      //     break;
+      // }
+      switch(this.typeList[1]){
+        case "normal":{
+          this.$router.push({
+            path:"/proposal/ah/AHRouterEntry/"+this.$route.params.productCode + "/" + this.$route.params.agentCode,
+            name:'AHRouterEntry',
+            params:{
+              typeList:this.typeList
+            }
+          })
+        }
       }
     }
   },
   created: function() {
+    this.typeList = this.$route.params.typeList;
     let productInfo = {
       planConfigFlag: "个人", //方案配置分类:个人、家庭
       subsidiaryInsuredFlag: false, //附属被保险人标识:是、否
@@ -151,12 +164,12 @@ export default {
       productCode: "",
       productName: ""
     };
-    let templateFlag = this.$route.params.flag
+    let templateFlag = this.$route.params.flag;
     this.policy = policy;
     this.productInfo = productInfo;
     this.templateFlag = templateFlag;
     sessionStorage.setItem("POLICY", JSON.stringify(this.policy));
-    
+
     // console.log(this.$route.params.flag);
   }
 };
