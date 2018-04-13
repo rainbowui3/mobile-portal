@@ -454,10 +454,12 @@ const router = new Router({
     },
     {
       path: 'shortTerm',
+      name:'AHRouterProductShortTerm',
       component: ProductInfoEntryShortTerm
     },
     {
       path: 'health',
+      name:'AHRouterProductHealth',
       component: ProductInfoEntryHealth
     }],
   },
