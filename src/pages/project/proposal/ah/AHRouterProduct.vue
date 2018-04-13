@@ -10,15 +10,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      value:""
+    };
   },
   created: function() {
     //console.log(this.$route);
   },
   mounted: function() {
     //读取配置表
-    let value = "normal";
-    switch (value) {
+    switch (this.value) {
       case "normal":
         {
           this.$router.push({
@@ -82,15 +83,25 @@ export default {
     }
   },
   beforeRouteEnter(to, from, next) {
-    console.log("beforeRouteEnter");
-    console.log(to);
-    console.log(from);
-    next();
+    //Todo:读配置表，获取路径等信息
+
+    //mock:
+    next((vm) => {
+      console.log(vm.$route);
+      switch(vm.$route.params.productCode){
+        case '1':{
+          vm.value="normal";
+        }break;
+        case '2':{}break;
+        case '3':{}break;
+        case '4':{}break;
+        case '5':{}break;
+        case '6':{}break;
+        default:{}break;
+      }
+    });
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("beforeRouteUpdate");
-    console.log(to);
-    console.log(from);
     next();
   }
 };
