@@ -87,16 +87,25 @@ export default {
 
     //mock:
     next((vm) => {
-      console.log(vm.$route);
       switch(vm.$route.params.productCode){
         case '1':{
           vm.value="normal";
         }break;
-        case '2':{}break;
-        case '3':{}break;
-        case '4':{}break;
-        case '5':{}break;
-        case '6':{}break;
+        case '2':{
+          vm.value="shortTerm";
+        }break;
+        case '3':{
+          vm.value="shortTerm";
+        }break;
+        case '4':{
+          vm.value="normal"
+        }break;
+        case '5':{
+          vm.value="normal";
+        }break;
+        case '6':{
+          vm.value="health"
+        }break;
         default:{}break;
       }
     });
