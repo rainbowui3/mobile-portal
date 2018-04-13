@@ -21,9 +21,7 @@
     <tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
     </tab-bar>
-
   </page>
-
 </template>
 
 <script>
