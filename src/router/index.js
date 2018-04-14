@@ -142,8 +142,8 @@ const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project
 //businessHome
 const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessHome')), 'BusinessHome');
 
-// //loading
-// const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
+//loading
+const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
 //businessLogin
 const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'BusinessLogin');
 
@@ -426,21 +426,11 @@ const router = new Router({
     component: TreeTest
   },
   //loadingPage
-  // {
-  //   path: '/project/loadingPage',
-  //   name: 'LoadingPage',
-  //   component: LoadingPage,
-  //   // beforeEnter: (to, from, next) => {
-  //   //   console.log(to);
-  //   //   console.log(from);
-  //   //   console.log(next);
-  //   // },
-  //   // beforeLeave: (to, from, next) => {
-  //   //   console.log(to);
-  //   //   console.log(from);
-  //   //   console.log(next);
-  //   // }
-  // },
+  {
+    path: '/proposal/loadingPage/:productCode/:agentCode',
+    name: 'LoadingPage',
+    component: LoadingPage,
+  },
 
   //ahRouters
   {
@@ -450,7 +440,7 @@ const router = new Router({
     children: [{
       path: 'normal',
       name: 'AHRouterProductNormal',
-      component: ProductInfoEntryNormal
+      component: ProductInfoEntryNormal,
     },
     {
       path: 'shortTerm',
@@ -487,7 +477,6 @@ const router = new Router({
     component: AHRouterConfirm,
     children: [{
       path: 'normal',
-      name: 'AHRouterConfirmNormal',
       component: InsuredInfoConfirmNormal
     },
     {
