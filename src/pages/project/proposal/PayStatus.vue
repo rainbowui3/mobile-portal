@@ -49,7 +49,7 @@ export default {
         {
           style: "default",
           text: this.$t('payStatus.again'),
-          link: "/project/proposal/ah/productInfoEntryNormal"
+          link: "/proposal/LoadingPage/"+this.$route.params.productCode+'/'+this.$route.params.agentCode
         }
       ];
     },

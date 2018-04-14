@@ -65,7 +65,6 @@ export default {
   },
   data() {
     return {
-      typeList:[],
       pageModel: {
         clauseConfirm: false,
         toastShow: false
@@ -139,13 +138,10 @@ export default {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
         sessionStorage.setItem("policy",JSON.stringify(this.policy));
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         // this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
         this.$router.push({
-          path:"/proposal/ah/AHRouterConfirm/"+this.$route.params.productCode+"/"+this.$route.params.agentCode,
-          name:"AHRouterConfirm",
-          params:{
-            typeList:this.typeList
-          }
+          path:"/proposal/ah/AHRouterConfirm/"+this.$route.params.productCode+"/"+this.$route.params.agentCode+'/'+route.route3
         });
       } else {
         this.pageModel.toastShow = true;
@@ -158,7 +154,6 @@ export default {
     // }
   },
   create:function(){
-    this.typeList = this.$route.params.typeList;
   },
   mounted: function() {},
   beforeDestroy: function() {}

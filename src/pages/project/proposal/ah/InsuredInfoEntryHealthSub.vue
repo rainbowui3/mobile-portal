@@ -133,9 +133,9 @@ export default {
         //Todo:跳转到下一个页面,确认页面
         // console.log("goto");
         sessionStorage.setItem("policy",JSON.stringify(this.policy));
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         this.$router.push({
-          name:"InsuredInfoConfirmHealthSub",
-          path:"/project/proposal/ah/InsuredInfoConfirmHealthSub",
+          path:"/proposal/ah/AHRouterConfirm/"+this.$route.params.productCode+'/'+this.$route.params.agentCode+'/'+route.route3,
         });
       } else {
         this.pageModel.toastShow = true;

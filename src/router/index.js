@@ -467,11 +467,11 @@ const router = new Router({
     },
     {
       path: 'shortTerm',
-      component: ProductInfoEntryShortTerm
+      component: InsuredInfoEntryShortTerm
     },
     {
       path: 'health',
-      component: ProductInfoEntryHealth
+      component: InsuredInfoEntryHealthSub
     }],
   },
   {
@@ -488,7 +488,7 @@ const router = new Router({
     },
     {
       path: 'health',
-      component: ProductInfoEntryHealth
+      component: InsuredInfoConfirmHealthSub
     }],
   },
   {
