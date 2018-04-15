@@ -79,9 +79,9 @@ export default {
         toastShow: false
       }
     };
-  }, 
+  },
   created: function() {
-    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem("policy"));
   },
   mounted: function() {},
   methods: {
@@ -94,20 +94,43 @@ export default {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
         sessionStorage.removeItem("policy");
-        this.$router.push({
-          path: "/project/proposal/payStatus",
-          name: "PayStatus",
-          params: [
-            {
-              name: "test",
-              dataObj: this.policy
-            },
-            {
-              name: "test2",
-              dataObj: this.policy
-            }
-          ]
-        });
+        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
+        if (route && route.route4 && route.route4 != "") {
+          debugger;
+          this.$router.push({
+            path:
+              "/proposal/ah/AHRouterPay/" +
+              this.$route.params.productCode +
+              "/" +
+              this.$route.params.agentCode +
+              "/" +
+              route.route4,
+            params: [
+              {
+                name: "test",
+                dataObj: this.policy
+              },
+              {
+                name: "test2",
+                dataObj: this.policy
+              }
+            ]
+          });
+        }
+        // this.$router.push({
+        //   path: "/project/proposal/payStatus",
+        //   name: "PayStatus",
+        //   params: [
+        //     {
+        //       name: "test",
+        //       dataObj: this.policy
+        //     },
+        //     {
+        //       name: "test2",
+        //       dataObj: this.policy
+        //     }
+        //   ]
+        // });
       } else {
         this.pageModel.toastShow = true;
       }
