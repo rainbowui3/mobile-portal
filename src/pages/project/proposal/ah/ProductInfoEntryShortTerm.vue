@@ -78,22 +78,21 @@ export default {
       amount: "100",
       buttonName: "proposalConfirm.confirmInsure",
       policy: {
-        pageModel:{
-        },
-        policyData:{      
-          isEffectiveImmediately:false,
+        pageModel: {},
+        policyData: {
+          isEffectiveImmediately: false,
           effectiveDate: "",
           expireDate: ""
         },
-        holderInfo:{},
-        insuredInfo:{
-          relationToHolder:"1"
+        holderInfo: {},
+        insuredInfo: {
+          relationToHolder: "1"
         },
-        dubsidiaryInsuranceInfo:{
-          relationToHolder:"1",
-          relationToMainInsured:"1"
+        dubsidiaryInsuranceInfo: {
+          relationToHolder: "1",
+          relationToMainInsured: "1"
         },
-        passengerInfo:{}      
+        passengerInfo: {}
       },
       templateFlag: ""
     };
@@ -101,18 +100,30 @@ export default {
   methods: {
     onClick: function() {
       this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
-      sessionStorage.setItem("policy",JSON.stringify(this.policy));
-      switch (this.templateFlag) {
-        case "2":
-          this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
-          break;
-        case "5":
-          this.$router.push("/project/proposal/ah/InsuredInfoAccident");
-          break;
-        default:
-          this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
-          break;
+      sessionStorage.setItem("policy", JSON.stringify(this.policy));
+      let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
+      if (route && route.route2 && route.route2 != "") {
+        this.$router.push({
+          path:
+            "/proposal/ah/AHRouterEntry/" +
+            this.$route.params.productCode +
+            "/" +
+            this.$route.params.agentCode +
+            "/" +
+            route.route2
+        });
       }
+      // switch (this.templateFlag) {
+      //   case "2":
+      //     this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+      //     break;
+      //   case "5":
+      //     this.$router.push("/project/proposal/ah/InsuredInfoAccident");
+      //     break;
+      //   default:
+      //     this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
+      //     break;
+      // }
       // this.$router.push("/project/proposal/ah/insuredInfoEntryShortTerm");
     }
   },

@@ -55,7 +55,7 @@ export default {
           onClick: this.goto,
           param:{
             name:"ProductInfoEntryShortTerm",
-            url:"/project/proposal/ah/productInfoEntryShortTerm",
+            url:"/proposal/LoadingPage/2/1",
             flag:"2"
           } 
           

@@ -119,7 +119,7 @@ export default {
         //   email: "wangxm@outlook.com"
         // }
       },
-      required:true,
+      required: true,
       amount: "100",
       buttonName: "proposalConfirm.confirmInsure",
       // relationToHolder: [
@@ -157,9 +157,20 @@ export default {
   },
   methods: {
     onClick: function() {
-      if (this.pageModel.clauseConfirm) {      
-        sessionStorage.setItem("policy",JSON.stringify(this.policy));
-        this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
+      if (this.pageModel.clauseConfirm) {
+        sessionStorage.setItem("policy", JSON.stringify(this.policy));
+        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
+        if (route && route.route3 && route.route3 != "") {
+          this.$router.push(
+            "/proposal/ah/AHRouterConfirm/" +
+              this.$route.params.productCode +
+              "/" +
+              this.$route.params.agentCode +
+              "/" +
+              route.route3
+          );
+        }
+        // this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
       } else {
         this.pageModel.toastShow = true;
       }
@@ -167,7 +178,7 @@ export default {
     clickHome: function() {}
   },
   created: function() {
-    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem("policy"));
   }
   // ,
   // watch:{

@@ -483,10 +483,6 @@ const router = new Router({
       component: InsuredInfoConfirmNormal
     },
     {
-      path: 'shortTerm',
-      component: ProductInfoEntryShortTerm
-    },
-    {
       path: 'health',
       component: InsuredInfoConfirmHealthSub
     }],
@@ -499,14 +495,6 @@ const router = new Router({
       path: 'normal',
       name: 'AHRouterPayNormal',
       component: PayStatus
-    },
-    {
-      path: 'shortTerm',
-      component: ProductInfoEntryShortTerm
-    },
-    {
-      path: 'health',
-      component: ProductInfoEntryHealth
     }],
   },
   //ah

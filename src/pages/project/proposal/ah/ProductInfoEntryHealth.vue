@@ -111,12 +111,13 @@ export default {
   methods: {
     onClick: function() {
       this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       switch (this.templateFlag) {
         case "1":
           this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");
           break;
         case "2":
-          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealthSub");
+          this.$router.push("/proposal/ah/AHRouterEntry/"+this.$route.params.productCode +'/'+this.$route.params.agentCode+'/'+route.route2);
           break;
         default:
           this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");

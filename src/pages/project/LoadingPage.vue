@@ -38,8 +38,8 @@ export default {
               productCode:'2',
               route1:'shortTerm',
               route2:'shortTerm',
-              route3:'shortTerm',
-              route4:'shortTerm'
+              route3:'normal',
+              route4:'normal'
             }
             sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
           }
