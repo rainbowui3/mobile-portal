@@ -447,12 +447,12 @@ const router = new Router({
     },
     {
       path: 'shortTerm',
-      name:'AHRouterProductShortTerm',
+      name: 'AHRouterProductShortTerm',
       component: ProductInfoEntryShortTerm
     },
     {
       path: 'health',
-      name:'AHRouterProductHealth',
+      name: 'AHRouterProductHealth',
       component: ProductInfoEntryHealth
     }],
   },
@@ -472,7 +472,20 @@ const router = new Router({
     {
       path: 'health',
       component: InsuredInfoEntryHealthSub
-    }],
+    },
+    {
+      path: 'accident',
+      component: InsuredInfoAccident
+    },
+    {
+      path: 'studyRisk',
+      component: InsuredInfoStudyRisk
+    },
+    {
+      path:'passenger',
+      component: InsuredInfoEntryPassenger
+    }
+    ],
   },
   {
     path: '/proposal/ah/AHRouterConfirm/:productCode/:agentCode',
@@ -485,6 +498,18 @@ const router = new Router({
     {
       path: 'health',
       component: InsuredInfoConfirmHealthSub
+    },
+    {
+      path: 'accident',
+      component: InsuredInfoConfirmAccident
+    },
+    {
+      path: 'studyRisk',
+      component: InsuredInfoConfirmStudyRisk
+    },
+    {
+      path: 'passenger',
+      component: InsuredInfoConfirmPassenger
     }],
   },
   {
@@ -804,7 +829,7 @@ const router = new Router({
     name: 'BusinessHome',
     component: BusinessHome
   },
-  
+
   {
     path: '/project/businessPage/BusinessLogin',
     name: 'BusinessLogin',
@@ -815,7 +840,7 @@ const router = new Router({
     name: 'BusinessDetail',
     component: BusinessDetail
   },
-  
+
   ],
 });
 

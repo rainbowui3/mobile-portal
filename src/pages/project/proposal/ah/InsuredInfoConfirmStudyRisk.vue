@@ -116,7 +116,13 @@ export default {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
         sessionStorage.removeItem("policy");
-        this.$router.push("/project/proposal/payStatus");
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        // this.$router.push("/project/proposal/payStatus");
+        if(route && route.route4 && route.route4!=''){
+          this.$router.push({
+            path:'/proposal/ah/AHRouterPay/'+this.$route.params.productCode+'/'+this.$route.params.agentCode+'/'+route.route4
+          });
+        }
       } else {
         this.pageModel.toastShow = true;
       }

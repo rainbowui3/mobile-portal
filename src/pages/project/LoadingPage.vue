@@ -50,8 +50,8 @@ export default {
             vm.routeType = {
               productCode:'3',
               route1:'shortTerm',
-              route2:'risk',
-              route3:'risk',
+              route2:'studyRisk',
+              route3:'studyRisk',
               route4:'normal'
             }
             sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
