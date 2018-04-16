@@ -119,6 +119,12 @@ export default {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.businessSignIn'),
           link: '/component/example/businessSignIn'
+        },
+
+        {
+          icon: 'fa fa-info-circle ',
+          text: this.$t('business.navTab'),
+          link: '/component/example/navTab'
         }
       ];
     }
