@@ -1,7 +1,7 @@
 <template>
     <page>
         <r-body>
-            <top :title="$t('businessPlan.title')" :showBack="true" />
+            <top :title="$t('businessNavTab.title')" :showBack="true" />
             <nav-tab />
             <bottom :index="3" />
         </r-body>
