@@ -26,10 +26,10 @@ import {
     TabBar,
     RButton,
     Selector
-} from "rainbow-mobile-core";
-import Top from "../../../components/Top";
-import ProposalConfirm from "../components/ProposalConfirm";
-import "../../../i18n/BusinessConfirm";
+} from 'rainbow-mobile-core';
+import Top from '../../../components/Top';
+import ProposalConfirm from '../components/ProposalConfirm';
+import '../../../i18n/BusinessConfirm';
 export default {
     components: {
         Top,
@@ -44,10 +44,10 @@ export default {
     },
     data() {
         return {
-            options: [{ key: "1", value: "暂无优惠" }],
+            options: [{ key: '1', value: '暂无优惠' }],
             policy: {
                 nullDate: null,
-                index: "1"
+                index: '1'
             }
         };
     },

@@ -35,12 +35,12 @@ import {
     Divider,
     TabBar,
     RButton
-} from "rainbow-mobile-core";
-import Top from "../../../components/Top";
-import HolderInfo from "../components/HolderInfo";
-import InsuredInfo from "../components/InsuredInfo";
-import ProposalClauseConfirm from "../components/ProposalClauseConfirm";
-import "../../../i18n/businessFillIn";
+} from 'rainbow-mobile-core';
+import Top from '../../../components/Top';
+import HolderInfo from '../components/HolderInfo';
+import InsuredInfo from '../components/InsuredInfo';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import '../../../i18n/businessFillIn';
 export default {
     components: {
         Top,
@@ -62,60 +62,60 @@ export default {
             },
             holder: {
                 holderInfo: {
-                    name: "Emily",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    name: 'Emily',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 },
                 insuredInfo: {
-                    relationToHolder: "本人",
-                    name: "王小明",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    relationToHolder: '本人',
+                    name: '王小明',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 },
                 dubsidiaryInsuranceInfo: {
-                    relationToHolder: "10000",
-                    relationToMainInsured: "本人",
-                    name: "王小明",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    relationToHolder: '10000',
+                    relationToMainInsured: '本人',
+                    name: '王小明',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 }
             },
             insured: {
                 holderInfo: {
-                    name: "王小明",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    name: '王小明',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 },
                 insuredInfo: {
-                    relationToHolder: "本人",
-                    name: "王小明",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    relationToHolder: '本人',
+                    name: '王小明',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 },
                 dubsidiaryInsuranceInfo: {
-                    relationToHolder: "10000",
-                    relationToMainInsured: "本人",
-                    name: "王小明",
-                    certificateId: "身份证",
-                    certificateNum: "295792200001018271",
-                    birthdate: "2000-01-01",
-                    mobileNum: "18398768724",
-                    email: "wangxm@outlook.com"
+                    relationToHolder: '10000',
+                    relationToMainInsured: '本人',
+                    name: '王小明',
+                    certificateId: '身份证',
+                    certificateNum: '295792200001018271',
+                    birthdate: '2000-01-01',
+                    mobileNum: '18398768724',
+                    email: 'wangxm@outlook.com'
                 }
             }
         };
