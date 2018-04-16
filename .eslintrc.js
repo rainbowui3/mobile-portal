@@ -4,6 +4,9 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  "globals": {
+    "sessionStorage": true,
+  },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
   // required to lint *.vue files
@@ -22,6 +25,7 @@ module.exports = {
     'indent': 0,
     'space-before-function-paren': 0,
     'no-tabs': 0,
-    'eqeqeq':0
+    'eqeqeq':0,
+    'standard/object-curly-even-spacing':0
   }
 }
