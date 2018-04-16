@@ -33,14 +33,16 @@
                     <img :src="supplier">
                 </div>
             </card>
+
         </r-body>
-        <bottom :index="2" />
+        <tab-bar>
+            <r-button type="primary">{{$t('businessDetails.confirm')}}</r-button>
+        </tab-bar>
     </page>
 </template>
 
 <script>
-import { Page, Card, RTable, RBody, Divider } from "rainbow-mobile-core";
-import Bottom from "../../../components/Bottom";
+import { Page, Card, RTable, RBody, Divider ,TabBar,RButton} from "rainbow-mobile-core";
 import image from "../../../assets/u17.png";
 import iamgeOne from "../../../assets/u183.png";
 import Top from "../../../components/Top";
@@ -52,7 +54,6 @@ import "../../../i18n/businessDetails";
 
 export default {
     components: {
-        Bottom,
         Top,
         Page,
         Card,
@@ -60,7 +61,9 @@ export default {
         RBody,
         Divider,
         Plan,
-        ProposalClauseConfirm
+        ProposalClauseConfirm,
+        RButton,
+        TabBar
     },
     data() {
         return {
@@ -114,8 +117,8 @@ export default {
     padding: 20px 0;
     text-align: center;
 }
-.datailsLine{
-    margin-top:5px;
+.datailsLine {
+    margin-top: 5px;
 }
 .weui-icon-circle {
     font-size: 18px;

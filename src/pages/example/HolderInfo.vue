@@ -52,7 +52,7 @@ export default {
           relationToHolder: "10000",
           relationToMainInsured: "本人",
           name: "王小明",
-          certificateId: "身份证",
+          // certificateId: "身份证",
           certificateNum: "295792200001018271",
           birthdate: "2000-01-01",
           mobileNum: "18398768724",
