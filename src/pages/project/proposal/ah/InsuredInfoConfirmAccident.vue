@@ -1,29 +1,29 @@
 <template>
-    <page>
-        <top :title="$t('project.accident')" :showBack="true" />
-        <r-body>
-            <card>
-                <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-            </card>
-            <card :title="$t('insuredInfoAccident.passengerInfo')">
-                <holder-info :model="policy.passengerInfo" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoAccident.trainNo')" :model="policy.passengerInfo" value="rainNo" :readonly="readonly" />
-                <r-input :title="$t('insuredInfoAccident.seatNo')" :model="policy.passengerInfo" value="seatNum" :readonly="readonly" />
-                <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="policy.passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>
-            </card>
-            <card v-if="!this.policy.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
-                <holder-info :model="policy.holderInfo" :readonly="readonly" />
-            </card>
-            <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
-            <!-- 未确认条款后弹出的提示框 -->
-            <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
-        </r-body>
+  <page>
+    <top :title="$t('project.accident')" :showBack="true" />
+    <r-body>
+      <card>
+        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+      </card>
+      <card :title="$t('insuredInfoAccident.passengerInfo')">
+        <holder-info :model="policy.passengerInfo" :readonly="readonly" />
+        <r-input :title="$t('insuredInfoAccident.trainNo')" :model="policy.passengerInfo" value="rainNo" :readonly="readonly" />
+        <r-input :title="$t('insuredInfoAccident.seatNo')" :model="policy.passengerInfo" value="seatNum" :readonly="readonly" />
+        <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="policy.passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>
+      </card>
+      <card v-if="!this.policy.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
+        <holder-info :model="policy.holderInfo" :readonly="readonly" />
+      </card>
+      <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
+      <!-- 未确认条款后弹出的提示框 -->
+      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+    </r-body>
 
-        <tab-bar>
-            <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-        </tab-bar>
+    <tab-bar>
+      <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
+    </tab-bar>
 
-    </page>
+  </page>
 </template>
 
 <script>
@@ -106,9 +106,21 @@ export default {
   },
   methods: {
     onClick: function() {
-      if (this.pageModel.clauseConfirm) {        
+      if (this.pageModel.clauseConfirm) {
         sessionStorage.removeItem("policy");
-        this.$router.push("/project/proposal/payStatus");
+        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
+        if (route && route.route4 && route.route4 != "") {
+          this.$router.push({
+            path:
+              "/proposal/ah/AHRouterPay/" +
+              this.$route.params.productCode +
+              "/" +
+              this.$route.params.agentCode +
+              "/" +
+              route.route4
+          });
+        }
+        // this.$router.push("/project/proposal/payStatus");
       } else {
         this.pageModel.toastShow = true;
       }
@@ -125,7 +137,7 @@ export default {
   //   }
   // },
   created: function() {
-    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem("policy"));
   }
 };
 </script>

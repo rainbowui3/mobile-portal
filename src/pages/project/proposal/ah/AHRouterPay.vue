@@ -17,62 +17,11 @@ export default {
   created: function() {
     //console.log(this.$route);
   },
-  mounted: function() {
-    //读取配置表
-    let value = "normal";
-    switch (value) {
-      case "normal":
-        {
-          this.$router.push({
-            path:
-              "/proposal/ah/AHRouterPay" +
-              this.$route.params.productCode +
-              "/" +
-              this.$route.params.agentCode,
-            name: "AHRouterPayNormal",
-            params: {
-              productCode: this.$route.params.productCode,
-              agentCode: this.$route.params.agentCode,
-              typeList: ["normal", "normal", "normal", "normal"]
-            }
-          });
-        }
-        break;
-      case "shortTerm":
-        {
-        }
-        break;
-      case "health":
-        {
-        }
-        break;
-      default: {
-        this.$router.push({
-          path:
-            "/proposal/ah/AHRouterPay" +
-            this.$route.params.productCode +
-            "/" +
-            this.$route.params.agentCode,
-          name: "AHRouterPayNormal",
-          params: {
-            productCode: this.$route.params.productCode,
-            agentCode: this.$route.params.agentCode,
-            typeList: ["normal", "normal", "normal", "normal"]
-          }
-        });
-      }
-    }
-  },
+  mounted: function() {},
   beforeRouteEnter(to, from, next) {
-    console.log("beforeRouteEnter");
-    console.log(to);
-    console.log(from);
     next();
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("beforeRouteUpdate");
-    console.log(to);
-    console.log(from);
     next();
   }
 };

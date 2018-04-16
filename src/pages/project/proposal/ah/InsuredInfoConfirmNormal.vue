@@ -75,19 +75,15 @@ export default {
     clickHom() {},
     onClick: function() {
       sessionStorage.removeItem("policy");
+      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/payStatus");
       this.$router.push({
-        path:"/proposal/ah/AHRouterPay/"+this.$route.params.productCode+"/"+this.$route.params.agentCode,
-        name:'AHRouterPay',
-        params:{
-          typeList:this.typeList
-        }
+        path:"/proposal/ah/AHRouterPay/"+this.$route.params.productCode+"/"+this.$route.params.agentCode+'/'+route.route4
       })
     }
   },
   data() {
     return {
-      typeList:[],
       readonly: true,
       // policyData: {
       //   effectiveDate: "",
@@ -155,7 +151,6 @@ export default {
     };
   }, 
   created: function() {
-    this.typeList = this.$route.params.typeList;
     this.policy  = JSON.parse(sessionStorage.getItem("policy"));
   }
 };

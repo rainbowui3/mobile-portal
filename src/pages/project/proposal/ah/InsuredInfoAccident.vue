@@ -123,11 +123,17 @@ export default {
     },
     onClick: function() {    
       sessionStorage.setItem("policy",JSON.stringify(this.policy));
-      this.$router.push({
-        path:"/project/proposal/ah/InsuredInfoConfirmAccident",
-        name:"InsuredInfoConfirmAccident",
-        // params:{relationToHolder:this.passengerInfo.relationToHolder}
-      });
+      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      if(route && route.route3 && route.route3 != ''){
+        this.$router.push({
+          path:'/proposal/ah/AHRouterConfirm/'+this.$route.params.productCode + '/'+this.$route.params.agentCode+'/'+route.route3
+        });
+      }
+      // this.$router.push({
+      //   path:"/project/proposal/ah/InsuredInfoConfirmAccident",
+      //   name:"InsuredInfoConfirmAccident",
+      //   // params:{relationToHolder:this.passengerInfo.relationToHolder}
+      // });
     }
   },
   created: function() {

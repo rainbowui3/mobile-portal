@@ -44,7 +44,7 @@ export default {
           onClick: this.goto,
           param:{
             name:"ProductInfoEntryNormal",
-            url:"/project/proposal/ah/productInfoEntryNormal",
+            url:"/proposal/LoadingPage/1/1",
             flag:"1"
           } 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -55,7 +55,7 @@ export default {
           onClick: this.goto,
           param:{
             name:"ProductInfoEntryShortTerm",
-            url:"/project/proposal/ah/productInfoEntryShortTerm",
+            url:"/proposal/LoadingPage/2/1",
             flag:"2"
           } 
           
@@ -82,7 +82,6 @@ export default {
             url:"/project/proposal/ah/productInfoEntryNormal",
             flag:"4"
           } 
-          
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
         {
@@ -134,7 +133,6 @@ export default {
       sessionStorage.setItem("ROUTE_FLAG", param.flag);
     this.$router.push({
         path:param.url,
-        name:param.name,
         params:{
             flag:param.flag
           }

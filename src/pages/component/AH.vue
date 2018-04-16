@@ -29,8 +29,8 @@ export default {
   data(){
       return {
         products:[
-          {class:"product",src:Ly,onClick:this.goto,param:{path:"/project/proposal/ah/ProductInfoEntryHealth",name:"ProductInfoEntryHealth",flag:"1"}},
-          {class:"product",src:Female,onClick:this.goto,param:{path:"/project/proposal/ah/ProductInfoEntryHealth",name:"ProductInfoEntryHealth",flag:"2"}},
+          {class:"product",src:Ly,onClick:this.goto,param:{path:"/proposal/LoadingPage/6/1",name:"ProductInfoEntryHealth",flag:"1"}},
+          {class:"product",src:Female,onClick:this.goto,param:{path:"/proposal/LoadingPage/6/2",name:"ProductInfoEntryHealth",flag:"2"}},
           {"class":"product","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
           {"class":"product","src":Ywx,'onClick':this.goto,'param':'/project/ly'},
         ]
@@ -41,7 +41,6 @@ export default {
         sessionStorage.setItem("ROUTE_FLAG", param.flag);
         this.$router.push({
           path:param.path,
-          name:param.name,
           params:{
             flag:param.flag
           }
