@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import { Page, Card, Picker,RBody } from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import config from "config";
-import "../../i18n/component";
-import "../../i18n/picker";
+import { Page, Card, Picker, RBody } from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import config from 'config';
+import '../../i18n/component';
+import '../../i18n/picker';
 export default {
   components: {
     Bottom,
@@ -34,10 +34,10 @@ export default {
   },
   data() {
     return {
-      list1: [["小米", "iPhone", "华为", "锤子", "三星", "其他", "不告诉你"]],
+      list1: [['小米', 'iPhone', '华为', '锤子', '三星', '其他', '不告诉你']],
       list2: [
-        ["小米", "iPhone", "华为", "锤子", "三星", "其他", "不告诉你"],
-        ["小米1", "iPhone2", "华为3", "锤子4", "三星5", "其他6", "不告诉你7"]
+        ['小米', 'iPhone', '华为', '锤子', '三星', '其他', '不告诉你'],
+        ['小米1', 'iPhone2', '华为3', '锤子4', '三星5', '其他6', '不告诉你7']
       ],
       list3: [{
         name: '中国',
@@ -98,9 +98,9 @@ export default {
       }],
       policy: {
         nullDate: null,
-        value1: ["小米"],
-        value2: ["小米", "华为3"],
-        value3: ["USA","usa002","0006"],
+        value1: ['小米'],
+        value2: ['小米', '华为3'],
+        value3: ['USA', 'usa002', '0006']
       }
     };
   },

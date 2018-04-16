@@ -24,9 +24,9 @@ import {
   RButton,
   Selector,
   Checker
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoPlan';
 
 export default {
   components: {
@@ -34,8 +34,8 @@ export default {
     RBody,
     Card,
     Top,
-    RSwitch,   
-    RInput,  
+    RSwitch,
+    RInput,
     TabBar,
     RButton,
     Selector,
@@ -43,18 +43,18 @@ export default {
   },
   data() {
     return {
-      options:[{"key":"20001","value":"国产"},{"key":"20002","value":"进口"}],
+      options: [{'key': '20001', 'value': '国产'}, {'key': '20002', 'value': '进口'}],
       policy: {
-        value2:"20001",
-        floatingRate:"",
+        value2: '20001',
+        floatingRate: ''
       }
     };
   },
   methods: {
-    confirm(){      
+    confirm() {
         // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
         // this.$router.push("");
-    },
+    }
   }
 };
 </script>

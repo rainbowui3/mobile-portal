@@ -37,10 +37,10 @@ import {
   Toast,
   LoadingApi,
   RBody
-} from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import "../../i18n/actionSheet";
+} from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import '../../i18n/actionSheet';
 export default {
   components: {
     Bottom,
@@ -58,48 +58,48 @@ export default {
         show8: false
       },
       autoClose: false,
-      toastText: this.$t("common.success"),
+      toastText: this.$t('common.success'),
       menus1: {
-        menu1: this.$t("actionsheet.friends"),
-        menu2: this.$t("actionsheet.timeline")
+        menu1: this.$t('actionsheet.friends'),
+        menu2: this.$t('actionsheet.timeline')
       },
       menus2: {
-        menu1: this.$t("common.yes"),
-        menu2: this.$t("common.no")
+        menu1: this.$t('common.yes'),
+        menu2: this.$t('common.no')
       },
       menu5: [
         {
-          label: this.$t("actionsheet.title"),
-          type: "info"
+          label: this.$t('actionsheet.title'),
+          type: 'info'
         },
         {
-          label: "Primary",
-          type: "primary",
-          value: "primary",
-          otherProp: "hey"
+          label: 'Primary',
+          type: 'primary',
+          value: 'primary',
+          otherProp: 'hey'
         },
         {
-          label: "Warn",
-          type: "warn"
+          label: 'Warn',
+          type: 'warn'
         },
         {
-          label: "Disabled",
-          type: "disabled"
+          label: 'Disabled',
+          type: 'disabled'
         },
         {
-          label: "Default"
+          label: 'Default'
         }
       ]
     };
   },
   methods: {
     click(key) {
-      console.log("click key=", key);
+      console.log('click key=', key);
     },
     showToast(key) {
       LoadingApi.show(this, {
-        transition: "",
-        text: this.$t("common.processing")
+        transition: '',
+        text: this.$t('common.processing')
       });
       setTimeout(() => {
         LoadingApi.hide(this);

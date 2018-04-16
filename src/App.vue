@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { Loading } from 'rainbow-mobile-core'
+import { Loading } from 'rainbow-mobile-core';
 import { mapState } from 'vuex';
 export default {
   name: 'app',
@@ -17,7 +17,7 @@ export default {
     ...mapState({
       isLoading: state => state.loading.isLoading
     }),
-    loading(){
+    loading() {
       return this.$t('common.loading');
     }
   }

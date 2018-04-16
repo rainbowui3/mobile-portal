@@ -28,9 +28,9 @@ import {
   TabBar,
   RButton,
   DateTime
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoVehicleAndVesselTax";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoVehicleAndVesselTax';
 import config from '../../../../config/config';
 export default {
   components: {
@@ -47,29 +47,28 @@ export default {
   data() {
     return {
       policy: {
-        taxesSign:[],
-        lastTaxStart:"",
-        lastTaxYear:"",
-        lastFeeCalculate:"",
-        refuseCase:[],
-        taxPayerNo:"",
+        taxesSign: [],
+        lastTaxStart: '',
+        lastTaxYear: '',
+        lastFeeCalculate: '',
+        refuseCase: [],
+        taxPayerNo: ''
       },
-      formatDate:config.DEFAULT_DATE_FORMATER,
-      formatYear:config.DEFAULT_YEAR_FORMATER,
-      list1: [["拒绝原因1","拒绝原因2","拒绝原因3","拒绝原因4"]]
+      formatDate: config.DEFAULT_DATE_FORMATER,
+      formatYear: config.DEFAULT_YEAR_FORMATER,
+      list1: [['拒绝原因1', '拒绝原因2', '拒绝原因3', '拒绝原因4']]
     };
   },
   methods: {
-    calculatePremium(){      
-        this.$router.push("/project/proposal/payStatus");
+    calculatePremium() {
+        this.$router.push('/project/proposal/payStatus');
         // this.$router.push("");
+    },
+    onChange() {
 
     },
-    onChange(){
-
-    },
-    goto(event){
-      window.location.hash="";
+    goto(event) {
+      window.location.hash = '';
     }
 
   }

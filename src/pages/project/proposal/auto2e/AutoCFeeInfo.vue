@@ -20,10 +20,10 @@ import {
   Page,
   RBody,
   Card,
-  RInput,
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoCFeeInfo";
+  RInput
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoCFeeInfo';
 
 export default {
   components: {
@@ -35,28 +35,28 @@ export default {
   },
   data() {
     return {
-      row:"row",
+      row: 'row',
       policy: {
-          wholeListCRate:"15.0000%",
-          wholeListCAmount:"1546.12元",
-          commCRate:"15%",
-          commCAmount:"1546.12元",
-          CompCRate:"%",
-          compCAmount:"元"
+          wholeListCRate: '15.0000%',
+          wholeListCAmount: '1546.12元',
+          commCRate: '15%',
+          commCAmount: '1546.12元',
+          CompCRate: '%',
+          compCAmount: '元'
 
       }
     };
   },
   methods: {
-    nextOnClick(){      
-        this.$router.push("/project/proposal/auto2e/AutoPlan");
+    nextOnClick() {
+        this.$router.push('/project/proposal/auto2e/AutoPlan');
         // this.$router.push("");
     },
-    gotoFee(event){
-         window.location.hash='/component/example/preview'
+    gotoFee(event) {
+         window.location.hash = '/component/example/preview';
     },
-    gotoFloatRate(event){
-         window.location.hash='/component/example/preview'
+    gotoFloatRate(event) {
+         window.location.hash = '/component/example/preview';
     }
 
   }

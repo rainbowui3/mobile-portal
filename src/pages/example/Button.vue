@@ -62,11 +62,11 @@
 </template>
 
 <script>
-import {Page,Box,RButton,Card,Cell,RBody} from 'rainbow-mobile-core';
+import {Page, Box, RButton, Card, Cell, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/button";
+import '../../i18n/component';
+import '../../i18n/button';
 
 export default {
   components: {
@@ -79,17 +79,17 @@ export default {
     Cell,
     RBody
   },
-  data(){
+  data() {
     return {
-       padding:"10px 10px",
-       homeUrl:"/#/",
-       backUrl:"BACK",
-       row:"row"
-    }
+       padding: '10px 10px',
+       homeUrl: '/#/',
+       backUrl: 'BACK',
+       row: 'row'
+    };
   },
-  methods:{
-    clickHome(event){
-      console.log(event)
+  methods: {
+    clickHome(event) {
+      console.log(event);
     }
   }
 };

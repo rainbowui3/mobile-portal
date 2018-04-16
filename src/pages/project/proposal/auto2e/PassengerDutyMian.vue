@@ -28,9 +28,9 @@ import {
   TabBar,
   RButton,
   Selector
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoPlan';
 
 export default {
   components: {
@@ -38,31 +38,31 @@ export default {
     RBody,
     Card,
     Top,
-    RSwitch,   
-    RInput,  
+    RSwitch,
+    RInput,
     TabBar,
     RButton,
     Selector
   },
   data() {
     return {
-      options:[{"key":"20001","value":"10万"},{"key":"20002","value":"20万"}],
+      options: [{'key': '20001', 'value': '10万'}, {'key': '20002', 'value': '20万'}],
       policy: {
-        sumInsured:"",
-        sdew:true,
-        seatNo:"4",
-        singleSumInsured:"20001",
-        copilot:false,
-        copilotSeats:"",
-        copilotSumInsured:""
+        sumInsured: '',
+        sdew: true,
+        seatNo: '4',
+        singleSumInsured: '20001',
+        copilot: false,
+        copilotSeats: '',
+        copilotSumInsured: ''
       }
     };
   },
   methods: {
-    confirm(){      
+    confirm() {
         // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
         // this.$router.push("");
-    },
+    }
   }
 };
 </script>

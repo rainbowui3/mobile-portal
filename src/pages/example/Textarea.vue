@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import {Page,Card,RTextarea,RInput,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RTextarea, RInput, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/preview";
-import "../../i18n/input";
+import '../../i18n/component';
+import '../../i18n/preview';
+import '../../i18n/input';
 export default {
   components: {
     Bottom,
@@ -42,32 +42,32 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
       return {
-          policy:{
-              value:null,
-          value1:null,
+          policy: {
+              value: null,
+          value1: null
           }
-      }
+      };
   },
-  methods:{
+  methods: {
       validateInput(value) {
         return {
           valid: value === '12345',
           msg: this.$t('input.validate')
-        }
+        };
       },
-      onFocus(){
-          console.log("this is onFocus");
+      onFocus() {
+          console.log('this is onFocus');
       },
-      onBlur(){
-          console.log("this is onBlur");
+      onBlur() {
+          console.log('this is onBlur');
       },
-      onChange(value){
-          console.log("this is onChange",value);
+      onChange(value) {
+          console.log('this is onChange', value);
       },
-      onEnter(){
-          console.log("this is onEnter");
+      onEnter() {
+          console.log('this is onEnter');
       }
   }
 };

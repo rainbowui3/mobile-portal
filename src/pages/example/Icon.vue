@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import {Page,Card,Grid,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Grid, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/icon";
-import "../../i18n/component";
+import '../../i18n/icon';
+import '../../i18n/component';
 
 export default {
   components: {
@@ -32,32 +32,33 @@ export default {
     Grid,
     RBody
   },
-  computed:{
-    gridItems3(){
+  computed: {
+    gridItems3() {
       return [
-        { 'icon':"fa fa-bicycle fa-2x",'text': 'fa-bicycle'},
-        { 'icon':"fa fa-bus fa-2x",'text': 'fa-bus'},
-        { 'icon':"fa fa-cloud fa-2x",'text': 'fa-cloud'},
-        { 'icon':"fa fa-coffee fa-2x",'text': 'fa-coffee'},
-      ]
+        { 'icon': 'fa fa-bicycle fa-2x', 'text': 'fa-bicycle'},
+        { 'icon': 'fa fa-bus fa-2x', 'text': 'fa-bus'},
+        { 'icon': 'fa fa-cloud fa-2x', 'text': 'fa-cloud'},
+        { 'icon': 'fa fa-coffee fa-2x', 'text': 'fa-coffee'}
+      ];
     },
-    list(){
+    list() {
       return [{
         label: 'javascript',
         value: this.$t('icon.nojs')
       }, {
         label: 'css',
         value: this.$t('icon.css')
-      }]
+      }];
     },
-    buttons2(){
+    buttons2() {
       return [{
         style: 'primary',
         text: this.$t('common.more'),
         onButtonClick: (param) => {
-          window.location.href='https://www.thinkcmf.com/font/font_awesome/icons.html'
+          window.location.href = 'https://www.thinkcmf.com/font/font_awesome/icons.html';
         }
-    }]}
+    }];
+}
   }
 };
 </script>

@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import {Page,Card,Step,RButton,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Step, RButton, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/step";
+import '../../i18n/component';
+import '../../i18n/step';
 
 export default {
   components: {
@@ -31,35 +31,35 @@ export default {
     RButton,
     RBody
   },
-  methods:{
-      add(){
+  methods: {
+      add() {
           this.step++;
       },
-      sub(){
+      sub() {
           this.step--;
       }
   },
-  data(){
+  data() {
       return {
-          step:1
-      }
+          step: 1
+      };
   },
-  computed:{
-    list(){
+  computed: {
+    list() {
       return [
-        { 'title':this.$t('step.step1')},
-        { 'title':this.$t('step.step2')},
-        { 'title':this.$t('step.step3')},
-      ]
+        { 'title': this.$t('step.step1')},
+        { 'title': this.$t('step.step2')},
+        { 'title': this.$t('step.step3')}
+      ];
     },
-    list1(){
+    list1() {
       return [
-        { 'title':this.$t('step.step1'),'isDone':true,'lineSpan':15},
-        { 'title':this.$t('step.step2'),'isDone':true,'lineSpan':30,'tip':this.$t('common.cancel'),'process':70},
-        { 'title':this.$t('step.step3'),'isDone':false,'lineSpan':10},
-      ]
-    },
-  },
+        { 'title': this.$t('step.step1'), 'isDone': true, 'lineSpan': 15},
+        { 'title': this.$t('step.step2'), 'isDone': true, 'lineSpan': 30, 'tip': this.$t('common.cancel'), 'process': 70},
+        { 'title': this.$t('step.step3'), 'isDone': false, 'lineSpan': 10}
+      ];
+    }
+  }
 };
 </script>
 

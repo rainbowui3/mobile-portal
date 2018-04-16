@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import {Page,Card,Checker,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Checker, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/input";
+import '../../i18n/component';
+import '../../i18n/input';
 
 export default {
   components: {
@@ -42,15 +42,15 @@ export default {
     Checker,
     RBody
   },
-  data(){
+  data() {
       return {
-          policy:{
-                value:null,
-                value1:'1000000',
-                value2:false,
-                value3:true,
-                value4:null,
-                value5:[ '10000', '100000' ],
+          policy: {
+                value: null,
+                value1: '1000000',
+                value2: false,
+                value3: true,
+                value4: null,
+                value5: [ '10000', '100000' ]
           },
           items1: [{
                 key: '1',
@@ -61,24 +61,24 @@ export default {
             }, {
                 key: '3',
                 value: 'C'
-        }],
-      }
+        }]
+      };
   },
-  computed:{
-      list(){
-          return [{"key":"10000","value":"1万",'disabled':true},{"key":"100000","value":"10万"},{"key":"1000000","value":"100万"},{"key":"10000000","value":"1000万"}]
+  computed: {
+      list() {
+          return [{'key': '10000', 'value': '1万', 'disabled': true}, {'key': '100000', 'value': '10万'}, {'key': '1000000', 'value': '100万'}, {'key': '10000000', 'value': '1000万'}];
       },
-      inlineDescList(){
+      inlineDescList() {
           return [
                 {key: '1', value: 'Tiger is good', inlineDesc: 'Tiger is the king of mountain'},
                 {key: '2', value: 'Lion is better', inlineDesc: 'Lion is the king of woods'},
                 {key: '3', value: 'Camel is best, no inline-desc'}
-          ]
-      } ,
+          ];
+      }
   },
-  methods:{
-      onChange(value){
-            console.log(value)
+  methods: {
+      onChange(value) {
+            console.log(value);
       }
   }
 };

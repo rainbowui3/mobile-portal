@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import {Page,Card,Badge,Row,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Badge, Row, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/row";
+import '../../i18n/row';
 
 export default {
   components: {
@@ -41,7 +41,7 @@ export default {
     Badge,
     Row,
     RBody
-  },
+  }
 };
 </script>
 <style scoped>

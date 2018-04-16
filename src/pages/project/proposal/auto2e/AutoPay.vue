@@ -38,19 +38,19 @@ import {
   Cell,
   RImage,
   RButton
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import QRCode from "../../../../assets/guanfangweixin.jpg";
-import "../../../../i18n/autoPay";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import QRCode from '../../../../assets/guanfangweixin.jpg';
+import '../../../../i18n/autoPay';
 export default {
   components: { Page, RBody, Top, Card, TabBar, Cell, RImage, RButton },
   data() {
     return {
       model: {
-        proposalNum: "xxxxxxxxxxx",
-        payNum: "xxxxxxxxx",
-        verificationCode: "xxxxxxx",
-        images: [{ class: "image", src: QRCode }]
+        proposalNum: 'xxxxxxxxxxx',
+        payNum: 'xxxxxxxxx',
+        verificationCode: 'xxxxxxx',
+        images: [{ class: 'image', src: QRCode }]
       }
     };
   }

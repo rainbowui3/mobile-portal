@@ -28,8 +28,8 @@ import {
   RSwitch,
   DateTime,
   Toast
-} from "rainbow-mobile-core";
-import "../../../i18n/carInfo";
+} from 'rainbow-mobile-core';
+import '../../../i18n/carInfo';
 export default {
   components: {
     Card,
@@ -63,10 +63,10 @@ export default {
   },
   methods: {
     onClick: function() {
-      if (this.model.model && this.model.model != "") {
+      if (this.model.model && this.model.model != '') {
         this.$router.push({
-          path: "/project/proposal/auto2e/ChooseCar",
-          name: "ChooseCar",
+          path: '/project/proposal/auto2e/ChooseCar',
+          name: 'ChooseCar',
           params: {
             carModel: this.model.model
           }

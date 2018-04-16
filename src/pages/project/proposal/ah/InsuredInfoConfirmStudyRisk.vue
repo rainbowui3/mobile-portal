@@ -46,15 +46,15 @@ import {
   Selector,
   DateTime,
   Toast
-} from "rainbow-mobile-core";
-import Top from "@/components/Top";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import Validate from "../../utils/Valitate";
-import Getbirthday from "../../utils/Getbirthday";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import "../../../../i18n/insuredInfoStudyRisk";
-import "../../../../i18n/insuredInfoEntryHealthSub";
+} from 'rainbow-mobile-core';
+import Top from '@/components/Top';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import Validate from '../../utils/Valitate';
+import Getbirthday from '../../utils/Getbirthday';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import '../../../../i18n/insuredInfoStudyRisk';
+import '../../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
     Page,
@@ -94,15 +94,15 @@ export default {
       //   mobileNum: "18398768724",
       //   email: "wangxm@outlook.com"
       // },
-      buttonName: "proposalConfirm.submitPay",
-      amount: "100",
+      buttonName: 'proposalConfirm.submitPay',
+      amount: '100',
       options: [
-        { key: "10000", value: "身份证" },
-        { key: "10002", value: "护照" }
+        { key: '10000', value: '身份证' },
+        { key: '10002', value: '护照' }
       ],
       options1: [
-        { key: "10000", value: "父母" },
-        { key: "10001", value: "祖父母" }
+        { key: '10000', value: '父母' },
+        { key: '10001', value: '祖父母' }
       ],
       isValidateNum: false,
       readonly: true,
@@ -115,12 +115,12 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.removeItem("policy");
+        sessionStorage.removeItem('policy');
         let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         // this.$router.push("/project/proposal/payStatus");
-        if(route && route.route4 && route.route4!=''){
+        if (route && route.route4 && route.route4 != '') {
           this.$router.push({
-            path:'/proposal/ah/AHRouterPay/'+this.$route.params.productCode+'/'+this.$route.params.agentCode+'/'+route.route4
+            path: '/proposal/ah/AHRouterPay/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route4
           });
         }
       } else {
@@ -129,7 +129,7 @@ export default {
     }
   },
   created: function() {
-    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
   }
 };
 </script>

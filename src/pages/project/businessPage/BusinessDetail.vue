@@ -42,15 +42,15 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody, Divider ,TabBar,RButton} from "rainbow-mobile-core";
-import image from "../../../assets/u17.png";
-import iamgeOne from "../../../assets/u183.png";
-import Top from "../../../components/Top";
-import Plan from "../components/plan/Plan";
-import supplier from "../../../assets/u204.png";
-import ProposalClauseConfirm from "../components/ProposalClauseConfirm";
+import { Page, Card, RTable, RBody, Divider, TabBar, RButton} from 'rainbow-mobile-core';
+import image from '../../../assets/u17.png';
+import iamgeOne from '../../../assets/u183.png';
+import Top from '../../../components/Top';
+import Plan from '../components/plan/Plan';
+import supplier from '../../../assets/u204.png';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 
-import "../../../i18n/businessDetails";
+import '../../../i18n/businessDetails';
 
 export default {
     components: {
@@ -74,24 +74,24 @@ export default {
             image: image,
             iamgeOne: iamgeOne,
             supplier: supplier,
-            itemName: [{ text: "A计划" }, { text: "B计划" }],
+            itemName: [{ text: 'A计划' }, { text: 'B计划' }],
             contentItems: [
                 {
                     content: {
-                        title: "保障项目",
-                        name: "全球航空意外身故及残疾",
-                        limit: "保额额度",
-                        data: "200万",
-                        price: "108"
+                        title: '保障项目',
+                        name: '全球航空意外身故及残疾',
+                        limit: '保额额度',
+                        data: '200万',
+                        price: '108'
                     }
                 },
                 {
                     content: {
-                        title: "保障项目B",
-                        name: "全球航空意外身故及残疾B",
-                        limit: "保额额度B",
-                        data: "500万",
-                        price: "90"
+                        title: '保障项目B',
+                        name: '全球航空意外身故及残疾B',
+                        limit: '保额额度B',
+                        data: '500万',
+                        price: '90'
                     }
                 }
             ]

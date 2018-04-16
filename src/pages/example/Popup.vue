@@ -61,14 +61,14 @@
 </template>
 
 <script>
-import {Page,Card,RSwitch,Actionsheet,Toast,Popup,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, Actionsheet, Toast, Popup, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/preview";
-import "../../i18n/popup";
+import '../../i18n/component';
+import '../../i18n/preview';
+import '../../i18n/popup';
 export default {
   components: {
     Bottom,
@@ -82,13 +82,13 @@ export default {
     Previewer,
     RBody
   },
-  data(){
+  data() {
     return {
-      policy: {},
-    }
+      policy: {}
+    };
   },
-  computed:{
-      list(){
+  computed: {
+      list() {
       return [{
         label: this.$t('preview.goods'),
         value: this.$t('preview.machine')
@@ -98,34 +98,35 @@ export default {
       }, {
         label: this.$t('preview.name'),
         value: this.$t('preview.longName')
-      }]
+      }];
     },
-    buttons2(){
+    buttons2() {
       return [{
         style: 'primary',
         text: this.$t('common.close'),
         onButtonClick: (param) => {
-          this.policy[param["key"]] = false
+          this.policy[param['key']] = false;
         }
-    }]}
+    }];
+}
   },
-  methods:{
-    onHide(){
-      console.log("onHide")
+  methods: {
+    onHide() {
+      console.log('onHide');
     },
-    click(){
-      console.log(this.policy)
+    click() {
+      console.log(this.policy);
     },
-    click2(){
+    click2() {
         setTimeout(() => {
-          this.policy.show5 = false
-        }, 2000)
+          this.policy.show5 = false;
+        }, 2000);
     },
-    click3(){
+    click3() {
         setTimeout(() => {
-          this.policy.show6 = false
-        }, 2000)
-    },
+          this.policy.show6 = false;
+        }, 2000);
+    }
   }
 };
 </script>

@@ -30,12 +30,12 @@ import {
   RInput,
   RSwitch,
   Selector
-} from "rainbow-mobile-core";
-import Top from "@/components/Top";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import HolderInfo from "../../components/HolderInfo";
-import "../../../../i18n/insuredInfoAccident";
-import "../../../../i18n/input";
+} from 'rainbow-mobile-core';
+import Top from '@/components/Top';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import HolderInfo from '../../components/HolderInfo';
+import '../../../../i18n/insuredInfoAccident';
+import '../../../../i18n/input';
 export default {
   components: {
     Page,
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      policy:{},
+      policy: {},
       // holderInfo: {
       //   name: "王小明",
       //   certificateId: "10000",
@@ -79,9 +79,9 @@ export default {
       //   seatNum: "12C",
       //   email: "wangxm@outlook.com"
       // },
-      buttonName: "proposalConfirm.immediatelyInsure",
-      amount: "100",
-      required:true,
+      buttonName: 'proposalConfirm.immediatelyInsure',
+      amount: '100',
+      required: true
     };
   },
   watch: {
@@ -111,22 +111,22 @@ export default {
         this.policy.holderInfo.mobileNum = this.policy.passengerInfo.mobileNum;
         this.policy.holderInfo.email = this.policy.passengerInfo.email;
       } else {
-        this.policy.holderInfo = {   
-        name:"",
-        certificateId:"",
-        certificateNum:"",
-        birthdate:"",
-        mobileNum:"",
-        email:""
+        this.policy.holderInfo = {
+        name: '',
+        certificateId: '',
+        certificateNum: '',
+        birthdate: '',
+        mobileNum: '',
+        email: ''
         };
       }
     },
-    onClick: function() {    
-      sessionStorage.setItem("policy",JSON.stringify(this.policy));
+    onClick: function() {
+      sessionStorage.setItem('policy', JSON.stringify(this.policy));
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
-      if(route && route.route3 && route.route3 != ''){
+      if (route && route.route3 && route.route3 != '') {
         this.$router.push({
-          path:'/proposal/ah/AHRouterConfirm/'+this.$route.params.productCode + '/'+this.$route.params.agentCode+'/'+route.route3
+          path: '/proposal/ah/AHRouterConfirm/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route3
         });
       }
       // this.$router.push({
@@ -137,16 +137,16 @@ export default {
     }
   },
   created: function() {
-    this.policy  = JSON.parse(sessionStorage.getItem("policy"));
-    this.policy.passengerInfo = {relationToHolder:true};
-    this.policy.holderInfo={
-        name:"",
-        certificateId:"",
-        certificateNum:"",
-        birthdate:"",
-        mobileNum:"",
-        email:""
-    }
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
+    this.policy.passengerInfo = {relationToHolder: true};
+    this.policy.holderInfo = {
+        name: '',
+        certificateId: '',
+        certificateNum: '',
+        birthdate: '',
+        mobileNum: '',
+        email: ''
+    };
   }
 };
 </script>

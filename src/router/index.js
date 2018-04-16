@@ -55,7 +55,7 @@ const CarInfo = r => require.ensure([], () => r(require('@/pages/project/compone
 const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
 const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
 
-//ah
+// ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
 const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
 const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
@@ -76,9 +76,7 @@ const HealthInform = r => require.ensure([], () => r(require('@/pages/project/pr
 const HealthInformConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/HealthInformConfirm'), 'HealthInformConfirm'));
 const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
 
-
-
-//auto2e
+// auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ChooseHandler'), 'ChooseHandler'));
 const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPlan'), 'AutoPlan'));
@@ -110,7 +108,7 @@ const AppointRepairShop = r => require.ensure([], () => r(require('@/pages/proje
 const AutoPay = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPay'), 'AutoPay'));
 const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
 const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
-//auto2c
+// auto2c
 const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cProposalInfoConfirm'), 'Auto2cProposalInfoConfirm'));
 const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
 const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
@@ -137,263 +135,262 @@ const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/examp
 // logn in
 const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
 
-//businessPage
+// businessPage
 const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
-//businessHome
+// businessHome
 const BusinessHome = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessHome')), 'BusinessHome');
 
-//loading
+// loading
 const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
-//businessLogin
+// businessLogin
 const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'BusinessLogin');
-//businessDetail
+// businessDetail
 const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessDetail')), 'BusinessDetail');
 // BusinessFillIn
 const BusinessFillIn = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessFillIn')), 'BusinessFillIn');
 
-//AHRouters
+// AHRouters
 const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
 const AHRouterEntry = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'AHRouterEntry');
 const AHRouterConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'AHRouterConfirm');
 const AHRouterPay = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'AHRouterPay');
 
-
-Vue.use(Router);//告诉vue 使用 vue-router
+Vue.use(Router);// 告诉vue 使用 vue-router
 const router = new Router({
   routes: [{
     path: '/',
     name: 'Hello',
-    component: Home,
+    component: Home
   },
   {
     path: '/component/example/badge',
     name: 'Badge',
-    component: Badge,
+    component: Badge
   },
   {
     path: '/component/example/marquee',
     name: 'Marquee',
-    component: Marquee,
+    component: Marquee
   },
   {
     path: '/component/example/loading',
     name: 'Loading',
-    component: Loading,
+    component: Loading
   },
   {
     path: '/component/example/confirm',
     name: 'Confirm',
-    component: Confirm,
+    component: Confirm
   },
   {
     path: '/component/example/alert',
     name: 'Alert',
-    component: Alert,
+    component: Alert
   },
   {
     path: '/component/example/msg',
     name: 'Msg',
-    component: Msg,
+    component: Msg
   },
   {
     path: '/component/example/search',
     name: 'Search',
-    component: Search,
+    component: Search
   },
   {
     path: '/component/example/dialog',
     name: 'Dialog',
-    component: Dialog,
+    component: Dialog
   },
   {
     path: '/component/example/spinner',
     name: 'Spinner',
-    component: Spinner,
+    component: Spinner
   },
   {
     path: '/component/example/checker',
     name: 'Checker',
-    component: Checker,
+    component: Checker
   },
   {
     path: '/component/example/step',
     name: 'Step',
-    component: Step,
+    component: Step
   },
   {
     path: '/component/example/popup',
     name: 'Popup',
-    component: Popup,
+    component: Popup
   },
   {
     path: '/component/example/tabBar',
     name: 'TabBar',
-    component: TabBar,
+    component: TabBar
   },
   {
     path: '/component/example/toast',
     name: 'Toast',
-    component: Toast,
+    component: Toast
   },
   {
     path: '/component/example/page',
     name: 'Page',
-    component: Page,
+    component: Page
   },
   {
     path: '/component/example/img',
     name: 'Image',
-    component: Image,
+    component: Image
   },
   {
     path: '/component/example/icon',
     name: 'Icon',
-    component: Icon,
+    component: Icon
   },
   {
     path: '/component/example/header',
     name: 'Header',
-    component: Header,
+    component: Header
   },
   {
     path: '/component/example/grid',
     name: 'Grid',
-    component: Grid,
+    component: Grid
   },
   {
     path: '/component/example/divider',
     name: 'Divider',
-    component: Divider,
+    component: Divider
   },
   {
     path: '/component/example/row',
     name: 'Row',
-    component: Row,
+    component: Row
   },
   {
     path: '/component/example/panel',
     name: 'Panel',
-    component: Panel,
+    component: Panel
   },
   {
     path: '/component/example/swiper',
     name: 'Swiper',
-    component: Swiper,
+    component: Swiper
   },
   {
     path: '/component/example/button',
     name: 'Button',
-    component: Button,
+    component: Button
   },
   {
     path: '/component/example/cell',
     name: 'Cell',
-    component: Cell,
+    component: Cell
   },
   {
     path: '/component/example/list',
     name: 'List',
-    component: List,
+    component: List
   },
   {
     path: '/component/example/preview',
     name: 'Preview',
-    component: Preview,
+    component: Preview
   },
   {
     path: '/component/example/table',
     name: 'Table',
-    component: Table,
+    component: Table
   },
   {
     path: '/component/example/tab',
     name: 'Tab',
-    component: Tab,
+    component: Tab
   },
   {
     path: '/component/example/picker',
     name: 'Picker',
-    component: Picker,
+    component: Picker
   },
   {
     path: '/component/example/selector',
     name: 'Selector',
-    component: Selector,
+    component: Selector
   },
   {
     path: '/component/example/card',
     name: 'Card',
-    component: Card,
+    component: Card
   },
   {
     path: '/component/example/datetime',
     name: 'DateTime',
-    component: DateTime,
+    component: DateTime
   },
   {
     path: '/component/example/switch',
     name: 'Switch',
-    component: Switch,
+    component: Switch
   },
   {
     path: '/component/example/input',
     name: 'Input',
-    component: Input,
+    component: Input
   },
   {
     path: '/component/example/texarea',
     name: 'Textarea',
-    component: Textarea,
+    component: Textarea
   },
   {
     path: '/component/example/actionsheet',
     name: 'Actionsheet',
-    component: Actionsheet,
+    component: Actionsheet
   },
   {
     path: '/component/core',
     name: 'ComponentCore',
-    component: ComponentCore,
+    component: ComponentCore
   },
   {
     path: '/component/advanced',
     name: 'ComponentAdvanced',
-    component: ComponentAdvanced,
+    component: ComponentAdvanced
   },
   {
     path: '/component/business',
     name: 'ComponentBusiness',
-    component: ComponentBusiness,
+    component: ComponentBusiness
   },
   {
     path: '/demo',
     name: 'Demo',
-    component: Demo,
+    component: Demo
   },
   {
     path: '/demo/auto',
     name: 'Auto',
-    component: Auto,
+    component: Auto
   },
   {
     path: '/demo/AH',
     name: 'AH',
-    component: AH,
+    component: AH
   },
   {
     path: '/demo/GI',
     name: 'GI',
-    component: GI,
+    component: GI
   },
   {
     path: '/donate',
     name: 'Donate',
-    component: Donate,
+    component: Donate
   },
   {
     path: '/project/ly',
     name: 'Ly',
-    component: Ly,
+    component: Ly
   },
   {
     path: '/templateComponents/planSelection',
@@ -429,14 +426,14 @@ const router = new Router({
     name: 'TreeTest',
     component: TreeTest
   },
-  //loadingPage
+  // loadingPage
   {
     path: '/proposal/loadingPage/:productCode/:agentCode',
     name: 'LoadingPage',
-    component: LoadingPage,
+    component: LoadingPage
   },
 
-  //ahRouters
+  // ahRouters
   {
     path: '/proposal/ah/AHRouterProduct/:productCode/:agentCode',
     name: 'AHRouterProduct',
@@ -444,7 +441,7 @@ const router = new Router({
     children: [{
       path: 'normal',
       name: 'AHRouterProductNormal',
-      component: ProductInfoEntryNormal,
+      component: ProductInfoEntryNormal
     },
     {
       path: 'shortTerm',
@@ -455,7 +452,7 @@ const router = new Router({
       path: 'health',
       name: 'AHRouterProductHealth',
       component: ProductInfoEntryHealth
-    }],
+    }]
   },
   {
     path: '/proposal/ah/AHRouterEntry/:productCode/:agentCode',
@@ -483,10 +480,10 @@ const router = new Router({
       component: InsuredInfoStudyRisk
     },
     {
-      path:'passenger',
+      path: 'passenger',
       component: InsuredInfoEntryPassenger
     }
-    ],
+    ]
   },
   {
     path: '/proposal/ah/AHRouterConfirm/:productCode/:agentCode',
@@ -511,7 +508,7 @@ const router = new Router({
     {
       path: 'passenger',
       component: InsuredInfoConfirmPassenger
-    }],
+    }]
   },
   {
     path: '/proposal/ah/AHRouterPay/:productCode/:agentCode',
@@ -521,9 +518,9 @@ const router = new Router({
       path: 'normal',
       name: 'AHRouterPayNormal',
       component: PayStatus
-    }],
+    }]
   },
-  //ah
+  // ah
   {
     path: '/project/proposal/ah/insuredInfoEntryNormal',
     name: 'InsuredInfoEntryNormal',
@@ -598,9 +595,7 @@ const router = new Router({
     component: InsuredInfoConfirmHealth
   },
 
-
-
-  //auto2e
+  // auto2e
   {
     path: '/project/proposal/auto2e/ChooseHandler',
     name: 'ChooseHandler',
@@ -726,7 +721,7 @@ const router = new Router({
     name: 'AutoProposalInfoConfirm',
     component: AutoProposalInfoConfirm
   },
-  //auto2c
+  // auto2c
   {
     path: '/project/proposal/auto2c/Auto2cProposalInfoConfirm',
     name: 'Auto2cProposalInfoConfirm',
@@ -845,9 +840,9 @@ const router = new Router({
     path: '/project/businessPage/BusinessFillIn',
     name: 'BusinessFillIn',
     component: BusinessFillIn
-  },
-  
-  ],
+  }
+
+  ]
 });
 
 export default router;

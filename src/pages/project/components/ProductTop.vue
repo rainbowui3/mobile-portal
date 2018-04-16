@@ -12,12 +12,12 @@
 <script>
 import {Card} from 'rainbow-mobile-core';
 export default {
-  components: { 
+  components: {
     Card
   },
-  props:{
-    productImgSrc:String,
-    productDes: String,
+  props: {
+    productImgSrc: String,
+    productDes: String
   }
 };
 </script>

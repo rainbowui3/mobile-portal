@@ -70,9 +70,9 @@ import {
   TabBar,
   RButton,
   Checker
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/AutoPremiumInfo";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/AutoPremiumInfo';
 import config from 'config';
 
 export default {
@@ -92,29 +92,29 @@ export default {
   },
   data() {
     return {
-      row:"row",
-      padding:"0px",
-      format:config.DEFAULT_DATE_FORMATER,
+      row: 'row',
+      padding: '0px',
+      format: config.DEFAULT_DATE_FORMATER,
       policy: {
         isAgent: true,
-        value1: "12",
-        proCode:"",
-        riskCat:[],
-        bizCode:[]
+        value1: '12',
+        proCode: '',
+        riskCat: [],
+        bizCode: []
 
       }
     };
   },
   methods: {
-    nextOnClick(){      
-        this.$router.push("/project/proposal/auto2e/AutoPlan");
+    nextOnClick() {
+        this.$router.push('/project/proposal/auto2e/AutoPlan');
         // this.$router.push("");
     },
-    gotoFee(event){
-         window.location.hash='/project/proposal/auto2e/AutoCFeeInfo'
+    gotoFee(event) {
+         window.location.hash = '/project/proposal/auto2e/AutoCFeeInfo';
     },
-    gotoFloatRate(event){
-         window.location.hash='/project/proposal/auto2e/AutoFloatRateInfo'
+    gotoFloatRate(event) {
+         window.location.hash = '/project/proposal/auto2e/AutoFloatRateInfo';
     }
 
   }

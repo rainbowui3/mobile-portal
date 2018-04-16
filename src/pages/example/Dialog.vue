@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import {Page,Card,RSwitch,RDialog,Toast,RImage,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, RDialog, Toast, RImage, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import dialog from '../../assets/dialog.jpg';
-import "../../i18n/component";
-import "../../i18n/row";
-import "../../i18n/dialog";
+import '../../i18n/component';
+import '../../i18n/row';
+import '../../i18n/dialog';
 
 export default {
   components: {
@@ -61,16 +61,16 @@ export default {
     RImage,
     RBody
   },
-  data(){
+  data() {
     return {
-      dialogImage:dialog,
-      policy: {},
-    }
+      dialogImage: dialog,
+      policy: {}
+    };
   },
-  methods:{
-    click(){
-      console.log(this.policy)
-    },
+  methods: {
+    click() {
+      console.log(this.policy);
+    }
   }
 };
 </script>

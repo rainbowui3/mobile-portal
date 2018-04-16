@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import { Page, Card, RBody } from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import ShowOne from "../project/components/businessHome/ShowOne";
-import ShowTwo from "../project/components/businessHome/ShowTwo";
-import "../../i18n/businessHome";
+import { Page, Card, RBody } from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import ShowOne from '../project/components/businessHome/ShowOne';
+import ShowTwo from '../project/components/businessHome/ShowTwo';
+import '../../i18n/businessHome';
 
 export default {
     components: {
@@ -28,10 +28,10 @@ export default {
         ShowOne,
         ShowTwo
     },
-    data(){
+    data() {
     return {
-            show: true,
-           
+            show: true
+
         };
     }
 };

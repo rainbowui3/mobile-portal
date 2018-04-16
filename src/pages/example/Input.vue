@@ -63,13 +63,13 @@
 </template>
 
 <script>
-import { Page, Card, RInput, RButton ,RBody} from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import "../../i18n/component";
-import "../../i18n/preview";
-import "../../i18n/input";
-import "../../i18n/picker";
+import { Page, Card, RInput, RButton, RBody} from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import '../../i18n/component';
+import '../../i18n/preview';
+import '../../i18n/input';
+import '../../i18n/picker';
 export default {
   components: {
     Bottom,
@@ -82,31 +82,31 @@ export default {
   },
   data() {
     return {
-      policy:{
-      value19:'12345'
+      policy: {
+      value19: '12345'
       }
     };
   },
   methods: {
     validateInput(value) {
       return {
-        valid: value === "12345",
-        msg: this.$t("input.validate")
+        valid: value === '12345',
+        msg: this.$t('input.validate')
       };
     },
     onFocus() {
-      console.log("this is onFocus");
+      console.log('this is onFocus');
     },
     onBlur() {
-      console.log("this is onBlur");
+      console.log('this is onBlur');
     },
     onChange(value) {
-      console.log("this is onChange", value);
+      console.log('this is onChange', value);
     },
     onEnter() {
-      console.log("this is onEnter");
+      console.log('this is onEnter');
     },
-    _onClick(){
+    _onClick() {
 
     }
   }

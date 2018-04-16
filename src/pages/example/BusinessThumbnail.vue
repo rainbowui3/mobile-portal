@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import { Page, Card, RBody } from "rainbow-mobile-core";
-import Top from "../../components/Top";
-import Bottom from "../../components/Bottom";
-import "../../i18n/businessThumbnail";
+import { Page, Card, RBody } from 'rainbow-mobile-core';
+import Top from '../../components/Top';
+import Bottom from '../../components/Bottom';
+import '../../i18n/businessThumbnail';
 export default {
   components: {
     Top,
@@ -22,8 +22,8 @@ export default {
     RBody,
     Card
   },
-  data(){
-    return{}
+  data() {
+    return {};
   }
 };
 </script>

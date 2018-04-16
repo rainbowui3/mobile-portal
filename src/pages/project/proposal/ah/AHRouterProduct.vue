@@ -10,12 +10,12 @@
 export default {
   data() {
     return {
-      value: "",
+      value: '',
       typeList: []
     };
   },
   created: function() {
-    //console.log(this.$route);
+    // console.log(this.$route);
   },
   mounted: function() {
   },

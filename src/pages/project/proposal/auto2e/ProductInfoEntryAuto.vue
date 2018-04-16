@@ -34,12 +34,12 @@ import {
   RInput,
   TabBar,
   RButton
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import Jtgj from "../../../../assets/jtgj.jpg";
-import ProductTop from "../../components/ProductTop";
-import AutoAgent from "../../components/AutoAgent";
-import "../../../../i18n/productInfoEntryAuto";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import Jtgj from '../../../../assets/jtgj.jpg';
+import ProductTop from '../../components/ProductTop';
+import AutoAgent from '../../components/AutoAgent';
+import '../../../../i18n/productInfoEntryAuto';
 
 export default {
   components: {
@@ -58,31 +58,30 @@ export default {
   data() {
     return {
       productImgSrc: Jtgj,
-      productDes: "车险",
-      row: "row",
+      productDes: '车险',
+      row: 'row',
       policy: {
         isAgent: true,
-        value1: "12",
-        proCode:"",
-        riskCat:[],
-        bizCode:[]
+        value1: '12',
+        proCode: '',
+        riskCat: [],
+        bizCode: []
 
       },
-      proCodeOptions:[],
-      riskCatOptions:[],
-      bizCodeOptions:[],
-      productCodeData:null
+      proCodeOptions: [],
+      riskCatOptions: [],
+      bizCodeOptions: [],
+      productCodeData: null
     };
   },
   methods: {
-    nextOnClick(){      
-        this.$router.push("/project/proposal/auto2e/CarAndOwnerInfoEntry");
+    nextOnClick() {
+        this.$router.push('/project/proposal/auto2e/CarAndOwnerInfoEntry');
         // this.$router.push("");
-
     }
 
   },
-  computed:{
+  computed: {
 
   }
 };

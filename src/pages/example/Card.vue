@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import {Page,Divider,Card,RBody} from 'rainbow-mobile-core';
+import {Page, Divider, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/card";
+import '../../i18n/card';
 
 export default {
   components: {
@@ -32,21 +32,21 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
       return {
-          footerLink:"/component/core",
-          path:"http://placeholder.qiniudn.com/640x300",
+          footerLink: '/component/core',
+          path: 'http://placeholder.qiniudn.com/640x300'
 
-      }
+      };
   },
-  computed :{
-    cardList(){
+  computed: {
+    cardList() {
       return [
-        { 'link': '/home', 'number': '40','text': this.$t('component.core') },
-        { 'link': '/component', 'number': '16','text': this.$t('component.advanced') },
-        { 'link': '/example', 'number': '1','text': this.$t('component.business') },
-        { 'link': '/donate', 'number': '1','text': this.$t('component.project') },
-      ]
+        { 'link': '/home', 'number': '40', 'text': this.$t('component.core') },
+        { 'link': '/component', 'number': '16', 'text': this.$t('component.advanced') },
+        { 'link': '/example', 'number': '1', 'text': this.$t('component.business') },
+        { 'link': '/donate', 'number': '1', 'text': this.$t('component.project') }
+      ];
     }
   }
 };

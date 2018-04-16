@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import { Selector, RInput } from "rainbow-mobile-core";
-import "../../../i18n/carOwner";
-import "../../../i18n/holderInfo";
-import Validate from "../utils/Valitate";
-import Getbirthday from "../utils/Getbirthday";
+import { Selector, RInput } from 'rainbow-mobile-core';
+import '../../../i18n/carOwner';
+import '../../../i18n/holderInfo';
+import Validate from '../utils/Valitate';
+import Getbirthday from '../utils/Getbirthday';
 export default {
   components: {
     Selector,
@@ -34,18 +34,18 @@ export default {
     return {
       model: {},
       options_certType: [
-        { key: "1", value: "身份证" },
-        { key: "2", value: "护照" }
+        { key: '1', value: '身份证' },
+        { key: '2', value: '护照' }
       ]
     };
   },
   methods: {
     validateInput: function(value) {
-      if (this.model.indiIdType == "1") {
+      if (this.model.indiIdType == '1') {
         let result = Validate.validateIdNo(value);
         return {
           valid: result === true,
-          msg: this.$t("carOwner.validateId")
+          msg: this.$t('carOwner.validateId')
         };
       } else {
         return {

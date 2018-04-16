@@ -22,10 +22,10 @@ import {
   Page,
   RBody,
   Card,
-  RInput,
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoFloatRateInfo";
+  RInput
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoFloatRateInfo';
 
 export default {
   components: {
@@ -37,28 +37,28 @@ export default {
   },
   data() {
     return {
-      row:"row",
+      row: 'row',
       policy: {
-          compNCDRatio:"1.0",
-          compTrafficViolationRatio:"0.85",
-          ncdRatio:"1.0",
-          trafficViolationRatio:"0.85",
-          freeUWRatio:"1.0",
-          freeChannelRatio:"1.0"
+          compNCDRatio: '1.0',
+          compTrafficViolationRatio: '0.85',
+          ncdRatio: '1.0',
+          trafficViolationRatio: '0.85',
+          freeUWRatio: '1.0',
+          freeChannelRatio: '1.0'
 
       }
     };
   },
   methods: {
-    nextOnClick(){      
-        this.$router.push("/project/proposal/auto2e/AutoPlan");
+    nextOnClick() {
+        this.$router.push('/project/proposal/auto2e/AutoPlan');
         // this.$router.push("");
     },
-    gotoFee(event){
-         window.location.hash='/component/example/preview'
+    gotoFee(event) {
+         window.location.hash = '/component/example/preview';
     },
-    gotoFloatRate(event){
-         window.location.hash='/component/example/preview'
+    gotoFloatRate(event) {
+         window.location.hash = '/component/example/preview';
     }
 
   }

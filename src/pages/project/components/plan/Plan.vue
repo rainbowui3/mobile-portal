@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import { Card } from "rainbow-mobile-core";
-import correct from "../../../../assets/correct.png";
+import { Card } from 'rainbow-mobile-core';
+import correct from '../../../../assets/correct.png';
 
 export default {
     components: {
-        Card,
+        Card
     },
     props: {
         items: { text: String },
@@ -60,7 +60,7 @@ export default {
             this.getShow(index);
         },
         getShow(contentIndex) {
-            //判断两个索引值是否相等
+            // 判断两个索引值是否相等
             return this.pos === contentIndex;
         }
     }

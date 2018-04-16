@@ -29,11 +29,11 @@ import {
     Divider,
     TabBar,
     RButton
-} from "rainbow-mobile-core";
-import Top from "../../../components/Top";
-import HoderInfo from "../components/HolderInfo";
-import Insuredinfo from "../components/Insuredinfo";
-import "../../../i18n/businessFillIn";
+} from 'rainbow-mobile-core';
+import Top from '../../../components/Top';
+import HoderInfo from '../components/HolderInfo';
+import Insuredinfo from '../components/Insuredinfo';
+import '../../../i18n/businessFillIn';
 
 export default {
     components: {

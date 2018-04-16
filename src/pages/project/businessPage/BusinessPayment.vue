@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from "rainbow-mobile-core";
-import Bottom from "../../../components/Bottom";
-import Top from "../../../components/Top";
-import Pay from "../components/pay/Pay";
-import "../../../i18n/businessPage";
+import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
+import Bottom from '../../../components/Bottom';
+import Top from '../../../components/Top';
+import Pay from '../components/pay/Pay';
+import '../../../i18n/businessPage';
 
 export default {
   components: {
@@ -27,7 +27,7 @@ export default {
     RTable,
     Pay,
     RBody
-  },
+  }
 };
 </script>
 

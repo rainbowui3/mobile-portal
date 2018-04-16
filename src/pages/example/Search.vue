@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import {Page,Card,RImage,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RImage, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import timg from '../../assets/timg.jpg';
-import "../../i18n/component";
+import '../../i18n/component';
 
 export default {
   components: {
@@ -23,13 +23,13 @@ export default {
     Card,
     RImage
   },
-  data(){
+  data() {
       return {
-        images:[
-          {"class":"image","src":timg},
+        images: [
+          {'class': 'image', 'src': timg}
         ]
-      }
-  },
+      };
+  }
 };
 </script>
 

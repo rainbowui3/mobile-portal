@@ -20,10 +20,10 @@ import {
   RButton,
   Selector,
   DateTime
-} from "rainbow-mobile-core";
-import Validate from "../utils/Valitate";
-import Getbirthday from "../utils/Getbirthday";
-import "../../../i18n/holderInfo";
+} from 'rainbow-mobile-core';
+import Validate from '../utils/Valitate';
+import Getbirthday from '../utils/Getbirthday';
+import '../../../i18n/holderInfo';
 export default {
   components: {
     Card,
@@ -32,27 +32,27 @@ export default {
     DateTime
   },
   props: {
-    readonly:Boolean,
-    model:Object,
-    required:Boolean
+    readonly: Boolean,
+    model: Object,
+    required: Boolean
   },
   data() {
     return {
-      isValidateNum:false,
+      isValidateNum: false,
       policy: {
-        value2: ""
+        value2: ''
       },
       options: [
-        { key: "10000", value: "身份证" },
-        { key: "10002", value: "护照" }
+        { key: '10000', value: '身份证' },
+        { key: '10002', value: '护照' }
       ],
       options1: [
-        { key: "10000", value: "本人" },
-        { key: "10001", value: "配偶" },
-        { key: "10002", value: "子女" }
+        { key: '10000', value: '本人' },
+        { key: '10001', value: '配偶' },
+        { key: '10002', value: '子女' }
       ],
       certificate: {
-        certificateId: "10000"
+        certificateId: '10000'
       }
     };
   },
@@ -67,13 +67,13 @@ export default {
       }
       return {
         valid: isCertification === true,
-        msg: this.$t("input.validate")
+        msg: this.$t('input.validate')
       };
     }
   },
   computed: {
     onChangeCertiType: function() {
-      if (this.model.certificateId && this.model.certificateId === "10000") {
+      if (this.model.certificateId && this.model.certificateId === '10000') {
         this.isValidateNum = false;
         this.validateNumInput(this.model.certificateNum);
       } else {

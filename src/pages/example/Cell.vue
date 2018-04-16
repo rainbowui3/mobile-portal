@@ -74,11 +74,11 @@
 </template>
 
 <script>
-import {Page,Cell,Card,RBody} from 'rainbow-mobile-core';
+import {Page, Cell, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/cell"
+import '../../i18n/component';
+import '../../i18n/cell';
 
 export default {
   components: {
@@ -89,13 +89,13 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
       return {
-          row:'row',
-          padding:'0px',
-          top:'0px',
-          top2:"8px"
-      }
+          row: 'row',
+          padding: '0px',
+          top: '0px',
+          top2: '8px'
+      };
   }
 };
 </script>

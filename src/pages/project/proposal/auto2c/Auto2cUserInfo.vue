@@ -39,12 +39,12 @@ import {
   Row,
   Cell,
   Checker
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import Jtgj from "../../../../assets/jtgj.jpg";
-import ProductTop from "../../components/ProductTop";
-import "../../../../i18n/Auto2cUserInfo";
-import Validate from "../../utils/Valitate";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import Jtgj from '../../../../assets/jtgj.jpg';
+import ProductTop from '../../components/ProductTop';
+import '../../../../i18n/Auto2cUserInfo';
+import Validate from '../../utils/Valitate';
 
 export default {
   components: {
@@ -63,38 +63,38 @@ export default {
   data() {
     return {
       productImgSrc: Jtgj,
-      productDes: "车险",
-      row: "row",
+      productDes: '车险',
+      row: 'row',
       policy: {
-          drivingCity:"上海",
-          carLicense:"",
-          newCar:false,
-          name:"",
-          certificateNo:"",
-          mobile:""         
-      },
+          drivingCity: '上海',
+          carLicense: '',
+          newCar: false,
+          name: '',
+          certificateNo: '',
+          mobile: ''
+      }
     };
   },
   methods: {
-    nextOnClick(){      
+    nextOnClick() {
         this.$router.push({
-            path:"/project/proposal/auto2c/Auto2cDrivingLicenseInfo",
-            name:"Auto2cDrivingLicenseInfo"
+            path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
+            name: 'Auto2cDrivingLicenseInfo'
         });
     },
-    goto(){
+    goto() {
 
-    },  
-    validateNumInput(value){ 
+    },
+    validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
       return {
-        valid:  isCertification===true,
-        msg: this.$t("input.validate")
-      };       
+        valid: isCertification === true,
+        msg: this.$t('input.validate')
+      };
     }
 
   },
-  computed:{
+  computed: {
 
   }
 };

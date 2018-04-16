@@ -64,8 +64,8 @@ import {
   Box,
   RDialog,
   RImage
-} from "rainbow-mobile-core";
-import "../../../i18n/proposalClauseConfirm";
+} from 'rainbow-mobile-core';
+import '../../../i18n/proposalClauseConfirm';
 export default {
   components: {
     Checker,
@@ -76,22 +76,22 @@ export default {
     RDialog,
     RImage
   },
-  props:{
-    model:{
-      type:Object,
-      default:this.model
+  props: {
+    model: {
+      type: Object,
+      default: this.model
     },
-    value:{
-      type:String,
-      default:"value"      
+    value: {
+      type: String,
+      default: 'value'
     }
   },
   data: function() {
     return {
-      padding: "10px 10px",
+      padding: '10px 10px',
       items: [
-        { clauseName: "投保人须知及声明" },
-        { clauseName: "保险条款" }
+        { clauseName: '投保人须知及声明' },
+        { clauseName: '保险条款' }
         // { clauseName: "XXX规章" },
         // { clauseName: "XXX制度" },
         // { clauseName: "XXX文件" }
@@ -100,7 +100,7 @@ export default {
         value: false
       },
       componentSelf: {
-        //组件自带的一些属性放在这里面
+        // 组件自带的一些属性放在这里面
         dialogNameList: []
       },
       isLink: true,
@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log("onRadioChange:");
+      console.log('onRadioChange:');
     },
     showDialog(event, item, idx) {
       this.componentSelf.dialogNameList[idx].dialogStatus = true;
@@ -118,19 +118,19 @@ export default {
   computed: {},
   beforeCreate: function() {},
   created: function() {
-    //在模板渲染成html前调用，通常初始化 某些属性值，然后再渲染成视图
+    // 在模板渲染成html前调用，通常初始化 某些属性值，然后再渲染成视图
     let i = 0;
     this.items.forEach(element => {
       let map = {
-        dialogName: "dialog" + i,
+        dialogName: 'dialog' + i,
         dialogStatus: false
       };
       this.componentSelf.dialogNameList.push(map);
     });
   },
   mounted: function() {
-    //在模板渲染成html之后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作
-  },
+    // 在模板渲染成html之后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作
+  }
   // watch:{
   //   'proposalClauseConfirm.value':{
   //     handler:function(newVal, oldVal){

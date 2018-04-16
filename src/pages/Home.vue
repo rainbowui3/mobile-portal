@@ -11,41 +11,41 @@
 </template>
 
 <script>
-import { Page, Card, RImage, Swiper, RBody } from "rainbow-mobile-core";
-import Bottom from "../components/Bottom";
-import Top from "../components/Top";
-import logo from "../assets/logo.png";
-import Jcx from "../assets/jcx.jpg";
-import Jtgj from "../assets/jtgj.jpg";
-import Ly from "../assets/ly.jpg";
-import "../i18n/home";
+import { Page, Card, RImage, Swiper, RBody } from 'rainbow-mobile-core';
+import Bottom from '../components/Bottom';
+import Top from '../components/Top';
+import logo from '../assets/logo.png';
+import Jcx from '../assets/jcx.jpg';
+import Jtgj from '../assets/jtgj.jpg';
+import Ly from '../assets/ly.jpg';
+import '../i18n/home';
 
 export default {
-  components: {Top,Card,Bottom,Page,RImage,Swiper,RBody},
+  components: {Top, Card, Bottom, Page, RImage, Swiper, RBody},
   data() {
     return {
-      path: "http://placeholder.qiniudn.com/640x300",
+      path: 'http://placeholder.qiniudn.com/640x300',
       logo: [
         {
-          class: "logo",
-          src: "http://knowledge.ebaotech.com/rainbow/images/logo.png"
+          class: 'logo',
+          src: 'http://knowledge.ebaotech.com/rainbow/images/logo.png'
         }
       ],
       list: [
         {
-          url: "javascript:",
+          url: 'javascript:',
           img: Jtgj,
-          title: "交通工具意外险"
+          title: '交通工具意外险'
         },
         {
-          url: "javascript:",
+          url: 'javascript:',
           img: Ly,
-          title: "境内旅游意外险"
+          title: '境内旅游意外险'
         },
         {
-          url: "javascript:",
+          url: 'javascript:',
           img: Jcx,
-          title: "家庭财产险",
+          title: '家庭财产险',
           fallbackImg: Jtgj
         }
       ]
@@ -55,24 +55,24 @@ export default {
     cardList() {
       return [
         {
-          link: "/component/core",
-          number: "34",
-          text: this.$t("home.core")
+          link: '/component/core',
+          number: '34',
+          text: this.$t('home.core')
         },
         {
-          link: "/component/advanced",
-          number: "20",
-          text: this.$t("home.advanced")
+          link: '/component/advanced',
+          number: '20',
+          text: this.$t('home.advanced')
         },
         {
-          link: "/component/business",
-          number: "1",
-          text: this.$t("home.business")
+          link: '/component/business',
+          number: '1',
+          text: this.$t('home.business')
         },
         {
-          link: "/component/business",
-          number: "1",
-          text: this.$t("home.project")
+          link: '/component/business',
+          number: '1',
+          text: this.$t('home.project')
         }
       ];
     }

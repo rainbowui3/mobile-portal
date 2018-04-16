@@ -103,12 +103,12 @@ import {
   DateTime,
   RTextarea,
   RDialog,
-  TabBar,RButton
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import CarOwner from "../../components/CarOwner";
-import "../../../../i18n/autoSupplementInfo";
-import "../../../../i18n/proposalConfirm";
+  TabBar, RButton
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import CarOwner from '../../components/CarOwner';
+import '../../../../i18n/autoSupplementInfo';
+import '../../../../i18n/proposalConfirm';
 export default {
   components: {
     Page,
@@ -125,159 +125,160 @@ export default {
     DateTime,
     RTextarea,
     RDialog,
-    TabBar,RButton
+    TabBar,
+RButton
   },
   data() {
     return {
-      //存储一些页面上才会用到的模型
+      // 存储一些页面上才会用到的模型
       pageModel: {
-          holderIsOwner:false,
-          insuredIsOwner:false
+          holderIsOwner: false,
+          insuredIsOwner: false
       },
       model: {},
       options_cusType: [
-        { key: "1", value: "个人" },
-        { key: "2", value: "机关" },
-        { key: "3", value: "企业" }
+        { key: '1', value: '个人' },
+        { key: '2', value: '机关' },
+        { key: '3', value: '企业' }
       ],
       inspectionConditionList: [
-        { key: "1", value: "验车情况1" },
-        { key: "2", value: "验车情况2" }
+        { key: '1', value: '验车情况1' },
+        { key: '2', value: '验车情况2' }
       ],
       inspectionResultCodeList: [
-        { key: "1", value: "验车结果1" },
-        { key: "2", value: "验车结果2" }
+        { key: '1', value: '验车结果1' },
+        { key: '2', value: '验车结果2' }
       ],
       vehicleDamageLocationCodeList: [
-        { key: "1", value: "车损位置1" },
-        { key: "2", value: "车损位置2" }
+        { key: '1', value: '车损位置1' },
+        { key: '2', value: '车损位置2' }
       ],
       maxPhotoDelayDaysList: [
-        { key: "1", value: "1" },
-        { key: "2", value: "2" },
-        { key: "3", value: "3" },
-        { key: "4", value: "4" },
-        { key: "5", value: "5" },
-        { key: "6", value: "6" },
-        { key: "7", value: "7" }
+        { key: '1', value: '1' },
+        { key: '2', value: '2' },
+        { key: '3', value: '3' },
+        { key: '4', value: '4' },
+        { key: '5', value: '5' },
+        { key: '6', value: '6' },
+        { key: '7', value: '7' }
       ],
       argueSolutionTypeList: [
-        { key: "1", value: "仲裁" },
-        { key: "2", value: "诉讼" }
+        { key: '1', value: '仲裁' },
+        { key: '2', value: '诉讼' }
       ],
       arbitrationCommissionCodeList: [
-        { key: "1", value: "浦东新区仲裁委员会" },
-        { key: "2", value: "洋泾仲裁委员会" }
+        { key: '1', value: '浦东新区仲裁委员会' },
+        { key: '2', value: '洋泾仲裁委员会' }
       ],
       copyDataFromTypeList: [
-        { key: "1", value: "同投保人" },
-        { key: "2", value: "同被保人" },
-        { key: "3", value: "第三方" }
+        { key: '1', value: '同投保人' },
+        { key: '2', value: '同被保人' },
+        { key: '3', value: '第三方' }
       ],
       specialAgreementList: [
         {
-          "@pk": 26001894428,
-          "@type": "ProductElement-ProductSpecialAgreement",
+          '@pk': 26001894428,
+          '@type': 'ProductElement-ProductSpecialAgreement',
           BusinessObjectId: 200038639,
-          BusinessUUID: "301132390_-12_A00155",
-          Content: "空白特约",
-          DefinitionSuperObjectName: "PolicyForm",
+          BusinessUUID: '301132390_-12_A00155',
+          Content: '空白特约',
+          DefinitionSuperObjectName: 'PolicyForm',
           DiscriminatorValue: -12,
           ExtendsId: 26001894422,
-          IsAutoGenerateChild: "N",
-          ProductElementCode: "A00155",
+          IsAutoGenerateChild: 'N',
+          ProductElementCode: 'A00155',
           ProductElementId: 26001894428,
-          ProductElementName: "空白特约",
+          ProductElementName: '空白特约',
           ProductId: 301132390,
-          EffectiveFlag: "Y",
-          DefaultChoose: "Y",
-          ContentCanBeEdit: "Y",
-          CanBeDelete: "Y"
+          EffectiveFlag: 'Y',
+          DefaultChoose: 'Y',
+          ContentCanBeEdit: 'Y',
+          CanBeDelete: 'Y'
         },
         {
-          "@pk": 26001894453,
-          "@type": "ProductElement-ProductSpecialAgreement",
+          '@pk': 26001894453,
+          '@type': 'ProductElement-ProductSpecialAgreement',
           BusinessObjectId: 200038639,
-          BusinessUUID: "301132390_-12_A00156",
+          BusinessUUID: '301132390_-12_A00156',
           Content:
-            "本保单第一受益人为{BankName}银行。未经第一受益人书面同意，本保单不得做任何涉及或不涉及金额变化的批改，也不得支付任何赔款。",
-          DefinitionSuperObjectName: "PolicyForm",
+            '本保单第一受益人为{BankName}银行。未经第一受益人书面同意，本保单不得做任何涉及或不涉及金额变化的批改，也不得支付任何赔款。',
+          DefinitionSuperObjectName: 'PolicyForm',
           DiscriminatorValue: -12,
           ExtendsId: 26001894425,
-          IsAutoGenerateChild: "N",
-          ProductElementCode: "A00156",
+          IsAutoGenerateChild: 'N',
+          ProductElementCode: 'A00156',
           ProductElementId: 26001894453,
-          ProductElementName: "第一受益人约定",
+          ProductElementName: '第一受益人约定',
           ProductId: 301132390,
-          EffectiveFlag: "Y",
-          DefaultChoose: "N",
-          ContentCanBeEdit: "N",
-          CanBeDelete: "Y"
+          EffectiveFlag: 'Y',
+          DefaultChoose: 'N',
+          ContentCanBeEdit: 'N',
+          CanBeDelete: 'Y'
         },
         {
-          "@pk": 26000023638,
-          "@type": "ProductElement-ProductSpecialAgreement",
+          '@pk': 26000023638,
+          '@type': 'ProductElement-ProductSpecialAgreement',
           BusinessObjectId: 200038639,
-          BusinessUUID: "301132390_-12_A00029",
+          BusinessUUID: '301132390_-12_A00029',
           Content:
-            "尊敬的客户：投保次日起，您可以通过本公司网页（www.95590.cn），客户服务电话\n（95590），营业网点核实保单及理赔信息，若对查询结果有异议，请致电本公司客户\n服务电话。",
+            '尊敬的客户：投保次日起，您可以通过本公司网页（www.95590.cn），客户服务电话\n（95590），营业网点核实保单及理赔信息，若对查询结果有异议，请致电本公司客户\n服务电话。',
           DiscriminatorValue: -12,
           ExtendsId: 300333480,
-          IsAutoGenerateChild: "N",
-          ProductElementCode: "A00029",
+          IsAutoGenerateChild: 'N',
+          ProductElementCode: 'A00029',
           ProductElementId: 26000023638,
-          ProductElementName: "保单查询制度特别约定",
+          ProductElementName: '保单查询制度特别约定',
           ProductId: 301132390,
-          DefaultChoose: "N",
-          ContentCanBeEdit: "N",
-          CanBeDelete: "N",
-          Required: "N",
-          SystemCode: "TC00001"
+          DefaultChoose: 'N',
+          ContentCanBeEdit: 'N',
+          CanBeDelete: 'N',
+          Required: 'N',
+          SystemCode: 'TC00001'
         },
         {
-          "@pk": 26001522004,
-          "@type": "ProductElement-ProductSpecialAgreement",
+          '@pk': 26001522004,
+          '@type': 'ProductElement-ProductSpecialAgreement',
           BusinessObjectId: 200038639,
-          BusinessUUID: "301132390_-12_A00031",
+          BusinessUUID: '301132390_-12_A00031',
           Content:
-            "通赔提示\n被保险车辆出险后，被保险人可选择保险人在国内的任意一家车险全国通赔网点，就近接受查勘定损服务，并就近递交索赔资料、领取保险赔款，保险人不另外收取费用。被保险人可以通过登录www.95590.cn网站，查询各车险全国通赔网点的信息，查询赔案的处理进展情况，并对保险人的理赔服务进行监督。",
+            '通赔提示\n被保险车辆出险后，被保险人可选择保险人在国内的任意一家车险全国通赔网点，就近接受查勘定损服务，并就近递交索赔资料、领取保险赔款，保险人不另外收取费用。被保险人可以通过登录www.95590.cn网站，查询各车险全国通赔网点的信息，查询赔案的处理进展情况，并对保险人的理赔服务进行监督。',
           DiscriminatorValue: -12,
           ExtendsId: 300333486,
-          IsAutoGenerateChild: "N",
-          ProductElementCode: "A00031",
+          IsAutoGenerateChild: 'N',
+          ProductElementCode: 'A00031',
           ProductElementId: 26001522004,
-          ProductElementName: "通赔提示",
+          ProductElementName: '通赔提示',
           ProductId: 301132390,
-          DefaultChoose: "N",
-          ContentCanBeEdit: "N",
-          Required: "Y",
-          SystemCode: "TC0004"
+          DefaultChoose: 'N',
+          ContentCanBeEdit: 'N',
+          Required: 'Y',
+          SystemCode: 'TC0004'
         }
       ]
     };
   },
   methods: {
     modifyAgreement: function(data) {
-      //Todo:将选中的特别约定挂在保单模型上，或者从保单模型上取下特约
+      // Todo:将选中的特别约定挂在保单模型上，或者从保单模型上取下特约
     },
     onClick: function(data, idx) {
-      //Todo:展示特别约定详细信息
+      // Todo:展示特别约定详细信息
 
       this.specialAgreementList[idx].show = !data.show;
-      //因为这样走完之后，模板并没有发生改变，导致不会走钩子函数，不会触发update组件。
+      // 因为这样走完之后，模板并没有发生改变，导致不会走钩子函数，不会触发update组件。
       this.$forceUpdate();
     },
-    closeDialog:function(data, idx) {
+    closeDialog: function(data, idx) {
       this.specialAgreementList[idx].show = !data.show;
       this.$forceUpdate();
     },
-    goto:function(){
-        //Todo:跳转到下一个页面
+    goto: function() {
+        // Todo:跳转到下一个页面
     }
   },
   computed: {},
   created: function() {
-    //给特约加上标识字段，与后台交互前需要删掉
+    // 给特约加上标识字段，与后台交互前需要删掉
     this.specialAgreementList.forEach(element => {
       element.show = false;
     });

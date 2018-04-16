@@ -54,17 +54,17 @@ import {
   RInput,
   Checker,
   Row
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import Bottom from "../../../../components/Bottom";
-import ProductTop from "../../components/ProductTop";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import PlanSelection from "../../components/PlanSelection";
-import ProposalCopies from "../../components/ProposalCopies";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import Jtgj from "../../../../assets/jtgj.jpg";
-import "../../../../i18n/ProductInfoEntryHealth";
-import config from "config";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import Bottom from '../../../../components/Bottom';
+import ProductTop from '../../components/ProductTop';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import PlanSelection from '../../components/PlanSelection';
+import ProposalCopies from '../../components/ProposalCopies';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import Jtgj from '../../../../assets/jtgj.jpg';
+import '../../../../i18n/ProductInfoEntryHealth';
+import config from 'config';
 
 export default {
   components: {
@@ -88,54 +88,54 @@ export default {
   },
   data() {
     return {
-      pageModel:{},
-      row:"row",
-      timeFormat:config.DEFAULT_DATE_FORMATER,
-      linkInsuredInfoUrl: "/project/proposal/ah/insuredInfoEntryShortTerm",
+      pageModel: {},
+      row: 'row',
+      timeFormat: config.DEFAULT_DATE_FORMATER,
+      linkInsuredInfoUrl: '/project/proposal/ah/insuredInfoEntryShortTerm',
       productImgSrc: Jtgj,
       productDes:
-        "保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。",
-      amount: "100",
-      buttonName: "proposalConfirm.confirmInsure",
+        '保险期间内，不限次数的保障交通意外。各类交通工具全方位保障。',
+      amount: '100',
+      buttonName: 'proposalConfirm.confirmInsure',
       policy: {
-        poi:"1年",
-        sex:["01"],
-        social:false,
-        birthday:"",
-        effectiveDate: "",
-        expireDate: ""
+        poi: '1年',
+        sex: ['01'],
+        social: false,
+        birthday: '',
+        effectiveDate: '',
+        expireDate: ''
       },
-      templateFlag: ""
+      templateFlag: ''
     };
   },
   methods: {
     onClick: function() {
-      this.templateFlag = sessionStorage.getItem("ROUTE_FLAG");
+      this.templateFlag = sessionStorage.getItem('ROUTE_FLAG');
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       switch (this.templateFlag) {
-        case "1":
-          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");
+        case '1':
+          this.$router.push('/project/proposal/ah/InsuredInfoEntryHealth');
           break;
-        case "2":
-          this.$router.push("/proposal/ah/AHRouterEntry/"+this.$route.params.productCode +'/'+this.$route.params.agentCode+'/'+route.route2);
+        case '2':
+          this.$router.push('/proposal/ah/AHRouterEntry/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route2);
           break;
         default:
-          this.$router.push("/project/proposal/ah/InsuredInfoEntryHealth");
+          this.$router.push('/project/proposal/ah/InsuredInfoEntryHealth');
           break;
       }
     },
-    onChange(){
+    onChange() {
 
-    }  
+    }
   },
   created: function() {
     let templateFlag = this.$route.params.flag;
     this.templateFlag = templateFlag;
   },
-  computed:{
-      list(){
-          return [{"key":"01","value":"男",'disabled':true},{"key":"02","value":"女"}]
-      },
+  computed: {
+      list() {
+          return [{'key': '01', 'value': '男', 'disabled': true}, {'key': '02', 'value': '女'}];
+      }
   }
 };
 </script>

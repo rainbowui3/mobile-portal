@@ -37,11 +37,11 @@ import {
   Cell,
   DateTime,
   Selector
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/auto2cDrivingLicenseInfo";
-import "../../../../i18n/carInfo";
-import "../../../../i18n/autoProposalInfoConfirm";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/auto2cDrivingLicenseInfo';
+import '../../../../i18n/carInfo';
+import '../../../../i18n/autoProposalInfoConfirm';
 export default {
   components: {
     Page,
@@ -61,18 +61,18 @@ export default {
       pageModel: {},
       model: {},
       carTypeList: [
-        { key: "1", value: "小型汽车" },
-        { key: "2", value: "大型汽车" },
-        { key: "3", value: "专用汽车" }
+        { key: '1', value: '小型汽车' },
+        { key: '2', value: '大型汽车' },
+        { key: '3', value: '专用汽车' }
       ]
     };
   },
   methods: {
-      quotationClick(){
+      quotationClick() {
           this.$router.push({
-             paht:"/project/proposal/auto2c/Auto2cPlan",
-             name:"Auto2cPlan"
-          })
+             paht: '/project/proposal/auto2c/Auto2cPlan',
+             name: 'Auto2cPlan'
+          });
       }
   }
 };

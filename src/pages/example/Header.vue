@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import {Page,RHeader,RBody} from 'rainbow-mobile-core';
+import {Page, RHeader, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/preview";
+import '../../i18n/component';
+import '../../i18n/preview';
 
 export default {
   components: {
@@ -39,10 +39,10 @@ export default {
     RHeader,
     RBody
   },
-  methods:{
-    onClickMore(){
-        console.log(1111)
-    },
+  methods: {
+    onClickMore() {
+        console.log(1111);
+    }
   }
 };
 </script>

@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import {Page,Card,DateTime,RBody} from 'rainbow-mobile-core';
+import {Page, Card, DateTime, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import config from 'config';
-import "../../i18n/component";
-import "../../i18n/datetime";
+import '../../i18n/component';
+import '../../i18n/datetime';
 export default {
   components: {
     Bottom,
@@ -46,26 +46,26 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
     return {
-        policy:{
-          "effortDate":"2018-09-10",
-          "endDate":"2018/09/10",
-          "hour":"2018-09-10 09:00",
-          "minute":"2018-09-10 09:00",
-          "nullDate":null
+        policy: {
+          'effortDate': '2018-09-10',
+          'endDate': '2018/09/10',
+          'hour': '2018-09-10 09:00',
+          'minute': '2018-09-10 09:00',
+          'nullDate': null
         },
-        endDate:"2018-09-10",
-        startDate:"1949-09-10",
-        format:config.DEFAULT_DATE_FORMATER,
-        timeFormat:config.DEFAULT_DATETIME_FORMATER,
-        customHour:['09', '10', '11', '12', '13', '14', '15', '16'],
-        customMinute:['00', '15', '30', '45'],
-    }
+        endDate: '2018-09-10',
+        startDate: '1949-09-10',
+        format: config.DEFAULT_DATE_FORMATER,
+        timeFormat: config.DEFAULT_DATETIME_FORMATER,
+        customHour: ['09', '10', '11', '12', '13', '14', '15', '16'],
+        customMinute: ['00', '15', '30', '45']
+    };
   },
-  methods:{
-    onChange(val){     
-      this.policy.effortDate=val;
+  methods: {
+    onChange(val) {
+      this.policy.effortDate = val;
     }
   }
 };
