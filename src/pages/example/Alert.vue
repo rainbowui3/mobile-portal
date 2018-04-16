@@ -16,7 +16,6 @@
 import { Page, Card, RSwitch, Alert, AlertApi, RBody } from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import dialog from '../../assets/dialog.jpg';
 import '../../i18n/alert';
 import '../../i18n/component';
 

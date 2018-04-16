@@ -10,7 +10,6 @@
 
 <script>
 import {Row, Picker} from 'rainbow-mobile-core';
-import i18n from '../../../i18n/autoAgent';
 export default {
   components: {
     Row,

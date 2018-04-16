@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {Page, Card, RSwitch, Confirm, LoadingApi, ConfirmApi, RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, Confirm, LoadingApi, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import dialog from '../../assets/dialog.jpg';
@@ -61,9 +61,6 @@ export default {
     },
     clickSwitch4(val) {
         this.show4 = val;
-    },
-    clickSwitch5(val) {
-      const _this = this;
     },
     onHide() {
          this.show1 = false;

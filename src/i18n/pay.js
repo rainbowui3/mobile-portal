@@ -12,7 +12,6 @@ i18n.mergeLocaleMessage('en-US', {
   'pay.name': 'name',
   'pay.total': 'total',
   'pay.weChat': 'weChat',
-  'pay.weChat': 'weChat',
   'pay.alipay': 'alipay',
   'pay.payment': 'payment'
 });

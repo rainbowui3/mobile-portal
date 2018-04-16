@@ -31,14 +31,10 @@
 import { Page, RHeader, TabBar, Cell, Box, RButton, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import home_on from '../../assets/home_on.svg';
-import home_off from '../../assets/home_off.svg';
-import component_off from '../../assets/component_off.svg';
-import component_on from '../../assets/component_on.svg';
-import donation_off from '../../assets/donation_off.svg';
-import donation_on from '../../assets/donation_on.svg';
-import example_off from '../../assets/example_off.svg';
-import example_on from '../../assets/example_on.svg';
+import homeOn from '../../assets/home_on.svg';
+import componentOff from '../../assets/component_off.svg';
+import donationOff from '../../assets/donation_off.svg';
+import exampleOff from '../../assets/example_off.svg';
 import '../../i18n/component';
 import '../../i18n/home';
 export default {
@@ -57,7 +53,7 @@ export default {
     tabItems() {
       return [
         {
-          icon: home_on,
+          icon: homeOn,
           selected: true,
           showdot: false,
           link: '/',
@@ -65,7 +61,7 @@ export default {
           text: this.$t('common.home')
         },
         {
-          icon: component_off,
+          icon: componentOff,
           selected: false,
           showdot: true,
           link: '/component/core',
@@ -73,7 +69,7 @@ export default {
           text: this.$t('component.component')
         },
         {
-          icon: example_off,
+          icon: exampleOff,
           selected: false,
           showdot: false,
           link: '/demo',
@@ -81,7 +77,7 @@ export default {
           text: this.$t('home.exapmle')
         },
         {
-          icon: donation_off,
+          icon: donationOff,
           selected: false,
           showdot: false,
           link: '/donate',

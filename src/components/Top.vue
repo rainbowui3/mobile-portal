@@ -8,8 +8,6 @@
 <script>
 import { RHeader, Actionsheet} from 'rainbow-mobile-core';
 import i18n from '../i18n/index';
-import Bottom from '../components/Bottom';
-import Vue from 'vue';
 
 export default {
   components: {

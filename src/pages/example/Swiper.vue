@@ -55,7 +55,8 @@ export default {
     RButton,
     Box,
     Card,
-    SwiperItem
+    SwiperItem,
+    RBody
   },
   data() {
       return {

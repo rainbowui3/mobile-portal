@@ -21,7 +21,8 @@ export default {
     Top,
     Page,
     Card,
-    RImage
+    RImage,
+    RBody
   },
   data() {
       return {

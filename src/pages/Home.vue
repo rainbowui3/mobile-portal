@@ -14,7 +14,6 @@
 import { Page, Card, RImage, Swiper, RBody } from 'rainbow-mobile-core';
 import Bottom from '../components/Bottom';
 import Top from '../components/Top';
-import logo from '../assets/logo.png';
 import Jcx from '../assets/jcx.jpg';
 import Jtgj from '../assets/jtgj.jpg';
 import Ly from '../assets/ly.jpg';

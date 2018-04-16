@@ -11,7 +11,6 @@
 
 <script>
 import { Page, Card, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../../components/Bottom';
 import Top from '../../../components/Top';
 import SignIn from '../business/SignIn';
 

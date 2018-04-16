@@ -65,7 +65,9 @@ export default {
   },
   methods: {
     onChange(val) {
-      this.policy.effortDate = val;
+    /*eslint-disable */
+      this.policy['effortDate'] = val;
+    /*eslint-disable */
     }
   }
 };
