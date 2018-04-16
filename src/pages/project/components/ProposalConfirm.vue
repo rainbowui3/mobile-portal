@@ -25,7 +25,9 @@ export default {
   },
   methods: {
     _onClick: function(event) {
-        this.onClick ? this.onClick(event) : () => {};
+      /* eslint-disable */
+      this.onClick ? this.onClick(event) : () => {};
+      /* eslint-disable */
     }
   }
 };
