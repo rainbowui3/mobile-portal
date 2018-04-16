@@ -3,16 +3,22 @@
         <top :title="$t('businessFillIn.title')" :showBack="true" />
         <r-body>
             <div class="datailsLine">
-                <divider>{{$t('businessFillIn.hoderInfo')}}</divider>
+                <divider>{{$t('businessFillIn.holderInfo')}}</divider>
             </div>
             <card>
-                <!-- <holder-info /> -->
+                <holder-info :model="holder.holderInfo" />
+                 <div class="footer">
+                    <proposal-clause-confirm :model="pageModel" />
+                </div>
             </card>
             <div class="datailsLine">
                 <divider>{{$t('businessFillIn.insuredInfo')}}</divider>
             </div>
             <card>
-                <!-- <insured-info /> -->
+                <insured-info v-bind:model="insured.insuredInfo" />
+                 <div class="footer">
+                    <proposal-clause-confirm :model="pageModel" />
+                </div>
             </card>
         </r-body>
         <tab-bar>
@@ -31,8 +37,9 @@ import {
     RButton
 } from "rainbow-mobile-core";
 import Top from "../../../components/Top";
-import HoderInfo from "../components/HolderInfo";
-import Insuredinfo from "../components/Insuredinfo";
+import HolderInfo from "../components/HolderInfo";
+import InsuredInfo from "../components/InsuredInfo";
+import ProposalClauseConfirm from "../components/ProposalClauseConfirm";
 import "../../../i18n/businessFillIn";
 
 export default {
@@ -44,14 +51,73 @@ export default {
         Divider,
         RButton,
         TabBar,
-        HoderInfo,
-        Insuredinfo
+        HolderInfo,
+        InsuredInfo,
+        ProposalClauseConfirm
     },
     data() {
         return {
             pageModel: {
                 clauseConfirm: false,
                 toastShow: false
+            },
+            holder: {
+                holderInfo: {
+                    name: "Emily",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                },
+                insuredInfo: {
+                    relationToHolder: "本人",
+                    name: "王小明",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                },
+                dubsidiaryInsuranceInfo: {
+                    relationToHolder: "10000",
+                    relationToMainInsured: "本人",
+                    name: "王小明",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                }
+            },
+            insured: {
+                holderInfo: {
+                    name: "王小明",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                },
+                insuredInfo: {
+                    relationToHolder: "本人",
+                    name: "王小明",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                },
+                dubsidiaryInsuranceInfo: {
+                    relationToHolder: "10000",
+                    relationToMainInsured: "本人",
+                    name: "王小明",
+                    certificateId: "身份证",
+                    certificateNum: "295792200001018271",
+                    birthdate: "2000-01-01",
+                    mobileNum: "18398768724",
+                    email: "wangxm@outlook.com"
+                }
             }
         };
     }

@@ -150,6 +150,8 @@ const BusinessLogin = r => require.ensure([], () => r(require('@/pages/project/b
 const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessDetail')), 'BusinessDetail');
 // BusinessFillIn
 const BusinessFillIn = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessFillIn')), 'BusinessFillIn');
+//BusinessConfirm
+const BusinessConfirm = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessConfirm')), 'BusinessConfirm');
 
 //AHRouters
 const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
@@ -845,6 +847,11 @@ const router = new Router({
     path: '/project/businessPage/BusinessFillIn',
     name: 'BusinessFillIn',
     component: BusinessFillIn
+  },
+  {
+    path: '/project/businessPage/BusinessConfirm',
+    name: 'BusinessConfirm',
+    component: BusinessConfirm
   },
   
   ],

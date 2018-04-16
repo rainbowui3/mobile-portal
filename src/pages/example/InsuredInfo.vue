@@ -3,7 +3,7 @@
        <top :title="$t('business.insuredInfo')" :showBack="true"/>
        <r-body>
          <card>
-       <insured-info  v-bind:insuredInfo="policy.insuredInfo"/>
+       <insured-info  v-bind:model="policy.insuredInfo"/>
          </card>
        </r-body>
        <bottom :index="2"/>
