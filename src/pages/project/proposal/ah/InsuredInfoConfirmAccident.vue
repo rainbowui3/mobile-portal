@@ -34,7 +34,6 @@ import {
   Card,
   RInput,
   RSwitch,
-  Selector,
   Toast
 } from 'rainbow-mobile-core';
 import Top from '@/components/Top';

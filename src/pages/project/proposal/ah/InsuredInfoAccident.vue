@@ -28,8 +28,7 @@ import {
   TabBar,
   Card,
   RInput,
-  RSwitch,
-  Selector
+  RSwitch
 } from 'rainbow-mobile-core';
 import Top from '@/components/Top';
 import ProposalConfirm from '../../components/ProposalConfirm';

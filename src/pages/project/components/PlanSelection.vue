@@ -59,8 +59,6 @@ import {
   Row,
   Selector
 } from 'rainbow-mobile-core';
-import { PassThrough } from 'stream';
-import { debug } from 'util';
 import '../../../i18n/planSelection';
 export default {
   components: {

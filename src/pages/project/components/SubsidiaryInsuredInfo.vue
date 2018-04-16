@@ -16,10 +16,8 @@
 
 <script>
 import {
-  Page,
   Card,
   RInput,
-  RButton,
   Selector,
   DateTime
 } from 'rainbow-mobile-core';

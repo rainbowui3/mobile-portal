@@ -50,8 +50,8 @@ import {
 import Top from '@/components/Top';
 import ProposalConfirm from '../../components/ProposalConfirm';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import Validate from '../../utils/Valitate';
-import Getbirthday from '../../utils/Getbirthday';
+// import Validate from '../../utils/Valitate';
+// import Getbirthday from '../../utils/Getbirthday';
 import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
 import '../../../../i18n/insuredInfoStudyRisk';
 import '../../../../i18n/insuredInfoEntryHealthSub';

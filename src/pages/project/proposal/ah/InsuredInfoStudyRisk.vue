@@ -151,31 +151,25 @@ export default {
     onChangeCertiType: function(value1, value2) {
       switch (value1) {
         case 'baby':
-          {
-            if (
-              this.policy.babyInfo.certificateId &&
-              this.policy.babyInfo.certificateId === '10000'
-            ) {
-              this.isValidateNumBaby = false;
-              this.validateNumInputBaby(this.policy.babyInfo.certificateNum);
-            } else {
-              this.isValidateNumBaby = true;
-            }
+          if (
+            this.policy.babyInfo.certificateId &&
+            this.policy.babyInfo.certificateId === '10000'
+          ) {
+            this.isValidateNumBaby = false;
+            this.validateNumInputBaby(this.policy.babyInfo.certificateNum);
+          } else {
+            this.isValidateNumBaby = true;
           }
           break;
         case 'parent':
-          {
-            if (
-              this.policy.holderInfo.certificateId &&
-              this.policy.holderInfo.certificateId === '10000'
-            ) {
-              this.isValidateNumParent = false;
-              this.validateNumInputParent(
-                this.policy.holderInfo.certificateNum
-              );
-            } else {
-              this.isValidateNumParent = true;
-            }
+          if (
+            this.policy.holderInfo.certificateId &&
+            this.policy.holderInfo.certificateId === '10000'
+          ) {
+            this.isValidateNumParent = false;
+            this.validateNumInputParent(this.policy.holderInfo.certificateNum);
+          } else {
+            this.isValidateNumParent = true;
           }
           break;
       }

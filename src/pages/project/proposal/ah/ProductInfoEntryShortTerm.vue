@@ -28,18 +28,7 @@
 import {
   Page,
   Card,
-  RImage,
-  RButton,
-  Swiper,
-  RSwitch,
-  DateTime,
-  Tab,
-  SwiperItem,
-  RTable,
-  List,
-  Selector,
   TabBar,
-  Cell,
   RBody,
   Checker
 } from 'rainbow-mobile-core';

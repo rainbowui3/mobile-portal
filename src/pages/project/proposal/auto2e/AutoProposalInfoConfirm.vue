@@ -86,7 +86,6 @@ import {
   TabBar,
   RButton
 } from 'rainbow-mobile-core';
-import { Previewer } from 'rainbow-mobile-previewer';
 import Top from '../../../../components/Top';
 import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../../i18n/carInfo';
@@ -245,29 +244,23 @@ export default {
     gotoCorrect(des, event) {
       switch (des) {
         case 'carInfo':
-          {
             // Todo:跳转到carInfo页面
             this.$router.push({
               path: '/project/proposal/auto2e/CarAndOwnerInfoEntry',
               name: 'CarAndOwnerInfoEntry'
             });
-          }
           break;
         case 'proposaoDetail':
-          {
             this.$router.push({
               path: '/project/proposal/auto2e/AutoPlan',
               name: 'AutoPlan'
             });
-          }
           break;
         case 'special':
-          {
             this.$router.push({
               path: '/project/proposal/auto2e/AutoSupplementInfo',
               name: 'AutoSupplementInfo'
             });
-          }
           break;
       }
     }

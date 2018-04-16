@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     _onClick: function(event) {
-        this.onClick ? this.onClick(event) : null;
+        this.onClick ? this.onClick(event) : () => {};
     }
   }
 };

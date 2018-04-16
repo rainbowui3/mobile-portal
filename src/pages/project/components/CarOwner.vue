@@ -14,7 +14,6 @@ import { Selector, RInput } from 'rainbow-mobile-core';
 import '../../../i18n/carOwner';
 import '../../../i18n/holderInfo';
 import Validate from '../utils/Valitate';
-import Getbirthday from '../utils/Getbirthday';
 export default {
   components: {
     Selector,

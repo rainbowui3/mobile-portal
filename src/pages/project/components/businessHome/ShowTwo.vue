@@ -40,12 +40,6 @@ export default {
         show: Boolean,
         picture: String
     },
-    components: {
-        Page,
-        Card,
-        RBody,
-        List
-    },
     data() {
         return {
             img: img,

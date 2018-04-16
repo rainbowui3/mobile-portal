@@ -73,7 +73,6 @@ export default {
       options: [{ key: '1', value: '家庭自用' }],
       buttonName: 'proposalConfirm.submitPay',
       amount: '100',
-      readonly: true,
       pageModel: {
         clauseConfirm: false,
         toastShow: false

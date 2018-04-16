@@ -42,8 +42,6 @@ export default{
         var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
         // 校验位
         var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
-        var tip = '';
-        var pass = true;
         if (!code) {
             return true;
         }
@@ -79,12 +77,12 @@ export default{
                 var sum = 0;
                 var ai = 0;
                 var wi = 0;
-                for (var i = 0; i < 17; i++) {
+                for (i = 0; i < 17; i++) {
                     ai = code[i];
                     wi = factor[i];
                     sum += ai * wi;
                 }
-                var last = parity[sum % 11];
+                // var last = parity[sum % 11];
                 if (parity[sum % 11] != code[17]) {
                     return false;
                 }

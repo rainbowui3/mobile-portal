@@ -13,16 +13,14 @@
 
 <script>
 import {
-  Page,
   Card,
   RInput,
-  RButton,
   Selector,
   DateTime
 } from 'rainbow-mobile-core';
 import Validate from '../utils/Valitate';
 import Getbirthday from '../utils/Getbirthday';
-import i18n from '../../../i18n/holderInfo';
+import '../../../i18n/holderInfo';
 import '../../../i18n/input';
 export default {
   components: {

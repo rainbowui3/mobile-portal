@@ -35,16 +35,12 @@ import {
   Page,
   RBody,
   Card,
-  RSwitch,
-  Picker,
-  RInput,
   TabBar,
   RButton,
   Tab,
   Swiper,
   SwiperItem,
   Row,
-  List,
   Divider,
   Cell
 } from 'rainbow-mobile-core';

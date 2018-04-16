@@ -11,7 +11,6 @@
 <script>
 import { Page, RBody, TabBar, RInput, RButton } from 'rainbow-mobile-core';
 import Top from '../../components/Top';
-import { setTimeout } from 'timers';
 export default {
   components: { Page, Top, RBody, TabBar, RInput, RButton },
   beforeRouteEnter(to, from, next) {
@@ -19,7 +18,6 @@ export default {
     next(vm => {
       switch (vm.$route.params.productCode) {
         case '1':
-          {
             // vm.typeList = ["normal", "normal", "normal", "normal"];
             vm.routeType = {
               productCode: '1',
@@ -29,10 +27,8 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
         case '2':
-          {
             // vm.typeList = ["shortTerm", "shortTerm", "normal", "normal"];
             vm.routeType = {
               productCode: '2',
@@ -42,10 +38,8 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
         case '3':
-          {
             // vm.typeList = ["shortTerm", "risk", "risk", "normal"];
             vm.routeType = {
               productCode: '3',
@@ -55,10 +49,8 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
         case '4':
-          {
             // vm.typeList = ["normal", "passenger", "passenger", "normal"];
             vm.routeType = {
               productCode: '4',
@@ -68,10 +60,8 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
         case '5':
-          {
             // vm.typeList = ["normal", "studyRisk", "studyRisk", "normal"];
             vm.routeType = {
               productCode: '5',
@@ -81,10 +71,8 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
         case '6':
-          {
             // vm.typeList = ["health", "health", "health", "normal"];
             vm.routeType = {
               productCode: '6',
@@ -94,7 +82,6 @@ export default {
               route4: 'normal'
             };
             sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
-          }
           break;
       }
     });

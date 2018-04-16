@@ -46,12 +46,6 @@ export default {
     show: Boolean,
     img: String
   },
-    components: {
-        Page,
-        Card,
-        RBody,
-        List
-    },
     data() {
         return {
             icon: icon

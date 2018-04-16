@@ -16,7 +16,6 @@
 
 <script>
 import { Cell, Selector } from 'rainbow-mobile-core';
-import { PassThrough } from 'stream';
 import '../../../i18n/holderInfo';
 export default {
   components: {

@@ -36,17 +36,8 @@ import {
   Page,
   RBody,
   Card,
-  RImage,
   RButton,
-  Swiper,
-  RSwitch,
-  DateTime,
-  Tab,
-  RTable,
-  List,
-  Selector,
   TabBar,
-  Cell,
   Toast
 } from 'rainbow-mobile-core';
 import Top from '../../../../components/Top';
@@ -78,9 +69,6 @@ export default {
     RBody,
     ChooseRelationship,
     Toast
-  },
-  methods: {
-    clickHom() {}
   },
   data() {
     return {
