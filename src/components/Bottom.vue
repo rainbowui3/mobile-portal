@@ -4,7 +4,6 @@
 
 <script>
 import {TabBar} from 'rainbow-mobile-core';
-import i18n from '../i18n/index';
 export default {
   components: {
     TabBar
