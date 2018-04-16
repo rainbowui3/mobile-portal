@@ -32,7 +32,16 @@ let webpackConfig = {
   },
   module: {
     rules: [
-    
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: "pre",
+        include: [resolve('src'), resolve('test')],
+        exclude: /vue.vux.js$/,
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
