@@ -29,6 +29,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'no-tabs': 0,
     'eqeqeq':0,
+    'one-var':0,
     'standard/object-curly-even-spacing':0
   }
 }
