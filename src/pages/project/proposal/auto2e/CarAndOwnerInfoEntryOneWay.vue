@@ -31,15 +31,15 @@ import {
   DateTime,
   RInput,
   Selector
-} from "rainbow-mobile-core";
-import CarInfo from "../../components/CarInfo";
-import CarOwner from "../../components/CarOwner";
-import Top from "../../../../components/Top";
-import Bottom from "../../../../components/Bottom";
-import "../../../../i18n/carInfo";
-import "../../../../i18n/row";
-import "../../../../i18n/carAndOwnerInfoEntry";
-import "../../../../i18n/carAndOwnerInfoEntryOneWay";
+} from 'rainbow-mobile-core';
+import CarInfo from '../../components/CarInfo';
+import CarOwner from '../../components/CarOwner';
+import Top from '../../../../components/Top';
+import Bottom from '../../../../components/Bottom';
+import '../../../../i18n/carInfo';
+import '../../../../i18n/row';
+import '../../../../i18n/carAndOwnerInfoEntry';
+import '../../../../i18n/carAndOwnerInfoEntryOneWay';
 export default {
   components: {
     Page,
@@ -63,21 +63,21 @@ export default {
         modelSelectShow: false
       },
       options_cusType: [
-        { key: "1", value: "个人" },
-        { key: "2", value: "机关" },
-        { key: "3", value: "企业" }
-      ],
+        { key: '1', value: '个人' },
+        { key: '2', value: '机关' },
+        { key: '3', value: '企业' }
+      ]
     };
   },
   methods: {
     onMoreInfoClick: function() {
       this.$router.push({
-        path:"/project/proposal/auto2e/CarDetailsOneWay",
-        name:"CarDetailsOneWay",
-        params:{
-          
+        path: '/project/proposal/auto2e/CarDetailsOneWay',
+        name: 'CarDetailsOneWay',
+        params: {
+
         }
-      })
+      });
     }
   }
 };

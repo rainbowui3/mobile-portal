@@ -104,13 +104,13 @@ import {
   Cell,
   Checker,
   Row,
-  DateTime,
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import AutoAgent from "../../components/AutoAgent";
-import "../../../../i18n/auto2cCustomPlan";
+  DateTime
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import AutoAgent from '../../components/AutoAgent';
+import '../../../../i18n/auto2cCustomPlan';
 // import RowAndChecker from "../../components/RowAndChecker"
-import config from "config";
+import config from 'config';
 
 export default {
   components: {
@@ -127,59 +127,58 @@ export default {
     Cell,
     Checker,
     Row,
-    DateTime,
+    DateTime
     // RowAndChecker
   },
   data() {
     return {
-        hoursFormat:config.DEFAULT_HOURS_FORMATER,
-        row: "row",
-        padding:'0px',
+        hoursFormat: config.DEFAULT_HOURS_FORMATER,
+        row: 'row',
+        padding: '0px',
         policy: {
-            commEffectiveDate:"",
-            compEffectiveDate:"",
-            carRobberyMain:false,
-            glassCrushAdditional:false,
-            naturalDamage:false,
-            carBodyScratchLoss:false,
-            engineWadLoss:false,
-            notFoundThirdAdditional:false,
-            appointRepairShop:false,
-            expireDate:"",
-            isComp:true,
-            isComm:true,
-            value2:"",
-            value:"不投保",
-            discount:"0.7",
-            passengerDutyMianSDEW:false,
-            driverDutyMianSDEW:false,
-            thirdDutyMianSDEW:false,
-            vehicleLossSDEW:true,
+            commEffectiveDate: '',
+            compEffectiveDate: '',
+            carRobberyMain: false,
+            glassCrushAdditional: false,
+            naturalDamage: false,
+            carBodyScratchLoss: false,
+            engineWadLoss: false,
+            notFoundThirdAdditional: false,
+            appointRepairShop: false,
+            expireDate: '',
+            isComp: true,
+            isComm: true,
+            value2: '',
+            value: '不投保',
+            discount: '0.7',
+            passengerDutyMianSDEW: false,
+            driverDutyMianSDEW: false,
+            thirdDutyMianSDEW: false,
+            vehicleLossSDEW: true
 
         },
-        model:[{
-            isNonDeductible:false,
-            
+        model: [{
+            isNonDeductible: false
 
         }]
     };
   },
   methods: {
-    calculatePremium(){         
+    calculatePremium() {
         this.$router.go(-1);
     },
-    resetClick(){
+    resetClick() {
 
     },
-    onChange(){
+    onChange() {
 
     },
-    goto(event){
+    goto(event) {
       // window.location.hash="/project/proposal/auto2e/VehicleLoss";
     }
 
   },
-  computed:{
+  computed: {
 
   }
 };

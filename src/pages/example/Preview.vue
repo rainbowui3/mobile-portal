@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import {Page,Card,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/preview";
+import '../../i18n/component';
+import '../../i18n/preview';
 
 export default {
   components: {
@@ -33,13 +33,13 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
     return {
-      param:{name:'Rainbow'}
-    }
+      param: {name: 'Rainbow'}
+    };
   },
-  computed:{
-    list(){
+  computed: {
+    list() {
       return [{
         label: this.$t('preview.goods'),
         value: this.$t('preview.machine')
@@ -49,26 +49,27 @@ export default {
       }, {
         label: this.$t('preview.name'),
         value: this.$t('preview.longName')
-      }]
+      }];
     },
-    buttons1(){
+    buttons1() {
       return [{
         style: 'default',
-        text: this.$t('preview.left'),
+        text: this.$t('preview.left')
       }, {
         style: 'primary',
         text: this.$t('preview.right'),
         link: '/'
-      }]
+      }];
     },
-    buttons2(){
+    buttons2() {
       return [{
         style: 'primary',
         text: this.$t('preview.click'),
         onButtonClick: (param) => {
-          alert(`I Love ${param.name} Mobile`)
+          alert(`I Love ${param.name} Mobile`);
         }
-    }]}
+    }];
+}
   }
 };
 </script>

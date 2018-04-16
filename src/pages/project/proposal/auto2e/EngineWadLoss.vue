@@ -21,9 +21,9 @@ import {
   RInput,
   TabBar,
   RButton
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoPlan';
 
 export default {
   components: {
@@ -31,23 +31,23 @@ export default {
     RBody,
     Card,
     Top,
-    RSwitch,   
-    RInput,  
+    RSwitch,
+    RInput,
     TabBar,
     RButton
   },
   data() {
     return {
       policy: {
-        sdew:true,
+        sdew: true
       }
     };
   },
   methods: {
-    confirm(){      
+    confirm() {
         // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
         // this.$router.push("");
-    },
+    }
   }
 };
 </script>

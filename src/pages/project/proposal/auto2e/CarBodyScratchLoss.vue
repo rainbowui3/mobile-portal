@@ -22,9 +22,9 @@ import {
   TabBar,
   RButton,
   Selector
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoPlan';
 
 export default {
   components: {
@@ -39,18 +39,18 @@ export default {
   },
   data() {
     return {
-      options:[{"key":"20001","value":"10万"},{"key":"20002","value":"20万"}],
+      options: [{'key': '20001', 'value': '10万'}, {'key': '20002', 'value': '20万'}],
       policy: {
-        sumInsured:"20001",
-        sdew:true
+        sumInsured: '20001',
+        sdew: true
       }
     };
   },
   methods: {
-    confirm(){      
+    confirm() {
         // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
         // this.$router.push("");
-    },
+    }
   }
 };
 </script>

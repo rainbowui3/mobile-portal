@@ -20,12 +20,11 @@
 </template>
 
 <script>
-import {Page,Card,Selector,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Selector, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import config from 'config';
-import "../../i18n/component";
-import "../../i18n/selector";
+import '../../i18n/component';
+import '../../i18n/selector';
 export default {
   components: {
     Bottom,
@@ -35,20 +34,22 @@ export default {
     Selector,
     RBody
   },
-  data(){
+  data() {
     return {
-        options:[{"key":"100000","value":"10万"},{"key":"1000000","value":"100万"},{"key":"10000000","value":"1000万"}],
-        policy:{
-          "nullDate":null,
-          "index":"1000000",
-          "index1":"100000",
-          "index2":"10000000",
-        },
-    }
+        options: [{'key': '100000', 'value': '10万'}, {'key': '1000000', 'value': '100万'}, {'key': '10000000', 'value': '1000万'}],
+        policy: {
+          'nullDate': null,
+          'index': '1000000',
+          'index1': '100000',
+          'index2': '10000000'
+        }
+    };
   },
-  methods:{
-    onChange(val){  
-      this.policy.effortDate=val;
+  methods: {
+    onChange(val) {
+      /*eslint-disable */
+      this.policy.effortDate = val;
+     /*eslint-disable */
     }
   }
 };

@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import {Page,Grid,Card,RBody} from 'rainbow-mobile-core';
+import {Page, Grid, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/grid";
+import '../../i18n/component';
+import '../../i18n/grid';
 
 export default {
   components: {
@@ -32,27 +32,27 @@ export default {
     Card,
     RBody
   },
-  computed:{
-    gridItems(){
+  computed: {
+    gridItems() {
       return [
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-      ]
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')}
+      ];
     },
-    gridItems2(){
+    gridItems2() {
       return [
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-      ]
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')}
+      ];
     },
-    gridItems3(){
+    gridItems3() {
       return [
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-        { 'icon':"fa fa-address-card",'text': this.$t('component.address')},
-      ]
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')},
+        { 'icon': 'fa fa-address-card', 'text': this.$t('component.address')}
+      ];
     }
   }
 };

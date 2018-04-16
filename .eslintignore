@@ -1,0 +1,8 @@
+build/*.js
+src/assets/*/*.js
+src/libs/eventor.js
+config/*.js
+src/tools/*/*.js
+src/i18n/index.js
+
+

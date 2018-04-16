@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, Confirm, LoadingApi, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import dialog from '../../assets/dialog.jpg';
-import "../../i18n/component";
-import "../../i18n/dialog";
+import '../../i18n/component';
+import '../../i18n/dialog';
 
 export default {
   components: {
@@ -28,9 +28,9 @@ export default {
     Confirm,
     RBody
   },
-  data(){
+  data() {
     return {
-      dialogImage:dialog,
+      dialogImage: dialog,
       policy: {},
       sheetShow1: false,
       sheetShow2: false,
@@ -39,63 +39,57 @@ export default {
       show2: false,
       show3: false,
       show4: false,
-      show5: false,
-    }
+      show5: false
+    };
   },
-  methods:{
-    clickSwitch1(){
-      LoadingApi.show(this,{
+  methods: {
+    clickSwitch1() {
+      LoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
-      })
+      });
       setTimeout(() => {
-        LoadingApi.hide(this)
+        LoadingApi.hide(this);
         this.policy.status1 = false;
-      }, 2000)
+      }, 2000);
     },
-    clickSwitch2(val){
+    clickSwitch2(val) {
      this.show2 = val;
     },
-    clickSwitch3(val){
+    clickSwitch3(val) {
         this.show3 = val;
     },
-    clickSwitch4(val){
+    clickSwitch4(val) {
         this.show4 = val;
     },
-    clickSwitch5(val){
-      const _this = this
-     
-    },
-    onHide(){
+    onHide() {
          this.show1 = false;
     },
-    onShow(){
-         console.log('show')
+    onShow() {
+         console.log('show');
     },
     onCancel () {
-      console.log('on cancel')
+      console.log('on cancel');
       this.show2 = false;
       this.show3 = false;
       this.show4 = false;
-
     },
     onConfirm (msg) {
-      console.log('on confirm',msg)
+      console.log('on confirm', msg);
        this.show2 = false;
        this.show3 = false;
        this.show4 = false;
-
     },
     onConfirm2 (msg) {
-      LoadingApi.show(this,{
+      LoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
-      })
+      });
       setTimeout(() => {
-        LoadingApi.hide(this)
-        this.show4 = false
-      }, 2000)
-    },
+        LoadingApi.hide(this);
+        this.show4 = false;
+      }, 2000);
+    }
   }
 };
 </script>

@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { Page, Card, Popup, RBody } from "rainbow-mobile-core";
-import { Previewer } from "rainbow-mobile-previewer";
-import Top from "@/components/Top";
-import "../../../i18n/payStatus";
-import "../../../i18n/project";
+import { Page, Card, Popup, RBody } from 'rainbow-mobile-core';
+import { Previewer } from 'rainbow-mobile-previewer';
+import Top from '@/components/Top';
+import '../../../i18n/payStatus';
+import '../../../i18n/project';
 export default {
   components: {
     Page,
@@ -31,7 +31,7 @@ export default {
     return {
       classStatus: true,
       pay: 50,
-      policyNum: "TJAB34578904567899",
+      policyNum: 'TJAB34578904567899',
       money: 99.0,
       policy: {
         show: false
@@ -47,9 +47,9 @@ export default {
     buttons1() {
       return [
         {
-          style: "default",
+          style: 'default',
           text: this.$t('payStatus.again'),
-          link: "/proposal/LoadingPage/"+this.$route.params.productCode+'/'+this.$route.params.agentCode
+          link: '/proposal/LoadingPage/' + this.$route.params.productCode + '/' + this.$route.params.agentCode
         }
       ];
     },
@@ -57,12 +57,12 @@ export default {
       return [
         {
           label: this.$t('payStatus.commodity'),
-          value: "xxxxxxxx险"
+          value: 'xxxxxxxx险'
         },
         {
           label: this.$t('payStatus.policyNo'),
-          value: "TJAB3457890457899"
-        },{
+          value: 'TJAB3457890457899'
+        }, {
           value: this.$t('payStatus.note')
         }
         // {

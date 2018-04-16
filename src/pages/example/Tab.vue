@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import {Page,Tab,Card,SwiperItem,Swiper,RBody} from 'rainbow-mobile-core';
+import {Page, Tab, Card, SwiperItem, Swiper, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
+import '../../i18n/component';
 
 export default {
   components: {
@@ -33,42 +33,42 @@ export default {
     SwiperItem,
     RBody
   },
-  data(){
+  data() {
     return {
-      index:0
+      index: 0
+    };
+  },
+  computed: {
+    tabItems() {
+      return [
+        { 'selected': true, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('component.core'), 'onClick': this.core},
+        { 'selected': false, 'showdot': true, 'disabled': false, 'badge': '1', 'text': this.$t('component.advanced'), 'onClick': this.advanced},
+        { 'selected': false, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('component.business'), 'onClick': this.business },
+        { 'selected': false, 'showdot': false, 'disabled': true, 'badge': '', 'text': this.$t('component.project')}
+      ];
+    },
+    swTabItems() {
+      return [
+        { 'selected': true, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('component.core'), 'onClick': this.goto},
+        { 'selected': false, 'showdot': true, 'disabled': false, 'badge': '1', 'text': this.$t('component.advanced'), 'onClick': this.goto},
+        { 'selected': false, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('component.business'), 'onClick': this.goto }
+      ];
     }
   },
-  computed:{
-    tabItems(){
-      return [
-        { 'selected':true,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('component.core'),"onClick":this.core},
-        { 'selected':false, 'showdot':true, 'disabled': false, 'badge': '1','text': this.$t('component.advanced'),"onClick":this.advanced},
-        { 'selected':false, 'showdot':false, 'disabled': false, 'badge': '', 'text': this.$t('component.business'),"onClick":this.business },
-        { 'selected':false, 'showdot':false, 'disabled': true, 'badge': '','text': this.$t('component.project')},
-      ]
+  methods: {
+    core() {
+      window.location.hash = '/component/example/tab';
     },
-    swTabItems(){
-      return [
-        { 'selected':true,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('component.core'),"onClick":this.goto},
-        { 'selected':false, 'showdot':true, 'disabled': false, 'badge': '1','text': this.$t('component.advanced'),"onClick":this.goto},
-        { 'selected':false, 'showdot':false, 'disabled': false, 'badge': '', 'text': this.$t('component.business'),"onClick":this.goto },
-      ]
+    advanced() {
+      window.location.hash = '/component/example/tab';
+    },
+    business() {
+      window.location.hash = '/component/example/tab';
+    },
+    goto(index) {
+      this.index = index;
     }
-  },
-  methods:{
-    core(){
-      window.location.hash="/component/example/tab";
-    },
-    advanced(){
-      window.location.hash="/component/example/tab";
-    },
-    business(){
-      window.location.hash="/component/example/tab";
-    },
-    goto(index){
-      this.index=index;
-    },
-   
+
   }
 };
 </script>

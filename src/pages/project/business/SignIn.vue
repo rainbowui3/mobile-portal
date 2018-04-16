@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import { Card, RImage, RInput, RButton, Box, Grid , Divider} from "rainbow-mobile-core";
-import Logo1 from "../../../assets/u505.png";
-import Logo2 from "../../../assets/u507.png";
-import Logo3 from "../../../assets/u509.png";
-import WeChat from "../../../assets/weChat.png";
-import Webo from "../../../assets/webo.png";
-import F from "../../../assets/f.png";
-import "../../../i18n/businessSignIn";
+import { Card, RImage, RInput, RButton, Box, Grid, Divider} from 'rainbow-mobile-core';
+import Logo1 from '../../../assets/u505.png';
+import Logo2 from '../../../assets/u507.png';
+import Logo3 from '../../../assets/u509.png';
+import WeChat from '../../../assets/weChat.png';
+import Webo from '../../../assets/webo.png';
+import F from '../../../assets/f.png';
+import '../../../i18n/businessSignIn';
 
 export default {
   components: {
@@ -53,17 +53,17 @@ export default {
   data() {
     return {
       images: [
-        { class: "image", src: Logo1 },
-        { class: "image", src: Logo2 },
-        { class: "image", src: Logo3 }
+        { class: 'image', src: Logo1 },
+        { class: 'image', src: Logo2 },
+        { class: 'image', src: Logo3 }
       ],
       policy: {
-        valueUsername: "",
-        valuePassword: ""
+        valueUsername: '',
+        valuePassword: ''
       },
-      Logo1:Logo1,
-      Logo2:Logo2,
-      Logo3:Logo3
+      Logo1: Logo1,
+      Logo2: Logo2,
+      Logo3: Logo3
 
     };
   },
@@ -71,11 +71,11 @@ export default {
   computed: {
     gridItems() {
       return [
-        { "img": WeChat},
-        { "img": Webo},
-        { "img": F}
+        { 'img': WeChat},
+        { 'img': Webo},
+        { 'img': F}
       ];
-    },
+    }
   }
 };
 </script>

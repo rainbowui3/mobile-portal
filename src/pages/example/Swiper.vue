@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import {Page,Swiper,RButton,Box,Card,SwiperItem,RBody} from 'rainbow-mobile-core';
+import {Page, Swiper, RButton, Box, Card, SwiperItem, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/swiper";
+import '../../i18n/component';
+import '../../i18n/swiper';
 
 export default {
   components: {
@@ -55,11 +55,12 @@ export default {
     RButton,
     Box,
     Card,
-    SwiperItem
+    SwiperItem,
+    RBody
   },
-  data(){
+  data() {
       return {
-          list:[{
+          list: [{
                 url: 'javascript:',
                     img: 'https://static.vux.li/demo/1.jpg',
                     title: '送你一朵fua'
@@ -73,17 +74,17 @@ export default {
                     title: '送你一次旅行',
                     fallbackImg: 'https://static.vux.li/demo/3.jpg'
            }],
-           value:null
-          }
+           value: null
+          };
   },
-  methods:{
-      onIndexChange(){
+  methods: {
+      onIndexChange() {
 
       },
-      goto(event){
-          this.value=Number(event.srcElement.dataset.param);
+      goto(event) {
+          this.value = Number(event.srcElement.dataset.param);
       },
-      onItemChange(){
+      onItemChange() {
 
       }
   }

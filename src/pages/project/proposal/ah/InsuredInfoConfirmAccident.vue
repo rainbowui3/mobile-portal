@@ -34,17 +34,16 @@ import {
   Card,
   RInput,
   RSwitch,
-  Selector,
   Toast
-} from "rainbow-mobile-core";
-import Top from "@/components/Top";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import HolderInfo from "../../components/HolderInfo";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import "../../../../i18n/insuredInfoAccident";
-import "../../../../i18n/input";
-import "../../../../i18n/insuredInfoEntryHealthSub";
+} from 'rainbow-mobile-core';
+import Top from '@/components/Top';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import HolderInfo from '../../components/HolderInfo';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import '../../../../i18n/insuredInfoAccident';
+import '../../../../i18n/input';
+import '../../../../i18n/insuredInfoEntryHealthSub';
 
 export default {
   components: {
@@ -95,8 +94,8 @@ export default {
       //   seatNum: "12C",
       //   email: "wangxm@outlook.com"
       // },
-      buttonName: "proposalConfirm.submitPay",
-      amount: "100",
+      buttonName: 'proposalConfirm.submitPay',
+      amount: '100',
       readonly: true,
       policy: {
         // effectiveDate: "",
@@ -107,16 +106,16 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.removeItem("policy");
-        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
-        if (route && route.route4 && route.route4 != "") {
+        sessionStorage.removeItem('policy');
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        if (route && route.route4 && route.route4 != '') {
           this.$router.push({
             path:
-              "/proposal/ah/AHRouterPay/" +
+              '/proposal/ah/AHRouterPay/' +
               this.$route.params.productCode +
-              "/" +
+              '/' +
               this.$route.params.agentCode +
-              "/" +
+              '/' +
               route.route4
           });
         }
@@ -127,7 +126,7 @@ export default {
     }
   },
   watch: {
-    "pageModel.clauseConfirm": {
+    'pageModel.clauseConfirm': {
       handler: function() {}
     }
   },
@@ -137,7 +136,7 @@ export default {
   //   }
   // },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
   }
 };
 </script>

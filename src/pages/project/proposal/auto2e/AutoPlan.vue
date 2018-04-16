@@ -78,13 +78,13 @@ import {
   Cell,
   Checker,
   Row
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import Jtgj from "../../../../assets/jtgj.jpg";
-import ProductTop from "../../components/ProductTop";
-import AutoAgent from "../../components/AutoAgent";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import "../../../../i18n/autoPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import Jtgj from '../../../../assets/jtgj.jpg';
+import ProductTop from '../../components/ProductTop';
+import AutoAgent from '../../components/AutoAgent';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import '../../../../i18n/autoPlan';
 
 export default {
   components: {
@@ -107,42 +107,41 @@ export default {
   data() {
     return {
       productImgSrc: Jtgj,
-      productDes: "车险",
-      row: "row",
+      productDes: '车险',
+      row: 'row',
       policy: {
-        effectiveDate:"",
-        expireDate:"",
-        isComp:true,
-        isComm:true,
-        value2:"",
-        value:"不投保",
-        discount:"0.7"
+        effectiveDate: '',
+        expireDate: '',
+        isComp: true,
+        isComm: true,
+        value2: '',
+        value: '不投保',
+        discount: '0.7'
 
       },
-      proCodeOptions:[],
-      riskCatOptions:[],
-      bizCodeOptions:[],
-      productCodeData:null
+      proCodeOptions: [],
+      riskCatOptions: [],
+      bizCodeOptions: [],
+      productCodeData: null
     };
   },
   methods: {
-    calculatePremium(){      
-        this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
+    calculatePremium() {
+        this.$router.push('/project/proposal/auto2e/AutoPremiumInfo');
         // this.$router.push("");
+    },
+    onChange() {
 
     },
-    onChange(){
-
+    gotoVehicleAndVesse(event) {
+      window.location.hash = '/project/proposal/auto2e/AutoVehicleAndVesselTax';
     },
-    gotoVehicleAndVesse(event){
-      window.location.hash="/project/proposal/auto2e/AutoVehicleAndVesselTax";
-    },
-    goto(event){
+    goto(event) {
       // window.location.hash="/project/proposal/auto2e/VehicleLoss";
     }
 
   },
-  computed:{
+  computed: {
 
   }
 };

@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import {Page,Card,RSwitch,Actionsheet,Toast,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, Actionsheet, Toast, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/datetime";
+import '../../i18n/component';
+import '../../i18n/datetime';
 export default {
   components: {
     Bottom,
@@ -48,21 +48,21 @@ export default {
     Actionsheet,
     RBody
   },
-  data(){
+  data() {
     return {
       policy: {},
       showToast: false,
-      autoClose:false,
-      toastText:this.$t('common.success'),
-    }
+      autoClose: false,
+      toastText: this.$t('common.success')
+    };
   },
-  methods:{
-    onHide(){
-      console.log("onHide")
+  methods: {
+    onHide() {
+      console.log('onHide');
     },
-    clickSwitch(){
-       console.log("click")
-    },
+    clickSwitch() {
+       console.log('click');
+    }
   }
 };
 </script>

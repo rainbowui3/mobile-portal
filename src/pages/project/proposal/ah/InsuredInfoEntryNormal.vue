@@ -31,20 +31,20 @@
 </template>
 
 <script>
-import { Page, Card, TabBar, RButton, RBody, Toast } from "rainbow-mobile-core";
-import Top from "@/components/Top";
-import Bottom from "@/components/Bottom";
-import HolderInfo from "../../components/HolderInfo";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import InsuredInfo from "../../components/InsuredInfo";
-import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import ChooseRelationship from "../../components/ChooseRelationship";
-import "../../../../i18n/project";
-import "../../../../i18n/input";
-import "../../../../i18n/planSelection";
-import "../../../../i18n/insuredInfoEntryHealthSub";
+import { Page, Card, TabBar, RButton, RBody, Toast } from 'rainbow-mobile-core';
+import Top from '@/components/Top';
+import Bottom from '@/components/Bottom';
+import HolderInfo from '../../components/HolderInfo';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import InsuredInfo from '../../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import ChooseRelationship from '../../components/ChooseRelationship';
+import '../../../../i18n/project';
+import '../../../../i18n/input';
+import '../../../../i18n/planSelection';
+import '../../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
     Top,
@@ -79,7 +79,7 @@ export default {
         // email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: "1",
+        relationToHolder: '1'
         // name: "王小明",
         // certificateId: "10000",
         // certificateNum: "65300119520705283x",
@@ -88,8 +88,8 @@ export default {
         // email: "wangxm@outlook.com"
       },
       dubsidiaryInsuranceInfo: {
-        relationToHolder: "1",
-        relationToMainInsured: "1",
+        relationToHolder: '1',
+        relationToMainInsured: '1'
         // name: "王小明",
         // certificateId: "10000",
         // certificateNum: "65300119520705283x",
@@ -100,34 +100,34 @@ export default {
       policyData: {
         // effectiveDate: "",
         // expireDate: ""
+      }
       },
-      },
-      
-      amount: "100",
-      buttonName: "proposalConfirm.immediatelyInsure",
-      required:true,
+
+      amount: '100',
+      buttonName: 'proposalConfirm.immediatelyInsure',
+      required: true,
       datas1: [
         {
-          key: "1",
-          value: "本人",
+          key: '1',
+          value: '本人',
           active: true
           // onClick: this.onClickInsured
         },
         {
-          key: "2",
-          value: "配偶",
+          key: '2',
+          value: '配偶',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: "3",
-          value: "子女",
+          key: '3',
+          value: '子女',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: "4",
-          value: "父母",
+          key: '4',
+          value: '父母',
           active: false
           // onClick: this.onClickInsured
         }
@@ -137,11 +137,11 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.setItem("policy",JSON.stringify(this.policy));
+        sessionStorage.setItem('policy', JSON.stringify(this.policy));
         let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         // this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
         this.$router.push({
-          path:"/proposal/ah/AHRouterConfirm/"+this.$route.params.productCode+"/"+this.$route.params.agentCode+'/'+route.route3
+          path: '/proposal/ah/AHRouterConfirm/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route3
         });
       } else {
         this.pageModel.toastShow = true;
@@ -153,7 +153,7 @@ export default {
     //   console.log(data);
     // }
   },
-  create:function(){
+  create: function() {
   },
   mounted: function() {},
   beforeDestroy: function() {}

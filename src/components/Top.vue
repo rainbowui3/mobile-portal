@@ -6,41 +6,39 @@
 </template>
 
 <script>
-import { RHeader,Actionsheet} from 'rainbow-mobile-core';
+import { RHeader, Actionsheet} from 'rainbow-mobile-core';
 import i18n from '../i18n/index';
-import Bottom from '../components/Bottom';
-import Vue from 'vue';
 
 export default {
   components: {
     RHeader,
-    Actionsheet 
+    Actionsheet
   },
   props: {
     title: String,
-    showBack:Boolean
+    showBack: Boolean
   },
   data() {
     return {
-      showMenu:{},
-      menuList:{
-          "zh-CN": '中文',
-          "en-US": 'English'
+      showMenu: {},
+      menuList: {
+          'zh-CN': '中文',
+          'en-US': 'English'
       }
     };
   },
-  methods:{
-    onClickMore(){
-        this.showMenu.status=!this.showMenu.status;
+  methods: {
+    onClickMore() {
+        this.showMenu.status = !this.showMenu.status;
     },
-    onClickSheet(key){
-      i18n.locale=key;
+    onClickSheet(key) {
+      i18n.locale = key;
     }
   },
   computed: {
-    headerHtml(){
-        return `<h6>${this.$t('common.language')}</h6>`
-    },
+    headerHtml() {
+        return `<h6>${this.$t('common.language')}</h6>`;
+    }
   }
 };
 </script>

@@ -58,10 +58,8 @@ import {
   List,
   Row,
   Selector
-} from "rainbow-mobile-core";
-import { PassThrough } from "stream";
-import { debug } from "util";
-import "../../../i18n/planSelection";
+} from 'rainbow-mobile-core';
+import '../../../i18n/planSelection';
 export default {
   components: {
     Tab,
@@ -81,7 +79,7 @@ export default {
       items: [
         {
           planData: {
-            head: [[{ text: "保险责任" }, { text: "保险金额" }]]
+            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
             // body: [
             //   [{ text: "公共交通意外伤害-飞机" }, { text: "50万" }],
             //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "40万" }],
@@ -91,7 +89,7 @@ export default {
         },
         {
           planData: {
-            head: [[{ text: "保险责任" }, { text: "保险金额" }]]
+            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
             // body: [
             //   [{ text: "公共交通意外伤害-飞机" }, { text: "70万" }],
             //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "60万" }],
@@ -101,7 +99,7 @@ export default {
         },
         {
           planData: {
-            head: [[{ text: "保险责任" }, { text: "保险金额" }]]
+            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
             // body: [
             //   [{ text: "公共交通意外伤害-飞机" }, { text: "100万" }],
             //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "90万" }],
@@ -115,31 +113,31 @@ export default {
       classStatus: true,
       coverageList: [
         {
-          coverageTitle: "公共交通意外伤害-飞机",
-          coverageAmount: "50万",
+          coverageTitle: '公共交通意外伤害-飞机',
+          coverageAmount: '50万',
           coverageDescription:
-            "-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。",
+            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
           showDescription: true
         },
         {
-          coverageTitle: "公共交通意外伤害-火车(地铁、轻轨)",
-          coverageAmount: "70万",
+          coverageTitle: '公共交通意外伤害-火车(地铁、轻轨)',
+          coverageAmount: '70万',
           coverageDescription:
-            "-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。",
+            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
           showDescription: true
         },
         {
-          coverageTitle: "公共交通意外伤害-汽车",
-          coverageAmount: "100万",
+          coverageTitle: '公共交通意外伤害-汽车',
+          coverageAmount: '100万',
           coverageDescription:
-            "-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。",
+            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
           showDescription: true
         },
         {
-          coverageTitle: "公共交通意外伤害-汽车",
-          coverageAmount: "100万",
+          coverageTitle: '公共交通意外伤害-汽车',
+          coverageAmount: '100万',
           coverageDescription:
-            "-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。",
+            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
           showDescription: true
         }
       ],
@@ -147,31 +145,31 @@ export default {
     };
   },
   computed: {
-    //Tab选项卡的名称
+    // Tab选项卡的名称
     tabItems: function() {
       return [
         {
           selected: true,
           showdot: false,
           disabled: false,
-          bage: "",
-          text: "基础版",
+          bage: '',
+          text: '基础版',
           onClick: this.onTabItemClicked
         },
         {
           selected: false,
           showdot: false,
           disabled: false,
-          bage: "",
-          text: "升级版",
+          bage: '',
+          text: '升级版',
           onClick: this.onTabItemClicked
         },
         {
           selected: false,
           showdot: false,
           disabled: false,
-          bage: "",
-          text: "尊享版",
+          bage: '',
+          text: '尊享版',
           onClick: this.onTabItemClicked
         }
       ];
@@ -179,14 +177,14 @@ export default {
     getListData() {
       return [
         {
-          label: this.$t("planSelection.approvalCrowd"),
-          value: "各个年龄段人群"
+          label: this.$t('planSelection.approvalCrowd'),
+          value: '各个年龄段人群'
         },
-        { label: this.$t("planSelection.limitPurchase"), value: "10份" },
-        { label: this.$t("planSelection.term"), value: "1年" },
+        { label: this.$t('planSelection.limitPurchase'), value: '10份' },
+        { label: this.$t('planSelection.term'), value: '1年' },
         {
-          label: this.$t("planSelection.specialInstructions"),
-          value: "本产品最终解释权由中国大地保险所有"
+          label: this.$t('planSelection.specialInstructions'),
+          value: '本产品最终解释权由中国大地保险所有'
         }
       ];
     }

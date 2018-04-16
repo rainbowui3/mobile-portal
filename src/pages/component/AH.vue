@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {Page,Tab,RImage,RBody} from 'rainbow-mobile-core';
+import {Page, Tab, RImage, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Female from '../../assets/female.jpg';
@@ -26,56 +26,56 @@ export default {
     RImage,
     RBody
   },
-  data(){
+  data() {
       return {
-        products:[
-          {class:"product",src:Ly,onClick:this.goto,param:{path:"/proposal/LoadingPage/6/1",name:"ProductInfoEntryHealth",flag:"1"}},
-          {class:"product",src:Female,onClick:this.goto,param:{path:"/proposal/LoadingPage/6/2",name:"ProductInfoEntryHealth",flag:"2"}},
-          {"class":"product","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"product","src":Ywx,'onClick':this.goto,'param':'/project/ly'},
+        products: [
+          {class: 'product', src: Ly, onClick: this.goto, param: {path: '/proposal/LoadingPage/6/1', name: 'ProductInfoEntryHealth', flag: '1'}},
+          {class: 'product', src: Female, onClick: this.goto, param: {path: '/proposal/LoadingPage/6/2', name: 'ProductInfoEntryHealth', flag: '2'}},
+          {'class': 'product', 'src': Ycx, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'product', 'src': Ywx, 'onClick': this.goto, 'param': '/project/ly'}
         ]
-      }
+      };
   },
-  methods:{
-      goto(param){
-        sessionStorage.setItem("ROUTE_FLAG", param.flag);
+  methods: {
+      goto(param) {
+        sessionStorage.setItem('ROUTE_FLAG', param.flag);
         this.$router.push({
-          path:param.path,
-          params:{
-            flag:param.flag
+          path: param.path,
+          params: {
+            flag: param.flag
           }
-        })
+        });
         // window.location.hash=param;
       },
-      go(index){
+      go(index) {
         switch (index) {
           case 0:
-            window.location.hash="/demo";
+            window.location.hash = '/demo';
             break;
           case 1:
-            window.location.hash="/demo/auto";
+            window.location.hash = '/demo/auto';
             break;
           case 2:
-            window.location.hash="/demo/gi";
+            window.location.hash = '/demo/gi';
             break;
           case 3:
-            window.location.hash="/demo/ah";
+            window.location.hash = '/demo/ah';
             break;
           default:
-            window.location.hash="/demo";
+            window.location.hash = '/demo';
             break;
         }
       }
   },
-  computed:{
-     tabItems(){
+  computed: {
+     tabItems() {
       return [
-        { 'selected':false,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('demo.popular'),"onClick":this.go},
-        { 'selected':false,'showdot':false, 'disabled': false, 'badge': '','text': this.$t('demo.auto'),"onClick":this.go},
-        { 'selected':false, 'showdot':true, 'disabled': false, 'badge': '1','text': this.$t('demo.gi'),"onClick":this.go},
-        { 'selected':true, 'showdot':false, 'disabled': false, 'badge': '', 'text': this.$t('demo.ah'),"onClick":this.go },
-      ]
-    },
+        { 'selected': false, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('demo.popular'), 'onClick': this.go},
+        { 'selected': false, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('demo.auto'), 'onClick': this.go},
+        { 'selected': false, 'showdot': true, 'disabled': false, 'badge': '1', 'text': this.$t('demo.gi'), 'onClick': this.go},
+        { 'selected': true, 'showdot': false, 'disabled': false, 'badge': '', 'text': this.$t('demo.ah'), 'onClick': this.go }
+      ];
+    }
   }
 };
 </script>

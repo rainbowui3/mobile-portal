@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import { Page, RBody } from "rainbow-mobile-core";
+import { Page, RBody } from 'rainbow-mobile-core';
 export default {
   components: { Page, RBody },
   data() {
     return {};
   },
   created: function() {
-    //console.log(this.$route);
+    // console.log(this.$route);
   },
   mounted: function() {},
   beforeRouteEnter(to, from, next) {

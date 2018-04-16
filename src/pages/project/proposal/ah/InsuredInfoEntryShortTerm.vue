@@ -36,31 +36,22 @@ import {
   Page,
   RBody,
   Card,
-  RImage,
   RButton,
-  Swiper,
-  RSwitch,
-  DateTime,
-  Tab,
-  RTable,
-  List,
-  Selector,
   TabBar,
-  Cell,
   Toast
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import Bottom from "../../../../components/Bottom";
-import HolderInfo from "../../components/HolderInfo";
-import InsuredInfo from "../../components/InsuredInfo";
-import SubsidiaryInsuredInfo from "../../components/SubsidiaryInsuredInfo";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import ChooseRelationship from "../../components/ChooseRelationship";
-import "../../../../i18n/insuredInfoEntryShortTerm";
-import "../../../../i18n/insuredInfoEntryHealthSub";
-import "../../../../i18n/input";
-import "../../../../i18n/project";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import Bottom from '../../../../components/Bottom';
+import HolderInfo from '../../components/HolderInfo';
+import InsuredInfo from '../../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import ChooseRelationship from '../../components/ChooseRelationship';
+import '../../../../i18n/insuredInfoEntryShortTerm';
+import '../../../../i18n/insuredInfoEntryHealthSub';
+import '../../../../i18n/input';
+import '../../../../i18n/project';
 
 export default {
   components: {
@@ -79,9 +70,6 @@ export default {
     ChooseRelationship,
     Toast
   },
-  methods: {
-    clickHom() {}
-  },
   data() {
     return {
       pageModel: {
@@ -89,7 +77,7 @@ export default {
         toastShow: false
       },
       readonly: false,
-      linkInsuredConfirmUrl: "/project/proposal/ah/InsuredInfoConfirmNormal",
+      linkInsuredConfirmUrl: '/project/proposal/ah/InsuredInfoConfirmNormal',
       policy: {
         // holderInfo: {
         //   name: "王小明",
@@ -120,8 +108,8 @@ export default {
         // }
       },
       required: true,
-      amount: "100",
-      buttonName: "proposalConfirm.confirmInsure",
+      amount: '100',
+      buttonName: 'proposalConfirm.confirmInsure',
       // relationToHolder: [
       //   { key: "10000", value: "本人" },
       //   { key: "10001", value: "配偶" },
@@ -129,26 +117,26 @@ export default {
       // ],
       datas1: [
         {
-          key: "1",
-          value: "本人",
+          key: '1',
+          value: '本人',
           active: true
           // onClick: this.onClickInsured
         },
         {
-          key: "2",
-          value: "配偶",
+          key: '2',
+          value: '配偶',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: "3",
-          value: "子女",
+          key: '3',
+          value: '子女',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: "4",
-          value: "父母",
+          key: '4',
+          value: '父母',
           active: false
           // onClick: this.onClickInsured
         }
@@ -158,15 +146,15 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.setItem("policy", JSON.stringify(this.policy));
-        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
-        if (route && route.route3 && route.route3 != "") {
+        sessionStorage.setItem('policy', JSON.stringify(this.policy));
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        if (route && route.route3 && route.route3 != '') {
           this.$router.push(
-            "/proposal/ah/AHRouterConfirm/" +
+            '/proposal/ah/AHRouterConfirm/' +
               this.$route.params.productCode +
-              "/" +
+              '/' +
               this.$route.params.agentCode +
-              "/" +
+              '/' +
               route.route3
           );
         }
@@ -178,7 +166,7 @@ export default {
     clickHome: function() {}
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
   }
   // ,
   // watch:{

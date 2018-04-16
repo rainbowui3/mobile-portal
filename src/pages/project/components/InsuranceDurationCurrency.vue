@@ -6,22 +6,22 @@
 
 <script>
 import {Selector} from 'rainbow-mobile-core';
-import "../../../i18n/insuranceDurationCurrency";
+import '../../../i18n/insuranceDurationCurrency';
 export default {
-  components: {   
+  components: {
     Selector
   },
-  data(){
-    return{
-      durationOptions:[{"key":"10000","value":"一年"},{"key":"10001","value":"两年"},{"key":"10002","value":"三年"}],
-      duration:{
-        "durationId":"10000",
+  data() {
+    return {
+      durationOptions: [{'key': '10000', 'value': '一年'}, {'key': '10001', 'value': '两年'}, {'key': '10002', 'value': '三年'}],
+      duration: {
+        'durationId': '10000'
      }
     };
   },
-  methods:{
-    onChange:function(val) {
-      this.duration.effortDate=val;
+  methods: {
+    onChange: function(val) {
+      this.duration.effortDate = val;
     }
   }
 };

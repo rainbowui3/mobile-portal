@@ -50,13 +50,13 @@
 </template>
 
 <script>
-import {Page,Card,Row,RBody} from 'rainbow-mobile-core';
+import {Page, Card, Row, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/row";
-import "../../i18n/card";
+import '../../i18n/component';
+import '../../i18n/row';
+import '../../i18n/card';
 export default {
   components: {
     Bottom,
@@ -67,46 +67,46 @@ export default {
     Previewer,
     RBody
   },
-  data(){
+  data() {
       return {
-           money:null,
-           flag:false,
-           flag1:false,
-           flag2:false,
-      }
+           money: null,
+           flag: false,
+           flag1: false,
+           flag2: false
+      };
   },
-  methods:{
-      onClick(event){
-          console.log("===",event)
+  methods: {
+      onClick(event) {
+          console.log('===', event);
       },
-      goto(event){
-          window.location.hash='/component/example/preview'
+      goto(event) {
+          window.location.hash = '/component/example/preview';
       },
-      open(){
-          this.flag= !this.flag;
+      open() {
+          this.flag = !this.flag;
       },
-      open1(){
-          this.flag1= !this.flag1;
+      open1() {
+          this.flag1 = !this.flag1;
       },
-      open2(){
-          this.flag2= !this.flag2;
+      open2() {
+          this.flag2 = !this.flag2;
       }
   },
   mounted () {
     setTimeout(() => {
-      this.money = '-1024'
-    }, 2000)
+      this.money = '-1024';
+    }, 2000);
   },
-  computed :{
-    cardList(){
+  computed: {
+    cardList() {
       return [
-        { 'link': '/home', 'number': '40','text': this.$t('component.core') },
-        { 'link': '/component', 'number': '16','text': this.$t('component.advanced') },
-        { 'link': '/example', 'number': '1','text': this.$t('component.business') },
-        { 'link': '/donate', 'number': '1','text': this.$t('component.project') },
-      ]
+        { 'link': '/home', 'number': '40', 'text': this.$t('component.core') },
+        { 'link': '/component', 'number': '16', 'text': this.$t('component.advanced') },
+        { 'link': '/example', 'number': '1', 'text': this.$t('component.business') },
+        { 'link': '/donate', 'number': '1', 'text': this.$t('component.project') }
+      ];
     },
-    list(){
+    list() {
       return [{
         label: this.$t('preview.goods'),
         value: this.$t('preview.machine')
@@ -116,7 +116,7 @@ export default {
       }, {
         label: this.$t('preview.name'),
         value: this.$t('preview.longName')
-      }]
+      }];
     }
   }
 };

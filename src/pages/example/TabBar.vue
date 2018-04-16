@@ -28,19 +28,15 @@
 </template>
 
 <script>
-import { Page, RHeader, TabBar, Cell, Box, RButton ,RBody} from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import home_on from "../../assets/home_on.svg";
-import home_off from "../../assets/home_off.svg";
-import component_off from "../../assets/component_off.svg";
-import component_on from "../../assets/component_on.svg";
-import donation_off from "../../assets/donation_off.svg";
-import donation_on from "../../assets/donation_on.svg";
-import example_off from "../../assets/example_off.svg";
-import example_on from "../../assets/example_on.svg";
-import "../../i18n/component";
-import "../../i18n/home";
+import { Page, RHeader, TabBar, Cell, Box, RButton, RBody} from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import homeOn from '../../assets/home_on.svg';
+import componentOff from '../../assets/component_off.svg';
+import donationOff from '../../assets/donation_off.svg';
+import exampleOff from '../../assets/example_off.svg';
+import '../../i18n/component';
+import '../../i18n/home';
 export default {
   components: {
     Bottom,
@@ -57,36 +53,36 @@ export default {
     tabItems() {
       return [
         {
-          icon: home_on,
+          icon: homeOn,
           selected: true,
           showdot: false,
-          link: "/",
-          badge: "",
-          text: this.$t("common.home")
+          link: '/',
+          badge: '',
+          text: this.$t('common.home')
         },
         {
-          icon: component_off,
+          icon: componentOff,
           selected: false,
           showdot: true,
-          link: "/component/core",
-          badge: "",
-          text: this.$t("component.component")
+          link: '/component/core',
+          badge: '',
+          text: this.$t('component.component')
         },
         {
-          icon: example_off,
+          icon: exampleOff,
           selected: false,
           showdot: false,
-          link: "/demo",
-          badge: "2",
-          text: this.$t("home.exapmle")
+          link: '/demo',
+          badge: '2',
+          text: this.$t('home.exapmle')
         },
         {
-          icon: donation_off,
+          icon: donationOff,
           selected: false,
           showdot: false,
-          link: "/donate",
-          badge: "",
-          text: this.$t("home.donate")
+          link: '/donate',
+          badge: '',
+          text: this.$t('home.donate')
         }
       ];
     },
@@ -95,66 +91,66 @@ export default {
         {
           selected: true,
           showdot: false,
-          link: "/",
-          badge: "",
-          text: this.$t("common.home")
+          link: '/',
+          badge: '',
+          text: this.$t('common.home')
         },
         {
           selected: false,
           showdot: true,
-          link: "/component/core",
-          badge: "",
-          text: this.$t("component.component")
+          link: '/component/core',
+          badge: '',
+          text: this.$t('component.component')
         },
         {
           selected: false,
           showdot: false,
-          link: "/demo",
-          badge: "2",
-          text: this.$t("home.exapmle")
+          link: '/demo',
+          badge: '2',
+          text: this.$t('home.exapmle')
         },
         {
           selected: false,
           showdot: false,
-          link: "/donate",
-          badge: "",
-          text: this.$t("home.donate")
+          link: '/donate',
+          badge: '',
+          text: this.$t('home.donate')
         }
       ];
     },
     tabItem2() {
       return [
         {
-          icon: "fa fa-home",
+          icon: 'fa fa-home',
           selected: false,
           showdot: false,
-          link: "/",
-          badge: "",
-          text: this.$t("common.home")
+          link: '/',
+          badge: '',
+          text: this.$t('common.home')
         },
         {
-          icon: "fa fa-gears",
+          icon: 'fa fa-gears',
           selected: true,
           showdot: true,
-          link: "/component/core",
-          badge: "",
-          text: this.$t("component.component")
+          link: '/component/core',
+          badge: '',
+          text: this.$t('component.component')
         },
         {
-          icon: "fa fa-automobile",
+          icon: 'fa fa-automobile',
           selected: false,
           showdot: false,
-          link: "/demo",
-          badge: "2",
-          text: this.$t("home.exapmle")
+          link: '/demo',
+          badge: '2',
+          text: this.$t('home.exapmle')
         },
         {
-          icon: "fa fa-heart",
+          icon: 'fa fa-heart',
           selected: false,
           showdot: false,
-          link: "/donate",
-          badge: "",
-          text: this.$t("home.donate")
+          link: '/donate',
+          badge: '',
+          text: this.$t('home.donate')
         }
       ];
     }

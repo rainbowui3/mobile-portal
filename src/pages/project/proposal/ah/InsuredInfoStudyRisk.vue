@@ -45,15 +45,15 @@ import {
   RSwitch,
   Selector,
   DateTime
-} from "rainbow-mobile-core";
-import Top from "@/components/Top";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import Validate from "../../utils/Valitate";
-import Getbirthday from "../../utils/Getbirthday";
-import "../../../../i18n/insuredInfoStudyRisk";
-import "../../../../i18n/input";
-import "../../../../i18n/project";
+} from 'rainbow-mobile-core';
+import Top from '@/components/Top';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import Validate from '../../utils/Valitate';
+import Getbirthday from '../../utils/Getbirthday';
+import '../../../../i18n/insuredInfoStudyRisk';
+import '../../../../i18n/input';
+import '../../../../i18n/project';
 export default {
   components: {
     Page,
@@ -70,17 +70,17 @@ export default {
   },
   data() {
     return {
-      buttonName: "proposalConfirm.immediatelyInsure",
-      amount: "100",
+      buttonName: 'proposalConfirm.immediatelyInsure',
+      amount: '100',
       options: [
-        { key: "10000", value: "身份证" },
-        { key: "10002", value: "护照" }
+        { key: '10000', value: '身份证' },
+        { key: '10002', value: '护照' }
       ],
       isValidateNumBaby: false,
       isValidateNumParent: false,
       options1: [
-        { key: "10000", value: "父母" },
-        { key: "10001", value: "祖父母" }
+        { key: '10000', value: '父母' },
+        { key: '10001', value: '祖父母' }
       ],
       policy: {
         holderInfo: {
@@ -92,7 +92,7 @@ export default {
           // email: "wangxm@outlook.com"
         },
         babyInfo: {
-          relationToHolder: "10000"
+          relationToHolder: '10000'
           // name: "王小明",
           // certificateId: "10000",
           // certificateNum: "",
@@ -111,71 +111,65 @@ export default {
   methods: {
     onClick: function() {
       debugger;
-      sessionStorage.setItem("policy", JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
+      sessionStorage.setItem('policy', JSON.stringify(this.policy));
+      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/ah/InsuredInfoConfirmStudyRisk");
-      if (route && route.route3 && route.route3 != "") {
+      if (route && route.route3 && route.route3 != '') {
         this.$router.push({
           path:
-            "/proposal/ah/AHRouterConfirm/" +
+            '/proposal/ah/AHRouterConfirm/' +
             this.$route.params.productCode +
-            "/" +
+            '/' +
             this.$route.params.agentCode +
-            "/" +
+            '/' +
             route.route3
         });
       }
     },
     validateNumInputBaby(value) {
       var isCertification = Validate.validateIdNo(value);
-      if (isCertification && this.policy.babyInfo.certificateId == "10000") {
+      if (isCertification && this.policy.babyInfo.certificateId == '10000') {
         this.policy.babyInfo.birthdate = Getbirthday.getBirthdayByIdCard(value);
       }
       return {
         valid: isCertification === true,
-        msg: this.$t("input.validate")
+        msg: this.$t('input.validate')
       };
     },
     validateNumInputParent(value) {
       var isCertification = Validate.validateIdNo(value);
-      if (isCertification && this.policy.holderInfo.certificateId == "10000") {
+      if (isCertification && this.policy.holderInfo.certificateId == '10000') {
         this.policy.holderInfo.birthdate = Getbirthday.getBirthdayByIdCard(
           value
         );
       }
       return {
         valid: isCertification === true,
-        msg: this.$t("input.validate")
+        msg: this.$t('input.validate')
       };
     },
     onChangeCertiType: function(value1, value2) {
       switch (value1) {
-        case "baby":
-          {
-            if (
-              this.policy.babyInfo.certificateId &&
-              this.policy.babyInfo.certificateId === "10000"
-            ) {
-              this.isValidateNumBaby = false;
-              this.validateNumInputBaby(this.policy.babyInfo.certificateNum);
-            } else {
-              this.isValidateNumBaby = true;
-            }
+        case 'baby':
+          if (
+            this.policy.babyInfo.certificateId &&
+            this.policy.babyInfo.certificateId === '10000'
+          ) {
+            this.isValidateNumBaby = false;
+            this.validateNumInputBaby(this.policy.babyInfo.certificateNum);
+          } else {
+            this.isValidateNumBaby = true;
           }
           break;
-        case "parent":
-          {
-            if (
-              this.policy.holderInfo.certificateId &&
-              this.policy.holderInfo.certificateId === "10000"
-            ) {
-              this.isValidateNumParent = false;
-              this.validateNumInputParent(
-                this.policy.holderInfo.certificateNum
-              );
-            } else {
-              this.isValidateNumParent = true;
-            }
+        case 'parent':
+          if (
+            this.policy.holderInfo.certificateId &&
+            this.policy.holderInfo.certificateId === '10000'
+          ) {
+            this.isValidateNumParent = false;
+            this.validateNumInputParent(this.policy.holderInfo.certificateNum);
+          } else {
+            this.isValidateNumParent = true;
           }
           break;
       }

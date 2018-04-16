@@ -29,13 +29,13 @@ import {
   RSwitch,
   DateTime,
   Selector
-} from "rainbow-mobile-core";
-import CarInfo from "../../components/CarInfo";
-import CarOwner from "../../components/CarOwner";
-import Top from "../../../../components/Top";
-import Bottom from "../../../../components/Bottom";
-import "../../../../i18n/carInfo";
-import "../../../../i18n/carAndOwnerInfoEntry";
+} from 'rainbow-mobile-core';
+import CarInfo from '../../components/CarInfo';
+import CarOwner from '../../components/CarOwner';
+import Top from '../../../../components/Top';
+import Bottom from '../../../../components/Bottom';
+import '../../../../i18n/carInfo';
+import '../../../../i18n/carAndOwnerInfoEntry';
 export default {
   components: {
     Page,
@@ -57,31 +57,31 @@ export default {
         isTransferVehicle: false
       },
       options_cusType: [
-        { key: "1", value: "个人" },
-        { key: "2", value: "机关" },
-        { key: "3", value: "企业" }
-      ],
+        { key: '1', value: '个人' },
+        { key: '2', value: '机关' },
+        { key: '3', value: '企业' }
+      ]
     };
   },
   methods: {
     onMoreInfoClick: function() {
-      //跳转暂时根据过户车标志来判断：false:跳转到机动车更多车辆信息页面，true:跳转到摩托车页面
+      // 跳转暂时根据过户车标志来判断：false:跳转到机动车更多车辆信息页面，true:跳转到摩托车页面
       if (this.model.isTransferVehicle) {
         this.$router.push({
-          path: "/project/proposal/auto2e/CarDetailsMotor",
-          name: "CarDetailsMotor",
+          path: '/project/proposal/auto2e/CarDetailsMotor',
+          name: 'CarDetailsMotor',
           params: {}
         });
       } else {
         this.$router.push({
-          path: "/project/proposal/auto2e/CarDetails",
-          name: "CarDetails",
+          path: '/project/proposal/auto2e/CarDetails',
+          name: 'CarDetails',
           params: {}
         });
       }
     },
-    nextClick(){
-       this.$router.push("/project/proposal/auto2e/AutoPlan");
+    nextClick() {
+       this.$router.push('/project/proposal/auto2e/AutoPlan');
     }
   }
 };

@@ -13,12 +13,11 @@
 </template>
 
 <script>
-import { Page, Card, RSwitch, Alert, AlertApi,RBody } from "rainbow-mobile-core";
-import Bottom from "../../components/Bottom";
-import Top from "../../components/Top";
-import dialog from "../../assets/dialog.jpg";
-import "../../i18n/alert";
-import "../../i18n/component";
+import { Page, Card, RSwitch, Alert, AlertApi, RBody } from 'rainbow-mobile-core';
+import Bottom from '../../components/Bottom';
+import Top from '../../components/Top';
+import '../../i18n/alert';
+import '../../i18n/component';
 
 export default {
   components: {
@@ -37,13 +36,13 @@ export default {
   },
   methods: {
     onClick() {
-      console.log("click");
+      console.log('click');
     },
     clickSwitchApi(val) {
       const self = this;
       AlertApi.show({
-        title: this.$t("alert.title"),
-        content: this.$t("alert.sogo"),
+        title: this.$t('alert.title'),
+        content: this.$t('alert.sogo'),
         onShow() {
           console.log("Module: I'm showing");
         },
@@ -54,10 +53,10 @@ export default {
       });
     },
     onHide() {
-      console.log("Hide");
+      console.log('Hide');
     },
     onShow() {
-      console.log("show");
+      console.log('show');
     }
   }
 };

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { Card, RButton, Cell } from "rainbow-mobile-core";
-import "../../../i18n/proposalConfirm";
+import { Card, RButton, Cell } from 'rainbow-mobile-core';
+import '../../../i18n/proposalConfirm';
 export default {
   components: {
     Card,
@@ -19,13 +19,15 @@ export default {
     Cell
   },
   props: {
-    onClick:Function,
-    buttonName:String,
-    amount:String
+    onClick: Function,
+    buttonName: String,
+    amount: String
   },
   methods: {
     _onClick: function(event) {
-        this.onClick?this.onClick(event):null; 
+      /* eslint-disable */
+      this.onClick ? this.onClick(event) : () => {};
+      /* eslint-disable */
     }
   }
 };

@@ -15,9 +15,8 @@
 </template>
 
 <script>
-import { Cell, Selector } from "rainbow-mobile-core";
-import { PassThrough } from "stream";
-import "../../../i18n/holderInfo";
+import { Cell, Selector } from 'rainbow-mobile-core';
+import '../../../i18n/holderInfo';
 export default {
   components: {
     Cell,
@@ -34,7 +33,7 @@ export default {
     title: {
       type: String,
       default() {
-        return "title here";
+        return 'title here';
       }
     },
     model: Object,
@@ -45,10 +44,10 @@ export default {
       titleClass: true,
       title2: true,
       bodyClass: true,
-      row: "row",
-      padding: "0px",
+      row: 'row',
+      padding: '0px',
       selectorModel: {
-        selectorValue: "1"
+        selectorValue: '1'
       },
       dataList: []
     };
@@ -71,9 +70,9 @@ export default {
         }
       }
     },
-    onChange(key){
+    onChange(key) {
       this.dataList.forEach(element => {
-        if(element.key == key){
+        if (element.key == key) {
           this.model[this.value] = element.value;
         }
       });
@@ -81,20 +80,20 @@ export default {
   },
   computed: {},
   created: function() {
-    //将入参list脱绑
+    // 将入参list脱绑
     let dataList = [];
     dataList = JSON.parse(JSON.stringify(this.datas));
     this.dataList = dataList;
-    //根据传入的model[value]的值来进行选项上的初始化
-    if(this.model[this.value] && this.model[this.value] != ""){
+    // 根据传入的model[value]的值来进行选项上的初始化
+    if (this.model[this.value] && this.model[this.value] != '') {
       this.dataList.forEach(element => {
-        if(element.key == this.model[this.value]){
+        if (element.key == this.model[this.value]) {
           element.active = true;
-        }else{
+        } else {
           element.active = false;
         }
       });
-    }else{
+    } else {
       this.model[this.value] = this.datas[0].key;
     }
   },

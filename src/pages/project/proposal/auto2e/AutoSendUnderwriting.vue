@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import { Page, Card, RBody, Row } from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/autoSendUnderwriting";
+import { Page, Card, RBody, Row } from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/autoSendUnderwriting';
 export default {
   components: { Page, Card, RBody, Top, Row },
   data() {
     return {
-      proposalNum: "xxxxxxxxxxxx",
+      proposalNum: 'xxxxxxxxxxxx',
       model: {
-        content: "您的保单号为:xxxxxxxxxxxxxxx,已为您发送人工核保"
+        content: '您的保单号为:xxxxxxxxxxxxxxx,已为您发送人工核保'
       }
     };
   }

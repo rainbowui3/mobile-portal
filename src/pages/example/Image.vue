@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {Page,RImage,Card,RBody} from 'rainbow-mobile-core';
+import {Page, RImage, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
 import Female from '../../assets/female.jpg';
@@ -22,7 +22,7 @@ import Xpx from '../../assets/xpx.jpg';
 import Ycx from '../../assets/ycx.jpg';
 import Ywx from '../../assets/ywx.jpg';
 import Zrx from '../../assets/zrx.jpg';
-import "../../i18n/component";
+import '../../i18n/component';
 export default {
   components: {
     Bottom,
@@ -32,26 +32,26 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
       return {
-        images:[
-          {"class":"image","src":Ly,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Jcx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Female,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Fire,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Jtgj,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Tthj,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Xpx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Ycx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Ywx,'onClick':this.goto,'param':'/project/ly'},
-          {"class":"image","src":Zrx,'onClick':this.goto,'param':'/project/ly'}
+        images: [
+          {'class': 'image', 'src': Ly, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Jcx, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Female, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Fire, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Jtgj, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Tthj, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Xpx, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Ycx, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Ywx, 'onClick': this.goto, 'param': '/project/ly'},
+          {'class': 'image', 'src': Zrx, 'onClick': this.goto, 'param': '/project/ly'}
         ]
-      }
+      };
   },
-  methods:{
-      goto(param){
-        window.location.hash=param;
-      },
+  methods: {
+      goto(param) {
+        window.location.hash = param;
+      }
   }
 };
 </script>

@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import {Page,List,Card,RBody} from 'rainbow-mobile-core';
+import {Page, List, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/preview";
+import '../../i18n/component';
+import '../../i18n/preview';
 
 export default {
   components: {
@@ -29,11 +29,11 @@ export default {
     Card,
     RBody
   },
-  computed:{
-    value(){
+  computed: {
+    value() {
       return `${this.$t('common.currency')} 1024`;
     },
-    list(){
+    list() {
        return [{
         label: this.$t('common.apple'),
         value: '3.29'
@@ -43,7 +43,7 @@ export default {
       }, {
         label: this.$t('common.fish'),
         value: '8.00'
-      }]
+      }];
      }
   }
 };

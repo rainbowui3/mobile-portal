@@ -36,15 +36,15 @@ import {
   Selector,
   TabBar,
   Toast
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import HolderInfo from "../../components/HolderInfo";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import "../../../../i18n/insuredInfoEntryPassenger";
-import "../../../../i18n/planSelection";
-import "../../../../i18n/insuredInfoEntryHealthSub";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import HolderInfo from '../../components/HolderInfo';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import '../../../../i18n/insuredInfoEntryPassenger';
+import '../../../../i18n/planSelection';
+import '../../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
     Page,
@@ -70,10 +70,9 @@ export default {
         // holderInfo: {},
         // carInfo: {}
       },
-      options: [{ key: "1", value: "家庭自用" }],
-      buttonName: "proposalConfirm.submitPay",
-      amount: "100",
-      readonly: true,
+      options: [{ key: '1', value: '家庭自用' }],
+      buttonName: 'proposalConfirm.submitPay',
+      amount: '100',
       pageModel: {
         clauseConfirm: false,
         toastShow: false
@@ -81,37 +80,37 @@ export default {
     };
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem("policy"));
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
   },
   mounted: function() {},
   methods: {
     getCarModel: function() {
-      console.log("getCarModel");
+      console.log('getCarModel');
     },
     getVehicleUseNatureCode: function() {
-      console.log("getVehicleUseNatureCode");
+      console.log('getVehicleUseNatureCode');
     },
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.removeItem("policy");
-        let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
-        if (route && route.route4 && route.route4 != "") {
+        sessionStorage.removeItem('policy');
+        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        if (route && route.route4 && route.route4 != '') {
           debugger;
           this.$router.push({
             path:
-              "/proposal/ah/AHRouterPay/" +
+              '/proposal/ah/AHRouterPay/' +
               this.$route.params.productCode +
-              "/" +
+              '/' +
               this.$route.params.agentCode +
-              "/" +
+              '/' +
               route.route4,
             params: [
               {
-                name: "test",
+                name: 'test',
                 dataObj: this.policy
               },
               {
-                name: "test2",
+                name: 'test2',
                 dataObj: this.policy
               }
             ]
@@ -137,7 +136,7 @@ export default {
     }
   },
   watch: {
-    "pageModel.clauseConfirm": {
+    'pageModel.clauseConfirm': {
       handler: function() {
         console.log(this.pageModel.clauseConfirm);
       }

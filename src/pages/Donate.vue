@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import {Page,Card,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RBody} from 'rainbow-mobile-core';
 import Bottom from '../components/Bottom';
 import Top from '../components/Top';
-import team from "../assets/team.jpg";
-import weixin from "../assets/weixin.png";
-import "../i18n/donate";
+import team from '../assets/team.jpg';
+import weixin from '../assets/weixin.png';
+import '../i18n/donate';
 
 export default {
   components: {
@@ -30,12 +30,12 @@ export default {
     Card,
     RBody
   },
-  data(){
+  data() {
       return {
-          teamPath:team,
-          weixinPath:weixin
-      }
-  },
+          teamPath: team,
+          weixinPath: weixin
+      };
+  }
 };
 </script>
 

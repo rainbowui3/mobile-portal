@@ -9,114 +9,101 @@
 </template>
 
 <script>
-import { Page, RBody, TabBar, RInput, RButton } from "rainbow-mobile-core";
-import Top from "../../components/Top";
-import { setTimeout } from "timers";
+import { Page, RBody, TabBar, RInput, RButton } from 'rainbow-mobile-core';
+import Top from '../../components/Top';
 export default {
   components: { Page, Top, RBody, TabBar, RInput, RButton },
   beforeRouteEnter(to, from, next) {
-    //读配置表
+    // 读配置表
     next(vm => {
       switch (vm.$route.params.productCode) {
-        case "1":
-          {
+        case '1':
             // vm.typeList = ["normal", "normal", "normal", "normal"];
             vm.routeType = {
-              productCode:'1',
-              route1:'normal',
-              route2:'normal',
-              route3:'normal',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '1',
+              route1: 'normal',
+              route2: 'normal',
+              route3: 'normal',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
-        case "2":
-          {
+        case '2':
             // vm.typeList = ["shortTerm", "shortTerm", "normal", "normal"];
             vm.routeType = {
-              productCode:'2',
-              route1:'shortTerm',
-              route2:'shortTerm',
-              route3:'normal',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '2',
+              route1: 'shortTerm',
+              route2: 'shortTerm',
+              route3: 'normal',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
-        case "3":
-          {
+        case '3':
             // vm.typeList = ["shortTerm", "risk", "risk", "normal"];
             vm.routeType = {
-              productCode:'3',
-              route1:'shortTerm',
-              route2:'accident',
-              route3:'accident',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '3',
+              route1: 'shortTerm',
+              route2: 'accident',
+              route3: 'accident',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
-        case "4":
-          {
+        case '4':
             // vm.typeList = ["normal", "passenger", "passenger", "normal"];
             vm.routeType = {
-              productCode:'4',
-              route1:'normal',
-              route2:'passenger',
-              route3:'passenger',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '4',
+              route1: 'normal',
+              route2: 'passenger',
+              route3: 'passenger',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
-        case "5":
-          {
+        case '5':
             // vm.typeList = ["normal", "studyRisk", "studyRisk", "normal"];
             vm.routeType = {
-              productCode:'5',
-              route1:'normal',
-              route2:'studyRisk',
-              route3:'studyRisk',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '5',
+              route1: 'normal',
+              route2: 'studyRisk',
+              route3: 'studyRisk',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
-        case "6":
-          {
+        case '6':
             // vm.typeList = ["health", "health", "health", "normal"];
             vm.routeType = {
-              productCode:'6',
-              route1:'health',
-              route2:'health',
-              route3:'health',
-              route4:'normal'
-            }
-            sessionStorage.setItem("ROUTE_TYPE",JSON.stringify(vm.routeType));
-          }
+              productCode: '6',
+              route1: 'health',
+              route2: 'health',
+              route3: 'health',
+              route4: 'normal'
+            };
+            sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
       }
     });
   },
   created: function() {
-    //读取配置表
+    // 读取配置表
   },
   data() {
     return {
-      routeType:{}
+      routeType: {}
     };
   },
   watch: {
     routeType: {
       handler: function() {
-        if (this.routeType && this.routeType.route1 && this.routeType.route1 != "") {
+        if (this.routeType && this.routeType.route1 && this.routeType.route1 != '') {
           this.$router.push({
-            path:'/proposal/ah/AHRouterProduct/'+this.$route.params.productCode+'/'+this.$route.params.agentCode+'/'+this.routeType.route1
+            path: '/proposal/ah/AHRouterProduct/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + this.routeType.route1
           });
         }
       },
-      deep:true
+      deep: true
     }
   }
 };

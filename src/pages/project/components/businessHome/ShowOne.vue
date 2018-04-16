@@ -31,30 +31,24 @@
 </template>
 
 <script>
-import icon from "../../../../assets/u130.png";
-import "../../../../i18n/homeShowOne";
+import icon from '../../../../assets/u130.png';
+import '../../../../i18n/homeShowOne';
 
 export default {
   props: {
-    showOne:{
-       name:String,
-       title:String,
-       content:String,
-       validity:String,
-       price:String
+    showOne: {
+       name: String,
+       title: String,
+       content: String,
+       validity: String,
+       price: String
     },
-    show:Boolean,
-    img:String,
+    show: Boolean,
+    img: String
   },
-    components: {
-        Page,
-        Card,
-        RBody,
-        List
-    },
     data() {
         return {
-            icon: icon,
+            icon: icon
         };
     }
 };

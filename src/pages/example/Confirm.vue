@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import {Page,Card,RSwitch,Confirm,LoadingApi,ConfirmApi,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RSwitch, Confirm, LoadingApi, ConfirmApi, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/dialog";
-import "../../i18n/actionSheet";
-import "../../i18n/row";
-import "../../i18n/divider";
+import '../../i18n/component';
+import '../../i18n/dialog';
+import '../../i18n/actionSheet';
+import '../../i18n/row';
+import '../../i18n/divider';
 
 export default {
   components: {
@@ -39,59 +39,59 @@ export default {
     Confirm,
     RBody
   },
-  data(){
+  data() {
     return {
-      policy: {},
-    }
+      policy: {}
+    };
   },
-  methods:{
-    click(){
-       console.log(this.policy)
+  methods: {
+    click() {
+       console.log(this.policy);
     },
-    clickApi(val){
+    clickApi(val) {
       const self = this;
-      ConfirmApi.show(this,{
+      ConfirmApi.show(this, {
         title: this.$t('row.title'),
         content: this.$t('divider.sogo'),
         onShow () {
-          console.log('plugin show')
+          console.log('plugin show');
         },
         onHide () {
-          console.log('plugin hide')
+          console.log('plugin hide');
         },
         onCancel () {
-          console.log('plugin cancel')
+          console.log('plugin cancel');
           self.policy.show5 = false;
         },
         onConfirm () {
-          console.log('plugin confirm')
+          console.log('plugin confirm');
            self.policy.show5 = false;
         }
-      })
+      });
     },
-    onHide(){
+    onHide() {
          this.show1 = false;
     },
-    onShow(){
-         console.log('show')
+    onShow() {
+         console.log('show');
     },
     onCancel () {
-      console.log('on cancel')
+      console.log('on cancel');
     },
     onConfirm (msg) {
-      console.log('on confirm',msg)
+      console.log('on confirm', msg);
     },
     onConfirm2 (msg) {
       const self = this;
-      LoadingApi.show(this,{
+      LoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
-      })
+      });
       setTimeout(() => {
-        LoadingApi.hide(this)
-        self.policy.show4 = false
-      }, 2000)
-    },
+        LoadingApi.hide(this);
+        self.policy.show4 = false;
+      }, 2000);
+    }
   }
 };
 </script>

@@ -32,13 +32,13 @@ import {
   RInput,
   Selector,
   TabBar
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
-import HolderInfo from "../../components/HolderInfo";
-import ProposalConfirm from "../../components/ProposalConfirm";
-import "../../../../i18n/insuredInfoEntryPassenger";
-import "../../../../i18n/planSelection";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import HolderInfo from '../../components/HolderInfo';
+import ProposalConfirm from '../../components/ProposalConfirm';
+import '../../../../i18n/insuredInfoEntryPassenger';
+import '../../../../i18n/planSelection';
 export default {
   components: {
     Page,
@@ -58,15 +58,15 @@ export default {
       readonly: false,
       policy: {
         policyData: {
-          effectiveDate: "",
-          expireDate: ""
+          effectiveDate: '',
+          expireDate: ''
         },
         holderInfo: {},
         carInfo: {}
       },
-      options: [{ key: "1", value: "家庭自用" }],
-      buttonName: "proposalConfirm.immediatelyInsure",
-      amount: "100",
+      options: [{ key: '1', value: '家庭自用' }],
+      buttonName: 'proposalConfirm.immediatelyInsure',
+      amount: '100',
       required: true
     };
   },
@@ -74,30 +74,30 @@ export default {
   mounted: function() {},
   methods: {
     getCarModel: function() {
-      console.log("getCarModel");
+      console.log('getCarModel');
     },
     getVehicleUseNatureCode: function() {
-      console.log("getVehicleUseNatureCode");
+      console.log('getVehicleUseNatureCode');
     },
     goto: function() {
-      sessionStorage.setItem("policy", JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem("ROUTE_TYPE"));
-      if (route && route.route3 && route.route3 != "") {
+      sessionStorage.setItem('policy', JSON.stringify(this.policy));
+      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      if (route && route.route3 && route.route3 != '') {
         this.$router.push({
           path:
-            "/proposal/ah/AHRouterConfirm/" +
+            '/proposal/ah/AHRouterConfirm/' +
             this.$route.params.productCode +
-            "/" +
+            '/' +
             this.$route.params.agentCode +
-            "/" +
+            '/' +
             route.route3,
           params: [
             {
-              name: "test",
+              name: 'test',
               dataObj: this.policy
             },
             {
-              name: "test2",
+              name: 'test2',
               dataObj: this.policy
             }
           ]
@@ -120,7 +120,7 @@ export default {
     }
   },
   watch: {
-    "policy.carInfo.licenseNo": {
+    'policy.carInfo.licenseNo': {
       handler: function(value) {
         if (value) {
           this.policy.carInfo.licenseNo = value.toUpperCase();
@@ -128,7 +128,7 @@ export default {
       },
       deep: true
     },
-    "policy.carInfo.engineNo": {
+    'policy.carInfo.engineNo': {
       handler: function(value) {
         if (value) {
           this.policy.carInfo.engineNo = value.toUpperCase();
@@ -136,7 +136,7 @@ export default {
       },
       deep: true
     },
-    "policy.carInfo.vin": {
+    'policy.carInfo.vin': {
       handler: function(value) {
         if (value) {
           this.policy.carInfo.vin = value.toUpperCase();

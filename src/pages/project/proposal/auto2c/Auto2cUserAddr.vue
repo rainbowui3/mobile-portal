@@ -23,9 +23,9 @@ import {
   TabBar,
   RButton,
   RTextarea
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/auto2cUserAddr";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/auto2cUserAddr';
 export default {
   components: {
     Page,
@@ -35,18 +35,19 @@ export default {
     Row,
     TabBar,
     RButton,
-    Top,RTextarea
+    Top,
+RTextarea
   },
-  data(){
-      return{
-          pageModel:{},
-          model:{}
-      }
+  data() {
+      return {
+          pageModel: {},
+          model: {}
+      };
   },
-  methods:{
-      gotoChooseArea:function(){
+  methods: {
+      gotoChooseArea: function() {
         // Todo:跳转到选择地区页面
-        console.log("gotoChooseArea");
+        console.log('gotoChooseArea');
       }
   }
 };

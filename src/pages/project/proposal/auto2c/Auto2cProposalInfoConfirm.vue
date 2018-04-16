@@ -62,16 +62,16 @@ import {
   RInput,
   List,
   Toast
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/auto2cProposalInfoConfirm";
-import "../../../../i18n/autoProposalInfoConfirm";
-import "../../../../i18n/carInfo";
-import "../../../../i18n/autoProposalInfoConfirm";
-import "../../../../i18n/insuredInfoEntryPassenger";
-import "../../../../i18n/insuredInfoEntryHealthSub";
-import ProposalClauseConfirm from "../../components/ProposalClauseConfirm";
-import InsuranceDurationShortTerm from "../../components/InsuranceDurationShortTerm";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/auto2cProposalInfoConfirm';
+import '../../../../i18n/autoProposalInfoConfirm';
+import '../../../../i18n/carInfo';
+// import '../../../../i18n/autoProposalInfoConfirm';
+import '../../../../i18n/insuredInfoEntryPassenger';
+import '../../../../i18n/insuredInfoEntryHealthSub';
+import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
+import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 export default {
   components: {
     Page,
@@ -95,33 +95,33 @@ export default {
         toastShow: false
       },
       model: {
-        sumPremium: "6832.56元",
+        sumPremium: '6832.56元',
         policy: [
           {
-            effectiveDate: "2018-01-01",
-            vehicleAndVesselTax: "450元",
-            a: "150元",
+            effectiveDate: '2018-01-01',
+            vehicleAndVesselTax: '450元',
+            a: '150元',
             policyPlan: [
               {
-                label: "车辆损失保险(23.09万)",
-                value: "1703.79元"
+                label: '车辆损失保险(23.09万)',
+                value: '1703.79元'
               },
               {
-                label: "第三者责任保险(50万)",
-                value: "1958.00元"
+                label: '第三者责任保险(50万)',
+                value: '1958.00元'
               },
               {
-                label: "车上人员责任保险(司机)",
-                value: "410.00元"
+                label: '车上人员责任保险(司机)',
+                value: '410.00元'
               },
               {
-                label: "不计免赔特约险",
-                value: "610.77元"
+                label: '不计免赔特约险',
+                value: '610.77元'
               }
             ]
           },
           {
-            premium: "950元"
+            premium: '950元'
           }
         ]
       }
@@ -130,21 +130,21 @@ export default {
   methods: {
     addAddress: function() {
       this.$router.push({
-        path: "/project/proposal/auto2c/Auto2cUserAddr",
-        name: "Auto2cUserAddr"
+        path: '/project/proposal/auto2c/Auto2cUserAddr',
+        name: 'Auto2cUserAddr'
       });
     },
     gotoCarInfo: function() {
       this.$router.push({
-        path: "/project/proposal/auto2c/Auto2cDrivingLicenseInfo",
-        name: "Auto2cDrivingLicenseInfo"
+        path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
+        name: 'Auto2cDrivingLicenseInfo'
       });
     },
     gotoPay() {
       if (this.pageModel.clauseConfirm) {
         this.$router.push({
-          path: "/project/proposal/auto2c//project/proposal/auto2e/AutoPay",
-          name: "AutoPay"
+          path: '/project/proposal/auto2c//project/proposal/auto2e/AutoPay',
+          name: 'AutoPay'
         });
       } else {
         this.pageModel.toastShow = true;

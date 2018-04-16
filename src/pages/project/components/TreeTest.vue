@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import { RSwitch } from "rainbow-mobile-core";
-import TreeTest from "./TreeTest";
+import { RSwitch } from 'rainbow-mobile-core';
+import TreeTest from './TreeTest';
 export default {
-  name: "treeTest",
+  name: 'treeTest',
   components: { RSwitch, TreeTest },
   props: {
     dataList: {
       type: Array
     },
-    disabled:{
-        type:Boolean,
-        default:false
+    disabled: {
+        type: Boolean,
+        default: false
     }
   },
   data() {

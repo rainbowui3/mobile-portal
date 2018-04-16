@@ -21,12 +21,12 @@
   
 </template>
 <script>
-import {Page,RBody,Card,Cell,Checker,TabBar,RButton} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/chooseHandler";
+import {Page, RBody, Card, Cell, Checker, TabBar, RButton} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/chooseHandler';
 
 export default {
-    components:{
+    components: {
         Page,
         RBody,
         Card,
@@ -35,40 +35,38 @@ export default {
         Checker,
         TabBar,
         RButton
-        
+
     },
-    data(){
-        return{
-          row:'row',
-          padding:'0px',
-          policy:{
-            value2:"fad",
-            value4:null
+    data() {
+        return {
+          row: 'row',
+          padding: '0px',
+          policy: {
+            value2: 'fad',
+            value4: null
           }
+        };
+    },
+    methods: {
+        onChange() {
+
         }
 
     },
-    methods:{
-        onChange(){
-
-        }
+    props: {
+        model: Object
 
     },
-    props:{
-        model:Object,
-
-
-    },
-    computed:{    
-      commonlyList(){
-          return [{"key":"10003","value":"常用归属经办人1",'disabled':true},{"key":"100004","value":"常用归属经办人2"},{"key":"1000005","value":"常用归属经办人3"},{"key":"10000006","value":"常用归属经办人3"}]
-      },      
-      otherList(){
-          return [{"key":"10006","value":"其他归属经办人1",'disabled':true},{"key":"100007","value":"其他归属经办人2"},{"key":"1000008","value":"其他归属经办人3"},{"key":"10000009","value":"其他归属经办人3"}]
+    computed: {
+      commonlyList() {
+          return [{'key': '10003', 'value': '常用归属经办人1', 'disabled': true}, {'key': '100004', 'value': '常用归属经办人2'}, {'key': '1000005', 'value': '常用归属经办人3'}, {'key': '10000006', 'value': '常用归属经办人3'}];
+      },
+      otherList() {
+          return [{'key': '10006', 'value': '其他归属经办人1', 'disabled': true}, {'key': '100007', 'value': '其他归属经办人2'}, {'key': '1000008', 'value': '其他归属经办人3'}, {'key': '10000009', 'value': '其他归属经办人3'}];
       }
     }
-  
-}
+
+};
 </script>
 
 <style>

@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import {Page,Card,RTable,RBody} from 'rainbow-mobile-core';
+import {Page, Card, RTable, RBody} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import "../../i18n/component";
-import "../../i18n/table";
+import '../../i18n/component';
+import '../../i18n/table';
 
 export default {
   components: {
@@ -35,42 +35,42 @@ export default {
     RTable,
     RBody
   },
-  data(){
+  data() {
     return {
-      data:{
-        "head":[
-          [{'text':'Product'},{'text':'Price'},{'text':'Number'}]
+      data: {
+        'head': [
+          [{'text': 'Product'}, {'text': 'Price'}, {'text': 'Number'}]
         ],
-        "body":[
-          [{'text':'Apple'},{'text':'$1.2'},{'text':'1'}],
-          [{'text':'Orange'},{'text':'$1.3'},{'text':'10'}]
+        'body': [
+          [{'text': 'Apple'}, {'text': '$1.2'}, {'text': '1'}],
+          [{'text': 'Orange'}, {'text': '$1.3'}, {'text': '10'}]
         ]
       },
-      data1:{
-        "head":[
-          [{'text':'Product'},{'text':'Price'},{'text':'Number'}]
+      data1: {
+        'head': [
+          [{'text': 'Product'}, {'text': 'Price'}, {'text': 'Number'}]
         ],
-        "body":[
-          [{'text':'Apple','rowspan':'2'},{'text':'$1.2','colspan':'2'}],
-          [{'text':'$1.3'},{'text':'10'}]
+        'body': [
+          [{'text': 'Apple', 'rowspan': '2'}, {'text': '$1.2', 'colspan': '2'}],
+          [{'text': '$1.3'}, {'text': '10'}]
         ]
       },
-      data2:{
-        "head":[
-          [{'text':'Product'},{'text':'Price'},{'text':'Number'}]
+      data2: {
+        'head': [
+          [{'text': 'Product'}, {'text': 'Price'}, {'text': 'Number'}]
         ],
-        "body":[
-          [{'text':'Apple','link':'/component/example/card'},{'text':'$1.2'},{'text':'1'}],
-          [{'text':'Orange','link':'/component/example/card'},{'text':'$1.3'},{'text':'10'}]
+        'body': [
+          [{'text': 'Apple', 'link': '/component/example/card'}, {'text': '$1.2'}, {'text': '1'}],
+          [{'text': 'Orange', 'link': '/component/example/card'}, {'text': '$1.3'}, {'text': '10'}]
         ]
-      },
-    }
+      }
+    };
   },
-  computed:{
-    
+  computed: {
+
   },
-  methods:{
-    
+  methods: {
+
   }
 };
 </script>

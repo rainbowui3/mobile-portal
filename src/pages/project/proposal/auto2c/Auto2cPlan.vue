@@ -35,21 +35,17 @@ import {
   Page,
   RBody,
   Card,
-  RSwitch,
-  Picker,
-  RInput,
   TabBar,
   RButton,
   Tab,
   Swiper,
   SwiperItem,
   Row,
-  List,
   Divider,
   Cell
-} from "rainbow-mobile-core";
-import Top from "../../../../components/Top";
-import "../../../../i18n/auto2cPlan";
+} from 'rainbow-mobile-core';
+import Top from '../../../../components/Top';
+import '../../../../i18n/auto2cPlan';
 export default {
   components: {
     Page,
@@ -71,33 +67,33 @@ export default {
       pageModel: {},
       planList: [
         {
-          planName: "自选方案",
-          description: "灵活搭配",
+          planName: '自选方案',
+          description: '灵活搭配',
           selectedPlans: [
-            { name: "交强险", isNonDeductible: false, value: "投保" },
-            { name: "机动车损失险", isNonDeductible: true, value: "" },
-            { name: "第三者责任险", isNonDeductible: true, value: "30万" },
-            { name: "司机责任险", isNonDeductible: true, value: "1万" },
-            { name: "乘客责任险", isNonDeductible: true, value: "1万" },
-            { name: "盗抢险", isNonDeductible: true, value: "" }
+            { name: '交强险', isNonDeductible: false, value: '投保' },
+            { name: '机动车损失险', isNonDeductible: true, value: '' },
+            { name: '第三者责任险', isNonDeductible: true, value: '30万' },
+            { name: '司机责任险', isNonDeductible: true, value: '1万' },
+            { name: '乘客责任险', isNonDeductible: true, value: '1万' },
+            { name: '盗抢险', isNonDeductible: true, value: '' }
           ]
         },
         {
-          planName: "热销方案",
-          description: "高性价比",
+          planName: '热销方案',
+          description: '高性价比',
           selectedPlans: [
-            { name: "交强险", isNonDeductible: false, value: "投保" },
-            { name: "机动车损失险", isNonDeductible: true, value: "" },
-            { name: "第三者责任险", isNonDeductible: true, value: "30万" },
-            { name: "司机责任险", isNonDeductible: true, value: "1万" },
-            { name: "乘客责任险", isNonDeductible: true, value: "1万" }
+            { name: '交强险', isNonDeductible: false, value: '投保' },
+            { name: '机动车损失险', isNonDeductible: true, value: '' },
+            { name: '第三者责任险', isNonDeductible: true, value: '30万' },
+            { name: '司机责任险', isNonDeductible: true, value: '1万' },
+            { name: '乘客责任险', isNonDeductible: true, value: '1万' }
           ]
         },
         {
-          planName: "基础方案",
-          description: "安全出行",
+          planName: '基础方案',
+          description: '安全出行',
           selectedPlans: [
-            { name: "第三者责任险", isNonDeductible: true, value: "30万" }
+            { name: '第三者责任险', isNonDeductible: true, value: '30万' }
           ]
         }
       ]
@@ -110,24 +106,24 @@ export default {
           selected: true,
           showdot: false,
           disabled: false,
-          badge: "",
-          text: this.$t("auto2cPlan.hotSale"),
+          badge: '',
+          text: this.$t('auto2cPlan.hotSale'),
           onClick: this.goto
         },
         {
           selected: false,
           showdot: false,
           disabled: false,
-          badge: "",
-          text: this.$t("auto2cPlan.basic"),
+          badge: '',
+          text: this.$t('auto2cPlan.basic'),
           onClick: this.goto
         },
         {
           selected: false,
           showdot: false,
           disabled: false,
-          badge: "",
-          text: this.$t("auto2cPlan.advance"),
+          badge: '',
+          text: this.$t('auto2cPlan.advance'),
           onClick: this.goto
         }
       ];
@@ -138,21 +134,21 @@ export default {
       console.log(index);
       this.index = index;
     },
-    gotoCustomPlan:function(){
-        console.log("gotoCustomPlan");
-        //Todo:跳转到自定义险种页面
+    gotoCustomPlan: function() {
+        console.log('gotoCustomPlan');
+        // Todo:跳转到自定义险种页面
         this.$router.push({
-          path:"/project/proposal/auto2C/Auto2cCustomPlan",
-          name:"Auto2cCustomPlan",
-          params:{}
+          path: '/project/proposal/auto2C/Auto2cCustomPlan',
+          name: 'Auto2cCustomPlan',
+          params: {}
 
         });
     },
-    confirmClick(){
+    confirmClick() {
       this.$router.push({
-        path:"/project/proposal/auto2c/Auto2cProposalInfoConfirm",
-        name:"Auto2cProposalInfoConfirm"
-      })
+        path: '/project/proposal/auto2c/Auto2cProposalInfoConfirm',
+        name: 'Auto2cProposalInfoConfirm'
+      });
     }
   }
 };

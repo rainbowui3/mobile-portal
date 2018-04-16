@@ -9,27 +9,26 @@
 </template>
 
 <script>
-import {Row,Picker} from "rainbow-mobile-core";
-import i18n from "../../../i18n/autoAgent";
+import {Row, Picker} from 'rainbow-mobile-core';
 export default {
-  components: { 
+  components: {
     Row,
     Picker
   },
   data() {
     return {
-        policy:{
-            value1:[],
+        policy: {
+            value1: []
         },
-        list1: [["其他归属经办人1","其他归属经办人2","其他归属经办人3","其他归属经办人4"]]
+        list1: [['其他归属经办人1', '其他归属经办人2', '其他归属经办人3', '其他归属经办人4']]
     };
   },
   methods: {
-      onChange(){
+      onChange() {
 
       },
-      goto(event){
-          window.location.hash='/project/proposal/auto2e/ChooseHandler';       
+      goto(event) {
+          window.location.hash = '/project/proposal/auto2e/ChooseHandler';
       }
   },
   props: {

@@ -13,17 +13,15 @@
 
 <script>
 import {
-  Page,
   Card,
   RInput,
-  RButton,
   Selector,
   DateTime
-} from "rainbow-mobile-core";
-import Validate from "../utils/Valitate";
-import Getbirthday from "../utils/Getbirthday";
-import i18n from "../../../i18n/holderInfo";
-import "../../../i18n/input";
+} from 'rainbow-mobile-core';
+import Validate from '../utils/Valitate';
+import Getbirthday from '../utils/Getbirthday';
+import '../../../i18n/holderInfo';
+import '../../../i18n/input';
 export default {
   components: {
     Card,
@@ -34,8 +32,8 @@ export default {
   data() {
     return {
       options: [
-        { key: "10000", value: "身份证" },
-        { key: "10002", value: "护照" }
+        { key: '10000', value: '身份证' },
+        { key: '10002', value: '护照' }
       ],
       isValidateNum: false
     };
@@ -48,18 +46,18 @@ export default {
       }
       return {
         valid: isCertification === true,
-        msg: this.$t("input.validate")
+        msg: this.$t('input.validate')
       };
     }
   },
   props: {
     readonly: Boolean,
     model: Object,
-    required:Boolean,
+    required: Boolean
   },
   computed: {
     onChangeCertiType: function() {
-      if (this.model.certificateId && this.model.certificateId === "10000") {
+      if (this.model.certificateId && this.model.certificateId === '10000') {
         this.isValidateNum = false;
         this.validateNumInput(this.model.certificateNum);
       } else {
