@@ -124,7 +124,7 @@ export default {
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.navTab'),
-          link: '/component/example/navTab'
+          link: '/component/example/businessNavTab'
         }
       ];
     }

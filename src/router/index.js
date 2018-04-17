@@ -151,6 +151,10 @@ const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/
 const BusinessFillIn = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessFillIn')), 'BusinessFillIn');
 // BusinessConfirm
 const BusinessConfirm = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessConfirm')), 'BusinessConfirm');
+// BusinessCategory
+const BusinessCategory = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessCategory')), 'BusinessCategory');
+// BusinessMine
+const BusinessMine = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessMine')), 'BusinessMine');
 
 // AHRouters
 const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
@@ -853,10 +857,19 @@ const router = new Router({
     path: '/project/businessPage/BusinessConfirm',
     name: 'BusinessConfirm',
     component: BusinessConfirm
+  },
+  {
+    path: '/project/businessPage/BusinessCategory',
+    name: 'BusinessCategory',
+    component: BusinessCategory
+  },
+  {
+    path: '/project/businessPage/BusinessMine',
+    name: 'BusinessMine',
+    component: BusinessMine
   }
 
   ]
-
 });
 
 export default router;

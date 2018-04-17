@@ -12,7 +12,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'business.businessThumbnail': '缩略内容',
     'business.businessSignIn': '登录',
     'business.homeContent': '首页内容',
-    'business.plan': '计划'
+    'business.plan': '计划',
+    'business.navTab': '左侧导航'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -27,6 +28,7 @@ i18n.mergeLocaleMessage('en-US', {
     'business.businessThumbnail': 'thumbnail',
     'business.businessSignIn': 'loginIn',
     'business.homeContent': 'homeContent',
-    'business.plan': 'plan'
+    'business.plan': 'plan',
+    'business.navTab': 'navTab'
 
 });

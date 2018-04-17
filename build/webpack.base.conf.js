@@ -39,8 +39,8 @@ let webpackConfig = {
         include: [resolve('src'), resolve('test')],
         exclude: /vue.vux.js$/,
         options: {
+          fix: true,
           formatter: require('eslint-friendly-formatter'),
-          fix: true
         }
       },
       {
