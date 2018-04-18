@@ -23,7 +23,7 @@
             </div>
 
         </div>
-        <div>
+        <div @click="onClick">
             <img :src="img" />
         </div>
     </div>
@@ -35,26 +35,36 @@ import icon from '../../../../assets/u130.png';
 import '../../../../i18n/homeShowOne';
 
 export default {
-  props: {
-    showOne: {
-       name: String,
-       title: String,
-       content: String,
-       validity: String,
-       price: String
+    props: {
+        onClick: Function,
+        showOne: {
+            name: String,
+            title: String,
+            content: String,
+            validity: String,
+            price: String
+        },
+        show: Boolean,
+        img: String
     },
-    show: Boolean,
-    img: String
-  },
     data() {
         return {
             icon: icon
         };
     }
+    // methods: {
+    //     onClick: function(event) {
+    //         /* eslint-disable */
+
+    //         this.onClick ? this.onClick(event) : () => {};
+
+    //         /* eslint-disable */
+    //     }
+    // }
 };
 </script>
 <style lang="less">
-.modal{
+.modal {
     margin: 10px 0;
 }
 .home {

@@ -7,7 +7,7 @@
             </div>
             <r-card>
                 <holder-info :model="holder.holderInfo" />
-                 <div class="footer">
+                <div class="footer">
                     <proposal-clause-confirm :model="pageModel" />
                 </div>
             </r-card>
@@ -16,13 +16,13 @@
             </div>
             <r-card>
                 <insured-info v-bind:model="insured.insuredInfo" />
-                 <div class="footer">
+                <div class="footer">
                     <proposal-clause-confirm :model="pageModel" />
                 </div>
             </r-card>
         </r-body>
         <r-tab-bar>
-            <r-button type="primary">{{$t('businessFillIn.confirm')}}</r-button>
+            <r-button type="primary" :onClick="onClick">{{$t('businessFillIn.confirm')}}</r-button>
         </r-tab-bar>
     </r-page>
 </template>
@@ -103,6 +103,22 @@ export default {
                 }
             }
         };
+    },
+    methods: {
+        onClick: function() {
+            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            if (route && route.route2 && route.route2 != '') {
+                this.$router.push({
+                    path:
+                        '/proposal/ah/AHRouterConfirm/' +
+                        this.$route.params.productCode +
+                        '/' +
+                        this.$route.params.agentCode +
+                        '/' +
+                        route.route3
+                });
+            }
+        }
     }
 };
 </script>

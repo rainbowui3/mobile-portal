@@ -12,7 +12,7 @@
             </r-card>
         </r-body>
         <r-tab-bar>
-            <r-button type="primary">{{$t('businessConfirm.confirm')}}</r-button>
+            <r-button type="primary" :onClick="onClick">{{$t('businessConfirm.confirm')}}</r-button>
         </r-tab-bar>
     </r-page>
 </template>
@@ -34,6 +34,9 @@ export default {
         };
     },
     methods: {
+        onClick() {
+            window.location.hash = '/project/businessPage/BusinessPayment';
+        },
         onChange(val) {
             this.policy.effortDate = val;
         }
@@ -47,7 +50,7 @@ export default {
     font-size: 20px;
     height: 40px;
     line-height: 40px;
-    padding:0 10px;
+    padding: 0 10px;
 }
 .businessPolicy > span {
     font-size: 14px;

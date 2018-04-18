@@ -7,7 +7,6 @@
       </r-card>
 
     </r-body>
-    <bottom :index="2" />
   </r-page>
 </template>
 

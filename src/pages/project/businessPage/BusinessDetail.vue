@@ -2,13 +2,15 @@
     <r-page>
         <top :title="$t('businessDetails.title')" :showBack="true" />
         <r-body>
-            <img :src="image" :onClick="goToUrl">
+            <div @click="goToUrl()">
+                <img :src="image">
+            </div>
             <div>
                 <r-divider>{{$t('businessDetails.details')}}</r-divider>
             </div>
             <r-card>
                 <div class="detialsContent">
-                    <img :src="iamgeOne" width=100%; >
+                    <img :src="iamgeOne" width=100%;>
                     <div class="detialsContentDetials">
                         <p>特省心：1次购买，全年无忧</p>
                         <p>特全面：适用于全球所有航班</p>
@@ -36,7 +38,7 @@
 
         </r-body>
         <r-tab-bar>
-            <r-button type="primary">{{$t('businessDetails.confirm')}}</r-button>
+            <r-button type="primary" :onClick="onClick">{{$t('businessDetails.confirm')}}</r-button>
         </r-tab-bar>
     </r-page>
 </template>
@@ -88,11 +90,21 @@ export default {
         };
     },
     methods: {
-       goToUrl() {
-
-       }
+        onClick: function() {
+            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            if (route && route.route2 && route.route2 != '') {
+                this.$router.push({
+                    path:
+                        '/proposal/ah/AHRouterEntry/' +
+                        this.$route.params.productCode +
+                        '/' +
+                        this.$route.params.agentCode +
+                        '/' +
+                        route.route2
+                });
+            }
+        }
     }
-
 };
 </script>
 

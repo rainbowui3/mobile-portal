@@ -1,41 +1,41 @@
 <template>
-  <r-page>
-    <r-body>
-      <top :title="$t('businessHome.home')" :showBack="true" />
-      <r-tab :tabItems="swTabItems" />
-      <r-swiper :model="index" :height="height">
-        <r-swiper-item>
-          <div class="line">
-            <r-divider>{{$t('businessHome.product')}}</r-divider>
-          </div>
-          <show-one :show="show" :showOne="showOne" :img="img" />
-          <div class="modal">
-            <show-one :showOne="showOne" :img="img" />
-          </div>
-          <div class="line">
-            <r-divider>{{$t('businessHome.selectProduct')}}</r-divider>
-          </div>
-          <div class="modal">
-            <show-two :showTwo="showTwo" :picture="picture" />
-          </div>
-          <div class="modal">
-            <show-two  :showTwo="showTwo" :picture="picture"/>
-          </div>
-          <div class="modal">
-            <show-two  :showTwo="showTwo" :picture="picture"/>
-          </div>
-          <div class="end">没有更多了</div>
-        </r-swiper-item>
-        <r-swiper-item>
-          ...
-        </r-swiper-item>
-        <r-swiper-item>
-          ...
-        </r-swiper-item>
-      </r-swiper>
-      <bottom :index="1" />
-    </r-body>
-  </r-page>
+    <r-page>
+        <r-body>
+            <top :title="$t('businessHome.home')" :showBack="true" />
+            <r-tab :tabItems="swTabItems" />
+            <r-swiper :model="index" :height="height">
+                <r-swiper-item>
+                    <div class="line">
+                        <r-divider>{{$t('businessHome.product')}}</r-divider>
+                    </div>
+                    <show-one :show="show" :showOne="showOne" :img="img" :onClick='goToUrl' />
+                    <div class="modal">
+                        <show-one :showOne="showOne" :img="img" :onClick='goToUrl' />
+                    </div>
+                    <div class="line">
+                        <r-divider>{{$t('businessHome.selectProduct')}}</r-divider>
+                    </div>
+                    <div class="modal">
+                        <show-two :showTwo="showTwo" :picture="picture" />
+                    </div>
+                    <div class="modal">
+                        <show-two :showTwo="showTwo" :picture="picture" />
+                    </div>
+                    <div class="modal">
+                        <show-two :showTwo="showTwo" :picture="picture" />
+                    </div>
+                    <div class="end">没有更多了</div>
+                </r-swiper-item>
+                <r-swiper-item>
+                    ...
+                </r-swiper-item>
+                <r-swiper-item>
+                    ...
+                </r-swiper-item>
+            </r-swiper>
+            <bottom :index="1" />
+        </r-body>
+    </r-page>
 </template>
 
 <script>
@@ -132,6 +132,11 @@ export default {
         },
         goto(index) {
             this.index = index;
+        },
+        goToUrl() {
+            this.$router.push({
+                path: '/proposal/LoadingPage/7/1'
+            });
         }
     }
 };

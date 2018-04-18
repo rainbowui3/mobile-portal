@@ -82,7 +82,7 @@ export default {
           break;
           case '7':
           vm.routeType = {
-            productCode: '6',
+            productCode: '7',
             route1: 'v2/normal',
             route2: 'v2/normal',
             route3: 'v2/normal',

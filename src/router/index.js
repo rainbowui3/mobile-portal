@@ -465,7 +465,7 @@ const router = new Router({
       component: AHRouterProduct,
       children: [{
         path: 'normal',
-        component: BusinessLogin
+        component: BusinessDetail
       }]
     }
     ]
@@ -504,8 +504,9 @@ const router = new Router({
       component: AHRouterProduct,
       children: [{
         path: 'normal',
-        component: BusinessLogin
-      }]
+        component: BusinessFillIn
+      }
+    ]
     }
     ]
   },
@@ -538,7 +539,7 @@ const router = new Router({
       component: AHRouterProduct,
       children: [{
         path: 'normal',
-        component: BusinessLogin
+        component: BusinessConfirm
       }]
     }
     ]
