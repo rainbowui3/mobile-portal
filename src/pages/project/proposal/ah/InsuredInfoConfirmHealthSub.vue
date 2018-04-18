@@ -96,7 +96,6 @@ export default {
         path: '/proposal/ah/AHRouterPay/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route4
       });
       // Todo:跳转到下一个页面,去支付
-      console.log('gotoPay');
     },
     gotoHealthInfo: function() {
       // console.log("gotoHealthInfo");

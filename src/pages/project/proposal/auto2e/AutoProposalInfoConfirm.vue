@@ -202,7 +202,6 @@ export default {
   },
   methods: {
     onDetailClick: function(data) {
-      console.log(data);
       data.show = true;
       this.$forceUpdate();
     },

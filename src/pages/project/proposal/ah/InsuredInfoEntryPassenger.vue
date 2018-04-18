@@ -58,10 +58,8 @@ export default {
   mounted: function() {},
   methods: {
     getCarModel: function() {
-      console.log('getCarModel');
     },
     getVehicleUseNatureCode: function() {
-      console.log('getVehicleUseNatureCode');
     },
     goto: function() {
       sessionStorage.setItem('policy', JSON.stringify(this.policy));

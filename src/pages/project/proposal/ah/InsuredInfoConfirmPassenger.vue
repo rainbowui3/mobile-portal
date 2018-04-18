@@ -67,10 +67,8 @@ export default {
   mounted: function() {},
   methods: {
     getCarModel: function() {
-      console.log('getCarModel');
     },
     getVehicleUseNatureCode: function() {
-      console.log('getVehicleUseNatureCode');
     },
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
@@ -119,7 +117,6 @@ export default {
   watch: {
     'pageModel.clauseConfirm': {
       handler: function() {
-        console.log(this.pageModel.clauseConfirm);
       }
     }
   }

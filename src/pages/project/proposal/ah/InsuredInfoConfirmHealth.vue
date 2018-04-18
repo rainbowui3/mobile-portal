@@ -97,7 +97,6 @@ export default {
         name: 'PayStatus'
       });
       // Todo:跳转到下一个页面,去支付
-      console.log('gotoPay');
     },
     gotoHealthInfo: function() {
       this.$router.push({
@@ -105,7 +104,6 @@ export default {
         name: 'HealthInform',
         params: {}
       });
-      console.log('gotoHealthInfo');
     }
   },
   watch: {},

@@ -45,7 +45,6 @@ export default {
         'model-relationToHolder',
         this.model.relationToHolder
       );
-      console.log(this.model.relationToHolder);
       this.model.relationToHolder = this.model.relationToHolder;
       this.certificate.effortDate = val;
     },
@@ -66,7 +65,6 @@ export default {
     required: Boolean
   },
   mounted: function() {
-    console.log(this.model.relationToHolder);
   },
   created: function() {
     sessionStorage.setItem('model-relationToHolder', '本人');
