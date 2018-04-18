@@ -54,9 +54,6 @@ export default {
     };
   },
   methods: {},
-  created: function() {
-    console.log(this.$route.params.carModel);
-  },
   mounted: function() {
 
   }
