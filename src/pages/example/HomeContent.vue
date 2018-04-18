@@ -10,19 +10,12 @@
 </template>
 
 <script>
-import { Page, Card, RBody } from 'rainbow-mobile-core';
-
 import ShowOne from '../project/components/businessHome/ShowOne';
 import ShowTwo from '../project/components/businessHome/ShowTwo';
 import '../../i18n/businessHome';
 
 export default {
     components: {
-        Bottom,
-        Top,
-        Page,
-        Card,
-        RBody,
         ShowOne,
         ShowTwo
     },

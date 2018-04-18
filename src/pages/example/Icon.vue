@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import {Page, Card, Grid, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/icon';
@@ -22,13 +21,7 @@ import '../../i18n/component';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Previewer,
-    Grid,
-    RBody
+    Previewer
   },
   computed: {
     gridItems3() {

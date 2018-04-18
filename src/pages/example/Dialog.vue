@@ -41,25 +41,12 @@
 </template>
 
 <script>
-import {Page, Card, RSwitch, RDialog, Toast, RImage, RBody} from 'rainbow-mobile-core';
-
 import dialog from '../../assets/dialog.jpg';
 import '../../i18n/component';
 import '../../i18n/row';
 import '../../i18n/dialog';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Toast,
-    RDialog,
-    RImage,
-    RBody
-  },
   data() {
     return {
       dialogImage: dialog,

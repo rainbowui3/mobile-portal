@@ -16,21 +16,11 @@
 </template>
 
 <script>
-import {Page, Card, Marquee, Row, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/row';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Marquee,
-    Row,
-    RBody
-  },
   data() {
       return {
           list: [{'text': 'rainbow mobile 1', 'onClick': this.onClick}, {'text': 'rainbow mobile 2', 'onClick': this.onClick}, {'text': 'rainbow mobile 3', 'onClick': this.onClick}]

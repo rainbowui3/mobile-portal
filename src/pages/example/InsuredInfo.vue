@@ -11,20 +11,12 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-
 import InsuredInfo from '../project/components/InsuredInfo';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    InsuredInfo,
-    RBody
+    InsuredInfo
   },
   data() {
     return {

@@ -26,21 +26,12 @@
 </template>
 
 <script>
-import {Page, Card, RTextarea, RInput, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/preview';
 import '../../i18n/input';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RTextarea,
-    RInput,
-    Card,
-    RBody
-  },
+
   data() {
       return {
           policy: {

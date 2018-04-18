@@ -15,21 +15,12 @@
 </template>
 
 <script>
-import {Page, Card, Step, RButton, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/step';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Step,
-    RButton,
-    RBody
-  },
+
   methods: {
       add() {
           this.step++;
