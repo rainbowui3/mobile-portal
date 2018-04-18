@@ -3,7 +3,7 @@
   <r-page>
        <r-body>
          <div class="sign">
-             <sign-in />
+             <sign-in :onClick='clickUrl' />
          </div>
        </r-body>
   </r-page>
@@ -18,7 +18,12 @@ export default {
   },
   data() {
     return {};
-  }
+  },
+  methods: {
+       clickUrl() {
+         window.location.hash = '/project/businessPage/BusinessHome';
+       }
+    }
 };
 </script>
 

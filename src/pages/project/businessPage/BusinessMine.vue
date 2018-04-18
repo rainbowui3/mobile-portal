@@ -16,7 +16,7 @@
                 </r-selector>
             </r-card>
         </r-body>
-        <bottom :index="1" />
+        <bottom :index="4" />
     </r-page>
 </template>
 
@@ -31,13 +31,9 @@ export default {
         return {
             options: [
                 { key: '100000', value: '' },
-<<<<<<< HEAD
-                { key: '1000004', value: '' },
-                { key: '1000005', value: '' }
-=======
+
                 { key: '1000000', value: '100万' },
                 { key: '10000000', value: '1000万' }
->>>>>>> 6c815e7d319e320133073425af0b2902b2f130f1
             ],
             policy: {
                 nullDate: null,
