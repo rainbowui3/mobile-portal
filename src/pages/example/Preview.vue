@@ -59,7 +59,6 @@ export default {
         style: 'primary',
         text: this.$t('preview.click'),
         onButtonClick: (param) => {
-          alert(`I Love ${param.name} Mobile`);
         }
     }];
 }

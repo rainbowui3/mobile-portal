@@ -126,7 +126,7 @@ export default {
       if (this.pageModel.clauseConfirm) {
         sessionStorage.setItem('policy', JSON.stringify(this.policy));
         let route = JSON.parse('ROUTE_TYPE');
-        debugger;
+
         this.$router.push({
           path: '/proposal/ah/AHRouterConfirm/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route3
         });
