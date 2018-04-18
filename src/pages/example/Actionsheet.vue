@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import '../../i18n/actionsheet';
+import '../../i18n/actionSheet';
 export default {
   data() {
     return {
