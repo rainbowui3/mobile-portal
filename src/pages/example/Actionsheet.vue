@@ -10,9 +10,7 @@
               <r-switch :title="$t('r-actionsheet.clickMask')" :model="policy" value="show5" :onClick="click"></r-switch>
               <r-switch :title="$t('r-actionsheet.tips')" :model="policy" value="show6" :onClick="click"></r-switch>
               <r-switch :title="$t('r-actionsheet.title')" :model="policy" value="show7" :onClick="click"></r-switch>
-
             </r-card>
-
             <r-actionsheet :model="policy" value="show1" :menuList="menus1" :onClick="click" :onClickMask="click"></r-actionsheet>
             <r-actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></r-actionsheet>
             <r-actionsheet :model="policy" value="show3" :menuList="menus1" :onClick="click" :onClickMask="click" :showCancel="true"></r-actionsheet>
