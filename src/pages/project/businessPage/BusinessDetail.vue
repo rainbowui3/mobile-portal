@@ -2,13 +2,13 @@
     <r-page>
         <top :title="$t('businessDetails.title')" :showBack="true" />
         <r-body>
-            <img :src="image">
+            <img :src="image" :onClick="goToUrl">
             <div>
                 <r-divider>{{$t('businessDetails.details')}}</r-divider>
             </div>
             <r-card>
                 <div class="detialsContent">
-                    <img :src="iamgeOne" width=100%;>
+                    <img :src="iamgeOne" width=100%; >
                     <div class="detialsContentDetials">
                         <p>特省心：1次购买，全年无忧</p>
                         <p>特全面：适用于全球所有航班</p>
@@ -86,7 +86,13 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+       goToUrl() {
+
+       }
     }
+
 };
 </script>
 
