@@ -5,7 +5,6 @@
               <r-swiper :data="list" :auto="true" :showDots="true" height="200px"></r-swiper>
               <r-card :title="$t('common.component')" :list="cardList"/>
             </r-body>
-
             <bottom :index="1"/>
           </r-page>
 </template>
