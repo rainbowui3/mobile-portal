@@ -498,6 +498,14 @@ const router = new Router({
     {
       path: 'passenger',
       component: InsuredInfoEntryPassenger
+    },
+    {
+      path: 'v2',
+      component: AHRouterProduct,
+      children: [{
+        path: 'normal',
+        component: BusinessLogin
+      }]
     }
     ]
   },
@@ -524,7 +532,16 @@ const router = new Router({
     {
       path: 'passenger',
       component: InsuredInfoConfirmPassenger
-    }]
+    },
+    {
+      path: 'v2',
+      component: AHRouterProduct,
+      children: [{
+        path: 'normal',
+        component: BusinessLogin
+      }]
+    }
+    ]
   },
   {
     path: '/proposal/ah/AHRouterPay/:productCode/:agentCode',
@@ -534,7 +551,16 @@ const router = new Router({
       path: 'normal',
       name: 'AHRouterPayNormal',
       component: PayStatus
-    }]
+    },
+    {
+      path: 'v2',
+      component: AHRouterProduct,
+      children: [{
+        path: 'normal',
+        component: BusinessLogin
+      }]
+    }
+    ]
   },
   // ah
   {
