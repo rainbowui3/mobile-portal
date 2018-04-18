@@ -40,7 +40,6 @@ import F from '../../../assets/f.png';
 import '../../../i18n/businessSignIn';
 
 export default {
-
   data() {
     return {
       images: [
