@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style scoped="businessDetail">
 .detialsContent {
     width: 75%;
     margin: 0 auto;
