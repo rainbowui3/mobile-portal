@@ -19,7 +19,7 @@
             </div>
           </r-card>
           <r-card :title="$t('planSelection.notes')">
-            <list :data="getListData" />
+            <r-list :data="getListData" />
           </r-card>
         </r-swiper-item>
       </r-swiper>
@@ -43,7 +43,7 @@
         </div>
       </r-card>
       <r-card :title="$t('planSelection.notes')">
-        <list :data="getListData" />
+        <r-list :data="getListData" />
       </r-card>
     </div>
   </div>
