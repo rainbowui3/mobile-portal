@@ -171,7 +171,6 @@ export default {
   },
   methods: {
     onIndexChange: function(value) {
-      console.log(value);
     },
     onTabItemClicked: function(index) {
       this.index = index;
@@ -191,7 +190,6 @@ export default {
     });
   },
   mounted: function() {
-    console.log(this.items);
   }
 };
 </script>

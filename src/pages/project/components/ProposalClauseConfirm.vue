@@ -91,7 +91,6 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('onRadioChange:');
     },
     showDialog(event, item, idx) {
       this.componentSelf.dialogNameList[idx].dialogStatus = true;
