@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import {Page, RImage, Card, RBody} from 'rainbow-mobile-core';
-
 import Female from '../../assets/female.jpg';
 import Fire from '../../assets/fire.png';
 import Jcx from '../../assets/jcx.jpg';
@@ -23,14 +21,6 @@ import Ywx from '../../assets/ywx.jpg';
 import Zrx from '../../assets/zrx.jpg';
 import '../../i18n/component';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RImage,
-    Card,
-    RBody
-  },
   data() {
       return {
         images: [

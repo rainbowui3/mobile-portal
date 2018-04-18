@@ -14,20 +14,10 @@
 </template>
 
 <script>
-import {Page, List, Card, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/preview';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    List,
-    Card,
-    RBody
-  },
   computed: {
     value() {
       return `${this.$t('common.currency')} 1024`;

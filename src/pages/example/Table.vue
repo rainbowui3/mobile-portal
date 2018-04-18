@@ -20,20 +20,12 @@
 </template>
 
 <script>
-import {Page, Card, RTable, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/table';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    RBody
-  },
+
   data() {
     return {
       data: {

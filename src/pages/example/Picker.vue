@@ -17,19 +17,10 @@
 </template>
 
 <script>
-import { Page, Card, Picker, RBody } from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/picker';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Picker,
-    RBody
-  },
   data() {
     return {
       list1: [['小米', 'iPhone', '华为', '锤子', '三星', '其他', '不告诉你']],

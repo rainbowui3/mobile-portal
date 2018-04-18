@@ -10,18 +10,12 @@
 </template>
 
 <script>
-import {Page, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/page';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RBody
-  }
+
 };
 </script>
 <style>

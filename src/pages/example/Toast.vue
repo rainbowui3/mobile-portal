@@ -32,21 +32,11 @@
 </template>
 
 <script>
-import {Page, Card, RSwitch, Actionsheet, Toast, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/datetime';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Toast,
-    Actionsheet,
-    RBody
-  },
+
   data() {
     return {
       policy: {},

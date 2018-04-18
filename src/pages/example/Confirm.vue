@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import {Page, Card, RSwitch, Confirm, LoadingApi, ConfirmApi, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/dialog';
 import '../../i18n/actionSheet';
@@ -29,15 +27,6 @@ import '../../i18n/row';
 import '../../i18n/divider';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Confirm,
-    RBody
-  },
   data() {
     return {
       policy: {}
