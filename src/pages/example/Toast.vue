@@ -47,10 +47,14 @@ export default {
   },
   methods: {
     onHide() {
+      /* eslint-disable */
       console.log('onHide');
+      /* eslint-disable */
     },
     clickSwitch() {
+      /* eslint-disable */
        console.log('click');
+       /* eslint-disable */
     }
   }
 };

@@ -73,15 +73,17 @@ export default {
   },
   methods: {
     click(key) {
+      /* eslint-disable */
       console.log('click key=', key);
+      /* eslint-disable */
     },
     showToast(key) {
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         this.policy.show8 = true;
       }, 2000);
     }
