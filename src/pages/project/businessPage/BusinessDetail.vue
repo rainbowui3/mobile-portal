@@ -53,7 +53,7 @@ import '../../../i18n/businessDetails';
 export default {
     components: {
         Plan,
-        ProposalClauseConfirm,
+        ProposalClauseConfirm
     },
     data() {
         return {

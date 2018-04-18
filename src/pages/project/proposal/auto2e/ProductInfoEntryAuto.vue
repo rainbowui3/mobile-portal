@@ -25,17 +25,6 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RSwitch,
-  Picker,
-  RInput,
-  TabBar,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import Jtgj from '../../../../assets/jtgj.jpg';
 import ProductTop from '../../components/ProductTop';
 import AutoAgent from '../../components/AutoAgent';
@@ -44,17 +33,8 @@ import '../../../../i18n/autoAgent';
 
 export default {
   components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RSwitch,
-    Picker,
-    RInput,
     AutoAgent,
-    ProductTop,
-    TabBar,
-    RButton
+    ProductTop
   },
   data() {
     return {

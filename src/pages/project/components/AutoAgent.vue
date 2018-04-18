@@ -9,12 +9,7 @@
 </template>
 
 <script>
-import {Row, Picker} from 'rainbow-mobile-core';
 export default {
-  components: {
-    Row,
-    Picker
-  },
   data() {
     return {
         policy: {

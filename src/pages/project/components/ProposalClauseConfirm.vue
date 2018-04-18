@@ -56,26 +56,8 @@
   </div>
 </template>
 <script>
-import {
-  RButton,
-  Cell,
-  Card,
-  Checker,
-  Box,
-  RDialog,
-  RImage
-} from 'rainbow-mobile-core';
 import '../../../i18n/proposalClauseConfirm';
 export default {
-  components: {
-    Checker,
-    Card,
-    Cell,
-    RButton,
-    Box,
-    RDialog,
-    RImage
-  },
   props: {
     model: {
       type: Object,

@@ -28,7 +28,7 @@ import NavTab from '../components/nav/NavTab';
 import '../../../i18n/businessCategory';
 export default {
     components: {
-        NavTab,
+        NavTab
     },
     data() {
         return {

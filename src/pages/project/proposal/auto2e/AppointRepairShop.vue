@@ -14,33 +14,9 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RSwitch,
-  RInput,
-  TabBar,
-  RButton,
-  Selector,
-  Checker
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoPlan';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RSwitch,
-    RInput,
-    TabBar,
-    RButton,
-    Selector,
-    Checker
-  },
   data() {
     return {
       options: [{'key': '20001', 'value': '国产'}, {'key': '20002', 'value': '进口'}],

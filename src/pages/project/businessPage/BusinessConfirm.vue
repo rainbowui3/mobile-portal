@@ -22,7 +22,7 @@ import ProposalConfirm from '../components/ProposalConfirm';
 import '../../../i18n/BusinessConfirm';
 export default {
     components: {
-        ProposalConfirm,
+        ProposalConfirm
     },
     data() {
         return {

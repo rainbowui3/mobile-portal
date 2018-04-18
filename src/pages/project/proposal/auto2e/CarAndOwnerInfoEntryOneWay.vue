@@ -21,40 +21,16 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RBody,
-  RButton,
-  TabBar,
-  RSwitch,
-  DateTime,
-  RInput,
-  Selector
-} from 'rainbow-mobile-core';
 import CarInfo from '../../components/CarInfo';
 import CarOwner from '../../components/CarOwner';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import '../../../../i18n/carInfo';
 import '../../../../i18n/row';
 import '../../../../i18n/carAndOwnerInfoEntry';
 import '../../../../i18n/carAndOwnerInfoEntryOneWay';
 export default {
   components: {
-    Page,
-    Card,
     CarInfo,
-    CarOwner,
-    Top,
-    Bottom,
-    RBody,
-    RButton,
-    TabBar,
-    RSwitch,
-    DateTime,
-    RInput,
-    Selector
+    CarOwner
   },
   data() {
     return {

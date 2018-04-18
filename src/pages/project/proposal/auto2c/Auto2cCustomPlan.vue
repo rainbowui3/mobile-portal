@@ -99,7 +99,7 @@ import config from 'config';
 
 export default {
   components: {
-    AutoAgent,
+    AutoAgent
     // RowAndChecker
   },
   data() {

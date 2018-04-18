@@ -10,11 +10,8 @@
 </template>
 
 <script>
-import { Page, Card, RBody, Row } from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoSendUnderwriting';
 export default {
-  components: { Page, Card, RBody, Top, Row },
   data() {
     return {
       proposalNum: 'xxxxxxxxxxxx',

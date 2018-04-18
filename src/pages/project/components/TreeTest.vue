@@ -10,11 +10,10 @@
 </template>
 
 <script>
-import { RSwitch } from 'rainbow-mobile-core';
 import TreeTest from './TreeTest';
 export default {
   name: 'treeTest',
-  components: { RSwitch, TreeTest },
+  components: { TreeTest },
   props: {
     dataList: {
       type: Array

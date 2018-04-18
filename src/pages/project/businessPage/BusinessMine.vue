@@ -14,7 +14,7 @@ import Mine from '../components/mine/Mine';
 import '../../../i18n/businessMine';
 export default {
     components: {
-        Mine,
+        Mine
     },
     data() {
         return {};

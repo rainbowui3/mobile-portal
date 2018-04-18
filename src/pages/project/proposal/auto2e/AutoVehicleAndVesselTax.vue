@@ -19,31 +19,9 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  Picker,
-  RInput,
-  TabBar,
-  RButton,
-  DateTime
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoVehicleAndVesselTax';
 import config from '../../../../config/config';
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Picker,
-    RInput,
-    TabBar,
-    RButton,
-    DateTime,
-    Top
-  },
   data() {
     return {
       policy: {

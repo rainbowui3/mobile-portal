@@ -49,7 +49,7 @@ export default {
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
     ProposalConfirm,
-    ChooseRelationship,
+    ChooseRelationship
   },
   data() {
     return {

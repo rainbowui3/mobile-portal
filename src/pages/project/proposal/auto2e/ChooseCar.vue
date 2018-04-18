@@ -14,26 +14,8 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Selector,
-  Cell,
-  Card,
-  Checker
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/chooseCar';
 export default {
-  components: {
-    Page,
-    RBody,
-    Selector,
-    Cell,
-    Top,
-    Card,
-    Checker
-  },
   props: {},
   data() {
     return {

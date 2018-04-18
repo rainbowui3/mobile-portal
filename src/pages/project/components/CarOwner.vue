@@ -10,15 +10,10 @@
 </template>
 
 <script>
-import { Selector, RInput } from 'rainbow-mobile-core';
 import '../../../i18n/carOwner';
 import '../../../i18n/holderInfo';
 import Validate from '../utils/Valitate';
 export default {
-  components: {
-    Selector,
-    RInput
-  },
   props: {
     required: {
       type: Boolean,
