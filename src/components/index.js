@@ -41,4 +41,3 @@ Vue.component('RMarquee', Marquee);
 Vue.component('RBadge', Badge);
 Vue.component('RGrid', Grid);
 Vue.component('RStep', Step);
->>>>>>> update
