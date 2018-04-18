@@ -33,12 +33,12 @@ export default {
   },
   methods: {
     clickSwitch1() {
-      RLoadingApi.show(this, {
+      LoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        RLoadingApi.hide(this);
+        LoadingApi.hide(this);
         this.policy.status1 = false;
       }, 2000);
     },
@@ -58,24 +58,22 @@ export default {
          console.log('show');
     },
     onCancel () {
-      console.log('on cancel');
       this.show2 = false;
       this.show3 = false;
       this.show4 = false;
     },
     onConfirm (msg) {
-      console.log('on confirm', msg);
        this.show2 = false;
        this.show3 = false;
        this.show4 = false;
     },
     onConfirm2 (msg) {
-      RLoadingApi.show(this, {
+      LoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        RLoadingApi.hide(this);
+        LoadingApi.hide(this);
         this.show4 = false;
       }, 2000);
     }

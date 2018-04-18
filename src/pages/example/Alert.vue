@@ -25,11 +25,13 @@ export default {
   },
   methods: {
     onClick() {
+      /* eslint-disable */
       console.log('click');
+      /* eslint-disable */
     },
     clickSwitchApi(val) {
       const self = this;
-      RAlertApi.show({
+      AlertApi.show({
         title: this.$t('alert.title'),
         content: this.$t('alert.sogo'),
         onShow() {
