@@ -60,8 +60,6 @@
 </template>
 
 <script>
-import {Page, RBody, Card, RImage, RButton, Swiper, RSwitch, DateTime, Tab, SwiperItem, RTable, List, Selector, TabBar, Cell} from 'rainbow-mobile-core';
-
 import Jtgj from '../../assets/jtgj.jpg';
 import InsuranceDurationCurrency from './components/InsuranceDurationCurrency';
 import PlanSelection from './components/PlanSelection';
@@ -70,28 +68,10 @@ import ProposalConfirm from './components/ProposalConfirm';
 
 export default {
   components: {
-    Top,
-    Card,
-    Bottom,
-    Page,
-    RImage,
-    Swiper,
-    DateTime,
-    Tab,
-    SwiperItem,
-    RTable,
-    List,
-    Selector,
-    TabBar,
-    Cell,
-    RButton,
-    RSwitch,
-    RBody,
     InsuranceDurationCurrency,
     PlanSelection,
     ProductTop,
     ProposalConfirm
-
   },
   data() {
     return {

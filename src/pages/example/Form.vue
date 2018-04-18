@@ -9,19 +9,10 @@
 </template>
 
 <script>
-import {Page, RForm, RBody} from 'rainbow-mobile-core';
-
-
 import '../../i18n/component';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RForm,
-    RBody
-  }
+ 
 };
 </script>
 

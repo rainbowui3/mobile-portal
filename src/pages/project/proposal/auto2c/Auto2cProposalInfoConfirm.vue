@@ -51,19 +51,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  Cell,
-  RBody,
-  TabBar,
-  RButton,
-  Row,
-  RInput,
-  List,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cProposalInfoConfirm';
 import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../../i18n/carInfo';
@@ -74,19 +61,8 @@ import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 export default {
   components: {
-    Page,
-    Card,
-    Cell,
-    Top,
-    RBody,
-    TabBar,
-    RButton,
-    Row,
     ProposalClauseConfirm,
-    RInput,
-    InsuranceDurationShortTerm,
-    List,
-    Toast
+    InsuranceDurationShortTerm
   },
   data() {
     return {

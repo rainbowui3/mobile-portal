@@ -21,24 +21,8 @@
 </template>
 
 <script>
-import {
-  Card,
-  Cell,
-  RInput,
-  RSwitch,
-  DateTime,
-  Toast
-} from 'rainbow-mobile-core';
 import '../../../i18n/carInfo';
 export default {
-  components: {
-    Card,
-    Cell,
-    RInput,
-    RSwitch,
-    DateTime,
-    Toast
-  },
   props: {
     required: {
       type: Boolean,

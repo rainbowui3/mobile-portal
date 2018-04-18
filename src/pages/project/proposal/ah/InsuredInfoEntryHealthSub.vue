@@ -37,19 +37,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RBody,
-  RButton,
-  Cell,
-  Selector,
-  RInput,
-  Row,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import ChooseRelationship from '../../components/ChooseRelationship';
 import ProposalConfirm from '../../components/ProposalConfirm';
 import HolderInfo from '../../components/HolderInfo';
@@ -63,24 +50,13 @@ import '../../../../i18n/holderInfo';
 
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    RBody,
-    RButton,
-    Cell,
-    Selector,
-    RInput,
-    Row,
-    Top,
     ChooseRelationship,
     ProposalConfirm,
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
-    InsuranceDurationShortTerm,
-    Toast
+    InsuranceDurationShortTerm
   },
   data() {
     return {

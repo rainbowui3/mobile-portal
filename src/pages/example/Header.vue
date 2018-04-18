@@ -25,19 +25,10 @@
 </template>
 
 <script>
-import {Page, RHeader, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/preview';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RHeader,
-    RBody
-  },
   methods: {
     onClickMore() {
         console.log(1111);

@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import { Card, RImage, RInput, RButton, Box, Grid, Divider} from 'rainbow-mobile-core';
 import Logo1 from '../../../assets/u505.png';
 import Logo2 from '../../../assets/u507.png';
 import Logo3 from '../../../assets/u509.png';
@@ -41,15 +40,7 @@ import F from '../../../assets/f.png';
 import '../../../i18n/businessSignIn';
 
 export default {
-  components: {
-    RImage,
-    Card,
-    RInput,
-    RButton,
-    Box,
-    Grid,
-    Divider
-  },
+
   data() {
     return {
       images: [

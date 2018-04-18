@@ -5,17 +5,11 @@
 </template>
 
 <script>
-import { Card, RInput, Selector, Grid, Row} from 'rainbow-mobile-core';
 import { Previewer } from 'rainbow-mobile-previewer';
 import '../../../../i18n/pay';
 
 export default {
   components: {
-    Card,
-    RInput,
-    Selector,
-    Grid,
-    Row,
     Previewer
   },
   props: {},

@@ -27,13 +27,9 @@
 </template>
 
 <script>
-import { Card } from 'rainbow-mobile-core';
 import correct from '../../../../assets/correct.png';
 
 export default {
-    components: {
-        Card
-    },
     props: {
         items: { text: String },
         contentItems: {

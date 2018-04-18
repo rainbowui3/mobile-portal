@@ -74,20 +74,10 @@
 </template>
 
 <script>
-import {Page, Cell, Card, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/cell';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Cell,
-    Card,
-    RBody
-  },
   data() {
       return {
           row: 'row',

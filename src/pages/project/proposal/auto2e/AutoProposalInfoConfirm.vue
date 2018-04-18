@@ -73,40 +73,12 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RBody,
-  Cell,
-  Row,
-  RInput,
-  RSwitch,
-  List,
-  RDialog,
-  TabBar,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../../i18n/carInfo';
 import '../../../../i18n/insuredInfoEntryPassenger';
 import '../../../../i18n/autoSupplementInfo';
 import '../../../../i18n/button';
 export default {
-  components: {
-    Top,
-    Page,
-    Card,
-    RBody,
-    Cell,
-    Row,
-    RInput,
-    RSwitch,
-    List,
-    RDialog,
-    TabBar,
-    RButton
-  },
   data() {
     return {
       pageModel: {},

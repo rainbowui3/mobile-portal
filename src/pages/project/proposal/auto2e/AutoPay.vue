@@ -30,20 +30,9 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  TabBar,
-  Cell,
-  RImage,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import QRCode from '../../../../assets/guanfangweixin.jpg';
 import '../../../../i18n/autoPay';
 export default {
-  components: { Page, RBody, Top, Card, TabBar, Cell, RImage, RButton },
   data() {
     return {
       model: {

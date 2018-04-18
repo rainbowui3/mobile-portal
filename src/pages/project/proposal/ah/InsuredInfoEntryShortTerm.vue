@@ -32,16 +32,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RButton,
-  TabBar,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import HolderInfo from '../../components/HolderInfo';
 import InsuredInfo from '../../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
@@ -55,20 +45,12 @@ import '../../../../i18n/project';
 
 export default {
   components: {
-    Page,
-    Card,
-    RButton,
-    TabBar,
-    Top,
-    Bottom,
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalConfirm,
     ProposalClauseConfirm,
-    RBody,
-    ChooseRelationship,
-    Toast
+    ChooseRelationship
   },
   data() {
     return {

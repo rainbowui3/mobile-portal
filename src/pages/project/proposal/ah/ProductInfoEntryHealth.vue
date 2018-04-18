@@ -35,20 +35,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RSwitch,
-  DateTime,
-  TabBar,
-  Cell,
-  RBody,
-  RInput,
-  Checker,
-  Row
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import ProductTop from '../../components/ProductTop';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 import PlanSelection from '../../components/PlanSelection';
@@ -60,23 +46,11 @@ import config from 'config';
 
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    Top,
-    Bottom,
     ProductTop,
     InsuranceDurationShortTerm,
     PlanSelection,
     ProposalCopies,
-    ProposalConfirm,
-    RBody,
-    RInput,
-    Checker,
-    Cell,
-    DateTime,
-    RSwitch,
-    Row
+    ProposalConfirm
   },
   data() {
     return {

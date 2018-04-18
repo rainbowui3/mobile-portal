@@ -12,20 +12,11 @@
 </template>
 
 <script>
-import {Divider, Page, Card, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/divider';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Divider,
-    Card,
-    RBody
-  }
+
 };
 </script>
 

@@ -49,28 +49,8 @@
   </div>
 </template>
 <script>
-import {
-  Card,
-  Tab,
-  Swiper,
-  SwiperItem,
-  RTable,
-  List,
-  Row,
-  Selector
-} from 'rainbow-mobile-core';
 import '../../../i18n/planSelection';
 export default {
-  components: {
-    Tab,
-    Card,
-    Swiper,
-    SwiperItem,
-    RTable,
-    List,
-    Row,
-    Selector
-  },
   data: function() {
     return {
       selectorModel: {

@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import {Page, Card, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/component';
@@ -25,12 +24,7 @@ import '../../i18n/preview';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Previewer,
-    Card,
-    RBody
+    Previewer
   },
   data() {
     return {

@@ -90,43 +90,12 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  Cell,
-  Row,
-  Checker,
-  Selector,
-  RSwitch,
-  RInput,
-  DateTime,
-  RTextarea,
-  RDialog,
-  TabBar, RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import CarOwner from '../../components/CarOwner';
 import '../../../../i18n/autoSupplementInfo';
 import '../../../../i18n/proposalConfirm';
 export default {
   components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    CarOwner,
-    Cell,
-    Row,
-    Checker,
-    Selector,
-    RSwitch,
-    RInput,
-    DateTime,
-    RTextarea,
-    RDialog,
-    TabBar,
-RButton
+    CarOwner
   },
   data() {
     return {

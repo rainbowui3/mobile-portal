@@ -18,29 +18,11 @@
 </template>
 
 <script>
-import {
-    Page,
-    Card,
-    RBody,
-    Divider,
-    TabBar,
-    RButton,
-    Selector
-} from 'rainbow-mobile-core';
-import Top from '../../../components/Top';
 import ProposalConfirm from '../components/ProposalConfirm';
 import '../../../i18n/BusinessConfirm';
 export default {
     components: {
-        Top,
-        Page,
-        Card,
-        RBody,
-        Divider,
-        RButton,
-        TabBar,
-        ProposalConfirm,
-        Selector
+        ProposalConfirm
     },
     data() {
         return {

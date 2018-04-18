@@ -58,38 +58,10 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  Cell,
-  DateTime,
-  RSwitch,
-  RInput,
-  Row,
-  TabBar,
-  RButton,
-  Checker
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/AutoPremiumInfo';
 import config from 'config';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Cell,
-    DateTime,
-    Top,
-    RSwitch,
-    RInput,
-    Row,
-    TabBar,
-    RButton,
-    Checker
-  },
   data() {
     return {
       row: 'row',

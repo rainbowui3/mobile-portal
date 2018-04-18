@@ -29,17 +29,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RButton,
-  RBody,
-  Row,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '@/components/Top';
-import Bottom from '@/components/Bottom';
 import HolderInfo from '../../components/HolderInfo';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 import InsuredInfo from '../../components/InsuredInfo';
@@ -54,22 +43,13 @@ import '../../../../i18n/insuredInfoEntryHealthSub';
 // import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
-    Top,
-    Card,
-    Bottom,
-    Page,
     HolderInfo,
     InsuranceDurationShortTerm,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
     ProposalConfirm,
-    TabBar,
-    RButton,
-    RBody,
-    ChooseRelationship,
-    Row,
-    Toast
+    ChooseRelationship
   },
   data() {
     return {

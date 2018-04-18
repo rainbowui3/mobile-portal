@@ -14,30 +14,8 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput,
-  Row,
-  TabBar,
-  RButton,
-  RTextarea
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cUserAddr';
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    RInput,
-    Row,
-    TabBar,
-    RButton,
-    Top,
-RTextarea
-  },
   data() {
       return {
           pageModel: {},

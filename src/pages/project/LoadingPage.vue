@@ -9,10 +9,7 @@
 </template>
 
 <script>
-import { Page, RBody, TabBar, RInput, RButton } from 'rainbow-mobile-core';
-
 export default {
-  components: { Page, Top, RBody, TabBar, RInput, RButton },
   beforeRouteEnter(to, from, next) {
     // 读配置表
     next(vm => {

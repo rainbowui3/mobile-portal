@@ -10,18 +10,11 @@
   </r-page>
 </template>
 <script>
-import { Page, Card, RBody } from 'rainbow-mobile-core';
-
 import Pay from '../project/components/pay/Pay';
 
 export default {
  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Pay,
-    RBody
+    Pay
   }
 };
 </script>

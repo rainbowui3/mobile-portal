@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { Page, RHeader, TabBar, Cell, Box, RButton, RBody} from 'rainbow-mobile-core';
 
 import homeOn from '../../assets/home_on.svg';
 import componentOff from '../../assets/component_off.svg';
@@ -37,17 +36,7 @@ import exampleOff from '../../assets/example_off.svg';
 import '../../i18n/component';
 import '../../i18n/home';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RHeader,
-    TabBar,
-    Cell,
-    Box,
-    RButton,
-    RBody
-  },
+
   computed: {
     tabItems() {
       return [

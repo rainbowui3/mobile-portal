@@ -31,36 +31,8 @@
     </r-page>
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  TabBar,
-  RButton,
-  Tab,
-  Swiper,
-  SwiperItem,
-  Row,
-  Divider,
-  Cell
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cPlan';
 export default {
-  components: {
-    Page,
-    RBody,
-    TabBar,
-    Card,
-    Tab,
-    Swiper,
-    SwiperItem,
-    RButton,
-    Top,
-    Row,
-    Divider,
-    Cell
-  },
   data() {
     return {
       index: 0,

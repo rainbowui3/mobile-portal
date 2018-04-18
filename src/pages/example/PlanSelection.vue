@@ -11,20 +11,12 @@
 </template>
 
 <script>
-import {Page, Card, RTable, RBody} from 'rainbow-mobile-core';
-
 import PlanSelection from '../project/components/PlanSelection';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    PlanSelection,
-    RBody
+    PlanSelection
   }
 
 };

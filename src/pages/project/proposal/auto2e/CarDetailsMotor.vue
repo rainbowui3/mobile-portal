@@ -20,31 +20,9 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RBody,
-  TabBar,
-  RButton,
-  RInput,
-  Selector,
-  RSwitch
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/carDetails';
 import '../../../../i18n/carDetailsMotor';
 export default {
-  components: {
-    Top,
-    Page,
-    Card,
-    RBody,
-    TabBar,
-    RButton,
-    RInput,
-    Selector,
-    RSwitch
-  },
   props: {},
   data() {
     return {

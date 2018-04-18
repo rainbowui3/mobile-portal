@@ -13,22 +13,10 @@
 </template>
 
 <script>
-import {
-  Card,
-  RInput,
-  Selector,
-  DateTime
-} from 'rainbow-mobile-core';
 import Validate from '../utils/Valitate';
 import Getbirthday from '../utils/Getbirthday';
 import '../../../i18n/holderInfo';
 export default {
-  components: {
-    Card,
-    RInput,
-    Selector,
-    DateTime
-  },
   props: {
     readonly: Boolean,
     model: Object,

@@ -15,22 +15,14 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-
 import InsuranceDurationCurrency from '../project/components/InsuranceDurationCurrency';
 import InsuranceDurationShortTerm from '../project/components/InsuranceDurationShortTerm';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
     InsuranceDurationCurrency,
-    InsuranceDurationShortTerm,
-    RBody
+    InsuranceDurationShortTerm
   },
   data() {
     return {
