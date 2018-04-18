@@ -61,8 +61,7 @@
 
 <script>
 import {Page, RBody, Card, RImage, RButton, Swiper, RSwitch, DateTime, Tab, SwiperItem, RTable, List, Selector, TabBar, Cell} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import Jtgj from '../../assets/jtgj.jpg';
 import InsuranceDurationCurrency from './components/InsuranceDurationCurrency';
 import PlanSelection from './components/PlanSelection';

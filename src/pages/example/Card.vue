@@ -18,20 +18,10 @@
 </template>
 
 <script>
-import {Page, Divider, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/card';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Divider,
-    Card,
-    RBody
-  },
   data() {
       return {
           footerLink: '/component/core',

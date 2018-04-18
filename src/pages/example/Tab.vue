@@ -18,8 +18,7 @@
 
 <script>
 import {Page, Tab, Card, SwiperItem, Swiper, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 
 export default {

@@ -21,8 +21,7 @@
 
 <script>
 import {Page, Card, RSwitch, Confirm, LoadingApi, ConfirmApi, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/dialog';
 import '../../i18n/actionSheet';

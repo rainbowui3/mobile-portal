@@ -13,22 +13,11 @@
 </template>
 
 <script>
-import { Page, Card, RSwitch, Alert, AlertApi, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/alert';
 import '../../i18n/component';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Alert,
-    RBody
-  },
   data() {
     return {
       policy: {}

@@ -13,8 +13,7 @@
 
 <script>
 import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import ProductTop from '../project/components/ProductTop';
 import Jtgj from '../../assets/jtgj.jpg';
 import '../../i18n/business';

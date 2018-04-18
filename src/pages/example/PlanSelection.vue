@@ -12,8 +12,7 @@
 
 <script>
 import {Page, Card, RTable, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import PlanSelection from '../project/components/PlanSelection';
 import '../../i18n/business';
 

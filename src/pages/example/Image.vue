@@ -10,8 +10,7 @@
 
 <script>
 import {Page, RImage, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import Female from '../../assets/female.jpg';
 import Fire from '../../assets/fire.png';
 import Jcx from '../../assets/jcx.jpg';

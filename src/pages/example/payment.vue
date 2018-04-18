@@ -11,8 +11,7 @@
 </template>
 <script>
 import { Page, Card, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import Pay from '../project/components/pay/Pay';
 
 export default {

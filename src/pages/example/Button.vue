@@ -62,23 +62,10 @@
 </template>
 
 <script>
-import {Page, Box, RButton, Card, Cell, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/button';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Box,
-    RButton,
-    Card,
-    Cell,
-    RBody
-  },
   data() {
     return {
        padding: '10px 10px',

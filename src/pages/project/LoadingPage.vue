@@ -10,7 +10,7 @@
 
 <script>
 import { Page, RBody, TabBar, RInput, RButton } from 'rainbow-mobile-core';
-import Top from '../../components/Top';
+
 export default {
   components: { Page, Top, RBody, TabBar, RInput, RButton },
   beforeRouteEnter(to, from, next) {

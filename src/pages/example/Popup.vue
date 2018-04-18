@@ -64,8 +64,6 @@
 import {Page, Card, RSwitch, Actionsheet, Toast, Popup, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/preview';
 import '../../i18n/popup';
