@@ -1,31 +1,22 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('business.insuredInfo')" :showBack="true"/>
        <r-body>
-         <card>
+         <r-card>
        <insured-info  v-bind:model="policy.insuredInfo"/>
-         </card>
+         </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import InsuredInfo from '../project/components/InsuredInfo';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    InsuredInfo,
-    RBody
+    InsuredInfo
   },
   data() {
     return {

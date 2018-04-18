@@ -1,37 +1,27 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.card')" :showBack="true"/>
        <r-body>
-            <card :imgSrc="path">
+            <r-card :imgSrc="path">
                 <div class="card-padding">
                     <p style="font-size:14px;line-height:2.2;">{{$t('card.example3Text')}}</p>
                     <p style="color:#999;font-size:12px;">{{$t('card.example3Date')}}</p>
                 </div>
-            </card>
-            <card :title="$t('card.example1Title')" :list="cardList"/>
-            <card :title="$t('card.example2Title')" :footerText="$t('common.more')" :footerLink="footerLink">
+            </r-card>
+            <r-card :title="$t('card.example1Title')" :list="cardList"/>
+            <r-card :title="$t('card.example2Title')" :footerText="$t('common.more')" :footerLink="footerLink">
                 <p >{{ $t('common.custom') }}</p>
-            </card> 
+            </r-card> 
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Divider, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/card';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Divider,
-    Card,
-    RBody
-  },
   data() {
       return {
           footerLink: '/component/core',

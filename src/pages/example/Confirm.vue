@@ -1,28 +1,25 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.confirm')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
+            <r-card :title="$t('component.basic')">
               <r-switch :title="$t('dialog.show')" :model="policy" value="show1" :onClick="click"></r-switch>
               <r-switch :title="$t('component.input')" :model="policy" value="show2" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.android')" :model="policy" value="show3" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.autoClose')" :model="policy" value="show4" :onClick="click"></r-switch>
               <r-switch :title="$t('common.api')" :model="policy" value="show5" :onClick="clickApi"></r-switch>
 
-              <confirm :model="policy" value="show1" :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</confirm>
-              <confirm :model="policy" value="show2" :showInput="true" inputType="number" :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</confirm>
-              <confirm :model="policy" value="show3" theme="android"  :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</confirm>
-              <confirm :model="policy" value="show4" :closeOnConfirm="false"  :title="$t('row.title')" :onHide="onHide"  :onConfirm="onConfirm2"> {{ $t('divider.sogo') }}</confirm>
-            </card>
+              <r-confirm :model="policy" value="show1" :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</r-confirm>
+              <r-confirm :model="policy" value="show2" :showInput="true" inputType="number" :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</r-confirm>
+              <r-confirm :model="policy" value="show3" theme="android"  :title="$t('row.title')" :onHide="onHide" :onShow="onShow" :onCancel="onCancel" :onConfirm="onConfirm"> {{ $t('divider.sogo') }}</r-confirm>
+              <r-confirm :model="policy" value="show4" :closeOnConfirm="false"  :title="$t('row.title')" :onHide="onHide"  :onConfirm="onConfirm2"> {{ $t('divider.sogo') }}</r-confirm>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, RSwitch, Confirm, LoadingApi, ConfirmApi, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/dialog';
 import '../../i18n/actionSheet';
@@ -30,15 +27,6 @@ import '../../i18n/row';
 import '../../i18n/divider';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Confirm,
-    RBody
-  },
   data() {
     return {
       policy: {}
@@ -46,7 +34,9 @@ export default {
   },
   methods: {
     click() {
+      /* eslint-disable */
        console.log(this.policy);
+       /* eslint-disable */
     },
     clickApi(val) {
       const self = this;
@@ -54,17 +44,25 @@ export default {
         title: this.$t('row.title'),
         content: this.$t('divider.sogo'),
         onShow () {
+          /* eslint-disable */
           console.log('plugin show');
+          /* eslint-disable */
         },
         onHide () {
+          /* eslint-disable */
           console.log('plugin hide');
+          /* eslint-disable */
         },
         onCancel () {
+          /* eslint-disable */
           console.log('plugin cancel');
+          /* eslint-disable */
           self.policy.show5 = false;
         },
         onConfirm () {
+          /* eslint-disable */
           console.log('plugin confirm');
+          /* eslint-disable */
            self.policy.show5 = false;
         }
       });
@@ -73,22 +71,28 @@ export default {
          this.show1 = false;
     },
     onShow() {
+      /* eslint-disable */
          console.log('show');
+         /* eslint-disable */
     },
     onCancel () {
+      /* eslint-disable */
       console.log('on cancel');
+      /* eslint-disable */
     },
     onConfirm (msg) {
+      /* eslint-disable */
       console.log('on confirm', msg);
+      /* eslint-disable */
     },
     onConfirm2 (msg) {
       const self = this;
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         self.policy.show4 = false;
       }, 2000);
     }

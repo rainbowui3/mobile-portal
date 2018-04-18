@@ -1,20 +1,16 @@
 <template>   
-    <card :imgSrc="productImgSrc">
+    <r-card :imgSrc="productImgSrc">
         <!-- <div class="card-padding">
             <p style="font-size:14px;line-height:2.2;text-align:left">{{productName}}</p>
         </div> -->
         <div class="card-padding">
             <P style="font-size:14px;line-height:2.2;text-align:left">{{productDes}}</P>
         </div>
-    </card>    
+    </r-card>    
 </template>
 
 <script>
-import {Card} from 'rainbow-mobile-core';
 export default {
-  components: {
-    Card
-  },
   props: {
     productImgSrc: String,
     productDes: String

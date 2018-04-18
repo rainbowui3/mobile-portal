@@ -23,15 +23,14 @@
                 
 
     <div class="other">
-       <divider>{{$t('businessSignIn.way')}}</divider>
-       <grid :cols="3" :data="gridItems"/>
+       <r-divider>{{$t('businessSignIn.way')}}</r-divider>
+       <r-grid :cols="3" :data="gridItems"/>
     </div>
 
   </div>
 </template>
 
 <script>
-import { Card, RImage, RInput, RButton, Box, Grid, Divider} from 'rainbow-mobile-core';
 import Logo1 from '../../../assets/u505.png';
 import Logo2 from '../../../assets/u507.png';
 import Logo3 from '../../../assets/u509.png';
@@ -41,15 +40,6 @@ import F from '../../../assets/f.png';
 import '../../../i18n/businessSignIn';
 
 export default {
-  components: {
-    RImage,
-    Card,
-    RInput,
-    RButton,
-    Box,
-    Grid,
-    Divider
-  },
   data() {
     return {
       images: [

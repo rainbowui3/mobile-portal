@@ -1,42 +1,32 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.accident')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-      </card>
-      <card :title="$t('insuredInfoAccident.passengerInfo')">
+      </r-card>
+      <r-card :title="$t('insuredInfoAccident.passengerInfo')">
         <holder-info :model="policy.passengerInfo" :readonly="readonly" />
         <r-input :title="$t('insuredInfoAccident.trainNo')" :model="policy.passengerInfo" value="rainNo" :readonly="readonly" />
         <r-input :title="$t('insuredInfoAccident.seatNo')" :model="policy.passengerInfo" value="seatNum" :readonly="readonly" />
         <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="policy.passengerInfo" value="relationToHolder" :disabled="readonly"></r-switch>
-      </card>
-      <card v-if="!this.policy.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
+      </r-card>
+      <r-card v-if="!this.policy.passengerInfo.relationToHolder" :title="$t('common.holderInfo')">
         <holder-info :model="policy.holderInfo" :readonly="readonly" />
-      </card>
+      </r-card>
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
 
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
+    </r-tab-bar>
 
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  TabBar,
-  Card,
-  RInput,
-  RSwitch,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '@/components/Top';
 import ProposalConfirm from '../../components/ProposalConfirm';
 import HolderInfo from '../../components/HolderInfo';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
@@ -47,18 +37,10 @@ import '../../../../i18n/insuredInfoEntryHealthSub';
 
 export default {
   components: {
-    Page,
-    Top,
-    RBody,
-    TabBar,
-    Card,
-    RInput,
-    RSwitch,
     ProposalConfirm,
     HolderInfo,
     InsuranceDurationShortTerm,
-    ProposalClauseConfirm,
-    Toast
+    ProposalClauseConfirm
   },
   data() {
     return {

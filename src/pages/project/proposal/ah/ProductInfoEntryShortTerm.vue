@@ -1,39 +1,30 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
-      </card>
-      <card>
-        <checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
+      </r-card>
+      <r-card>
+        <r-checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
         <insurance-duration-shortTerm type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="policy.policyData.isEffectiveImmediately"></insurance-duration-shortTerm>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <plan-selection></plan-selection>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <proposal-copies></proposal-copies>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RBody,
-  Checker
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import ProductTop from '../../components/ProductTop';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 import PlanSelection from '../../components/PlanSelection';
@@ -45,18 +36,11 @@ import '../../../../i18n/project';
 
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    Top,
-    Bottom,
     ProductTop,
     InsuranceDurationShortTerm,
     PlanSelection,
     ProposalCopies,
-    ProposalConfirm,
-    RBody,
-    Checker
+    ProposalConfirm
   },
   data() {
     return {

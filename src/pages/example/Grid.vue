@@ -1,37 +1,27 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.grid')" :showBack="true"/>
        <r-body>
-            <card :title="$t('grid.col2')">
-                       <grid :cols="2" :data="gridItems"/>
-            </card>
-            <card :title="$t('grid.col3')">
-                       <grid :cols="3" :data="gridItems2"/>
-            </card>
-            <card :title="$t('grid.col4')">
-                       <grid  :data="gridItems3"/>
-            </card>
+            <r-card :title="$t('grid.col2')">
+                       <r-grid :cols="2" :data="gridItems"/>
+            </r-card>
+            <r-card :title="$t('grid.col3')">
+                       <r-grid :cols="3" :data="gridItems2"/>
+            </r-card>
+            <r-card :title="$t('grid.col4')">
+                       <r-grid  :data="gridItems3"/>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Grid, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/grid';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Grid,
-    Card,
-    RBody
-  },
+
   computed: {
     gridItems() {
       return [

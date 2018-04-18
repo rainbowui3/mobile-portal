@@ -1,20 +1,17 @@
 <template>
-    <page>
+    <r-page>
         <top :showBack="true" :title="$t('autoSendUnderwriting.send')" />
         <r-body>
-            <card class="cardCustom">
-                <row class="div" :title="model.content" :model="model" value="value" />
-            </card>
+            <r-card class="cardCustom">
+                <r-row class="div" :title="model.content" :model="model" value="value" />
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>
-import { Page, Card, RBody, Row } from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoSendUnderwriting';
 export default {
-  components: { Page, Card, RBody, Top, Row },
   data() {
     return {
       proposalNum: 'xxxxxxxxxxxx',

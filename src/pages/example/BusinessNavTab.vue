@@ -1,5 +1,5 @@
 <template>
-    <page>
+    <r-page>
         <r-body>
             <top :title="$t('businessNavTab.title')" :showBack="true" />
             <nav-tab :listTab="listTab" :contentItems="contentItems">
@@ -7,22 +7,14 @@
 
             <bottom :index="3" />
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>
-import { Page, Card, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import NavTab from '../project/components/nav/NavTab';
 import '../../i18n/businessNavTab';
 export default {
     components: {
-        Bottom,
-        Top,
-        Page,
-        Card,
-        RBody,
         NavTab
     },
     data() {

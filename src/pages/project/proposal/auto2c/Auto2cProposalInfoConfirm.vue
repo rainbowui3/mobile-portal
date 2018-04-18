@@ -1,69 +1,56 @@
 <template>
-  <page>
+  <r-page>
     <top :showBack="true" :title="$t('autoProposalInfoConfirm.title')" />
     <r-body>
       <!-- 添加递送地址 -->
-      <card>
+      <r-card>
         <div class="addressRow" v-on:click="addAddress">
-          <!-- <row :model="pageModel" :title="$t('auto2cProposalInfoConfirm.addAdd')" :isLink="true" /> -->
+          <!-- <r-row :model="pageModel" :title="$t('auto2cProposalInfoConfirm.addAdd')" :isLink="true" /> -->
           <span>{{$t('auto2cProposalInfoConfirm.addAdd')}}</span>
         </div>
-      </card>
+      </r-card>
       <!-- 车辆信息 -->
-      <card>
-        <row :model="pageModel" :title="$t('carInfo.carInfo')" class="cardTitle">
+      <r-card>
+        <r-row :model="pageModel" :title="$t('carInfo.carInfo')" class="cardTitle">
           <div>
             <span class="fa fa-edit" v-on:click="gotoCarInfo" />
           </div>
-        </row>
+        </r-row>
         <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />
         <r-input :title="$t('autoProposalInfoConfirm.model')" :model="model" value="model" :readonly="true" />
         <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="model" value="vehicleCode" :readonly="true" />
         <r-input :title="$t('carInfo.engineNo')" :model="model" value="engineNo" :readonly="true" />
         <r-input :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :readonly="true" />
-      </card>
+      </r-card>
       <!-- 投保详情 -->
-      <card>
-        <row :model="pageModel" :title="$t('autoProposalInfoConfirm.proposalDetail')" class="cardTitle">
+      <r-card>
+        <r-row :model="pageModel" :title="$t('autoProposalInfoConfirm.proposalDetail')" class="cardTitle">
           <div>
             <span class="fa fa-edit" />
           </div>
-        </row>
+        </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="model" value="region" />
         <insurance-duration-short-term type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
         <r-input title="交强险" :model="model.policy[1]" value="premium" :readonly="true" />
         <r-input title="车船税" :model="model.policy[0]" value="vehicleAndVesselTax" :readonly="true" />
         <r-input title="畅行无忧(A款)" :model="model.policy[0]" value="a" :readonly="true" />
         <r-input title="保费共计" :model="model" value="sumPremium" :readonly="true" />
-      </card>
+      </r-card>
       <!-- 条款确认 -->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <r-button type="primary" :onClick="gotoPay">{{$t('auto2cProposalInfoConfirm.payNow')}}</r-button>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  Cell,
-  RBody,
-  TabBar,
-  RButton,
-  Row,
-  RInput,
-  List,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cProposalInfoConfirm';
 import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../../i18n/carInfo';
@@ -74,19 +61,8 @@ import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 export default {
   components: {
-    Page,
-    Card,
-    Cell,
-    Top,
-    RBody,
-    TabBar,
-    RButton,
-    Row,
     ProposalClauseConfirm,
-    RInput,
-    InsuranceDurationShortTerm,
-    List,
-    Toast
+    InsuranceDurationShortTerm
   },
   data() {
     return {

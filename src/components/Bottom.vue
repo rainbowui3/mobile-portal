@@ -1,5 +1,5 @@
 <template>
-         <tab-bar :tabItems="tabItems" type="icon"/>
+         <r-tab-bar :tabItems="tabItems" type="icon"/>
 </template>
 
 <script>

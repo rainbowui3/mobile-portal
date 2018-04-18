@@ -1,27 +1,22 @@
 <template>
   <div>
-    <cell :type="row" v-if="dataList.length < 5" class="margin-bottom:5px">
-      <cell :span="6" :padding="padding">
+    <r-cell :type="row" v-if="dataList.length < 5" class="margin-bottom:5px">
+      <r-cell :span="6" :padding="padding">
         <div v-bind:class="{titleClass:titleClass}">{{$t(title)}}</div>
-      </cell>
-      <cell :padding="padding">
+      </r-cell>
+      <r-cell :padding="padding">
         <div v-bind:class="{bodyClass:titleClass}">
           <div v-bind:class="{active:item.active,unactive:!item.active}" v-for="(item,idx) in dataList" :key="idx" @click="onItemClick(item, idx, this)">{{item.value}}</div>
         </div>
-      </cell>
-    </cell>
-    <selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="selectorModel" value="selectorValue" :onChange="onChange"></selector>
+      </r-cell>
+    </r-cell>
+    <r-selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="selectorModel" value="selectorValue" :onChange="onChange"></r-selector>
   </div>
 </template>
 
 <script>
-import { Cell, Selector } from 'rainbow-mobile-core';
 import '../../../i18n/holderInfo';
 export default {
-  components: {
-    Cell,
-    Selector
-  },
   props: {
     datas: Array,
     readonly: {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <r-input :title="$t('holderInfo.name')" :model="model" value="name" :placeholder="$t('holderInfo.placeholderName')" :required="required" :novalidate="novalidate" />
-    <selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType" :required="required" :novalidate="novalidate" />
+    <r-selector :title="$t('holderInfo.certificateType')" :options="options_certType" :model="model" value="indiIdType" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('holderInfo.ID')" :placeholder="$t('holderInfo.placeholderID')" :model="model" value="idNo" :required="required" :validator="validateInput" :novalidate="novalidate" />
     <r-input :title="$t('holderInfo.mobile')" :placeholder="$t('holderInfo.placeholderMobile')" :model="model" value="tel" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('carOwner.address')" :placeholder="$t('carOwner.inputAddr')" :model="model" value="address" :required="required" :novalidate="novalidate" />
@@ -10,15 +10,10 @@
 </template>
 
 <script>
-import { Selector, RInput } from 'rainbow-mobile-core';
 import '../../../i18n/carOwner';
 import '../../../i18n/holderInfo';
 import Validate from '../utils/Valitate';
 export default {
-  components: {
-    Selector,
-    RInput
-  },
   props: {
     required: {
       type: Boolean,

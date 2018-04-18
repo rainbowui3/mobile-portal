@@ -1,9 +1,9 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
-            <card>
-                <tab :tabItems="tabItems" class="tab" />
+            <r-card>
+                <r-tab :tabItems="tabItems" class="tab" />
                 <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
                     <div class="planName">
                         {{selectedPlan.name}}
@@ -15,10 +15,10 @@
                         {{selectedPlan.value}}
                     </div>
                 </div>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
-            <card class="bottom">
+        <r-tab-bar>
+            <r-card class="bottom">
                 <hr/>
                 <div class="customPlan">
                     <span v-on:click="gotoCustomPlan">
@@ -26,41 +26,13 @@
                     </span>
                 </div>
                 <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
-            </card>
-        </tab-bar>
-    </page>
+            </r-card>
+        </r-tab-bar>
+    </r-page>
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  TabBar,
-  RButton,
-  Tab,
-  Swiper,
-  SwiperItem,
-  Row,
-  Divider,
-  Cell
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cPlan';
 export default {
-  components: {
-    Page,
-    RBody,
-    TabBar,
-    Card,
-    Tab,
-    Swiper,
-    SwiperItem,
-    RButton,
-    Top,
-    Row,
-    Divider,
-    Cell
-  },
   data() {
     return {
       index: 0,
@@ -131,11 +103,9 @@ export default {
   },
   methods: {
     goto: function(index) {
-      console.log(index);
       this.index = index;
     },
     gotoCustomPlan: function() {
-        console.log('gotoCustomPlan');
         // Todo:跳转到自定义险种页面
         this.$router.push({
           path: '/project/proposal/auto2C/Auto2cCustomPlan',

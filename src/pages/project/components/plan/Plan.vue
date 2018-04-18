@@ -1,8 +1,8 @@
 <template>
-    <card>
+    <r-card>
         <div class="plan">
             <button v-for="(item, index) in items" @click="onItemClick(index)" :key="index" :class="{active: activeIndex == index}">{{item.text}}</button>
-            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)">
+            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)" :key="contentIndex">
                 <div class="planContent" v-if="itemContent !== null && itemContent !== undefined">
                     <div class="planTitle">
                         <p>{{itemContent.content.title}}</p>
@@ -23,17 +23,13 @@
             </div>
         </div>
 
-    </card>
+    </r-card>
 </template>
 
 <script>
-import { Card } from 'rainbow-mobile-core';
 import correct from '../../../../assets/correct.png';
 
 export default {
-    components: {
-        Card
-    },
     props: {
         items: { text: String },
         contentItems: {

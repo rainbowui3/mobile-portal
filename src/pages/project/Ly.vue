@@ -1,68 +1,65 @@
 <template>
-  <page>
+  <r-page>
         <top :title="$t('project.jtyw')" :showBack="true"/>
         <r-body>
-            <card>
+            <r-card>
               <product-top :productImgSrc="productImgSrc"
                           :productDes="productDes">
               </product-top>
-            </card>
+            </r-card>
 
-            <!--<card :title="$t('project.poi')" >
-                <date-time  :title="$t('datetime.startDate')"  ></date-time>
-                <date-time  :title="$t('datetime.endDate')"  ></date-time>
-            </card>-->
+            <!--<r-card :title="$t('project.poi')" >
+                <r-date-time  :title="$t('datetime.startDate')"  ></r-date-time>
+                <r-date-time  :title="$t('datetime.endDate')"  ></r-date-time>
+            </r-card>-->
 
-             <!--<card>
-                   <tab :tabItems="swTabItems"/>
-                   <swiper :model="index">
-                    <swiper-item >
-                         <card>
+             <!--<r-card>
+                   <r-tab :tabItems="swTabItems"/>
+                   <r-swiper :model="index">
+                    <r-swiper-item >
+                         <r-card>
                                   <r-table :data="data"/>
-                         </card>
-                    </swiper-item>
-                    <swiper-item >
-                          <card>
+                         </r-card>
+                    </r-swiper-item>
+                    <r-swiper-item >
+                          <r-card>
                                   <r-table :data="data1"/>
-                         </card>
-                    </swiper-item>
-                    <swiper-item >
-                          <card>
+                         </r-card>
+                    </r-swiper-item>
+                    <r-swiper-item >
+                          <r-card>
                                   <r-table :data="data2"/>
-                         </card>
-                    </swiper-item>
-                  </swiper>
-            </card>-->
+                         </r-card>
+                    </r-swiper-item>
+                  </r-swiper>
+            </r-card>-->
             
-            <card>
+            <r-card>
               <plan-selection></plan-selection>
-            </card>
-            <card>
+            </r-card>
+            <r-card>
               <insurance-duration-currency></insurance-duration-currency>
-            </card>
-            <!--<card :title="$t('project.notes')">
+            </r-card>
+            <!--<r-card :title="$t('project.notes')">
                           <list :data="list"/>
-            </card>-->
+            </r-card>-->
 
-            <!--<card :title="$t('project.other')" >
+            <!--<r-card :title="$t('project.other')" >
                 <r-switch  :title="$t('project.social')"  :model="social" ></r-switch>
-                <selector  :title="$t('project.copy')" :options="options" ></selector>
-            </card>-->
+                <r-selector  :title="$t('project.copy')" :options="options" ></r-selector>
+            </r-card>-->
 
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
       <proposal-confirm 
                 :buttonName="buttonName"
                 :amount="amount"
                 :onClick="onClick"></proposal-confirm>
-        </tab-bar>
-  </page>
+        </r-tab-bar>
+  </r-page>
 </template>
 
 <script>
-import {Page, RBody, Card, RImage, RButton, Swiper, RSwitch, DateTime, Tab, SwiperItem, RTable, List, Selector, TabBar, Cell} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import Jtgj from '../../assets/jtgj.jpg';
 import InsuranceDurationCurrency from './components/InsuranceDurationCurrency';
 import PlanSelection from './components/PlanSelection';
@@ -71,28 +68,10 @@ import ProposalConfirm from './components/ProposalConfirm';
 
 export default {
   components: {
-    Top,
-    Card,
-    Bottom,
-    Page,
-    RImage,
-    Swiper,
-    DateTime,
-    Tab,
-    SwiperItem,
-    RTable,
-    List,
-    Selector,
-    TabBar,
-    Cell,
-    RButton,
-    RSwitch,
-    RBody,
     InsuranceDurationCurrency,
     PlanSelection,
     ProductTop,
     ProposalConfirm
-
   },
   data() {
     return {

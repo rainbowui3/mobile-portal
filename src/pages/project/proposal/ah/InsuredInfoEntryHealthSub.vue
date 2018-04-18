@@ -1,55 +1,42 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('insuredInfoEntryHealthSub.title')" :showBack="true" />
     <r-body>
       <!-- 保险期限选择 -->
-      <card>
+      <r-card>
         <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-      </card>
+      </r-card>
       <!-- 投保人信息 -->
-      <card :title="$t('common.holderInfo')">
+      <r-card :title="$t('common.holderInfo')">
         <holder-info :model="policy.holderInfo" :required="required"/>
-      </card>
+      </r-card>
       <!-- 被保人信息 -->
-      <card :title="$t('common.insuredInfo')">
+      <r-card :title="$t('common.insuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
         <insured-info v-if="policy.insuredInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
-        <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
-      </card>
+        <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+      </r-card>
       <!-- 附属被保险人信息 -->
-      <card :title="$t('common.subsidiaryInsuredInfo')">
+      <r-card :title="$t('common.subsidiaryInsuredInfo')">
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" />
         <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
         <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '1'" :model="policy.subsidiaryInfo" :required="required"/>
-        <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
-      </card>
+        <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+      </r-card>
       <!-- 添加更多被保险人 -->
       <r-button type="primary">{{$t('common.addmore')}}</r-button>
       <!-- 保险条款确认 -->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirmed" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm amount="50" :buttonName="'proposalConfirm.immediatelyInsure'" :onClick="goto" />
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RBody,
-  RButton,
-  Cell,
-  Selector,
-  RInput,
-  Row,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import ChooseRelationship from '../../components/ChooseRelationship';
 import ProposalConfirm from '../../components/ProposalConfirm';
 import HolderInfo from '../../components/HolderInfo';
@@ -63,24 +50,13 @@ import '../../../../i18n/holderInfo';
 
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    RBody,
-    RButton,
-    Cell,
-    Selector,
-    RInput,
-    Row,
-    Top,
     ChooseRelationship,
     ProposalConfirm,
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
-    InsuranceDurationShortTerm,
-    Toast
+    InsuranceDurationShortTerm
   },
   data() {
     return {
@@ -157,7 +133,6 @@ export default {
     },
     'policy.subsidiaryInfo.relationToHolder': {
       handler: function() {
-        console.log(this.policy.subsidiaryInfo.relationToHolder);
       },
       deep: true
     }

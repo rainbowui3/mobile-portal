@@ -1,26 +1,21 @@
 <template>
-          <page>
+          <r-page>
             <top :title="$t('common.home')" :showBack="false"/>
             <r-body>
-              <swiper :data="list" :auto="true" :showDots="true" height="200px"></swiper>
-              <card :title="$t('common.component')" :list="cardList"/>
+              <r-swiper :data="list" :auto="true" :showDots="true" height="200px"></r-swiper>
+              <r-card :title="$t('common.component')" :list="cardList"/>
             </r-body>
-
             <bottom :index="1"/>
-          </page>
+          </r-page>
 </template>
 
 <script>
-import { Page, RImage, Card, Swiper, RBody } from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
 import Jcx from '../assets/jcx.jpg';
 import Jtgj from '../assets/jtgj.jpg';
 import Ly from '../assets/ly.jpg';
 import '../i18n/home';
 
 export default {
-  components: {Top, Card, Bottom, Page, RImage, Swiper, RBody},
   data() {
     return {
       path: 'http://placeholder.qiniudn.com/640x300',

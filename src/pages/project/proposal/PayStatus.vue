@@ -1,31 +1,24 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')"/>
     <r-body>
-      <card>
+      <r-card>
         <div class="successTitle">
           <h4>{{$t('payStatus.success')}}</h4>
         </div>
         <previewer :title="$t('payStatus.payment')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
-      </card>
+      </r-card>
     </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Card, Popup, RBody } from 'rainbow-mobile-core';
 import { Previewer } from 'rainbow-mobile-previewer';
-import Top from '@/components/Top';
 import '../../../i18n/payStatus';
 import '../../../i18n/project';
 export default {
   components: {
-    Page,
-    Card,
-    Top,
-    Previewer,
-    Popup,
-    RBody
+    Previewer
   },
   data() {
     return {

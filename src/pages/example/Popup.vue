@@ -1,86 +1,74 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.popup')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
+            <r-card :title="$t('component.basic')">
               <r-switch :title="$t('common.default')" :model="policy" value="show1" :onClick="click"></r-switch>
               <r-switch :title="`${$t('common.disable')}${$t('component.masker')}`" :model="policy" value="show2" :onClick="click"></r-switch>
               <r-switch :title="$t('popup.fullpopup')" :model="policy" value="show9" :onClick="click"></r-switch>
               <r-switch :title="$t('component.masker')" :model="policy" value="show7" :onClick="click"></r-switch>
-            </card>
-            <card :title="$t('common.position')">
+            </r-card>
+            <r-card :title="$t('common.position')">
               <r-switch :title="$t('common.left')" :model="policy" value="show3" :onClick="click"></r-switch>
               <r-switch :title="$t('common.right')" :model="policy" value="show4" :onClick="click"></r-switch>
               <r-switch :title="$t('common.top')" :model="policy" value="show5" :onClick="click2"></r-switch>
               <r-switch :title="$t('common.bottom')" :model="policy" value="show6" :onClick="click3"></r-switch>
-            </card>
-             <popup :model="policy" value="show1" :onHide="onHide">
-                    <card>
+            </r-card>
+             <r-popup :model="policy" value="show1" :onHide="onHide">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show1'}"/>
-                    </card>
-            </popup>
-             <popup :model="policy" value="show2" :onHide="onHide" :disableMask="false">
-                    <card>
+                    </r-card>
+            </r-popup>
+             <r-popup :model="policy" value="show2" :onHide="onHide" :disableMask="false">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show2'}"/>
-                    </card>
-            </popup>
-             <popup :model="policy" value="show7" :onHide="onHide" :showMask="false">
-                    <card>
+                    </r-card>
+            </r-popup>
+             <r-popup :model="policy" value="show7" :onHide="onHide" :showMask="false">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show7'}"/>
-                    </card>
-            </popup>
-            <popup :model="policy" value="show9" :onHide="onHide" height="100%">
-                    <card>
+                    </r-card>
+            </r-popup>
+            <r-popup :model="policy" value="show9" :onHide="onHide" height="100%">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show9'}"/>
-                    </card>
-            </popup>
-             <popup :model="policy" value="show3" :onHide="onHide" position="left" width="80%">
-                    <card>
+                    </r-card>
+            </r-popup>
+             <r-popup :model="policy" value="show3" :onHide="onHide" position="left" width="80%">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show3'}"/>
-                    </card>
-            </popup>
-            <popup :model="policy" value="show4" :onHide="onHide" position="right"  width="80%">
-                    <card>
+                    </r-card>
+            </r-popup>
+            <r-popup :model="policy" value="show4" :onHide="onHide" position="right"  width="80%">
+                    <r-card>
                         <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show4'}"/>
-                    </card>
-            </popup>
-            <popup :model="policy" value="show5" :onHide="onHide" position="top"  :showMask="false" >
+                    </r-card>
+            </r-popup>
+            <r-popup :model="policy" value="show5" :onHide="onHide" position="top"  :showMask="false" >
                         <div class="position-vertical-demo">
                             {{$t('common.top')}}
                         </div>
-            </popup>
-            <popup :model="policy" value="show6" :onHide="onHide" position="bottom" >
+            </r-popup>
+            <r-popup :model="policy" value="show6" :onHide="onHide" position="bottom" >
                         <div class="position-vertical-demo">
                              {{$t('common.bottom')}}
                         </div>
-            </popup>
+            </r-popup>
 
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, RSwitch, Actionsheet, Toast, Popup, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/preview';
 import '../../i18n/popup';
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Toast,
-    Actionsheet,
-    Popup,
-    Previewer,
-    RBody
+    Previewer
   },
   data() {
     return {
@@ -112,10 +100,14 @@ export default {
   },
   methods: {
     onHide() {
+      /* eslint-disable */
       console.log('onHide');
+      /* eslint-disable */
     },
     click() {
+      /* eslint-disable */
       console.log(this.policy);
+      /* eslint-disable */
     },
     click2() {
         setTimeout(() => {

@@ -1,50 +1,28 @@
 <template>
-    <page>
+    <r-page>
         <top :showBack="true" :title="$t('carDetailsMotor.carDetails')"/>
         <r-body>
-            <card>
+            <r-card>
                 <!-- 车辆使用性质 -->
-                <selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
+                <r-selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
                 <!-- 车辆种类 -->
-                <selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
+                <r-selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
                 <!-- 排量/功率 -->
-                <selector :title="$t('carDetailsMotor.dOrP')" :model="model" value="power" :options="motorPowerList" />
+                <r-selector :title="$t('carDetailsMotor.dOrP')" :model="model" value="power" :options="motorPowerList" />
                 <!-- 核定载客数 -->
                 <r-input :title="$t('carDetails.approvalSeatNumber')" :model="model" value="approvalSeatNumber" />
                 <!-- 使用年限 -->
                 <r-input :title="$t('carDetails.useSeniority')" :model="model" value="useSeniority" />
                 <r-button type="primary">{{$t('common.confirm')}}</r-button>
-            </card>
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RBody,
-  TabBar,
-  RButton,
-  RInput,
-  Selector,
-  RSwitch
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/carDetails';
 import '../../../../i18n/carDetailsMotor';
 export default {
-  components: {
-    Top,
-    Page,
-    Card,
-    RBody,
-    TabBar,
-    RButton,
-    RInput,
-    Selector,
-    RSwitch
-  },
   props: {},
   data() {
     return {

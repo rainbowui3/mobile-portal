@@ -1,18 +1,15 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('demo.exapmle')" :showBack="true"/>
        <r-body>
-            <tab :tabItems="tabItems"/>
+            <r-tab :tabItems="tabItems"/>
             <r-image :list="products"/>
        </r-body>
        <bottom :index="3"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Tab, RImage, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import Fire from '../../assets/fire.png';
 import Jcx from '../../assets/jcx.jpg';
 import Tthj from '../../assets/tthj.jpg';
@@ -20,14 +17,6 @@ import Xpx from '../../assets/xpx.jpg';
 import Zrx from '../../assets/zrx.jpg';
 import '../../i18n/demo';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Tab,
-    RImage,
-    RBody
-  },
   data() {
       return {
         products: [

@@ -1,14 +1,14 @@
 // 投保条款确认组件
 <template>
   <div>
-    <!-- <card> -->
-    <cell type="row">
-      <cell :span="1">
+    <!-- <r-card> -->
+    <r-cell type="row">
+      <r-cell :span="1">
         <div class="proposalClauseConfirmRaido">
-          <checker :model="model" :value="value" type="icon" :onClick="onClick" />
+          <r-checker :model="model" :value="value" type="icon" :onClick="onClick" />
         </div>
-      </cell>
-      <cell type="row">
+      </r-cell>
+      <r-cell type="row">
         <h5>
           <span>{{$t('proposalClauseConfirm.readed')}}</span>
           <span v-for="(item, idx) in items" :key="idx" value="dialogStatus" @click="showDialog(this, item, idx)">
@@ -17,9 +17,9 @@
             <span>》</span>
           </span>
         </h5>
-        <!-- </box> -->
-      </cell>
-    </cell>
+        <!-- </r-box> -->
+      </r-cell>
+    </r-cell>
     <div v-for="(item, idx) in items" :key="idx">
       <r-dialog :model="componentSelf.dialogNameList[idx]" value="dialogStatus">
         <div v-bind:class="{dialogCSS:isLink}">
@@ -52,30 +52,12 @@
         </div>
       </r-dialog>
     </div>
-    <!-- </card> -->
+    <!-- </r-card> -->
   </div>
 </template>
 <script>
-import {
-  RButton,
-  Cell,
-  Card,
-  Checker,
-  Box,
-  RDialog,
-  RImage
-} from 'rainbow-mobile-core';
 import '../../../i18n/proposalClauseConfirm';
 export default {
-  components: {
-    Checker,
-    Card,
-    Cell,
-    RButton,
-    Box,
-    RDialog,
-    RImage
-  },
   props: {
     model: {
       type: Object,
@@ -109,7 +91,6 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('onRadioChange:');
     },
     showDialog(event, item, idx) {
       this.componentSelf.dialogNameList[idx].dialogStatus = true;

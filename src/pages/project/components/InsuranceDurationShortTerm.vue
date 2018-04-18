@@ -1,22 +1,15 @@
 //保险期限组件-极短期
 <template>
   <div>
-    <date-time :readonly="readonlyEf" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></date-time>
-    <date-time :readonly="readonlyEx" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></date-time>
+    <r-date-time :readonly="readonlyEf" :title="$t('insuranceDurationShortTerm.insuranceDateStart')" :model="model" :value="effectiveDate" :format="timeFormat" :onChange="onChange"></r-date-time>
+    <r-date-time :readonly="readonlyEx" :title="$t('insuranceDurationShortTerm.insuranceDateEnd')" :model="model" :value="expireDate" :format="timeFormat" :onChange="onChange"></r-date-time>
   </div>
 </template>
 
 <script>
-import { Card, DateTime, Cell, Checker } from 'rainbow-mobile-core';
 import config from 'config';
 import '../../../i18n/insuranceDurationShortTerm';
 export default {
-  components: {
-    DateTime,
-    Card,
-    Cell,
-    Checker
-  },
   props: {
     // 组件是否只读
     readonly: Boolean,
@@ -53,8 +46,6 @@ export default {
   },
   methods: {
     onChange() {
-      console.log(this.model[this.effectiveDate]);
-      console.log(this.model[this.expireDate]);
     }
   },
   created: function() {

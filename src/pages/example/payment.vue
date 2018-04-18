@@ -1,28 +1,20 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('pay.payment')" :showBack="true"/>
        <r-body>
-           <card>
+           <r-card>
                <Pay />
-           </card>
+           </r-card>
        </r-body>  
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 <script>
-import { Page, Card, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import Pay from '../project/components/pay/Pay';
 
 export default {
  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Pay,
-    RBody
+    Pay
   }
 };
 </script>

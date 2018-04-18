@@ -1,40 +1,31 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.table')" :showBack="true"/>
        <r-body>
-       <card :title="$t('component.basic')">
+       <r-card :title="$t('component.basic')">
                 <r-table :data="data"/>
-       </card>
-       <card :title="$t('table.border')">
+       </r-card>
+       <r-card :title="$t('table.border')">
                 <r-table :data="data" :border="true"/>
-       </card> 
-       <card :title="$t('table.merge')">
+       </r-card> 
+       <r-card :title="$t('table.merge')">
                 <r-table :data="data1" :border="true"/>
-       </card>
-       <card :title="$t('table.ctrl')">
+       </r-card>
+       <r-card :title="$t('table.ctrl')">
                 <r-table :data="data2" :border="true"/>
-       </card>
+       </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, RTable, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/table';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    RBody
-  },
+
   data() {
     return {
       data: {

@@ -1,47 +1,36 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('common.badge')" :showBack="true"/>
        <r-body>
-        <card :title="$t('common.basic')">
-                    <badge text="1"></badge>
+        <r-card :title="$t('common.basic')">
+                    <r-badge text="1"></r-badge>
                     <br>
-                    <badge text="123"></badge>
-        </card>
-        <card :title="$t('common.row')">
-                <row :title="$t('row.account')" :isLink="true" primary="content">
+                    <r-badge text="123"></r-badge>
+        </r-card>
+        <r-card :title="$t('common.row')">
+                <r-row :title="$t('row.account')" :isLink="true" primary="content">
                       <div class="vertical-middle">{{ $t('row.protected') }}&nbsp;</div>
-                      <badge></badge>
-                </row>
-                <row :title="$t('row.account')" :isLink="true" primary="content">
+                      <r-badge></r-badge>
+                </r-row>
+                <r-row :title="$t('row.account')" :isLink="true" primary="content">
                       <div class="vertical-middle">{{ $t('row.protected') }}&nbsp;</div>
-                      <badge text="1"></badge>
-                </row>
-                 <row :title="$t('row.account')" :isLink="true" primary="content">
+                      <r-badge text="1"></r-badge>
+                </r-row>
+                 <r-row :title="$t('row.account')" :isLink="true" primary="content">
                       <div class="vertical-middle">{{ $t('row.protected') }}&nbsp;</div>
-                      <badge text="123"></badge>
-                </row>
-        </card>
+                      <r-badge text="123"></r-badge>
+                </r-row>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, Badge, Row, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/row';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Badge,
-    Row,
-    RBody
-  }
+
 };
 </script>
 <style scoped>

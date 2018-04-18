@@ -1,47 +1,36 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.checker')" :showBack="true"/>
        <r-body>
-            <card :title="$t('input.iconType')">
-                <checker :model="policy" value="value2" :text="`${$t('common.agree')}?`" :onChange="onChange" type="icon"/>
-                <checker :model="policy" value="value3" :text="`${$t('common.agree')}?`"  :onChange="onChange" type="icon" :plain="true"/>
-            </card>
-            <card :title="$t('component.list')">
-                <checker :model="policy" value="value4" :data='list' :onChange="onChange" type="list"/>
-            </card>
-            <card :title="$t('component.list')">
-                <checker :disabled="true" :model="policy" value="value5" :data='list' :onChange="onChange" type="list" labelPosition="left"/>
-            </card>
-            <card :title="$t('input.max')">
-                <checker :max="2" :model="policy" value="value5" :data='list' :onChange="onChange" type="list"/>
-            </card>
-            <card :title="$t('component.radio')">
-                <checker :max="1" :model="policy" value="value6" :data='list' :onChange="onChange" type="list"/>
-            </card>
-             <card :title="$t('common.description')">
-                <checker :max="1" :model="policy" value="value7" :data='inlineDescList' :onChange="onChange" type="list"/>
-            </card>
+            <r-card :title="$t('input.iconType')">
+                <r-checker :model="policy" value="value2" :text="`${$t('common.agree')}?`" :onChange="onChange" type="icon"/>
+                <r-checker :model="policy" value="value3" :text="`${$t('common.agree')}?`"  :onChange="onChange" type="icon" :plain="true"/>
+            </r-card>
+            <r-card :title="$t('component.list')">
+                <r-checker :model="policy" value="value4" :data='list' :onChange="onChange" type="list"/>
+            </r-card>
+            <r-card :title="$t('component.list')">
+                <r-checker :disabled="true" :model="policy" value="value5" :data='list' :onChange="onChange" type="list" labelPosition="left"/>
+            </r-card>
+            <r-card :title="$t('input.max')">
+                <r-checker :max="2" :model="policy" value="value5" :data='list' :onChange="onChange" type="list"/>
+            </r-card>
+            <r-card :title="$t('component.radio')">
+                <r-checker :max="1" :model="policy" value="value6" :data='list' :onChange="onChange" type="list"/>
+            </r-card>
+             <r-card :title="$t('common.description')">
+                <r-checker :max="1" :model="policy" value="value7" :data='inlineDescList' :onChange="onChange" type="list"/>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, Checker, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/input';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Checker,
-    RBody
-  },
   data() {
       return {
           policy: {
@@ -78,7 +67,9 @@ export default {
   },
   methods: {
       onChange(value) {
+          /* eslint-disable */
             console.log(value);
+            /* eslint-disable */
       }
   }
 };

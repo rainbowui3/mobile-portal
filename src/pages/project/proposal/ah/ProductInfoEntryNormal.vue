@@ -1,38 +1,30 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('productInfoEntryNormal.vehicleAccidentInsurance')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <plan-selection></plan-selection>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <insurance-duration-currency></insurance-duration-currency>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <proposal-copies></proposal-copies>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
+    </r-tab-bar>
 
-  </page>
+  </r-page>
 
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RBody
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import ProductTop from '../../components/ProductTop';
 import InsuranceDurationCurrency from '../../components/InsuranceDurationCurrency';
 import PlanSelection from '../../components/PlanSelection';
@@ -42,17 +34,11 @@ import Jtgj from '../../../../assets/jtgj.jpg';
 import '../../../../i18n/productInfoEntryNormal';
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    Top,
-    Bottom,
     ProductTop,
     InsuranceDurationCurrency,
     PlanSelection,
     ProposalCopies,
-    ProposalConfirm,
-    RBody
+    ProposalConfirm
   },
   data() {
     return {

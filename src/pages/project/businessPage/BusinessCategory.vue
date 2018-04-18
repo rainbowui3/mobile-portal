@@ -1,54 +1,34 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('businessCategory.title')" :showBack="true" />
         <r-body>
             <div class="category">
-                <tab :tabItems="swTabItems" />
-                <swiper :model="index" :height="height">
-                    <swiper-item>
-                        <nav-tab :listTab="listTab" :contentItems="contentItems" />
-                    </swiper-item>
-                    <swiper-item>
+                <r-tab :tabItems="swTabItems" />
+                <r-swiper :model="index" :height="height">
+                    <r-swiper-item>
+                        <r-nav-tab :listTab="listTab" :contentItems="contentItems" />
+                    </r-swiper-item>
+                    <r-swiper-item>
                         ...
-                    </swiper-item>
+                    </r-swiper-item>
 
-                </swiper>
+                </r-swiper>
             </div>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="default">{{$t('businessCategory.concel')}}</r-button>
             <r-button type="primary">{{$t('businessCategory.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>
-import {
-    Page,
-    Card,
-    RBody,
-    Swiper,
-    SwiperItem,
-    Tab,
-    TabBar,
-    RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../components/Top';
 import NavTab from '../components/nav/NavTab';
 
 import '../../../i18n/businessCategory';
 export default {
     components: {
-        TabBar,
-        Top,
-        Page,
-        RBody,
-        Card,
-        Swiper,
-        SwiperItem,
-        NavTab,
-        Tab,
-        RButton
+        NavTab
     },
     data() {
         return {

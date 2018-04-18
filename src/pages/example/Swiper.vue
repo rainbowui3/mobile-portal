@@ -1,63 +1,51 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.swiper')" :showBack="true"/>
        <r-body>
-         <card :title="$t('component.basic')">
-              <swiper :data="list"   :auto="true" :showDots="true"></swiper>
-         </card>
-         <card :title="$t('swiper.notauto')">
-              <swiper :data="list" :model="value" :showDots="true"></swiper>
-           <box padding="10px 10px">
+         <r-card :title="$t('component.basic')">
+              <r-swiper :data="list"   :auto="true" :showDots="true"></r-swiper>
+         </r-card>
+         <r-card :title="$t('swiper.notauto')">
+              <r-swiper :data="list" :model="value" :showDots="true"></r-swiper>
+           <r-box padding="10px 10px">
                 <r-button :onClick="goto" param="0">goto 0</r-button>
                 <r-button :onClick="goto" param="1">goto 1</r-button>
                 <r-button :onClick="goto" param="2">goto 2</r-button>
-           </box>
-         </card>
-         <card :title="$t('common.height')">
-              <swiper  height="100px" :auto="true">
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">谁人没试过犹豫</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">达到理想不太易</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">即使有信心</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">斗志却抑止</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">只想靠两手向理想挥手</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">自信打不死的心态活到老</h2></div></swiper-item>
-              </swiper>
-         </card>
-         <card :title="$t('common.vertical')">
-              <swiper  height="35px" :auto="true" direction="vertical">
-                    <swiper-item><p>谁人没试过犹豫</p></swiper-item>
-                    <swiper-item><p>达到理想不太易</p></swiper-item>
-                    <swiper-item><p>即使有信心</p></swiper-item>
-                    <swiper-item><p>斗志却抑止</p></swiper-item>
-                    <swiper-item><p>只想靠两手向理想挥手</p></swiper-item>
-                    <swiper-item><p>自信打不死的心态活到老</p></swiper-item>
-              </swiper>
-         </card>
+           </r-box>
+         </r-card>
+         <r-card :title="$t('common.height')">
+              <r-swiper  height="100px" :auto="true">
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">谁人没试过犹豫</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">达到理想不太易</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">即使有信心</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">斗志却抑止</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">只想靠两手向理想挥手</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">自信打不死的心态活到老</h2></div></r-swiper-item>
+              </r-swiper>
+         </r-card>
+         <r-card :title="$t('common.vertical')">
+              <r-swiper  height="35px" :auto="true" direction="vertical">
+                    <r-swiper-item><p>谁人没试过犹豫</p></r-swiper-item>
+                    <r-swiper-item><p>达到理想不太易</p></r-swiper-item>
+                    <r-swiper-item><p>即使有信心</p></r-swiper-item>
+                    <r-swiper-item><p>斗志却抑止</p></r-swiper-item>
+                    <r-swiper-item><p>只想靠两手向理想挥手</p></r-swiper-item>
+                    <r-swiper-item><p>自信打不死的心态活到老</p></r-swiper-item>
+              </r-swiper>
+         </r-card>
 
        </r-body>    
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Swiper, RButton, Box, Card, SwiperItem, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/swiper';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Swiper,
-    RButton,
-    Box,
-    Card,
-    SwiperItem,
-    RBody
-  },
+
   data() {
       return {
           list: [{

@@ -1,39 +1,29 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.selector')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
-                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="index" :onChange="onChange"></selector>
-            </card>
-            <card :title="$t('component.pleaseSelect')">
-                <selector  :title="$t('selector.sum')" :options="options" :model="policy" value="nullDate" :onChange="onChange"></selector>
-            </card>
-            <card :title="$t('selector.header')">
-                <selector :header="$t('selector.sum')" :title="$t('selector.sum')" :options="options" :model="policy" value="index1" :onChange="onChange"></selector>
-            </card>
-            <card :title="$t('component.readonly')">
-                <selector :readonly="true"  :title="$t('selector.sum')" :options="options" :model="policy" value="index2" :onChange="onChange"></selector>
-            </card>
+            <r-card :title="$t('component.basic')">
+                <r-selector  :title="$t('selector.sum')" :options="options" :model="policy" value="index" :onChange="onChange"></r-selector>
+            </r-card>
+            <r-card :title="$t('component.pleaseSelect')">
+                <r-selector  :title="$t('selector.sum')" :options="options" :model="policy" value="nullDate" :onChange="onChange"></r-selector>
+            </r-card>
+            <r-card :title="$t('selector.header')">
+                <r-selector :header="$t('selector.sum')" :title="$t('selector.sum')" :options="options" :model="policy" value="index1" :onChange="onChange"></r-selector>
+            </r-card>
+            <r-card :title="$t('component.readonly')">
+                <r-selector :readonly="true"  :title="$t('selector.sum')" :options="options" :model="policy" value="index2" :onChange="onChange"></r-selector>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, Selector, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/selector';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Selector,
-    RBody
-  },
   data() {
     return {
         options: [{'key': '100000', 'value': '10万'}, {'key': '1000000', 'value': '100万'}, {'key': '10000000', 'value': '1000万'}],

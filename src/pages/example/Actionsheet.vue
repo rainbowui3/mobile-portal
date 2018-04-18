@@ -1,8 +1,8 @@
 <template>
-  <page>
-       <top :title="$t('actionSheet.actionsheet')" :showBack="true"/>
+  <r-page>
+       <top :title="$t('component.actionsheet')" :showBack="true"/>
         <r-body>
-            <card :title="$t('common.basic')">
+            <r-card :title="$t('common.basic')">
               <r-switch :title="$t('common.basic')" :model="policy" value="show1"  :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.android')" :model="policy" value="show2" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.showCannel')" :model="policy" value="show3" :onClick="click"></r-switch>
@@ -10,48 +10,25 @@
               <r-switch :title="$t('actionsheet.clickMask')" :model="policy" value="show5" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.tips')" :model="policy" value="show6" :onClick="click"></r-switch>
               <r-switch :title="$t('actionsheet.title')" :model="policy" value="show7" :onClick="click"></r-switch>
-
-            </card>
-
-            <actionsheet :model="policy" value="show1" :menuList="menus1" :onClick="click" :onClickMask="click"></actionsheet>
-            <actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></actionsheet>
-            <actionsheet :model="policy" value="show3" :menuList="menus1" :onClick="click" :onClickMask="click" :showCancel="true"></actionsheet>
-            <actionsheet :model="policy" value="show4" :menuArrary="menu5" :onClick="click" :onClickMask="click" :showCancel="true"></actionsheet>
-            <actionsheet :model="policy" value="show5" :menuList="menus1" :onClick="click"  :showCancel="true" 　:isClickMask="false"></actionsheet>
-            <actionsheet :model="policy" value="show6" :menuList="menus1" :onClick="showToast"  :showCancel="true" 　:isClickMask="false"></actionsheet>
-            <actionsheet :model="policy" value="show7" :menuList="menus2" :onClick="click"  :showCancel="true" 　:isClickMask="false" :isHeaderHtml="true">
+            </r-card>
+            <r-actionsheet :model="policy" value="show1" :menuList="menus1" :onClick="click" :onClickMask="click"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show3" :menuList="menus1" :onClick="click" :onClickMask="click" :showCancel="true"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show4" :menuArrary="menu5" :onClick="click" :onClickMask="click" :showCancel="true"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show5" :menuList="menus1" :onClick="click"  :showCancel="true" 　:isClickMask="false"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show6" :menuList="menus1" :onClick="showToast"  :showCancel="true" 　:isClickMask="false"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show7" :menuList="menus2" :onClick="click"  :showCancel="true" 　:isClickMask="false" :isHeaderHtml="true">
                       <p>{{$t('common.sure')}}?<br/><span style="color:red;font-size:12px;">{{$t('common.delete')}}</span></p>
-            </actionsheet>
-            <toast :model="policy" value="show8" :text="toastText"/>
+            </r-actionsheet>
+            <r-toast :model="policy" value="show8" :text="toastText"/>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RSwitch,
-  Actionsheet,
-  Toast,
-  LoadingApi,
-  RBody
-} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/actionSheet';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Toast,
-    Actionsheet,
-    RBody
-  },
   data() {
     return {
       policy: {
@@ -94,15 +71,17 @@ export default {
   },
   methods: {
     click(key) {
+      /* eslint-disable */
       console.log('click key=', key);
+      /* eslint-disable */
     },
     showToast(key) {
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         this.policy.show8 = true;
       }, 2000);
     }

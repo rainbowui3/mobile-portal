@@ -1,18 +1,15 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('demo.example')" :showBack="true" />
     <r-body>
-      <tab :tabItems="tabItems" />
+      <r-tab :tabItems="tabItems" />
       <r-image :list="products" />
     </r-body>
     <bottom :index="3" />
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Tab, RImage, RBody } from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
 import Female from '../assets/female.jpg';
 import Fire from '../assets/fire.png';
 import Jcx from '../assets/jcx.jpg';
@@ -27,14 +24,6 @@ import '../i18n/demo';
 import '../i18n/component';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Tab,
-    RImage,
-    RBody
-  },
   data() {
     return {
       products: [
@@ -66,8 +55,7 @@ export default {
           src: Female,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryNormal',
-            url: '/project/proposal/ah/productInfoEntryNormal',
+            url: '/proposal/LoadingPage/3/1',
             flag: '3'
           }
 
@@ -78,8 +66,7 @@ export default {
           src: Fire,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryNormal',
-            url: '/project/proposal/ah/productInfoEntryNormal',
+            url: '/proposal/LoadingPage/4/1',
             flag: '4'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -89,8 +76,7 @@ export default {
           src: Jtgj,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryShortTerm',
-            url: '/project/proposal/ah/productInfoEntryShortTerm',
+            url: '/proposal/LoadingPage/5/1',
             flag: '5'
           }
           // param: "/project/proposal/ah/InsuredInfoAccident"

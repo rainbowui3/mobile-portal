@@ -1,36 +1,26 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.picker')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
-                <picker  :title="$t('picker.phone')" :options="list1" :model="policy" value="value1" @onChange="onChange"></picker>
-            </card>
-            <card :title="$t('picker.towColumn')">
-                <picker  :title="$t('picker.phone')" :options="list2" :model="policy" value="value2"  @onChange="onChange"></picker>
-            </card>
-            <card :title="$t('picker.chainedColumns')">
-                <picker  :title="$t('picker.address')" :options="list3" :model="policy" value="value3" :columns="3" :cascade="true" @onChange="onChange"></picker>
-            </card>
+            <r-card :title="$t('component.basic')">
+                <r-picker  :title="$t('picker.phone')" :options="list1" :model="policy" value="value1" @onChange="onChange"></r-picker>
+            </r-card>
+            <r-card :title="$t('picker.towColumn')">
+                <r-picker  :title="$t('picker.phone')" :options="list2" :model="policy" value="value2"  @onChange="onChange"></r-picker>
+            </r-card>
+            <r-card :title="$t('picker.chainedColumns')">
+                <r-picker  :title="$t('picker.address')" :options="list3" :model="policy" value="value3" :columns="3" :cascade="true" @onChange="onChange"></r-picker>
+            </r-card>
        </r-body>  
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Card, Picker, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/picker';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Picker,
-    RBody
-  },
   data() {
     return {
       list1: [['小米', 'iPhone', '华为', '锤子', '三星', '其他', '不告诉你']],
@@ -105,7 +95,6 @@ export default {
   },
   methods: {
     onChange(val) {
-      console.log(val);
       this.policy.index = val;
     }
   }

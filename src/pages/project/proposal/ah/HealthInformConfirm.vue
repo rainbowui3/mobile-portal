@@ -1,31 +1,22 @@
 <template>
-  <page>
+  <r-page>
     <top :showBack="true" :title="$t('healthInform.title')" />
     <r-body>
-      <card>
+      <r-card>
         <tree-test :dataList="dataList" :disabled="disabled"/>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <r-button type="primary">{{$t('common.confirm')}}</r-button>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RSwitch,
-  RBody,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import TreeTest from '../../components/TreeTest';
 import '../../../../i18n/healthInform';
 export default {
-  components: { Page, Card, TabBar, RSwitch, RBody, Top, RButton, TreeTest },
+  components: { TreeTest },
   data() {
     return {
       disabled: true,

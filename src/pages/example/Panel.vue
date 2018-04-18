@@ -1,43 +1,34 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.panel')" :showBack="true"/>
        <r-body>
-        <card :title="$t('panel.type1')">
-                <panel :data="list" type="1"></panel>
-        </card>
-        <card :title="$t('panel.type2')">
-                <panel :data="list" ></panel>
-        </card>
-        <card :title="$t('panel.type3')">
-                <panel :data="list" type="3"></panel>
-        </card> 
-        <card :title="$t('panel.type4')">
-                <panel :data="list" type="4"></panel>
-        </card> 
-        <card :title="$t('panel.type5')">
-                <panel :data="list" type="5"></panel>
-        </card>  
+        <r-card :title="$t('panel.type1')">
+                <r-panel :data="list" type="1"></r-panel>
+        </r-card>
+        <r-card :title="$t('panel.type2')">
+                <r-panel :data="list" ></r-panel>
+        </r-card>
+        <r-card :title="$t('panel.type3')">
+                <r-panel :data="list" type="3"></r-panel>
+        </r-card> 
+        <r-card :title="$t('panel.type4')">
+                <r-panel :data="list" type="4"></r-panel>
+        </r-card> 
+        <r-card :title="$t('panel.type5')">
+                <r-panel :data="list" type="5"></r-panel>
+        </r-card>  
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Panel, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import '../../i18n/component';
 import '../../i18n/panel';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Panel,
-    RBody
-  },
+
   data () {
     return {
         list: [{

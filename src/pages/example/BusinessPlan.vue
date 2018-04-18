@@ -1,27 +1,18 @@
 <template>
-    <page>
+    <r-page>
         <r-body>
             <top :title="$t('businessPlan.title')" :showBack="true" />
             <plan :items="itemName" :contentItems="contentItems" />
-            </top>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>
-import { Page, Card, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import Plan from '../project/components/plan/Plan';
 import '../../i18n/businessPlan';
 
 export default {
     components: {
-        Bottom,
-        Top,
-        Page,
-        Card,
-        RBody,
         Plan
     },
     data() {

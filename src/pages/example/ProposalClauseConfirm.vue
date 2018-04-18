@@ -1,31 +1,23 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('business.proposalClauseConfirm')" :showBack="true"/>
        <r-body>
-          <card>
+          <r-card>
        <proposal-clause-confirm />
-        </card>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import ProposalClauseConfirm from '../project/components/ProposalClauseConfirm';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    ProposalClauseConfirm,
-    RBody
+    ProposalClauseConfirm
   }
 };
 </script>

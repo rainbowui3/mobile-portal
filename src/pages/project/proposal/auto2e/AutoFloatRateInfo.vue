@@ -1,40 +1,26 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('autoCFeeInfo.cFeeInfo')" :showBack="true" />
         <r-body>
-            <card :title="$t('autoFloatRateInfo.compFloatRate')">
+            <r-card :title="$t('autoFloatRateInfo.compFloatRate')">
                 <r-input :title="$t('autoFloatRateInfo.ncdRatio')" :model="policy" value="compNCDRatio" :readonly="true"></r-input>
                 <r-input :title="$t('autoFloatRateInfo.trafficViolationRatio')" :model="policy" value="compTrafficViolationRatio" :readonly="true"></r-input>
-            </card>
-            <card :title="$t('autoFloatRateInfo.commFloatRate')">
+            </r-card>
+            <r-card :title="$t('autoFloatRateInfo.commFloatRate')">
                 <r-input :title="$t('autoFloatRateInfo.ncdRatio')" :model="policy" value="ncdRatio" :readonly="true"></r-input>
                 <r-input :title="$t('autoFloatRateInfo.trafficViolationRatio')" :model="policy" value="trafficViolationRatio" :readonly="true"></r-input>
                 <r-input :title="$t('autoFloatRateInfo.freeUWRatio')" :model="policy" value="freeUWRatio" :readonly="true"></r-input>
                 <r-input :title="$t('autoFloatRateInfo.freeChannelRatio')" :model="policy" value="freeChannelRatio" :readonly="true"></r-input>
-            </card>
+            </r-card>
         </r-body>
 
-    </page>
+    </r-page>
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoFloatRateInfo';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RInput
-  },
   data() {
     return {
       row: 'row',

@@ -1,38 +1,24 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('autoCFeeInfo.cFeeInfo')" :showBack="true" />
         <r-body>
-            <card>
+            <r-card>
                 <r-input :title="$t('autoCFeeInfo.wholeListCRate')" :model="policy" value="wholeListCRate" :readonly="true"></r-input>
                 <r-input :title="$t('autoCFeeInfo.wholeListCAmount')" :model="policy" value="wholeListCAmount" :readonly="true"></r-input>
                 <r-input :title="$t('autoCFeeInfo.commCRate')" :model="policy" value="commCRate" :readonly="true"></r-input>
                 <r-input :title="$t('autoCFeeInfo.commCAmount')" :model="policy" value="commCAmount" :readonly="true"></r-input>
                 <r-input :title="$t('autoCFeeInfo.CompCRate')" :model="policy" value="CompCRate" :readonly="true"></r-input>
                 <r-input :title="$t('autoCFeeInfo.compCAmount')" :model="policy" value="compCAmount" :readonly="true"></r-input>
-            </card>
+            </r-card>
         </r-body>
 
-    </page>
+    </r-page>
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoCFeeInfo';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RInput
-  },
   data() {
     return {
       row: 'row',

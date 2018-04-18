@@ -1,51 +1,40 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.datetime')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
-                <date-time  :title="$t('datetime.birthday')" :model="policy" value="effortDate" :onChange="onChange"></date-time>
-            </card>
-            <card :title="$t('datetime.format')">
-                <date-time  :title="$t('datetime.format')" :model="policy" value="endDate" :format="format"></date-time>
-                <date-time  :title="$t('datetime.time')" :model="policy" value="hour" :format="timeFormat"></date-time>
-            </card>
-            <card :title="$t('common.custom')">
-                <date-time  :title="$t('datetime.hour')" :model="policy" value="hour" :format="timeFormat" :hour-list="customHour"></date-time>
-                <date-time  :title="$t('datetime.minute')" :model="policy" value="minute"  :format="timeFormat" :minute-list="customMinute"></date-time>
-            </card>
-             <card :title="$t('component.readonly')">
-                <date-time  :title="$t('component.readonly')" :model="policy" value="effortDate" :readonly="true" ></date-time>
-            </card>
-            <card :title="$t('datetime.rangeOfDate')">
-                <date-time  :title="`${$t('datetime.startDate')}~${$t('datetime.endDate')}`" :model="policy" value="effortDate" :startDate="startDate" :endDate="endDate" ></date-time>
-            </card>
-            <card :title="$t('component.pleaseSelect')">
-                <date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate"  :placeholder="$t('component.pleaseSelect')"></date-time>
-            </card>
-            <card :title="$t('component.required')">
-                <date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate" :required="true"></date-time>
-            </card>
+            <r-card :title="$t('component.basic')">
+                <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="effortDate" :onChange="onChange"></r-date-time>
+            </r-card>
+            <r-card :title="$t('datetime.format')">
+                <r-date-time  :title="$t('datetime.format')" :model="policy" value="endDate" :format="format"></r-date-time>
+                <r-date-time  :title="$t('datetime.time')" :model="policy" value="hour" :format="timeFormat"></r-date-time>
+            </r-card>
+            <r-card :title="$t('common.custom')">
+                <r-date-time  :title="$t('datetime.hour')" :model="policy" value="hour" :format="timeFormat" :hour-list="customHour"></r-date-time>
+                <r-date-time  :title="$t('datetime.minute')" :model="policy" value="minute"  :format="timeFormat" :minute-list="customMinute"></r-date-time>
+            </r-card>
+             <r-card :title="$t('component.readonly')">
+                <r-date-time  :title="$t('component.readonly')" :model="policy" value="effortDate" :readonly="true" ></r-date-time>
+            </r-card>
+            <r-card :title="$t('datetime.rangeOfDate')">
+                <r-date-time  :title="`${$t('datetime.startDate')}~${$t('datetime.endDate')}`" :model="policy" value="effortDate" :startDate="startDate" :endDate="endDate" ></r-date-time>
+            </r-card>
+            <r-card :title="$t('component.pleaseSelect')">
+                <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate"  :placeholder="$t('component.pleaseSelect')"></r-date-time>
+            </r-card>
+            <r-card :title="$t('component.required')">
+                <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate" :required="true"></r-date-time>
+            </r-card>
        </r-body>    
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Card, DateTime, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import config from 'config';
 import '../../i18n/component';
 import '../../i18n/datetime';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    DateTime,
-    Card,
-    RBody
-  },
   data() {
     return {
         policy: {

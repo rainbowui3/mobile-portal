@@ -1,31 +1,23 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('business.holderInfo')" :showBack="true"/>
        <r-body>
-        <card>
+        <r-card>
           <holder-info  :model="policy.holderInfo"/>
-       </card>
+       </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
+
 import HolderInfo from '../project/components/HolderInfo';
 import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    HolderInfo,
-    RBody
+    HolderInfo
   },
 
   data() {

@@ -1,47 +1,37 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card :title="$t('insuredInfoEntryShortTerm.holder')">
+      <r-card :title="$t('insuredInfoEntryShortTerm.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo" :required="required"></holder-info>
-      </card>
-      <card :title="$t('insuredInfoEntryShortTerm.insured')">
+      </r-card>
+      <r-card :title="$t('insuredInfoEntryShortTerm.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.insuredInfo" :required="required"></insured-info>
-      </card>
+      </r-card>
 
-      <card :title="$t('insuredInfoEntryShortTerm.subsidiaryInsured')">
+      <r-card :title="$t('insuredInfoEntryShortTerm.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" />
         <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.dubsidiaryInsuranceInfo" :required="required"></subsidiary-insured-info>
-      </card>
-      <card class="addInsuredButton">
+      </r-card>
+      <r-card class="addInsuredButton">
         <r-button type="primary" :onClick="clickHome">{{$t('insuredInfoEntryShortTerm.addMore')}}</r-button>
-      </card>
+      </r-card>
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
 
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
+    </r-tab-bar>
 
-  </page>
+  </r-page>
 
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RButton,
-  TabBar,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import HolderInfo from '../../components/HolderInfo';
 import InsuredInfo from '../../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
@@ -55,20 +45,12 @@ import '../../../../i18n/project';
 
 export default {
   components: {
-    Page,
-    Card,
-    RButton,
-    TabBar,
-    Top,
-    Bottom,
     HolderInfo,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalConfirm,
     ProposalClauseConfirm,
-    RBody,
-    ChooseRelationship,
-    Toast
+    ChooseRelationship
   },
   data() {
     return {

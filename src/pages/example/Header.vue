@@ -1,5 +1,5 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.header')" :showBack="true"/>
        <r-body>
        <div class='header'>
@@ -21,27 +21,16 @@
        </div>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, RHeader, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 import '../../i18n/preview';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RHeader,
-    RBody
-  },
   methods: {
     onClickMore() {
-        console.log(1111);
     }
   }
 };
