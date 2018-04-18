@@ -69,7 +69,9 @@ export default {
   },
   methods: {
       onClick(event) {
+          /* eslint-disable */
           console.log('===', event);
+          /* eslint-disable */
       },
       goto(event) {
           window.location.hash = '/component/example/preview';

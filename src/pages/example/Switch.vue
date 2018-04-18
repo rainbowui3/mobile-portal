@@ -33,7 +33,6 @@ export default {
   },
   methods: {
       onClick(value) {
-          console.log(this.policy.status4);
       }
   }
 };

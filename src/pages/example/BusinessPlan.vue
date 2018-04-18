@@ -12,6 +12,9 @@ import Plan from '../project/components/plan/Plan';
 import '../../i18n/businessPlan';
 
 export default {
+    components: {
+        Plan
+    },
     data() {
         return {
             itemName: [{ text: 'A计划' }, { text: 'B计划' }],

@@ -95,7 +95,6 @@ export default {
   },
   methods: {
     onChange(val) {
-      console.log(val);
       this.policy.index = val;
     }
   }
