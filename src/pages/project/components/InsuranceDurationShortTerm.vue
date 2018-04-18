@@ -46,8 +46,6 @@ export default {
   },
   methods: {
     onChange() {
-      console.log(this.model[this.effectiveDate]);
-      console.log(this.model[this.expireDate]);
     }
   },
   created: function() {

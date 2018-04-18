@@ -11,16 +11,12 @@
 </template>
 
 <script>
-import { Page, RImage, Card, Swiper, RBody } from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
 import Jcx from '../assets/jcx.jpg';
 import Jtgj from '../assets/jtgj.jpg';
 import Ly from '../assets/ly.jpg';
 import '../i18n/home';
 
 export default {
-  components: {Top, Card, Bottom, Page, RImage, Swiper, RBody},
   data() {
     return {
       path: 'http://placeholder.qiniudn.com/640x300',

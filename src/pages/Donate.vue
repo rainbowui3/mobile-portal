@@ -15,21 +15,12 @@
 </template>
 
 <script>
-import {Page, Card, RBody} from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
 import team from '../assets/team.jpg';
 import weixin from '../assets/weixin.png';
 import '../i18n/donate';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RBody
-  },
+
   data() {
       return {
           teamPath: team,

@@ -10,9 +10,6 @@
 </template>
 
 <script>
-import { Page, Tab, RImage, RBody } from 'rainbow-mobile-core';
-import Bottom from '../components/Bottom';
-import Top from '../components/Top';
 import Female from '../assets/female.jpg';
 import Fire from '../assets/fire.png';
 import Jcx from '../assets/jcx.jpg';
@@ -27,14 +24,6 @@ import '../i18n/demo';
 import '../i18n/component';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Tab,
-    RImage,
-    RBody
-  },
   data() {
     return {
       products: [

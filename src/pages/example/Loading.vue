@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+import {LoadingApi} from 'rainbow-mobile-core';
 import dialog from '../../assets/dialog.jpg';
 import '../../i18n/component';
 import '../../i18n/dialog';
@@ -55,7 +55,9 @@ export default {
          this.show1 = false;
     },
     onShow() {
+      /* eslint-disable */
          console.log('show');
+      /* eslint-disable */
     },
     onCancel () {
       this.show2 = false;
