@@ -1,24 +1,24 @@
 <template>
   <r-page>
-       <top :title="$t('businessPage.title')" :showBack="true"/>
-       <r-body>
-        <r-card>
-          <Pay />
-        </r-card>
+    <top :title="$t('businessPage.title')" :showBack="true" />
+    <r-body>
+      <r-card>
+        <Pay />
+      </r-card>
 
-       </r-body>
-       <bottom :index="2"/>
+    </r-body>
+    <bottom :index="2" />
   </r-page>
 </template>
 
 <script>
-import Pay from '../components/pay/Pay';
-import '../../../i18n/businessPage';
+import Pay from "../components/pay/Pay";
+import "../../../i18n/businessPage";
 
 export default {
-  components: {
-    Pay,
-  }
+    components: {
+        Pay
+    }
 };
 </script>
 
