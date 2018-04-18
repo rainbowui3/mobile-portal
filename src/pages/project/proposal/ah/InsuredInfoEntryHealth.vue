@@ -135,7 +135,6 @@ export default {
       }
     },
     clickHome: function() {
-      console.log('lalalalala');
     },
     goto() {
       this.$router.push({

@@ -133,7 +133,6 @@ export default {
     },
     'policy.subsidiaryInfo.relationToHolder': {
       handler: function() {
-        console.log(this.policy.subsidiaryInfo.relationToHolder);
       },
       deep: true
     }
