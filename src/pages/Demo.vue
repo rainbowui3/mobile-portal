@@ -95,7 +95,11 @@ export default {
           class: 'product',
           src: Xpx,
           onClick: this.goto,
-          param: '/project/ly'
+          param: {
+            name: 'BusinessLogin',
+            url: '/project/businessPage/BusinessLogin',
+            flag: '7'
+          }
         },
         {
           class: 'product',

@@ -1,6 +1,6 @@
 <template>
+
   <r-page>
-       <top :title="$t('businessSignIn.SignIn')" :showBack="true"/>
        <r-body>
          <div class="sign">
              <sign-in />
@@ -22,6 +22,6 @@ export default {
 };
 </script>
 
-<style >
+<style scoped="businessLogin">
 
 </style>

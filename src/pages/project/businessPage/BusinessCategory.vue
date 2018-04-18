@@ -6,7 +6,7 @@
                 <r-tab :tabItems="swTabItems" />
                 <r-swiper :model="index" :height="height">
                     <r-swiper-item>
-                        <r-nav-tab :listTab="listTab" :contentItems="contentItems" />
+                        <nav-tab :listTab="listTab" :contentItems="contentItems" />
                     </r-swiper-item>
                     <r-swiper-item>
                         ...
@@ -74,9 +74,9 @@ export default {
     }
 };
 </script>
-
-<style >
-.category > div > .vux-tab-warp {
+ 
+<style scoped="businessCategory">
+/* .category > div > .vux-tab-warp {
     margin: 10px 10px 10px 10px;
     padding-top: 28px;
 }
@@ -108,6 +108,7 @@ export default {
     height: 0 !important;
     background-color: rgb(77, 147, 228);
 }
+ */
 .weui-btn + .weui-btn {
     margin-top: 0px;
 }

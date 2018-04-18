@@ -107,11 +107,11 @@ export default {
 };
 </script>
 
-<style lang="less">
-.weui-icon-circle {
+<style scoped="businessFillIn">
+/* .weui-icon-circle {
     font-size: 18px;
     line-height: 2;
     color: #c9c9c9;
-}
+} */
 </style>
 

@@ -1,8 +1,8 @@
 <template>
     <r-card>
         <div class="plan">
-            <button v-for="(item, index) in items" @click="onItemClick(index)" :key="index" :class="{active: activeIndex == index}">{{item.text}}</button>
-            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)" :key="contentIndex">
+            <button v-for="(item, index) in items" @click="onItemClick(index)" :key="'item'+index" :class="{active: activeIndex == index}">{{item.text}}</button>
+            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)" :key="'content'+contentIndex">
                 <div class="planContent" v-if="itemContent !== null && itemContent !== undefined">
                     <div class="planTitle">
                         <p>{{itemContent.content.title}}</p>

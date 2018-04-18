@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style scoped="businessConfirm">
 .businessPolicy {
     color: rgba(255, 148, 20, 1);
     font-size: 20px;

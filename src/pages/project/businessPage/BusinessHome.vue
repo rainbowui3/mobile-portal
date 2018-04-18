@@ -137,7 +137,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style scoped="businessHome">
 .line {
     margin-top: 10px;
 }

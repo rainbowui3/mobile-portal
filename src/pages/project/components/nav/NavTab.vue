@@ -1,7 +1,7 @@
 <template>
     <div class="navTab">
         <div class="list">
-            <div v-model="index" v-for="(item, index) in listTab" @click="onItemClick(index)" :class="{active: activeIndex == index}">{{item.text}}</div>
+            <div v-model="index" v-for="(item, index) in listTab" @click="onItemClick(index)" :class="{activeTab: activeIndex == index}">{{item.text}}</div>
         </div>
         <div class="listContent">
             <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)">
@@ -72,7 +72,7 @@ export default {
     background-color: #fff;
     min-height: 600px;
 }
-.active {
+.activeTab {
     border-left: 3px solid #ff9414;
     background-color: #fff;
     color: #ff9414;
