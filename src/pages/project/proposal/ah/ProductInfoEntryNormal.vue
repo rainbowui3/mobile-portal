@@ -25,14 +25,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RBody
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
-import Bottom from '../../../../components/Bottom';
 import ProductTop from '../../components/ProductTop';
 import InsuranceDurationCurrency from '../../components/InsuranceDurationCurrency';
 import PlanSelection from '../../components/PlanSelection';
@@ -42,17 +34,11 @@ import Jtgj from '../../../../assets/jtgj.jpg';
 import '../../../../i18n/productInfoEntryNormal';
 export default {
   components: {
-    Page,
-    Card,
-    TabBar,
-    Top,
-    Bottom,
     ProductTop,
     InsuranceDurationCurrency,
     PlanSelection,
     ProposalCopies,
-    ProposalConfirm,
-    RBody
+    ProposalConfirm
   },
   data() {
     return {
