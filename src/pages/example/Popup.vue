@@ -100,10 +100,14 @@ export default {
   },
   methods: {
     onHide() {
+      /* eslint-disable */
       console.log('onHide');
+      /* eslint-disable */
     },
     click() {
+      /* eslint-disable */
       console.log(this.policy);
+      /* eslint-disable */
     },
     click2() {
         setTimeout(() => {

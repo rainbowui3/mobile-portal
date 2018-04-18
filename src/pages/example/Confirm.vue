@@ -34,7 +34,9 @@ export default {
   },
   methods: {
     click() {
+      /* eslint-disable */
        console.log(this.policy);
+       /* eslint-disable */
     },
     clickApi(val) {
       const self = this;
@@ -42,17 +44,25 @@ export default {
         title: this.$t('row.title'),
         content: this.$t('divider.sogo'),
         onShow () {
+          /* eslint-disable */
           console.log('plugin show');
+          /* eslint-disable */
         },
         onHide () {
+          /* eslint-disable */
           console.log('plugin hide');
+          /* eslint-disable */
         },
         onCancel () {
+          /* eslint-disable */
           console.log('plugin cancel');
+          /* eslint-disable */
           self.policy.show5 = false;
         },
         onConfirm () {
+          /* eslint-disable */
           console.log('plugin confirm');
+          /* eslint-disable */
            self.policy.show5 = false;
         }
       });
@@ -61,22 +71,28 @@ export default {
          this.show1 = false;
     },
     onShow() {
+      /* eslint-disable */
          console.log('show');
+         /* eslint-disable */
     },
     onCancel () {
+      /* eslint-disable */
       console.log('on cancel');
+      /* eslint-disable */
     },
     onConfirm (msg) {
+      /* eslint-disable */
       console.log('on confirm', msg);
+      /* eslint-disable */
     },
     onConfirm2 (msg) {
       const self = this;
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         self.policy.show4 = false;
       }, 2000);
     }

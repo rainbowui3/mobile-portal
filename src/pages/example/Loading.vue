@@ -33,12 +33,12 @@ export default {
   },
   methods: {
     clickSwitch1() {
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         this.policy.status1 = false;
       }, 2000);
     },
@@ -70,12 +70,12 @@ export default {
        this.show4 = false;
     },
     onConfirm2 (msg) {
-      LoadingApi.show(this, {
+      RLoadingApi.show(this, {
         transition: '',
         text: this.$t('common.processing')
       });
       setTimeout(() => {
-        LoadingApi.hide(this);
+        RLoadingApi.hide(this);
         this.show4 = false;
       }, 2000);
     }

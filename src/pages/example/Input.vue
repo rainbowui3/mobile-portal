@@ -83,16 +83,24 @@ export default {
       };
     },
     onFocus() {
+        /* eslint-disable */
       console.log('this is onFocus');
+      /* eslint-disable */
     },
     onBlur() {
+        /* eslint-disable */
       console.log('this is onBlur');
+      /* eslint-disable */
     },
     onChange(value) {
+        /* eslint-disable */
       console.log('this is onChange', value);
+      /* eslint-disable */
     },
     onEnter() {
+        /* eslint-disable */
       console.log('this is onEnter');
+      /* eslint-disable */
     },
     _onClick() {
 

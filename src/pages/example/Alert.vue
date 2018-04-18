@@ -29,23 +29,31 @@ export default {
     },
     clickSwitchApi(val) {
       const self = this;
-      AlertApi.show({
+      RAlertApi.show({
         title: this.$t('alert.title'),
         content: this.$t('alert.sogo'),
         onShow() {
+          /* eslint-disable */
           console.log("Module: I'm showing");
+          /* eslint-disable */
         },
         onHide() {
           self.policy.show2 = false;
+          /* eslint-disable */
           console.log("Module: I'm hiding now");
+          /* eslint-disable */
         }
       });
     },
     onHide() {
+      /* eslint-disable */
       console.log('Hide');
+      /* eslint-disable */
     },
     onShow() {
+      /* eslint-disable */
       console.log('show');
+      /* eslint-disable */
     }
   }
 };

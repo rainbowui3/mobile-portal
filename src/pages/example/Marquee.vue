@@ -28,7 +28,9 @@ export default {
   },
   methods: {
       onClick(item) {
+          /* eslint-disable */
           console.log(item);
+          /* eslint-disable */
       }
   }
 };
