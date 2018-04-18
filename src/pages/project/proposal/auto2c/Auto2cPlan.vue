@@ -106,7 +106,6 @@ export default {
       this.index = index;
     },
     gotoCustomPlan: function() {
-        console.log('gotoCustomPlan');
         // Todo:跳转到自定义险种页面
         this.$router.push({
           path: '/project/proposal/auto2C/Auto2cCustomPlan',

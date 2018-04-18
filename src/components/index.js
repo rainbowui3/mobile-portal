@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {Card, XHeader, TabBar, XBody, Actionsheet, Drawer, Loading, Tab, Page, Grid, Scroller, XImage, Divider, DateTime, Selector, Picker, XTable, List, Cell, Box, XButton, SwiperItem, Swiper, XSwitch, XInput, XTextarea, Toast, Panel, Row, Popup, Step, Checker, Spinner, XDialog, Alert, AlertApi, Confirm, LoadingApi, ConfirmApi, Marquee, Badge} from 'rainbow-mobile-core';
+import {Card, XHeader, TabBar, XBody, Actionsheet, Drawer, Loading, Tab, Page, Grid, Scroller, XImage, Divider, DateTime, Selector, Picker, XTable, List, Cell, Box, XButton, SwiperItem, Swiper, XSwitch, XInput, XTextarea, Toast, Panel, Row, Popup, Step, Checker, Spinner, XDialog, Alert, Confirm, Marquee, Badge} from 'rainbow-mobile-core';
 import XBottom from './Bottom';
 import XTop from './Top';
 Vue.component('Top', XTop);
@@ -37,10 +37,7 @@ Vue.component('RChecker', Checker);
 Vue.component('RSpinner', Spinner);
 Vue.component('RDialog', XDialog);
 Vue.component('RAlert', Alert);
-Vue.component('RAlertApi', AlertApi);
 Vue.component('RConfirm', Confirm);
-Vue.component('RLoadingApi', LoadingApi);
-Vue.component('RConfirmApi', ConfirmApi);
 Vue.component('RMarquee', Marquee);
 Vue.component('RBadge', Badge);
 Vue.component('RGrid', Grid);

@@ -76,7 +76,9 @@ export default {
   },
   methods: {
     clickHome(event) {
+      /* eslint-disable */
       console.log(event);
+      /* eslint-disable */
     }
   }
 };

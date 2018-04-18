@@ -31,7 +31,6 @@ import '../../i18n/preview';
 export default {
   methods: {
     onClickMore() {
-        console.log(1111);
     }
   }
 };

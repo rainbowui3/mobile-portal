@@ -67,7 +67,9 @@ export default {
   },
   methods: {
       onChange(value) {
+          /* eslint-disable */
             console.log(value);
+            /* eslint-disable */
       }
   }
 };

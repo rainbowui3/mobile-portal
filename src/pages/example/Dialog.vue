@@ -55,7 +55,9 @@ export default {
   },
   methods: {
     click() {
+      /* eslint-disable */
       console.log(this.policy);
+      /* eslint-disable */
     }
   }
 };
