@@ -459,7 +459,16 @@ const router = new Router({
       path: 'health',
       name: 'AHRouterProductHealth',
       component: ProductInfoEntryHealth
-    }]
+    },
+    {
+      path: 'v2',
+      component: AHRouterProduct,
+      children: [{
+        path: 'normal',
+        component: BusinessLogin
+      }]
+    }
+    ]
   },
   {
     path: '/proposal/ah/AHRouterEntry/:productCode/:agentCode',
