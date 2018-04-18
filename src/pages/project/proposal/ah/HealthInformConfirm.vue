@@ -13,19 +13,10 @@
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  TabBar,
-  RSwitch,
-  RBody,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import TreeTest from '../../components/TreeTest';
 import '../../../../i18n/healthInform';
 export default {
-  components: { Page, Card, TabBar, RSwitch, RBody, Top, RButton, TreeTest },
+  components: { TreeTest },
   data() {
     return {
       disabled: true,

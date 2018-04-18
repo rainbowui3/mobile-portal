@@ -31,20 +31,10 @@
 </template>
 
 <script>
-import {Page, Card, DateTime, RBody} from 'rainbow-mobile-core';
-
 import config from 'config';
 import '../../i18n/component';
 import '../../i18n/datetime';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    DateTime,
-    Card,
-    RBody
-  },
   data() {
     return {
         policy: {

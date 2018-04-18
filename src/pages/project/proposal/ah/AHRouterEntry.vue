@@ -7,9 +7,7 @@
 </template>
 
 <script>
-import { Page, RBody } from 'rainbow-mobile-core';
 export default {
-  components: { Page, RBody },
   data() {
     return {};
   },

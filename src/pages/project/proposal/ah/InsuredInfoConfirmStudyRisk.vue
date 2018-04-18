@@ -36,18 +36,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  TabBar,
-  Card,
-  RInput,
-  RSwitch,
-  Selector,
-  DateTime,
-  Toast
-} from 'rainbow-mobile-core';
-import Top from '@/components/Top';
 import ProposalConfirm from '../../components/ProposalConfirm';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 // import Validate from '../../utils/Valitate';
@@ -57,19 +45,9 @@ import '../../../../i18n/insuredInfoStudyRisk';
 import '../../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
-    Page,
-    Top,
-    RBody,
-    TabBar,
-    Card,
-    RInput,
-    RSwitch,
     ProposalConfirm,
     InsuranceDurationShortTerm,
-    DateTime,
-    Selector,
-    ProposalClauseConfirm,
-    Toast
+    ProposalClauseConfirm
   },
   data() {
     return {

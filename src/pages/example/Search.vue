@@ -9,20 +9,12 @@
 </template>
 
 <script>
-import {Page, Card, RImage, RBody} from 'rainbow-mobile-core';
 
 import timg from '../../assets/timg.jpg';
 import '../../i18n/component';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RImage,
-    RBody
-  },
+
   data() {
       return {
         images: [

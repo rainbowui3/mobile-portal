@@ -18,19 +18,11 @@
 </template>
 
 <script>
-import {Page, Card, RSwitch, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/preview';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    RSwitch,
-    Card,
-    RBody
-  },
+
   data() {
       return {
            policy: {

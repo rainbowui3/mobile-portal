@@ -27,20 +27,10 @@
 </template>
 
 <script>
-import {Page, Card, Checker, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/input';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Checker,
-    RBody
-  },
   data() {
       return {
           policy: {

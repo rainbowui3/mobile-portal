@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody } from 'rainbow-mobile-core';
 
 import ProductTop from '../project/components/ProductTop';
 import Jtgj from '../../assets/jtgj.jpg';
@@ -20,13 +19,7 @@ import '../../i18n/business';
 
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RTable,
-    ProductTop,
-    RBody
+    ProductTop
   },
   data() {
     return {

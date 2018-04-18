@@ -40,21 +40,12 @@
 </template>
 
 <script>
-import {Page, Card, Spinner, Row, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/row';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Spinner,
-    Row,
-    RBody
-  }
+
 };
 </script>
  

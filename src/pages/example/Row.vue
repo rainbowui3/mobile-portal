@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import {Page, Card, Row, RBody} from 'rainbow-mobile-core';
 import {Previewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/component';
@@ -58,13 +57,7 @@ import '../../i18n/row';
 import '../../i18n/card';
 export default {
   components: {
-    Bottom,
-    Top,
-    Page,
-    Row,
-    Card,
-    Previewer,
-    RBody
+    Previewer
   },
   data() {
       return {

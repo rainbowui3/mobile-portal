@@ -40,23 +40,12 @@
 </template>
 
 <script>
-import {Page, Swiper, RButton, Box, Card, SwiperItem, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/swiper';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Swiper,
-    RButton,
-    Box,
-    Card,
-    SwiperItem,
-    RBody
-  },
+
   data() {
       return {
           list: [{

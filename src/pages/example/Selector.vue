@@ -20,19 +20,10 @@
 </template>
 
 <script>
-import {Page, Card, Selector, RBody} from 'rainbow-mobile-core';
 
 import '../../i18n/component';
 import '../../i18n/selector';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    Selector,
-    RBody
-  },
   data() {
     return {
         options: [{'key': '100000', 'value': '10万'}, {'key': '1000000', 'value': '100万'}, {'key': '10000000', 'value': '1000万'}],

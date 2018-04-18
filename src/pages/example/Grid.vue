@@ -17,20 +17,11 @@
 </template>
 
 <script>
-import {Page, Grid, Card, RBody} from 'rainbow-mobile-core';
-
 import '../../i18n/component';
 import '../../i18n/grid';
 
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Grid,
-    Card,
-    RBody
-  },
+
   computed: {
     gridItems() {
       return [

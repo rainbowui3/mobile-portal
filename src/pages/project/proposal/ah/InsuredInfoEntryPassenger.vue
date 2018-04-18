@@ -25,15 +25,6 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput,
-  Selector,
-  TabBar
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
 import HolderInfo from '../../components/HolderInfo';
 import ProposalConfirm from '../../components/ProposalConfirm';
@@ -41,15 +32,8 @@ import '../../../../i18n/insuredInfoEntryPassenger';
 import '../../../../i18n/planSelection';
 export default {
   components: {
-    Page,
     InsuranceDurationShortTerm,
-    RBody,
-    Top,
-    Card,
     HolderInfo,
-    RInput,
-    Selector,
-    TabBar,
     ProposalConfirm
   },
   props: {},
