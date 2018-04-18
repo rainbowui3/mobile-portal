@@ -4,7 +4,7 @@ import router from './router/index';
 import i18n from './i18n/index';
 import './plugin/fastClick';
 import './plugin/confirm';
-
+import './components/index';
 import store from './plugin/loading';
 
 Vue.config.productionTip = false;
