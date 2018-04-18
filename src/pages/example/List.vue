@@ -3,7 +3,7 @@
        <top :title="$t('component.list')" :showBack="true"/>
        <r-body>
           <r-card>
-            <list :title="$t('preview.title')" :value="value" :data="list"/>
+            <r-list :title="$t('preview.title')" :value="value" :data="list"/>
           </r-card>
           <r-card>
             <list :data="list"/>
