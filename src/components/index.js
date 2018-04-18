@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import {Card, XHeader, TabBar, XBody, Actionsheet, Drawer, Loading, Tab, Page, Grid, Scroller, XImage, Divider, DateTime, Selector, Picker, XTable, List, Cell, Box, XButton, SwiperItem, Swiper, XSwitch, XInput, XTextarea, Toast, Panel, Row, Popup, Step, Checker, Spinner, XDialog, Alert, AlertApi, Confirm, LoadingApi, ConfirmApi, Marquee, Badge} from 'rainbow-mobile-core';
+import XBottom from './Bottom';
+import XTop from './Top';
+Vue.component('Top', XTop);
+Vue.component('Bottom', XBottom);
 Vue.component('RCard', Card);
 Vue.component('RHeader', XHeader);
 Vue.component('RTabBar', TabBar);

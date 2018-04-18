@@ -1,57 +1,39 @@
 <template>
-  <page>
-       <top :title="$t('actionSheet.actionsheet')" :showBack="true"/>
+  <r-page>
+       <top :title="$t('r-actionsheet.r-actionsheet')" :showBack="true"/>
         <r-body>
-            <card :title="$t('common.basic')">
+            <r-card :title="$t('common.basic')">
               <r-switch :title="$t('common.basic')" :model="policy" value="show1"  :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.android')" :model="policy" value="show2" :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.showCannel')" :model="policy" value="show3" :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.useArray')" :model="policy" value="show4" :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.clickMask')" :model="policy" value="show5" :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.tips')" :model="policy" value="show6" :onClick="click"></r-switch>
-              <r-switch :title="$t('actionsheet.title')" :model="policy" value="show7" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.android')" :model="policy" value="show2" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.showCannel')" :model="policy" value="show3" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.useArray')" :model="policy" value="show4" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.clickMask')" :model="policy" value="show5" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.tips')" :model="policy" value="show6" :onClick="click"></r-switch>
+              <r-switch :title="$t('r-actionsheet.title')" :model="policy" value="show7" :onClick="click"></r-switch>
 
-            </card>
+            </r-card>
 
-            <actionsheet :model="policy" value="show1" :menuList="menus1" :onClick="click" :onClickMask="click"></actionsheet>
-            <actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></actionsheet>
-            <actionsheet :model="policy" value="show3" :menuList="menus1" :onClick="click" :onClickMask="click" :showCancel="true"></actionsheet>
-            <actionsheet :model="policy" value="show4" :menuArrary="menu5" :onClick="click" :onClickMask="click" :showCancel="true"></actionsheet>
-            <actionsheet :model="policy" value="show5" :menuList="menus1" :onClick="click"  :showCancel="true" 　:isClickMask="false"></actionsheet>
-            <actionsheet :model="policy" value="show6" :menuList="menus1" :onClick="showToast"  :showCancel="true" 　:isClickMask="false"></actionsheet>
-            <actionsheet :model="policy" value="show7" :menuList="menus2" :onClick="click"  :showCancel="true" 　:isClickMask="false" :isHeaderHtml="true">
+            <r-actionsheet :model="policy" value="show1" :menuList="menus1" :onClick="click" :onClickMask="click"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show3" :menuList="menus1" :onClick="click" :onClickMask="click" :showCancel="true"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show4" :menuArrary="menu5" :onClick="click" :onClickMask="click" :showCancel="true"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show5" :menuList="menus1" :onClick="click"  :showCancel="true" 　:isClickMask="false"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show6" :menuList="menus1" :onClick="showToast"  :showCancel="true" 　:isClickMask="false"></r-actionsheet>
+            <r-actionsheet :model="policy" value="show7" :menuList="menus2" :onClick="click"  :showCancel="true" 　:isClickMask="false" :isHeaderHtml="true">
                       <p>{{$t('common.sure')}}?<br/><span style="color:red;font-size:12px;">{{$t('common.delete')}}</span></p>
-            </actionsheet>
+            </r-actionsheet>
             <toast :model="policy" value="show8" :text="toastText"/>
        </r-body>
-       <bottom :index="2"/>
-  </page>
+       <r-bottom :index="2"/>
+  </r-page>
 </template>
 
 <script>
-import {
-  Page,
-  Card,
-  RSwitch,
-  Actionsheet,
-  Toast,
-  LoadingApi,
-  RBody
-} from 'rainbow-mobile-core';
 import Bottom from '../../components/Bottom';
 import Top from '../../components/Top';
-import '../../i18n/actionSheet';
+import '../../i18n/r-actionsheet';
 export default {
-  components: {
-    Bottom,
-    Top,
-    Page,
-    Card,
-    RSwitch,
-    Toast,
-    Actionsheet,
-    RBody
-  },
+  components: {Bottom, Top},
   data() {
     return {
       policy: {
@@ -60,8 +42,8 @@ export default {
       autoClose: false,
       toastText: this.$t('common.success'),
       menus1: {
-        menu1: this.$t('actionsheet.friends'),
-        menu2: this.$t('actionsheet.timeline')
+        menu1: this.$t('r-actionsheet.friends'),
+        menu2: this.$t('r-actionsheet.timeline')
       },
       menus2: {
         menu1: this.$t('common.yes'),
@@ -69,7 +51,7 @@ export default {
       },
       menu5: [
         {
-          label: this.$t('actionsheet.title'),
+          label: this.$t('r-actionsheet.title'),
           type: 'info'
         },
         {
