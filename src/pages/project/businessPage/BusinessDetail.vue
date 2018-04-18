@@ -1,12 +1,12 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('businessDetails.title')" :showBack="true" />
         <r-body>
             <img :src="image">
             <div>
-                <divider>{{$t('businessDetails.details')}}</divider>
+                <r-divider>{{$t('businessDetails.details')}}</r-divider>
             </div>
-            <card>
+            <r-card>
                 <div class="detialsContent">
                     <img :src="iamgeOne" width=100%;>
                     <div class="detialsContentDetials">
@@ -15,30 +15,30 @@
                         <p>特划算：一年保费约等于一碗面...</p>
                     </div>
                 </div>
-            </card>
+            </r-card>
             <div class="datailsLine">
-                <divider>{{$t('businessDetails.plan')}}</divider>
+                <r-divider>{{$t('businessDetails.plan')}}</r-divider>
             </div>
-            <card>
+            <r-card>
                 <plan :items="itemName" :contentItems="contentItems" />
                 <div class="footer">
                     <proposal-clause-confirm :model="pageModel" />
                 </div>
-            </card>
+            </r-card>
             <div class="datailsLine">
-                <divider>{{$t('businessDetails.supplier')}}</divider>
+                <r-divider>{{$t('businessDetails.supplier')}}</r-divider>
             </div>
-            <card>
+            <r-card>
                 <div class="planSupplier">
                     <img :src="supplier">
                 </div>
-            </card>
+            </r-card>
 
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="primary">{{$t('businessDetails.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

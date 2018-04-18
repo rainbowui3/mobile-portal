@@ -1,9 +1,9 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
-            <card>
-                <tab :tabItems="tabItems" class="tab" />
+            <r-card>
+                <r-tab :tabItems="tabItems" class="tab" />
                 <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
                     <div class="planName">
                         {{selectedPlan.name}}
@@ -15,10 +15,10 @@
                         {{selectedPlan.value}}
                     </div>
                 </div>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
-            <card class="bottom">
+        <r-tab-bar>
+            <r-card class="bottom">
                 <hr/>
                 <div class="customPlan">
                     <span v-on:click="gotoCustomPlan">
@@ -26,9 +26,9 @@
                     </span>
                 </div>
                 <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
-            </card>
-        </tab-bar>
-    </page>
+            </r-card>
+        </r-tab-bar>
+    </r-page>
 </template>
 <script>
 import {

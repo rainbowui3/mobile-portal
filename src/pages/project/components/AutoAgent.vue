@@ -1,9 +1,9 @@
 <template>
     <div>
-        <row :title="$t('autoAgent.belongToHandler')" :model="policy" value="" :onClick="goto" :isLink="true"></row>
-        <!--<row :title="$t('autoAgent.agent')" :model="policy" value="" :onClick="goto" :isLink="true"></row>-->
-        <picker :title="$t('autoAgent.agent')" :options="list1" :model="policy" value="value1" :onChange="onChange"></picker>     
-        <picker :title="$t('autoAgent.agreementNo')" :options="list1" :model="policy" value="value1" :onChange="onChange"></picker>
+        <r-row :title="$t('autoAgent.belongToHandler')" :model="policy" value="" :onClick="goto" :isLink="true"></r-row>
+        <!--<r-row :title="$t('autoAgent.agent')" :model="policy" value="" :onClick="goto" :isLink="true"></r-row>-->
+        <r-picker :title="$t('autoAgent.agent')" :options="list1" :model="policy" value="value1" :onChange="onChange"></r-picker>     
+        <r-picker :title="$t('autoAgent.agreementNo')" :options="list1" :model="policy" value="value1" :onChange="onChange"></r-picker>
         
     </div>
 </template>

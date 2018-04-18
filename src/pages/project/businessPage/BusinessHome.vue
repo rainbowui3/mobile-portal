@@ -1,19 +1,19 @@
 <template>
-  <page>
+  <r-page>
     <r-body>
       <top :title="$t('businessHome.home')" :showBack="true" />
-      <tab :tabItems="swTabItems" />
-      <swiper :model="index" :height="height">
-        <swiper-item>
+      <r-tab :tabItems="swTabItems" />
+      <r-swiper :model="index" :height="height">
+        <r-swiper-item>
           <div class="line">
-            <divider>{{$t('businessHome.product')}}</divider>
+            <r-divider>{{$t('businessHome.product')}}</r-divider>
           </div>
           <show-one :show="show" :showOne="showOne" :img="img" />
           <div class="modal">
             <show-one :showOne="showOne" :img="img" />
           </div>
           <div class="line">
-            <divider>{{$t('businessHome.selectProduct')}}</divider>
+            <r-divider>{{$t('businessHome.selectProduct')}}</r-divider>
           </div>
           <div class="modal">
             <show-two :showTwo="showTwo" :picture="picture" />
@@ -25,17 +25,17 @@
             <show-two  :showTwo="showTwo" :picture="picture"/>
           </div>
           <div class="end">没有更多了</div>
-        </swiper-item>
-        <swiper-item>
+        </r-swiper-item>
+        <r-swiper-item>
           ...
-        </swiper-item>
-        <swiper-item>
+        </r-swiper-item>
+        <r-swiper-item>
           ...
-        </swiper-item>
-      </swiper>
+        </r-swiper-item>
+      </r-swiper>
       <bottom :index="1" />
     </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

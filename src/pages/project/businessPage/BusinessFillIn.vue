@@ -1,30 +1,30 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('businessFillIn.title')" :showBack="true" />
         <r-body>
             <div class="datailsLine">
-                <divider>{{$t('businessFillIn.holderInfo')}}</divider>
+                <r-divider>{{$t('businessFillIn.holderInfo')}}</r-divider>
             </div>
-            <card>
+            <r-card>
                 <holder-info :model="holder.holderInfo" />
                  <div class="footer">
                     <proposal-clause-confirm :model="pageModel" />
                 </div>
-            </card>
+            </r-card>
             <div class="datailsLine">
-                <divider>{{$t('businessFillIn.insuredInfo')}}</divider>
+                <r-divider>{{$t('businessFillIn.insuredInfo')}}</r-divider>
             </div>
-            <card>
+            <r-card>
                 <insured-info v-bind:model="insured.insuredInfo" />
                  <div class="footer">
                     <proposal-clause-confirm :model="pageModel" />
                 </div>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="primary">{{$t('businessFillIn.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

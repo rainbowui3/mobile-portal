@@ -1,13 +1,13 @@
 <template>
-    <page>
+    <r-page>
         <r-body>
             <top :title="$t('businessNavTab.title')" :showBack="true" />
-            <nav-tab :listTab="listTab" :contentItems="contentItems">
-            </nav-tab>
+            <r-nav-tab :listTab="listTab" :contentItems="contentItems">
+            </r-nav-tab>
 
             <bottom :index="3" />
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

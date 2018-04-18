@@ -1,16 +1,16 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
-            <card>
-               <checker :max="1" :model="policy" value="value2" :data="options"  type="list"/>  
+            <r-card>
+               <r-checker :max="1" :model="policy" value="value2" :data="options"  type="list"/>  
                 <r-input  :title="$t('autoPlan.floatingRate')"  :model="policy" value="floatingRate" :isNumber="true" :novalidate="false"></r-input>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>         
+        <r-tab-bar>         
             <r-button type="primary" :onClick="confirm">{{$t('common.confirm')}}</r-button>          
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 
 </template>
 <script>

@@ -1,17 +1,17 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.step')" :showBack="true"/>
        <r-body>
-            <card>
-                <step :step='step' :data='list1' />
-            </card>
-           <card>
-                <step :step='step' :data='list1'  :vertical="true" styles='height:250px'/>
-            </card>
+            <r-card>
+                <r-step :step='step' :data='list1' />
+            </r-card>
+           <r-card>
+                <r-step :step='step' :data='list1'  :vertical="true" styles='height:250px'/>
+            </r-card>
 
        </r-body>  
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

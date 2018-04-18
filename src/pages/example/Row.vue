@@ -1,52 +1,52 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.row')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
-                      <row :title="$t('row.account')" :value="$t('row.protected')" :onClick="onClick"></row>
-                      <row :title="$t('row.money')"  :isLoading="!money" :value="money"></row>
-                      <row :title="$t('row.withdraw')"  :onClick="goto" :isLink="true"></row>
-                      <row :title="$t('row.money')"  link='/component/example/preview' ></row>
-                      <row :title="$t('row.withdraw')" :disabled="true" :onClick="goto"  :isLink="true"></row>
-            </card>
-            <card :title="$t('row.title')">
-                      <row  :value="$t('row.protected')" :isLink="true">
+            <r-card :title="$t('component.basic')">
+                      <r-row :title="$t('row.account')" :value="$t('row.protected')" :onClick="onClick"></r-row>
+                      <r-row :title="$t('row.money')"  :isLoading="!money" :value="money"></r-row>
+                      <r-row :title="$t('row.withdraw')"  :onClick="goto" :isLink="true"></r-row>
+                      <r-row :title="$t('row.money')"  link='/component/example/preview' ></r-row>
+                      <r-row :title="$t('row.withdraw')" :disabled="true" :onClick="goto"  :isLink="true"></r-row>
+            </r-card>
+            <r-card :title="$t('row.title')">
+                      <r-row  :value="$t('row.protected')" :isLink="true">
                         <span style="color:#4D93E4;"><span style="vertical-align:middle;">{{ $t('row.withdraw') }}</span></span>
-                      </row>
-                      <row  :value="$t('row.protected')" :isLink="true">
+                      </r-row>
+                      <r-row  :value="$t('row.protected')" :isLink="true">
                          <span class="fa fa-lock fa-2x"></span>
-                      </row>
-            </card>
-             <card :title="$t('row.longValue')">
-                   <row :title="$t('row.account')" primary="content"   value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></row>
-            </card>
-             <card :title="$t('row.collapse')">
-                 <row :title="$t('row.account')" :isLink="true" :arrowFlag="flag" :onClick="open"></row>
+                      </r-row>
+            </r-card>
+             <r-card :title="$t('row.longValue')">
+                   <r-row :title="$t('row.account')" primary="content"   value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></r-row>
+            </r-card>
+             <r-card :title="$t('row.collapse')">
+                 <r-row :title="$t('row.account')" :isLink="true" :arrowFlag="flag" :onClick="open"></r-row>
                  <template v-if="flag">
-                    <card :title="$t('card.example1Title')" :list="cardList"/>
+                    <r-card :title="$t('card.example1Title')" :list="cardList"/>
                 </template>
-                <row :title="$t('row.account')" :isLink="true" :arrowFlag="flag1" :onClick="open1"></row>
+                <r-row :title="$t('row.account')" :isLink="true" :arrowFlag="flag1" :onClick="open1"></r-row>
                 <template v-if="flag1">
-                      <row :title="$t('row.account')" :value="$t('row.protected')" :onClick="onClick"></row>
-                      <row :title="$t('row.money')"  :isLoading="!money" :value="money"></row>
-                      <row :title="$t('row.withdraw')"  :onClick="goto" :isLink="true"></row>
-                      <row :title="$t('row.withdraw')" :disabled="true" :onClick="goto"  :isLink="true"></row>
+                      <r-row :title="$t('row.account')" :value="$t('row.protected')" :onClick="onClick"></r-row>
+                      <r-row :title="$t('row.money')"  :isLoading="!money" :value="money"></r-row>
+                      <r-row :title="$t('row.withdraw')"  :onClick="goto" :isLink="true"></r-row>
+                      <r-row :title="$t('row.withdraw')" :disabled="true" :onClick="goto"  :isLink="true"></r-row>
                 </template>
-                <row :title="$t('row.account')" :isLink="true" :arrowFlag="flag2" :onClick="open2"></row>
+                <r-row :title="$t('row.account')" :isLink="true" :arrowFlag="flag2" :onClick="open2"></r-row>
                  <template v-if="flag2">
                                  <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
                 </template>
-            </card>
-             <card :title="$t('common.custom')">
-                   <row :title="$t('row.account')" >
+            </r-card>
+             <r-card :title="$t('common.custom')">
+                   <r-row :title="$t('row.account')" >
                          <div>
                             <span style="color: red">{{`${this.$t('common.currency')} 1024`}}</span>
                         </div>
-                   </row>
-            </card>
+                   </r-row>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

@@ -1,16 +1,16 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.icon')" :showBack="true"/>
        <r-body>
-        <card>
-                                  <grid  :data="gridItems3"/>
-        </card>
-        <card>
+        <r-card>
+                                  <r-grid  :data="gridItems3"/>
+        </r-card>
+        <r-card>
             <previewer :title="$t('icon.aoshen')" value="479" :data="list" :buttons="buttons2"/>
-        </card>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

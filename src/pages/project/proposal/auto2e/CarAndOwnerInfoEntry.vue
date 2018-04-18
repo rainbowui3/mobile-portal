@@ -1,22 +1,22 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('carAndOwnerInfoEntry.carAndOwnerInfo')" :showBack="true" />
     <r-body>
-      <card :title="$t('carInfo.carInfo')">
+      <r-card :title="$t('carInfo.carInfo')">
         <car-info :model="model" :required="true" :novalidate="false" />
         <r-switch :title="$t('carAndOwnerInfoEntry.isTransferVehicle')" :model="model" value="isTransferVehicle" />
-        <date-time :title="$t('carAndOwnerInfoEntry.vehicleTransferRegDate')" :model="model" value="vehicleTransferRegDate" :required="true" :novalidate="false" />
-      </card>
-      <card :title="$t('carAndOwnerInfoEntry.carOwnerInfo')">
-        <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false" />
+        <r-date-time :title="$t('carAndOwnerInfoEntry.vehicleTransferRegDate')" :model="model" value="vehicleTransferRegDate" :required="true" :novalidate="false" />
+      </r-card>
+      <r-card :title="$t('carAndOwnerInfoEntry.carOwnerInfo')">
+        <r-selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false" />
         <car-owner :model="model" :required="true" :novalidate="false" />
-      </card>
+      </r-card>
       <div class="linka" @click="onMoreInfoClick()">
         <a href="javascript:void(0);">{{$t('carAndOwnerInfoEntry.moreCarInfo')}}</a>
       </div>
       <r-button type="primary" :onClick="nextClick">{{$t('common.next')}}</r-button>
     </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

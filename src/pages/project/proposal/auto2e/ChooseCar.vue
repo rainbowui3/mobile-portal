@@ -1,16 +1,16 @@
 <template>
-  <page>
+  <r-page>
     <top :showBack="true" :title="$t('chooseCar.model')" />
     <r-body>
-      <card>
-        <selector :header="$t('chooseCar.family')" :title="$t('chooseCar.family')" :options="familyNameList" :model="model" value="familyName" />
-        <selector :header="$t('chooseCar.brand')" :title="$t('chooseCar.brand')" :options="brandNameList" :model="model" value="brandName" />
-        <selector :header="$t('chooseCar.engineDesc')" :title="$t('chooseCar.engineDesc')" :options="engineDescList" :model="model" value="engineDesc" />
-        <selector :header="$t('chooseCar.gearboxType')" :title="$t('chooseCar.gearboxType')" :options="gearboxTypeList" :model="model" value="gearboxType" />
-        <checker :max="1" :model="model" value="value6" :data='lists' type="list" />
-      </card>
+      <r-card>
+        <r-selector :header="$t('chooseCar.family')" :title="$t('chooseCar.family')" :options="familyNameList" :model="model" value="familyName" />
+        <r-selector :header="$t('chooseCar.brand')" :title="$t('chooseCar.brand')" :options="brandNameList" :model="model" value="brandName" />
+        <r-selector :header="$t('chooseCar.engineDesc')" :title="$t('chooseCar.engineDesc')" :options="engineDescList" :model="model" value="engineDesc" />
+        <r-selector :header="$t('chooseCar.gearboxType')" :title="$t('chooseCar.gearboxType')" :options="gearboxTypeList" :model="model" value="gearboxType" />
+        <r-checker :max="1" :model="model" value="value6" :data='lists' type="list" />
+      </r-card>
     </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

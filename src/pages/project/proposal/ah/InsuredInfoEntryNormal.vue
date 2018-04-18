@@ -1,33 +1,33 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card :title="$t('planSelection.term')">
+      <r-card :title="$t('planSelection.term')">
         <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-      </card>
-      <card :title="$t('common.holder')">
+      </r-card>
+      <r-card :title="$t('common.holder')">
         <holder-info :model="policy.holderInfo" :required="required"/>
-      </card>
-      <card :title="$t('common.insured')">
+      </r-card>
+      <r-card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
-      </card>
-      <card :title="$t('common.subsidiaryInsured')">
+      </r-card>
+      <r-card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" />
         <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" :model="policy.dubsidiaryInsuranceInfo" :required="required"/>
-      </card>
-      <card class="addInsured">
+      </r-card>
+      <r-card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
-      </card>
+      </r-card>
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>

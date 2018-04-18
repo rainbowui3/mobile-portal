@@ -1,12 +1,12 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('businessSignIn.SignIn')" :showBack="true"/>
        <r-body>
          <div class="sign">
              <sign-in />
          </div>
        </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

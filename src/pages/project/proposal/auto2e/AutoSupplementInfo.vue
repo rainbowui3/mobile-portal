@@ -1,92 +1,92 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('autoSupplementInfo.title')" :showBack="true" />
         <r-body>
             <!-- 投保人信息 -->
-            <card>
-                <cell type="row">
-                    <cell :span="6">
-                        <row :title="$t('common.holderInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
-                    </cell>
-                    <cell>
+            <r-card>
+                <r-cell type="row">
+                    <r-cell :span="6">
+                        <r-row :title="$t('common.holderInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
+                    </r-cell>
+                    <r-cell>
                         <r-switch :title="$t('autoSupplementInfo.sameWithOwner')" :model="pageModel" value="holderIsOwner" />
-                    </cell>
-                </cell>
-                <selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false" />
+                    </r-cell>
+                </r-cell>
+                <r-selector :title="$t('carOwner.customerType')" :options="options_cusType" :model="model" value="customerType" :required="true" :novalidate="false" />
                 <car-owner :model="model" :required="true" :novalidate="false" v-if="pageModel.holderIsOwner == false"/>
-            </card>
+            </r-card>
             <!-- 被保人信息 -->
-            <card>
-                <cell type="row">
-                    <cell :span="6">
-                        <row :title="$t('common.insuredInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
-                    </cell>
-                    <cell>
+            <r-card>
+                <r-cell type="row">
+                    <r-cell :span="6">
+                        <r-row :title="$t('common.insuredInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
+                    </r-cell>
+                    <r-cell>
                         <r-switch :title="$t('autoSupplementInfo.sameWithOwner')" :model="pageModel" value="insuredIsOwner" />
-                    </cell>
-                </cell>
+                    </r-cell>
+                </r-cell>
                 <car-owner :model="model" :required="true" :novalidate="false" v-if="pageModel.insuredIsOwner == false"/>
-            </card>
+            </r-card>
             <!-- 验车信息 -->
-            <card>
-                <row :title="$t('autoSupplementInfo.inspectionInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
-                <selector :title="$t('autoSupplementInfo.inspectionCondition')" :options="inspectionConditionList" :model="model" value="inspectionCondition" />
+            <r-card>
+                <r-row :title="$t('autoSupplementInfo.inspectionInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
+                <r-selector :title="$t('autoSupplementInfo.inspectionCondition')" :options="inspectionConditionList" :model="model" value="inspectionCondition" />
                 <r-input :title="$t('autoSupplementInfo.inspectionChecker')" :model="model" value="inspectionChecker" :placeholder="$t('autoSupplementInfo.inputChecker')" />
-                <date-time :title="$t('autoSupplementInfo.inspectionTime')" :model="model" value="inspectionTime" type="date" />
-                <selector :title="$t('autoSupplementInfo.inspectionResult')" :model="model" value="inspectionResultCode" :options="inspectionResultCodeList" />
-                <selector :title="$t('autoSupplementInfo.vehicleDamageLocation')" :model="model" value="vehicleDamageLocationCode" :options="vehicleDamageLocationCodeList" />
+                <r-date-time :title="$t('autoSupplementInfo.inspectionTime')" :model="model" value="inspectionTime" type="date" />
+                <r-selector :title="$t('autoSupplementInfo.inspectionResult')" :model="model" value="inspectionResultCode" :options="inspectionResultCodeList" />
+                <r-selector :title="$t('autoSupplementInfo.vehicleDamageLocation')" :model="model" value="vehicleDamageLocationCode" :options="vehicleDamageLocationCodeList" />
                 <r-textarea :title="$t('autoSupplementInfo.inspectionDescription')" :model="model" value="inspectionDescription" :max="255" />
-                <cell type="row">
-                    <cell :span="6">
-                        <checker :text="$t('autoSupplementInfo.photoUploadLater')" :model="model" value="isPhotoUploadLater" type="icon" />
-                    </cell>
-                    <cell :span="6">
-                        <selector :title="$t('autoSupplementInfo.photoDelayDate')" :model="model" value="maxPhotoDelayDays" :options="maxPhotoDelayDaysList" />
-                    </cell>
-                </cell>
-                <selector :title="$t('autoSupplementInfo.argueSolutionType')" :model="model" value="argueSolutionType" :options="argueSolutionTypeList" />
-                <selector v-if="model.argueSolutionType && model.argueSolutionType == '1'" :title="$t('autoSupplementInfo.arbitrationCommissionCode')" :model="model" value="arbitrationCommissionCode" :options="arbitrationCommissionCodeList" />
-            </card>
+                <r-cell type="row">
+                    <r-cell :span="6">
+                        <r-checker :text="$t('autoSupplementInfo.photoUploadLater')" :model="model" value="isPhotoUploadLater" type="icon" />
+                    </r-cell>
+                    <r-cell :span="6">
+                        <r-selector :title="$t('autoSupplementInfo.photoDelayDate')" :model="model" value="maxPhotoDelayDays" :options="maxPhotoDelayDaysList" />
+                    </r-cell>
+                </r-cell>
+                <r-selector :title="$t('autoSupplementInfo.argueSolutionType')" :model="model" value="argueSolutionType" :options="argueSolutionTypeList" />
+                <r-selector v-if="model.argueSolutionType && model.argueSolutionType == '1'" :title="$t('autoSupplementInfo.arbitrationCommissionCode')" :model="model" value="arbitrationCommissionCode" :options="arbitrationCommissionCodeList" />
+            </r-card>
             <!-- 特别约定 -->
-            <card>
-                <row :title="$t('autoSupplementInfo.specialAgreement')" :model="pageModel" value="holderInfo" class="cardTitle" />
+            <r-card>
+                <r-row :title="$t('autoSupplementInfo.specialAgreement')" :model="pageModel" value="holderInfo" class="cardTitle" />
                 <div v-for="(item, idx) in specialAgreementList" :key="idx">
-                    <cell type="row">
-                        <cell :span="1">
+                    <r-cell type="row">
+                        <r-cell :span="1">
                             <span @click="modifyAgreement(item)">
-                                <checker type="icon" :model="item" value="selected" />
+                                <r-checker type="icon" :model="item" value="selected" />
                             </span>
-                        </cell>
-                        <cell>
-                            <row :model="item" value="ProductElementCode" />
-                        </cell>
-                    </cell>
-                    <cell>
-                        <row :model="item" value="ProductElementName" :isLink="true" :onClick="onClick.bind(this,item,idx)" />
-                    </cell>
+                        </r-cell>
+                        <r-cell>
+                            <r-row :model="item" value="ProductElementCode" />
+                        </r-cell>
+                    </r-cell>
+                    <r-cell>
+                        <r-row :model="item" value="ProductElementName" :isLink="true" :onClick="onClick.bind(this,item,idx)" />
+                    </r-cell>
                     <r-dialog :model="item" value="show" :disableMask="false">
-                        <row :title="$t('autoSupplementInfo.agreementContent')" :model="pageModel" value="title" />
+                        <r-row :title="$t('autoSupplementInfo.agreementContent')" :model="pageModel" value="title" />
                         <div class="agreementContent">{{item.Content}}</div>
                         <div @click="closeDialog(item, idx)">
                             <span class="vux-close">X</span>
                         </div>
                     </r-dialog>
                 </div>
-            </card>
+            </r-card>
             <!-- 开票信息 -->
-            <card>
-                <row :title="$t('autoSupplementInfo.invoiceInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
-                <selector :title="$t('autoSupplementInfo.copyDataFromType')" :model="model" value="copyDataFromData" :options="copyDataFromTypeList" />
+            <r-card>
+                <r-row :title="$t('autoSupplementInfo.invoiceInfo')" :model="pageModel" value="holderInfo" class="cardTitle" />
+                <r-selector :title="$t('autoSupplementInfo.copyDataFromType')" :model="model" value="copyDataFromData" :options="copyDataFromTypeList" />
                 <r-input :title="$t('autoSupplementInfo.invoiceHead')" :model="model" value="companyName" />
                 <r-switch :title="$t('autoSupplementInfo.needEInovice')" :model="model" value="needEIvoice" />
                 <r-input :title="$t('common.mobile')" :model="model" value="mobile" :placeholder="$t('common.inputMobile')" />
                 <r-input :title="$t('autoSupplement.taxPayerNumber')" :model="model" value="taxPayerNumber" :placeholder="$t('autoSupplement.inputTaxPayerNumber')" />
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="primary" :onClick="goto">{{$t('proposalConfirm.confirmInsure')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

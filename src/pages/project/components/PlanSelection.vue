@@ -2,49 +2,49 @@
 <template>
   <div>
     <div v-if="coverageList.length < 4">
-      <tab :tabItems="tabItems" />
-      <swiper height="600px" :model="index" onChange=this.onIndexChange>
-        <swiper-item v-for="(item,idx) in items" :key="idx">
-          <card :title="$t('planSelection.guaranteeRate')">
+      <r-tab :tabItems="tabItems" />
+      <r-swiper height="600px" :model="index" onChange=this.onIndexChange>
+        <r-swiper-item v-for="(item,idx) in items" :key="idx">
+          <r-card :title="$t('planSelection.guaranteeRate')">
             <r-table :data="item.planData" :class="{table:classStatus}" />
             <div v-for="(coverage, idx) in coverageList" :key="idx">
-              <row :model="coverage" value="coverageAmount" class="fa-edit" :onClick="openCoverageDescription.bind(this, coverage)">
+              <r-row :model="coverage" value="coverageAmount" class="fa-edit" :onClick="openCoverageDescription.bind(this, coverage)">
                 <span class="fa fa-angle-down fa-1x">{{coverage.coverageTitle}}</span>
-              </row>
+              </r-row>
               <template v-if="coverage.showDescription">
                 <div>
                   <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
                 </div>
               </template>
             </div>
-          </card>
-          <card :title="$t('planSelection.notes')">
+          </r-card>
+          <r-card :title="$t('planSelection.notes')">
             <list :data="getListData" />
-          </card>
-        </swiper-item>
-      </swiper>
+          </r-card>
+        </r-swiper-item>
+      </r-swiper>
     </div>
     <div v-else>
-      <card :title="$t('planSelection.guaranteeRate')">
-        <selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue" class="planSelectionSelector"></selector>
+      <r-card :title="$t('planSelection.guaranteeRate')">
+        <r-selector :title="$t('planSelection.plan')" :options="options" :model="selectorModel" value="selectorValue" class="planSelectionSelector"></r-selector>
         <r-table :data="items[0].planData" :class="{table:classStatus}" />
         <div v-for="(coverage, idx) in coverageList" :key="idx">
-          <!-- <row :value="$t('row.protected')" :model="coverage" :isLink="true">
+          <!-- <r-row :value="$t('row.protected')" :model="coverage" :isLink="true">
           <span class="fa fa-lock fa-2x">{{$t('dfdsa')}}</span>
-        </row> -->
-          <row :model="coverage" value="coverageAmount" :onClick="openCoverageDescription.bind(this, coverage)">
+        </r-row> -->
+          <r-row :model="coverage" value="coverageAmount" :onClick="openCoverageDescription.bind(this, coverage)">
             <span class="fa fa-angle-down fa-1x">{{coverage.coverageTitle}}</span>
-          </row>
+          </r-row>
           <template v-if="coverage.showDescription">
             <div>
               <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
             </div>
           </template>
         </div>
-      </card>
-      <card :title="$t('planSelection.notes')">
+      </r-card>
+      <r-card :title="$t('planSelection.notes')">
         <list :data="getListData" />
-      </card>
+      </r-card>
     </div>
   </div>
 </template>

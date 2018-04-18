@@ -1,36 +1,36 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <plan-selection></plan-selection>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <r-input :title="$t('productInfoEntryHealth.poi')" :model="policy" value="poi"  :readonly="true"></r-input>
-        <date-time :title="$t('productInfoEntryHealth.birthday')" :model="policy" value="birthday" :format="timeFormat" :required="true"></date-time>
-        <!--<card>-->
-          <cell :type="row">
-            <cell :span="6">
+        <r-date-time :title="$t('productInfoEntryHealth.birthday')" :model="policy" value="birthday" :format="timeFormat" :required="true"></r-date-time>
+        <!--<r-card>-->
+          <r-cell :type="row">
+            <r-cell :span="6">
               <div class="margin_sex">{{$t('productInfoEntryHealth.sex')}}</div>
-            </cell>
-            <cell class="checker_list_row">
-              <checker :max="1" :model="policy" value="sex" :data='list' :onChange="onChange" type="list" :required="true"/>
-            </cell>
-          </cell>
+            </r-cell>
+            <r-cell class="checker_list_row">
+              <r-checker :max="1" :model="policy" value="sex" :data='list' :onChange="onChange" type="list" :required="true"/>
+            </r-cell>
+          </r-cell>
 
-        <!--</card>-->
+        <!--</r-card>-->
         <r-switch  :title="$t('productInfoEntryHealth.social')"  :model="policy" value="social" :required="true"></r-switch>
         <proposal-copies></proposal-copies>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 
 </template>
 

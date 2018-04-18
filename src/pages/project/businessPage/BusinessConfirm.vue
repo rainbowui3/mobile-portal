@@ -1,20 +1,20 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('businessConfirm.title')" :showBack="true" />
         <r-body>
-            <card>
-                <selector :title="$t('businessConfirm.name')" :options="options" :model="policy" value="index" @onChange="onChange"></selector>
-            </card>
-            <card>
+            <r-card>
+                <r-selector :title="$t('businessConfirm.name')" :options="options" :model="policy" value="index" @onChange="onChange"></r-selector>
+            </r-card>
+            <r-card>
                 <div class="businessPolicy">
                     <span>应付金额 :</span> ¥ 38
                 </div>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="primary">{{$t('businessConfirm.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

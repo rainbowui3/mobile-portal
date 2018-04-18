@@ -1,14 +1,14 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('businessPage.title')" :showBack="true"/>
        <r-body>
-        <card>
+        <r-card>
           <Pay />
-        </card>
+        </r-card>
 
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

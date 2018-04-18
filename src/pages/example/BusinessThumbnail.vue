@@ -1,12 +1,12 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('BusinessThumbnail.home')" :showBack="true"/>
        <r-body>
-         <card>
-         </card>
+         <r-card>
+         </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

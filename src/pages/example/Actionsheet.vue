@@ -22,18 +22,15 @@
             <r-actionsheet :model="policy" value="show7" :menuList="menus2" :onClick="click"  :showCancel="true" 　:isClickMask="false" :isHeaderHtml="true">
                       <p>{{$t('common.sure')}}?<br/><span style="color:red;font-size:12px;">{{$t('common.delete')}}</span></p>
             </r-actionsheet>
-            <toast :model="policy" value="show8" :text="toastText"/>
+            <r-toast :model="policy" value="show8" :text="toastText"/>
        </r-body>
        <r-bottom :index="2"/>
   </r-page>
 </template>
 
 <script>
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/r-actionsheet';
 export default {
-  components: {Bottom, Top},
   data() {
     return {
       policy: {

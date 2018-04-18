@@ -1,27 +1,27 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card :title="$t('planSelection.term')">
+      <r-card :title="$t('planSelection.term')">
         <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-      </card>
-      <card :title="$t('common.holder')">
+      </r-card>
+      <r-card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
-      </card>
-      <card :title="$t('common.insured')">
+      </r-card>
+      <r-card :title="$t('common.insured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true" />
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.insuredInfo"></insured-info>
-      </card>
-      <card :title="$t('common.subsidiaryInsured')">
+      </r-card>
+      <r-card :title="$t('common.subsidiaryInsured')">
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" :readonly="true" />
         <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true" />
         <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>

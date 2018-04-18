@@ -1,13 +1,13 @@
 <template>
-          <page>
+          <r-page>
             <top :title="$t('common.home')" :showBack="false"/>
             <r-body>
-              <swiper :data="list" :auto="true" :showDots="true" height="200px"></swiper>
-              <card :title="$t('common.component')" :list="cardList"/>
+              <r-swiper :data="list" :auto="true" :showDots="true" height="200px"></r-swiper>
+              <r-card :title="$t('common.component')" :list="cardList"/>
             </r-body>
 
             <bottom :index="1"/>
-          </page>
+          </r-page>
 </template>
 
 <script>

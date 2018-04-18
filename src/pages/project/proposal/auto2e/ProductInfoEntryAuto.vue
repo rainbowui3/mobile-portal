@@ -1,27 +1,27 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('project.jtyw')" :showBack="true" />
         <r-body>
-            <card>
+            <r-card>
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
-            </card>
-            <card>
+            </r-card>
+            <r-card>
                 <r-switch :title="$t('productInfoEntryAuto.agentBiz')" :model="policy" value="isAgent" />
                 <auto-agent v-show="policy.isAgent"></auto-agent>
-            </card>
-            <card>
-                <picker :title="$t('productInfoEntryAuto.riskCat')" :model="policy" value="riskCat" :options="riskCatOptions"></picker>
-                <picker :title="$t('productInfoEntryAuto.bizCode')" :model="policy" value="bizCode" :options="bizCodeOptions"></picker>
-                <picker v-if="productCodeData" :title="$t('productInfoEntryAuto.productCode')" :model="policy" value="proCode" :options="proCodeOptions"></picker>
+            </r-card>
+            <r-card>
+                <r-picker :title="$t('productInfoEntryAuto.riskCat')" :model="policy" value="riskCat" :options="riskCatOptions"></r-picker>
+                <r-picker :title="$t('productInfoEntryAuto.bizCode')" :model="policy" value="bizCode" :options="bizCodeOptions"></r-picker>
+                <r-picker v-if="productCodeData" :title="$t('productInfoEntryAuto.productCode')" :model="policy" value="proCode" :options="proCodeOptions"></r-picker>
                 <r-input v-else :title="$t('productInfoEntryAuto.productCode')" :placeholder="$t('productInfoEntryAuto.chooseBizCodeFirst')" :model="policy" value="proCode" :readonly="true"></r-input>
-            </card>
+            </r-card>
 
         </r-body>
-        <tab-bar>         
+        <r-tab-bar>         
             <r-button type="primary" :onClick="nextOnClick">{{$t('common.next')}}</r-button>          
-        </tab-bar>
+        </r-tab-bar>
 
-    </page>
+    </r-page>
 
 </template>
 <script>

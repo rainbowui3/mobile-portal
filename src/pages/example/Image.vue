@@ -1,11 +1,11 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.img')" :showBack="true"/>
        <r-body>
                             <r-image :list="images"/>
        <bottom :index="2"/>
        </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

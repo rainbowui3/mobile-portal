@@ -1,6 +1,6 @@
 <template>  
   <div>
-   <picker  :title="$t('proposalCopies.insuredNum')" :options="options" :model="insurancNum" value="number1"  ></picker> 
+   <r-picker  :title="$t('proposalCopies.insuredNum')" :options="options" :model="insurancNum" value="number1"  ></r-picker> 
   </div>
 </template>
 

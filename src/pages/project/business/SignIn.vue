@@ -23,8 +23,8 @@
                 
 
     <div class="other">
-       <divider>{{$t('businessSignIn.way')}}</divider>
-       <grid :cols="3" :data="gridItems"/>
+       <r-divider>{{$t('businessSignIn.way')}}</r-divider>
+       <r-grid :cols="3" :data="gridItems"/>
     </div>
 
   </div>

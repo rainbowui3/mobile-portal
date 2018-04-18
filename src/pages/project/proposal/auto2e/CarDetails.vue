@@ -1,8 +1,8 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('carDetails.MoreInfo')" :showBack="true" />
         <r-body>
-            <card>
+            <r-card>
                 <!-- 核定载客数 -->
                 <r-input :title="$t('carDetails.approvalSeatNumber')" :model="model" value="approvalSeatNumber" />
                 <!-- 核定载质量 -->
@@ -13,26 +13,26 @@
                 <r-input :title="$t('carDetails.engineDesc')" :model="model" value="engineDesc" />
                 <!-- 功率 -->
                 <r-input :title="$t('carDetails.power')" :model="model" value="power" />
-            </card>
-            <card>
+            </r-card>
+            <r-card>
                 <!-- 车辆使用性质 -->
-                <selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
+                <r-selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
                 <!-- 车辆种类 -->
-                <selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
+                <r-selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
                 <!-- 交管车辆种类 -->
-                <selector :title="$t('carDetails.vehicleKindTCCode')" :model="model" value="vehicleKindTCCode" :options="vehicleKindTCCodeList" />
+                <r-selector :title="$t('carDetails.vehicleKindTCCode')" :model="model" value="vehicleKindTCCode" :options="vehicleKindTCCodeList" />
                 <!-- 号牌种类 -->
-                <selector :title="$t('carDetails.licenseType')" :model="model" value="licenseType" :options="licenseTypeList" />
+                <r-selector :title="$t('carDetails.licenseType')" :model="model" value="licenseType" :options="licenseTypeList" />
                 <!-- 使用年限 -->
                 <r-input :title="$t('carDetails.useSeniority')" :model="model" value="useSeniority" />
                 <!-- 车贷投保多年标志(车贷车标志) -->
                 <r-switch :title="$t('carDetails.isLoanVehicle')" :model="model" value="isLoadVehicle" />
                 <!-- 特殊车投保标志 -->
-                <selector :title="$t('carDetails.specialApplicationCode')" :model="model" value="specialApplicationCode" :options="specialApplicationCodeList" />
+                <r-selector :title="$t('carDetails.specialApplicationCode')" :model="model" value="specialApplicationCode" :options="specialApplicationCodeList" />
                 <r-button type="primary">{{$t('common.confirm')}}</r-button>
-            </card>
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

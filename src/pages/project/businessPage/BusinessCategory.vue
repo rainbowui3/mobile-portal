@@ -1,25 +1,25 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('businessCategory.title')" :showBack="true" />
         <r-body>
             <div class="category">
-                <tab :tabItems="swTabItems" />
-                <swiper :model="index" :height="height">
-                    <swiper-item>
-                        <nav-tab :listTab="listTab" :contentItems="contentItems" />
-                    </swiper-item>
-                    <swiper-item>
+                <r-tab :tabItems="swTabItems" />
+                <r-swiper :model="index" :height="height">
+                    <r-swiper-item>
+                        <r-nav-tab :listTab="listTab" :contentItems="contentItems" />
+                    </r-swiper-item>
+                    <r-swiper-item>
                         ...
-                    </swiper-item>
+                    </r-swiper-item>
 
-                </swiper>
+                </r-swiper>
             </div>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="default">{{$t('businessCategory.concel')}}</r-button>
             <r-button type="primary">{{$t('businessCategory.confirm')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

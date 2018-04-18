@@ -1,19 +1,19 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.previewer')" :showBack="true"/>
        <r-body>
-          <card>
+          <r-card>
             <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
-          </card>
-          <card>
+          </r-card>
+          <r-card>
             <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons1"/>
-          </card>
-          <card>
+          </r-card>
+          <r-card>
             <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons2" :param="param"/>
-          </card>
+          </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

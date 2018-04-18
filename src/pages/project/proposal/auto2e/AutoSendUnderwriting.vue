@@ -1,12 +1,12 @@
 <template>
-    <page>
+    <r-page>
         <top :showBack="true" :title="$t('autoSendUnderwriting.send')" />
         <r-body>
-            <card class="cardCustom">
-                <row class="div" :title="model.content" :model="model" value="value" />
-            </card>
+            <r-card class="cardCustom">
+                <r-row class="div" :title="model.content" :model="model" value="value" />
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

@@ -1,11 +1,11 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.form')" :showBack="true"/>
        <r-body>
        </r-body>
        
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

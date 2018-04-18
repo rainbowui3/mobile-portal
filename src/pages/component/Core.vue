@@ -1,29 +1,17 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('common.component')" :showBack="true"/>
         <r-body>
-            <tab :tabItems="tabItems"/>
-            <grid :data="gridItems"/>
+            <r-tab :tabItems="tabItems"/>
+            <r-grid :data="gridItems"/>
         </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
-import {Page, Grid, Tab, RBody} from 'rainbow-mobile-core';
-import Bottom from '../../components/Bottom';
-import Top from '../../components/Top';
 import '../../i18n/component';
 export default {
-
-  components: {
-    Bottom,
-    Top,
-    Tab,
-    Page,
-    Grid,
-    RBody
-  },
   methods: {
     core() {
       window.location.hash = '/component/core';

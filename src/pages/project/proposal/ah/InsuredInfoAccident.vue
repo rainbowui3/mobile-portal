@@ -1,23 +1,23 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('project.accident')" :showBack="true" />
         <r-body>
-            <card :title="$t('insuredInfoAccident.passengerInfo')">
+            <r-card :title="$t('insuredInfoAccident.passengerInfo')">
                 <holder-info :model="policy.passengerInfo" :required="required"/>
                 <r-input :title="$t('insuredInfoAccident.trainNo')" :model="policy.passengerInfo" value="rainNo" />
                 <r-input :title="$t('insuredInfoAccident.seatNo')" :model="policy.passengerInfo" value="seatNum" />
                 <r-switch :title="$t('insuredInfoAccident.sameWithHolder')" :model="policy.passengerInfo" value="relationToHolder" :onClick="changeRelationToHolder"></r-switch>
-            </card>
-            <card :title="$t('common.holderInfo')">
+            </r-card>
+            <r-card :title="$t('common.holderInfo')">
                 <holder-info :model="policy.holderInfo" :required="required"/>
-            </card>
+            </r-card>
 
         </r-body>
 
-        <tab-bar>
+        <r-tab-bar>
             <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 
 </template>
 

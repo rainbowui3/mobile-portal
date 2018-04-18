@@ -1,15 +1,15 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.dialog')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
+            <r-card :title="$t('component.basic')">
               <r-switch :title="$t('alert.show')" :model="policy" value="show1" :onClick="onClick"></r-switch>
               <r-switch :title="$t('common.api')" :model="policy" value="show2" :onClick="clickSwitchApi"></r-switch>
-              <alert  :model="policy" value="show1" :title="$t('alert.title')" :onHide="onHide" :onShow="onShow" > {{ $t('alert.sogo') }}</alert>
-            </card>
+              <r-alert  :model="policy" value="show1" :title="$t('alert.title')" :onHide="onHide" :onShow="onShow" > {{ $t('alert.sogo') }}</r-alert>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

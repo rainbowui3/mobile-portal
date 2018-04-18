@@ -1,42 +1,42 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.spinner')" :showBack="true"/>
        <r-body>
-        <card>
-            <row :title="$t('row.account')">
-                <spinner type="android"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="ios"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="ios-small" size="30px"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="bubbles"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="circles"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="crescent"/>
-            </row>  
-            <row :title="$t('row.account')">
-                <spinner type="dots"/>
-            </row>  
-            <row :title="$t('row.account')">
-                <spinner type="lines"/>
-            </row>  
-            <row :title="$t('row.account')">
-                <spinner type="ripple"/>
-            </row>
-            <row :title="$t('row.account')">
-                <spinner type="spiral"/>
-            </row>
-        </card>
+        <r-card>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="android"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="ios"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="ios-small" size="30px"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="bubbles"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="circles"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="crescent"/>
+            </r-row>  
+            <r-row :title="$t('row.account')">
+                <r-spinner type="dots"/>
+            </r-row>  
+            <r-row :title="$t('row.account')">
+                <r-spinner type="lines"/>
+            </r-row>  
+            <r-row :title="$t('row.account')">
+                <r-spinner type="ripple"/>
+            </r-row>
+            <r-row :title="$t('row.account')">
+                <r-spinner type="spiral"/>
+            </r-row>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

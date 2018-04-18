@@ -1,12 +1,12 @@
 <template>
-    <page>
+    <r-page>
         <r-body>
             <div class="sign">
                 <Mine />
             </div>
         </r-body>
         <bottom :index="1" />
-    </page>
+    </r-page>
 </template>
 
 <script>

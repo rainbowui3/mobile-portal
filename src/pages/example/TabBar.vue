@@ -1,30 +1,30 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.tabbar')" :showBack="true"/>
         <r-body>
        <div class='footer'>
-         <tab-bar :tabItems="tabItem1" />
+         <r-tab-bar :tabItems="tabItem1" />
        </div>
 
        <div class='footer'>
-         <tab-bar :tabItems="tabItems" type="image"/>
+         <r-tab-bar :tabItems="tabItems" type="image"/>
        </div>
 
        <div class='footer'>
-         <tab-bar :tabItems="tabItem2" type="icon"/>
+         <r-tab-bar :tabItems="tabItem2" type="icon"/>
        </div>
 
-        <tab-bar>
-              <cell type='row' :vertical="true">
-                  <cell>
-                      <box>
+        <r-tab-bar>
+              <r-cell type='row' :vertical="true">
+                  <r-cell>
+                      <r-box>
                           <r-button link='BACK'>{{$t('common.back') }}</r-button>
-                      </box>  
-                  </cell> 
-              </cell>  
-        </tab-bar>
+                      </r-box>  
+                  </r-cell> 
+              </r-cell>  
+        </r-tab-bar>
         </r-body>
-  </page>
+  </r-page>
 </template>
 
 <script>

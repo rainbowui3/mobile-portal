@@ -1,30 +1,30 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
-      <card :title="$t('planSelection.term')">
+      <r-card :title="$t('planSelection.term')">
         <insurance-duration-short-term type="day" :model="policy.policyData" expireDate="expireDate" effectiveDate="effectiveDate" />
-      </card>
-      <card :title="$t('common.holder')">
+      </r-card>
+      <r-card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
-      </card>
-      <card :title="$t('insuredInfoEntryPassenger.carInfo')">
+      </r-card>
+      <r-card :title="$t('insuredInfoEntryPassenger.carInfo')">
         <r-input :title="$t('insuredInfoEntryPassenger.model')" :required="true" :model="policy.carInfo" value="carModel" :onChange="getCarModel" :readonly="readonly" />
         <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :required="true" :model="policy.carInfo" value="licenseNo" :onChangle="getCarModel" :readonly="readonly" />
         <r-input :title="$t('insuredInfoEntryPassenger.engineNo')" :required="true" :model="policy.carInfo" value="engineNo" :onChange="getCarModel" :readonly="readonly" />
         <r-input :title="$t('insuredInfoEntryPassenger.vin')" :required="true" :model="policy.carInfo" value="vin" :onChange="getCarModel" :readonly="readonly" />
         <r-input :title="$t('insuredInfoEntryPassenger.approvalSeatNum')" :required="true" :model="policy.carInfo" value="approvalSeatCount" :onChange="getCarModel" :readonly="readonly" />
         <r-input :title="$t('insuredInfoEntryPassenger.carOwner')" :required="true" :model="policy.carInfo" value="drivingLicenseOwner" :onChange="getCarModel" :readonly="readonly" />
-        <selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :readonly="readonly"></selector>
-      </card>
+        <r-selector :title="$t('insuredInfoEntryPassenger.carUsage')" :options="options" :model="policy.carInfo" value="vehicleUseNatureCode" :onChange="getVehicleUseNatureCode" :readonly="readonly"></r-selector>
+      </r-card>
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
-      <toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
+      <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 </template>
 
 <script>

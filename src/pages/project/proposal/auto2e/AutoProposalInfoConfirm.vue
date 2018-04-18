@@ -1,75 +1,75 @@
 <template>
-    <page>
+    <r-page>
         <top :showBack="true" :title="$t('autoProposalInfoConfirm.title')" />
         <r-body>
-            <card>
-                <row :title="$t('carInfo.carInfo')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'carInfo')">
+            <r-card>
+                <r-row :title="$t('carInfo.carInfo')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'carInfo')">
                     <div>
                         <span class="fa fa-edit fa-1x" />
                     </div>
-                </row>
+                </r-row>
                 <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="model" value="model" :readonly="true" />
                 <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="model" value="vehicleCode" :readonly="true" />
                 <r-input :title="$t('carInfo.engineNo')" :model="model" value="engineNo" :readonly="true" />
                 <r-input :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :readonly="true" />
-            </card>
-            <card>
-                <row :title="$t('autoProposalInfoConfirm.proposalDetail')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'proposaoDetail')">
+            </r-card>
+            <r-card>
+                <r-row :title="$t('autoProposalInfoConfirm.proposalDetail')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'proposaoDetail')">
                     <div>
                         <span class="fa fa-edit fa-1x" />
                     </div>
-                </row>
-                <cell type="row">
-                    <cell :span="7">
+                </r-row>
+                <r-cell type="row">
+                    <r-cell :span="7">
                         <r-input :title="$t('autoProposalInfoConfirm.effectiveDate_comm')" :model="model.policy[0]" value="effectiveDate" :readonly="true" />
-                    </cell>
-                    <cell>
+                    </r-cell>
+                    <r-cell>
                         <r-switch :title="$t('autoProposalInfoConfirm.effectiveImmediately')" :model="model.policy[0]" value="isEffectiveImmediately" :readonly="true" />
-                    </cell>
-                </cell>
+                    </r-cell>
+                </r-cell>
                 <r-input :title="$t('autoProposalInfoConfirm.expireDate_comm')" :model="model.policy[0]" value="expireDate" :readonly="true" />
-                <cell type="row">
-                    <cell :span="7">
+                <r-cell type="row">
+                    <r-cell :span="7">
                         <r-input :title="$t('autoProposalInfoConfirm.effectiveDate_comp')" :model="model.policy[1]" value="effectiveDate" :readonly="true" />
-                    </cell>
-                    <cell>
+                    </r-cell>
+                    <r-cell>
                         <r-switch :title="$t('autoProposalInfoConfirm.effectiveImmediately')" :model="model.policy[1]" value="isEffectiveImmediately" :readonly="true" />
-                    </cell>
-                </cell>
+                    </r-cell>
+                </r-cell>
                 <r-input :title="$t('autoProposalInfoConfirm.expireDate_comp')" :model="model.policy[1]" value="expireDate" :readonly="true" />
-            </card>
-            <card>
+            </r-card>
+            <r-card>
                 <list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
                 <r-input title="交强险" :model="model.policy[1]" value="premium" :readonly="true" />
                 <r-input title="车船税" :model="model.policy[0]" value="vehicleAndVesselTax" :readonly="true" />
                 <r-input title="畅行无忧(A款)" :model="model.policy[0]" value="a" :readonly="true" />
                 <r-input title="保费共计" :model="model" value="sumPremium" :readonly="true" />
-            </card>
-            <card>
-                <row :title="$t('autoProposalInfoConfirm.specialAgreement')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'special')">
+            </r-card>
+            <r-card>
+                <r-row :title="$t('autoProposalInfoConfirm.specialAgreement')" :model="pageModel" class="cardTitle" :onClick="gotoCorrect.bind(this,'special')">
                     <div>
                         <span class="fa fa-edit fa-1x" />
                     </div>
-                </row>
-            </card>
-            <card v-for="(item,idx) in specialAgreementList" :key="idx" @click.native="onDetailClick(item)">
-                <row :title="$t('autoSupplementInfo.specialAgreement')" :model="item" value="ProductElementCode" />
-                <row :title="$t('autoProposalInfoConfirm.specialAgreementName')" :model="item" value="ProductElementName" />
-                <row :title="$t('autoProposalInfoConfirm.usageScope')" :model="item" value="usage" />
+                </r-row>
+            </r-card>
+            <r-card v-for="(item,idx) in specialAgreementList" :key="idx" @click.native="onDetailClick(item)">
+                <r-row :title="$t('autoSupplementInfo.specialAgreement')" :model="item" value="ProductElementCode" />
+                <r-row :title="$t('autoProposalInfoConfirm.specialAgreementName')" :model="item" value="ProductElementName" />
+                <r-row :title="$t('autoProposalInfoConfirm.usageScope')" :model="item" value="usage" />
                 <r-dialog :model="item" value="show" :disableMask="false">
-                    <row :title="$t('autoSupplementInfo.agreementContent')" :model="pageModel" value="title" />
+                    <r-row :title="$t('autoSupplementInfo.agreementContent')" :model="pageModel" value="title" />
                     <div class="agreementContent">{{item.Content}}</div>
                     <div @click="closeDialog(item, idx)">
                         <span class="vux-close">X</span>
                     </div>
                 </r-dialog>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <r-button type="primary" :onClick="goto">{{$t('button.submit')}}</r-button>
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

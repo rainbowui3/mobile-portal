@@ -1,6 +1,6 @@
 <template>  
   <div>
-    <selector  :title="$t('insuranceDurationCurrency.poi')" :options="durationOptions" :model="duration" value="durationId" :onChange="onChange" ></selector>   
+    <r-selector  :title="$t('insuranceDurationCurrency.poi')" :options="durationOptions" :model="duration" value="durationId" :onChange="onChange" ></r-selector>   
   </div>
 </template>
 

@@ -1,16 +1,16 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
-            <card>
+            <r-card>
                 <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
                 <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
-            </card>
+            </r-card>
         </r-body>
-        <tab-bar>         
+        <r-tab-bar>         
             <r-button type="primary" :onClick="confirm">{{$t('common.confirm')}}</r-button>          
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 
 </template>
 <script>

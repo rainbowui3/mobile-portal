@@ -1,10 +1,10 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.scroller')" :showBack="true"/>
        <r-body>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

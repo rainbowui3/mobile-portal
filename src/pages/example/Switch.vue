@@ -1,20 +1,20 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.switch')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
+            <r-card :title="$t('component.basic')">
                 <r-switch  :title="$t('component.required')"  :model="policy" value="status1" ></r-switch>
-            </card>
-            <card :title="$t('common.disable')">
+            </r-card>
+            <r-card :title="$t('common.disable')">
                 <r-switch  :title="$t('component.required')"  :model="policy" value="status2" :disabled="true"></r-switch>
-            </card>
-            <card :title="$t('common.event')">
+            </r-card>
+            <r-card :title="$t('common.event')">
                 <r-switch  :title="$t('preview.click')"  :model="policy" value="status4" :onClick="onClick"></r-switch>
 
-            </card>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

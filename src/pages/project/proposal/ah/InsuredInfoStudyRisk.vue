@@ -1,37 +1,37 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.studyRisk')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <insurance-duration-short-term :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="policy.babyInfo" value="name" :required="true" :novalidate="false" />
-        <selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="policy.babyInfo" value="certificateId" :onChange="onChangeCertiType.bind(this,'baby')" :required="true"></selector>
+        <r-selector :title="$t('insuredInfoStudyRisk.babyCertificateType')" :options="options" :model="policy.babyInfo" value="certificateId" :onChange="onChangeCertiType.bind(this,'baby')" :required="true"></r-selector>
         <r-input v-if="isValidateNumBaby == false" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="policy.babyInfo" value="certificateNum" :validator="validateNumInputBaby" :novalidate="false" :required="true" />
         <r-input v-else-if="isValidateNumBaby == true" :title="$t('insuredInfoStudyRisk.babyCertificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputBabyCertificateNum')" :model="policy.babyInfo" value="certificateNum" :required="true" :novalidate="false" />
-        <date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="policy.babyInfo" value="birthdate" :required="true" :readonly="!isValidateNumBaby"></date-time>
+        <r-date-time :title="$t('insuredInfoStudyRisk.babyBirth')" :model="policy.babyInfo" value="birthdate" :required="true" :readonly="!isValidateNumBaby"></r-date-time>
         <r-input :title="$t('insuredInfoStudyRisk.babySchool')" :placeholder="$t('insuredInfoStudyRisk.inputSchool')" :model="policy.babyInfo" value="school" />
         <r-input :title="$t('insuredInfoStudyRisk.babyClass')" :placeholder="$t('insuredInfoStudyRisk.inputClass')" :model="policy.babyInfo" value="class" />
-        <selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="policy.babyInfo" value="relationToHolder" :required="true"></selector>
+        <r-selector :title="$t('insuredInfoStudyRisk.relationShip')" :options="options1" :model="policy.babyInfo" value="relationToHolder" :required="true"></r-selector>
 
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <r-input :title="$t('insuredInfoStudyRisk.name')" :placeholder="$t('insuredInfoStudyRisk.inputName')" :model="policy.holderInfo" value="name" :required="true" :novalidate="false" />
-        <selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="policy.holderInfo" value="certificateId" :onChange="onChangeCertiType.bind(this, 'parent')" :required="true"></selector>
+        <r-selector :title="$t('insuredInfoStudyRisk.certificateType')" :options="options" :model="policy.holderInfo" value="certificateId" :onChange="onChangeCertiType.bind(this, 'parent')" :required="true"></r-selector>
         <r-input v-if="isValidateNumParent == false" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="policy.holderInfo" value="certificateNum" :validator="validateNumInputParent" :novalidate="false" :required="true" />
         <r-input v-else-if="isValidateNumParent == true" :title="$t('insuredInfoStudyRisk.certificateNum')" :placeholder="$t('insuredInfoStudyRisk.inputCertificateNum')" :model="policy.holderInfo" value="certificateNum" :required="true" :novalidate="false" />
-        <date-time :title="$t('insuredInfoStudyRisk.birth')" :model="policy.holderInfo" value="birthdate" :required="true" :readonly="!isValidateNumParent"></date-time>
+        <r-date-time :title="$t('insuredInfoStudyRisk.birth')" :model="policy.holderInfo" value="birthdate" :required="true" :readonly="!isValidateNumParent"></r-date-time>
         <r-input :title="$t('insuredInfoStudyRisk.phoneNum')" :placeholder="$t('insuredInfoStudyRisk.inputPhoneNum')" :model="policy.holderInfo" value="mobileNum" :isPhone="true" :novalidate="false" :required="true" />
         <r-input :title="$t('insuredInfoStudyRisk.email')" :placeholder="$t('insuredInfoStudyRisk.inputEmail')" :model="policy.holderInfo" value="email" :isEmail="true" :novalidate="false" />
-      </card>
+      </r-card>
 
     </r-body>
 
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 
 </template>
 

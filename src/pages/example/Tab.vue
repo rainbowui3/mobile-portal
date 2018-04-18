@@ -1,19 +1,19 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.tab')" :showBack="true"/>
        <r-body>
-              <tab :tabItems="tabItems"/>
-              <card :title="$t('component.tab')">
-                  <tab :tabItems="swTabItems"/>
-                   <swiper :model="index">
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">谁人没试过犹豫</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">达到理想不太易</h2></div></swiper-item>
-                    <swiper-item ><div class="black"><h2 class="title fadeInUp animated">自信打不死的心态活到老</h2></div></swiper-item>
-                  </swiper>
-              </card>
+              <r-tab :tabItems="tabItems"/>
+              <r-card :title="$t('component.tab')">
+                  <r-tab :tabItems="swTabItems"/>
+                   <r-swiper :model="index">
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">谁人没试过犹豫</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">达到理想不太易</h2></div></r-swiper-item>
+                    <r-swiper-item ><div class="black"><h2 class="title fadeInUp animated">自信打不死的心态活到老</h2></div></r-swiper-item>
+                  </r-swiper>
+              </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

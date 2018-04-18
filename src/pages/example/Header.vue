@@ -1,5 +1,5 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.header')" :showBack="true"/>
        <r-body>
        <div class='header'>
@@ -21,7 +21,7 @@
        </div>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

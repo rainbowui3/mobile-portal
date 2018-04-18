@@ -1,13 +1,12 @@
 <template>
-    <page>
+    <r-page>
         <r-body>
             <top :title="$t('businessHome.home')" :showBack="true" />
             <show-one :show="show" />
             <show-one />
             <show-two />
-            </top>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

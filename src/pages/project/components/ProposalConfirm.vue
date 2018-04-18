@@ -1,12 +1,12 @@
 <template>
-    <cell type="row">
-        <cell>
+    <r-cell type="row">
+        <r-cell>
             <div class="demo">{{`${$t('proposalConfirm.premuim')}: ${$t('proposalConfirm.currency')}`}}{{amount}}</div>
-        </cell>
-        <cell>
+        </r-cell>
+        <r-cell>
             <r-button type="primary" :onClick="_onClick">{{$t(buttonName)}}</r-button>
-        </cell>
-    </cell>
+        </r-cell>
+    </r-cell>
 </template>
 
 <script>

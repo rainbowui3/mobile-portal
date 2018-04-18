@@ -1,13 +1,13 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('business.planSelection')" :showBack="true"/>
        <r-body>
-          <card>
+          <r-card>
        <plan-selection />
-        </card>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

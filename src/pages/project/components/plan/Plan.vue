@@ -1,8 +1,8 @@
 <template>
-    <card>
+    <r-card>
         <div class="plan">
             <button v-for="(item, index) in items" @click="onItemClick(index)" :key="index" :class="{active: activeIndex == index}">{{item.text}}</button>
-            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)">
+            <div v-for="(itemContent, contentIndex) in contentItems" v-if="getShow(contentIndex)" :key="contentIndex">
                 <div class="planContent" v-if="itemContent !== null && itemContent !== undefined">
                     <div class="planTitle">
                         <p>{{itemContent.content.title}}</p>
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-    </card>
+    </r-card>
 </template>
 
 <script>

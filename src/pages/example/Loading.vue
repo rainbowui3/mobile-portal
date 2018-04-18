@@ -1,13 +1,13 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.loading')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
+            <r-card :title="$t('component.basic')">
               <r-switch :title="$t('dialog.show')" :model="policy" value="status1" :onClick="clickSwitch1"></r-switch>
-            </card>
+            </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

@@ -1,26 +1,26 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
-      <card>
+      <r-card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
-      </card>
-      <card>
-        <checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
+      </r-card>
+      <r-card>
+        <r-checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
         <insurance-duration-shortTerm type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="policy.policyData.isEffectiveImmediately"></insurance-duration-shortTerm>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <plan-selection></plan-selection>
-      </card>
-      <card>
+      </r-card>
+      <r-card>
         <proposal-copies></proposal-copies>
-      </card>
+      </r-card>
     </r-body>
-    <tab-bar>
+    <r-tab-bar>
       <proposal-confirm :buttonName="buttonName" :amount="amount" :onClick="onClick"></proposal-confirm>
-    </tab-bar>
-  </page>
+    </r-tab-bar>
+  </r-page>
 
 </template>
 

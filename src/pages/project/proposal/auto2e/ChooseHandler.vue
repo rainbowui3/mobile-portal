@@ -1,23 +1,23 @@
 <template>
-   <page>
+   <r-page>
        <top  :title="$t('chooseHandler.belongAgent')" :showBack="true"/>
        <r-body>
-           <card :title="$t('chooseHandler.usualBelongAgent')">     
-               <checker  :max="1" :model="policy" value="value4" :data='commonlyList'  type="list"/>
-            </card> 
-           <card :title="$t('chooseHandler.otherBelongAgent')">     
-               <checker  :max="1" :model="policy" value="value4" :data='otherList'  type="list"/>
-            </card>
+           <r-card :title="$t('chooseHandler.usualBelongAgent')">     
+               <r-checker  :max="1" :model="policy" value="value4" :data='commonlyList'  type="list"/>
+            </r-card> 
+           <r-card :title="$t('chooseHandler.otherBelongAgent')">     
+               <r-checker  :max="1" :model="policy" value="value4" :data='otherList'  type="list"/>
+            </r-card>
 
        </r-body>
-       <tab-bar>
-           <cell type="row" >
-               <cell><r-button type="primary" class="button-background">{{$t('common.cancel')}}</r-button></cell>
-                <cell><r-button type="primary" >{{$t('common.confirm')}}</r-button></cell>
-           </cell> 
-       </tab-bar>
+       <r-tab-bar>
+           <r-cell type="row" >
+               <r-cell><r-button type="primary" class="button-background">{{$t('common.cancel')}}</r-button></r-cell>
+                <r-cell><r-button type="primary" >{{$t('common.confirm')}}</r-button></r-cell>
+           </r-cell> 
+       </r-tab-bar>
 
-   </page>
+   </r-page>
   
 </template>
 <script>

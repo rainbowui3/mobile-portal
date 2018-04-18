@@ -1,12 +1,12 @@
 <template>
-  <page>
+  <r-page>
     <top :title="$t('demo.example')" :showBack="true" />
     <r-body>
-      <tab :tabItems="tabItems" />
+      <r-tab :tabItems="tabItems" />
       <r-image :list="products" />
     </r-body>
     <bottom :index="3" />
-  </page>
+  </r-page>
 </template>
 
 <script>

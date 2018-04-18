@@ -1,14 +1,14 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.divider')" :showBack="true"/>
        <r-body>
-            <card>
-                <divider>{{$t('divider.sogo')}}</divider>
-            </card>
-                <divider>{{$t('divider.sogo')}}</divider>
+            <r-card>
+                <r-divider>{{$t('divider.sogo')}}</r-divider>
+            </r-card>
+                <r-divider>{{$t('divider.sogo')}}</r-divider>
        </r-body> 
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

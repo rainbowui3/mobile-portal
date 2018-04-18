@@ -1,32 +1,32 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('common.pay')" :showBack="true" />
         <r-body>
-            <card>
+            <r-card>
                 <div class="border">
-                    <cell>
+                    <r-cell>
                         <div class="title">{{$t('autoPay.proposalNum')}}{{model.proposalNum}}{{$t('autoPay.content')}}</div>
-                    </cell>
-                    <cell type="row">
-                        <cell :span="6">
+                    </r-cell>
+                    <r-cell type="row">
+                        <r-cell :span="6">
                             <div>{{$t('autoPay.payNum')}}{{model.payNum}}</div>
-                        </cell>
-                        <cell>
+                        </r-cell>
+                        <r-cell>
                             <div>{{$t('autoPay.verificationCode')}}{{model.verificationCode}}</div>
-                        </cell>
-                    </cell>
+                        </r-cell>
+                    </r-cell>
                     <div class="image">
                         <r-image :list="model.images" />
                     </div>
                     <div class="button">
-                        <cell>
+                        <r-cell>
                             <r-button :mini="true" type="primary">{{$t('autoPay.otherPay')}}</r-button>
-                        </cell>
+                        </r-cell>
                     </div>
                 </div>
-            </card>
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

@@ -1,16 +1,16 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.list')" :showBack="true"/>
        <r-body>
-          <card>
+          <r-card>
             <list :title="$t('preview.title')" :value="value" :data="list"/>
-          </card>
-          <card>
+          </r-card>
+          <r-card>
             <list :data="list"/>
-          </card>
+          </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

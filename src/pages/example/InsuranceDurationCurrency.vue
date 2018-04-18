@@ -1,17 +1,17 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('business.insuranceDurationCurrency')" :showBack="true"/>
        <r-body>
-          <card>
+          <r-card>
        <insurance-duration-currency  />
-        </card>
+        </r-card>
 
-        <card>
+        <r-card>
         <insurance-duration-short-term  :model="policy" :value="jsonParamIDS"/>
-        </card>
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

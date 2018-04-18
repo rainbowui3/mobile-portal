@@ -1,18 +1,18 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.marquee')" :showBack="true"/>
        <r-body>
-        <card :title="$t('component.basic')">
-                    <marquee :data="list"/>
-        </card>
-        <card :title="$t('component.row')">
-                   <row :title="$t('row.title')">
-                        <marquee :data="list"/>
-                   </row>    
-        </card>
+        <r-card :title="$t('component.basic')">
+                    <r-marquee :data="list"/>
+        </r-card>
+        <r-card :title="$t('component.row')">
+                   <r-row :title="$t('row.title')">
+                        <r-marquee :data="list"/>
+                   </r-row>    
+        </r-card>
        </r-body>
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>

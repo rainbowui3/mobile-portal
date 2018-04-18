@@ -1,22 +1,22 @@
 <template>
   <div>
-    <cell type="row">
-      <cell :span="6">
+    <r-cell type="row">
+      <r-cell :span="6">
         <r-input :title="$t('carInfo.licenseNo')" :model="model" value="licenseNo" :placeholder="$t('carInfo.inputLicense')" :required="required" :novalidate="novalidate" />
-      </cell>
-      <cell :span="6">
+      </r-cell>
+      <r-cell :span="6">
         <r-switch :title="$t('carInfo.noLicense')" :model="model" value="noLicense" />
-      </cell>
-    </cell>
+      </r-cell>
+    </r-cell>
     <r-input :title="$t('carInfo.vin')" :model="model" value="vin" :placeholder="$t('carInfo.inputVin')" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('carInfo.engineNo')" :model="model" value="engineNo" :placeholder="$t('carInfo.inputEngineNo')" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('carInfo.model')" :model="model" value="model" :placeholder="$t('carInfo.inputModel')" :right="true" :required="required" :novalidate="novalidate">
       <span class="fa fa-search" @click="onClick" />
     </r-input>
-    <date-time :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :required="required" :novalidate="novalidate" />
+    <r-date-time :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('carInfo.newVehiclePurchasePrice')" :model="model" value="newVehiclePurchasePrice" :placeholder="$t('carInfo.inputPrice')" :required="required" :novalidate="novalidate" />
     <r-input :title="$t('carInfo.realValue')" :model="model" value="realValue" :placeholder="$t('carInfo.inputRealValue')" :required="required" :novalidate="novalidate" />
-    <toast :model="pageModel" value="toast" :text="$t('carInfo.toast')" :time='1000' type="warn"/>
+    <r-toast :model="pageModel" value="toast" :text="$t('carInfo.toast')" :time='1000' type="warn"/>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-    <page>
+    <r-page>
         <top :showBack="true" :title="$t('carDetailsOneWay.CarDetails')"/>
         <r-body>
-            <card>
+            <r-card>
                 <!-- 核定载客数 -->
                 <r-input :title="$t('carDetails.approvalSeatNumber')" :model="model" value="approvalSeatNumber" />
                 <!-- 核定载质量 -->
@@ -14,19 +14,19 @@
                 <!-- 功率 -->
                 <r-input :title="$t('carDetails.power')" :model="model" value="power" />
                 <!-- 车辆使用性质 -->
-                <selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
+                <r-selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
                 <!-- 车辆种类 -->
-                <selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
+                <r-selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
                 <!-- 交管车辆种类 -->
-                <selector :title="$t('carDetails.vehicleKindTCCode')" :model="model" value="vehicleKindTCCode" :options="vehicleKindTCCodeList" />
+                <r-selector :title="$t('carDetails.vehicleKindTCCode')" :model="model" value="vehicleKindTCCode" :options="vehicleKindTCCodeList" />
                 <!-- 使用年限 -->
                 <r-input :title="$t('carDetails.useSeniority')" :model="model" value="useSeniority" />
                 <!-- 特殊车投保标志 -->
-                <selector :title="$t('carDetails.specialApplicationCode')" :model="model" value="specialApplicationCode" :options="specialApplicationCodeList" />
+                <r-selector :title="$t('carDetails.specialApplicationCode')" :model="model" value="specialApplicationCode" :options="specialApplicationCodeList" />
                 <r-button type="primary">{{$t('common.confirm')}}</r-button>
-            </card>
+            </r-card>
         </r-body>
-    </page>
+    </r-page>
 </template>
 
 <script>

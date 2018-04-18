@@ -1,33 +1,33 @@
 <template>
-    <page>
+    <r-page>
         <top :title="$t('insuredInfoEntryHealthSub.title')" :showBack="true" />
         <r-body>
             <!-- 保险期限选择 -->
-            <card>
+            <r-card>
                 <insurance-duration-short-term type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
-            </card>
+            </r-card>
             <!-- 投保人信息 -->
-            <card :title="$t('common.holderInfo')">
+            <r-card :title="$t('common.holderInfo')">
                 <holder-info :model="policy.holderInfo" :readonly="true" />
-            </card>
+            </r-card>
             <!-- 被保人信息 -->
-            <card :title="$t('common.insuredInfo')">
+            <r-card :title="$t('common.insuredInfo')">
                 <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" :readonly="true" />
                 <insured-info v-if="policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :readonly="true" />
-                <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
-            </card>
+                <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+            </r-card>
             <!-- 附属被保险人信息 -->
-            <card :title="$t('common.subsidiaryInsuredInfo')">
+            <r-card :title="$t('common.subsidiaryInsuredInfo')">
                 <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" :readonly="true" />
                 <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" :readonly="true" />
                 <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1'" :model="policy.subsidiaryInfo" :readonly="true" />
-                <row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
-            </card>
+                <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+            </r-card>
         </r-body>
-        <tab-bar>
+        <r-tab-bar>
             <proposal-confirm amount="50" :buttonName="'proposalConfirm.submitPay'" :onClick="goto" />
-        </tab-bar>
-    </page>
+        </r-tab-bar>
+    </r-page>
 </template>
 
 <script>

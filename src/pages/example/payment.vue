@@ -1,13 +1,13 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('pay.payment')" :showBack="true"/>
        <r-body>
-           <card>
+           <r-card>
                <Pay />
-           </card>
+           </r-card>
        </r-body>  
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 <script>
 import { Page, Card, RBody } from 'rainbow-mobile-core';

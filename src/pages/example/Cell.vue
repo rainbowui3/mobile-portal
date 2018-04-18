@@ -1,76 +1,76 @@
 <template>
-  <page>
+  <r-page>
        <top :title="$t('component.cell')" :showBack="true"/>
        <r-body>
-            <card :title="$t('component.basic')">
-                    <cell :type="row">
-                        <cell><div class="flex-demo">1</div></cell>
-                        <cell><div class="flex-demo">2</div></cell>
-                    </cell>
+            <r-card :title="$t('component.basic')">
+                    <r-cell :type="row">
+                        <r-cell><div class="flex-demo">1</div></r-cell>
+                        <r-cell><div class="flex-demo">2</div></r-cell>
+                    </r-cell>
                     <br/>
-                    <cell :type="row">
-                        <cell><div class="flex-demo">1</div></cell>
-                        <cell><div class="flex-demo">2</div></cell>
-                        <cell><div class="flex-demo">3</div></cell>
-                    </cell>
+                    <r-cell :type="row">
+                        <r-cell><div class="flex-demo">1</div></r-cell>
+                        <r-cell><div class="flex-demo">2</div></r-cell>
+                        <r-cell><div class="flex-demo">3</div></r-cell>
+                    </r-cell>
                     <br/>
-                    <cell :type="row">
-                        <cell><div class="flex-demo">1</div></cell>
-                        <cell><div class="flex-demo">2</div></cell>
-                        <cell><div class="flex-demo">3</div></cell>
-                        <cell><div class="flex-demo">4</div></cell>
-                    </cell>
-            </card>
-            <card :title="$t('cell.padding')">
-                    <cell :type="row">
-                        <cell :padding="padding"><div class="flex-demo">1</div></cell>
-                        <cell :padding="padding"><div class="flex-demo">2</div></cell>
-                    </cell>
+                    <r-cell :type="row">
+                        <r-cell><div class="flex-demo">1</div></r-cell>
+                        <r-cell><div class="flex-demo">2</div></r-cell>
+                        <r-cell><div class="flex-demo">3</div></r-cell>
+                        <r-cell><div class="flex-demo">4</div></r-cell>
+                    </r-cell>
+            </r-card>
+            <r-card :title="$t('cell.padding')">
+                    <r-cell :type="row">
+                        <r-cell :padding="padding"><div class="flex-demo">1</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo">2</div></r-cell>
+                    </r-cell>
                     <br/>
-                    <cell :type="row">
-                        <cell :padding="padding"><div class="flex-demo">1</div></cell>
-                        <cell :padding="padding"><div class="flex-demo">2</div></cell>
-                        <cell :padding="padding"><div class="flex-demo">3</div></cell>
-                    </cell>
+                    <r-cell :type="row">
+                        <r-cell :padding="padding"><div class="flex-demo">1</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo">2</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo">3</div></r-cell>
+                    </r-cell>
                     <br/>
-                    <cell :type="row">
-                        <cell :padding="padding"><div class="flex-demo" >1</div></cell>
-                        <cell :padding="padding"><div class="flex-demo" >2</div></cell>
-                        <cell :padding="padding"><div class="flex-demo" >3</div></cell>
-                        <cell :padding="padding"><div class="flex-demo" >4</div></cell>
-                    </cell>
-            </card>
+                    <r-cell :type="row">
+                        <r-cell :padding="padding"><div class="flex-demo" >1</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo" >2</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo" >3</div></r-cell>
+                        <r-cell :padding="padding"><div class="flex-demo" >4</div></r-cell>
+                    </r-cell>
+            </r-card>
 
-            <card :title="$t('cell.vertical')" >
-                    <cell :type="row" :vertical="true">
-                        <cell :top='top2'><div class="flex-demo">1</div></cell>
-                        <cell :top='top2'><div class="flex-demo">2</div></cell>
-                    </cell>
-            </card>
+            <r-card :title="$t('cell.vertical')" >
+                    <r-cell :type="row" :vertical="true">
+                        <r-cell :top='top2'><div class="flex-demo">1</div></r-cell>
+                        <r-cell :top='top2'><div class="flex-demo">2</div></r-cell>
+                    </r-cell>
+            </r-card>
 
-            <card :title="`${$t('cell.vertical')}${$t('cell.padding')}`" >
-                    <cell :type="row" :vertical="true">
-                        <cell :top='top'><div class="flex-demo">1</div></cell>
-                        <cell :top='top'><div class="flex-demo">2</div></cell>
-                    </cell>
-            </card>
+            <r-card :title="`${$t('cell.vertical')}${$t('cell.padding')}`" >
+                    <r-cell :type="row" :vertical="true">
+                        <r-cell :top='top'><div class="flex-demo">1</div></r-cell>
+                        <r-cell :top='top'><div class="flex-demo">2</div></r-cell>
+                    </r-cell>
+            </r-card>
 
-             <card :title="$t('cell.cell')" >
-                    <cell :type="row">
-                        <cell :span="4"><div class="flex-demo">1/3</div></cell>
-                        <cell ><div class="flex-demo">2/3</div></cell>
-                    </cell>
+             <r-card :title="$t('cell.cell')" >
+                    <r-cell :type="row">
+                        <r-cell :span="4"><div class="flex-demo">1/3</div></r-cell>
+                        <r-cell ><div class="flex-demo">2/3</div></r-cell>
+                    </r-cell>
                      <br/>
-                     <cell :type="row">
-                        <cell :span="6"><div class="flex-demo">6/12</div></cell>
-                        <cell :span="2"><div class="flex-demo">2/12</div></cell>
-                        <cell ><div class="flex-demo">rest</div></cell>
-                    </cell>
-            </card>
+                     <r-cell :type="row">
+                        <r-cell :span="6"><div class="flex-demo">6/12</div></r-cell>
+                        <r-cell :span="2"><div class="flex-demo">2/12</div></r-cell>
+                        <r-cell ><div class="flex-demo">rest</div></r-cell>
+                    </r-cell>
+            </r-card>
 
        </r-body>   
        <bottom :index="2"/>
-  </page>
+  </r-page>
 </template>
 
 <script>
