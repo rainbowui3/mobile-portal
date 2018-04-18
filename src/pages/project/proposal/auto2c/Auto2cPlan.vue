@@ -103,7 +103,6 @@ export default {
   },
   methods: {
     goto: function(index) {
-      console.log(index);
       this.index = index;
     },
     gotoCustomPlan: function() {

@@ -90,7 +90,6 @@ export default {
   },
   methods: {
     onClick: function() {
-      debugger;
       sessionStorage.setItem('policy', JSON.stringify(this.policy));
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/ah/InsuredInfoConfirmStudyRisk");

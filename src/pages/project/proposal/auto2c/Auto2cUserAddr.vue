@@ -25,7 +25,6 @@ export default {
   methods: {
       gotoChooseArea: function() {
         // Todo:跳转到选择地区页面
-        console.log('gotoChooseArea');
       }
   }
 };

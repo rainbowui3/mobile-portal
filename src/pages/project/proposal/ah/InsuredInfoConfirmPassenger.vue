@@ -77,7 +77,6 @@ export default {
         sessionStorage.removeItem('policy');
         let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         if (route && route.route4 && route.route4 != '') {
-          debugger;
           this.$router.push({
             path:
               '/proposal/ah/AHRouterPay/' +
