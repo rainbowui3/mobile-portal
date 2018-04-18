@@ -13,19 +13,12 @@
 </template>
 
 <script>
-import { Page, Card, Popup, RBody } from 'rainbow-mobile-core';
 import { Previewer } from 'rainbow-mobile-previewer';
-import Top from '@/components/Top';
 import '../../../i18n/payStatus';
 import '../../../i18n/project';
 export default {
   components: {
-    Page,
-    Card,
-    Top,
-    Previewer,
-    Popup,
-    RBody
+    Previewer
   },
   data() {
     return {
