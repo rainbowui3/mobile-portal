@@ -31,10 +31,6 @@ export default {
         return {
             options: [
                 { key: '100000', value: '' },
-<<<<<<< HEAD
-=======
-
->>>>>>> b37759fee07b5cec2a57c5b8469f7bbdcc384b4d
                 { key: '1000000', value: '100万' },
                 { key: '10000000', value: '1000万' }
             ],
