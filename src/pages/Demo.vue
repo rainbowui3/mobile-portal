@@ -55,8 +55,7 @@ export default {
           src: Female,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryNormal',
-            url: '/project/proposal/ah/productInfoEntryNormal',
+            url: '/proposal/LoadingPage/3/1',
             flag: '3'
           }
 
@@ -67,8 +66,7 @@ export default {
           src: Fire,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryNormal',
-            url: '/project/proposal/ah/productInfoEntryNormal',
+            url: '/proposal/LoadingPage/4/1',
             flag: '4'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -78,8 +76,7 @@ export default {
           src: Jtgj,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryShortTerm',
-            url: '/project/proposal/ah/productInfoEntryShortTerm',
+            url: '/proposal/LoadingPage/5/1',
             flag: '5'
           }
           // param: "/project/proposal/ah/InsuredInfoAccident"
