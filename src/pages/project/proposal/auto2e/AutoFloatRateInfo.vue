@@ -18,23 +18,9 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoFloatRateInfo';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RInput
-  },
   data() {
     return {
       row: 'row',

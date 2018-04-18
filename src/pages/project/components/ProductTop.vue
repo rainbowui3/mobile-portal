@@ -10,11 +10,7 @@
 </template>
 
 <script>
-import {Card} from 'rainbow-mobile-core';
 export default {
-  components: {
-    Card
-  },
   props: {
     productImgSrc: String,
     productDes: String

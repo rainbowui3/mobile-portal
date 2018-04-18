@@ -26,36 +26,10 @@
 </template>
 
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  TabBar,
-  RButton,
-  RInput,
-  Row,
-  Cell,
-  DateTime,
-  Selector
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/auto2cDrivingLicenseInfo';
 import '../../../../i18n/carInfo';
 import '../../../../i18n/autoProposalInfoConfirm';
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    TabBar,
-    RButton,
-    RInput,
-    Row,
-    Cell,
-    Top,
-    DateTime,
-    Selector
-  },
   data() {
     return {
       pageModel: {},

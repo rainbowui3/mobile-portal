@@ -21,22 +21,9 @@
   
 </template>
 <script>
-import {Page, RBody, Card, Cell, Checker, TabBar, RButton} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/chooseHandler';
 
 export default {
-    components: {
-        Page,
-        RBody,
-        Card,
-        Top,
-        Cell,
-        Checker,
-        TabBar,
-        RButton
-
-    },
     data() {
         return {
           row: 'row',

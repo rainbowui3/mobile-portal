@@ -29,18 +29,6 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RInput,
-  TabBar,
-  RButton,
-  Row,
-  Cell,
-  Checker
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import Jtgj from '../../../../assets/jtgj.jpg';
 import ProductTop from '../../components/ProductTop';
 import '../../../../i18n/Auto2cUserInfo';
@@ -48,17 +36,7 @@ import Validate from '../../utils/Valitate';
 
 export default {
   components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RInput,
-    ProductTop,
-    TabBar,
-    RButton,
-    Row,
-    Cell,
-    Checker
+    ProductTop
   },
   data() {
     return {

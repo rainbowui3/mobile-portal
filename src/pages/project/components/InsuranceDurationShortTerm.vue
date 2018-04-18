@@ -7,16 +7,9 @@
 </template>
 
 <script>
-import { Card, DateTime, Cell, Checker } from 'rainbow-mobile-core';
 import config from 'config';
 import '../../../i18n/insuranceDurationShortTerm';
 export default {
-  components: {
-    DateTime,
-    Card,
-    Cell,
-    Checker
-  },
   props: {
     // 组件是否只读
     readonly: Boolean,

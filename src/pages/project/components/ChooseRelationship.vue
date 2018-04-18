@@ -15,13 +15,8 @@
 </template>
 
 <script>
-import { Cell, Selector } from 'rainbow-mobile-core';
 import '../../../i18n/holderInfo';
 export default {
-  components: {
-    Cell,
-    Selector
-  },
   props: {
     datas: Array,
     readonly: {

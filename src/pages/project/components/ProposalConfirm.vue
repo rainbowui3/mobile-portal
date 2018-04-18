@@ -10,14 +10,8 @@
 </template>
 
 <script>
-import { Card, RButton, Cell } from 'rainbow-mobile-core';
 import '../../../i18n/proposalConfirm';
 export default {
-  components: {
-    Card,
-    RButton,
-    Cell
-  },
   props: {
     onClick: Function,
     buttonName: String,

@@ -13,29 +13,9 @@
 
 </template>
 <script>
-import {
-  Page,
-  RBody,
-  Card,
-  RSwitch,
-  RInput,
-  TabBar,
-  RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../../components/Top';
 import '../../../../i18n/autoPlan';
 
 export default {
-  components: {
-    Page,
-    RBody,
-    Card,
-    Top,
-    RSwitch,
-    RInput,
-    TabBar,
-    RButton
-  },
   data() {
     return {
       policy: {

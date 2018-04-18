@@ -5,12 +5,8 @@
 </template>
 
 <script>
-import {Selector} from 'rainbow-mobile-core';
 import '../../../i18n/insuranceDurationCurrency';
 export default {
-  components: {
-    Selector
-  },
   data() {
     return {
       durationOptions: [{'key': '10000', 'value': '一年'}, {'key': '10001', 'value': '两年'}, {'key': '10002', 'value': '三年'}],
