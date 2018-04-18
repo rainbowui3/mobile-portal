@@ -80,6 +80,15 @@ export default {
           };
           sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
           break;
+          case '7':
+          vm.routeType = {
+            productCode: '6',
+            route1: 'v2/normal',
+            route2: 'v2/normal',
+            route3: 'v2/normal',
+            route4: 'v2/normal'
+          };
+          sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
       }
     });
   },
