@@ -39,17 +39,6 @@
 </template>
 
 <script>
-import {
-    Page,
-    Tab,
-    Card,
-    SwiperItem,
-    Swiper,
-    RBody,
-    Divider
-} from 'rainbow-mobile-core';
-import Bottom from '../../../components/Bottom';
-import Top from '../../../components/Top';
 import ShowOne from '../components/businessHome/ShowOne';
 import ShowTwo from '../components/businessHome/ShowTwo';
 import banner from '../../../assets/u17.png';
@@ -59,16 +48,7 @@ import '../../../i18n/businessHome';
 
 export default {
     components: {
-        Bottom,
-        Top,
-        Page,
-        Tab,
-        Card,
-        Swiper,
-        SwiperItem,
-        RBody,
         ShowOne,
-        Divider,
         ShowTwo
     },
     data() {

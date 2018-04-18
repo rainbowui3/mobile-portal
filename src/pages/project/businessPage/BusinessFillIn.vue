@@ -28,28 +28,12 @@
 </template>
 
 <script>
-import {
-    Page,
-    Card,
-    RBody,
-    Divider,
-    TabBar,
-    RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../components/Top';
 import HolderInfo from '../components/HolderInfo';
 import InsuredInfo from '../components/InsuredInfo';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 import '../../../i18n/businessFillIn';
 export default {
     components: {
-        Top,
-        Page,
-        Card,
-        RBody,
-        Divider,
-        RButton,
-        TabBar,
         HolderInfo,
         InsuredInfo,
         ProposalClauseConfirm

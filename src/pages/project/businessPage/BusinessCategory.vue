@@ -23,32 +23,12 @@
 </template>
 
 <script>
-import {
-    Page,
-    Card,
-    RBody,
-    Swiper,
-    SwiperItem,
-    Tab,
-    TabBar,
-    RButton
-} from 'rainbow-mobile-core';
-import Top from '../../../components/Top';
 import NavTab from '../components/nav/NavTab';
 
 import '../../../i18n/businessCategory';
 export default {
     components: {
-        TabBar,
-        Top,
-        Page,
-        RBody,
-        Card,
-        Swiper,
-        SwiperItem,
         NavTab,
-        Tab,
-        RButton
     },
     data() {
         return {

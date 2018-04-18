@@ -42,10 +42,8 @@
 </template>
 
 <script>
-import { Page, Card, RTable, RBody, Divider, TabBar, RButton} from 'rainbow-mobile-core';
 import image from '../../../assets/u17.png';
 import iamgeOne from '../../../assets/u183.png';
-import Top from '../../../components/Top';
 import Plan from '../components/plan/Plan';
 import supplier from '../../../assets/u204.png';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
@@ -54,16 +52,8 @@ import '../../../i18n/businessDetails';
 
 export default {
     components: {
-        Top,
-        Page,
-        Card,
-        RTable,
-        RBody,
-        Divider,
         Plan,
         ProposalClauseConfirm,
-        RButton,
-        TabBar
     },
     data() {
         return {
