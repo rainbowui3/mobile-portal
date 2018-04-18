@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '~rainbow-mobile-core/src/styles/reset.less';
+@import '~rainbow-mobile-core/src/styles/default.less';  
 @import './style/app.css';
 body {
   background-color: #fbf9fe;
