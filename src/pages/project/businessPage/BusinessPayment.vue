@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Pay from "../components/pay/Pay";
-import "../../../i18n/businessPage";
+import Pay from '../components/pay/Pay';
+import '../../../i18n/businessPage';
 
 export default {
     components: {
