@@ -56,7 +56,7 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
-    InsuranceDurationShortTerm,
+    InsuranceDurationShortTerm
   },
   data() {
     return {
