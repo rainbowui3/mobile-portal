@@ -5,9 +5,9 @@
             <r-tab :tabItems="swTabItems" />
             <r-swiper :model="index" :height="height">
                 <r-swiper-item>
-                    <div class="line">
+                    <!--<div class="line">
                         <r-divider>{{$t('businessHome.product')}}</r-divider>
-                    </div>
+                    </div>-->
                     <show-one :show="show" :showOne="showOne" :img="img" :onClick='goToUrl' />
                     <div class="modal">
                         <show-one :showOne="showOne" :img="img" :onClick='goToUrl' />
