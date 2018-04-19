@@ -27,10 +27,8 @@
                     <div class="end">没有更多了</div>
                 </r-swiper-item>
                 <r-swiper-item>
-                    ...
                 </r-swiper-item>
                 <r-swiper-item>
-                    ...
                 </r-swiper-item>
             </r-swiper>
             <bottom :index="1" />

@@ -9,7 +9,6 @@
                         <nav-tab :listTab="listTab" :contentItems="contentItems" />
                     </r-swiper-item>
                     <r-swiper-item>
-                        ...
                     </r-swiper-item>
 
                 </r-swiper>

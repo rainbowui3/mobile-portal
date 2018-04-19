@@ -67,6 +67,9 @@ export default {
 .modal {
     margin: 10px 0;
 }
+.vux-swiper-item .modal:first-child{
+    margin: 0;
+}
 .home {
     background-color: #fff;
     padding: 0 10px;
