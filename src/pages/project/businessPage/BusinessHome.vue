@@ -1,7 +1,7 @@
 <template>
     <r-page>
+        <top :title="$t('businessHome.home')" :showBack="true" />
         <r-body>
-            <top :title="$t('businessHome.home')" :showBack="true" />
             <r-tab :tabItems="swTabItems" />
             <r-swiper :model="index" :height="height">
                 <r-swiper-item>
