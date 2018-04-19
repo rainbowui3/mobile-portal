@@ -23,9 +23,10 @@
             </div>
 
         </div>
-        <div @click="onClick">
+        <r-image :list="products" />
+        <!--<div @click="onClick">
             <img :src="img" />
-        </div>
+        </div>-->
     </div>
 
 </template>
@@ -49,23 +50,28 @@ export default {
     },
     data() {
         return {
-            icon: icon
+            icon: icon,
+            products: [{
+                onClick: this._OnClick,
+                src: this.img
+            }]
         };
+    },
+    methods: {
+        _OnClick: function(event) {
+            /* eslint-disable */
+            this.onClick ? this.onClick(event) : () => {};
+            /* eslint-disable */
+        }
     }
-    // methods: {
-    //     onClick: function(event) {
-    //         /* eslint-disable */
-
-    //         this.onClick ? this.onClick(event) : () => {};
-
-    //         /* eslint-disable */
-    //     }
-    // }
 };
 </script>
 <style lang="less">
 .modal {
     margin: 10px 0;
+}
+.vux-swiper-item .modal:first-child{
+    margin: 0;
 }
 .home {
     background-color: #fff;

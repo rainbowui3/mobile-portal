@@ -2,9 +2,10 @@
     <r-page>
         <top :title="$t('businessDetails.title')" :showBack="true" />
         <r-body>
-            <div @click="goToUrl()">
+            <r-image :list="products" />
+            <!--<div @click="goToUrl()">
                 <img :src="image">
-            </div>
+            </div>-->
             <div>
                 <r-divider>{{$t('businessDetails.details')}}</r-divider>
             </div>
@@ -63,7 +64,7 @@ export default {
                 clauseConfirm: false,
                 toastShow: false
             },
-            image: image,
+            // image: image,
             iamgeOne: iamgeOne,
             supplier: supplier,
             itemName: [{ text: 'A计划' }, { text: 'B计划' }],
@@ -86,7 +87,10 @@ export default {
                         price: '90'
                     }
                 }
-            ]
+            ],
+            products: [{
+                src: image
+            }]
         };
     },
     methods: {

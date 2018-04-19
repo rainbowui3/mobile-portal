@@ -33,8 +33,7 @@ export default {
           onClick: this.goto,
           param: {
             name: 'ProductInfoEntryNormal',
-            url: '/proposal/LoadingPage/1/1',
-            flag: '1'
+            url: '/proposal/LoadingPage/1/1'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -44,8 +43,7 @@ export default {
           onClick: this.goto,
           param: {
             name: 'ProductInfoEntryShortTerm',
-            url: '/proposal/LoadingPage/2/1',
-            flag: '2'
+            url: '/proposal/LoadingPage/2/1'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -55,8 +53,7 @@ export default {
           src: Female,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/3/1',
-            flag: '3'
+            url: '/proposal/LoadingPage/3/1'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -66,8 +63,7 @@ export default {
           src: Fire,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/4/1',
-            flag: '4'
+            url: '/proposal/LoadingPage/4/1'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -76,8 +72,7 @@ export default {
           src: Jtgj,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/5/1',
-            flag: '5'
+            url: '/proposal/LoadingPage/5/1'
           }
           // param: "/project/proposal/ah/InsuredInfoAccident"
         },
@@ -87,19 +82,14 @@ export default {
           onClick: this.goto,
           param: {
             name: 'ProductInfoEntryAuto',
-            url: '/project/proposal/auto2e/ProductInfoEntryAuto',
-            flag: '6'
+            url: '/project/proposal/auto2e/ProductInfoEntryAuto'
           }
         },
         {
           class: 'product',
           src: Xpx,
           onClick: this.goto,
-          param: {
-            name: 'BusinessLogin',
-            url: '/project/businessPage/BusinessLogin',
-            flag: '7'
-          }
+          param: '/project/ly'
         },
         {
           class: 'product',
@@ -122,10 +112,7 @@ export default {
       // window.location.hash = param;
       sessionStorage.setItem('ROUTE_FLAG', param.flag);
     this.$router.push({
-        path: param.url,
-        params: {
-            flag: param.flag
-          }
+        path: param.url
     });
  },
     go(index) {

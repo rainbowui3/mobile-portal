@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="signInContent">
         <div class="siginImg">
             <img :src="Logo1" />
@@ -6,6 +7,15 @@
             <img :src="Logo3" />
         </div>
         <div class="rainbow">Rainbow</div>
+=======
+  <div class="signInContent">
+    <div class="siginImg">
+      <img :src="Logo1" />
+      <img :src="Logo2" />
+      <img :src="Logo3" />
+    </div>
+    <!--<div class="rainbow">Rainbow</div>-->
+>>>>>>> e7db9a8928055073dd5402f468b2df83618765f6
 
         <div>
             <r-input :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
@@ -48,8 +58,8 @@ export default {
                 { class: 'image', src: Logo3 }
             ],
             policy: {
-                valueUsername: '',
-                valuePassword: ''
+                valueUsername: 'ADMIN',
+                valuePassword: 'ebaotech1234'
             },
             Logo1: Logo1,
             Logo2: Logo2,
@@ -78,7 +88,7 @@ export default {
 }
 .siginImg {
     width: 80%;
-    margin: 20px auto 0px auto;
+    margin: 20px auto 40px auto;
     height: 90px;
     position: relative;
 }
