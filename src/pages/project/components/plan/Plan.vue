@@ -79,22 +79,7 @@ button {
     border-right: 0;
     border-bottom: 1px solid #eee;
 }
-.active {
-    position: relative;
-    color: #fff;
-    background-color: rgba(255, 148, 20, 1);
-    border: none;
-}
-.active::before {
-    font-size: 25px;
-    content: "\F0DE";
-    color: #fff;
-    font-family: "FontAwesome";
-    position: absolute;
-    bottom: -5px;
-    line-height: 0px;
-    left: 45%;
-}
+
 .planContent {
     padding: 0 10px;
 }

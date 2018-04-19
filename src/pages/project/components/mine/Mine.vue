@@ -38,11 +38,7 @@ export default {
 };
 </script>
 <style scoped="businessMine">
-.mine {
-    width: 100%;
-    height: 240px;
-    background-color: rgba(255, 148, 20, 1);
-}
+
 .page {
     padding-top: 0px;
 }
