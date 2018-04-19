@@ -66,7 +66,8 @@ export default {
       mobile: 'mobile',
       inputMobile: 'Please input mobile',
       pay: 'pay',
-      save: 'save'
+      save: 'save',
+      mine: 'mine'
     },
     // dialog: {
     //   show: 'Show'
@@ -387,7 +388,8 @@ export default {
       mobile: '移动电话',
       inputMobile: '请输入移动电话',
       pay: '支付',
-      save: '保存'
+      save: '保存',
+      mine: '我的'
     },
     // dialog: {
     //   show: '显示'
