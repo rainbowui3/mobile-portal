@@ -80,7 +80,7 @@ export default {
 }
 .siginImg {
     width: 80%;
-    margin: 20px auto 0px auto;
+    margin: 20px auto 40px auto;
     height: 90px;
     position: relative;
 }
