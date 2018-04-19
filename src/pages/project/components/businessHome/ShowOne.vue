@@ -52,7 +52,6 @@ export default {
         return {
             icon: icon,
             products: [{
-                class: 'product',
                 onClick: this._OnClick,
                 src: this.img
             }]
@@ -126,8 +125,5 @@ export default {
 }
 .price > :nth-child(2) {
     font-size: 14px;
-}
-.product {
-//   height: 220px;
 }
 </style>
