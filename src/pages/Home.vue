@@ -83,5 +83,6 @@ export default {
 .logo > img {
   width: 50% !important;
 }
+
 </style>
 
