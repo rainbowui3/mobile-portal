@@ -77,6 +77,7 @@ export default {
 };
 </script>
 <style>
+
 .siginImg {
     width: 80%;
     margin: 5px auto 0px auto;
@@ -136,6 +137,7 @@ export default {
 }
 .signInContent {
     text-align: center;
+   
 }
 .inputSign {
     margin-top: 50px;
@@ -163,7 +165,7 @@ export default {
     width: 50px;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #faf8f8;
     border-radius: 100%;
 }
 </style>

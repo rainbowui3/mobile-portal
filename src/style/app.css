@@ -1,18 +1,7 @@
 .page{
     padding-top: 46px;
 }
-/* .vux-header .vux-header-left .left-arrow:before {
-    content: "";
-    position: absolute;
-    width: 12px!important;
-    height: 12px!important;
-    border: 1px solid #fff!important;
-    border-width: 1px 0 0 1px!important;
-    -webkit-transform: rotate(315deg)!important;
-    transform: rotate(315deg)!important;
-    top: 8px!important;
-    left: 7px!important;
-} */
+
 .active {
     position: relative;
     color: #fff;
@@ -33,4 +22,7 @@
     width: 100%;
     height: 240px;
     background-color: rgba(255, 148, 20, 1);
+}
+body{
+   
 }
