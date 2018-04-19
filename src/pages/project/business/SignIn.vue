@@ -76,7 +76,7 @@ export default {
     }
 };
 </script>
-<style>
+<style scoped="businessSigin">
 
 .siginImg {
     width: 100px;
