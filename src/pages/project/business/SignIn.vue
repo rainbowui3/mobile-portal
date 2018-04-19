@@ -79,23 +79,23 @@ export default {
 <style>
 
 .siginImg {
-    width: 80%;
+    width: 100px;
     margin: 5px auto 0px auto;
     height: 90px;
     position: relative;
 }
 .siginImg > :nth-child(1) {
     position: absolute;
-    left: 85px;
+    left: -10px;
 }
 .siginImg > :nth-child(2) {
     position: absolute;
-    left: 95px;
+    left: 0px;
     top: 8px;
 }
 .siginImg > :nth-child(3) {
     position: absolute;
-    left: 105px;
+    left: 10px;
     top: 8px;
 }
 .rainbow {
