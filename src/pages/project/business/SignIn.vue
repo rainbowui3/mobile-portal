@@ -5,7 +5,7 @@
       <img :src="Logo2" />
       <img :src="Logo3" />
     </div>
-    <div class="rainbow">Rainbow</div>
+    <!--<div class="rainbow">Rainbow</div>-->
 
     <div>
       <r-input :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
