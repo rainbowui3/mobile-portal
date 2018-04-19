@@ -16,7 +16,7 @@
                 </r-selector>
             </r-card>
         </r-body>
-        <bottom :index="4" />
+        <bottom :index="4"/>
     </r-page>
 </template>
 
