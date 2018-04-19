@@ -3,11 +3,6 @@
        <top :title="$t('common.badge')" :showBack="true"/>
        <r-body>
         <r-card :title="$t('common.basic')">
-                    <r-badge text="1"></r-badge>
-                    <br>
-                    <r-badge text="123"></r-badge>
-        </r-card>
-        <r-card :title="$t('common.row')">
                 <r-row :title="$t('row.account')" :isLink="true" primary="content">
                       <div class="vertical-middle">{{ $t('row.protected') }}&nbsp;</div>
                       <r-badge></r-badge>

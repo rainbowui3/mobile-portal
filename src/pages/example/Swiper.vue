@@ -81,7 +81,7 @@ export default {
 <style>
 
 .black {
-  background-color: #000;
+  background-color: #cbcbcb;
 }
 .title{
   line-height: 100px;

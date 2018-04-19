@@ -6,7 +6,7 @@
             <r-list :title="$t('preview.title')" :value="value" :data="list"/>
           </r-card>
           <r-card>
-            <list :data="list"/>
+            <r-list :data="list"/>
           </r-card>
        </r-body>
        <bottom :index="2"/>
