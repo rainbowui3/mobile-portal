@@ -1,32 +1,30 @@
 <template>
-  <div class="signInContent">
-    <div class="siginImg">
-      <img :src="Logo1" />
-      <img :src="Logo2" />
-      <img :src="Logo3" />
-    </div>
-    <div class="rainbow">Rainbow</div>
+    <div class="signInContent">
+        <div class="siginImg">
+            <img :src="Logo1" />
+            <img :src="Logo2" />
+            <img :src="Logo3" />
+        </div>
+        <div class="rainbow">Rainbow</div>
 
-    <div>
-      <r-input :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
-        <span class="fa fa-user" />
-      </r-input>
-      <r-input :model="policy" value="valuePassword" :placeholder="$t('businessSignIn.Password')" :isPassword="true" :validate="false">
-        <span class="fa fa-eye-slash" />
-      </r-input>
-    </div>
+        <div>
+            <r-input :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
+                <span class="fa fa-user" />
+            </r-input>
+            <r-input :model="policy" value="valuePassword" :placeholder="$t('businessSignIn.Password')" :isPassword="true" :validate="false">
+                <span class="fa fa-eye-slash" />
+            </r-input>
+        </div>
 
-    <div class="contentInput">
-      <r-button type="primary" :onClick="_onClick">{{$t('businessSignIn.login')}}</r-button>
-    </div>
-    <span class="forget">忘记密码 ? | 注册</span>
+        <div class="contentInput">
+            <r-button type="primary" :onClick="_onClick">{{$t('businessSignIn.login')}}</r-button>
+        </div>
+        <span class="forget">忘记密码 ? | 注册</span>
 
-    <div class="other">
-      <r-divider>{{$t('businessSignIn.way')}}</r-divider>
-      <r-grid :cols="3" :data="gridItems" />
+        <div>
+            <r-divider>{{$t('businessSignIn.way')}}</r-divider>
+        </div>
     </div>
-
-  </div>
 </template>
 
 <script>
@@ -40,7 +38,7 @@ import '../../../i18n/businessSignIn';
 
 export default {
     props: {
-       onClick: Function
+        onClick: Function
     },
     data() {
         return {
