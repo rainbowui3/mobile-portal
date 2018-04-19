@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+const Login = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'Login');
 const Home = r => require.ensure([], () => r(require('@/pages/Home')), 'Home');
 const ComponentCore = r => require.ensure([], () => r(require('@/pages/component/Core')), 'Core');
 const ComponentAdvanced = r => require.ensure([], () => r(require('@/pages/component/Advanced')), 'Advanced');
@@ -166,7 +167,12 @@ Vue.use(Router);// 告诉vue 使用 vue-router
 const router = new Router({
   routes: [{
     path: '/',
-    name: 'Hello',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/home',
+    name: 'Home',
     component: Home
   },
   {

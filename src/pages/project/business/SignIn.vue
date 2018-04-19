@@ -50,8 +50,8 @@ export default {
                 { class: 'image', src: Logo3 }
             ],
             policy: {
-                valueUsername: '',
-                valuePassword: ''
+                valueUsername: 'ADMIN',
+                valuePassword: 'ebaotech1234'
             },
             Logo1: Logo1,
             Logo2: Logo2,
