@@ -1,23 +1,13 @@
 <template>
-<<<<<<< HEAD
     <div class="signInContent">
         <div class="siginImg">
             <img :src="Logo1" />
             <img :src="Logo2" />
             <img :src="Logo3" />
         </div>
-        <div class="rainbow">Rainbow</div>
-=======
-  <div class="signInContent">
-    <div class="siginImg">
-      <img :src="Logo1" />
-      <img :src="Logo2" />
-      <img :src="Logo3" />
-    </div>
-    <!--<div class="rainbow">Rainbow</div>-->
->>>>>>> e7db9a8928055073dd5402f468b2df83618765f6
+        <span class="rainbow">eBaoCloud</span>
 
-        <div>
+        <div class="inputSign">
             <r-input :model="policy" value="valueUsername" :placeholder="$t('businessSignIn.Username')">
                 <span class="fa fa-user" />
             </r-input>
@@ -31,9 +21,15 @@
         </div>
         <span class="forget">忘记密码 ? | 注册</span>
 
-        <div>
+        <div class="other">
             <r-divider>{{$t('businessSignIn.way')}}</r-divider>
+            <div class="footer">
+                <div><img :src="WeChat"></div>
+                <div><img :src="Webo" /></div>
+                <div><img :src="F" /></div>
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -52,18 +48,16 @@ export default {
     },
     data() {
         return {
-            images: [
-                { class: 'image', src: Logo1 },
-                { class: 'image', src: Logo2 },
-                { class: 'image', src: Logo3 }
-            ],
             policy: {
-                valueUsername: 'ADMIN',
-                valuePassword: 'ebaotech1234'
+                valueUsername: '',
+                valuePassword: ''
             },
             Logo1: Logo1,
             Logo2: Logo2,
-            Logo3: Logo3
+            Logo3: Logo3,
+            WeChat: WeChat,
+            Webo: Webo,
+            F: F
         };
     },
     methods: {
@@ -83,12 +77,9 @@ export default {
 };
 </script>
 <style>
-.other {
-    margin-top: 40px;
-}
 .siginImg {
     width: 80%;
-    margin: 20px auto 40px auto;
+    margin: 5px auto 0px auto;
     height: 90px;
     position: relative;
 }
@@ -107,16 +98,14 @@ export default {
     top: 8px;
 }
 .rainbow {
-    font-size: 26px;
-    width: 100px;
+    font-size: 24px;
     text-align: center;
-    margin: 0 auto 60px auto;
 }
 .signInContent {
     margin: 0 5px;
 }
 .contentInput {
-    margin: 20px auto 10px auto;
+    margin: 25px auto 10px auto;
 }
 
 .contentInput > .weui-btn {
@@ -127,11 +116,14 @@ export default {
         rgba(245, 130, 32, 1) 100%,
         rgba(245, 130, 32, 1) 100%
     );
+    font-size: 18px;
 }
 .forget {
     width: 100%;
     display: inline-block;
     text-align: center;
+    font-size: 14px;
+    color: #515151;
 }
 .other > :nth-child(2) > .weui-grids {
     background-color: #eee;
@@ -141,5 +133,37 @@ export default {
 .other > :nth-child(2) > .weui-grids > a::after,
 .other > :nth-child(2) > .weui-grids > a::before {
     border: 0;
+}
+.signInContent {
+    text-align: center;
+}
+.inputSign {
+    margin-top: 50px;
+}
+.weui-input {
+    font-size: 14px;
+}
+.vux-divider {
+    color: #949494;
+    font-size: 14px;
+}
+.other {
+    height: 150px;
+    position: fixed;
+    bottom: 0px;
+}
+.footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer > div {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 100%;
 }
 </style>
