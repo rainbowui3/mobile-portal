@@ -51,69 +51,69 @@ export default {
         {
           icon: 'fa fa-navicon ',
           text: this.$t('business.holderInfo'),
-          link: '/component/example/holderInfo'
+          link: '/component/business/holderInfo'
         },
         {
           icon: 'fa fa-warning ',
           text: this.$t('business.insuranceDurationCurrency'),
-          link: '/component/example/insuranceDurationCurrency'
+          link: '/component/business/insuranceDurationCurrency'
         },
 
         {
           icon: 'fa fa-square-o ',
           text: this.$t('business.insuredInfo'),
-          link: '/component/example/insuredInfo'
+          link: '/component/business/insuredInfo'
         },
         {
           icon: 'fa fa-window-maximize ',
           text: this.$t('business.planSelection'),
-          link: '/component/example/planSelection'
+          link: '/component/business/planSelection'
         },
         {
           icon: 'fa fa-server ',
           text: this.$t('business.productTop'),
-          link: '/component/example/productTop'
+          link: '/component/business/productTop'
         },
         {
           icon: 'fa fa-th-list ',
           text: this.$t('business.proposalClauseConfirm'),
-          link: '/component/example/proposalClauseConfirm'
+          link: '/component/business/proposalClauseConfirm'
         },
 
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.proposalCopies'),
-          link: '/component/example/proposalCopies'
+          link: '/component/business/proposalCopies'
         },
 
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.homeContent'),
-          link: '/component/example/homeContent'
+          link: '/component/business/homeContent'
         },
 
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.pay'),
-          link: '/component/example/payment'
+          link: '/component/business/payment'
         },
 
          {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.plan'),
-          link: '/component/example/businessPlan'
+          link: '/component/business/businessPlan'
         },
 
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.businessSignIn'),
-          link: '/component/example/businessSignIn'
+          link: '/component/business/businessSignIn'
         },
 
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.navTab'),
-          link: '/component/example/businessNavTab'
+          link: '/component/business/businessNavTab'
         }
       ];
     }

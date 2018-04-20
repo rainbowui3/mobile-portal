@@ -3,7 +3,7 @@
        <top :title="$t('business.proposalClauseConfirm')" :showBack="true"/>
        <r-body>
           <r-card>
-       <proposal-clause-confirm />
+       <proposal-clause-confirm :model="pageModel" />
         </r-card>
        </r-body>
        <bottom :index="2"/>
@@ -18,7 +18,15 @@ import '../../i18n/business';
 export default {
   components: {
     ProposalClauseConfirm
-  }
+  },
+   data() {
+        return {
+            pageModel: {
+                clauseConfirm: false,
+                toastShow: false
+            }
+        };
+    }
 };
 </script>
 

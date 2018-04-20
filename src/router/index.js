@@ -118,24 +118,24 @@ const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/
 const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2C/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 
 // business
-const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/example/HolderInfo')), 'HolderInfo');
-const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/example/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
-const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/example/InsuredInfo')), 'InsuredInfo');
-const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/example/PlanSelection')), 'PlanSelection');
-const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/example/ProductTop')), 'ProductTop');
-const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalClauseConfirm')), 'ProposalClauseConfirm');
-const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/example/ProposalConfirm')), 'ProposalConfirm');
-const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/example/ProposalCopies')), 'ProposalCopies');
-const HomeContent = r => require.ensure([], () => r(require('@/pages/example/HomeContent')), 'HomeContent');
-const BusinessPlan = r => require.ensure([], () => r(require('@/pages/example/BusinessPlan')), 'BusinessPlan');
-const BusinessNavTab = r => require.ensure([], () => r(require('@/pages/example/BusinessNavTab')), 'BusinessNavTab');
+const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/business/HolderInfo')), 'HolderInfo');
+const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/business/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
+const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/business/InsuredInfo')), 'InsuredInfo');
+const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/business/PlanSelection')), 'PlanSelection');
+const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/business/ProductTop')), 'ProductTop');
+const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/business/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/business/ProposalConfirm')), 'ProposalConfirm');
+const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/business/ProposalCopies')), 'ProposalCopies');
+const HomeContent = r => require.ensure([], () => r(require('@/pages/business/HomeContent')), 'HomeContent');
+const BusinessPlan = r => require.ensure([], () => r(require('@/pages/business/BusinessPlan')), 'BusinessPlan');
+const BusinessNavTab = r => require.ensure([], () => r(require('@/pages/business/BusinessNavTab')), 'BusinessNavTab');
 
 //  pay
-const Payment = r => require.ensure([], () => r(require('@/pages/example/Payment')), 'Payment');
+const Payment = r => require.ensure([], () => r(require('@/pages/business/Payment')), 'Payment');
 // home
-const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/example/BusinessThumbnail')), 'BusinessThumbnail');
+const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/business/BusinessThumbnail')), 'BusinessThumbnail');
 // logn in
-const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/example/BusinessSignIn')), 'BusinessSignIn');
+const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/business/BusinessSignIn')), 'BusinessSignIn');
 
 // businessPage
 const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
@@ -799,58 +799,58 @@ const router = new Router({
 
   // business
   {
-    path: '/component/example/HolderInfo',
+    path: '/component/business/HolderInfo',
     name: 'ProjectHolderInfo',
     component: ProjectHolderInfo
   },
   {
-    path: '/component/example/InsuranceDurationCurrency',
+    path: '/component/business/InsuranceDurationCurrency',
     name: 'ProjectInsuranceDurationCurrency',
     component: ProjectInsuranceDurationCurrency
   },
 
   {
-    path: '/component/example/InsuredInfo',
+    path: '/component/business/InsuredInfo',
     name: 'ProjectInsuredInfo',
     component: ProjectInsuredInfo
   },
   {
-    path: '/component/example/PlanSelection',
+    path: '/component/business/PlanSelection',
     name: 'ProjectPlanSelection',
     component: ProjectPlanSelection
   },
   {
-    path: '/component/example/ProductTop',
+    path: '/component/business/ProductTop',
     name: 'ProjectProductTop',
     component: ProjectProductTop
   },
   {
-    path: '/component/example/ProposalClauseConfirm',
+    path: '/component/business/ProposalClauseConfirm',
     name: 'ProjectProposalClauseConfirm',
     component: ProjectProposalClauseConfirm
   },
   {
-    path: '/component/example/ProposalConfirm',
+    path: '/component/business/ProposalConfirm',
     name: 'ProjectProposalConfirm',
     component: ProjectProposalConfirm
   },
   {
-    path: '/component/example/ProposalCopies',
+    path: '/component/business/ProposalCopies',
     name: 'ProjectProposalCopies',
     component: ProjectProposalCopies
   },
   {
-    path: '/component/example/Payment',
+    path: '/component/business/Payment',
     name: 'Payment',
     component: Payment
   },
   {
-    path: '/component/example/BusinessThumbnail',
+    path: '/component/business/BusinessThumbnail',
     name: 'businessThumbnail',
     component: BusinessThumbnail
   },
   {
-    path: '/component/example/BusinessSignIn',
+    path: '/component/business/BusinessSignIn',
     name: 'BusinessSignIn',
     component: BusinessSignIn
   },
@@ -860,12 +860,12 @@ const router = new Router({
     component: HomeContent
   },
   {
-    path: '/component/example/BusinessPlan',
+    path: '/component/business/BusinessPlan',
     name: 'BusinessPlan',
     component: BusinessPlan
   },
   {
-    path: '/component/example/BusinessNavTab',
+    path: '/component/business/BusinessNavTab',
     name: 'BusinessNavTab',
     component: BusinessNavTab
   },
