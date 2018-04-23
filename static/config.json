@@ -1,0 +1,4 @@
+{
+    "login": true,
+    "API_GATEWAY_PROXY": "http://172.25.18.37/"
+}

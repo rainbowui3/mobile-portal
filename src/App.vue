@@ -20,6 +20,11 @@ export default {
     loading() {
       return this.$t('common.loading');
     }
+  },
+  beforeCreate() {
+    AjaxUtil.call('./static/config.json').then((data) => {
+        sessionStorage.setItem('project_config', JSON.stringify(data));
+    });
   }
 };
 </script>

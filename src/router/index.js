@@ -163,7 +163,7 @@ const AHRouterEntry = r => require.ensure([], () => r(require('@/pages/project/p
 const AHRouterConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'AHRouterConfirm');
 const AHRouterPay = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'AHRouterPay');
 
-Vue.use(Router);// 告诉vue 使用 vue-router
+Vue.use(Router);
 const router = new Router({
   routes: [{
     path: '/',
