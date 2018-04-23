@@ -66,13 +66,8 @@ export default {
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       if (route && route.route3 && route.route3 != '') {
         this.$router.push({
-          path:
-            '/proposal/ah/AHRouterConfirm/' +
-            this.$route.params.productCode +
-            '/' +
-            this.$route.params.agentCode +
-            '/' +
-            route.route3,
+          path: '/bind/' + route.route3,
+          query: this.$route.query,
           params: [
             {
               name: 'test',

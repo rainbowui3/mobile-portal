@@ -131,14 +131,10 @@ export default {
         sessionStorage.setItem('policy', JSON.stringify(this.policy));
         let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         if (route && route.route3 && route.route3 != '') {
-          this.$router.push(
-            '/proposal/ah/AHRouterConfirm/' +
-              this.$route.params.productCode +
-              '/' +
-              this.$route.params.agentCode +
-              '/' +
-              route.route3
-          );
+          this.$router.push({
+            path: '/bind/' + route.route3,
+            query: this.$route.query
+          });
         }
         // this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
       } else {

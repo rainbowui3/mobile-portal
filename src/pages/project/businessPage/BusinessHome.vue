@@ -133,7 +133,12 @@ export default {
         },
         goToUrl() {
             this.$router.push({
-                path: '/proposal/LoadingPage/7/1'
+                path: '/proposal/LoadingPage',
+                query: {
+                    productCode: 'PV1',
+                    productVersion: '1.0',
+                    proposalTemplate: '8'
+                }
             });
         }
     }

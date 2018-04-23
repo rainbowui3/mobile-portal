@@ -111,7 +111,8 @@ export default {
         sessionStorage.setItem('policy', JSON.stringify(this.policy));
         let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
         this.$router.push({
-          path: '/proposal/ah/AHRouterConfirm/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route3
+          path: '/bind/' + route.route3,
+          query: this.$route.query
         });
       } else {
         this.pageModel.toastShow = true;

@@ -53,7 +53,8 @@ export default {
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/payStatus");
       this.$router.push({
-        path: '/proposal/ah/AHRouterPay/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route4
+        path: '/issue/' + route.route4,
+        query: this.$route.query
       });
     }
   },

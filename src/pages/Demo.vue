@@ -32,8 +32,10 @@ export default {
           src: Ly,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryNormal',
-            url: '/proposal/LoadingPage/1/1'
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '1'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -42,8 +44,10 @@ export default {
           src: Jcx,
           onClick: this.goto,
           param: {
-            name: 'ProductInfoEntryShortTerm',
-            url: '/proposal/LoadingPage/2/1'
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '2'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -53,7 +57,10 @@ export default {
           src: Female,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/3/1'
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '3'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -63,7 +70,10 @@ export default {
           src: Fire,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/4/1'
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '4'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -72,7 +82,10 @@ export default {
           src: Jtgj,
           onClick: this.goto,
           param: {
-            url: '/proposal/LoadingPage/5/1'
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '5'
           }
           // param: "/project/proposal/ah/InsuredInfoAccident"
         },
@@ -110,9 +123,14 @@ export default {
   methods: {
     goto(param) {
       // window.location.hash = param;
-      sessionStorage.setItem('ROUTE_FLAG', param.flag);
+      // sessionStorage.setItem('ROUTE_FLAG', param.flag);
     this.$router.push({
-        path: param.url
+        path: param.url,
+        query: {
+          productCode: param.productCode,
+          productVersion: param.productVersion,
+          proposalTemplate: param.proposalTemplate
+        }
     });
  },
     go(index) {

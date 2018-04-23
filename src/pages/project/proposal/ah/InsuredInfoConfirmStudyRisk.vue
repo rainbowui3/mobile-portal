@@ -98,7 +98,8 @@ export default {
         // this.$router.push("/project/proposal/payStatus");
         if (route && route.route4 && route.route4 != '') {
           this.$router.push({
-            path: '/proposal/ah/AHRouterPay/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route4
+            path: '/issue/' + route.route4,
+            query: this.$route.query
           });
         }
       } else {

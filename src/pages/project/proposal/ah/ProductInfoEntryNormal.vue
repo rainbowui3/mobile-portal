@@ -57,7 +57,8 @@ export default {
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
       if (route && route.route2 && route.route2 != '') {
         this.$router.push({
-          path: '/proposal/ah/AHRouterEntry/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route2
+          path: '/quote/' + route.route2,
+          query: this.$route.query
         });
       }
     }

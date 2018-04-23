@@ -158,10 +158,10 @@ const BusinessCategory = r => require.ensure([], () => r(require('@/pages/projec
 const BusinessMine = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessMine')), 'BusinessMine');
 
 // AHRouters
-const AHRouterProduct = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'AHRouterProduct');
-const AHRouterEntry = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'AHRouterEntry');
-const AHRouterConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'AHRouterConfirm');
-const AHRouterPay = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'AHRouterPay');
+const ProposalTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'ProposalTemplate');
+const QuoteTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'QuoteTemplate');
+const BindTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'BindTemplate');
+const IssueTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'IssueTemplate');
 
 Vue.use(Router);
 const router = new Router({
@@ -441,16 +441,16 @@ const router = new Router({
   },
   // loadingPage
   {
-    path: '/proposal/loadingPage/:productCode/:agentCode',
+    path: '/proposal/loadingPage',
     name: 'LoadingPage',
     component: LoadingPage
   },
 
   // ahRouters
   {
-    path: '/proposal/ah/AHRouterProduct/:productCode/:agentCode',
-    name: 'AHRouterProduct',
-    component: AHRouterProduct,
+    path: '/proposal',
+    name: 'ProposalTemplate',
+    component: ProposalTemplate,
     children: [{
       path: 'normal',
       name: 'AHRouterProductNormal',
@@ -467,19 +467,15 @@ const router = new Router({
       component: ProductInfoEntryHealth
     },
     {
-      path: 'v2',
-      component: AHRouterProduct,
-      children: [{
-        path: 'normal',
-        component: BusinessDetail
-      }]
+      path: 'yellow',
+      component: BusinessDetail
     }
     ]
   },
   {
-    path: '/proposal/ah/AHRouterEntry/:productCode/:agentCode',
-    name: 'AHRouterEntry',
-    component: AHRouterEntry,
+    path: '/quote',
+    name: 'QuoteTemplate',
+    component: QuoteTemplate,
     children: [{
       path: 'normal',
       name: 'AHRouterEntryNormal',
@@ -491,6 +487,10 @@ const router = new Router({
     },
     {
       path: 'health',
+      component: InsuredInfoEntryHealth
+    },
+    {
+      path: 'healthSub',
       component: InsuredInfoEntryHealthSub
     },
     {
@@ -506,26 +506,25 @@ const router = new Router({
       component: InsuredInfoEntryPassenger
     },
     {
-      path: 'v2',
-      component: AHRouterProduct,
-      children: [{
-        path: 'normal',
-        component: BusinessFillIn
-      }
-    ]
+      path: 'yellow',
+      component: BusinessFillIn
     }
     ]
   },
   {
-    path: '/proposal/ah/AHRouterConfirm/:productCode/:agentCode',
-    name: 'AHRouterConfirm',
-    component: AHRouterConfirm,
+    path: '/bind',
+    name: 'BindTemplate',
+    component: BindTemplate,
     children: [{
       path: 'normal',
       component: InsuredInfoConfirmNormal
     },
     {
       path: 'health',
+      component: InsuredInfoConfirmHealth
+    },
+    {
+      path: 'healthSub',
       component: InsuredInfoConfirmHealthSub
     },
     {
@@ -541,31 +540,22 @@ const router = new Router({
       component: InsuredInfoConfirmPassenger
     },
     {
-      path: 'v2',
-      component: AHRouterProduct,
-      children: [{
-        path: 'normal',
-        component: BusinessConfirm
-      }]
+      path: 'yellow',
+      component: BusinessConfirm
     }
     ]
   },
   {
-    path: '/proposal/ah/AHRouterPay/:productCode/:agentCode',
-    name: 'AHRouterPay',
-    component: AHRouterPay,
+    path: '/issue',
+    name: 'IssueTemplate',
+    component: IssueTemplate,
     children: [{
       path: 'normal',
-      name: 'AHRouterPayNormal',
       component: PayStatus
     },
     {
-      path: 'v2',
-      component: AHRouterProduct,
-      children: [{
-        path: 'normal',
-        component: BusinessLogin
-      }]
+      path: 'yellow',
+      component: BusinessPayment
     }
     ]
   },

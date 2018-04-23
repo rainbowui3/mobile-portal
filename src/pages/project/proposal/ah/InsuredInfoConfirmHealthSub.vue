@@ -92,9 +92,12 @@ export default {
     goto: function() {
       sessionStorage.removeItem('policy');
       let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
-      this.$router.push({
-        path: '/proposal/ah/AHRouterPay/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route4
-      });
+      if (route && route.route4 && route.route4 != '') {
+        this.$router.push({
+            path: '/issue/' + route.route4,
+            query: this.$route.query
+        });
+      }
       // Todo:跳转到下一个页面,去支付
     },
     gotoHealthInfo: function() {

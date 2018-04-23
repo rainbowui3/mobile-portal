@@ -35,7 +35,13 @@ export default {
     },
     methods: {
         onClick() {
-            window.location.hash = '/project/businessPage/BusinessPayment';
+            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            if (route && route.route4 && route.route4 != '') {
+                this.$router.push({
+                    path: '/issue/' + route.route4,
+                    query: this.$route.query
+                });
+            }
         },
         onChange(val) {
             this.policy.effortDate = val;

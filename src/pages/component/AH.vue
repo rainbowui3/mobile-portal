@@ -17,9 +17,26 @@ import Ywx from '../../assets/ywx.jpg';
 export default {
   data() {
       return {
-        products: [
-          {class: 'product', src: Ly, onClick: this.goto, param: {path: '/proposal/LoadingPage/6/1', name: 'ProductInfoEntryHealth', flag: '1'}},
-          {class: 'product', src: Female, onClick: this.goto, param: {path: '/proposal/LoadingPage/6/2', name: 'ProductInfoEntryHealth', flag: '2'}},
+        products: [{
+          class: 'product',
+          src: Ly,
+          onClick: this.goto,
+          param: {
+            path: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '6'
+          }},
+          {
+            class: 'product',
+            src: Female,
+            onClick: this.goto,
+            param: {
+              path: '/proposal/LoadingPage',
+              productCode: 'PV1',
+              productVersion: '1.0',
+              proposalTemplate: '7'
+            }},
           {'class': 'product', 'src': Ycx, 'onClick': this.goto, 'param': '/project/ly'},
           {'class': 'product', 'src': Ywx, 'onClick': this.goto, 'param': '/project/ly'}
         ]
@@ -27,11 +44,12 @@ export default {
   },
   methods: {
       goto(param) {
-        sessionStorage.setItem('ROUTE_FLAG', param.flag);
         this.$router.push({
           path: param.path,
-          params: {
-            flag: param.flag
+          query: {
+            productCode: param.productCode,
+            productVersion: param.productVersion,
+            proposalTemplate: param.proposalTemplate
           }
         });
         // window.location.hash=param;
