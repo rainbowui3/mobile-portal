@@ -60,8 +60,7 @@ import '../../../i18n/proposalClauseConfirm';
 export default {
   props: {
     model: {
-      type: Object,
-      default: this.model
+      type: Object
     },
     value: {
       type: String,
@@ -70,6 +69,7 @@ export default {
   },
   data: function() {
     return {
+      defaultModel: {},
       padding: '10px 10px',
       items: [
         { clauseName: '投保人须知及声明' },
