@@ -57,19 +57,19 @@ const CarOwner = r => require.ensure([], () => r(require('@/pages/project/compon
 const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
 
 // ah
-const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
-const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
-const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
+const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
+const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
+const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
 const InsuredInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryShortTerm'), 'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmNormal'), 'InsuredInfoConfirmNormal'));
-const PayStatus = r => require.ensure([], () => r(require('@/pages/project/proposal/PayStatus')), 'PayStatus');
+const PayStatus = r => require.ensure([], () => r(require('@/pages/project/pay/PayStatus')), 'PayStatus');
 const InsuredInfoEntryPassenger = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryPassenger'), 'InsuredInfoEntryPassenger'));
 const InsuredInfoConfirmPassenger = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmPassenger'), 'InsuredInfoConfirmPassenger'));
 const InsuredInfoStudyRisk = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoStudyRisk'), 'InsuredInfoStudyRisk'));
 const InsuredInfoConfirmStudyRisk = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmStudyRisk'), 'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoAccident'), 'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmAccident'), 'InsuredInfoConfirmAccident'));
-const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
+const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
 const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealth'), 'InsuredInfoEntryHealth'));
 const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
 const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
@@ -161,7 +161,7 @@ const Mine = r => require.ensure([], () => r(require('@/pages/Mine')), 'Mine');
 const ProposalTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'ProposalTemplate');
 const QuoteTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterEntry')), 'QuoteTemplate');
 const BindTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterConfirm')), 'BindTemplate');
-const IssueTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterPay')), 'IssueTemplate');
+const IssueTemplate = r => require.ensure([], () => r(require('@/pages/project/pay/AHRouterPay')), 'IssueTemplate');
 
 Vue.use(Router);
 const router = new Router({

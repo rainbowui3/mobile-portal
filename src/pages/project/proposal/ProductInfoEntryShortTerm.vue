@@ -25,14 +25,14 @@
 </template>
 
 <script>
-import ProductTop from '../../components/ProductTop';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import PlanSelection from '../../components/PlanSelection';
-import ProposalCopies from '../../components/ProposalCopies';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import '../../../../i18n/autoPlan';
-import Jtgj from '../../../../assets/jtgj.jpg';
-import '../../../../i18n/project';
+import ProductTop from '../components/ProductTop';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import PlanSelection from '../components/PlanSelection';
+import ProposalCopies from '../components/ProposalCopies';
+import ProposalConfirm from '../components/ProposalConfirm';
+import '../../../i18n/autoPlan';
+import Jtgj from '../../../assets/jtgj.jpg';
+import '../../../i18n/project';
 
 export default {
   components: {
