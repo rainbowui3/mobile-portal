@@ -3,13 +3,13 @@
        <top :title="$t('component.previewer')" :showBack="true"/>
        <r-body>
           <r-card>
-            <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
+            <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
           </r-card>
           <r-card>
-            <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons1"/>
+            <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons1"/>
           </r-card>
           <r-card>
-            <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons2" :param="param"/>
+            <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`"  :data="list" :buttons="buttons2" :param="param"/>
           </r-card>
        </r-body>
        <bottom :index="2"/>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import {Previewer} from 'rainbow-mobile-previewer';
+import {RPreviewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/component';
 import '../../i18n/preview';
 
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   data() {
     return {

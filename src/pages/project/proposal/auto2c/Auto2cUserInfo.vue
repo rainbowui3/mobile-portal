@@ -75,8 +75,6 @@ export default {
 
    },
    async created() {
-       console.log(1111);
-       debugger;
       this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
    }
 

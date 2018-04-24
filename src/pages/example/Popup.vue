@@ -16,32 +16,32 @@
             </r-card>
              <r-popup :model="policy" value="show1" :onHide="onHide">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show1'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show1'}"/>
                     </r-card>
             </r-popup>
              <r-popup :model="policy" value="show2" :onHide="onHide" :disableMask="false">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show2'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show2'}"/>
                     </r-card>
             </r-popup>
              <r-popup :model="policy" value="show7" :onHide="onHide" :showMask="false">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show7'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show7'}"/>
                     </r-card>
             </r-popup>
             <r-popup :model="policy" value="show9" :onHide="onHide" height="100%">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show9'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show9'}"/>
                     </r-card>
             </r-popup>
              <r-popup :model="policy" value="show3" :onHide="onHide" position="left" width="80%">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show3'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show3'}"/>
                     </r-card>
             </r-popup>
             <r-popup :model="policy" value="show4" :onHide="onHide" position="right"  width="80%">
                     <r-card>
-                        <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show4'}"/>
+                        <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" :buttons='buttons2' :param="{'key':'show4'}"/>
                     </r-card>
             </r-popup>
             <r-popup :model="policy" value="show5" :onHide="onHide" position="top"  :showMask="false" >
@@ -61,14 +61,14 @@
 </template>
 
 <script>
-import {Previewer} from 'rainbow-mobile-previewer';
+import {RPreviewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/component';
 import '../../i18n/preview';
 import '../../i18n/popup';
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   data() {
     return {

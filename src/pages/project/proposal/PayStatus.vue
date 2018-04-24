@@ -6,19 +6,19 @@
         <div class="successTitle">
           <h4>{{$t('payStatus.success')}}</h4>
         </div>
-        <previewer :title="$t('payStatus.payment')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
+        <r-previewer :title="$t('payStatus.payment')" :value="`￥99 .00`" :data="list2" :param="{'key':'show9'}" :buttons="buttons1" />
       </r-card>
     </r-body>
   </r-page>
 </template>
 
 <script>
-import { Previewer } from 'rainbow-mobile-previewer';
+import { RPreviewer } from 'rainbow-mobile-previewer';
 import '../../../i18n/payStatus';
 import '../../../i18n/project';
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   data() {
     return {

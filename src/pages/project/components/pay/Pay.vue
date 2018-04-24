@@ -1,16 +1,16 @@
 <template>
 <div>
-    <previewer :title="$t('pay.total')" :value="`¥1024`" :data="list"  :buttons="buttons1"/>
+    <r-previewer :title="$t('pay.total')" :value="`¥1024`" :data="list"  :buttons="buttons1"/>
 </div>
 </template>
 
 <script>
-import { Previewer } from 'rainbow-mobile-previewer';
+import { RPreviewer } from 'rainbow-mobile-previewer';
 import '../../../../i18n/pay';
 
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   props: {},
 
