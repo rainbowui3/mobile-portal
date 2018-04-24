@@ -2,10 +2,20 @@
   <r-page>
        <top :title="$t('component.checker')" :showBack="true"/>
        <r-body>
+       
+
             <r-card :title="$t('input.iconType')">
                 <r-checker :model="policy" value="value2" :text="`${$t('common.agree')}?`" :onChange="onChange" type="icon"/>
                 <r-checker :model="policy" value="value3" :text="`${$t('common.agree')}?`"  :onChange="onChange" type="icon" :plain="true"/>
             </r-card>
+            <r-card :title="$t('component.list')">
+                <r-checker :model="policy" value="value9" :data='list' :onChange="onChange" type="default"/>
+            </r-card>
+
+             <r-card :title="$t('component.list')">
+                <r-checker :model="policy" value="value10" :data='items1' :onChange="onChange" type="default" :multiple='true'/>
+            </r-card>
+     
             <r-card :title="$t('component.list')">
                 <r-checker :model="policy" value="value4" :data='list' :onChange="onChange" type="list"/>
             </r-card>
@@ -13,7 +23,7 @@
                 <r-checker :disabled="true" :model="policy" value="value5" :data='list' :onChange="onChange" type="list" labelPosition="left"/>
             </r-card>
             <r-card :title="$t('input.max')">
-                <r-checker :max="2" :model="policy" value="value5" :data='list' :onChange="onChange" type="list"/>
+                <r-checker :max="2" :model="policy" value="value8" :data='items1' :onChange="onChange" type="list"/>
             </r-card>
             <r-card :title="$t('component.radio')">
                 <r-checker :max="1" :model="policy" value="value6" :data='list' :onChange="onChange" type="list"/>
@@ -39,7 +49,8 @@ export default {
                 value2: false,
                 value3: true,
                 value4: null,
-                value5: [ '10000', '100000' ]
+                value5: [ '10000', '100000' ],
+                value10: [ '1', '2' ]
           },
           items1: [{
                 key: '1',
@@ -74,5 +85,4 @@ export default {
   }
 };
 </script>
-<style>
-</style>
+
