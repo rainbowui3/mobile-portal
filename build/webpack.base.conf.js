@@ -1,5 +1,6 @@
 var path = require('path')
 var utils = require('./utils')
+const rootPath = path.join(__dirname, '../');
 
 var projectRoot = path.resolve(__dirname, '../')
 const vuxLoader = require('vux-loader')
@@ -10,7 +11,13 @@ var vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
+const buildModule = [];
+buildModule.push(resolve('src'));
+for(let key in require(rootPath+"package.json")["dependencies"]){
+   if(key.indexOf('rainbow')>-1){
+        buildModule.push(path.resolve(__dirname, "../node_modules/"+key))
+   }
+}
 let webpackConfig = {
   entry: {
     app: './src/main.js'
@@ -51,7 +58,7 @@ let webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('/node_modules/rainbow-mobile-core/src')]
+        include: buildModule
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

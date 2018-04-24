@@ -1,4 +1,4 @@
 {
     "login": true,
-    "API_GATEWAY_PROXY": "http://172.25.18.37/"
+    "API_GATEWAY_PROXY": "http://117.144.214.249:9382/mobile/"
 }

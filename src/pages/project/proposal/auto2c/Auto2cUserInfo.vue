@@ -33,6 +33,7 @@ import Jtgj from '../../../../assets/jtgj.jpg';
 import ProductTop from '../../components/ProductTop';
 import '../../../../i18n/Auto2cUserInfo';
 import Validate from '../../utils/Valitate';
+import {SubmissionStore} from 'rainbow-foundation-sdk';
 
 export default {
   components: {
@@ -43,6 +44,7 @@ export default {
       productImgSrc: Jtgj,
       productDes: '车险',
       row: 'row',
+      submission: null,
       policy: {
           drivingCity: '上海',
           carLicense: '',
@@ -71,10 +73,13 @@ export default {
       };
     }
 
-  },
-  computed: {
+   },
+   async created() {
+       console.log(1111);
+       debugger;
+      this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+   }
 
-  }
 };
 </script>
 

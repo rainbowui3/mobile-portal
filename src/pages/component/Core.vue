@@ -2,7 +2,6 @@
   <r-page>
        <top :title="$t('common.component')" :showBack="true"/>
         <r-body>
-            <r-tab :tabItems="tabItems"/>
             <r-grid :data="gridItems"/>
         </r-body>
        <bottom :index="2"/>
