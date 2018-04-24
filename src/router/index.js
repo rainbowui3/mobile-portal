@@ -2,52 +2,52 @@ import Vue from 'vue';
 import Router from 'vue-router';
 const Login = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessLogin')), 'Login');
 const Home = r => require.ensure([], () => r(require('@/pages/Home')), 'Home');
-const ComponentCore = r => require.ensure([], () => r(require('@/pages/component/Core')), 'Core');
-const ComponentAdvanced = r => require.ensure([], () => r(require('@/pages/component/Advanced')), 'Advanced');
-const ComponentBusiness = r => require.ensure([], () => r(require('@/pages/component/Business')), 'Business');
-const Demo = r => require.ensure([], () => r(require('@/pages/Demo')), 'Demo');
+const ComponentCore = r => require.ensure([], () => r(require('@/pages/component/core/Core')), 'Core');
+const ComponentAdvanced = r => require.ensure([], () => r(require('@/pages/component/advanced/Advanced')), 'Advanced');
+const ComponentBusiness = r => require.ensure([], () => r(require('@/pages/component/business/Business')), 'Business');
+const Demo = r => require.ensure([], () => r(require('@/pages/demo/Demo')), 'Demo');
 const Donate = r => require.ensure([], () => r(require('@/pages/Donate')), 'Donate');
-const Card = r => require.ensure([], () => r(require('@/pages/example/Card')), 'Card');
-const DateTime = r => require.ensure([], () => r(require('@/pages/example/DateTime')), 'DateTime');
-const Selector = r => require.ensure([], () => r(require('@/pages/example/Selector')), 'Selector');
-const Picker = r => require.ensure([], () => r(require('@/pages/example/Picker')), 'Picker');
-const Tab = r => require.ensure([], () => r(require('@/pages/example/Tab')), 'Tab');
-const Table = r => require.ensure([], () => r(require('@/pages/example/Table')), 'Table');
-const Preview = r => require.ensure([], () => r(require('@/pages/example/Preview')), 'Preview');
-const List = r => require.ensure([], () => r(require('@/pages/example/List')), 'List');
-const Cell = r => require.ensure([], () => r(require('@/pages/example/Cell')), 'Cell');
-const Button = r => require.ensure([], () => r(require('@/pages/example/Button')), 'Button');
-const Swiper = r => require.ensure([], () => r(require('@/pages/example/Swiper')), 'Swiper');
+const Card = r => require.ensure([], () => r(require('@/pages/component/core/Card')), 'Card');
+const DateTime = r => require.ensure([], () => r(require('@/pages/component/core/DateTime')), 'DateTime');
+const Selector = r => require.ensure([], () => r(require('@/pages/component/core/Selector')), 'Selector');
+const Picker = r => require.ensure([], () => r(require('@/pages/component/core/Picker')), 'Picker');
+const Tab = r => require.ensure([], () => r(require('@/pages/component/core/Tab')), 'Tab');
+const Table = r => require.ensure([], () => r(require('@/pages/component/core/Table')), 'Table');
+const Preview = r => require.ensure([], () => r(require('@/pages/component/advanced/Preview')), 'Preview');
+const List = r => require.ensure([], () => r(require('@/pages/component/core/List')), 'List');
+const Cell = r => require.ensure([], () => r(require('@/pages/component/core/Cell')), 'Cell');
+const Button = r => require.ensure([], () => r(require('@/pages/component/core/Button')), 'Button');
+const Swiper = r => require.ensure([], () => r(require('@/pages/component/core/Swiper')), 'Swiper');
 const Ly = r => require.ensure([], () => r(require('@/pages/project/Ly')), 'Ly');
-const Auto = r => require.ensure([], () => r(require('@/pages/component/Auto')), 'Auto');
-const AH = r => require.ensure([], () => r(require('@/pages/component/AH')), 'AH');
-const GI = r => require.ensure([], () => r(require('@/pages/component/GI')), 'GI');
-const Switch = r => require.ensure([], () => r(require('@/pages/example/Switch')), 'Switch');
-const Input = r => require.ensure([], () => r(require('@/pages/example/Input')), 'Input');
-const Textarea = r => require.ensure([], () => r(require('@/pages/example/Textarea')), 'Textarea');
-const Actionsheet = r => require.ensure([], () => r(require('@/pages/example/Actionsheet')), 'Actionsheet');
-const Panel = r => require.ensure([], () => r(require('@/pages/example/Panel')), 'Panel');
-const Row = r => require.ensure([], () => r(require('@/pages/example/Row')), 'Row');
-const Divider = r => require.ensure([], () => r(require('@/pages/example/Divider')), 'Divider');
-const Grid = r => require.ensure([], () => r(require('@/pages/example/Grid')), 'Grid');
-const Header = r => require.ensure([], () => r(require('@/pages/example/Header')), 'Header');
-const Icon = r => require.ensure([], () => r(require('@/pages/example/Icon')), 'Icon');
-const Image = r => require.ensure([], () => r(require('@/pages/example/Image')), 'Image');
-const Page = r => require.ensure([], () => r(require('@/pages/example/Page')), 'Page');
-const Toast = r => require.ensure([], () => r(require('@/pages/example/Toast')), 'Toast');
-const TabBar = r => require.ensure([], () => r(require('@/pages/example/TabBar')), 'TabBar');
-const Popup = r => require.ensure([], () => r(require('@/pages/example/Popup')), 'Popup');
-const Step = r => require.ensure([], () => r(require('@/pages/example/Step')), 'Step');
-const Checker = r => require.ensure([], () => r(require('@/pages/example/Checker')), 'Checker');
-const Spinner = r => require.ensure([], () => r(require('@/pages/example/Spinner')), 'Spinner');
-const Dialog = r => require.ensure([], () => r(require('@/pages/example/Dialog')), 'Dialog');
-const Search = r => require.ensure([], () => r(require('@/pages/example/Search')), 'Search');
-const Msg = r => require.ensure([], () => r(require('@/pages/example/Msg')), 'Msg');
-const Alert = r => require.ensure([], () => r(require('@/pages/example/Alert')), 'Alert');
-const Confirm = r => require.ensure([], () => r(require('@/pages/example/Confirm')), 'Confirm');
-const Loading = r => require.ensure([], () => r(require('@/pages/example/Loading')), 'Loading');
-const Marquee = r => require.ensure([], () => r(require('@/pages/example/Marquee')), 'Marquee');
-const Badge = r => require.ensure([], () => r(require('@/pages/example/Badge')), 'Badge');
+const Auto = r => require.ensure([], () => r(require('@/pages/demo/Auto')), 'Auto');
+const AH = r => require.ensure([], () => r(require('@/pages/demo/AH')), 'AH');
+const GI = r => require.ensure([], () => r(require('@/pages/demo/GI')), 'GI');
+const Switch = r => require.ensure([], () => r(require('@/pages/component/core/Switch')), 'Switch');
+const Input = r => require.ensure([], () => r(require('@/pages/component/core/Input')), 'Input');
+const Textarea = r => require.ensure([], () => r(require('@/pages/component/core/Textarea')), 'Textarea');
+const Actionsheet = r => require.ensure([], () => r(require('@/pages/component/core/Actionsheet')), 'Actionsheet');
+const Panel = r => require.ensure([], () => r(require('@/pages/component/core/Panel')), 'Panel');
+const Row = r => require.ensure([], () => r(require('@/pages/component/core/Row')), 'Row');
+const Divider = r => require.ensure([], () => r(require('@/pages/component/core/Divider')), 'Divider');
+const Grid = r => require.ensure([], () => r(require('@/pages/component/core/Grid')), 'Grid');
+const Header = r => require.ensure([], () => r(require('@/pages/component/core/Header')), 'Header');
+const Icon = r => require.ensure([], () => r(require('@/pages/component/core/Icon')), 'Icon');
+const Image = r => require.ensure([], () => r(require('@/pages/component/core/Image')), 'Image');
+const Page = r => require.ensure([], () => r(require('@/pages/component/core/Page')), 'Page');
+const Toast = r => require.ensure([], () => r(require('@/pages/component/core/Toast')), 'Toast');
+const TabBar = r => require.ensure([], () => r(require('@/pages/component/core/TabBar')), 'TabBar');
+const Popup = r => require.ensure([], () => r(require('@/pages/component/core/Popup')), 'Popup');
+const Step = r => require.ensure([], () => r(require('@/pages/component/core/Step')), 'Step');
+const Checker = r => require.ensure([], () => r(require('@/pages/component/core/Checker')), 'Checker');
+const Spinner = r => require.ensure([], () => r(require('@/pages/component/core/Spinner')), 'Spinner');
+const Dialog = r => require.ensure([], () => r(require('@/pages/component/core/Dialog')), 'Dialog');
+const Search = r => require.ensure([], () => r(require('@/pages/component/advanced/Search')), 'Search');
+const Msg = r => require.ensure([], () => r(require('@/pages/component/advanced/Msg')), 'Msg');
+const Alert = r => require.ensure([], () => r(require('@/pages/component/core/Alert')), 'Alert');
+const Confirm = r => require.ensure([], () => r(require('@/pages/component/core/Confirm')), 'Confirm');
+const Loading = r => require.ensure([], () => r(require('@/pages/component/core/Loading')), 'Loading');
+const Marquee = r => require.ensure([], () => r(require('@/pages/component/core/Marquee')), 'Marquee');
+const Badge = r => require.ensure([], () => r(require('@/pages/component/core/Badge')), 'Badge');
 const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
 const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
 const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/project/components/ChooseRelationship')), 'ChooseRelationship');
@@ -118,24 +118,24 @@ const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/
 const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2C/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 
 // business
-const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/business/HolderInfo')), 'HolderInfo');
-const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/business/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
-const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/business/InsuredInfo')), 'InsuredInfo');
-const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/business/PlanSelection')), 'PlanSelection');
-const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/business/ProductTop')), 'ProductTop');
-const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/business/ProposalClauseConfirm')), 'ProposalClauseConfirm');
-const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/business/ProposalConfirm')), 'ProposalConfirm');
-const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/business/ProposalCopies')), 'ProposalCopies');
-const HomeContent = r => require.ensure([], () => r(require('@/pages/business/HomeContent')), 'HomeContent');
-const BusinessPlan = r => require.ensure([], () => r(require('@/pages/business/BusinessPlan')), 'BusinessPlan');
-const BusinessNavTab = r => require.ensure([], () => r(require('@/pages/business/BusinessNavTab')), 'BusinessNavTab');
+const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/component/business/HolderInfo')), 'HolderInfo');
+const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/component/business/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
+const ProjectInsuredInfo = r => require.ensure([], () => r(require('@/pages/component/business/InsuredInfo')), 'InsuredInfo');
+const ProjectPlanSelection = r => require.ensure([], () => r(require('@/pages/component/business/PlanSelection')), 'PlanSelection');
+const ProjectProductTop = r => require.ensure([], () => r(require('@/pages/component/business/ProductTop')), 'ProductTop');
+const ProjectProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/component/business/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const ProjectProposalConfirm = r => require.ensure([], () => r(require('@/pages/component/business/ProposalConfirm')), 'ProposalConfirm');
+const ProjectProposalCopies = r => require.ensure([], () => r(require('@/pages/component/business/ProposalCopies')), 'ProposalCopies');
+const HomeContent = r => require.ensure([], () => r(require('@/pages/component/business/HomeContent')), 'HomeContent');
+const BusinessPlan = r => require.ensure([], () => r(require('@/pages/component/business/BusinessPlan')), 'BusinessPlan');
+const BusinessNavTab = r => require.ensure([], () => r(require('@/pages/component/business/BusinessNavTab')), 'BusinessNavTab');
 
 //  pay
-const Payment = r => require.ensure([], () => r(require('@/pages/business/Payment')), 'Payment');
+const Payment = r => require.ensure([], () => r(require('@/pages/component/business/Payment')), 'Payment');
 // home
-const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/business/BusinessThumbnail')), 'BusinessThumbnail');
+const BusinessThumbnail = r => require.ensure([], () => r(require('@/pages/component/business/BusinessThumbnail')), 'BusinessThumbnail');
 // logn in
-const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/business/BusinessSignIn')), 'BusinessSignIn');
+const BusinessSignIn = r => require.ensure([], () => r(require('@/pages/component/business/BusinessSignIn')), 'BusinessSignIn');
 
 // businessPage
 const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessPayment')), 'BusinessPayment');
@@ -154,8 +154,8 @@ const BusinessFillIn = r => require.ensure([], () => r(require('@/pages/project/
 const BusinessConfirm = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessConfirm')), 'BusinessConfirm');
 // BusinessCategory
 const BusinessCategory = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessCategory')), 'BusinessCategory');
-// BusinessMine
-const BusinessMine = r => require.ensure([], () => r(require('@/pages/project/businessPage/BusinessMine')), 'BusinessMine');
+// Mine
+const Mine = r => require.ensure([], () => r(require('@/pages/Mine')), 'Mine');
 
 // AHRouters
 const ProposalTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/ah/AHRouterProduct')), 'ProposalTemplate');
@@ -896,9 +896,9 @@ const router = new Router({
     component: BusinessCategory
   },
   {
-    path: '/project/businessPage/BusinessMine',
-    name: 'BusinessMine',
-    component: BusinessMine
+    path: '/mine',
+    name: 'Mine',
+    component: Mine
   }
 
   ]

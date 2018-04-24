@@ -37,7 +37,7 @@ export default {
     }
 };
 </script>
-<style scoped="businessMine">
+<style scoped="mine">
 
 .page {
     padding-top: 0px;
