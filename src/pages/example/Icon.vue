@@ -6,7 +6,7 @@
                                   <r-grid  :data="gridItems3"/>
         </r-card>
         <r-card>
-            <previewer :title="$t('icon.aoshen')" value="479" :data="list" :buttons="buttons2"/>
+            <r-previewer :title="$t('icon.aoshen')" value="479" :data="list" :buttons="buttons2"/>
         </r-card>
        </r-body>
        <bottom :index="2"/>
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import {Previewer} from 'rainbow-mobile-previewer';
+import {RPreviewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/icon';
 import '../../i18n/component';
 
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   computed: {
     gridItems3() {

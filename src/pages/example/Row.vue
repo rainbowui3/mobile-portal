@@ -34,7 +34,7 @@
                 </template>
                 <r-row :title="$t('row.account')" :isLink="true" :arrowFlag="flag2" :onClick="open2"></r-row>
                  <template v-if="flag2">
-                                 <previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
+                                 <r-previewer :title="$t('preview.totle')" :value="`${this.$t('common.currency')} 1024`" :data="list" />
                 </template>
             </r-card>
              <r-card :title="$t('common.custom')">
@@ -50,14 +50,14 @@
 </template>
 
 <script>
-import {Previewer} from 'rainbow-mobile-previewer';
+import {RPreviewer} from 'rainbow-mobile-previewer';
 
 import '../../i18n/component';
 import '../../i18n/row';
 import '../../i18n/card';
 export default {
   components: {
-    Previewer
+    RPreviewer
   },
   data() {
       return {
