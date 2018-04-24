@@ -33,7 +33,7 @@
         <insurance-duration-short-term type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
       </r-card>
       <r-card>
-        <list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
+        <r-list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
         <r-input title="交强险" :model="model.policy[1]" value="premium" :readonly="true" />
         <r-input title="车船税" :model="model.policy[0]" value="vehicleAndVesselTax" :readonly="true" />
         <r-input title="畅行无忧(A款)" :model="model.policy[0]" value="a" :readonly="true" />
