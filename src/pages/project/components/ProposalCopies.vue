@@ -1,24 +1,18 @@
 <template>  
   <div>
-   <r-picker  :title="$t('proposalCopies.insuredNum')" :options="options" :model="insurancNum" value="number1"  ></r-picker> 
+    <r-number :title="$t('proposalCopies.insuredNum')" :model="model" styleClass="round" :min="0" :max="10" value="insuredNum"/>
   </div>
 </template>
 
 <script>
 import '../../../i18n/proposalCopies';
+import {RNumber} from 'rainbow-mobile-number';
 export default {
-  data() {
-    return {
-      options: [['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']],
-      insurancNum: {
-      'number1': ['1']
-      }
-    };
+  components: {
+    RNumber
   },
-  methods: {
-    onChange: function(val) {
-      this.insurancNum.effortDate = val;
-    }
+  props: {
+    model: Object
   }
 };
 </script>
@@ -26,9 +20,4 @@ export default {
 <style>
 
 </style>
-<i18n>
-	"InsuranceNumber":
-  en: Insurance number
-  zh：投保份数
-</i18n>
 

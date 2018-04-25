@@ -24,7 +24,7 @@
 
         <!--</r-card>-->
         <r-switch  :title="$t('productInfoEntryHealth.social')"  :model="policy" value="social" :required="true"></r-switch>
-        <proposal-copies></proposal-copies>
+        <proposal-copies :model="policy"></proposal-copies>
       </r-card>
     </r-body>
     <r-tab-bar>

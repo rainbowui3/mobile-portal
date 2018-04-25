@@ -14,7 +14,7 @@
         <plan-selection></plan-selection>
       </r-card>
       <r-card>
-        <proposal-copies></proposal-copies>
+        <proposal-copies :model="policy"></proposal-copies>
       </r-card>
     </r-body>
     <r-tab-bar>
