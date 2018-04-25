@@ -110,14 +110,14 @@ export default {
         this.$router.push({
           path: '/project/proposal/auto2C/Auto2cCustomPlan',
           name: 'Auto2cCustomPlan',
-          params: {}
+          query: this.$route.query
 
         });
     },
     confirmClick() {
       this.$router.push({
-        path: '/project/proposal/auto2c/Auto2cProposalInfoConfirm',
-        name: 'Auto2cProposalInfoConfirm'
+        path: '/bind/auto2c',
+        query: this.$route.query
       });
     }
   }

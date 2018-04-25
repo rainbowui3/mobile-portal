@@ -543,6 +543,10 @@ const router = new Router({
     {
       path: 'yellow',
       component: BusinessConfirm
+    },
+    {
+      path: 'auto2c',
+      component: Auto2cProposalInfoConfirm
     }
     ]
   },
@@ -557,6 +561,10 @@ const router = new Router({
     {
       path: 'yellow',
       component: BusinessPayment
+    },
+    {
+      path: 'auto2c',
+      component: AutoPay
     }
     ]
   },

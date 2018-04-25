@@ -21,7 +21,7 @@ export default {
           onClick: this.goto,
           param: {
             url: '/proposal/LoadingPage',
-            productCode: 'PV1',
+            productCode: 'DEA-DFA',
             productVersion: '1.0',
             proposalTemplate: '9'
           }}

@@ -119,8 +119,8 @@ export default {
     gotoPay() {
       if (this.pageModel.clauseConfirm) {
         this.$router.push({
-          path: '/project/proposal/auto2c//project/proposal/auto2e/AutoPay',
-          name: 'AutoPay'
+          path: '/issue/auto2c',
+          query: this.$route.query
         });
       } else {
         this.pageModel.toastShow = true;

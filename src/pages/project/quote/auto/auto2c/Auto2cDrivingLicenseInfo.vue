@@ -44,8 +44,8 @@ export default {
   methods: {
       quotationClick() {
           this.$router.push({
-             paht: '/project/proposal/auto2c/Auto2cPlan',
-             name: 'Auto2cPlan'
+             path: '/project/proposal/auto2c/Auto2cPlan',
+             query: this.$route.query
           });
       }
   }

@@ -59,7 +59,7 @@ export default {
     nextOnClick() {
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
-            name: 'Auto2cDrivingLicenseInfo'
+            query: this.$route.query
         });
     },
     goto() {
