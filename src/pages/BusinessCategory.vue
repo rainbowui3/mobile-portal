@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import NavTab from '../components/nav/NavTab';
+import NavTab from './project/components/nav/NavTab';
 
-import '../../../i18n/businessCategory';
+import '../i18n/businessCategory';
 export default {
     components: {
         NavTab

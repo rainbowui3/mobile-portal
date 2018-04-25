@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import HolderInfo from '../../components/HolderInfo';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import '../../../../i18n/insuredInfoEntryPassenger';
-import '../../../../i18n/planSelection';
-import '../../../../i18n/insuredInfoEntryHealthSub';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import HolderInfo from '../components/HolderInfo';
+import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import '../../../i18n/insuredInfoEntryPassenger';
+import '../../../i18n/planSelection';
+import '../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
     InsuranceDurationShortTerm,

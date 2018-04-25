@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import Logo1 from '../../../assets/u505.png';
-import Logo2 from '../../../assets/u507.png';
-import Logo3 from '../../../assets/u509.png';
-import WeChat from '../../../assets/weChat.png';
-import Webo from '../../../assets/webo.png';
-import F from '../../../assets/f.png';
-import '../../../i18n/businessSignIn';
+import Logo1 from '../../../../assets/u505.png';
+import Logo2 from '../../../../assets/u507.png';
+import Logo3 from '../../../../assets/u509.png';
+import WeChat from '../../../../assets/weChat.png';
+import Webo from '../../../../assets/webo.png';
+import F from '../../../../assets/f.png';
+import '../../../../i18n/businessSignIn';
 
 export default {
     props: {

@@ -51,14 +51,14 @@
 </template>
 
 <script>
-import '../../../../i18n/auto2cProposalInfoConfirm';
-import '../../../../i18n/autoProposalInfoConfirm';
-import '../../../../i18n/carInfo';
+import '../../../i18n/auto2cProposalInfoConfirm';
+import '../../../i18n/autoProposalInfoConfirm';
+import '../../../i18n/carInfo';
 // import '../../../../i18n/autoProposalInfoConfirm';
-import '../../../../i18n/insuredInfoEntryPassenger';
-import '../../../../i18n/insuredInfoEntryHealthSub';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
+import '../../../i18n/insuredInfoEntryPassenger';
+import '../../../i18n/insuredInfoEntryHealthSub';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
 export default {
   components: {
     ProposalClauseConfirm,

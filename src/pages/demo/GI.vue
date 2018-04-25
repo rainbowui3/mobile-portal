@@ -20,11 +20,11 @@ export default {
   data() {
       return {
         products: [
-          {'class': 'product', 'src': Jcx, 'action': this.goto, 'param': '/project/ly'},
-          {'class': 'product', 'src': Fire, 'action': this.goto, 'param': '/project/ly'},
-          {'class': 'product', 'src': Tthj, 'action': this.goto, 'param': '/project/ly'},
-          {'class': 'product', 'src': Xpx, 'action': this.goto, 'param': '/project/ly'},
-          {'class': 'product', 'src': Zrx, 'action': this.goto, 'param': '/project/ly'}
+          {'class': 'product', 'src': Jcx, 'action': this.goto, 'param': ''},
+          {'class': 'product', 'src': Fire, 'action': this.goto, 'param': ''},
+          {'class': 'product', 'src': Tthj, 'action': this.goto, 'param': ''},
+          {'class': 'product', 'src': Xpx, 'action': this.goto, 'param': ''},
+          {'class': 'product', 'src': Zrx, 'action': this.goto, 'param': ''}
 
         ]
       };

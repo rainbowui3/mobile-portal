@@ -1,10 +1,10 @@
 <template>
     <r-page>
-        <top :title="$t('project.jtyw')" :showBack="true" />
+        <top :title="$t('insuredInfoEntryHealthSub.title')" :showBack="true" />
         <r-body>
             <!-- 保险期限选择 -->
             <r-card>
-                <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
+                <insurance-duration-short-term type="day" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate" :readonly="true" />
             </r-card>
             <!-- 投保人信息 -->
             <r-card :title="$t('common.holderInfo')">
@@ -16,6 +16,13 @@
                 <insured-info v-if="policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :readonly="true" />
                 <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
             </r-card>
+            <!-- 附属被保险人信息 -->
+            <r-card :title="$t('common.subsidiaryInsuredInfo')">
+                <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" :readonly="true" />
+                <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" :readonly="true" />
+                <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1'" :model="policy.subsidiaryInfo" :readonly="true" />
+                <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
+            </r-card>
         </r-body>
         <r-tab-bar>
             <proposal-confirm amount="50" :buttonName="'proposalConfirm.submitPay'" :onClick="goto" />
@@ -24,16 +31,16 @@
 </template>
 
 <script>
-import ChooseRelationship from '../../components/ChooseRelationship';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import HolderInfo from '../../components/HolderInfo';
-import InsuredInfo from '../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import '../../../../i18n/insuredInfoEntryHealthSub';
-import '../../../../i18n/proposalConfirm';
-import '../../../../i18n/holderInfo';
+import ChooseRelationship from '../components/ChooseRelationship';
+import ProposalConfirm from '../components/ProposalConfirm';
+import HolderInfo from '../components/HolderInfo';
+import InsuredInfo from '../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import '../../../i18n/insuredInfoEntryHealthSub';
+import '../../../i18n/proposalConfirm';
+import '../../../i18n/holderInfo';
 
 export default {
   components: {
@@ -47,15 +54,7 @@ export default {
   },
   data() {
     return {
-      policy: {
-        // holderInfo: {},
-        // insuredInfo: {
-        //   relationToHolder: "1"
-        // },
-        // subsidiaryInfo: {
-        //   relationToHolder: "1"
-        // }
-      },
+      policy: {},
       pageModel: {
         clauseConfirmed: false,
         toastShow: false
@@ -102,21 +101,17 @@ export default {
       // Todo:跳转到下一个页面,去支付
     },
     gotoHealthInfo: function() {
+      // console.log("gotoHealthInfo");
       this.$router.push({
-        path: '/project/proposal/ah/HealthInform',
-        name: 'HealthInform',
-        params: {}
+        path: '/project/proposal/ah/HealthInformConfirm',
+        name: 'HealthInformConfirm'
       });
     }
   },
   watch: {},
   computed: {},
   created: function() {
-    let policyStr = sessionStorage.getItem('policy');
-    this.policy = JSON.parse(policyStr);
-    // if (this.$route.params.policy) {
-    //   this.policy = this.$route.params.policy;
-    // }
+    this.policy = JSON.parse(sessionStorage.getItem('policy'));
   }
 };
 </script>

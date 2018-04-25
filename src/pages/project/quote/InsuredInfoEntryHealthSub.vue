@@ -37,16 +37,16 @@
 </template>
 
 <script>
-import ChooseRelationship from '../../components/ChooseRelationship';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import HolderInfo from '../../components/HolderInfo';
-import InsuredInfo from '../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import '../../../../i18n/insuredInfoEntryHealthSub';
-import '../../../../i18n/proposalConfirm';
-import '../../../../i18n/holderInfo';
+import ChooseRelationship from '../components/ChooseRelationship';
+import ProposalConfirm from '../components/ProposalConfirm';
+import HolderInfo from '../components/HolderInfo';
+import InsuredInfo from '../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import '../../../i18n/insuredInfoEntryHealthSub';
+import '../../../i18n/proposalConfirm';
+import '../../../i18n/holderInfo';
 
 export default {
   components: {

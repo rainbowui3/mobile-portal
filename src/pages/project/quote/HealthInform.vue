@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import TreeTest from '../../components/TreeTest';
-import '../../../../i18n/healthInform';
+import TreeTest from '../components/TreeTest';
+import '../../../i18n/healthInform';
 export default {
   components: { TreeTest },
   data() {
     return {
-      disabled: true,
+      disabled: false,
       dataList: [
         {
           name:

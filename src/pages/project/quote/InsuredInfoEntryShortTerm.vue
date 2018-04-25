@@ -32,16 +32,16 @@
 </template>
 
 <script>
-import HolderInfo from '../../components/HolderInfo';
-import InsuredInfo from '../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import ChooseRelationship from '../../components/ChooseRelationship';
-import '../../../../i18n/insuredInfoEntryShortTerm';
-import '../../../../i18n/insuredInfoEntryHealthSub';
-import '../../../../i18n/input';
-import '../../../../i18n/project';
+import HolderInfo from '../components/HolderInfo';
+import InsuredInfo from '../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import ProposalConfirm from '../components/ProposalConfirm';
+import ChooseRelationship from '../components/ChooseRelationship';
+import '../../../i18n/insuredInfoEntryShortTerm';
+import '../../../i18n/insuredInfoEntryHealthSub';
+import '../../../i18n/input';
+import '../../../i18n/project';
 
 export default {
   components: {

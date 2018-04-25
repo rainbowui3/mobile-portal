@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import HolderInfo from '../../components/HolderInfo';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import '../../../../i18n/insuredInfoEntryPassenger';
-import '../../../../i18n/planSelection';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import HolderInfo from '../components/HolderInfo';
+import ProposalConfirm from '../components/ProposalConfirm';
+import '../../../i18n/insuredInfoEntryPassenger';
+import '../../../i18n/planSelection';
 export default {
   components: {
     InsuranceDurationShortTerm,

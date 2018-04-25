@@ -29,10 +29,10 @@
 
 </template>
 <script>
-import Jtgj from '../../../../assets/jtgj.jpg';
-import ProductTop from '../../components/ProductTop';
-import '../../../../i18n/Auto2cUserInfo';
-import Validate from '../../utils/Valitate';
+import Jtgj from '../../../assets/jtgj.jpg';
+import ProductTop from '../components/ProductTop';
+import '../../../i18n/Auto2cUserInfo';
+import Validate from '../utils/Valitate';
 import {SubmissionStore} from 'rainbow-foundation-sdk';
 
 export default {

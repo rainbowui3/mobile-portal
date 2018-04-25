@@ -102,21 +102,21 @@ export default {
           class: 'product',
           src: Xpx,
           onClick: this.goto,
-          param: '/project/ly'
+          param: ''
         },
         {
           class: 'product',
           src: Ycx,
           onClick: this.goto,
-          param: '/project/ly'
+          param: ''
         },
         {
           class: 'product',
           src: Ywx,
           onClick: this.goto,
-          param: '/project/ly'
+          param: ''
         },
-        { class: 'product', src: Zrx, onClick: this.goto, param: '/project/ly' }
+        { class: 'product', src: Zrx, onClick: this.goto, param: '' }
       ]
     };
   },

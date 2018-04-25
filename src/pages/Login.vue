@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SignIn from '../business/SignIn';
-import '../../../i18n/businessSignIn';
+import SignIn from './project/components/business/SignIn';
+import '../i18n/businessSignIn';
 export default {
   components: {
     SignIn
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
        clickUrl() {
-         window.location.hash = '/project/businessPage/BusinessHome';
+         window.location.hash = '/home';
        }
     }
 };

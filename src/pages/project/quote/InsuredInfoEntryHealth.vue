@@ -29,17 +29,17 @@
 </template>
 
 <script>
-import HolderInfo from '../../components/HolderInfo';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import InsuredInfo from '../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../../components/SubsidiaryInsuredInfo';
-import ProposalClauseConfirm from '../../components/ProposalClauseConfirm';
-import ProposalConfirm from '../../components/ProposalConfirm';
-import ChooseRelationship from '../../components/ChooseRelationship';
-import '../../../../i18n/project';
-import '../../../../i18n/input';
-import '../../../../i18n/planSelection';
-import '../../../../i18n/insuredInfoEntryHealthSub';
+import HolderInfo from '../components/HolderInfo';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import InsuredInfo from '../components/InsuredInfo';
+import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import ProposalConfirm from '../components/ProposalConfirm';
+import ChooseRelationship from '../components/ChooseRelationship';
+import '../../../i18n/project';
+import '../../../i18n/input';
+import '../../../i18n/planSelection';
+import '../../../i18n/insuredInfoEntryHealthSub';
 // import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {

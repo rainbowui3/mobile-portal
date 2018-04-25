@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import ProposalConfirm from '../../components/ProposalConfirm';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import Validate from '../../utils/Valitate';
-import Getbirthday from '../../utils/Getbirthday';
-import '../../../../i18n/insuredInfoStudyRisk';
-import '../../../../i18n/input';
-import '../../../../i18n/project';
+import ProposalConfirm from '../components/ProposalConfirm';
+import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Validate from '../utils/Valitate';
+import Getbirthday from '../utils/Getbirthday';
+import '../../../i18n/insuredInfoStudyRisk';
+import '../../../i18n/input';
+import '../../../i18n/project';
 export default {
   components: {
     ProposalConfirm,

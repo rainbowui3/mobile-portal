@@ -37,8 +37,8 @@ export default {
               productVersion: '1.0',
               proposalTemplate: '7'
             }},
-          {'class': 'product', 'src': Ycx, 'onClick': this.goto, 'param': '/project/ly'},
-          {'class': 'product', 'src': Ywx, 'onClick': this.goto, 'param': '/project/ly'}
+          {'class': 'product', 'src': Ycx, 'onClick': this.goto, 'param': ''},
+          {'class': 'product', 'src': Ywx, 'onClick': this.goto, 'param': ''}
         ]
       };
   },

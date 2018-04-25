@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import ShowOne from '../../project/components/businessHome/ShowOne';
-import ShowTwo from '../../project/components/businessHome/ShowTwo';
+import ShowOne from '../../project/components/business/ShowOne';
+import ShowTwo from '../../project/components/business/ShowTwo';
 import '../../../i18n/businessHome';
 
 export default {

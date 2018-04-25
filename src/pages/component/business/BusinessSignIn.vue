@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SignIn from '../../project/business/SignIn';
+import SignIn from '../../project/components/business/SignIn';
 import '../../../i18n/businessSignIn';
 export default {
   components: {
