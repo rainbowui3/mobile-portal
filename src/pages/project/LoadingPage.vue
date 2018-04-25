@@ -100,6 +100,26 @@ export default {
             route4: 'yellow'
           };
           sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
+          break;
+          case '9':
+          vm.routeType = {
+            productCode: 'PV1',
+            route1: 'auto2c',
+            route2: 'auto2c',
+            route3: 'auto2c',
+            route4: 'auto2c'
+          };
+          sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
+          break;
+          default:
+          vm.routeType = {
+            productCode: 'PV1',
+            route1: 'normal',
+            route2: 'normal',
+            route3: 'normal',
+            route4: 'normal'
+          };
+          sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
       }
     });
   },

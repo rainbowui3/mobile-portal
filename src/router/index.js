@@ -466,6 +466,10 @@ const router = new Router({
     {
       path: 'yellow',
       component: BusinessDetail
+    },
+    {
+      path: 'auto2c',
+      component: Auto2cUserInfo
     }
     ]
   },

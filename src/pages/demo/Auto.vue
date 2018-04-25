@@ -15,14 +15,29 @@ import Jtgj from '../../assets/jtgj.jpg';
 export default {
   data() {
       return {
-        products: [
-          {class: 'product', src: Jtgj, onClick: this.goto, param: '/project/proposal/auto2C/Auto2cUserInfo'}
+        products: [{
+          class: 'product',
+          src: Jtgj,
+          onClick: this.goto,
+          param: {
+            url: '/proposal/LoadingPage',
+            productCode: 'PV1',
+            productVersion: '1.0',
+            proposalTemplate: '9'
+          }}
         ]
       };
   },
   methods: {
       goto(param) {
-        window.location.hash = param;
+        this.$router.push({
+            path: param.url,
+            query: {
+              productCode: param.productCode,
+              productVersion: param.productVersion,
+              proposalTemplate: param.proposalTemplate
+            }
+          });
       },
       go(index) {
         switch (index) {
