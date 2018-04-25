@@ -18,7 +18,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'input.email': '邮箱',
     'input.vcode': '验证码',
     'input.required': '必填',
-    'input.number': '数字'
+    'input.number': '数字',
+    'input.width': '宽度'
 });
 i18n.mergeLocaleMessage('en-US', {
     'input.placeholder': 'Placeholder',
@@ -39,5 +40,7 @@ i18n.mergeLocaleMessage('en-US', {
     'input.email': 'E-mail',
     'input.vcode': 'vcode',
     'input.required': 'Required',
-    'input.number': 'Number'
+    'input.number': 'Number',
+    'input.width': 'Width'
+
 });
