@@ -34,7 +34,7 @@ export default {
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.flow') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.loading') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.masker') },
-        { 'icon': 'fa fa-percent ', 'text': this.$t('component.number') },
+        { 'icon': 'fa fa-percent ', 'text': this.$t('component.number'), 'link': '/component/example/number' },
         { 'icon': 'fa fa-eye ', 'text': this.$t('component.previewer'), 'link': '/component/example/preview' },
         { 'icon': 'fa fa-search ', 'text': this.$t('component.search'), 'link': '/component/example/search' },
         { 'icon': 'fa fa-commenting ', 'text': this.$t('component.msg'), 'link': '/component/example/msg' },

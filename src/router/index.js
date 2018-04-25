@@ -14,6 +14,7 @@ const Picker = r => require.ensure([], () => r(require('@/pages/component/core/P
 const Tab = r => require.ensure([], () => r(require('@/pages/component/core/Tab')), 'Tab');
 const Table = r => require.ensure([], () => r(require('@/pages/component/core/Table')), 'Table');
 const Preview = r => require.ensure([], () => r(require('@/pages/component/advanced/Preview')), 'Preview');
+const RNumber = r => require.ensure([], () => r(require('@/pages/component/advanced/Number')), 'RNumber');
 const List = r => require.ensure([], () => r(require('@/pages/component/core/List')), 'List');
 const Cell = r => require.ensure([], () => r(require('@/pages/component/core/Cell')), 'Cell');
 const Button = r => require.ensure([], () => r(require('@/pages/component/core/Button')), 'Button');
@@ -42,7 +43,6 @@ const Spinner = r => require.ensure([], () => r(require('@/pages/component/core/
 const Dialog = r => require.ensure([], () => r(require('@/pages/component/core/Dialog')), 'Dialog');
 const Search = r => require.ensure([], () => r(require('@/pages/component/advanced/Search')), 'Search');
 const Msg = r => require.ensure([], () => r(require('@/pages/component/advanced/Msg')), 'Msg');
-const RNumber = r => require.ensure([], () => r(require('@/pages/component/advanced/Number')), 'Number');
 const Alert = r => require.ensure([], () => r(require('@/pages/component/core/Alert')), 'Alert');
 const Confirm = r => require.ensure([], () => r(require('@/pages/component/core/Confirm')), 'Confirm');
 const Loading = r => require.ensure([], () => r(require('@/pages/component/core/Loading')), 'Loading');
@@ -368,7 +368,7 @@ const router = new Router({
     component: ComponentAdvanced
   },
   {
-    path: '/component/number',
+    path: '/component/example/number',
     name: 'RNumber',
     component: RNumber
   },
