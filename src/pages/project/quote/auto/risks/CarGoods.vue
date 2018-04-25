@@ -3,7 +3,8 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card>
-               <r-checker :max="1" :model="policy" value="value2" :data="options"  type="list"/>  
+                <r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>   
+                <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -13,14 +14,14 @@
 
 </template>
 <script>
-import '../../../../i18n/autoPlan';
+import '../../../../../i18n/autoPlan';
 
 export default {
   data() {
     return {
-      options: [{'key': '20001', 'value': '国产'}, {'key': '20002', 'value': '进口'}],
       policy: {
-        value2: '20001'
+        sumInsured: '',
+        sdew: true
       }
     };
   },

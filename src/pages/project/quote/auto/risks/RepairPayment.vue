@@ -3,8 +3,8 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card>
-                <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
-                <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
+                 <r-input  :title="$t('autoPlan.dayPay')"  :model="policy" value="dayPay" :isNumber="true" :novalidate="false"></r-input>
+                <r-input  :title="$t('autoPlan.dayNo')"  :model="policy" value="dayNo" :isNumber="true" :novalidate="false"></r-input>
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -14,14 +14,14 @@
 
 </template>
 <script>
-import '../../../../i18n/autoPlan';
+import '../../../../../i18n/autoPlan';
 
 export default {
   data() {
     return {
       policy: {
-        sumInsured: '',
-        sdew: true
+        dayNo: '',
+        dayPay: ''
       }
     };
   },

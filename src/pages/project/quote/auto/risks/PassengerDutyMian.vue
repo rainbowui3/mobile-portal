@@ -19,7 +19,7 @@
 
 </template>
 <script>
-import '../../../../i18n/autoPlan';
+import '../../../../../i18n/autoPlan';
 
 export default {
   data() {

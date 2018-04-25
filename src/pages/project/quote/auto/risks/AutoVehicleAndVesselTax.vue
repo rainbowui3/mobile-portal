@@ -19,8 +19,8 @@
 
 </template>
 <script>
-import '../../../../i18n/autoVehicleAndVesselTax';
-import config from '../../../../config/config';
+import '../../../../../i18n/autoVehicleAndVesselTax';
+import config from '../../../../../config/config';
 export default {
   data() {
     return {
