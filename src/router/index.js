@@ -84,9 +84,9 @@ const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/pr
 const CarAndOwnerInfoEntryOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarAndOwnerInfoEntryOneWay'), 'CarAndOwnerInfoEntryOneWay'));
 const ChooseCar = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ChooseCar'), 'ChooseCar'));
 const AutoVehicleAndVesselTax = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoVehicleAndVesselTax'), 'AutoVehicleAndVesselTax'));
-const CarDetails = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/CarDetails'), 'CarDetails'));
-const CarDetailsMotor = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/CarDetailsMotor'), 'CarDetailsMotor'));
-const CarDetailsOneWay = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/CarDetailsOneWay'), 'CarDetailsOneWay'));
+const CarDetails = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarDetails'), 'CarDetails'));
+const CarDetailsMotor = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarDetailsMotor'), 'CarDetailsMotor'));
+const CarDetailsOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarDetailsOneWay'), 'CarDetailsOneWay'));
 const AutoSupplementInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoSupplementInfo'), 'AutoSupplementInfo'));
 const AutoPremiumInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPremiumInfo'), 'AutoPremiumInfo'));
 const AutoCFeeInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoCFeeInfo'), 'AutoCFeeInfo'));
