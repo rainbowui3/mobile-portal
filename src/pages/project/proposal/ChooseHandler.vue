@@ -21,7 +21,7 @@
   
 </template>
 <script>
-import '../../../../i18n/chooseHandler';
+import '../../../i18n/chooseHandler';
 
 export default {
     data() {
