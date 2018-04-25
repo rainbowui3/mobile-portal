@@ -42,6 +42,7 @@ const Spinner = r => require.ensure([], () => r(require('@/pages/component/core/
 const Dialog = r => require.ensure([], () => r(require('@/pages/component/core/Dialog')), 'Dialog');
 const Search = r => require.ensure([], () => r(require('@/pages/component/advanced/Search')), 'Search');
 const Msg = r => require.ensure([], () => r(require('@/pages/component/advanced/Msg')), 'Msg');
+const RNumber = r => require.ensure([], () => r(require('@/pages/component/advanced/Number')), 'Number');
 const Alert = r => require.ensure([], () => r(require('@/pages/component/core/Alert')), 'Alert');
 const Confirm = r => require.ensure([], () => r(require('@/pages/component/core/Confirm')), 'Confirm');
 const Loading = r => require.ensure([], () => r(require('@/pages/component/core/Loading')), 'Loading');
@@ -365,6 +366,11 @@ const router = new Router({
     path: '/component/advanced',
     name: 'ComponentAdvanced',
     component: ComponentAdvanced
+  },
+  {
+    path: '/component/number',
+    name: 'RNumber',
+    component: RNumber
   },
   {
     path: '/component/business',

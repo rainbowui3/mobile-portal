@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import '../i18n/component';
-import '../i18n/input';
+import '../../../i18n/component';
+import '../../../i18n/input';
 import {RNumber} from 'rainbow-mobile-number';
 export default {
   components: {
