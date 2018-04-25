@@ -79,7 +79,7 @@ const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/page
 // auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ChooseHandler'), 'ChooseHandler'));
-const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPlan'), 'AutoPlan'));
+const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/AutoPlan'), 'AutoPlan'));
 const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarAndOwnerInfoEntry'), 'CarAndOwnerInfoEntry'));
 const CarAndOwnerInfoEntryOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/CarAndOwnerInfoEntryOneWay'), 'CarAndOwnerInfoEntryOneWay'));
 const ChooseCar = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ChooseCar'), 'ChooseCar'));
@@ -107,7 +107,7 @@ const MetalDamage = r => require.ensure([], () => r(require('@/pages/project/pro
 const AppointRepairShop = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AppointRepairShop'), 'AppointRepairShop'));
 const AutoPay = r => require.ensure([], () => r(require('@/pages/project/issue/AutoPay'), 'AutoPay'));
 const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
-const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
+const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/bind/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
 // auto2c
 const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/bind/Auto2cProposalInfoConfirm'), 'Auto2cProposalInfoConfirm'));
 const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/quote/auto/Auto2cUserAddr'), 'Auto2cUserAddr'));

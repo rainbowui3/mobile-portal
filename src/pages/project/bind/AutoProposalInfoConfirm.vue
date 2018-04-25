@@ -73,11 +73,11 @@
 </template>
 
 <script>
-import '../../../../i18n/autoProposalInfoConfirm';
-import '../../../../i18n/carInfo';
-import '../../../../i18n/insuredInfoEntryPassenger';
-import '../../../../i18n/autoSupplementInfo';
-import '../../../../i18n/button';
+import '../../../i18n/autoProposalInfoConfirm';
+import '../../../i18n/carInfo';
+import '../../../i18n/insuredInfoEntryPassenger';
+import '../../../i18n/autoSupplementInfo';
+import '../../../i18n/button';
 export default {
   data() {
     return {
