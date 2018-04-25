@@ -18,16 +18,15 @@
                     <span class="planPriceContent"> ¥ {{itemContent.content.price}}</span>
                 </div>
             </div>
-            <div class="planImg">
+            <!-- <div class="planImg">
                 <img :src="correct">
-            </div>
+            </div> -->
         </div>
 
     </r-card>
 </template>
 
 <script>
-import correct from '../../../../assets/correct.png';
 
 export default {
     props: {
@@ -44,7 +43,6 @@ export default {
     },
     data() {
         return {
-            correct: correct,
             activeIndex: 0,
             pos: 0
         };
@@ -68,6 +66,27 @@ export default {
     background-color: #fff !important;
     border: 1px solid rgba(255, 148, 20, 1);
     position: relative;
+}
+.plan::before{
+    content: "";
+    border-width: 32px;
+    border-style: solid;
+    border-color: transparent rgba(255, 148, 20, 1)  rgba(255, 148, 20, 1) transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.plan::after{
+    content: "";
+    height: 9px;
+    width: 18px;
+    transform: rotate(125deg) scale(1.5);
+    border-width: 4px 4px 0 0;
+    border-style: solid solid;
+    border-color: #fff #fff;
+    position: absolute;
+    bottom: 16px;
+    right: 8px;
 }
 button {
     font-size: 17px;
