@@ -77,7 +77,7 @@ const HealthInformConfirm = r => require.ensure([], () => r(require('@/pages/pro
 const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
 
 // auto2e
-const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
+const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/ChooseHandler'), 'ChooseHandler'));
 const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPlan'), 'AutoPlan'));
 const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/CarAndOwnerInfoEntry'), 'CarAndOwnerInfoEntry'));
@@ -105,7 +105,7 @@ const RepairPayment = r => require.ensure([], () => r(require('@/pages/project/p
 const CarGoods = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/CarGoods'), 'CarGoods'));
 const MetalDamage = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/MetalDamage'), 'MetalDamage'));
 const AppointRepairShop = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AppointRepairShop'), 'AppointRepairShop'));
-const AutoPay = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoPay'), 'AutoPay'));
+const AutoPay = r => require.ensure([], () => r(require('@/pages/project/issue/AutoPay'), 'AutoPay'));
 const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
 const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/proposal/auto2e/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
 // auto2c

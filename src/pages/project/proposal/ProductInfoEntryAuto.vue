@@ -25,11 +25,11 @@
 
 </template>
 <script>
-import Jtgj from '../../../../assets/jtgj.jpg';
-import ProductTop from '../../components/ProductTop';
-import AutoAgent from '../../components/AutoAgent';
-import '../../../../i18n/productInfoEntryAuto';
-import '../../../../i18n/autoAgent';
+import Jtgj from '../../../assets/jtgj.jpg';
+import ProductTop from '../components/ProductTop';
+import AutoAgent from '../components/AutoAgent';
+import '../../../i18n/productInfoEntryAuto';
+import '../../../i18n/autoAgent';
 
 export default {
   components: {

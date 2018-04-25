@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import QRCode from '../../../../assets/guanfangweixin.jpg';
-import '../../../../i18n/autoPay';
+import QRCode from '../../../assets/guanfangweixin.jpg';
+import '../../../i18n/autoPay';
 export default {
   data() {
     return {
