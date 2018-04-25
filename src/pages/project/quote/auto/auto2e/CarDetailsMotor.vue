@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import '../../../../i18n/carDetails';
-import '../../../../i18n/carDetailsMotor';
+import '../../../../../i18n/carDetails';
+import '../../../../../i18n/carDetailsMotor';
 export default {
   props: {},
   data() {

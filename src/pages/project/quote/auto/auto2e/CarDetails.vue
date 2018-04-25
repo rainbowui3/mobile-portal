@@ -1,6 +1,6 @@
 <template>
     <r-page>
-        <top :showBack="true" :title="$t('carDetailsOneWay.CarDetails')"/>
+        <top :title="$t('carDetails.MoreInfo')" :showBack="true" />
         <r-body>
             <r-card>
                 <!-- 核定载客数 -->
@@ -13,14 +13,20 @@
                 <r-input :title="$t('carDetails.engineDesc')" :model="model" value="engineDesc" />
                 <!-- 功率 -->
                 <r-input :title="$t('carDetails.power')" :model="model" value="power" />
+            </r-card>
+            <r-card>
                 <!-- 车辆使用性质 -->
                 <r-selector :title="$t('carDetails.vehicleUseNatureCode')" :model="model" value="vehicleUseNatureCode" :options="vehicleUseNatureCodeList" />
                 <!-- 车辆种类 -->
                 <r-selector :title="$t('carDetails.vehicleKindCode')" :model="model" value="vehicleKindCode" :options="vehicleKindCodeList" />
                 <!-- 交管车辆种类 -->
                 <r-selector :title="$t('carDetails.vehicleKindTCCode')" :model="model" value="vehicleKindTCCode" :options="vehicleKindTCCodeList" />
+                <!-- 号牌种类 -->
+                <r-selector :title="$t('carDetails.licenseType')" :model="model" value="licenseType" :options="licenseTypeList" />
                 <!-- 使用年限 -->
                 <r-input :title="$t('carDetails.useSeniority')" :model="model" value="useSeniority" />
+                <!-- 车贷投保多年标志(车贷车标志) -->
+                <r-switch :title="$t('carDetails.isLoanVehicle')" :model="model" value="isLoadVehicle" />
                 <!-- 特殊车投保标志 -->
                 <r-selector :title="$t('carDetails.specialApplicationCode')" :model="model" value="specialApplicationCode" :options="specialApplicationCodeList" />
                 <r-button type="primary">{{$t('common.confirm')}}</r-button>
@@ -30,8 +36,7 @@
 </template>
 
 <script>
-import '../../../../i18n/carDetails';
-import '../../../../i18n/carDetailsOneWay';
+import '../../../../../i18n/carDetails';
 export default {
   props: {},
   data() {
@@ -55,6 +60,17 @@ export default {
         { key: 'B2A', value: 'B2A-中型专项作业半挂车' },
         { key: 'B21', value: 'B21-中型普通半挂车' },
         { key: 'K26', value: 'K25-中型轿车' }
+      ],
+      licenseTypeList: [
+        { key: '01', value: '01-大型汽车号牌' },
+        { key: '02', value: '02-小型汽车号牌' },
+        { key: '03', value: '03-使馆汽车号牌' },
+        { key: '04', value: '04-领馆汽车号牌' },
+        { key: '05', value: '05-境外汽车号牌' },
+        { key: '06', value: '06-外籍汽车号牌' },
+        { key: '07', value: '07-挂车号牌' },
+        { key: '08', value: '08-教练汽车号牌' },
+        { key: '09', value: '09-实验汽车号牌' }
       ],
       specialApplicationCodeList: [
         { key: '1', value: '非特殊车' },

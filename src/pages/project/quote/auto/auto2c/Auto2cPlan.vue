@@ -31,7 +31,7 @@
     </r-page>
 </template>
 <script>
-import '../../../../i18n/auto2cPlan';
+import '../../../../../i18n/auto2cPlan';
 export default {
   data() {
     return {

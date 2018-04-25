@@ -16,7 +16,7 @@
 
 </template>
 <script>
-import '../../../../i18n/autoCFeeInfo';
+import '../../../../../i18n/autoCFeeInfo';
 
 export default {
   data() {

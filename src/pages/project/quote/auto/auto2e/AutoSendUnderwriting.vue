@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import '../../../../i18n/autoSendUnderwriting';
+import '../../../../../i18n/autoSendUnderwriting';
 export default {
   data() {
     return {

@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import CarOwner from '../../components/CarOwner';
-import '../../../../i18n/autoSupplementInfo';
-import '../../../../i18n/proposalConfirm';
+import CarOwner from '../../../components/CarOwner';
+import '../../../../../i18n/autoSupplementInfo';
+import '../../../../../i18n/proposalConfirm';
 export default {
   components: {
     CarOwner

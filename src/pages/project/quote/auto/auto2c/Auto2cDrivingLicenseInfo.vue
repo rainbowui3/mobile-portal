@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import '../../../../i18n/auto2cDrivingLicenseInfo';
-import '../../../../i18n/carInfo';
-import '../../../../i18n/autoProposalInfoConfirm';
+import '../../../../../i18n/auto2cDrivingLicenseInfo';
+import '../../../../../i18n/carInfo';
+import '../../../../../i18n/autoProposalInfoConfirm';
 export default {
   data() {
     return {

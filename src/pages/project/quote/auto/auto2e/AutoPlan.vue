@@ -66,11 +66,11 @@
 
 </template>
 <script>
-import Jtgj from '../../../../assets/jtgj.jpg';
-import ProductTop from '../../components/ProductTop';
-import AutoAgent from '../../components/AutoAgent';
-import InsuranceDurationShortTerm from '../../components/InsuranceDurationShortTerm';
-import '../../../../i18n/autoPlan';
+import Jtgj from '../../../../../assets/jtgj.jpg';
+import ProductTop from '../../../components/ProductTop';
+import AutoAgent from '../../../components/AutoAgent';
+import InsuranceDurationShortTerm from '../../../components/InsuranceDurationShortTerm';
+import '../../../../../i18n/autoPlan';
 
 export default {
   components: {

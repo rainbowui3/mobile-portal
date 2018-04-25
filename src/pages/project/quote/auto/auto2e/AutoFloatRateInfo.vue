@@ -18,7 +18,7 @@
 
 </template>
 <script>
-import '../../../../i18n/autoFloatRateInfo';
+import '../../../../../i18n/autoFloatRateInfo';
 
 export default {
   data() {

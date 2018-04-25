@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import CarInfo from '../../components/CarInfo';
-import CarOwner from '../../components/CarOwner';
-import '../../../../i18n/carInfo';
-import '../../../../i18n/row';
-import '../../../../i18n/carAndOwnerInfoEntry';
-import '../../../../i18n/carAndOwnerInfoEntryOneWay';
+import CarInfo from '../../../components/CarInfo';
+import CarOwner from '../../../components/CarOwner';
+import '../../../../../i18n/carInfo';
+import '../../../../../i18n/row';
+import '../../../../../i18n/carAndOwnerInfoEntry';
+import '../../../../../i18n/carAndOwnerInfoEntryOneWay';
 export default {
   components: {
     CarInfo,

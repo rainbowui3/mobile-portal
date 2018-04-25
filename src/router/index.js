@@ -80,18 +80,18 @@ const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/page
 // auto2e
 const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
 const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/proposal/ChooseHandler'), 'ChooseHandler'));
-const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoPlan'), 'AutoPlan'));
-const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/CarAndOwnerInfoEntry'), 'CarAndOwnerInfoEntry'));
-const CarAndOwnerInfoEntryOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/CarAndOwnerInfoEntryOneWay'), 'CarAndOwnerInfoEntryOneWay'));
-const ChooseCar = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/ChooseCar'), 'ChooseCar'));
+const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoPlan'), 'AutoPlan'));
+const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarAndOwnerInfoEntry'), 'CarAndOwnerInfoEntry'));
+const CarAndOwnerInfoEntryOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarAndOwnerInfoEntryOneWay'), 'CarAndOwnerInfoEntryOneWay'));
+const ChooseCar = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/ChooseCar'), 'ChooseCar'));
 const AutoVehicleAndVesselTax = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/AutoVehicleAndVesselTax'), 'AutoVehicleAndVesselTax'));
-const CarDetails = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/CarDetails'), 'CarDetails'));
-const CarDetailsMotor = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/CarDetailsMotor'), 'CarDetailsMotor'));
-const CarDetailsOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/CarDetailsOneWay'), 'CarDetailsOneWay'));
-const AutoSupplementInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoSupplementInfo'), 'AutoSupplementInfo'));
-const AutoPremiumInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoPremiumInfo'), 'AutoPremiumInfo'));
-const AutoCFeeInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoCFeeInfo'), 'AutoCFeeInfo'));
-const AutoFloatRateInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoFloatRateInfo'), 'AutoFloatRateInfo'));
+const CarDetails = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarDetails'), 'CarDetails'));
+const CarDetailsMotor = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarDetailsMotor'), 'CarDetailsMotor'));
+const CarDetailsOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarDetailsOneWay'), 'CarDetailsOneWay'));
+const AutoSupplementInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoSupplementInfo'), 'AutoSupplementInfo'));
+const AutoPremiumInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoPremiumInfo'), 'AutoPremiumInfo'));
+const AutoCFeeInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoCFeeInfo'), 'AutoCFeeInfo'));
+const AutoFloatRateInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoFloatRateInfo'), 'AutoFloatRateInfo'));
 const VehicleLoss = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/VehicleLoss'), 'VehicleLoss'));
 const ThirdDutyMian = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/ThirdDutyMian'), 'ThirdDutyMian'));
 const CarRobberyMain = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/CarRobberyMain'), 'CarRobberyMain'));
@@ -107,15 +107,15 @@ const CarGoods = r => require.ensure([], () => r(require('@/pages/project/quote/
 const MetalDamage = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/MetalDamage'), 'MetalDamage'));
 const AppointRepairShop = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/AppointRepairShop'), 'AppointRepairShop'));
 const AutoPay = r => require.ensure([], () => r(require('@/pages/project/issue/AutoPay'), 'AutoPay'));
-const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/quote/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
+const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
 const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/bind/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
 // auto2c
 const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/bind/Auto2cProposalInfoConfirm'), 'Auto2cProposalInfoConfirm'));
-const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/quote/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
-const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
-const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto2c/Auto2cPlan'), 'Auto2cPlan'));
+const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
+const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
+const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cPlan'), 'Auto2cPlan'));
 const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/Auto2cUserInfo'), 'Auto2cUserInfo'));
-const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto2c/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
+const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/component/business/HolderInfo')), 'HolderInfo');

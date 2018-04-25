@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import '../../../../i18n/auto2cUserAddr';
+import '../../../../../i18n/auto2cUserAddr';
 export default {
   data() {
       return {

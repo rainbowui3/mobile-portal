@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import '../../../../i18n/chooseCar';
+import '../../../../../i18n/chooseCar';
 export default {
   props: {},
   data() {

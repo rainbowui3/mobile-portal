@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import CarInfo from '../../components/CarInfo';
-import CarOwner from '../../components/CarOwner';
-import '../../../../i18n/carInfo';
-import '../../../../i18n/carAndOwnerInfoEntry';
+import CarInfo from '../../../components/CarInfo';
+import CarOwner from '../../../components/CarOwner';
+import '../../../../../i18n/carInfo';
+import '../../../../../i18n/carAndOwnerInfoEntry';
 export default {
   components: {
     CarInfo,

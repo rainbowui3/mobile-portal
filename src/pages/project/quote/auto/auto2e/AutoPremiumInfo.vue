@@ -58,7 +58,7 @@
 
 </template>
 <script>
-import '../../../../i18n/AutoPremiumInfo';
+import '../../../../../i18n/AutoPremiumInfo';
 import config from 'config';
 
 export default {

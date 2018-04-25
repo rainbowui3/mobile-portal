@@ -92,8 +92,8 @@
 
 </template>
 <script>
-import AutoAgent from '../../components/AutoAgent';
-import '../../../../i18n/auto2cCustomPlan';
+import AutoAgent from '../../../components/AutoAgent';
+import '../../../../../i18n/auto2cCustomPlan';
 // import RowAndChecker from "../../components/RowAndChecker"
 import config from 'config';
 
