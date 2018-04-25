@@ -6,18 +6,18 @@
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
             </r-card>
             <r-card>
-                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="policy" value="drivingCity" :onClick="goto" :isLink="true" ></r-row>
+                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="customer" value="drivingCity" :onClick="goto" :isLink="true" ></r-row>
                 <r-cell :type="row">
                     <r-cell :span="7">
-                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policy" value="carLicense"></r-input>
+                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="customer" value="carLicense"></r-input>
                     </r-cell>
                     <r-cell :span="5">
-                        <r-checker :model="policy" value="" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
+                        <r-checker :model="customer" value="" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
                     </r-cell>
                 </r-cell>
-                <r-input :title="$t('productInfoEntryAutoC.name')" :model="policy" value="name"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policy" value="certificateNo" :validator="validateNumInput" :novalidate="false"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policy" value="mobile" :isPhone="true" :novalidate="false"></r-input>   
+                <r-input :title="$t('productInfoEntryAutoC.name')" :model="customer" value="name"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="customer" value="certificateNo" :validator="validateNumInput" :novalidate="false"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="customer" value="mobile" :isPhone="true" :novalidate="false"></r-input>   
             </r-card>
 
         </r-body>
@@ -33,7 +33,7 @@ import Jtgj from '../../../assets/jtgj.jpg';
 import ProductTop from '../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
-import {SubmissionStore} from 'rainbow-foundation-sdk';
+import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 
 export default {
   components: {
@@ -44,8 +44,7 @@ export default {
       productImgSrc: Jtgj,
       productDes: '车险',
       row: 'row',
-      submission: null,
-      policy: {
+      customer: {
           drivingCity: '上海',
           carLicense: '',
           newCar: false,
@@ -56,7 +55,17 @@ export default {
     };
   },
   methods: {
-    nextOnClick() {
+    async nextOnClick() {
+        this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+
+        const param = {
+            'productCode': 'DEA',
+            'productVersion': '1.0',
+            'policyType': '1' // 1  POLICY 2 MASTERPOLICY 3 GROUPPOLICY 4 CERTIFICATE
+        };
+
+        this.policy = PolicyStore.initPolicy(param);
+
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
@@ -73,9 +82,6 @@ export default {
       };
     }
 
-   },
-   async created() {
-      this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
    }
 
 };
