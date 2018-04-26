@@ -45,7 +45,7 @@ export default {
                         {
                             name: '交强险',
                             isNonDeductible: false,
-                            value: '投保'
+                            value: '保额'
                         },
                         {
                             name: '机动车损失险',
@@ -168,7 +168,6 @@ export default {
 </script>
 <style >
 .auto2cPlan {
-    margin-top: 20px;
     background-color: #fff;
 }
 .selectedPlanContent {
