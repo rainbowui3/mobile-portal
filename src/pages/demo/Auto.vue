@@ -21,7 +21,7 @@ export default {
           onClick: this.goto,
           param: {
             url: '/proposal/LoadingPage',
-            productCode: 'DEA-DFA',
+            productCode: 'DEA',
             productVersion: '1.0',
             proposalTemplate: '9',
             policyType: '1'/// / 1  POLICY 2 MASTERPOLICY 3 GROUPPOLICY 4 CERTIFICATE

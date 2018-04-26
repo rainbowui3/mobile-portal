@@ -6,7 +6,7 @@
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
             </r-card>
             <r-card>
-                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="customer" value="drivingCity" :onClick="goto" :isLink="true" ></r-row>
+                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="customer" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row">
                     <r-cell :span="7">
                         <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="customer" value="carLicense"></r-input>
@@ -33,8 +33,8 @@ import Jtgj from '../../../assets/jtgj.jpg';
 import ProductTop from '../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
-import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-
+import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
+import {UrlUtil} from 'rainbow-foundation-tools';
 export default {
   components: {
     ProductTop
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       productImgSrc: Jtgj,
-      productDes: '车险',
+      productDes: '',
       row: 'row',
       customer: {
           drivingCity: '上海',
@@ -51,28 +51,42 @@ export default {
           name: '',
           certificateNo: '',
           mobile: ''
-      }
+      },
+      policy: null
     };
+  },
+  async mounted() {
+        const urlObject = UrlUtil.parseURL(window.location.href);
+
+        const productId = await ProductStore.getProductId({ 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion });
+
+        const product = await ProductStore.getProduct(productId);
+
+        this.productDes = product.ProductElementName;
   },
   methods: {
     async nextOnClick() {
-        this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+        const urlObject = UrlUtil.parseURL(window.location.href);
 
-        const param = {
-            'productCode': 'DEA',
-            'productVersion': '1.0',
-            'policyType': '1' // 1  POLICY 2 MASTERPOLICY 3 GROUPPOLICY 4 CERTIFICATE
-        };
+        const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
 
-        this.policy = PolicyStore.initPolicy(param);
+        const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
+
+        this.buildCustomer(policy);
+
+        SubmissionStore.setPolicy(policy, submission, true);
 
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
         });
     },
-    goto() {
-
+    buildCustomer(policy) {
+            // initChlid
+            const param = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+            const policyCustomer = PolicyStore.initChild(param, policy);
+            policyCustomer['CustomerName'] = this.customer['name'];
+            PolicyStore.setChild(policyCustomer, policy, param);
     },
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
