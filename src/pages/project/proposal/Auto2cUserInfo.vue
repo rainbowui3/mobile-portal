@@ -33,8 +33,8 @@ import Jtgj from '../../../assets/jtgj.jpg';
 import ProductTop from '../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
-import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-
+import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
+import {UrlUtil} from 'rainbow-foundation-tools';
 export default {
   components: {
     ProductTop
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       productImgSrc: Jtgj,
-      productDes: '车险',
+      productDes: '',
       row: 'row',
       customer: {
           drivingCity: '上海',
@@ -51,20 +51,30 @@ export default {
           name: '',
           certificateNo: '',
           mobile: ''
-      }
+      },
+      policy: null
     };
+  },
+  async mounted() {
+        const urlObject = UrlUtil.parseURL(window.location.href);
+
+        const productId = await ProductStore.getProductId({ 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion });
+
+        const product = await ProductStore.getProduct(productId);
+
+        this.productDes = product.VersionDescription;
   },
   methods: {
     async nextOnClick() {
-        this.submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+        const urlObject = UrlUtil.parseURL(window.location.href);
 
-        const param = {
-            'productCode': 'DEA',
-            'productVersion': '1.0',
-            'policyType': '1' // 1  POLICY 2 MASTERPOLICY 3 GROUPPOLICY 4 CERTIFICATE
-        };
+        await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
 
-        this.policy = PolicyStore.initPolicy(param);
+        const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
+
+        SubmissionStore.setPolicy(policy);
+
+        this.policy = policy;
 
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
