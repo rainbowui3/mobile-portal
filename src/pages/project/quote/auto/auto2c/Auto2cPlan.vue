@@ -1,34 +1,40 @@
 <template>
-  <r-page>
-    <top :title="$t('auto2cPlan.title')" :showBack="true" />
-    <r-body>
-      <r-tab :tabItems="tabItems" class="tab" />
-      <div class="auto2cPlan">
-        <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
-          <div class="selectedPlanContent">
-            <div class="planName">
-              {{selectedPlan.name}}
+    <r-page>
+        <top :title="$t('auto2cPlan.title')" :showBack="true" />
+        <r-body>
+            <div class='planTab'>
+                <div>
+                    <r-tab :tabItems="tabItems" class="tab" />
+                </div>
+                <div class="customPlan" v-on:click="gotoCustomPlan">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <span class="planEdit">修改</span>
+                </div>
             </div>
-            <div class="planAddition" v-if="selectedPlan.isNonDeductible">
-              {{"不计免赔"}}
-            </div>
+            <div class="auto2cPlan">
+                <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
+                    <div class="selectedPlanContent">
+                        <div class="planName">
+                            {{selectedPlan.name}}
+                        </div>
+                        <div class="planAddition" v-if="selectedPlan.isNonDeductible">
+                            {{"不计免赔"}}
+                        </div>
 
-          </div>
-          <div class="planAmount">
-            {{selectedPlan.value}}
-          </div>
-        </div>
-      </div>
-    </r-body>
-    <r-tab-bar>
-      <r-card class="bottom">
-        <div class="customPlan" v-on:click="gotoCustomPlan">
-          <a href="javascript:void(0);" class="link">{{"修改投保方案"}}</a>
-        </div>
-        <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
-      </r-card>
-    </r-tab-bar>
-  </r-page>
+                    </div>
+                    <div class="planAmount">
+                        {{selectedPlan.value}}
+                    </div>
+                </div>
+            </div>
+        </r-body>
+        <r-tab-bar>
+            <r-card class="bottom">
+
+                <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
+            </r-card>
+        </r-tab-bar>
+    </r-page>
 </template>
 <script>
 import '../../../../../i18n/auto2cPlan';
@@ -211,6 +217,32 @@ export default {
     background-color: #eee;
     text-align: center;
     padding: 5px 0;
+}
+.planTab {
+    display: flex;
+}
+.planTab > :nth-child(1) {
+    width: 85%;
+}
+.customPlan {
+    position: relative;
+    width: 15%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ff9414;
+    padding-left:10px;
+}
+.customPlan>i{
+    font-size: 20px;
+}
+.planEdit{
+    left: 30px;
+    top:15px;
+    position: absolute;
+    font-size: 13px;
+    color:#ff9414;
+    vertical-align: bottom;
 }
 </style>
 
