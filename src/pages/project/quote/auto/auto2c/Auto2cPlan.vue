@@ -12,6 +12,7 @@
             <div class="planAddition" v-if="selectedPlan.isNonDeductible">
               {{"不计免赔"}}
             </div>
+
           </div>
           <div class="planAmount">
             {{selectedPlan.value}}
@@ -204,8 +205,8 @@ export default {
     line-height: 20px;
 }
 .link {
-    color: #4d93e4;
     font-size: 14px;
+    color: #4d93e4;
 }
 .customPlan {
     background-color: #eee;
