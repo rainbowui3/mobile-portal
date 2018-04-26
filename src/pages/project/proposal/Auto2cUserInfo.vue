@@ -6,7 +6,7 @@
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
             </r-card>
             <r-card>
-                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="customer" value="drivingCity" :onClick="goto" :isLink="true" ></r-row>
+                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="customer" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row">
                     <r-cell :span="7">
                         <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="customer" value="carLicense"></r-input>
@@ -62,27 +62,31 @@ export default {
 
         const product = await ProductStore.getProduct(productId);
 
-        this.productDes = product.VersionDescription;
+        this.productDes = product.ProductElementName;
   },
   methods: {
     async nextOnClick() {
         const urlObject = UrlUtil.parseURL(window.location.href);
 
-        await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+        const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
 
         const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
 
-        SubmissionStore.setPolicy(policy);
+        this.buildCustomer(policy);
 
-        this.policy = policy;
+        SubmissionStore.setPolicy(policy, submission, true);
 
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
         });
     },
-    goto() {
-
+    buildCustomer(policy) {
+            // initChlid
+            const param = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+            const policyCustomer = PolicyStore.initChild(param, policy);
+            policyCustomer['CustomerName'] = this.customer['name'];
+            PolicyStore.setChild(policyCustomer, policy, param);
     },
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
