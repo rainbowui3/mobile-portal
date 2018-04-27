@@ -74,8 +74,9 @@ export default {
             const policyCustomer = PolicyStore.initChild(policyCustomerParam, policy);
             this.policyCustomer = policyCustomer;
             PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
-            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
-            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
+            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
+            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
+            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
 
             const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
             const policyRisk = PolicyStore.initChild(policyRiskParam, policy);
