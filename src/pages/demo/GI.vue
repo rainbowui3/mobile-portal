@@ -1,6 +1,6 @@
 <template>
   <r-page>
-       <top :title="$t('demo.exapmle')" :showBack="true"/>
+       <top :title="$t('demo.example')" :showBack="true"/>
        <r-body>
             <r-tab :tabItems="tabItems"/>
             <r-image :list="products"/>

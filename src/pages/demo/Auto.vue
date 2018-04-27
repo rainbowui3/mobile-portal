@@ -1,6 +1,6 @@
 <template>
   <r-page>
-       <top :title="$t('home.exapmle')" :showBack="true"/>
+       <top :title="$t('demo.example')" :showBack="true"/>
        <r-body>
             <r-tab :tabItems="tabItems"/>
             <r-image :list="products"/>
@@ -11,6 +11,7 @@
 
 <script>
 import Jtgj from '../../assets/jtgj.jpg';
+import '../../i18n/demo';
 
 export default {
   data() {

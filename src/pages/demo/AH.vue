@@ -1,6 +1,6 @@
 <template>
   <r-page>
-       <top :title="$t('home.exapmle')" :showBack="true"/>
+       <top :title="$t('demo.example')" :showBack="true"/>
        <r-body>
             <r-tab :tabItems="tabItems"/>
             <r-image :list="products"/>
@@ -14,6 +14,7 @@ import Female from '../../assets/female.jpg';
 import Ly from '../../assets/ly.jpg';
 import Ycx from '../../assets/ycx.jpg';
 import Ywx from '../../assets/ywx.jpg';
+import '../../i18n/demo';
 export default {
   data() {
       return {
