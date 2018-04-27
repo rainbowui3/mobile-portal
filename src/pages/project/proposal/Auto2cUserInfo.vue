@@ -6,7 +6,7 @@
                 <product-top :productImgSrc="productImgSrc" :productDes="productDes" />
             </r-card>
             <r-card>
-                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="data" value="drivingCity" :isLink="true" ></r-row>
+                <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row">
                     <r-cell :span="7">
                         <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo"></r-input>
@@ -15,9 +15,9 @@
                         <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
                     </r-cell>
                 </r-cell>
-                <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomer" value="CustomerName"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomer" value="IdNo" :validator="validateNumInput" :novalidate="false"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomer" value="IndiMobile" :isPhone="true" :novalidate="false"></r-input>   
+                <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false"></r-input>   
             </r-card>
 
         </r-body>
@@ -34,7 +34,7 @@ import ProductTop from '../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-import {UrlUtil} from 'rainbow-foundation-tools';
+import {UrlUtil, ObjectUtil} from 'rainbow-foundation-tools';
 export default {
   components: {
     ProductTop
@@ -45,15 +45,8 @@ export default {
       productDes: '',
       row: 'row',
       policyCustomerOwner: {},
-      policyCustomerHolder: {},
-      policyCustomerInsured: {},
-      policyCustomerContact: {},
       policyRisk: {},
-      data: {
-          drivingCity: '上海'
-      },
-      submissionId: '11'
-
+      drivingCity: '上海'
     };
   },
   async mounted() {
@@ -74,11 +67,16 @@ export default {
         } else {
             const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
             const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
-            const policyCustomer = PolicyStore.createChild(policyCustomerParam, policy);
-            policyCustomer['CustomerRoeCode'] = 0;
-            this.policyCustomer = policyCustomer;
-            PolicyStore.createChild(policyCustomerParam, policy);
-            PolicyStore.createChild(policyCustomerParam, policy);
+            const policyCustomerOwner = PolicyStore.createChild(policyCustomerParam, policy);
+            policyCustomerOwner['CustomerRoeCode'] = '3';
+            this.policyCustomerOwner = policyCustomerOwner;
+            const policyCustomerHolder = PolicyStore.createChild(policyCustomerParam, policy);
+            policyCustomerHolder['CustomerRoleCode'] = '1';
+            const policyCustomerInsured = PolicyStore.createChild(policyCustomerParam, policy);
+            policyCustomerInsured['CustomerRoleCode'] = '2';
+            const policyCustomerContact = PolicyStore.createChild(policyCustomerParam, policy);
+            policyCustomerContact['CustomerRoleCode'] = '5';
+
             PolicyStore.createChild(policyCustomerParam, policy);
             const policyRisk = PolicyStore.createChild(policyRiskParam, policy);
             this.policyRisk = policyRisk;
@@ -87,28 +85,19 @@ export default {
   },
   methods: {
     async nextOnClick() {
-        this.policyCustomerHolder = this.policyCustomerOwner;
-        this.policyCustomerHolder['CustomerRoleCode'] = '1';
-        this.policyCustomerInsured = this.policyCustomerOwner;
-        this.policyCustomerInsured['CustomerRoleCode'] = '2';
-        this.policyCustomerContact = this.policyCustomerOwner;
-        this.policyCustomerContact['CustomerRoleCode'] = '5';
-        this.policyCustomerOwner['CustomerRoleCode'] = '3';
+        const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+        const submission = SubmissionStore.getSubmission('NoSubmissionId');
+        const policy = SubmissionStore.getPolicy(submission);
+        const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
+        _.each(policyCustomers, (customer) => {
+            const CustomerRoleCode = customer['CustomerRoleCode'];
+            ObjectUtil.extend(true, customer, this.policyCustomerOwner);
+            customer['CustomerRoleCode'] = CustomerRoleCode;
+        });
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
-            //  {
-            //     productCode: this.$route.query.productCode,
-            //     productVersion: this.$route.query.productVersion,
-            //     submissionId: this.submissionId
-            // }
         });
-    },
-    buildCustomer(policy) {
-            // initChlid
-            const param = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-            const policyCustomer = PolicyStore.initChild(param, policy);
-            PolicyStore.setChild(policyCustomer, policy, param);
     },
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);
