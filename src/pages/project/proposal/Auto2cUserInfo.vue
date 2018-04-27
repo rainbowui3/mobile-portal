@@ -58,31 +58,27 @@ export default {
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
         this.productDes = product.ProductElementName;
-        const submissionId = urlObject.params.submissionId;
-
-        if (submissionId) {
-
+        const submission = SubmissionStore.getSubmission('NoSubmissionId');
+        const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+        const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+        if (submission) {
+            const policy = SubmissionStore.getPolicy(submission);
+            const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
+            this.policyCustomer = _.find(policyCustomers, (customer) => {
+                return customer['CustomerRoeCode'] == 0;
+            });
+            this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
         } else {
             const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
             const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
-              // init customer 4
-              // this.customer = customer;
-              // init risk
-              // set policy
-              // set policy
-            const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
-            const policyCustomer = PolicyStore.initChild(policyCustomerParam, policy);
+            const policyCustomer = PolicyStore.createChild(policyCustomerParam, policy);
+            policyCustomer['CustomerRoeCode'] = 0;
             this.policyCustomer = policyCustomer;
-            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
-
-            const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
-            const policyRisk = PolicyStore.initChild(policyRiskParam, policy);
+            PolicyStore.createChild(policyCustomerParam, policy);
+            PolicyStore.createChild(policyCustomerParam, policy);
+            PolicyStore.createChild(policyCustomerParam, policy);
+            const policyRisk = PolicyStore.createChild(policyRiskParam, policy);
             this.policyRisk = policyRisk;
-            PolicyStore.setChild(policyRisk, policy, policyRiskParam);
-
             SubmissionStore.setPolicy(policy, submission, true);
         }
   },
