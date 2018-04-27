@@ -9,15 +9,15 @@
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="data" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row">
                     <r-cell :span="7">
-                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="data" value="carLicense"></r-input>
+                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo"></r-input>
                     </r-cell>
                     <r-cell :span="5">
-                        <r-checker :model="data" value="" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
+                        <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
                     </r-cell>
                 </r-cell>
-                <r-input :title="$t('productInfoEntryAutoC.name')" :model="data" value="name"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="data" value="certificateNo" :validator="validateNumInput" :novalidate="false"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="data" value="mobile" :isPhone="true" :novalidate="false"></r-input>   
+                <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomer" value="CustomerName"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomer" value="IdNo" :validator="validateNumInput" :novalidate="false"></r-input>
+                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomer" value="IndiMobile" :isPhone="true" :novalidate="false"></r-input>   
             </r-card>
 
         </r-body>
@@ -44,14 +44,12 @@ export default {
       productImgSrc: Jtgj,
       productDes: '',
       row: 'row',
-      customer: {
-          drivingCity: '上海',
-          carLicense: '',
-          newCar: false,
-          name: '',
-          certificateNo: '',
-          mobile: ''
-      }
+      policyCustomer: {},
+      policyRisk: {},
+      data: {
+          drivingCity: '上海'
+      },
+      submissionId: '11'
 
     };
   },
@@ -61,17 +59,30 @@ export default {
         let product = await ProductStore.getProductByCodeVersion(param);
         this.productDes = product.ProductElementName;
         const submissionId = urlObject.params.submissionId;
+
         if (submissionId) {
 
         } else {
-              const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
-              const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
+            const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
+            const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
               // init customer 4
               // this.customer = customer;
               // init risk
               // set policy
               // set policy
-              SubmissionStore.setPolicy(policy, submission, true);
+            const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
+            const policyCustomer = PolicyStore.initChild(policyCustomerParam, policy);
+            this.policyCustomer = policyCustomer;
+            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
+            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
+            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
+
+            const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
+            const policyRisk = PolicyStore.initChild(policyRiskParam, policy);
+            this.policyRisk = policyRisk;
+            PolicyStore.setChild(policyRisk, policy, policyRiskParam);
+
+            SubmissionStore.setPolicy(policy, submission, true);
         }
   },
   methods: {
@@ -79,6 +90,11 @@ export default {
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
+            //  {
+            //     productCode: this.$route.query.productCode,
+            //     productVersion: this.$route.query.productVersion,
+            //     submissionId: this.submissionId
+            // }
         });
     },
     buildCustomer(policy) {
