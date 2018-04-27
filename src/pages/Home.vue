@@ -2,35 +2,27 @@
     <r-page>
         <top :title="$t('businessHome.home')" :showBack="true" />
         <r-body>
-            <r-tab :tabItems="swTabItems" />
-            <r-swiper :model="index" :height="height">
-                <r-swiper-item>
-                    <!--<div class="line">
+            <!--<div class="line">
                         <r-divider>{{$t('businessHome.product')}}</r-divider>
                     </div>-->
-                    <show-one :show="show" :showOne="showOne" :img="img" :onClick='goToUrl' />
-                    <div class="modal">
-                        <show-one :showOne="showOne" :img="img" :onClick='goToUrl' />
-                    </div>
-                    <div class="line">
-                        <r-divider>{{$t('businessHome.selectProduct')}}</r-divider>
-                    </div>
-                    <div class="modal">
-                        <show-two :showTwo="showTwo" :picture="picture" />
-                    </div>
-                    <div class="modal">
-                        <show-two :showTwo="showTwo" :picture="picture" />
-                    </div>
-                    <div class="modal">
-                        <show-two :showTwo="showTwo" :picture="picture" />
-                    </div>
-                    <div class="end">没有更多了</div>
-                </r-swiper-item>
-                <r-swiper-item>
-                </r-swiper-item>
-                <r-swiper-item>
-                </r-swiper-item>
-            </r-swiper>
+            <show-one :show="show" :showOne="showOne" :img="img" :onClick='goToUrl' />
+            <div class="modal">
+                <show-one :showOne="showOne" :img="img" :onClick='goToUrl' />
+            </div>
+            <div class="line">
+                <r-divider>{{$t('businessHome.selectProduct')}}</r-divider>
+            </div>
+            <div class="modal">
+                <show-two :showTwo="showTwo" :picture="picture" />
+            </div>
+            <div class="modal">
+                <show-two :showTwo="showTwo" :picture="picture" />
+            </div>
+            <div class="modal">
+                <show-two :showTwo="showTwo" :picture="picture" />
+            </div>
+            <div class="end">没有更多了</div>
+
             <bottom :index="1" />
         </r-body>
     </r-page>
@@ -72,62 +64,8 @@ export default {
             index: 0
         };
     },
-    computed: {
-        swTabItems() {
-            return [
-                {
-                    selected: true,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('businessHome.home'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: true,
-                    disabled: false,
-                    badge: '1',
-                    text: this.$t('businessHome.life'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('businessHome.accident'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('businessHome.cargo'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('businessHome.health'),
-                    onClick: this.goto
-                }
-            ];
-        }
-    },
+
     methods: {
-        core() {
-            window.location.hash = '/component/example/tab';
-        },
-        advanced() {
-            window.location.hash = '/component/example/tab';
-        },
-        business() {
-            window.location.hash = '/component/example/tab';
-        },
         goto(index) {
             this.index = index;
         },
