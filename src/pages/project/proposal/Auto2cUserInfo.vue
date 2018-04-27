@@ -34,7 +34,7 @@ import ProductTop from '../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-import {UrlUtil, ObjectUtil} from 'rainbow-foundation-tools';
+import {UrlUtil} from 'rainbow-foundation-tools';
 export default {
   components: {
     ProductTop
@@ -54,19 +54,20 @@ export default {
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
         this.productDes = product.ProductElementName;
-        const submission = SubmissionStore.getSubmission('NoSubmissionId');
+        const submission = SubmissionStore.getSubmission();
         const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-        const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
         if (submission) {
             const policy = SubmissionStore.getPolicy(submission);
             const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
             this.policyCustomer = _.find(policyCustomers, (customer) => {
-                return customer['CustomerRoeCode'] == 0;
+                return customer['CustomerRoeCode'] == '3';
             });
             this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
         } else {
             const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
             const policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
+
             const policyCustomerOwner = PolicyStore.createChild(policyCustomerParam, policy);
             policyCustomerOwner['CustomerRoeCode'] = '3';
             this.policyCustomerOwner = policyCustomerOwner;
@@ -77,7 +78,9 @@ export default {
             const policyCustomerContact = PolicyStore.createChild(policyCustomerParam, policy);
             policyCustomerContact['CustomerRoleCode'] = '5';
 
-            PolicyStore.createChild(policyCustomerParam, policy);
+            const policyLobParam = {'ModelName': 'PolicyLob', 'ObjectCode': 'DEA'};
+            PolicyStore.createChild(policyLobParam, policy);
+
             const policyRisk = PolicyStore.createChild(policyRiskParam, policy);
             this.policyRisk = policyRisk;
             SubmissionStore.setPolicy(policy, submission, true);
@@ -86,13 +89,11 @@ export default {
   methods: {
     async nextOnClick() {
         const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-        const submission = SubmissionStore.getSubmission('NoSubmissionId');
+        const submission = SubmissionStore.getSubmission();
         const policy = SubmissionStore.getPolicy(submission);
         const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
         _.each(policyCustomers, (customer) => {
-            const CustomerRoleCode = customer['CustomerRoleCode'];
-            ObjectUtil.extend(true, customer, this.policyCustomerOwner);
-            customer['CustomerRoleCode'] = CustomerRoleCode;
+
         });
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
