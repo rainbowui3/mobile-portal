@@ -44,7 +44,10 @@ export default {
       productImgSrc: Jtgj,
       productDes: '',
       row: 'row',
-      policyCustomer: {},
+      policyCustomerOwner: {},
+      policyCustomerHolder: {},
+      policyCustomerInsured: {},
+      policyCustomerContact: {},
       policyRisk: {},
       data: {
           drivingCity: '上海'
@@ -84,6 +87,13 @@ export default {
   },
   methods: {
     async nextOnClick() {
+        this.policyCustomerHolder = this.policyCustomerOwner;
+        this.policyCustomerHolder['CustomerRoleCode'] = '1';
+        this.policyCustomerInsured = this.policyCustomerOwner;
+        this.policyCustomerInsured['CustomerRoleCode'] = '2';
+        this.policyCustomerContact = this.policyCustomerOwner;
+        this.policyCustomerContact['CustomerRoleCode'] = '5';
+        this.policyCustomerOwner['CustomerRoleCode'] = '3';
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
