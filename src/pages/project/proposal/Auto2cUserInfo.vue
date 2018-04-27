@@ -44,7 +44,10 @@ export default {
       productImgSrc: Jtgj,
       productDes: '',
       row: 'row',
-      policyCustomer: {},
+      policyCustomerOwner: {},
+      policyCustomerHolder: {},
+      policyCustomerInsured: {},
+      policyCustomerContact: {},
       policyRisk: {},
       data: {
           drivingCity: '上海'
@@ -71,12 +74,18 @@ export default {
               // set policy
               // set policy
             const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
-            const policyCustomer = PolicyStore.initChild(policyCustomerParam, policy);
-            this.policyCustomer = policyCustomer;
-            PolicyStore.setChild(policyCustomer, policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
-            PolicyStore.setChild(PolicyStore.initChild(policyCustomerParam, policy), policy, policyCustomerParam);
+            const policyCustomerOwner = PolicyStore.initChild(policyCustomerParam, policy);
+            this.policyCustomerOwner = policyCustomerOwner;
+            const policyCustomerHolder = PolicyStore.initChild(policyCustomerParam, policy);
+            this.policyCustomerHolder = policyCustomerHolder;
+            const policyCustomerInsured = PolicyStore.initChild(policyCustomerParam, policy);
+            this.policyCustomerInsured = policyCustomerInsured;
+            const policyCustomerContact = PolicyStore.initChild(policyCustomerParam, policy);
+            this.policyCustomerContact = policyCustomerContact;
+            PolicyStore.setChild(policyCustomerOwner, policy, policyCustomerParam);
+            PolicyStore.setChild(policyCustomerHolder, policy, policyCustomerParam);
+            PolicyStore.setChild(policyCustomerInsured, policy, policyCustomerParam);
+            PolicyStore.setChild(policyCustomerContact, policy, policyCustomerParam);
 
             const policyRiskParam = {'ModelName': 'PolicyCustomer', 'ModelCode': 'PolicyCustomer'};
             const policyRisk = PolicyStore.initChild(policyRiskParam, policy);
@@ -88,6 +97,13 @@ export default {
   },
   methods: {
     async nextOnClick() {
+        this.policyCustomerHolder = this.policyCustomerOwner;
+        this.policyCustomerHolder['CustomerRoleCode'] = '1';
+        this.policyCustomerInsured = this.policyCustomerOwner;
+        this.policyCustomerInsured['CustomerRoleCode'] = '2';
+        this.policyCustomerContact = this.policyCustomerOwner;
+        this.policyCustomerContact['CustomerRoleCode'] = '5';
+        this.policyCustomerOwner['CustomerRoleCode'] = '3';
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
