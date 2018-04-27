@@ -3,7 +3,7 @@
     <top :title="$t('project.accident')" :showBack="true" />
     <r-body>
       <r-card>
-        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi :readonlyEx="readonly" :readonlyEf="readonly" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </r-card>
       <r-card :title="$t('insuredInfoAccident.passengerInfo')">
         <holder-info :model="policy.passengerInfo" :readonly="readonly" />
@@ -29,7 +29,7 @@
 <script>
 import ProposalConfirm from '../components/ProposalConfirm';
 import HolderInfo from '../components/HolderInfo';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 import '../../../i18n/insuredInfoAccident';
 import '../../../i18n/input';
@@ -39,7 +39,7 @@ export default {
   components: {
     ProposalConfirm,
     HolderInfo,
-    InsuranceDurationShortTerm,
+    Poi,
     ProposalClauseConfirm
   },
   data() {

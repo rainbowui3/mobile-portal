@@ -30,7 +30,7 @@
           </div>
         </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="model" value="region" />
-        <insurance-duration-short-term type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
+        <poi type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
       </r-card>
       <r-card>
         <r-list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
@@ -58,11 +58,11 @@ import '../../../i18n/carInfo';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 export default {
   components: {
     ProposalClauseConfirm,
-    InsuranceDurationShortTerm
+    Poi
   },
   data() {
     return {

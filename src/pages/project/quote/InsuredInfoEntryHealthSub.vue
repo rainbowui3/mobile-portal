@@ -4,7 +4,7 @@
     <r-body>
       <!-- 保险期限选择 -->
       <r-card>
-        <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </r-card>
       <!-- 投保人信息 -->
       <r-card :title="$t('common.holderInfo')">
@@ -43,7 +43,7 @@ import HolderInfo from '../components/HolderInfo';
 import InsuredInfo from '../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import '../../../i18n/proposalConfirm';
 import '../../../i18n/holderInfo';
@@ -56,7 +56,7 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,
-    InsuranceDurationShortTerm
+    Poi
   },
   data() {
     return {

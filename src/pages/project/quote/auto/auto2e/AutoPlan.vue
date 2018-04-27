@@ -29,7 +29,7 @@
                      <r-checker :model="policy" value="value2" :text="$t('autoPlan.shortInsurance')" :onChange="onChange" type="icon"/>
                     </r-cell>
                   </r-cell>               
-                  <insurance-duration-shortTerm type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></insurance-duration-shortTerm>
+                  <poi type="minute" :model="policy" effectiveDate="effectiveDate" expireDate="expireDate"></poi>
                   <r-row :title="$t('autoPlan.vehicleLoss')" :model="policy" value="value" link="/project/proposal/auto2e/VehicleLoss"></r-row>
                   <r-row :title="$t('autoPlan.thirdDutyMian')" :model="policy" value="value" link="/project/proposal/auto2e/ThirdDutyMian"></r-row>
                   <r-row :title="$t('autoPlan.carRobberyMain')" :model="policy" value="value" link="/project/proposal/auto2e/CarRobberyMain"></r-row>
@@ -69,14 +69,14 @@
 import Jtgj from '../../../../../assets/jtgj.jpg';
 import ProductTop from '../../../components/ProductTop';
 import AutoAgent from '../../../components/AutoAgent';
-import InsuranceDurationShortTerm from '../../../components/InsuranceDurationShortTerm';
+import Poi from '../../../../../components/Poi';
 import '../../../../../i18n/autoPlan';
 
 export default {
   components: {
     AutoAgent,
     ProductTop,
-    InsuranceDurationShortTerm
+    Poi
   },
   data() {
     return {

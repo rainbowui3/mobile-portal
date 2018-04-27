@@ -3,7 +3,7 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <r-card :title="$t('planSelection.term')">
-        <insurance-duration-short-term type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </r-card>
       <r-card :title="$t('common.holder')">
         <holder-info :model="policy.holderInfo" :required="required"/>
@@ -32,7 +32,7 @@
 
 <script>
 import HolderInfo from '../components/HolderInfo';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import InsuredInfo from '../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
@@ -45,7 +45,7 @@ import '../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
     HolderInfo,
-    InsuranceDurationShortTerm,
+    Poi,
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalClauseConfirm,

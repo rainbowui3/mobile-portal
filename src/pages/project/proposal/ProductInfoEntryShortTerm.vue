@@ -8,7 +8,7 @@
       </r-card>
       <r-card>
         <r-checker type="icon" :text="$t('autoPlan.effectImmediately')" :model="policy.policyData" value="isEffectiveImmediately" class="isEffectiveImmediately" />
-        <insurance-duration-shortTerm type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="policy.policyData.isEffectiveImmediately"></insurance-duration-shortTerm>
+        <poi type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEf="policy.policyData.isEffectiveImmediately"></poi>
       </r-card>
       <r-card>
         <plan-selection></plan-selection>
@@ -26,7 +26,7 @@
 
 <script>
 import ProductTop from '../components/ProductTop';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import PlanSelection from '../components/PlanSelection';
 import ProposalCopies from '../components/ProposalCopies';
 import ProposalConfirm from '../components/ProposalConfirm';
@@ -37,7 +37,7 @@ import '../../../i18n/project';
 export default {
   components: {
     ProductTop,
-    InsuranceDurationShortTerm,
+    Poi,
     PlanSelection,
     ProposalCopies,
     ProposalConfirm
