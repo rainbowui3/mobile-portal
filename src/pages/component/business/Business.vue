@@ -49,25 +49,9 @@ export default {
       return [
         { icon: 'fa fa-address-card ', text: this.$t('component.address') },
         {
-          icon: 'fa fa-navicon ',
-          text: this.$t('business.holderInfo'),
-          link: '/component/business/holderInfo'
-        },
-        {
           icon: 'fa fa-warning ',
           text: this.$t('business.insuranceDurationCurrency'),
           link: '/component/business/insuranceDurationCurrency'
-        },
-
-        {
-          icon: 'fa fa-square-o ',
-          text: this.$t('business.insuredInfo'),
-          link: '/component/business/insuredInfo'
-        },
-        {
-          icon: 'fa fa-window-maximize ',
-          text: this.$t('business.planSelection'),
-          link: '/component/business/planSelection'
         },
         {
           icon: 'fa fa-server ',
@@ -79,19 +63,6 @@ export default {
           text: this.$t('business.proposalClauseConfirm'),
           link: '/component/business/proposalClauseConfirm'
         },
-
-        {
-          icon: 'fa fa-info-circle ',
-          text: this.$t('business.proposalCopies'),
-          link: '/component/business/proposalCopies'
-        },
-
-        {
-          icon: 'fa fa-info-circle ',
-          text: this.$t('business.homeContent'),
-          link: '/component/business/homeContent'
-        },
-
         {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.pay'),
