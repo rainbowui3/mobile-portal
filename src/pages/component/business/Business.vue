@@ -108,13 +108,13 @@ export default {
           icon: 'fa fa-info-circle ',
           text: this.$t('business.businessSignIn'),
           link: '/component/business/businessSignIn'
-        },
-
-        {
-          icon: 'fa fa-info-circle ',
-          text: this.$t('business.navTab'),
-          link: '/component/business/businessNavTab'
         }
+
+        // {
+        //   icon: 'fa fa-info-circle ',
+        //   text: this.$t('business.navTab'),
+        //   link: '/component/business/businessNavTab'
+        // }
       ];
     }
   },
