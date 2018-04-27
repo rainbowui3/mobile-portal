@@ -1,11 +1,5 @@
 <template>
-  <r-page>
-    <top :title="$t('我是一个loading页面')" />
-    <r-body>
-
-    </r-body>
-    <r-tab-bar></r-tab-bar>
-  </r-page>
+  
 </template>
 
 <script>
