@@ -49,7 +49,7 @@ export default {
       drivingCity: '上海'
     };
   },
-  async mounted() {
+  async created() {
         const urlObject = UrlUtil.parseURL(window.location.href);
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
