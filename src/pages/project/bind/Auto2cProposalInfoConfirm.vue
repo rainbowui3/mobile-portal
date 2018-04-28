@@ -16,11 +16,11 @@
             <span class="fa fa-edit" v-on:click="gotoCarInfo" />
           </div>
         </r-row>
-        <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />
-        <r-input :title="$t('autoProposalInfoConfirm.model')" :model="model" value="model" :readonly="true" />
-        <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="model" value="vehicleCode" :readonly="true" />
-        <r-input :title="$t('carInfo.engineNo')" :model="model" value="engineNo" :readonly="true" />
-        <r-input :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :readonly="true" />
+        <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="policyRisk" value="LicenseNo" :readonly="true" />
+        <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :readonly="true" />
+        <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="VehicleCode" :readonly="true" />
+        <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :readonly="true" />
+        <r-input :title="$t('carInfo.regiDate')" :model="policyRisk" value="VehicleInitialRegDate" :readonly="true" />
       </r-card>
       <!-- 投保详情 -->
       <r-card>
@@ -59,6 +59,8 @@ import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 import Poi from '../../../components/Poi';
+import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
+
 export default {
   components: {
     ProposalClauseConfirm,
@@ -66,6 +68,7 @@ export default {
   },
   data() {
     return {
+      policyRisk: {},
       pageModel: {
         clauseConfirm: false,
         toastShow: false
@@ -126,6 +129,12 @@ export default {
         this.pageModel.toastShow = true;
       }
     }
+  },
+  async created() {
+      const submission = SubmissionStore.getSubmission();
+      const policy = SubmissionStore.getPolicy(submission);
+      const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
+      this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
   }
 };
 </script>
