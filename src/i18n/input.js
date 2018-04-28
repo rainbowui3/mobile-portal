@@ -19,7 +19,9 @@ i18n.mergeLocaleMessage('zh-CN', {
     'input.vcode': '验证码',
     'input.required': '必填',
     'input.number': '数字',
-    'input.width': '宽度'
+    'input.width': '宽度',
+    'input.address': '地址',
+    'input.bind': '帮值'
 });
 i18n.mergeLocaleMessage('en-US', {
     'input.placeholder': 'Placeholder',
@@ -41,6 +43,7 @@ i18n.mergeLocaleMessage('en-US', {
     'input.vcode': 'vcode',
     'input.required': 'Required',
     'input.number': 'Number',
-    'input.width': 'Width'
-
+    'input.width': 'Width',
+    'input.address': 'Address',
+    'input.bind': 'Bind Value'
 });
