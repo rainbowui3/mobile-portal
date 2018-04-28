@@ -38,6 +38,7 @@ export default {
         { 'icon': 'fa fa-eye ', 'text': this.$t('component.previewer'), 'link': '/component/example/preview' },
         { 'icon': 'fa fa-search ', 'text': this.$t('component.search'), 'link': '/component/example/search' },
         { 'icon': 'fa fa-commenting ', 'text': this.$t('component.msg'), 'link': '/component/example/msg' },
+        { 'icon': 'fa fa-commenting ', 'text': this.$t('component.msg'), 'link': '/component/example/indexList' },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.qrcode') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.range') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.rater') },

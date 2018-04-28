@@ -16,6 +16,7 @@
     "rainbow-foundation-tools": "2.0.0",
     "rainbow-mobile-address": "^3.0.0",
     "rainbow-mobile-core": "^3.0.0",
+    "rainbow-mobile-index-list": "^3.0.0",
     "rainbow-mobile-number": "^3.0.0",
     "rainbow-mobile-previewer": "^3.0.0",
     "vue": "^2.2.2",
