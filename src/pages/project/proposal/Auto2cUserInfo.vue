@@ -53,14 +53,16 @@ export default {
         const urlObject = UrlUtil.parseURL(window.location.href);
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
+
         this.productDes = product.ProductElementName;
         const submission = SubmissionStore.getSubmission();
+
         const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
         const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
         if (submission) {
             const policy = SubmissionStore.getPolicy(submission);
             const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
-            this.policyCustomer = _.find(policyCustomers, (customer) => {
+            this.policyCustomerOwner = _.find(policyCustomers, (customer) => {
                 return customer['CustomerRoeCode'] == '3';
             });
             this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
@@ -93,7 +95,11 @@ export default {
         const policy = SubmissionStore.getPolicy(submission);
         const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
         _.each(policyCustomers, (customer) => {
-
+            if (customer['CustomerRoeCode'] != '3') {
+                customer['CustomerName'] = this.policyCustomerOwner['CustomerName'];
+                customer['IdNo'] = this.policyCustomerOwner['IdNo'];
+                customer['IndiMobile'] = this.policyCustomerOwner['IndiMobile'];
+            }
         });
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
@@ -104,7 +110,7 @@ export default {
       var isCertification = Validate.validateIdNo(value);
       return {
         valid: isCertification === true,
-        msg: this.$t('input.validate')
+        msg: this.$t('productInfoEntryAutoC.validateID')
       };
     }
 

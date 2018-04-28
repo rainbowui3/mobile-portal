@@ -3,7 +3,7 @@
     <top :title="$t('project.studyRisk')" :showBack="true" />
     <r-body>
       <r-card>
-        <insurance-duration-short-term :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </r-card>
       <r-card>
         <r-input :title="$t('insuredInfoStudyRisk.babyName')" :placeholder="$t('insuredInfoStudyRisk.inputBabyName')" :model="policy.babyInfo" value="name" :required="true" :novalidate="false" />
@@ -37,7 +37,7 @@
 
 <script>
 import ProposalConfirm from '../components/ProposalConfirm';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import Validate from '../utils/Valitate';
 import Getbirthday from '../utils/Getbirthday';
 import '../../../i18n/insuredInfoStudyRisk';
@@ -46,7 +46,7 @@ import '../../../i18n/project';
 export default {
   components: {
     ProposalConfirm,
-    InsuranceDurationShortTerm
+    Poi
   },
   data() {
     return {

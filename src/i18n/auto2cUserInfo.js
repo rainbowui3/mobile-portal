@@ -6,7 +6,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'productInfoEntryAutoC.certificateNo': '身份证号',
     'productInfoEntryAutoC.mobile': '手机号码',
     'productInfoEntryAutoC.newCar': '新车未上牌',
-    'productInfoEntryAutoC.wantInsure': '我要投保'
+    'productInfoEntryAutoC.wantInsure': '我要投保',
+    'productInfoEntryAutoC.validateID': '请输入正确的身份证号'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -16,6 +17,7 @@ i18n.mergeLocaleMessage('en-US', {
     'productInfoEntryAutoC.certificateNo': 'CertificateNo',
     'productInfoEntryAutoC.mobile': 'Mobile',
     'productInfoEntryAutoC.newCar': 'New Car',
-    'productInfoEntryAutoC.wantInsure': 'Want Insure'
+    'productInfoEntryAutoC.wantInsure': 'Want Insure',
+    'productInfoEntryAutoC.validateID': 'validateID'
 
 });

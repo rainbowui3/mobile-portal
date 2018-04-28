@@ -7,7 +7,7 @@
         </r-card>
 
         <r-card>
-        <insurance-duration-short-term  :model="policy" :value="jsonParamIDS"/>
+        <poi  :model="policy" :value="jsonParamIDS"/>
         </r-card>
        </r-body>
        <bottom :index="2"/>
@@ -16,13 +16,13 @@
 
 <script>
 import InsuranceDurationCurrency from '../../project/components/InsuranceDurationCurrency';
-import InsuranceDurationShortTerm from '../../project/components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import '../../../i18n/business';
 
 export default {
   components: {
     InsuranceDurationCurrency,
-    InsuranceDurationShortTerm
+    Poi
   },
   data() {
     return {

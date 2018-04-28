@@ -3,7 +3,7 @@
     <top :title="$t('common.autoPassengersInsurance')" :showBack="true" />
     <r-body>
       <r-card :title="$t('planSelection.term')">
-        <insurance-duration-short-term type="day" :model="policy.policyData" expireDate="expireDate" effectiveDate="effectiveDate" />
+        <poi type="day" :model="policy.policyData" expireDate="expireDate" effectiveDate="effectiveDate" />
       </r-card>
       <r-card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import HolderInfo from '../components/HolderInfo';
 import ProposalConfirm from '../components/ProposalConfirm';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
@@ -37,7 +37,7 @@ import '../../../i18n/planSelection';
 import '../../../i18n/insuredInfoEntryHealthSub';
 export default {
   components: {
-    InsuranceDurationShortTerm,
+    Poi,
     HolderInfo,
     ProposalConfirm,
     ProposalClauseConfirm

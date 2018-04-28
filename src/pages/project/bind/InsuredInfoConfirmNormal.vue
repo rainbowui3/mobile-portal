@@ -3,7 +3,7 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <r-card :title="$t('planSelection.term')">
-        <insurance-duration-short-term :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi :readonlyEx="readonly" :readonlyEf="readonly" type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
       </r-card>
       <r-card :title="$t('common.holder')">
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
@@ -29,7 +29,7 @@ import HolderInfo from '../components/HolderInfo';
 import InsuredInfo from '../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
 import ProposalConfirm from '../components/ProposalConfirm';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import ChooseRelationship from '../components/ChooseRelationship';
 import '../../../i18n/planSelection';
 import '../../../i18n/input';
@@ -43,7 +43,7 @@ export default {
     InsuredInfo,
     SubsidiaryInsuredInfo,
     ProposalConfirm,
-    InsuranceDurationShortTerm,
+    Poi,
     ChooseRelationship
   },
   methods: {

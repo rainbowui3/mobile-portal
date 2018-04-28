@@ -36,7 +36,7 @@
 
 <script>
 import ProductTop from '../components/ProductTop';
-import InsuranceDurationShortTerm from '../components/InsuranceDurationShortTerm';
+import Poi from '../../../components/Poi';
 import PlanSelection from '../components/PlanSelection';
 import ProposalCopies from '../components/ProposalCopies';
 import ProposalConfirm from '../components/ProposalConfirm';
@@ -47,7 +47,7 @@ import config from 'config';
 export default {
   components: {
     ProductTop,
-    InsuranceDurationShortTerm,
+    Poi,
     PlanSelection,
     ProposalCopies,
     ProposalConfirm
