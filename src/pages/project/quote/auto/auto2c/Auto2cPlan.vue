@@ -7,8 +7,7 @@
                     <r-tab :tabItems="tabItems" class="tab" />
                 </div>
                 <div class="customPlan" v-on:click="gotoCustomPlan">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <span class="planEdit">修改</span>
+                    <span class="planEdit">定制方案</span>
                 </div>
             </div>
             <div class="auto2cPlan">
@@ -226,22 +225,25 @@ export default {
 }
 .customPlan {
     position: relative;
-    width: 15%;
+    width: 16%;
     background-color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
-    border-bottom: 1px solid #ff9414;
-    padding-left:10px;
+    border-bottom: 1px solid #eee;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .customPlan>i{
     font-size: 20px;
 }
-.planEdit{
-    left: 30px;
-    top:15px;
+.planEdit {
     position: absolute;
-    font-size: 13px;
-    color:#ff9414;
+    font-size: 14px;
+    color: #FF9414;
     vertical-align: bottom;
 }
 </style>
