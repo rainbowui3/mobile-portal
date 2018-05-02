@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import Validate from '../utils/Valitate';
-import Getbirthday from '../utils/Getbirthday';
-import '../../../i18n/holderInfo';
-import '../../../i18n/input';
+import Validate from './utils/Valitate';
+import Getbirthday from './utils/Getbirthday';
+import '../i18n/holderInfo';
+import '../i18n/input';
 export default {
   data() {
     return {

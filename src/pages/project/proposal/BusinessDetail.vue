@@ -47,7 +47,7 @@
 <script>
 import image from '../../../assets/u17.png';
 import iamgeOne from '../../../assets/u183.png';
-import Plan from '../components/plan/Plan';
+import Plan from '../../../components/plan/Plan';
 import supplier from '../../../assets/u204.png';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 

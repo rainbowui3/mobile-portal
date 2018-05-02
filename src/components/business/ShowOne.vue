@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import icon from '../../../../assets/u130.png';
-import '../../../../i18n/homeShowOne';
+import icon from './../../assets/u130.png';
+import './../../i18n/homeShowOne';
 
 export default {
     props: {

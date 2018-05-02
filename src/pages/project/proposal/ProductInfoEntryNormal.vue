@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ProductTop from '../components/ProductTop';
+import ProductTop from '../../../components/ProductTop';
 import InsuranceDurationCurrency from '../components/InsuranceDurationCurrency';
 import PlanSelection from '../components/PlanSelection';
 import ProposalCopies from '../components/ProposalCopies';

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Mine from './project/components/mine/Mine';
+import Mine from '../components/mine/Mine';
 import '../i18n/mine';
 export default {
     components: {

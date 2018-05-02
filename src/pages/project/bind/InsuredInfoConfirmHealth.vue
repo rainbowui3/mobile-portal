@@ -26,7 +26,7 @@
 <script>
 import ChooseRelationship from '../components/ChooseRelationship';
 import ProposalConfirm from '../components/ProposalConfirm';
-import HolderInfo from '../components/HolderInfo';
+import HolderInfo from '../../../components/HolderInfo';
 import InsuredInfo from '../components/InsuredInfo';
 import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';

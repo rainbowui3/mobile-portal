@@ -12,7 +12,7 @@
 
 <script>
 
-import HolderInfo from '../../project/components/HolderInfo';
+import HolderInfo from '../../../components/HolderInfo';
 import '../../../i18n/business';
 
 export default {

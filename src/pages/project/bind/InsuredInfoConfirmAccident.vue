@@ -28,7 +28,7 @@
 
 <script>
 import ProposalConfirm from '../components/ProposalConfirm';
-import HolderInfo from '../components/HolderInfo';
+import HolderInfo from '../../../components/HolderInfo';
 import Poi from '../../../components/Poi';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 import '../../../i18n/insuredInfoAccident';

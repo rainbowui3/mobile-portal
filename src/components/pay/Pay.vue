@@ -6,7 +6,7 @@
 
 <script>
 import { RPreviewer } from 'rainbow-mobile-previewer';
-import '../../../../i18n/pay';
+import '../../i18n/pay';
 
 export default {
   components: {
