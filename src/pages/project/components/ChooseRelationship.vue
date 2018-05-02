@@ -1,16 +1,18 @@
 <template>
   <div>
-    <r-cell :type="row" v-if="dataList.length < 5" class="margin-bottom:5px">
-      <r-cell :span="6" :padding="padding">
-        <div v-bind:class="{titleClass:titleClass}">{{$t(title)}}</div>
+    <r-cell :type='row' v-if="data.length < 5">
+      <r-cell :span='6'>
+        <r-input :title='$t(title)' :model="this" value="nullValue" ></r-input>
       </r-cell>
-      <r-cell :padding="padding">
-        <div v-bind:class="{bodyClass:titleClass}">
-          <div v-bind:class="{active:item.active,unactive:!item.active}" v-for="(item,idx) in dataList" :key="idx" @click="onItemClick(item, idx, this)">{{item.value}}</div>
-        </div>
+      <r-cell>
+        <r-checker v-if="isToHolder" :model="model" value="relationToHolder" :data='data' type="default" :onChange="_onChange"/>
+        <r-checker v-else :model="model" value="relationToMainInsured" :data='data' type="default" :onChange="_onChange"/>
       </r-cell>
     </r-cell>
-    <r-selector v-else :title="$t(title)" :options="this.datas" :readonly="readonly" :model="selectorModel" value="selectorValue" :onChange="onChange"></r-selector>
+    <div v-else>    
+      <r-selector v-if="isToHolder" :title="$t(title)" :options="data" :readonly="readonly" :model="model" value="relationToHolder" :onChange="_onChange"></r-selector>
+      <r-selector v-else :title="$t(title)" :options="data" :readonly="readonly" :model="model" value="relationToMainInsured" :onChange="_onChange"></r-selector>
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,8 @@
 import '../../../i18n/holderInfo';
 export default {
   props: {
-    datas: Array,
+    onChange: Function,
+    data: Array,
     readonly: {
       type: Boolean,
       default() {
@@ -32,93 +35,30 @@ export default {
       }
     },
     model: Object,
-    value: String
+    // value: String,
+    isToHolder: {
+      type: Boolean,
+      default() {
+        return true;
+      }
+    }
   },
   data() {
     return {
-      titleClass: true,
-      title2: true,
-      bodyClass: true,
       row: 'row',
-      padding: '0px',
-      selectorModel: {
-        selectorValue: '1'
-      },
-      dataList: []
+      nullValue: ''
     };
   },
   methods: {
-    onItemClick: function(item, idx, event) {
-      if (!this.readonly) {
-        this.model[this.value] = item.key;
-        let count = 0;
-        if (item.active != true) {
-          this.dataList.forEach(element => {
-            if (count == idx) {
-              this.dataList[count].active = !element.active;
-              this.model[this.value] = this.dataList[count].key;
-            } else {
-              this.dataList[count].active = false;
-            }
-            count++;
-          });
-        }
-      }
-    },
-    onChange(key) {
-      this.dataList.forEach(element => {
-        if (element.key == key) {
-          this.model[this.value] = element.value;
-        }
-      });
+    _onChange () {
+      return this.onChange ? this.onChange : () => {};
     }
-  },
-  computed: {},
-  created: function() {
-    // 将入参list脱绑
-    let dataList = [];
-    dataList = JSON.parse(JSON.stringify(this.datas));
-    this.dataList = dataList;
-    // 根据传入的model[value]的值来进行选项上的初始化
-    if (this.model[this.value] && this.model[this.value] != '') {
-      this.dataList.forEach(element => {
-        if (element.key == this.model[this.value]) {
-          element.active = true;
-        } else {
-          element.active = false;
-        }
-      });
-    } else {
-      this.model[this.value] = this.datas[0].key;
-    }
-  },
-  mounted: function() {}
+  }
 };
 </script>
 
 <style>
-.titleClass {
-  padding: 2px;
-  margin-left: 14px;
-}
-.bodyClass {
-  float: right;
-}
-.unactive {
-  color: grey;
-  float: left;
-  margin-right: 10px;
-  border: grey solid 1px;
-  border-radius: 10px;
-  padding: 1px;
-}
-.active {
-  background: green;
-  color: white;
-  float: left;
-  margin-right: 10px;
-  border: grey solid 1px;
-  border-radius: 10px;
-  padding: 1px;
+.vux-checker-box > .item{ 
+     padding: 0px; 
 }
 </style>
