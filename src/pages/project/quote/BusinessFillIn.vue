@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import HolderInfo from '../components/HolderInfo';
+import HolderInfo from '../../../components/HolderInfo';
 import InsuredInfo from '../components/InsuredInfo';
 import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
 import '../../../i18n/businessFillIn';

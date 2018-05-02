@@ -13,7 +13,7 @@
 
 <script>
 
-import ProductTop from '../../project/components/ProductTop';
+import ProductTop from '../../../components/ProductTop';
 import Jtgj from '../../../assets/jtgj.jpg';
 import '../../../i18n/business';
 

@@ -27,7 +27,7 @@
     </div>
 </template>
 <script>
-import profile from '../../../../assets/u758.png';
+import profile from '../../assets/u758.png';
 export default {
     props: {},
     data() {
@@ -73,7 +73,7 @@ export default {
 .mainfooter > div {
     height: 65px;
     width: 24%;
-    background-image: url("../../../../assets/u748.png");
+    background-image: url("../../assets/u748.png");
 }
 .mainNumber{
     font-size: 20px;

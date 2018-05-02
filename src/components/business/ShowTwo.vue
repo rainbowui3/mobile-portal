@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import img from '../../../../assets/u92.png';
-import heart from '../../../../assets/u88.png';
-import '../../../../i18n/homeShowTwo';
+import img from '../../assets/u92.png';
+import heart from '../../assets/u88.png';
+import '../../i18n/homeShowTwo';
 
 export default {
     props: {

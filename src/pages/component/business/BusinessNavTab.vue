@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import NavTab from '../../project/components/nav/NavTab';
+import NavTab from '../../../components/nav/NavTab';
 import '../../../i18n/businessNavTab';
 export default {
     components: {

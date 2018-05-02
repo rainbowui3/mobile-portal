@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ShowOne from './project/components/business/ShowOne';
-import ShowTwo from './project/components/business/ShowTwo';
+import ShowOne from '../components/business/ShowOne';
+import ShowTwo from '../components/business/ShowTwo';
 import banner from '../assets/u17.png';
 import pacture from '../assets/u92.png';
 

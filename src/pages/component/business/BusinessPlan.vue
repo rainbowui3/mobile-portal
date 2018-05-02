@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Plan from '../../project/components/plan/Plan';
+import Plan from '../../../components/plan/Plan';
 import '../../../i18n/businessPlan';
 
 export default {

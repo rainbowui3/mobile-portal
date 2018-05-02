@@ -10,7 +10,7 @@
   </r-page>
 </template>
 <script>
-import Pay from '../../project/components/pay/Pay';
+import Pay from '../../../components/pay/Pay';
 
 export default {
  components: {

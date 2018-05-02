@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import ProductTop from '../components/ProductTop';
+import ProductTop from '../../../components/ProductTop';
 import Poi from '../../../components/Poi';
 import PlanSelection from '../components/PlanSelection';
 import ProposalCopies from '../components/ProposalCopies';

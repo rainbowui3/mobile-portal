@@ -23,7 +23,7 @@
 
 <script>
 import ProposalConfirm from '../components/ProposalConfirm';
-import HolderInfo from '../components/HolderInfo';
+import HolderInfo from '../../../components/HolderInfo';
 import '../../../i18n/insuredInfoAccident';
 import '../../../i18n/input';
 export default {

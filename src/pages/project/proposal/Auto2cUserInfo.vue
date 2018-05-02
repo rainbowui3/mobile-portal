@@ -30,7 +30,7 @@
 </template>
 <script>
 import Jtgj from '../../../assets/jtgj.jpg';
-import ProductTop from '../components/ProductTop';
+import ProductTop from '../../../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';

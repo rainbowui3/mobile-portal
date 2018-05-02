@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Pay from '../components/pay/Pay';
+import Pay from '../../../components/pay/Pay';
 import '../../../i18n/businessPage';
 
 export default {
