@@ -32,7 +32,7 @@
 import Jtgj from '../../../assets/jtgj.jpg';
 import ProductTop from '../../../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
-import Validate from '../utils/Valitate';
+import Validate from '../../../components/utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {UrlUtil} from 'rainbow-foundation-tools';
 export default {

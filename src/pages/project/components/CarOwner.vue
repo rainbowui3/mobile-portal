@@ -12,7 +12,7 @@
 <script>
 import '../../../i18n/carOwner';
 import '../../../i18n/holderInfo';
-import Validate from '../utils/Valitate';
+import Validate from '../../../components/utils/Valitate';
 export default {
   props: {
     required: {
