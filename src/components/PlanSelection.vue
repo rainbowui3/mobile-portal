@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import '../../../i18n/planSelection';
+import '../i18n/planSelection';
 export default {
   data: function() {
     return {

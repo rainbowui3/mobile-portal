@@ -48,13 +48,13 @@ const Confirm = r => require.ensure([], () => r(require('@/pages/component/core/
 const Loading = r => require.ensure([], () => r(require('@/pages/component/core/Loading')), 'Loading');
 const Marquee = r => require.ensure([], () => r(require('@/pages/component/core/Marquee')), 'Marquee');
 const Badge = r => require.ensure([], () => r(require('@/pages/component/core/Badge')), 'Badge');
-const PlanSelection = r => require.ensure([], () => r(require('@/pages/project/components/PlanSelection')), 'PlanSelection');
-const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/pages/project/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
-const ChooseRelationship = r => require.ensure([], () => r(require('@/pages/project/components/ChooseRelationship')), 'ChooseRelationship');
-const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/pages/project/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
-const CarInfo = r => require.ensure([], () => r(require('@/pages/project/components/CarInfo')), 'CarInfo');
-const CarOwner = r => require.ensure([], () => r(require('@/pages/project/components/CarOwner')), 'CarOwner');
-const TreeTest = r => require.ensure([], () => r(require('@/pages/project/components/TreeTest')), 'TreeTest');
+const PlanSelection = r => require.ensure([], () => r(require('@/components/PlanSelection')), 'PlanSelection');
+const InsuranceDurationShortTerm = r => require.ensure([], () => r(require('@/components/InsuranceDurationShortTerm')), 'InsuranceDurationShortTerm');
+const ChooseRelationship = r => require.ensure([], () => r(require('@/components/ChooseRelationship')), 'ChooseRelationship');
+const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/components/ProposalClauseConfirm')), 'ProposalClauseConfirm');
+const CarInfo = r => require.ensure([], () => r(require('@/components/CarInfo')), 'CarInfo');
+const CarOwner = r => require.ensure([], () => r(require('@/components/CarOwner')), 'CarOwner');
+const TreeTest = r => require.ensure([], () => r(require('@/components/TreeTest')), 'TreeTest');
 
 // ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');

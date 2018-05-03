@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/BusinessConfirm';
 export default {
     components: {

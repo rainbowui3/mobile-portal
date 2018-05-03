@@ -32,10 +32,10 @@
 import HolderInfo from '../../../components/HolderInfo';
 import Poi from '../../../components/Poi';
 import InsuredInfo from '../../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
-import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
-import ProposalConfirm from '../components/ProposalConfirm';
-import ChooseRelationship from '../components/ChooseRelationship';
+import SubsidiaryInsuredInfo from '../../../components/SubsidiaryInsuredInfo';
+import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
+import ChooseRelationship from '../../../components/ChooseRelationship';
 import '../../../i18n/project';
 import '../../../i18n/input';
 import '../../../i18n/planSelection';

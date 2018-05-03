@@ -27,10 +27,10 @@
 <script>
 import HolderInfo from '../../../components/HolderInfo';
 import InsuredInfo from '../../../components/InsuredInfo';
-import SubsidiaryInsuredInfo from '../components/SubsidiaryInsuredInfo';
-import ProposalConfirm from '../components/ProposalConfirm';
+import SubsidiaryInsuredInfo from '../../../components/SubsidiaryInsuredInfo';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import Poi from '../../../components/Poi';
-import ChooseRelationship from '../components/ChooseRelationship';
+import ChooseRelationship from '../../../components/ChooseRelationship';
 import '../../../i18n/planSelection';
 import '../../../i18n/input';
 import '../../../i18n/project';

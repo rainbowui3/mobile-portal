@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import '../../../i18n/carInfo';
+import '../i18n/carInfo';
 export default {
   props: {
     required: {

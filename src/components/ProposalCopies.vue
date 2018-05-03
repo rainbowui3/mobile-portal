@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import '../../../i18n/proposalCopies';
+import '../i18n/proposalCopies';
 import {RNumber} from 'rainbow-mobile-number';
 export default {
   components: {

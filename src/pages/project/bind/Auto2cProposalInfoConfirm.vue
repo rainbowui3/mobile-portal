@@ -57,7 +57,7 @@ import '../../../i18n/carInfo';
 // import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/insuredInfoEntryHealthSub';
-import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import Poi from '../../../components/Poi';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 

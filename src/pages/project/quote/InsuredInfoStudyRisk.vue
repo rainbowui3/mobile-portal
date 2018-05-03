@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import Poi from '../../../components/Poi';
 import Validate from '../../../components/utils/Valitate';
 import Getbirthday from '../../../components/utils/Getbirthday';

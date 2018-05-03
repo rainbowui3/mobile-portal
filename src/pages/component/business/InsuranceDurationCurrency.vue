@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import InsuranceDurationCurrency from '../../project/components/InsuranceDurationCurrency';
+import InsuranceDurationCurrency from '../../../components/InsuranceDurationCurrency';
 import Poi from '../../../components/Poi';
 import '../../../i18n/business';
 

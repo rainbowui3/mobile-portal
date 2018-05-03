@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import CarInfo from '../../../components/CarInfo';
-import CarOwner from '../../../components/CarOwner';
+import CarInfo from '../../../../../components/CarInfo';
+import CarOwner from '../../../../../components/CarOwner';
 import '../../../../../i18n/carInfo';
 import '../../../../../i18n/row';
 import '../../../../../i18n/carAndOwnerInfoEntry';

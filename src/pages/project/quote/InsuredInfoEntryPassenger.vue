@@ -27,7 +27,7 @@
 <script>
 import Poi from '../../../components/Poi';
 import HolderInfo from '../../../components/HolderInfo';
-import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/planSelection';
 export default {

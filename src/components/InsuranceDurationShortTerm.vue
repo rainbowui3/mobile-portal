@@ -8,7 +8,7 @@
 
 <script>
 import config from 'config';
-import '../../../i18n/insuranceDurationShortTerm';
+import '../i18n/insuranceDurationShortTerm';
 export default {
   props: {
     // 组件是否只读

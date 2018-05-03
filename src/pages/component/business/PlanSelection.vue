@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import PlanSelection from '../../project/components/PlanSelection';
+import PlanSelection from '../../../components/PlanSelection';
 import '../../../i18n/business';
 
 export default {

@@ -36,11 +36,11 @@
 </template>
 
 <script>
-import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import Poi from '../../../components/Poi';
 // import Validate from '../../utils/Valitate';
 // import Getbirthday from '../../utils/Getbirthday';
-import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import '../../../i18n/insuredInfoStudyRisk';
 import '../../../i18n/insuredInfoEntryHealthSub';
 export default {

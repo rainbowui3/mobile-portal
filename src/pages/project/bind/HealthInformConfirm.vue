@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TreeTest from '../components/TreeTest';
+import TreeTest from '../../../components/TreeTest';
 import '../../../i18n/healthInform';
 export default {
   components: { TreeTest },

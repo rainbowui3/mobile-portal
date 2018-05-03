@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ProposalConfirm from '../../project/components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/business';
 
 export default {

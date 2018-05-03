@@ -30,8 +30,8 @@
 <script>
 import Poi from '../../../components/Poi';
 import HolderInfo from '../../../components/HolderInfo';
-import ProposalConfirm from '../components/ProposalConfirm';
-import ProposalClauseConfirm from '../components/ProposalClauseConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
+import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/planSelection';
 import '../../../i18n/insuredInfoEntryHealthSub';

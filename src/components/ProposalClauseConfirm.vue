@@ -56,7 +56,7 @@
   </div>
 </template>
 <script>
-import '../../../i18n/proposalClauseConfirm';
+import '../i18n/proposalClauseConfirm';
 export default {
   props: {
     model: {

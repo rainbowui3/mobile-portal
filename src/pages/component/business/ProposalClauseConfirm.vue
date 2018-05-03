@@ -12,7 +12,7 @@
 
 <script>
 
-import ProposalClauseConfirm from '../../project/components/ProposalClauseConfirm';
+import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import '../../../i18n/business';
 
 export default {

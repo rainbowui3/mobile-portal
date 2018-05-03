@@ -37,9 +37,9 @@
 <script>
 import ProductTop from '../../../components/ProductTop';
 import Poi from '../../../components/Poi';
-import PlanSelection from '../components/PlanSelection';
-import ProposalCopies from '../components/ProposalCopies';
-import ProposalConfirm from '../components/ProposalConfirm';
+import PlanSelection from '../../../components/PlanSelection';
+import ProposalCopies from '../../../components/ProposalCopies';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import Jtgj from '../../../assets/jtgj.jpg';
 import '../../../i18n/ProductInfoEntryHealth';
 import config from 'config';

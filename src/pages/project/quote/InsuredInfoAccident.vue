@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ProposalConfirm from '../components/ProposalConfirm';
+import ProposalConfirm from '../../../components/ProposalConfirm';
 import HolderInfo from '../../../components/HolderInfo';
 import '../../../i18n/insuredInfoAccident';
 import '../../../i18n/input';

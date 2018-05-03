@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import '../../../i18n/holderInfo';
+import '../i18n/holderInfo';
 export default {
   props: {
     onChange: Function,

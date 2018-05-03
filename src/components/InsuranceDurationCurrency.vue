@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import '../../../i18n/insuranceDurationCurrency';
+import '../i18n/insuranceDurationCurrency';
 export default {
   data() {
     return {

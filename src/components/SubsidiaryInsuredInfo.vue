@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import Validate from '../../../components/utils/Valitate';
-import Getbirthday from '../../../components/utils/Getbirthday';
-import '../../../i18n/holderInfo';
+import Validate from './utils/Valitate';
+import Getbirthday from './utils/Getbirthday';
+import '../i18n/holderInfo';
 export default {
   data() {
     return {

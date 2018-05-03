@@ -68,7 +68,7 @@
 <script>
 import Jtgj from '../../../../../assets/jtgj.jpg';
 import ProductTop from '../../../../../components/ProductTop';
-import AutoAgent from '../../../components/AutoAgent';
+import AutoAgent from '../../../../../components/AutoAgent';
 import Poi from '../../../../../components/Poi';
 import '../../../../../i18n/autoPlan';
 

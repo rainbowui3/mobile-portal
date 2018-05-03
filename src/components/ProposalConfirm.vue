@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import '../../../i18n/proposalConfirm';
+import '../i18n/proposalConfirm';
 export default {
   props: {
     onClick: Function,
