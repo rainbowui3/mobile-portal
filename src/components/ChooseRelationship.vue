@@ -4,7 +4,7 @@
       <r-cell :span='6'>
         <r-input :title='$t(title)' :model="this" value="nullValue" ></r-input>
       </r-cell>
-      <r-cell>
+      <r-cell class="chooseRelationship">
         <r-checker v-if="isToHolder" :model="model" value="relationToHolder" :data='data' type="default" :onChange="_onChange"/>
         <r-checker v-else :model="model" value="relationToMainInsured" :data='data' type="default" :onChange="_onChange"/>
       </r-cell>
@@ -57,8 +57,9 @@ export default {
 };
 </script>
 
-<style>
-.vux-checker-box > .item{ 
+<style >
+.chooseRelationship>div>.vux-checker-box > .item{ 
      padding: 0px; 
 }
+
 </style>
