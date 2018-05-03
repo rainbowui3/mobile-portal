@@ -9,12 +9,13 @@
         <holder-info :model="policy.holderInfo" :required="required"/>
       </r-card>
       <r-card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
+        
+        <choose-relationship :data="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :isToHolder="true"/>
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
       </r-card>
       <r-card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" />
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" />
+        <choose-relationship :data="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" :isToHolder="true"/>
+        <choose-relationship :data="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" :isToHolder="false"/>
         <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" :model="policy.dubsidiaryInsuranceInfo" :required="required"/>
       </r-card>
       <r-card class="addInsured">
@@ -68,7 +69,7 @@ export default {
         // email: "wangxm@outlook.com"
       },
       insuredInfo: {
-        relationToHolder: '1'
+        relationToHolder: '2'
         // name: "王小明",
         // certificateId: "10000",
         // certificateNum: "65300119520705283x",
@@ -97,28 +98,20 @@ export default {
       required: true,
       datas1: [
         {
-          key: '1',
-          value: '本人',
-          active: true
-          // onClick: this.onClickInsured
+          'key': '1',
+          'value': '本人'
         },
         {
-          key: '2',
-          value: '配偶',
-          active: false
-          // onClick: this.onClickInsured
+          'key': '2',
+          'value': '配偶'
         },
         {
-          key: '3',
-          value: '子女',
-          active: false
-          // onClick: this.onClickInsured
+          'key': '3',
+          'value': '子女'
         },
         {
-          key: '4',
-          value: '父母',
-          active: false
-          // onClick: this.onClickInsured
+          'key': '4',
+          'value': '父母'
         }
       ]
     };

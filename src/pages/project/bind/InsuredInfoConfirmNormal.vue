@@ -9,12 +9,12 @@
         <holder-info v-bind:readonly="readonly" v-bind:model="policy.holderInfo"></holder-info>
       </r-card>
       <r-card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" :readonly="true" />
+        <choose-relationship :data="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" :isToHolder="true" :readonly="true" />
         <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.insuredInfo"></insured-info>
       </r-card>
       <r-card :title="$t('common.subsidiaryInsured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" value="relationToHolder" :readonly="true" />
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" value="relationToMainInsured" :readonly="true" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.dubsidiaryInsuranceInfo" :isToHolder="true" :readonly="true" />
+        <choose-relationship :datas="datas1" :title="'holderInfo.relationToInsured'" :model="policy.dubsidiaryInsuranceInfo" :isToHolder="false" :readonly="true" />
         <subsidiary-insured-info v-if="policy.dubsidiaryInsuranceInfo.relationToHolder && policy.dubsidiaryInsuranceInfo.relationToHolder != '' && policy.dubsidiaryInsuranceInfo.relationToHolder != '1'" v-bind:readonly="readonly" v-bind:model="policy.dubsidiaryInsuranceInfo"></subsidiary-insured-info>
       </r-card>
     </r-body>
@@ -102,25 +102,25 @@ export default {
         {
           key: '1',
           value: '本人',
-          active: true
+          'disabled': true
           // onClick: this.onClickInsured
         },
         {
           key: '2',
           value: '配偶',
-          active: false
+          'disabled': true
           // onClick: this.onClickInsured
         },
         {
           key: '3',
           value: '子女',
-          active: false
+          'disabled': true
           // onClick: this.onClickInsured
         },
         {
           key: '4',
           value: '父母',
-          active: false
+          'disabled': true
           // onClick: this.onClickInsured
         }
       ]

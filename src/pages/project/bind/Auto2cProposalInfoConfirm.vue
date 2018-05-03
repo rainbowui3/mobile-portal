@@ -20,7 +20,7 @@
         <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :readonly="true" />
         <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="VehicleCode" :readonly="true" />
         <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :readonly="true" />
-        <r-input :title="$t('carInfo.regiDate')" :model="policyRisk" value="VehicleInitialRegDate" :readonly="true" />
+        <r-date-time :title="$t('carInfo.regiDate')" :model="policyRisk" value="VehicleInitialRegDate" :readonly="true" />
       </r-card>
       <!-- 投保详情 -->
       <r-card>
