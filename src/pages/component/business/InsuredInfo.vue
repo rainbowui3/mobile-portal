@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import InsuredInfo from '../../project/components/InsuredInfo';
+import InsuredInfo from '../../../components/InsuredInfo';
 import '../../../i18n/business';
 
 export default {

@@ -2,8 +2,6 @@
   <r-page>
        <top :title="$t('component.checker')" :showBack="true"/>
        <r-body>
-       
-
             <r-card :title="$t('input.iconType')">
                 <r-checker :model="policy" value="value2" :text="`${$t('common.agree')}?`" :onChange="onChange" type="icon"/>
                 <r-checker :model="policy" value="value3" :text="`${$t('common.agree')}?`"  :onChange="onChange" type="icon" :plain="true"/>
