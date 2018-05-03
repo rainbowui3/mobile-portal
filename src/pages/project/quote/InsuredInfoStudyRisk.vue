@@ -38,8 +38,8 @@
 <script>
 import ProposalConfirm from '../components/ProposalConfirm';
 import Poi from '../../../components/Poi';
-import Validate from '../utils/Valitate';
-import Getbirthday from '../utils/Getbirthday';
+import Validate from '../../../components/utils/Valitate';
+import Getbirthday from '../../../components/utils/Getbirthday';
 import '../../../i18n/insuredInfoStudyRisk';
 import '../../../i18n/input';
 import '../../../i18n/project';
