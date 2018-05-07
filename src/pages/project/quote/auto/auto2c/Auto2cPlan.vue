@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="auto2cPlan">
-                <div v-for="(planItem,uuid) in planItemList[index].TempPolicyCoverageList[0].PolicyCoverageList" :key="BusinessObjectId" class="planItem.TempData.uuid">
+                <div v-for="(planItem,uuid) in planItemList[index].TempPolicyCoverageList[0].PolicyCoverageList" :key="planItem.TempData.uuid" class="selectedPlan">
                     <div class="selectedPlanContent">
                         <div class="planName">
                             {{planItem.ProductElementCode}}
@@ -43,115 +43,12 @@ export default {
         return {
             planTabItems: [],
             planItemList: [],
-            plan: [],
-            index: 0,
-            pageModel: {},
-            planList: [
-                {
-                    planName: '自选方案',
-                    description: '灵活搭配',
-                    selectedPlans: [
-                        {
-                            name: '交强险',
-                            isNonDeductible: false,
-                            value: '保额'
-                        },
-                        {
-                            name: '机动车损失险',
-                            isNonDeductible: true,
-                            value: ''
-                        },
-                        {
-                            name: '第三者责任险',
-                            isNonDeductible: true,
-                            value: '30万'
-                        },
-                        {
-                            name: '司机责任险',
-                            isNonDeductible: true,
-                            value: '1万'
-                        },
-                        {
-                            name: '乘客责任险',
-                            isNonDeductible: true,
-                            value: '1万'
-                        },
-                        { name: '盗抢险', isNonDeductible: true, value: '' }
-                    ]
-                },
-                {
-                    planName: '热销方案',
-                    description: '高性价比',
-                    selectedPlans: [
-                        {
-                            name: '交强险',
-                            isNonDeductible: false,
-                            value: '投保'
-                        },
-                        {
-                            name: '机动车损失险',
-                            isNonDeductible: true,
-                            value: ''
-                        },
-                        {
-                            name: '第三者责任险',
-                            isNonDeductible: true,
-                            value: '30万'
-                        },
-                        {
-                            name: '司机责任险',
-                            isNonDeductible: true,
-                            value: '1万'
-                        },
-                        {
-                            name: '乘客责任险',
-                            isNonDeductible: true,
-                            value: '1万'
-                        }
-                    ]
-                },
-                {
-                    planName: '基础方案',
-                    description: '安全出行',
-                    selectedPlans: [
-                        {
-                            name: '第三者责任险',
-                            isNonDeductible: true,
-                            value: '30万'
-                        }
-                    ]
-                }
-            ]
+            index: 0
         };
     },
     computed: {
         tabItems() {
-            return [
-                {
-                    selected: true,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('auto2cPlan.hotSale'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('auto2cPlan.basic'),
-                    onClick: this.goto
-                },
-                {
-                    selected: false,
-                    showdot: false,
-                    disabled: false,
-                    badge: '',
-                    text: this.$t('auto2cPlan.advance'),
-                    onClick: this.goto
-                }
-            ];
+            return this.planTabItems;
         }
     },
     methods: {
@@ -189,16 +86,14 @@ export default {
                 let selectPlanItem = this.planItemList[this.index];
                 if (child) {
                     // 当前选中方案和policy模型中的方案是否一致
-                    if (!child.PlanCode == selectPlanItem.PlanCode) {
+                    if (child.PlanCode != selectPlanItem.PlanCode) {
                         PolicyStore.deleteChild(child, policy);
                         PolicyStore.setChild(selectPlanItem, policy, param);
                     }
                 } else {
                     PolicyStore.setChild(selectPlanItem, policy, param);
                 }
-                PolicyStore.setChild(this.planItemList[this.index], policy, param);
         });
-
             this.$router.push({
                 path: '/bind/auto2c',
                 query: this.$route.query
@@ -208,24 +103,18 @@ export default {
     async created() {
         const submission = SubmissionStore.getSubmission();
         const policy = SubmissionStore.getPolicy(submission);
-        console.log(submission);
-        let planTabItem = {
-            selected: false,
-            showdot: false,
-            disabled: false,
-            badge: '',
-            onClick: this.goto
-        };
+        // console.log(submission);
         return new Promise((resolve, reject) => {
             let productId = policy['ProductId'];
-            let url = `${config['PRODUCT_API']['GET_PLAN_BY_PLAN_CODE']}?productId=` + productId;
+            let url = `${config['PRODUCT_API']['GET_PLANE_CODES_BY_PRODUCTID_AH']}?productId=` + productId;
+            // let url = config.PRODUCT_API.GET_PLANE_CODES_BY_PRODUCTID_AH + '?productId=' + productId;
             const planCodesList = [];
             let planTabItems = [];
-            AjaxUtil.call(url).then((data) => {
-                _.forEach(data, function(planItem) {
+            AjaxUtil.call(url).then((planCodes) => {
+                _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
-                    if (planCodesList.length < 4) {
-                        planCodesList.push(planItem['PlanCode']);
+                    if (planCodesList.length < 3) {
+                        planCodesList.push(planCodeItem['PlanCode']);
                     }
                 });
                 SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
@@ -244,32 +133,45 @@ export default {
                          'ParentObjectCode': parentObjectCode[0].ObjectCode,
                          'PlanCodes': planCodesList
                     };
-
                     let child = PolicyStore.getChild(param, policy);
+                        // console.log('child.............');
+                        // console.log(child);
                     let selectedIndex = 0;
-                    _.forEach(data, function(planItem) {
-                        // 暂时最多取三个方案
+                    _.each(planCodes, (planCodeItem) => {
                         if (selectedIndex < 3) {
                             // 初始化，还没有已选方案,显示已选，如果没有选，显示第一个
-                            if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && selectedIndex == 0)) {
+                            if ((child && child['PlanCode'] == planCodeItem['PlanCode']) || (!child && selectedIndex == 0)) {
+                                let planTabItem = {};
                                 planTabItem['selected'] = true;
-                                planTabItem['text'] = planItem['PlanName'];
+                                planTabItem['showdot'] = false;
+                                planTabItem['disabled'] = false;
+                                planTabItem['badge'] = '';
+                                planTabItem['onClick'] = this.goto;
+                                planTabItem['text'] = planCodeItem['PlanName'];
                                 planTabItems.push(planTabItem);
                                 this.index = selectedIndex;
                             } else {
-                                planTabItem['text'] = planItem['PlanName'];
+                                let planTabItem = {};
+                                planTabItem['selected'] = false;
+                                planTabItem['showdot'] = false;
+                                planTabItem['disabled'] = false;
+                                planTabItem['badge'] = '';
+                                planTabItem['onClick'] = this.goto;
+                                planTabItem['text'] = planCodeItem['PlanName'];
                                 planTabItems.push(planTabItem);
                             }
                         }
                         selectedIndex = selectedIndex + 1;
                     });
                     this.planTabItems = planTabItems;
+                        // console.log('planTabItems........');
+                        // console.log(this.planTabItems);
 
                     // 初始化方案列表
                     let planItemList = [];
                     PolicyStore.initPlan(param, policy).then((plans) => {
-                        _.forEach(planCodesList, function(planCode) {
-                            _.forEach(plans, function(plan) {
+                        _.each(planCodesList, (planCode) => {
+                            _.each(plans, (plan) => {
                                 if (planCode == plan['PlanCode']) {
                                     planItemList.push(plan);
                                 }
@@ -277,7 +179,9 @@ export default {
                         });
                         this.planItemList = planItemList;
 
-                        console.log(plans);
+                        // console.log(this.planItemList);
+                        // console.log(plans);
+                        // console.log(submission);
                     });
                 });
             });
