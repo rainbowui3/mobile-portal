@@ -143,7 +143,7 @@ export default {
           this.routeType.route1 != ''
         ) {
           this.$router.push({
-            path: '/proposal' + '/' + this.routeType.route1,
+            path: '/rate' + '/' + this.routeType.route1,
             query: this.$route.query
           });
         }

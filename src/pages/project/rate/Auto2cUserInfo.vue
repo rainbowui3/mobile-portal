@@ -105,6 +105,8 @@ export default {
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query
         });
+
+        console.log(submission);
     },
     validateNumInput(value) {
       var isCertification = Validate.validateIdNo(value);

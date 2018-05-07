@@ -58,8 +58,8 @@ const TreeTest = r => require.ensure([], () => r(require('@/components/TreeTest'
 
 // ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
-const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
-const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
+const ProductInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/rate/ProductInfoEntryNormal')), 'ProductInfoEntryNormal');
+const ProductInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/rate/ProductInfoEntryShortTerm'), 'ProductInfoEntryShortTerm'));
 const InsuredInfoEntryShortTerm = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryShortTerm'), 'InsuredInfoEntryShortTerm'));
 const InsuredInfoConfirmNormal = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmNormal'), 'InsuredInfoConfirmNormal'));
 const PayStatus = r => require.ensure([], () => r(require('@/pages/project/issue/PayStatus')), 'PayStatus');
@@ -69,7 +69,7 @@ const InsuredInfoStudyRisk = r => require.ensure([], () => r(require('@/pages/pr
 const InsuredInfoConfirmStudyRisk = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmStudyRisk'), 'InsuredInfoConfirmStudyRisk'));
 const InsuredInfoAccident = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoAccident'), 'InsuredInfoAccident'));
 const InsuredInfoConfirmAccident = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmAccident'), 'InsuredInfoConfirmAccident'));
-const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
+const ProductInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/rate/ProductInfoEntryHealth'), 'ProductInfoEntryHealth'));
 const InsuredInfoEntryHealth = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryHealth'), 'InsuredInfoEntryHealth'));
 const InsuredInfoEntryHealthSub = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryHealthSub'), 'InsuredInfoEntryHealthSub'));
 const InsuredInfoConfirmHealthSub = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmHealthSub'), 'InsuredInfoConfirmHealthSub'));
@@ -78,8 +78,8 @@ const HealthInformConfirm = r => require.ensure([], () => r(require('@/pages/pro
 const InsuredInfoConfirmHealth = r => require.ensure([], () => r(require('@/pages/project/bind/InsuredInfoConfirmHealth'), 'InsuredInfoConfirmHealth'));
 
 // auto2e
-const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/proposal/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
-const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/proposal/ChooseHandler'), 'ChooseHandler'));
+const ProductInfoEntryAuto = r => require.ensure([], () => r(require('@/pages/project/rate/ProductInfoEntryAuto')), 'ProductInfoEntryAuto');
+const ChooseHandler = r => require.ensure([], () => r(require('@/pages/project/rate/ChooseHandler'), 'ChooseHandler'));
 const AutoPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoPlan'), 'AutoPlan'));
 const CarAndOwnerInfoEntry = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarAndOwnerInfoEntry'), 'CarAndOwnerInfoEntry'));
 const CarAndOwnerInfoEntryOneWay = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/CarAndOwnerInfoEntryOneWay'), 'CarAndOwnerInfoEntryOneWay'));
@@ -114,7 +114,7 @@ const Auto2cProposalInfoConfirm = r => require.ensure([], () => r(require('@/pag
 const Auto2cUserAddr = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cUserAddr'), 'Auto2cUserAddr'));
 const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cDrivingLicenseInfo'), 'Auto2cDrivingLicenseInfo'));
 const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cPlan'), 'Auto2cPlan'));
-const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/proposal/Auto2cUserInfo'), 'Auto2cUserInfo'));
+const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/rate/Auto2cUserInfo'), 'Auto2cUserInfo'));
 const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 
 // business
@@ -144,7 +144,7 @@ const BusinessPayment = r => require.ensure([], () => r(require('@/pages/project
 const LoadingPage = r => require.ensure([], () => r(require('@/pages/project/LoadingPage')), 'LoadingPage');
 
 // businessDetail
-const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/proposal/BusinessDetail')), 'BusinessDetail');
+const BusinessDetail = r => require.ensure([], () => r(require('@/pages/project/rate/BusinessDetail')), 'BusinessDetail');
 // BusinessFillIn
 const BusinessFillIn = r => require.ensure([], () => r(require('@/pages/project/quote/BusinessFillIn')), 'BusinessFillIn');
 // BusinessConfirm
@@ -155,7 +155,7 @@ const BusinessCategory = r => require.ensure([], () => r(require('@/pages/Busine
 const Mine = r => require.ensure([], () => r(require('@/pages/Mine')), 'Mine');
 
 // AHRouters
-const ProposalTemplate = r => require.ensure([], () => r(require('@/pages/project/proposal/AHRouterProduct')), 'ProposalTemplate');
+const ProposalTemplate = r => require.ensure([], () => r(require('@/pages/project/rate/AHRouterProduct')), 'ProposalTemplate');
 const QuoteTemplate = r => require.ensure([], () => r(require('@/pages/project/quote/AHRouterEntry')), 'QuoteTemplate');
 const BindTemplate = r => require.ensure([], () => r(require('@/pages/project/bind/AHRouterConfirm')), 'BindTemplate');
 const IssueTemplate = r => require.ensure([], () => r(require('@/pages/project/issue/AHRouterPay')), 'IssueTemplate');
@@ -445,7 +445,7 @@ const router = new Router({
 
   // ahRouters
   {
-    path: '/proposal',
+    path: '/rate',
     name: 'ProposalTemplate',
     component: ProposalTemplate,
     children: [{
