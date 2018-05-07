@@ -11,18 +11,17 @@
                 </div>
             </div>
             <div class="auto2cPlan">
-                <div v-for="(selectedPlan,selectedIdx) in planList[index].selectedPlans" :key="selectedIdx" class="selectedPlan">
+                <div v-for="(planItem,uuid) in planItemList[index].TempPolicyCoverageList[0].PolicyCoverageList" :key="BusinessObjectId" class="planItem.TempData.uuid">
                     <div class="selectedPlanContent">
                         <div class="planName">
-                            {{selectedPlan.name}}
+                            {{planItem.ProductElementCode}}
                         </div>
-                        <div class="planAddition" v-if="selectedPlan.isNonDeductible">
+                        <div class="planAddition" v-if="planItem.IsNonDeductible">
                             {{"不计免赔"}}
                         </div>
-
                     </div>
                     <div class="planAmount">
-                        {{selectedPlan.value}}
+                        {{planItem.SumInsured}}
                     </div>
                 </div>
             </div>
@@ -37,9 +36,14 @@
 </template>
 <script>
 import '../../../../../i18n/auto2cPlan';
+import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
+import config from '../../../../../config/config';
 export default {
     data() {
         return {
+            planTabItems: [],
+            planItemList: [],
+            plan: [],
             index: 0,
             pageModel: {},
             planList: [
@@ -162,12 +166,122 @@ export default {
                 query: this.$route.query
             });
         },
-        confirmClick() {
+        async confirmClick() {
+            const submission = SubmissionStore.getSubmission();
+            const policy = SubmissionStore.getPolicy(submission);
+            let productId = policy['ProductId'];
+            SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
+                let modelNameParma = {
+                    'ModelName': 'PolicyPlan'
+                };
+                const objectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+                modelNameParma = {
+                    'ModelName': 'PolicyRisk'
+                };
+                const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+                const param = {
+                        'ModelName': 'PolicyPlan',
+                        'ObjectCode': objectCode[0].ObjectCode,
+                        'ParentModelName': 'PolicyRisk',
+                        'ParentObjectCode': parentObjectCode[0].ObjectCode
+                };
+                let child = PolicyStore.getChild(param, policy);
+                let selectPlanItem = this.planItemList[this.index];
+                if (child) {
+                    // 当前选中方案和policy模型中的方案是否一致
+                    if (!child.PlanCode == selectPlanItem.PlanCode) {
+                        PolicyStore.deleteChild(child, policy);
+                        PolicyStore.setChild(selectPlanItem, policy, param);
+                    }
+                } else {
+                    PolicyStore.setChild(selectPlanItem, policy, param);
+                }
+                PolicyStore.setChild(this.planItemList[this.index], policy, param);
+        });
+
             this.$router.push({
                 path: '/bind/auto2c',
                 query: this.$route.query
             });
         }
+    },
+    async created() {
+        const submission = SubmissionStore.getSubmission();
+        const policy = SubmissionStore.getPolicy(submission);
+        console.log(submission);
+        let planTabItem = {
+            selected: false,
+            showdot: false,
+            disabled: false,
+            badge: '',
+            onClick: this.goto
+        };
+        return new Promise((resolve, reject) => {
+            let productId = policy['ProductId'];
+            let url = `${config['PRODUCT_API']['GET_PLAN_BY_PLAN_CODE']}?productId=` + productId;
+            const planCodesList = [];
+            let planTabItems = [];
+            AjaxUtil.call(url).then((data) => {
+                _.forEach(data, function(planItem) {
+                    // 暂时最多取三个方案
+                    if (planCodesList.length < 4) {
+                        planCodesList.push(planItem['PlanCode']);
+                    }
+                });
+                SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
+                    let modelNameParma = {
+                     'ModelName': 'PolicyPlan'
+                    };
+                    const objectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+                    modelNameParma = {
+                        'ModelName': 'PolicyRisk'
+                    };
+                    const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+                    const param = {
+                        'ModelName': 'PolicyPlan',
+                         'ObjectCode': objectCode[0].ObjectCode,
+                         'ParentModelName': 'PolicyRisk',
+                         'ParentObjectCode': parentObjectCode[0].ObjectCode,
+                         'PlanCodes': planCodesList
+                    };
+
+                    let child = PolicyStore.getChild(param, policy);
+                    let selectedIndex = 0;
+                    _.forEach(data, function(planItem) {
+                        // 暂时最多取三个方案
+                        if (selectedIndex < 3) {
+                            // 初始化，还没有已选方案,显示已选，如果没有选，显示第一个
+                            if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && selectedIndex == 0)) {
+                                planTabItem['selected'] = true;
+                                planTabItem['text'] = planItem['PlanName'];
+                                planTabItems.push(planTabItem);
+                                this.index = selectedIndex;
+                            } else {
+                                planTabItem['text'] = planItem['PlanName'];
+                                planTabItems.push(planTabItem);
+                            }
+                        }
+                        selectedIndex = selectedIndex + 1;
+                    });
+                    this.planTabItems = planTabItems;
+
+                    // 初始化方案列表
+                    let planItemList = [];
+                    PolicyStore.initPlan(param, policy).then((plans) => {
+                        _.forEach(planCodesList, function(planCode) {
+                            _.forEach(plans, function(plan) {
+                                if (planCode == plan['PlanCode']) {
+                                    planItemList.push(plan);
+                                }
+                            });
+                        });
+                        this.planItemList = planItemList;
+
+                        console.log(plans);
+                    });
+                });
+            });
+        });
     }
 };
 </script>
