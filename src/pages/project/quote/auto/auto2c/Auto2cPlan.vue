@@ -10,8 +10,19 @@
                     <span class="planEdit">定制方案</span>
                 </div>
             </div>
-            <div class="auto2cPlan">
+            <div class="auto2cPlan" v-if="planItemList">
+                <div class="selectedPlan">
+                    <div class="selectedPlanContent">
+                        <div class="planName">
+                            {{$t('auto2cPlan.risk')}}
+                        </div>
+                    </div>
+                    <div class="planAmount">
+                        {{$t('auto2cPlan.insured')}}
+                    </div>
+                </div>
                 <div v-for="(planItem,uuid) in planItemList[index].TempPolicyCoverageList[0].PolicyCoverageList" :key="planItem.TempData.uuid" class="selectedPlan">
+                                   
                     <div class="selectedPlanContent">
                         <div class="planName">
                             {{planItem.ProductElementCode}}
@@ -111,6 +122,12 @@ export default {
             const planCodesList = [];
             let planTabItems = [];
             AjaxUtil.call(url).then((planCodes) => {
+                // 测试数据
+                planCodes = {
+                    'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '12'},
+                    'DEA180060': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '常用方案'}
+                    };
+                console.log(JSON.stringify(planCodes));
                 _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
                     if (planCodesList.length < 3) {
@@ -164,8 +181,8 @@ export default {
                         selectedIndex = selectedIndex + 1;
                     });
                     this.planTabItems = planTabItems;
-                        // console.log('planTabItems........');
-                        // console.log(this.planTabItems);
+                        console.log('planTabItems........');
+                        console.log(this.planTabItems);
 
                     // 初始化方案列表
                     let planItemList = [];
@@ -179,9 +196,9 @@ export default {
                         });
                         this.planItemList = planItemList;
 
-                        // console.log(this.planItemList);
-                        // console.log(plans);
-                        // console.log(submission);
+                        console.log(this.planItemList);
+                        console.log(plans);
+                        console.log(submission);
                     });
                 });
             });
