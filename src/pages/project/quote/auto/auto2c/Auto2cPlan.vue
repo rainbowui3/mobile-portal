@@ -127,7 +127,7 @@ export default {
                     'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '12'},
                     'DEA180060': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '常用方案'}
                     };
-                console.log(JSON.stringify(planCodes));
+                // console.log(JSON.stringify(planCodes));
                 _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
                     if (planCodesList.length < 3) {
@@ -181,8 +181,8 @@ export default {
                         selectedIndex = selectedIndex + 1;
                     });
                     this.planTabItems = planTabItems;
-                        console.log('planTabItems........');
-                        console.log(this.planTabItems);
+                        // console.log('planTabItems........');
+                        // console.log(this.planTabItems);
 
                     // 初始化方案列表
                     let planItemList = [];
@@ -196,9 +196,9 @@ export default {
                         });
                         this.planItemList = planItemList;
 
-                        console.log(this.planItemList);
-                        console.log(plans);
-                        console.log(submission);
+                        // console.log(this.planItemList);
+                        // console.log(plans);
+                        // console.log(submission);
                     });
                 });
             });
