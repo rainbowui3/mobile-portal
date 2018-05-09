@@ -49,6 +49,7 @@
 import '../../../../../i18n/auto2cPlan';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
 import config from '../../../../../config/config';
+import {LoadingApi} from 'rainbow-mobile-core';
 export default {
     data() {
         return {
@@ -145,6 +146,10 @@ export default {
         }
     },
     async created() {
+        LoadingApi.show(this, {
+            transition: '',
+            text: this.$t('common.processing')
+        });
         const submission = SubmissionStore.getSubmission();
         const policy = SubmissionStore.getPolicy(submission);
         // console.log(submission);
@@ -213,6 +218,7 @@ export default {
                         this.planItemList = planItemList;
                         // console.log(this.planTabItems);
                         // console.log(this.planItemList);
+                        LoadingApi.hide(this);
                     });
                 });
             });

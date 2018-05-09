@@ -31,6 +31,7 @@ import '../../../../../i18n/carInfo';
 import '../../../../../i18n/autoProposalInfoConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import config from 'config';
+import {LoadingApi} from 'rainbow-mobile-core';
 export default {
   data() {
     return {
@@ -52,10 +53,15 @@ export default {
       }
   },
    async created() {
+        LoadingApi.show(this, {
+            transition: '',
+            text: this.$t('common.processing')
+        });
        const submission = SubmissionStore.getSubmission();
        const policy = SubmissionStore.getPolicy(submission);
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
+       LoadingApi.hide(this);
    }
 };
 </script>

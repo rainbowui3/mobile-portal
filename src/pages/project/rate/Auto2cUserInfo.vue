@@ -35,6 +35,7 @@ import '../../../i18n/Auto2cUserInfo';
 import Validate from '../../../components/utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {UrlUtil} from 'rainbow-foundation-tools';
+import {LoadingApi} from 'rainbow-mobile-core';
 export default {
   components: {
     ProductTop
@@ -50,6 +51,10 @@ export default {
     };
   },
   async created() {
+        LoadingApi.show(this, {
+            transition: '',
+            text: this.$t('common.processing')
+        });
         const urlObject = UrlUtil.parseURL(window.location.href);
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
@@ -87,6 +92,7 @@ export default {
             this.policyRisk = policyRisk;
             SubmissionStore.setPolicy(policy, submission, true);
         }
+        LoadingApi.hide(this);
   },
   methods: {
     async nextOnClick() {
