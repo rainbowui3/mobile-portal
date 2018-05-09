@@ -127,7 +127,6 @@ export default {
                 planCodesList.push(selectCode);
                 param['PlanCodes'] = planCodesList;
                 let child = PolicyStore.getChild(param, policy);
-                debugger;
                 if (child) {
                     // 当前选中方案和policy模型中的方案是否一致
                     if (child.PlanCode != selectCode) {
