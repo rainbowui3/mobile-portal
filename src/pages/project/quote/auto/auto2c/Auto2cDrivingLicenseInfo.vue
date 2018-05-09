@@ -54,7 +54,6 @@ export default {
   },
    async created() {
         LoadingApi.show(this, {
-            transition: '',
             text: this.$t('common.processing')
         });
        const submission = SubmissionStore.getSubmission();

@@ -52,7 +52,6 @@ export default {
   },
   async created() {
         LoadingApi.show(this, {
-            transition: '',
             text: this.$t('common.processing')
         });
         const urlObject = UrlUtil.parseURL(window.location.href);
