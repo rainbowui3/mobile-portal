@@ -1,6 +1,6 @@
 <template>
     <r-page>
-        <top :title="$t('common.pay')" :showBack="true" />
+        <top :title="$t('common.pay')"/>
         <r-body>
             <r-card>
                 <div class="border">

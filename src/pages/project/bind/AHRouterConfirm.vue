@@ -1,7 +1,6 @@
 // 意健险标的确认页面路由
 <template>
   <div>
-    <div>loading.........</div>
     <router-view>
     </router-view>
   </div>
