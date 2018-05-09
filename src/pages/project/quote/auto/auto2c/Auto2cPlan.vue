@@ -119,7 +119,10 @@ export default {
         },
         async confirmClick() {
             const submission = SubmissionStore.getSubmission();
-            const policy = SubmissionStore.getPolicy(submission);
+            const submissionProductList = SubmissionStore.getPolicy(submission);
+            const policy = _.find(submissionProductList, (policyItem) => {
+                return policyItem['ProductCode'] == 'DEA';
+            });
             let productId = policy['ProductId'];
             SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
                 let param = this.getParams(schema);
@@ -139,10 +142,10 @@ export default {
                 }
         });
         // console.log(submission);
-            this.$router.push({
-                path: '/bind/auto2c',
-                query: this.$route.query
-            });
+        this.$router.push({
+            path: '/bind/auto2c',
+            query: this.$route.query
+        });
         }
     },
     async created() {
@@ -150,7 +153,10 @@ export default {
             text: this.$t('common.processing')
         });
         const submission = SubmissionStore.getSubmission();
-        const policy = SubmissionStore.getPolicy(submission);
+        const submissionProductList = SubmissionStore.getPolicy(submission);
+        const policy = _.find(submissionProductList, (policyItem) => {
+            return policyItem['ProductCode'] == 'DEA';
+        });
         // console.log(submission);
         return new Promise((resolve, reject) => {
             let productId = policy['ProductId'];

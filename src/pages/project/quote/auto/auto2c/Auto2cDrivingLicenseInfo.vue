@@ -46,6 +46,19 @@ export default {
   },
   methods: {
       quotationClick() {
+       const submission = SubmissionStore.getSubmission();
+       const submissionProductList = SubmissionStore.getPolicy(submission);
+       const policyComp = _.find(submissionProductList, (policyItem) => {
+           return policyItem['ProductCode'] == 'DFA';
+       });
+       const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
+       const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
+       policyRiskComp['LicenseNo'] = this.policyRisk['LicenseNo'];
+       policyRiskComp['Model'] = this.policyRisk['Model'];
+       policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
+       policyRiskComp['EngineNo'] = this.policyRisk['EngineNo'];
+       policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
+       policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
           this.$router.push({
              path: '/project/proposal/auto2c/Auto2cPlan',
              query: this.$route.query
@@ -57,9 +70,12 @@ export default {
             text: this.$t('common.processing')
         });
        const submission = SubmissionStore.getSubmission();
-       const policy = SubmissionStore.getPolicy(submission);
+       const submissionProductList = SubmissionStore.getPolicy(submission);
+       const policyComm = _.find(submissionProductList, (policyItem) => {
+           return policyItem['ProductCode'] == 'DEA';
+       });
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
-       this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
+       this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
        LoadingApi.hide(this);
    }
 };

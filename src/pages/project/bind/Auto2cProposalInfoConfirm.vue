@@ -60,6 +60,7 @@ import '../../../i18n/insuredInfoEntryHealthSub';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import Poi from '../../../components/Poi';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
+import {LoadingApi} from 'rainbow-mobile-core';
 
 export default {
   components: {
@@ -131,10 +132,17 @@ export default {
     }
   },
   async created() {
+      LoadingApi.show(this, {
+          text: this.$t('common.processing')
+      });
       const submission = SubmissionStore.getSubmission();
-      const policy = SubmissionStore.getPolicy(submission);
+      const submissionProductList = SubmissionStore.getPolicy(submission);
+      const policyComm = _.find(submissionProductList, (policyItem) => {
+          return policyItem['ProductCode'] == 'DEA';
+      });
       const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
-      this.policyRisk = PolicyStore.getChild(policyRiskParam, policy);
+      this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
+      LoadingApi.hide(this);
   }
 };
 </script>
