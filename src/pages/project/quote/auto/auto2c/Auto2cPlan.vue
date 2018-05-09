@@ -21,18 +21,18 @@
                         {{$t('auto2cPlan.insured')}}
                     </div>
                 </div>
-                <div v-for="(planItem,uuid) in planItemList[index].TempPolicyCoverageList[0].PolicyCoverageList" :key="planItem.TempData.uuid" class="selectedPlan">
+                <div v-for="(ctLstItem,ProductElementId) in planItemList[index].ChildPlanCoverageList" :key="ctLstItem.ProductElementId" class="selectedPlan">
                                    
                     <div class="selectedPlanContent">
                         <div class="planName">
-                            {{planItem.ProductElementCode}}
+                            {{ctLstItem.PlanCoverageName}}
                         </div>
-                        <div class="planAddition" v-if="planItem.IsNonDeductible">
+                        <div class="planAddition" v-if="ctLstItem.IsNonDeductible && ctLstItem.IsNonDeductible == 'Y' ">
                             {{"不计免赔"}}
                         </div>
                     </div>
                     <div class="planAmount">
-                        {{planItem.SumInsured}}
+                        {{ctLstItem.SumInsured}}
                     </div>
                 </div>
             </div>
@@ -74,37 +74,71 @@ export default {
                 query: this.$route.query
             });
         },
+        // initPlan,init是全量CT,删除多余的CT
+        initPlan(param, policy) {
+            let childCoverageList = this.planItemList[this.index]['ChildPlanCoverageList'];
+            PolicyStore.initPlan(param, policy).then((plans) => {
+                _.each(plans, (planItem) => {
+                    PolicyStore.setChild(planItem, policy, param);
+                    let PolicyCoverageList = planItem.TempPolicyCoverageList[0].PolicyCoverageList;
+                    _.each(PolicyCoverageList, (initCtItem) => {
+                        let isSaved = false;
+                        _.each(childCoverageList, (selectedCtItem) => {
+                            if (initCtItem['ProductElementCode'] == selectedCtItem['ProductElementCode']) {
+                                isSaved = true;
+                                initCtItem['IsNonDeductible'] = selectedCtItem['IsNonDeductible'];
+                                if (selectedCtItem['SumInsured']) {
+                                    initCtItem['SumInsured'] = selectedCtItem['SumInsured'];
+                                }
+                            }
+                        });
+                        if (!isSaved) {
+                            PolicyStore.deleteChild(initCtItem, policy);
+                        }
+                    });
+                });
+            });
+        },
+        getParams(schema) {
+            let modelNameParma = {
+                'ModelName': 'PolicyPlan'
+            };
+            const objectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+            modelNameParma = {
+                'ModelName': 'PolicyRisk'
+            };
+            const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
+            const param = {
+                    'ModelName': 'PolicyPlan',
+                    'ObjectCode': objectCode[0].ObjectCode,
+                    'ParentModelName': 'PolicyRisk',
+                    'ParentObjectCode': parentObjectCode[0].ObjectCode
+            };
+            return param;
+        },
         async confirmClick() {
             const submission = SubmissionStore.getSubmission();
             const policy = SubmissionStore.getPolicy(submission);
             let productId = policy['ProductId'];
             SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
-                let modelNameParma = {
-                    'ModelName': 'PolicyPlan'
-                };
-                const objectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
-                modelNameParma = {
-                    'ModelName': 'PolicyRisk'
-                };
-                const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
-                const param = {
-                        'ModelName': 'PolicyPlan',
-                        'ObjectCode': objectCode[0].ObjectCode,
-                        'ParentModelName': 'PolicyRisk',
-                        'ParentObjectCode': parentObjectCode[0].ObjectCode
-                };
+                let param = this.getParams(schema);
+                let planCodesList = [];
+                let selectCode = this.planItemList[this.index]['PlanCode'];
+                planCodesList.push(selectCode);
+                param['PlanCodes'] = planCodesList;
                 let child = PolicyStore.getChild(param, policy);
-                let selectPlanItem = this.planItemList[this.index];
+                debugger;
                 if (child) {
                     // 当前选中方案和policy模型中的方案是否一致
-                    if (child.PlanCode != selectPlanItem.PlanCode) {
+                    if (child.PlanCode != selectCode) {
                         PolicyStore.deleteChild(child, policy);
-                        PolicyStore.setChild(selectPlanItem, policy, param);
+                        this.initPlan(param, policy);
                     }
                 } else {
-                    PolicyStore.setChild(selectPlanItem, policy, param);
+                     this.initPlan(param, policy);
                 }
         });
+        // console.log(submission);
             this.$router.push({
                 path: '/bind/auto2c',
                 query: this.$route.query
@@ -118,87 +152,67 @@ export default {
         return new Promise((resolve, reject) => {
             let productId = policy['ProductId'];
             let url = `${config['PRODUCT_API']['GET_PLANE_CODES_BY_PRODUCTID_AH']}?productId=` + productId;
-            // let url = config.PRODUCT_API.GET_PLANE_CODES_BY_PRODUCTID_AH + '?productId=' + productId;
             const planCodesList = [];
             let planTabItems = [];
+            let planItemList = [];
             AjaxUtil.call(url).then((planCodes) => {
-                // 测试数据
+                // // 测试数据
                 planCodes = {
-                    'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '12'},
-                    'DEA180060': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '常用方案'}
+                    'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案'},
+                    'DEA180060': {'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案'}
                     };
-                // console.log(JSON.stringify(planCodes));
+
                 _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
                     if (planCodesList.length < 3) {
                         planCodesList.push(planCodeItem['PlanCode']);
                     }
                 });
-                SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
-                    let modelNameParma = {
-                     'ModelName': 'PolicyPlan'
-                    };
-                    const objectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
-                    modelNameParma = {
-                        'ModelName': 'PolicyRisk'
-                    };
-                    const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
-                    const param = {
-                        'ModelName': 'PolicyPlan',
-                         'ObjectCode': objectCode[0].ObjectCode,
-                         'ParentModelName': 'PolicyRisk',
-                         'ParentObjectCode': parentObjectCode[0].ObjectCode,
-                         'PlanCodes': planCodesList
-                    };
-                    let child = PolicyStore.getChild(param, policy);
-                        // console.log('child.............');
-                        // console.log(child);
-                    let selectedIndex = 0;
-                    _.each(planCodes, (planCodeItem) => {
-                        if (selectedIndex < 3) {
-                            // 初始化，还没有已选方案,显示已选，如果没有选，显示第一个
-                            if ((child && child['PlanCode'] == planCodeItem['PlanCode']) || (!child && selectedIndex == 0)) {
-                                let planTabItem = {};
+                url = `${config['PRODUCT_API']['GET_PLAN_DEF_BY_CODES']}?productId=` + productId;
+                AjaxUtil.call(url, planCodesList, { 'method': 'POST' }).then((planList) => {
+                    SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
+                        let param = this.getParams(schema);
+                        let child = PolicyStore.getChild(param, policy);
+                        _.each(planList, (planItem, i) => {
+                            let planTabItem = {};
+                            if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && i == 0)) {
                                 planTabItem['selected'] = true;
                                 planTabItem['showdot'] = false;
                                 planTabItem['disabled'] = false;
                                 planTabItem['badge'] = '';
                                 planTabItem['onClick'] = this.goto;
-                                planTabItem['text'] = planCodeItem['PlanName'];
+                                planTabItem['text'] = planItem['PlanName'];
                                 planTabItems.push(planTabItem);
-                                this.index = selectedIndex;
+                                this.index = i;
                             } else {
-                                let planTabItem = {};
                                 planTabItem['selected'] = false;
                                 planTabItem['showdot'] = false;
                                 planTabItem['disabled'] = false;
                                 planTabItem['badge'] = '';
                                 planTabItem['onClick'] = this.goto;
-                                planTabItem['text'] = planCodeItem['PlanName'];
+                                planTabItem['text'] = planItem['PlanName'];
                                 planTabItems.push(planTabItem);
                             }
-                        }
-                        selectedIndex = selectedIndex + 1;
-                    });
-                    this.planTabItems = planTabItems;
-                        // console.log('planTabItems........');
-                        // console.log(this.planTabItems);
-
-                    // 初始化方案列表
-                    let planItemList = [];
-                    PolicyStore.initPlan(param, policy).then((plans) => {
-                        _.each(planCodesList, (planCode) => {
-                            _.each(plans, (plan) => {
-                                if (planCode == plan['PlanCode']) {
-                                    planItemList.push(plan);
+                            let childplanCoverageLst = planItem.PlanCoverageList[0].ChildPlanCoverageList;
+                            _.each(childplanCoverageLst, (planCoverageLstItem) => {
+                                if (planCoverageLstItem.PlanCoverageFieldList) {
+                                    _.each(planCoverageLstItem.PlanCoverageFieldList, (fieldLstItem) => {
+                                        if (fieldLstItem.FieldName === 'SumInsured') {
+                                            planCoverageLstItem['SumInsured'] = fieldLstItem['DefaultValue'];
+                                        }
+                                    });
                                 }
                             });
+                            let ctItem = {
+                                'PlanCode': planItem['PlanCode'],
+                                'ChildPlanCoverageList': childplanCoverageLst
+                            };
+                            planItemList.push(ctItem);
                         });
+                        this.planTabItems = planTabItems;
                         this.planItemList = planItemList;
-
+                        // console.log(this.planTabItems);
                         // console.log(this.planItemList);
-                        // console.log(plans);
-                        // console.log(submission);
                     });
                 });
             });
@@ -211,7 +225,7 @@ export default {
     background-color: #fff;
 }
 .selectedPlanContent {
-    width: 55%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;

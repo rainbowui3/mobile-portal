@@ -8,16 +8,8 @@ module.exports = {
     DEFAULT_YEAR_FORMATER: 'YYYY',
     DEFAULT_HOURS_FORMATER: 'YYYY-MM-DD HH',
 	API_GATEWAY_PROXY: API_GATEWAY_PROXY,
-	DD: {
-		// product_dd_schema: API_GATEWAY_PROXY + "dd/public/dictionary/mgmt/v1/generateFullUiResourceSchemaWithoutField",
-	},
     PRODUCT_API: {
-        GET_PLANE_CODES_BY_PRODUCTID_AH: API_GATEWAY_PROXY + 'product/plan/v1/getPlanDefCodesByPrdIdForAH'
+        GET_PLANE_CODES_BY_PRODUCTID_AH: API_GATEWAY_PROXY + 'product/plan/v1/getPlanDefCodesByPrdIdForAH',
+        GET_PLAN_DEF_BY_CODES: API_GATEWAY_PROXY + 'product/plan/v1/getPlanDefByCodes'
     }
-    // POLICY_API:{
-    //     CREATE_POLICY:API_GATEWAY_PROXY + "public/orchestration/dispatch/newbiz_Quoting",
-    // },
-    // ENDORSEMENT_API:{
-    //     CREATE_ENDORSEMENT:API_GATEWAY_PROXY + "public/orchestration/dispatch/AP00_endo_create",
-    // }
 };
