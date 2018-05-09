@@ -10,7 +10,7 @@
                     <span class="planEdit">定制方案</span>
                 </div>
             </div>
-            <div class="auto2cPlan" v-if="planItemList">
+            <div class="auto2cPlan" v-if="planItemList && planItemList.length > 0 && planItemList[index].ChildPlanCoverageList">
                 <div class="selectedPlan">
                     <div class="selectedPlanContent">
                         <div class="planName">
