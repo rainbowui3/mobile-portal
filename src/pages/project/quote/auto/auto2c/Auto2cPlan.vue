@@ -155,12 +155,13 @@ export default {
             let planTabItems = [];
             let planItemList = [];
             AjaxUtil.call(url).then((planCodes) => {
+                // console.log(planCodes);
                 // // 测试数据
                 planCodes = {
                     'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案'},
-                    'DEA180060': {'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案'}
+                    'DEA180060': {'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案'},
+                    'DEA180062': {'PlanCode': 'DEA180062', 'ProductId': '301132390', 'PlanName': '豪华方案'}
                     };
-
                 _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
                     if (planCodesList.length < 3) {
