@@ -86,14 +86,15 @@ export default {
             const policyCustomerInsuredComp = PolicyStore.createChild(policyCustomerParam, policyComp);
             policyCustomerInsuredComp['CustomerRoleCode'] = '2';
             const policyCustomerContactComp = PolicyStore.createChild(policyCustomerParam, policyComp);
-            policyCustomerContactComp['CustomerRoleCode'] = '5';
+            policyCustomerContactComp['CustomerRoleCode'] = '4';
 
             const policyLobParamComp = {'ModelName': 'PolicyLob', 'ObjectCode': 'DFA'};
             PolicyStore.createChild(policyLobParamComp, policyComp);
             PolicyStore.createChild(policyRiskParam, policyComp);
-            PolicyStore.createChild({'ModelName': 'VehicleCheck', 'ObjectCode': 'VehicleCheck'}, policyComp);
+            PolicyStore.createChild({'ModelName': 'VehicleTax', 'ObjectCode': 'VehicleTax'}, policyComp);
             PolicyStore.createChild({'ModelName': 'PolicyForm', 'ObjectCode': 'POLICYFORM', 'ParentModelName': 'PolicyLob', 'ParentObjectCode': 'DFA'}, policyComp);
             SubmissionStore.setPolicy(policyComp, submission, false);
+            submission['SubmissionProductList'][0]['IsRealProposal'] = 'Y';
 
             // 商业险initPolicy
             const policyComm = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
@@ -106,7 +107,7 @@ export default {
             const policyCustomerInsured = PolicyStore.createChild(policyCustomerParam, policyComm);
             policyCustomerInsured['CustomerRoleCode'] = '2';
             const policyCustomerContact = PolicyStore.createChild(policyCustomerParam, policyComm);
-            policyCustomerContact['CustomerRoleCode'] = '5';
+            policyCustomerContact['CustomerRoleCode'] = '4';
 
             const policyLobParam = {'ModelName': 'PolicyLob', 'ObjectCode': 'DEA'};
             PolicyStore.createChild(policyLobParam, policyComm);
@@ -153,7 +154,6 @@ export default {
         const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
         policyRiskComp['LicenseNo'] = policyRiskComm['LicenseNo'];
         policyRiskComp['IsNewVehicle'] = policyRiskComm['IsNewVehicle'];
-        // console.log(submission);
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query

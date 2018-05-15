@@ -37,7 +37,8 @@ i18n.mergeLocaleMessage('zh-CN', {
   'auto2cCustomPlan.dayPay': '日赔偿金',
   'auto2cCustomPlan.dayNo': '天数',
   'auto2cCustomPlan.floatingRate': '浮动比例',
-  'auto2cCustomPlan.reset': '恢复初始方案'
+  'auto2cCustomPlan.reset': '恢复初始方案',
+  'auto2cCustomPlan.reminder': '请至少投保一个险别'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -78,5 +79,6 @@ i18n.mergeLocaleMessage('en-US', {
   'auto2cCustomPlan.dayPay': 'DayPay',
   'auto2cCustomPlan.dayNo': 'DayNo',
   'auto2cCustomPlan.floatingRate': 'FloatingRate',
-  'auto2cCustomPlan.reset': 'Reset'
+  'auto2cCustomPlan.reset': 'Reset',
+  'auto2cCustomPlan.reminder': 'Please choose one risk'
 });

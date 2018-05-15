@@ -10,7 +10,7 @@
         </div>
       </r-card>
       <!-- 车辆信息 -->
-      <r-card>
+      <r-card v-if="policyRisk">
         <r-row :model="pageModel" :title="$t('carInfo.carInfo')" class="cardTitle">
           <div>
             <span class="fa fa-edit" v-on:click="gotoCarInfo" />
@@ -26,18 +26,19 @@
       <r-card>
         <r-row :model="pageModel" :title="$t('autoProposalInfoConfirm.proposalDetail')" class="cardTitle">
           <div>
-            <span class="fa fa-edit" />
+            <span class="fa fa-edit" :onClick="editDetail"/>
           </div>
         </r-row>
-        <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="model" value="region" />
-        <poi type="second" :model="model" effectiveDate="effectiveDate" expireDate="expireDate" :readonlyEx="true" :readonlyEf="true"/>
+        <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="this" value="Region" :readonly="true"/>
+        <r-date-time v-if="policyComp" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
+        <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
-        <r-list title="商业险" value="4682.56元" :data="model.policy[0].policyPlan" />
-        <r-input title="交强险" :model="model.policy[1]" value="premium" :readonly="true" />
-        <r-input title="车船税" :model="model.policy[0]" value="vehicleAndVesselTax" :readonly="true" />
-        <r-input title="畅行无忧(A款)" :model="model.policy[0]" value="a" :readonly="true" />
-        <r-input title="保费共计" :model="model" value="sumPremium" :readonly="true" />
+        <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" title="商业险" :value="policyComm.DuePremium" :data="deductibleList" />
+        <r-list v-if="nondeductibleList && nondeductibleList.length > 0" :data="nondeductibleList" />
+        <r-input v-if="policyComp" title="交强险" :model="policyComp" value="DuePremium" :readonly="true" />
+        <r-input v-if="vehicleTax" title="车船税" :model="vehicleTax" value="TotalTax" :readonly="true" />
+        <r-input title="保费共计" :model="this" value="sumPremium" :readonly="true" />
       </r-card>
       <!-- 条款确认 -->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
@@ -54,57 +55,32 @@
 import '../../../i18n/auto2cProposalInfoConfirm';
 import '../../../i18n/autoProposalInfoConfirm';
 import '../../../i18n/carInfo';
-// import '../../../../i18n/autoProposalInfoConfirm';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
-import Poi from '../../../components/Poi';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {LoadingApi} from 'rainbow-mobile-core';
+import config from '../../../config/config';
 
 export default {
   components: {
-    ProposalClauseConfirm,
-    Poi
+    ProposalClauseConfirm
   },
   data() {
     return {
-      policyRisk: {},
+      hoursFormat: config.DEFAULT_HOURS_FORMATER,
+      Region: '上海',
+      policyRisk: undefined,
       pageModel: {
         clauseConfirm: false,
         toastShow: false
       },
-      model: {
-        sumPremium: '6832.56元',
-        policy: [
-          {
-            effectiveDate: '2018-01-01',
-            vehicleAndVesselTax: '450元',
-            a: '150元',
-            policyPlan: [
-              {
-                label: '车辆损失保险(23.09万)',
-                value: '1703.79元'
-              },
-              {
-                label: '第三者责任保险(50万)',
-                value: '1958.00元'
-              },
-              {
-                label: '车上人员责任保险(司机)',
-                value: '410.00元'
-              },
-              {
-                label: '不计免赔特约险',
-                value: '610.77元'
-              }
-            ]
-          },
-          {
-            premium: '950元'
-          }
-        ]
-      }
+      vehicleTax: undefined,
+      nondeductibleList: undefined,
+      policyComp: undefined,
+      sumPremium: undefined,
+      policyComm: undefined,
+      deductibleList: []
     };
   },
   methods: {
@@ -119,6 +95,9 @@ export default {
         path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
         name: 'Auto2cDrivingLicenseInfo'
       });
+    },
+    editDetail() {
+      this.$router.go(-1);
     },
     gotoPay() {
       if (this.pageModel.clauseConfirm) {
@@ -136,12 +115,82 @@ export default {
           text: this.$t('common.processing')
       });
       const submission = SubmissionStore.getSubmission();
+      // console.log(submission);
       const submissionProductList = SubmissionStore.getPolicy(submission);
       const policyComm = _.find(submissionProductList, (policyItem) => {
           return policyItem['ProductCode'] == 'DEA';
       });
+      this.policyComm = policyComm;
       const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
-      this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
+      const policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
+      this.policyRisk = policyRisk;
+      if (policyRisk['PolicyPlanList'] && policyRisk['PolicyPlanList'].length > 0) {
+        const policyCoverageList = policyRisk['PolicyPlanList'][0]['TempPolicyCoverageList'][0]['PolicyCoverageList'];
+        let nondeductiblePremium = 0;
+        let deductibleList = [];
+        _.each(policyCoverageList, (policyCoverageItem) => {
+          let deductibleItem = {};
+          if (policyCoverageItem['ProductElementCode'] == config['NONVEHICLE_LOSS_ADDITIONAL_CODE'] ||
+              policyCoverageItem['ProductElementCode'] == config['NONTHIRD_DUTY_ADDITIONAL_CODE'] ||
+              policyCoverageItem['ProductElementCode'] == config['NONDRIVER_DUTY_ADDITIONAL_CODE'] ||
+              policyCoverageItem['ProductElementCode'] == config['NONPASSENGER_DUTY_ADDITIONAL_CODE']) {
+              nondeductiblePremium = nondeductiblePremium + policyCoverageItem['DuePremium'];
+            } else {
+              if (policyCoverageItem['SumInsured']) {
+                  deductibleItem['label'] = `${policyCoverageItem['ProductElementCode']}(${policyCoverageItem['SumInsured']}${this.$t('auto2cProposalInfoConfirm.thousand')})`;
+              } else {
+                deductibleItem['label'] = policyCoverageItem['ProductElementCode'];
+              }
+              deductibleItem['value'] = policyCoverageItem['DuePremium'];
+              deductibleList.push(deductibleItem);
+            }
+            // else if (policyCoverageItem['ProductElementCode'] == config['VEHICLE_LOSS_MIANCODE'] ||
+            //   policyCoverageItem['ProductElementCode'] == config['THIRD_DUTY_MAINCODE'] ||
+            //   policyCoverageItem['ProductElementCode'] == config['DRIVER_DUTY_MAINCODE'] ||
+            //   policyCoverageItem['ProductElementCode'] == config['PASSENGER_DUTY_MAINCODE']) {
+            //     if (policyCoverageItem['SumInsured']) {
+            //       deductibleItem['label'] = policyCoverageItem['ProductElementCode'] + '(' + policyCoverageItem['SumInsured'] + ')';
+            //     } else {
+            //       deductibleItem['label'] = policyCoverageItem['ProductElementCode'];
+            //     }
+            //   deductibleItem['value'] = policyCoverageItem['DuePremium'];
+            //   deductibleList.push(deductibleItem);
+            // }
+        });
+        this.deductibleList = deductibleList;
+        if (nondeductiblePremium > 0) {
+          let nondeductibleList = [];
+          let nondeductibleItem = {};
+          nondeductibleItem['label'] = '不计免赔特约险';
+          nondeductibleItem['value'] = nondeductiblePremium;
+          nondeductibleList.push(nondeductibleItem);
+          this.nondeductibleList = nondeductibleList;
+        }
+      }
+      // 算保费合计
+      let sumPremium = 0;
+      if (policyComm['DuePremium']) {
+        sumPremium = sumPremium + policyComm['DuePremium'];
+      }
+      let policyComp = null;
+      if (submission['SubmissionProductList'][0]['IsRealProposal'] == 'Y') {
+        policyComp = _.find(submissionProductList, (policyItem) => {
+            return policyItem['ProductCode'] == 'DFA';
+        });
+        this.policyComp = policyComp;
+        if (policyComp['DuePremium']) {
+          sumPremium = sumPremium + policyComp['DuePremium'];
+        }
+      }
+      if (policyComp) {
+        let param = {'ModelName': 'VehicleTax', 'ObjectCode': 'VehicleTax'};
+        const vehicleTax = PolicyStore.getChild(param, policyComp);
+        if (vehicleTax['DuePremium']) {
+          sumPremium = sumPremium + vehicleTax['TotalTax'];
+        }
+        this.vehicleTax = vehicleTax;
+      }
+      this.sumPremium = sumPremium;
       LoadingApi.hide(this);
   }
 };

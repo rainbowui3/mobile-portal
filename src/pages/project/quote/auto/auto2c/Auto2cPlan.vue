@@ -50,6 +50,7 @@ import '../../../../../i18n/auto2cPlan';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
 import config from '../../../../../config/config';
 import {LoadingApi} from 'rainbow-mobile-core';
+import {UrlUtil} from 'rainbow-foundation-tools';
 export default {
     data() {
         return {
@@ -98,6 +99,7 @@ export default {
                         }
                     });
                 });
+                this.accurateAndGoNextPage();
             });
         },
         getParams(schema) {
@@ -132,20 +134,32 @@ export default {
                 param['PlanCodes'] = planCodesList;
                 let child = PolicyStore.getChild(param, policy);
                 if (child) {
+                    PolicyStore.deleteChild(child, policy);
                     // 当前选中方案和policy模型中的方案是否一致
-                    if (child.PlanCode != selectCode) {
-                        PolicyStore.deleteChild(child, policy);
-                        this.initPlan(param, policy);
-                    }
-                } else {
-                     this.initPlan(param, policy);
+                    // if (child.PlanCode != selectCode) {
+                    //     PolicyStore.deleteChild(child, policy);
+                    //     this.initPlan(param, policy);
+                    // }
                 }
-        });
-        // console.log(submission);
-        this.$router.push({
-            path: '/bind/auto2c',
-            query: this.$route.query
-        });
+                this.initPlan(param, policy);
+            });
+        },
+        accurateAndGoNextPage() {
+            this.$router.push({
+                path: '/bind/auto2c',
+                query: this.$route.query
+            });
+            // let url = config['POLICY_API']['ACCURATE_QUOTE'];
+            // SubmissionStore.call(url, submission, {'method': 'POST'}).then((submission) => {
+            //     debugger;
+            // this.setState({submission: submission});
+            // AjaxUtil.hide();
+            // // UIMessageHelper.info("操作成功！",null, null);
+            // });
+            // this.$router.push({
+            //     path: '/bind/auto2c',
+            //     query: this.$route.query
+            // });
         }
     },
     async created() {
@@ -157,15 +171,13 @@ export default {
         const policy = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DEA';
         });
-        // console.log(submission);
         return new Promise((resolve, reject) => {
             let productId = policy['ProductId'];
-            let url = `${config['PRODUCT_API']['GET_PLANE_CODES_BY_PRODUCTID_AH']}?productId=` + productId;
+            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLANE_CODES_BY_PRODUCTID_AH')}?productId=${productId}`;
             const planCodesList = [];
             let planTabItems = [];
             let planItemList = [];
             AjaxUtil.call(url).then((planCodes) => {
-                // console.log(planCodes);
                 // // 测试数据
                 planCodes = {
                     'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案'},
@@ -178,11 +190,15 @@ export default {
                         planCodesList.push(planCodeItem['PlanCode']);
                     }
                 });
-                url = `${config['PRODUCT_API']['GET_PLAN_DEF_BY_CODES']}?productId=` + productId;
+                url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
                 AjaxUtil.call(url, planCodesList, { 'method': 'POST' }).then((planList) => {
                     SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
                         let param = this.getParams(schema);
                         let child = PolicyStore.getChild(param, policy);
+                        // 如果是定制方案显示第一个套餐
+                        if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+                            child = undefined;
+                        }
                         _.each(planList, (planItem, i) => {
                             let planTabItem = {};
                             if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && i == 0)) {
@@ -221,8 +237,6 @@ export default {
                         });
                         this.planTabItems = planTabItems;
                         this.planItemList = planItemList;
-                        // console.log(this.planTabItems);
-                        // console.log(this.planItemList);
                         LoadingApi.hide(this);
                     });
                 });
