@@ -34,11 +34,11 @@
         <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
-        <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" title="商业险" :value="policyComm.DuePremium" :data="deductibleList" />
+        <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')" :value="policyComm.DuePremium" :data="deductibleList" />
         <r-list v-if="nondeductibleList && nondeductibleList.length > 0" :data="nondeductibleList" />
-        <r-input v-if="policyComp" title="交强险" :model="policyComp" value="DuePremium" :readonly="true" />
-        <r-input v-if="vehicleTax" title="车船税" :model="vehicleTax" value="TotalTax" :readonly="true" />
-        <r-input title="保费共计" :model="this" value="sumPremium" :readonly="true" />
+        <r-input v-if="policyComp" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')" :model="policyComp" value="DuePremium" :readonly="true" />
+        <r-input v-if="vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')" :model="vehicleTax" value="TotalTax" :readonly="true" />
+        <r-input :title="$t('auto2cProposalInfoConfirm.sumPremium')" :model="this" value="sumPremium" :readonly="true" />
       </r-card>
       <!-- 条款确认 -->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
