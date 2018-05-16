@@ -40,7 +40,7 @@ export default {
     });
   },
   mounted() {
-      console.log(this.model);
+    //   console.log(this.model);
   }
 };
 </script>
