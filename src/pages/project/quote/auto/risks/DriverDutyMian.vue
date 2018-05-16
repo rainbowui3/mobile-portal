@@ -2,9 +2,8 @@
     <r-page>
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
-            <r-card>
-                <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
-                <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
+            <r-card v-if="model">
+                <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false"></r-input>
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -15,21 +14,27 @@
 </template>
 <script>
 import '../../../../../i18n/autoPlan';
+import config from '../../../../../config/config';
 
 export default {
   data() {
     return {
-      policy: {
-        sumInsured: '',
-        sdew: true
-      }
+        model: undefined,
+        ctList: undefined
     };
   },
   methods: {
     confirm() {
-        // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
-        // this.$router.push("");
+        this.model['IsRealProposal'] = 'Y';
+        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.ctList));
+        this.$router.go(-1);
     }
+  },
+  async created() {
+    this.ctList = sessionStorage.getItem('Policy_Coverage_Item') ? JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')) : undefined;
+    this.model = _.find(this.ctList, (ctItem) => {
+        return ctItem['ProductElementCode'] == config['DRIVER_DUTY_MAINCODE'];
+    });
   }
 };
 </script>

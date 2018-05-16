@@ -13,8 +13,8 @@ module.exports = {
         GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes'
     },
     POLICY_API: {
-        ACCURATE_QUOTE: API_GATEWAY_PROXY + '/auto/accurateQuote ',
-        QUOTE_TO_PROPOSAL: API_GATEWAY_PROXY + '/auto/quoteToProposal '
+        ACCURATE_QUOTE: '/auto/accurateQuote ',
+        QUOTE_TO_PROPOSAL: '/auto/quoteToProposal '
     },
     // 主险
     VEHICLE_LOSS_MIANCODE: 'C100121', // 机动车损失保险

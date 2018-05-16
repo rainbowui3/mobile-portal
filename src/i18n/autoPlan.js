@@ -42,7 +42,7 @@ i18n.mergeLocaleMessage('zh-CN', {
 });
 i18n.mergeLocaleMessage('en-US', {
   'autoPlan.compulsoryInsurance': 'Compulsory Insurance',
-  'autoPlan.commericalInsurance': 'CommericalInsurance',
+  'autoPlan.commericalInsurance': 'Commerical Insurance',
   'autoPlan.carShipTax': 'CarShipTax',
   'autoPlan.effectImmediately': 'EffectImmediately',
   'autoPlan.shortInsurance': 'ShortInsurance',

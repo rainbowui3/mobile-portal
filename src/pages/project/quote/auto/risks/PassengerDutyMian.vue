@@ -2,14 +2,14 @@
     <r-page>
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
-            <r-card>
+            <r-card v-if="model">
                 <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
-                <r-input  :title="$t('autoPlan.seatNo')"  :model="policy" value="seatNo" :isNumber="true" :novalidate="false"></r-input>
-                <r-input  :title="$t('autoPlan.sumInsured')"  :model="policy" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
-                <r-input  :title="$t('autoPlan.singleSumInsured')"  :model="policy" value="singleSumInsured" :isNumber="true" :novalidate="false"></r-input>
-                <r-switch  :title="$t('autoPlan.copilot')"  :model="policy" value="copilot" ></r-switch>
-                <r-input  :title="$t('autoPlan.copilotSeats')"  :model="policy" value="copilotSeats" :isNumber="true" :novalidate="false"></r-input>
-                <r-input  :title="$t('autoPlan.copilotSumInsured')"  :model="policy" value="copilotSumInsured" :isNumber="true" :novalidate="false"></r-input>       
+                <r-input  :title="$t('autoPlan.seatNo')"  :model="model" value="seatNo" :isNumber="true" :novalidate="false"></r-input>
+                <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="sumInsured" :isNumber="true" :novalidate="false"></r-input>
+                <r-input  :title="$t('autoPlan.singleSumInsured')"  :model="model" value="singleSumInsured" :isNumber="true" :novalidate="false"></r-input>
+                <r-switch  :title="$t('autoPlan.copilot')"  :model="model" value="copilot" ></r-switch>
+                <r-input  :title="$t('autoPlan.copilotSeats')"  :model="model" value="copilotSeats" :isNumber="true" :novalidate="false"></r-input>
+                <r-input  :title="$t('autoPlan.copilotSumInsured')"  :model="model" value="copilotSumInsured" :isNumber="true" :novalidate="false"></r-input>       
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -20,27 +20,28 @@
 </template>
 <script>
 import '../../../../../i18n/autoPlan';
+import config from '../../../../../config/config';
 
 export default {
   data() {
     return {
       options: [{'key': '20001', 'value': '10万'}, {'key': '20002', 'value': '20万'}],
-      policy: {
-        sumInsured: '',
-        sdew: true,
-        seatNo: '4',
-        singleSumInsured: '20001',
-        copilot: false,
-        copilotSeats: '',
-        copilotSumInsured: ''
-      }
+      model: undefined,
+      ctList: undefined
     };
   },
   methods: {
     confirm() {
-        // this.$router.push("/project/proposal/auto2e/AutoPremiumInfo");
-        // this.$router.push("");
+        this.model['IsRealProposal'] = 'Y';
+        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.ctList));
+        this.$router.go(-1);
     }
+  },
+  async created() {
+    this.ctList = sessionStorage.getItem('Policy_Coverage_Item') ? JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')) : undefined;
+    this.model = _.find(this.ctList, (ctItem) => {
+        return ctItem['ProductElementCode'] == config['PASSENGER_DUTY_MAINCODE'];
+    });
   }
 };
 </script>
