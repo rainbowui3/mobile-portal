@@ -162,7 +162,7 @@ export default {
             this.isReminder = true;
         } else {
             this.isReminder = false;
-            console.log(this.deductibleCtsCts);
+            // console.log(this.deductibleCtsCts);
             // const submission = SubmissionStore.getSubmission();
             // const submissionProductList = SubmissionStore.getPolicy(submission);
             // const policy = _.find(submissionProductList, (policyItem) => {
@@ -213,7 +213,6 @@ export default {
                         this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = policyPlanList;
                     });
                     this.setState({submission: this.submission});
-                    debugger;
                     this.$router.push({
                         path: '/bind/auto2c',
                         query: this.$route.query
@@ -229,7 +228,7 @@ export default {
 
     },
     IsNonDeductibleOnChange(index) {
-        console.log(index);
+        // console.log(index);
     },
     gotoVL() {
         sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
@@ -438,7 +437,7 @@ export default {
 
   },
   async created() {
-      console.log(JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')));
+    //   console.log(JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')));
       LoadingApi.show(this, {
           text: this.$t('common.processing')
       });
