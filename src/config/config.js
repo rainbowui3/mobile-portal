@@ -38,5 +38,6 @@ module.exports = {
     NONTHIRD_DUTY_ADDITIONAL_CODE: 'C100137', // 不计免赔率险-第三者责任保险
     NONDRIVER_DUTY_ADDITIONAL_CODE: 'C100138', // 不计免赔率险-车上人员责任保险（司机）
     NONPASSENGER_DUTY_ADDITIONAL_CODE: 'C100139', // 不计免赔率险-车上人员责任保险（乘客）
-    PRIVATE_PLAN_CODE: 'DEA180064'
+    PRIVATE_PLAN_CODE: 'DEA180064',
+    CUSTOMER_PLAN_FLAG: '1'
 };

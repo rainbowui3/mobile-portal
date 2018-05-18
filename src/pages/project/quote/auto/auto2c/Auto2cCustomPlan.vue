@@ -36,7 +36,7 @@
                         <div v-text="$t('auto2cCustomPlan.vehicleLoss')" />
                     </r-cell>
                     <r-cell  :padding="padding" :span="4">
-                        <r-checker :model="vehicleLossMianCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon"></r-checker>                     
+                        <r-checker :model="vehicleLossMianCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :valueMap="valueMap"></r-checker>                     
                     </r-cell>
                     <r-cell  :padding="padding" class="padding_brage" >
                         <r-row v-if="vehicleLossMianCode.IsRealProposal && vehicleLossMianCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoVL" :isLink="true"></r-row>
@@ -49,7 +49,7 @@
                         <div v-text="$t('auto2cCustomPlan.thirdDutyMian')" />
                     </r-cell>
                     <r-cell  :padding="padding" :span="4">
-                        <r-checker :model="thirdDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon"></r-checker>                     
+                        <r-checker :model="thirdDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :valueMap="valueMap"></r-checker>                     
                     </r-cell>
                     <r-cell  :padding="padding" class="padding_brage" >
                         <r-row v-if="thirdDutyMainCode.IsRealProposal && thirdDutyMainCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoThirdDuty" :isLink="true"></r-row>
@@ -62,7 +62,7 @@
                         <div v-text="$t('auto2cCustomPlan.driverDutyMian')" />
                     </r-cell>
                     <r-cell  :padding="padding" :span="4">
-                        <r-checker :model="driverDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon"></r-checker>                     
+                        <r-checker :model="driverDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :valueMap="valueMap"></r-checker>                     
                     </r-cell>
                     <r-cell  :padding="padding" class="padding_brage" >
                         <r-row v-if="driverDutyMainCode.IsRealProposal && driverDutyMainCode.IsRealProposal == 'Y'" :model="this" value="insured" :onClick="gotoDriverDuty" :isLink="true"></r-row>
@@ -74,7 +74,7 @@
                         <div v-text="$t('auto2cCustomPlan.passengerDutyMian')" />
                     </r-cell>
                     <r-cell  :padding="padding" :span="4">
-                        <r-checker :model="passengerDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon"></r-checker>                     
+                        <r-checker :model="passengerDutyMainCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :valueMap="valueMap"></r-checker>                     
                     </r-cell>
                     <r-cell  :padding="padding" class="padding_brage" >
                         <r-row v-if="passengerDutyMainCode.IsRealProposal && passengerDutyMainCode.IsRealProposal == 'Y'" :model="this" value="insured" :onClick="gotoPassengerDuty" :isLink="true"></r-row>
@@ -127,7 +127,7 @@ export default {
         // allUsedCts: [],
         nonDeductibleCts: [],
         deductibleCtsCts: [],
-        IsNonDeductible: false,
+        // IsNonDeductible: 'N',
         vehicleLossMianCode: {},
         thirdDutyMainCode: {},
         carRobberyMianCode: {},
@@ -140,12 +140,12 @@ export default {
         repairCompenstoryPaymentAdditionalCode: {},
         noFondThirdAdditionalCode: {},
         appointRepairShopAdditionalCode: {},
-        model: [{
-            isNonDeductible: false
-        }],
+        // model: [{
+        //     isNonDeductible: false
+        // }],
         insured: '投保',
         notInsured: '不投保',
-        policyPlanList: [],
+        // policyPlanList: [],
         isReminder: false,
         valueMap: ['N', 'Y']
     };
@@ -178,12 +178,15 @@ export default {
                 // }
                 param['PlanCodes'] = [config['PRIVATE_PLAN_CODE']];
                 PolicyStore.initPlan(param, this.policyComm).then((plans) => {
+                    // debugger;
                     _.each(plans, (planItem) => {
+                        // debugger;
                         let newCtList = [];
                         _.each(this.deductibleCtsCts, (ctItem) => {
                             if (ctItem['IsRealProposal'] == 'Y') {
                                 newCtList.push(ctItem);
                                 if (ctItem['IsNonDeductible'] == 'Y') {
+                                    // debugger;
                                     let nonDeductibleCtItem = {};
                                     if (ctItem['ProductElementCode'] == config['VEHICLE_LOSS_MIANCODE']) {
                                         nonDeductibleCtItem = _.find(this.nonDeductibleCts, (item) => {
@@ -212,7 +215,11 @@ export default {
                         policyPlanList.push(planItem);
                         this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = policyPlanList;
                     });
-                    this.setState({submission: this.submission});
+                    SubmissionStore.setSubmission(this.submission);
+                    // console.log(this.submission);
+
+                    // this.setState({submission: this.submission});
+                    sessionStorage.setItem('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']));
                     this.$router.push({
                         path: '/bind/auto2c',
                         query: this.$route.query
@@ -294,15 +301,14 @@ export default {
     initPlan(param, policy) {
         PolicyStore.initPlan(param, policy).then((plans) => {
             _.each(plans, (planItem) => {
-                this.policyPlanList = planItem;
+                // this.policyPlanList = planItem;
                 // const allUsedCts = [];
                 const nonDeductibleCts = [];
                 const deductibleCtsCts = [];
                 const PolicyCoverageList = planItem.TempPolicyCoverageList[0].PolicyCoverageList;
                 // 有session说明从险别页面过来的
                 const sessionCtList = sessionStorage.getItem('Policy_Coverage_Item') ? JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')) : undefined;
-                // 清除缓存
-                sessionStorage.removeItem('Policy_Coverage_Item');
+                // console.log(sessionCtList);
                 // 先存储已有ct数据
                 const child = PolicyStore.getChild(param, policy);
                 _.each(PolicyCoverageList, (initCtItem) => {
@@ -412,6 +418,9 @@ export default {
                 this.nonDeductibleCts = nonDeductibleCts;
                 this.deductibleCtsCts = deductibleCtsCts;
             });
+            // 清除缓存
+            sessionStorage.removeItem('Policy_Coverage_Item');
+            sessionStorage.removeItem('PLAN_FLAG');
         LoadingApi.hide(this);
         });
     },
@@ -433,9 +442,6 @@ export default {
         return param;
     }
   },
-  computed: {
-
-  },
   async created() {
     //   console.log(JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')));
       LoadingApi.show(this, {
@@ -444,8 +450,8 @@ export default {
       const submissionStore = SubmissionStore.getSubmission();
       const submission = ObjectUtil.clone(submissionStore);
       this.submission = submission;
-      let IsRealProposal = submission['SubmissionProductList'][0]['IsRealProposal'];
-      this.IsRealProposal = IsRealProposal;
+      this.IsRealProposal = submission['SubmissionProductList'][0]['IsRealProposal'];
+    //   this.IsRealProposal = IsRealProposal;
       const policyComp = submission['SubmissionProductList'][0]['Policy'];
       this.policyComp = policyComp;
     //   this.policyComp = _.find(submissionProductList, (policyItem) => {

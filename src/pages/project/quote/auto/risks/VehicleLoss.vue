@@ -38,9 +38,6 @@ export default {
     this.model = _.find(this.ctList, (ctItem) => {
         return ctItem['ProductElementCode'] == config['VEHICLE_LOSS_MIANCODE'];
     });
-  },
-  mounted() {
-    //   console.log(this.model);
   }
 };
 </script>

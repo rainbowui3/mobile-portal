@@ -7,17 +7,19 @@
             </r-card>
             <r-card>
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
-                <r-cell :type="row">
+                <r-cell :type="row" v-if="policyRisk">
                     <r-cell :span="7">
                         <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo"></r-input>
                     </r-cell>
                     <r-cell :span="5">
-                        <r-checker :model="this" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon"></r-checker>
+                        <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap"></r-checker>
                     </r-cell>
                 </r-cell>
-                <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true"></r-input>
-                <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false" :required="true"></r-input>   
+                <div v-if="policyCustomerOwner">
+                    <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true"></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true"></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false" :required="true"></r-input>
+                </div>
             </r-card>
 
         </r-body>
@@ -45,10 +47,11 @@ export default {
       productImgSrc: Jtgj,
       productDes: '',
       row: 'row',
-      policyCustomerOwner: {},
-      policyRisk: {},
-      IsNewVehicle: false,
-      drivingCity: '上海'
+      policyCustomerOwner: undefined,
+      policyRisk: undefined,
+    //   IsNewVehicle: ,
+      drivingCity: '上海',
+      valueMap: ['N', 'Y']
     };
   },
   async created() {
@@ -136,11 +139,12 @@ export default {
             }
         });
         const policyRiskComm = PolicyStore.getChild(policyRiskParam, policyComm);
-        if (this.IsNewVehicle) {
-            policyRiskComm['IsNewVehicle'] = 'Y';
-        } else {
-            policyRiskComm['IsNewVehicle'] = 'N';
-        }
+        // console.log(this.policyRisk['IsNewVehicle']);
+        // if (this.IsNewVehicle) {
+        //     policyRiskComm['IsNewVehicle'] = 'Y';
+        // } else {
+        //     policyRiskComm['IsNewVehicle'] = 'N';
+        // }
 
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';

@@ -26,7 +26,7 @@
       <r-card>
         <r-row :model="pageModel" :title="$t('autoProposalInfoConfirm.proposalDetail')" class="cardTitle">
           <div>
-            <span class="fa fa-edit" :onClick="editDetail"/>
+            <span class="fa fa-edit" v-on:click="editDetail"/>
           </div>
         </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="this" value="Region" :readonly="true"/>
@@ -91,10 +91,17 @@ export default {
       });
     },
     gotoCarInfo: function() {
-      this.$router.push({
-        path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
-        name: 'Auto2cDrivingLicenseInfo'
-      });
+      let planFlag = sessionStorage.getItem('PLAN_FLAG');
+      if (planFlag && planFlag == config['CUSTOMER_PLAN_FLAG']) {
+        // debugger;
+        this.$router.go(-3);
+      } else {
+        this.$router.go(-2);
+      }
+      // this.$router.push({
+      //   path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
+      //   name: 'Auto2cDrivingLicenseInfo'
+      // });
     },
     editDetail() {
       this.$router.go(-1);
