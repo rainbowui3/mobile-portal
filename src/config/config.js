@@ -16,6 +16,9 @@ module.exports = {
         ACCURATE_QUOTE: '/auto/accurateQuote ',
         QUOTE_TO_PROPOSAL: '/auto/quoteToProposal '
     },
+    ROUTE_INFO: {
+        GET_ROUTE: '/ratetable/public/ratetable/v1/lookupForList?code=mobileRouteConfig'
+    },
     // 主险
     VEHICLE_LOSS_MIANCODE: 'C100121', // 机动车损失保险
     THIRD_DUTY_MAINCODE: 'C100122', // 第三者责任保险
