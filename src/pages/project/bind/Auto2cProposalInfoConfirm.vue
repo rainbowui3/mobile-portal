@@ -91,7 +91,7 @@ export default {
       });
     },
     gotoCarInfo: function() {
-      let planFlag = sessionStorage.getItem('PLAN_FLAG');
+      let planFlag = JSON.parse(sessionStorage.getItem('PLAN_FLAG'));
       if (planFlag && planFlag == config['CUSTOMER_PLAN_FLAG']) {
         // debugger;
         this.$router.go(-3);
