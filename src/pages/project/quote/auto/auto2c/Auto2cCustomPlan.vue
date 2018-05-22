@@ -227,8 +227,27 @@ export default {
             });
         }
     },
-    resetClick() {
-        this.$router.go(-1);
+    async resetClick() {
+        LoadingApi.show(this, {
+            text: this.$t('common.processing')
+        });
+        const submission = SubmissionStore.getSubmission();
+        const submissionProductList = SubmissionStore.getPolicy(submission);
+        const policyComm = _.find(submissionProductList, (policyItem) => {
+            return policyItem['ProductCode'] == 'DEA';
+        });
+        let productId = policyComm['ProductId'];
+        SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
+            let param = this.getParams(schema);
+            // 定制方案code
+            param['PlanCodes'] = [config['PRIVATE_PLAN_CODE']];
+            let child = PolicyStore.getChild(param, policyComm);
+            if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+                PolicyStore.deleteChild(child, policyComm);
+            }
+            LoadingApi.hide(this);
+            this.$router.go(-1);
+        });
     },
     onChange() {
 
