@@ -8,7 +8,7 @@
                     <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" ></r-date-time>                  
                 </div>        
             </r-card>
-            <r-card>
+            <r-card v-if='policyComm'>
                 <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" ></r-date-time>                                
                 <!--<div v-for="(ctItem,index) in nonDeductibleCts" :key="ctItem.ProductElementCode" >
                     <div v-if="ctItem.ProductElementCode == config.VEHICLE_LOSS_MIANCODE
@@ -31,7 +31,7 @@
                         <r-switch  :title="ctItem.ProductElementCode"  :model="this" value="IsRealProposal" ></r-switch>
                     </div>
                 </div>-->
-                <r-cell :type="row" class="margin_brage">
+                <r-cell :type="row" class="margin_brage" v-if='vehicleLossMianCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.vehicleLoss')" />
                     </r-cell>
@@ -44,7 +44,7 @@
                     </r-cell>
                 </r-cell>
                 
-                <r-cell :type="row" class="margin_brage">
+                <r-cell :type="row" class="margin_brage" v-if='thirdDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.thirdDutyMian')" />
                     </r-cell>
@@ -56,8 +56,8 @@
                         <r-row v-else :model="this" value="notInsured"  :onClick="gotoThirdDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-switch  :title="$t('auto2cCustomPlan.carRobberyMain')"  :model="carRobberyMianCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-cell :type="row" class="margin_brage">
+                <r-switch v-if='carRobberyMianCode' :title="$t('auto2cCustomPlan.carRobberyMain')"  :model="carRobberyMianCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-cell :type="row" class="margin_brage" v-if='driverDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.driverDutyMian')" />
                     </r-cell>
@@ -69,7 +69,7 @@
                         <r-row v-else :model="this" value="notInsured" :onClick="gotoDriverDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-cell :type="row" class="margin_brage">
+                <r-cell :type="row" class="margin_brage" v-if='passengerDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.passengerDutyMian')" />
                     </r-cell>
@@ -81,13 +81,13 @@
                         <r-row v-else :model="this" value="notInsured" :onClick="gotoPassengerDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-switch :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='repairCompenstoryPaymentAdditionalCode' :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='noFondThirdAdditionalCode' :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-switch v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-toast :model="this" value="isReminder" :text="$t('auto2cCustomPlan.reminder')" type='warn'/>         
             </r-card>
             <div class="button_vertical-align">
@@ -128,18 +128,18 @@ export default {
         nonDeductibleCts: [],
         deductibleCtsCts: [],
         // IsNonDeductible: 'N',
-        vehicleLossMianCode: {},
-        thirdDutyMainCode: {},
-        carRobberyMianCode: {},
-        driverDutyMainCode: {},
-        passengerDutyMainCode: {},
-        glassCrushAdditionalCode: {},
-        naturalLossAdditionalCode: {},
-        carBodyScratchLossAdditionalCode: {},
-        engineWadLossAdditionalCode: {},
-        repairCompenstoryPaymentAdditionalCode: {},
-        noFondThirdAdditionalCode: {},
-        appointRepairShopAdditionalCode: {},
+        vehicleLossMianCode: undefined,
+        thirdDutyMainCode: undefined,
+        carRobberyMianCode: undefined,
+        driverDutyMainCode: undefined,
+        passengerDutyMainCode: undefined,
+        glassCrushAdditionalCode: undefined,
+        naturalLossAdditionalCode: undefined,
+        carBodyScratchLossAdditionalCode: undefined,
+        engineWadLossAdditionalCode: undefined,
+        repairCompenstoryPaymentAdditionalCode: undefined,
+        noFondThirdAdditionalCode: undefined,
+        appointRepairShopAdditionalCode: undefined,
         // model: [{
         //     isNonDeductible: false
         // }],
@@ -178,15 +178,14 @@ export default {
                 // }
                 param['PlanCodes'] = [config['PRIVATE_PLAN_CODE']];
                 PolicyStore.initPlan(param, this.policyComm).then((plans) => {
-                    // debugger;
                     _.each(plans, (planItem) => {
-                        // debugger;
                         let newCtList = [];
                         _.each(this.deductibleCtsCts, (ctItem) => {
                             if (ctItem['IsRealProposal'] == 'Y') {
-                                newCtList.push(ctItem);
+                                const saveCtItem = ObjectUtil.clone(ctItem);
+                                saveCtItem['IsRealProposal'] = undefined;
+                                newCtList.push(saveCtItem);
                                 if (ctItem['IsNonDeductible'] == 'Y') {
-                                    // debugger;
                                     let nonDeductibleCtItem = {};
                                     if (ctItem['ProductElementCode'] == config['VEHICLE_LOSS_MIANCODE']) {
                                         nonDeductibleCtItem = _.find(this.nonDeductibleCts, (item) => {
@@ -443,7 +442,6 @@ export default {
     }
   },
   async created() {
-    //   console.log(JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')));
       LoadingApi.show(this, {
           text: this.$t('common.processing')
       });

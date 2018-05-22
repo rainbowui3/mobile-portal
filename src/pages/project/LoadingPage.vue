@@ -10,7 +10,6 @@ export default {
   beforeRouteEnter(to, from, next) {
     // 读配置表
     next(vm => {
-      debugger;
       // 拿到前一个页面传过来的productCode & productVersion
       let productCode = vm.$route.query.productCode;
       let productVersion = vm.$route.query.productVersion;
@@ -20,7 +19,6 @@ export default {
         'ROUTE_INFO',
         'GET_ROUTE'
       );
-      debugger;
       let param = {
         productCode: productCode,
         version: productVersion
@@ -42,8 +40,6 @@ export default {
           this.tips.show1 = true;
         }
       });
-      debugger;
-
       // switch (vm.$route.query.proposalTemplate) {
       //   case '1':
       //     // vm.typeList = ["normal", "normal", "normal", "normal"];
