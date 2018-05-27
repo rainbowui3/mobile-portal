@@ -2,36 +2,39 @@
     <r-page>
         <top :title="$t('common.autoInsurance')" :showBack="true" />
         <r-body>
-            <r-card v-if="policyComp">
-                <r-switch  :title="$t('auto2cCustomPlan.compulsoryInsurance')" :model="this" value="IsRealProposal" :valueMap="valueMap" ></r-switch>
-                <div v-show="IsRealProposal == 'Y'">                    
-                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" ></r-date-time>                  
+            <r-card v-if="submission && policyComp">
+                <r-switch  :title="$t('auto2cCustomPlan.compulsoryInsurance')" :model="submission['SubmissionProductList'][0]" value="IsRealProposal" :valueMap="valueMap" ></r-switch>
+                <div v-show="submission['SubmissionProductList'][0]['IsRealProposal'] == 'Y'">                    
+                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" :format="dateFormat" ></r-date-time>                  
                 </div>        
             </r-card>
             <r-card v-if='policyComm'>
-                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" ></r-date-time>                                
-                <!--<div v-for="(ctItem,index) in nonDeductibleCts" :key="ctItem.ProductElementCode" >
-                    <div v-if="ctItem.ProductElementCode == config.VEHICLE_LOSS_MIANCODE
-                        || ctItem.ProductElementCode == config.THIRD_DUTY_MAINCODE
-                        || ctItem.ProductElementCode == config.DRIVER_DUTY_MAINCODE
-                        || ctItem.ProductElementCode == config.PASSENGER_DUTY_MAINCODE">
-                         <r-cell :type="row" class="margin_brage">
-                            <r-cell  :padding="padding" :span="4">
-                                <div v-text="ctItem.ProductElementCode" />
+                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" :format="dateFormat" ></r-date-time>                                
+                <!--<div v-if="deductibleCtsCts">
+                    <div v-for="(ctItem,ProductElementCode) in deductibleCtsCts" :key="ProductElementCode" >
+                        <div v-if="ctItem.ProductElementCode == config.VEHICLE_LOSS_MIANCODE
+                            || ctItem.ProductElementCode == config.THIRD_DUTY_MAINCODE
+                            || ctItem.ProductElementCode == config.DRIVER_DUTY_MAINCODE
+                            || ctItem.ProductElementCode == config.PASSENGER_DUTY_MAINCODE">
+                            <r-cell :type="row" class="margin_brage">
+                                <r-cell  :padding="padding" :span="4">
+                                    <div v-text="ctItem.ProductElementCode" />
+                                </r-cell>
+                                <r-cell  :padding="padding" :span="4">
+                                    <r-checker :model="ctItem" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon"></r-checker>                     
+                                </r-cell>
+                                <r-cell  :padding="padding" class="padding_brage" >
+                                    <r-row v-if="ctItem.IsRealProposal && ctItem.IsRealProposal == 'Y'" :model="values" value="insured"  :onClick="goto.bind(this,ctItem.ProductElementCode)" :isLink="true"></r-row>
+                                    <r-row v-else :model="values" value="notInsured"  :onClick="goto.bind(this,ctItem.ProductElementCode)" :isLink="true"></r-row>
+                                </r-cell>
                             </r-cell>
-                            <r-cell  :padding="padding" :span="4">
-                                <r-checker :model="this" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :onChange="IsNonDeductibleOnChange(index)"></r-checker>                     
-                            </r-cell>
-                            <r-cell  :padding="padding" class="padding_brage" >
-                                <r-row :model="policy" value="value" :onClick="goto" :isLink="true"></r-row>
-                            </r-cell>
-                        </r-cell>
-                    </div>
-                    <div v-else>
-                        <r-switch  :title="ctItem.ProductElementCode"  :model="this" value="IsRealProposal" ></r-switch>
+                        </div>
+                        <div v-else>
+                            <r-switch  :title="ctItem.ProductElementCode"  :model="ctItem" value="IsRealProposal" ></r-switch>
+                        </div>
                     </div>
                 </div>-->
-                <r-cell :type="row" class="margin_brage" v-if='vehicleLossMianCode'>
+              <r-cell :type="row" class="margin_brage" v-if='vehicleLossMianCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.vehicleLoss')" />
                     </r-cell>
@@ -42,8 +45,7 @@
                         <r-row v-if="vehicleLossMianCode.IsRealProposal && vehicleLossMianCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoVL" :isLink="true"></r-row>
                         <r-row v-else :model="this" value="notInsured"  :onClick="gotoVL" :isLink="true"></r-row>
                     </r-cell>
-                </r-cell>
-                
+                </r-cell>               
                 <r-cell :type="row" class="margin_brage" v-if='thirdDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.thirdDutyMian')" />
@@ -81,7 +83,16 @@
                         <r-row v-else :model="this" value="notInsured" :onClick="gotoPassengerDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-switch v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-cell :type="row" class="margin_brage" v-if='glassCrushAdditionalCode'>
+                    <r-cell  :padding="padding" :span="8">
+                        <div v-text="$t('auto2cCustomPlan.glassCrushAdditional')" />
+                    </r-cell>
+                    <r-cell  :padding="padding" class="padding_brage" >
+                        <r-row v-if="glassCrushAdditionalCode.IsRealProposal && glassCrushAdditionalCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoGlassCrush" :isLink="true"></r-row>
+                        <r-row v-else :model="this" value="notInsured"  :onClick="gotoGlassCrush" :isLink="true"></r-row>
+                    </r-cell>
+                </r-cell>
+                <!--<r-switch v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
@@ -104,10 +115,11 @@
 import AutoAgent from '../../../../../components/AutoAgent';
 import '../../../../../i18n/auto2cCustomPlan';
 // import RowAndChecker from "../../components/RowAndChecker"
-import config from '../../../../../config/config';
+// import config from '../../../../../config/config';
 import {LoadingApi} from 'rainbow-mobile-core';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
 import {ObjectUtil} from 'rainbow-foundation-tools';
+import config from 'config';
 
 export default {
   components: {
@@ -116,17 +128,15 @@ export default {
   },
   data() {
     return {
-        hoursFormat: config.DEFAULT_HOURS_FORMATER,
-        config: config,
+        dateFormat: config.DEFAULT_DATE_FORMATER,
         row: 'row',
         padding: '0px',
-        IsRealProposal: 'Y',
         submission: undefined,
         policyComp: undefined,
         policyComm: undefined,
         // allUsedCts: [],
-        nonDeductibleCts: [],
-        deductibleCtsCts: [],
+        nonDeductibleCts: undefined,
+        deductibleCtsCts: undefined,
         // IsNonDeductible: 'N',
         vehicleLossMianCode: undefined,
         thirdDutyMainCode: undefined,
@@ -143,8 +153,10 @@ export default {
         // model: [{
         //     isNonDeductible: false
         // }],
-        insured: '投保',
-        notInsured: '不投保',
+        // values: {
+            insured: '投保',
+            notInsured: '不投保',
+        // },
         // policyPlanList: [],
         isReminder: false,
         valueMap: ['N', 'Y']
@@ -252,7 +264,7 @@ export default {
     onChange() {
 
     },
-    IsNonDeductibleOnChange(index) {
+    IsNonDeductibleOnChange(event, index) {
         // console.log(index);
     },
     gotoVL() {
@@ -283,7 +295,16 @@ export default {
             query: this.$route.query
         });
     },
-    goto(code) {
+    gotoGlassCrush() {
+        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        this.$router.push({
+            path: '/project/proposal/auto2e/GlassCrushAdditional',
+            query: this.$route.query
+        });
+    },
+    goto(code, event) {
+        debugger;
+        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
         switch (code) {
             case config['VEHICLE_LOSS_MIANCODE']:
             this.$router.push({
@@ -467,10 +488,9 @@ export default {
       const submissionStore = SubmissionStore.getSubmission();
       const submission = ObjectUtil.clone(submissionStore);
       this.submission = submission;
-      this.IsRealProposal = submission['SubmissionProductList'][0]['IsRealProposal'];
-    //   this.IsRealProposal = IsRealProposal;
       const policyComp = submission['SubmissionProductList'][0]['Policy'];
       this.policyComp = policyComp;
+      console.log(this.policyComp);
     //   this.policyComp = _.find(submissionProductList, (policyItem) => {
     //       return policyItem['ProductCode'] == 'DFA';
     //   });

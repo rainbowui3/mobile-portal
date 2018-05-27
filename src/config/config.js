@@ -13,8 +13,9 @@ module.exports = {
         GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes'
     },
     POLICY_API: {
-        ACCURATE_QUOTE: '/auto/accurateQuote ',
-        QUOTE_TO_PROPOSAL: '/auto/quoteToProposal '
+        ACCURATE_QUOTE: '/auto/accurateQuote',
+        QUOTE_TO_PROPOSAL: '/auto/quoteToProposal',
+        AUTO_QUERY_VEHICLE: '/auto/queryVehicleInfo'
     },
     ROUTE_INFO: {
         GET_ROUTE: '/ratetable/public/ratetable/v1/lookupForList?code=mobileRouteConfig'

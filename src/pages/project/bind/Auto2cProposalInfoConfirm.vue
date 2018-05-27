@@ -30,14 +30,14 @@
           </div>
         </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="this" value="Region" :readonly="true"/>
-        <r-date-time v-if="policyComp" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
+        <r-date-time v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
         <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
         <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')" :value="policyComm.DuePremium" :data="deductibleList" />
         <r-list v-if="nondeductibleList && nondeductibleList.length > 0" :data="nondeductibleList" />
-        <r-input v-if="policyComp" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')" :model="policyComp" value="DuePremium" :readonly="true" />
-        <r-input v-if="vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')" :model="vehicleTax" value="TotalTax" :readonly="true" />
+        <r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')" :model="policyComp" value="DuePremium" :readonly="true" />
+        <r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y' && vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')" :model="vehicleTax" value="TotalTax" :readonly="true" />
         <r-input :title="$t('auto2cProposalInfoConfirm.sumPremium')" :model="this" value="sumPremium" :readonly="true" />
       </r-card>
       <!-- 条款确认 -->
@@ -60,7 +60,7 @@ import '../../../i18n/insuredInfoEntryHealthSub';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {LoadingApi} from 'rainbow-mobile-core';
-import config from '../../../config/config';
+import config from 'config';
 
 export default {
   components: {
@@ -70,6 +70,7 @@ export default {
     return {
       hoursFormat: config.DEFAULT_HOURS_FORMATER,
       Region: '上海',
+      IsRealProposal: undefined,
       policyRisk: undefined,
       pageModel: {
         clauseConfirm: false,
@@ -93,15 +94,10 @@ export default {
     gotoCarInfo: function() {
       let planFlag = JSON.parse(sessionStorage.getItem('PLAN_FLAG'));
       if (planFlag && planFlag == config['CUSTOMER_PLAN_FLAG']) {
-        // debugger;
         this.$router.go(-3);
       } else {
         this.$router.go(-2);
       }
-      // this.$router.push({
-      //   path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
-      //   name: 'Auto2cDrivingLicenseInfo'
-      // });
     },
     editDetail() {
       this.$router.go(-1);
@@ -122,6 +118,8 @@ export default {
           text: this.$t('common.processing')
       });
       const submission = SubmissionStore.getSubmission();
+      const IsRealProposal = submission['SubmissionProductList'][0]['IsRealProposal'];
+      this.IsRealProposal = IsRealProposal;
       // console.log(submission);
       const submissionProductList = SubmissionStore.getPolicy(submission);
       const policyComm = _.find(submissionProductList, (policyItem) => {
@@ -180,7 +178,7 @@ export default {
         sumPremium = sumPremium + policyComm['DuePremium'];
       }
       let policyComp = null;
-      if (submission['SubmissionProductList'][0]['IsRealProposal'] == 'Y') {
+      if (IsRealProposal == 'Y') {
         policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
         });

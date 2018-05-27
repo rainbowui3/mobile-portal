@@ -13,10 +13,10 @@
                     </r-cell>
                 </r-cell>
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :required="true" :placeholder="$t('carInfo.inputModel')" />
-                <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="VehicleCode" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" />
+                <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
                 <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" :format="timeFormat"/>
-                <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="LicenseType" :options="carTypeList" />
+                <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicelType" :options="carTypeList" />
             </r-card>
         </r-body>
         <r-tab-bar>
@@ -30,8 +30,11 @@ import '../../../../../i18n/auto2cDrivingLicenseInfo';
 import '../../../../../i18n/carInfo';
 import '../../../../../i18n/autoProposalInfoConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-import config from 'config';
 import {LoadingApi} from 'rainbow-mobile-core';
+import Validate from '../../../../../components/utils/Valitate';
+// import config from '../../../../../config/config';
+// import {UrlUtil} from 'rainbow-foundation-tools';
+import config from 'config';
 export default {
   data() {
     return {
@@ -63,7 +66,15 @@ export default {
              path: '/project/proposal/auto2c/Auto2cPlan',
              query: this.$route.query
           });
-      }
+      },
+        validateVinInput(value) {
+            // debugger;
+            var isValidateVin = Validate.CheckVinReg(value);
+            return {
+                valid: isValidateVin === true,
+                msg: this.$t('auto2cDrivingLicenseInfo.validateVehicleCode')
+            };
+        }
   },
    async created() {
         LoadingApi.show(this, {
@@ -77,7 +88,27 @@ export default {
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
        LoadingApi.hide(this);
-   }
+   },
+  watch: {
+    'policyRisk.EngineNo': {
+      handler: function(value) {
+        //   debugger;
+        if (value) {
+          this.policyRisk.EngineNo = value.toUpperCase();
+        }
+      },
+      deep: true
+    },
+    'policyRisk.Vin': {
+      handler: function(value) {
+        //   debugger;
+        if (value) {
+          this.policyRisk.Vin = value.toUpperCase();
+        }
+      },
+      deep: true
+    }
+  }
 };
 </script>
 

@@ -102,6 +102,24 @@ export default{
             birthday = birthday.replace(/(.{4})(.{2})/, '$1-$2-');
         }
         return birthday;
-    }
+    },
 
+    // 判断vin码是否正确
+    CheckVinReg(value) {
+        let vin = value;
+        if (vin) {
+            // vin = vin.toUpperCase();
+            let reg = '^[A-H_J-N_P_R-Z0-9]{17}$';
+            let r = vin.match(reg);
+            let regCon = '^(\\w)\\1{16}';
+            let rCon = vin.match(regCon);
+            if (r && !rCon) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
 };
