@@ -303,7 +303,7 @@ export default {
         });
     },
     goto(code, event) {
-        debugger;
+        // debugger;
         sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
         switch (code) {
             case config['VEHICLE_LOSS_MIANCODE']:
@@ -490,7 +490,7 @@ export default {
       this.submission = submission;
       const policyComp = submission['SubmissionProductList'][0]['Policy'];
       this.policyComp = policyComp;
-      console.log(this.policyComp);
+    //   console.log(this.policyComp);
     //   this.policyComp = _.find(submissionProductList, (policyItem) => {
     //       return policyItem['ProductCode'] == 'DFA';
     //   });
