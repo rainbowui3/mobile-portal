@@ -3,7 +3,8 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card>
-               <r-checker :max="1" :model="model" value="GlassType" :data="options"  type="list"/>  
+               <!--<r-checker :max="1" :model="model" value="GlassType" :data="options"  type="list"/>-->
+               <r-selector :title="$t('autoPlan.glassType')" :options="options" :model="model" value="GlassType"></r-selector>  
             </r-card>
         </r-body>
         <r-tab-bar>         

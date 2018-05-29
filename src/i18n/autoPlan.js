@@ -37,7 +37,8 @@ i18n.mergeLocaleMessage('zh-CN', {
   'autoPlan.copilotSumInsured': '副驾驶保额',
   'autoPlan.dayPay': '日赔偿金',
   'autoPlan.dayNo': '天数',
-  'autoPlan.floatingRate': '浮动比例'
+  'autoPlan.floatingRate': '浮动比例',
+  'autoPlan.glassType': '玻璃类型'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -78,5 +79,6 @@ i18n.mergeLocaleMessage('en-US', {
   'autoPlan.copilotSumInsured': 'CopilotSumInsured',
   'autoPlan.dayPay': 'DayPay',
   'autoPlan.dayNo': 'DayNo',
-  'autoPlan.floatingRate': 'FloatingRate'
+  'autoPlan.floatingRate': 'FloatingRate',
+  'autoPlan.glassType': 'Glass Type'
 });

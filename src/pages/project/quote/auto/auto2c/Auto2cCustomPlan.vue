@@ -94,10 +94,20 @@
                 </r-cell>
                 <!--<r-switch v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                
+                <r-cell :type="row" class="margin_brage" v-if='carBodyScratchLossAdditionalCode'>
+                    <r-cell  :padding="padding" :span="8">
+                        <div v-text="$t('auto2cCustomPlan.carBodyScratchLoss')" />
+                    </r-cell>
+                    <r-cell  :padding="padding" class="padding_brage" >
+                        <r-row v-if="carBodyScratchLossAdditionalCode.IsRealProposal && carBodyScratchLossAdditionalCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoCarBodyScratch" :isLink="true"></r-row>
+                        <r-row v-else :model="this" value="notInsured"  :onClick="gotoCarBodyScratch" :isLink="true"></r-row>
+                    </r-cell>
+                </r-cell>
+                <!--<r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-switch v-if='repairCompenstoryPaymentAdditionalCode' :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch v-if='noFondThirdAdditionalCode' :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <!--<r-switch v-if='noFondThirdAdditionalCode' :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-toast :model="this" value="isReminder" :text="$t('auto2cCustomPlan.reminder')" type='warn'/>         
             </r-card>
@@ -147,7 +157,6 @@ export default {
         carBodyScratchLossAdditionalCode: undefined,
         engineWadLossAdditionalCode: undefined,
         repairCompenstoryPaymentAdditionalCode: undefined,
-        noFondThirdAdditionalCode: undefined,
         appointRepairShopAdditionalCode: undefined,
         // model: [{
         //     isNonDeductible: false
@@ -301,6 +310,13 @@ export default {
             query: this.$route.query
         });
     },
+    gotoCarBodyScratch() {
+        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        this.$router.push({
+            path: '/project/proposal/auto2e/CarBodyScratchLoss',
+            query: this.$route.query
+        });
+    },
     goto(code, event) {
         // debugger;
         sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
@@ -408,10 +424,6 @@ export default {
                              this.repairCompenstoryPaymentAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
-                        case config['NOFOND_THIRD_ADDITIONAL_CODE'] :
-                             this.noFondThirdAdditionalCode = initCtItem;
-                             deductibleCtsCts.push(initCtItem);
-                        break;
                         case config['APPOINT_REPAIRSHOP_ADDITIONAL_CODE'] :
                              this.appointRepairShopAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
@@ -439,7 +451,6 @@ export default {
                     //    initCtItem['ProductElementCode'] == config['CAR_BODY_SCRATCH_LOSS_ADDITIONAL_CODE'] ||
                     //    initCtItem['ProductElementCode'] == config['ENGINE_WAD_LOSS_ADDITIONAL_CODE'] ||
                     //    initCtItem['ProductElementCode'] == config['REPAIR_COMPENSTORY_PAYMENT_ADDITIONAL_CODE'] ||
-                    //    initCtItem['ProductElementCode'] == config['NOFOND_THIRD_ADDITIONAL_CODE'] ||
                     //    initCtItem['ProductElementCode'] == config['APPOINT_REPAIRSHOP_ADDITIONAL_CODE']) {
                     //        allUsedCts.push(initCtItem);
                     //        deductibleCtsCts.push(initCtItem);

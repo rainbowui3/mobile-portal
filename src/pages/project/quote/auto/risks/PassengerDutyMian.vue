@@ -4,12 +4,12 @@
         <r-body>
             <r-card v-if="model">
                 <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
-                <r-input  :title="$t('autoPlan.seatNo')"  :model="model" value="PassagerSeatNumber" :isNumber="true" :novalidate="false"></r-input>
+                <!--<r-input  :title="$t('autoPlan.seatNo')"  :model="model" value="PassagerSeatNumber" :isNumber="true" :novalidate="false"></r-input>-->
                 <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false"></r-input>
-                <r-input  :title="$t('autoPlan.singleSumInsured')"  :model="model" value="AvgSumInsured" :isNumber="true" :novalidate="false"></r-input>
+                <!--<r-input  :title="$t('autoPlan.singleSumInsured')"  :model="model" value="AvgSumInsured" :isNumber="true" :novalidate="false"></r-input>
                 <r-switch  :title="$t('autoPlan.copilot')"  :model="model" value="IsAddDriver" ></r-switch>
                 <r-input  :title="$t('autoPlan.copilotSeats')"  :model="model" value="AddDriverSeatNumber" :isNumber="true" :novalidate="false"></r-input>
-                <r-input  :title="$t('autoPlan.copilotSumInsured')"  :model="model" value="AddDriverSumInsured" :isNumber="true" :novalidate="false"></r-input>       
+                <r-input  :title="$t('autoPlan.copilotSumInsured')"  :model="model" value="AddDriverSumInsured" :isNumber="true" :novalidate="false"></r-input>       -->
             </r-card>
         </r-body>
         <r-tab-bar>         
