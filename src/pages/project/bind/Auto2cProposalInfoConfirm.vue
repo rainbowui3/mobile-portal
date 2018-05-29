@@ -30,8 +30,8 @@
           </div>
         </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="this" value="Region" :readonly="true"/>
-        <r-date-time v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
-        <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :format="hoursFormat" :readonly="true"></r-date-time>
+        <r-date-time v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :readonly="true"></r-date-time>
+        <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
         <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')" :value="policyComm.DuePremium" :data="deductibleList" />
@@ -68,7 +68,6 @@ export default {
   },
   data() {
     return {
-      hoursFormat: config.DEFAULT_HOURS_FORMATER,
       Region: '上海',
       IsRealProposal: undefined,
       policyRisk: undefined,

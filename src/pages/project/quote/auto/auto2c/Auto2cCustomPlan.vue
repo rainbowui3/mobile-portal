@@ -5,11 +5,11 @@
             <r-card v-if="submission && policyComp">
                 <r-switch  :title="$t('auto2cCustomPlan.compulsoryInsurance')" :model="submission['SubmissionProductList'][0]" value="IsRealProposal" :valueMap="valueMap" ></r-switch>
                 <div v-show="submission['SubmissionProductList'][0]['IsRealProposal'] == 'Y'">                    
-                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" :format="dateFormat" ></r-date-time>                  
+                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" ></r-date-time>                  
                 </div>        
             </r-card>
             <r-card v-if='policyComm'>
-                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" :format="dateFormat" ></r-date-time>                                
+                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" ></r-date-time>                                
                 <!--<div v-if="deductibleCtsCts">
                     <div v-for="(ctItem,ProductElementCode) in deductibleCtsCts" :key="ProductElementCode" >
                         <div v-if="ctItem.ProductElementCode == config.VEHICLE_LOSS_MIANCODE
@@ -128,7 +128,6 @@ export default {
   },
   data() {
     return {
-        dateFormat: config.DEFAULT_DATE_FORMATER,
         row: 'row',
         padding: '0px',
         submission: undefined,
