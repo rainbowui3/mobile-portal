@@ -9,16 +9,16 @@
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row" v-if="policyRisk">
                     <r-cell :span="7">
-                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo"></r-input>
+                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="isNovalidatelicenseNo" :required="licenseNoRequired"></r-input>
                     </r-cell>
                     <r-cell :span="5">
                         <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap"></r-checker>
                     </r-cell>
                 </r-cell>
                 <div v-if="policyCustomerOwner">
-                    <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true"></r-input>
-                    <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true"></r-input>
-                    <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false" :required="true"></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true" :placeholder="$t('productInfoEntryAutoC.InputName')"></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true" :placeholder="$t('productInfoEntryAutoC.InputCertificateNo')" ></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false" :required="true" :placeholder="$t('productInfoEntryAutoC.InputMobile')"></r-input>
                 </div>
             </r-card>
 
@@ -51,7 +51,9 @@ export default {
       policyRisk: undefined,
     //   IsNewVehicle: ,
       drivingCity: '上海',
-      valueMap: ['N', 'Y']
+      valueMap: ['N', 'Y'],
+      isNovalidatelicenseNo: false,
+      licenseNoRequired: true
     };
   },
   async created() {
@@ -169,8 +171,39 @@ export default {
         valid: isCertification === true,
         msg: this.$t('productInfoEntryAutoC.validateID')
       };
+    },
+    validateLicenseNo(value) {
+      var validateLicenseNo = Validate.CheckLicensNoReg(value);
+      return {
+        valid: validateLicenseNo === true,
+        msg: this.$t('productInfoEntryAutoC.validateCarLicense')
+      };
     }
+   },
+   watch: {
+    'policyRisk.IsNewVehicle': {
+        handler: function(value) {
+            // debugger;
+            if (value == 'Y') {
+                this.isNovalidatelicenseNo = true;
+                this.licenseNoRequired = false;
+                this.policyRisk.LicenseNo = '';
+            } else {
+                this.isNovalidatelicenseNo = false;
+                this.licenseNoRequired = true;
+            }
+         },
+        deep: true
+    },
+    'policyRisk.LicenseNo': {
+        handler: function(value) {
+            if (value) {
+                this.policyRisk.LicenseNo = value.toUpperCase();
+            }
+        },
+        deep: true
 
+    }
    }
 
 };
