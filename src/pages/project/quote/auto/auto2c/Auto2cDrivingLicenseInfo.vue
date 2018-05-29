@@ -15,7 +15,7 @@
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :required="true" :placeholder="$t('carInfo.inputModel')" />
                 <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
-                <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" :format="timeFormat"/>
+                <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" />
                 <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicelType" :options="carTypeList" />
             </r-card>
         </r-body>
@@ -32,13 +32,9 @@ import '../../../../../i18n/autoProposalInfoConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {LoadingApi} from 'rainbow-mobile-core';
 import Validate from '../../../../../components/utils/Valitate';
-// import config from '../../../../../config/config';
-// import {UrlUtil} from 'rainbow-foundation-tools';
-import config from 'config';
 export default {
   data() {
     return {
-      timeFormat: config.DEFAULT_DATE_FORMATER,
       carTypeList: [
         { key: '1', value: '小型汽车' },
         { key: '2', value: '大型汽车' },
