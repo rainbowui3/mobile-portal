@@ -16,9 +16,9 @@
             <span class="fa fa-edit" v-on:click="gotoCarInfo" />
           </div>
         </r-row>
-        <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="policyRisk" value="LicenseNo" :readonly="true" />
+        <r-input v-if="policyRisk.IsNewVehicle && policyRisk.IsNewVehicle != 'Y'" :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="policyRisk" value="LicenseNo" :readonly="true" />
         <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :readonly="true" />
-        <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="VehicleCode" :readonly="true" />
+        <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :readonly="true" />
         <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :readonly="true" />
         <r-date-time :title="$t('carInfo.regiDate')" :model="policyRisk" value="VehicleInitialRegDate" :readonly="true" />
       </r-card>
