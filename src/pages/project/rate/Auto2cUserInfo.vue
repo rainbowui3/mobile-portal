@@ -9,12 +9,11 @@
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row" v-if="policyRisk">
                     <r-cell :span="7">
-                        <!--<r-input v-if="isvalidatelicenseNo" :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" :required="true"></r-input>
-                        <r-input v-else :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :readonly="true"></r-input>-->
-                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" ></r-input>                   
+                        <r-input v-if="isvalidatelicenseNo" :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" :required="true"></r-input>
+                        <r-input v-else :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :readonly="true"></r-input>
                     </r-cell>
                     <r-cell :span="5">
-                        <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap"></r-checker>
+                        <r-checker :model="this" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap" ></r-checker>
                     </r-cell>
                 </r-cell>
                 <div v-if="policyCustomerOwner">
@@ -51,11 +50,10 @@ export default {
       row: 'row',
       policyCustomerOwner: undefined,
       policyRisk: undefined,
-    //   IsNewVehicle: ,
+      IsNewVehicle: undefined,
       drivingCity: '上海',
       valueMap: ['N', 'Y'],
-      isNovalidatelicenseNo: false,
-      licenseNoRequired: true
+      isvalidatelicenseNo: true
     };
   },
   async created() {
@@ -80,7 +78,9 @@ export default {
             this.policyCustomerOwner = _.find(policyCustomers, (customer) => {
                 return customer['CustomerRoeCode'] == '3';
             });
-            this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
+            const policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
+            this.policyRisk = policyRisk;
+            this.IsNewVehicle = this.policyRisk['IsNewVehicle'];
         } else {
             const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
             // 交强险initPolicy 目前交强险CODE写死啦
@@ -121,6 +121,7 @@ export default {
 
             const policyRisk = PolicyStore.createChild(policyRiskParam, policyComm);
             this.policyRisk = policyRisk;
+            this.IsNewVehicle = this.policyRisk['IsNewVehicle'];
             SubmissionStore.setPolicy(policyComm, submission, true);
         }
         LoadingApi.hide(this);
@@ -143,13 +144,7 @@ export default {
             }
         });
         const policyRiskComm = PolicyStore.getChild(policyRiskParam, policyComm);
-        // console.log(this.policyRisk['IsNewVehicle']);
-        // if (this.IsNewVehicle) {
-        //     policyRiskComm['IsNewVehicle'] = 'Y';
-        // } else {
-        //     policyRiskComm['IsNewVehicle'] = 'N';
-        // }
-
+        policyRiskComm['IsNewVehicle'] = this.IsNewVehicle;
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
         });
@@ -188,65 +183,22 @@ export default {
         msg: this.$t('productInfoEntryAutoC.InputValidateName')
       };
     }
-    // changeIsNewVehicle() {
-    //       if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'N') {
-    //           debugger;
-    //           this.isNovalidatelicenseNo = true;
-    //           this.licenseNoRequired = false;
-    //       } else {
-    //           debugger;
-    //           this.isNovalidatelicenseNo = false;
-    //           this.licenseNoRequired = true;
-    //       }
-    // }
    },
    watch: {
-    // 'policyRisk.IsNewVehicle': {
-    //     handler: function(value) {
-    //         debugger;
-    //         if (value == 'Y') {
-    //             this.isvalidatelicenseNo = false;
-    //             this.policyRisk.LicenseNo = '';
-    //         } else {
-    //             this.isvalidatelicenseNo = true;
-    //         }
-    //      },
-    //     deep: true
-    // },
-    'policyRisk.LicenseNo': {
-        handler: function(value) {
-            if (value) {
-                this.policyRisk.LicenseNo = value.toUpperCase();
-            }
-        },
-        deep: true
-
+    IsNewVehicle (value) {
+        if (value == 'Y') {
+            this.isvalidatelicenseNo = false;
+            this.policyRisk.LicenseNo = '';
+        } else {
+            this.isvalidatelicenseNo = true;
+        }
+    },
+    'policyRisk.LicenseNo'(value) {
+        if (value) {
+            this.policyRisk.LicenseNo = value.toUpperCase();
+        }
     }
-   },
-  computed: {
-    // isvalidatelicenseNo: function () {
-
-    //     if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'Y') {
-    //          console.log(this.this.policyRisk.IsNewVehicle);
-    //         debugger;
-    //         return false;
-    //     } else {
-    //         debugger;
-    //         return true;
-    //     }
-    // },
-    // licenseNoRequired: function() {
-
-    //     if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'Y') {
-    //         debugger;
-    //         return false;
-    //     } else {
-    //         debugger;
-    //         return true;
-    //     }
-    // }
-  }
-
+   }
 };
 </script>
 
