@@ -135,5 +135,20 @@ export default{
         } else {
             return true;
         }
+    },
+
+    // 姓名限制2-60个字符
+    CheckNameReg(value) {
+        if (value) {
+            // ^[A-Za-z0-9\u4e00-\u9fa5]{2,60}$
+            let reg = '^[\u4E00-\u9FA5A-Za-z0-9]{2,60}$';
+            if (value.match(reg)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
     }
 };

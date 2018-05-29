@@ -9,14 +9,16 @@
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
                 <r-cell :type="row" v-if="policyRisk">
                     <r-cell :span="7">
-                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="isNovalidatelicenseNo" :required="licenseNoRequired"></r-input>
+                        <!--<r-input v-if="isvalidatelicenseNo" :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" :required="true"></r-input>
+                        <r-input v-else :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :readonly="true"></r-input>-->
+                        <r-input :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" ></r-input>                   
                     </r-cell>
                     <r-cell :span="5">
                         <r-checker :model="policyRisk" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap"></r-checker>
                     </r-cell>
                 </r-cell>
                 <div v-if="policyCustomerOwner">
-                    <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true" :placeholder="$t('productInfoEntryAutoC.InputName')"></r-input>
+                    <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true" :placeholder="$t('productInfoEntryAutoC.InputName')" :validator="validateName" :novalidate="false"></r-input>
                     <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true" :placeholder="$t('productInfoEntryAutoC.InputCertificateNo')" ></r-input>
                     <r-input :title="$t('productInfoEntryAutoC.mobile')" :model="policyCustomerOwner" value="IndiMobile" :isPhone="true" :novalidate="false" :required="true" :placeholder="$t('productInfoEntryAutoC.InputMobile')"></r-input>
                 </div>
@@ -178,23 +180,39 @@ export default {
         valid: validateLicenseNo === true,
         msg: this.$t('productInfoEntryAutoC.validateCarLicense')
       };
+    },
+    validateName(value) {
+      var validateName = Validate.CheckNameReg(value);
+      return {
+        valid: validateName === true,
+        msg: this.$t('productInfoEntryAutoC.InputValidateName')
+      };
     }
+    // changeIsNewVehicle() {
+    //       if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'N') {
+    //           debugger;
+    //           this.isNovalidatelicenseNo = true;
+    //           this.licenseNoRequired = false;
+    //       } else {
+    //           debugger;
+    //           this.isNovalidatelicenseNo = false;
+    //           this.licenseNoRequired = true;
+    //       }
+    // }
    },
    watch: {
-    'policyRisk.IsNewVehicle': {
-        handler: function(value) {
-            // debugger;
-            if (value == 'Y') {
-                this.isNovalidatelicenseNo = true;
-                this.licenseNoRequired = false;
-                this.policyRisk.LicenseNo = '';
-            } else {
-                this.isNovalidatelicenseNo = false;
-                this.licenseNoRequired = true;
-            }
-         },
-        deep: true
-    },
+    // 'policyRisk.IsNewVehicle': {
+    //     handler: function(value) {
+    //         debugger;
+    //         if (value == 'Y') {
+    //             this.isvalidatelicenseNo = false;
+    //             this.policyRisk.LicenseNo = '';
+    //         } else {
+    //             this.isvalidatelicenseNo = true;
+    //         }
+    //      },
+    //     deep: true
+    // },
     'policyRisk.LicenseNo': {
         handler: function(value) {
             if (value) {
@@ -204,7 +222,30 @@ export default {
         deep: true
 
     }
-   }
+   },
+  computed: {
+    // isvalidatelicenseNo: function () {
+
+    //     if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'Y') {
+    //          console.log(this.this.policyRisk.IsNewVehicle);
+    //         debugger;
+    //         return false;
+    //     } else {
+    //         debugger;
+    //         return true;
+    //     }
+    // },
+    // licenseNoRequired: function() {
+
+    //     if (this.policyRisk && this.policyRisk.IsNewVehicle && this.policyRisk.IsNewVehicle == 'Y') {
+    //         debugger;
+    //         return false;
+    //     } else {
+    //         debugger;
+    //         return true;
+    //     }
+    // }
+  }
 
 };
 </script>
