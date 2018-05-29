@@ -121,5 +121,19 @@ export default{
         } else {
             return true;
         }
+    },
+
+    // 判断车牌号输入是否正确
+    CheckLicensNoReg(licenseNo) {
+        if (licenseNo) {
+            let reg = '^[\u4E00-\u9FA5A-Za-z0-9]{6,11}$';
+            if (licenseNo.match(reg)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
     }
 };

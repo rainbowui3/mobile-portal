@@ -2,16 +2,16 @@
     <r-page>
         <top :showBack="true" :title="$t('auto2cDrivingLicenseInfo.title')" />
         <r-body>
-            <r-card>
-                <r-cell type="row">
+            <r-card v-if="policyRisk">
+                <r-input v-if="!policyRisk.IsNewVehicle || policyRisk.IsNewVehicle == 'N'" :title="$t('carInfo.licenseNo')" :model="policyRisk" value="LicenseNo" :placeholder="$t('carInfo.inputLicense')" :required="true" :readonly="true"/>
+                <!--<r-cell type="row">
                     <r-cell :span="7">
                         <r-input :title="$t('carInfo.licenseNo')" :model="policyRisk" value="LicenseNo" :placeholder="$t('carInfo.inputLicense')" :required="true" />
                     </r-cell>
                     <r-cell>
-                        <!-- <r-button type="primary" :mini="true">{{$t('auto2cDrivingLicenseInfo.scanLicense')}}</r-button> -->
                         <r-button type="primary" class="fa fa-qrcode fa-2x">{{$t('auto2cDrivingLicenseInfo.scanLicense')}}</r-button>
                     </r-cell>
-                </r-cell>
+                </r-cell>-->
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :required="true" :placeholder="$t('carInfo.inputModel')" />
                 <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
@@ -44,7 +44,7 @@ export default {
         { key: '2', value: '大型汽车' },
         { key: '3', value: '专用汽车' }
       ],
-      policyRisk: {}
+      policyRisk: undefined
     };
   },
   methods: {
