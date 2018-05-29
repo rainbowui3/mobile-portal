@@ -20,7 +20,7 @@
                 <r-date-time  :title="`${$t('datetime.startDate')}~${$t('datetime.endDate')}`" :model="policy" value="effortDate" :startDate="startDate" :endDate="endDate" ></r-date-time>
             </r-card>
             <r-card :title="$t('component.pleaseSelect')">
-                <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate"  :placeholder="$t('component.pleaseSelect')"></r-date-time>
+                <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate"  :placeholder="$t('component.pleaseSelect')" ></r-date-time>
             </r-card>
             <r-card :title="$t('component.required')">
                 <r-date-time  :title="$t('datetime.birthday')" :model="policy" value="nullDate" :required="true"></r-date-time>
@@ -40,8 +40,8 @@ export default {
         policy: {
           'effortDate': '2018-09-10',
           'endDate': '2018/09/10',
-          'hour': '2018-09-10 09:00',
-          'minute': '2018-09-10 09:00',
+          'hour': '2018-09-10[T]09:00:00',
+          'minute': '2018-09-10[T]09:00:00',
           'nullDate': null
         },
         endDate: '2018-09-10',
@@ -56,6 +56,7 @@ export default {
     onChange(val) {
     /*eslint-disable */
       this.policy['effortDate'] = val;
+    console.log(this.policy)
     /*eslint-disable */
     }
   }
