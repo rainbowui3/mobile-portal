@@ -43,6 +43,7 @@ import Getbirthday from '../../../components/utils/Getbirthday';
 import '../../../i18n/insuredInfoStudyRisk';
 import '../../../i18n/input';
 import '../../../i18n/project';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     ProposalConfirm,
@@ -90,8 +91,8 @@ export default {
   },
   methods: {
     onClick: function() {
-      sessionStorage.setItem('policy', JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      SessionContext.put('policy', JSON.stringify(this.policy), true);
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/ah/InsuredInfoConfirmStudyRisk");
       if (route && route.route3 && route.route3 != '') {
         this.$router.push({

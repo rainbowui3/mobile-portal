@@ -130,6 +130,7 @@ import {LoadingApi} from 'rainbow-mobile-core';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
 import {ObjectUtil} from 'rainbow-foundation-tools';
 import config from 'config';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -235,12 +236,10 @@ export default {
                         this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = policyPlanList;
                     });
                     SubmissionStore.setSubmission(this.submission);
-                    // console.log(this.submission);
-
-                    // this.setState({submission: this.submission});
-                    sessionStorage.setItem('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']));
+                    SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
+                    const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                     this.$router.push({
-                        path: '/bind/auto2c',
+                        path: `/bind/${routerType.route3}`,
                         query: this.$route.query
                     });
                 });
@@ -277,42 +276,42 @@ export default {
         // console.log(index);
     },
     gotoVL() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/VehicleLoss/',
             query: this.$route.query
         });
     },
     gotoThirdDuty() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/ThirdDutyMian',
             query: this.$route.query
         });
     },
     gotoDriverDuty() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/DriverDutyMian',
             query: this.$route.query
         });
     },
     gotoPassengerDuty() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/passengerDutyMian',
             query: this.$route.query
         });
     },
     gotoGlassCrush() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/GlassCrushAdditional',
             query: this.$route.query
         });
     },
     gotoCarBodyScratch() {
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         this.$router.push({
             path: '/project/proposal/auto2e/CarBodyScratchLoss',
             query: this.$route.query
@@ -320,7 +319,7 @@ export default {
     },
     goto(code, event) {
         // debugger;
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         switch (code) {
             case config['VEHICLE_LOSS_MIANCODE']:
             this.$router.push({
@@ -362,7 +361,7 @@ export default {
                 const deductibleCtsCts = [];
                 const PolicyCoverageList = planItem.TempPolicyCoverageList[0].PolicyCoverageList;
                 // 有session说明从险别页面过来的
-                const sessionCtList = sessionStorage.getItem('Policy_Coverage_Item') ? JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')) : undefined;
+                const sessionCtList = SessionContext.get('Policy_Coverage_Item') ? JSON.parse(SessionContext.get('Policy_Coverage_Item')) : undefined;
                 // console.log(sessionCtList);
                 // 先存储已有ct数据
                 const child = PolicyStore.getChild(param, policy);
@@ -469,8 +468,8 @@ export default {
                 this.deductibleCtsCts = deductibleCtsCts;
             });
             // 清除缓存
-            sessionStorage.removeItem('Policy_Coverage_Item');
-            sessionStorage.removeItem('PLAN_FLAG');
+            SessionContext.remove('Policy_Coverage_Item');
+            SessionContext.remove('PLAN_FLAG');
         LoadingApi.hide(this);
         });
     },

@@ -24,7 +24,6 @@ export default {
             url: '/proposal/LoadingPage',
             productCode: 'DEA',
             productVersion: '1.0',
-            proposalTemplate: '9',
             policyType: '1'/// / 1  POLICY 2 MASTERPOLICY 3 GROUPPOLICY 4 CERTIFICATE
           }}
         ]
@@ -37,7 +36,6 @@ export default {
             query: {
               productCode: param.productCode,
               productVersion: param.productVersion,
-              proposalTemplate: param.proposalTemplate,
               policyType: param.policyType
             }
           });

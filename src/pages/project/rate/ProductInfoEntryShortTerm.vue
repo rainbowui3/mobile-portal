@@ -33,6 +33,7 @@ import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/autoPlan';
 import Jtgj from '../../../assets/jtgj.jpg';
 import '../../../i18n/project';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -72,9 +73,9 @@ export default {
   },
   methods: {
     onClick: function() {
-      this.templateFlag = sessionStorage.getItem('ROUTE_FLAG');
-      sessionStorage.setItem('policy', JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      this.templateFlag = SessionContext.get('ROUTE_FLAG');
+      SessionContext.put('policy', JSON.stringify(this.policy), true);
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       if (route && route.route2 && route.route2 != '') {
         this.$router.push({
           path: '/quote/' + route.route2,

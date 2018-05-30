@@ -34,6 +34,7 @@ import ChooseRelationship from '../../../components/ChooseRelationship';
 import '../../../i18n/planSelection';
 import '../../../i18n/input';
 import '../../../i18n/project';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 // import localStorage from "../../../../sotre.js";
 
@@ -49,8 +50,8 @@ export default {
   methods: {
     clickHom() {},
     onClick: function() {
-      sessionStorage.removeItem('policy');
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      SessionContext.remove('policy');
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       // this.$router.push("/project/proposal/payStatus");
       this.$router.push({
         path: '/issue/' + route.route4,
@@ -127,7 +128,7 @@ export default {
     };
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem('policy'));
+    this.policy = JSON.parse(SessionContext.get('policy'));
   }
 };
 </script>

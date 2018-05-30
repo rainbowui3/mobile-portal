@@ -50,6 +50,7 @@ import iamgeOne from '../../../assets/u183.png';
 import Plan from '../../../components/plan/Plan';
 import supplier from '../../../assets/u204.png';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 import '../../../i18n/businessDetails';
 
@@ -95,7 +96,7 @@ export default {
     },
     methods: {
         onClick: function() {
-            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
             if (route && route.route2 && route.route2 != '') {
                 this.$router.push({
                     path: '/quote/' + route.route2,

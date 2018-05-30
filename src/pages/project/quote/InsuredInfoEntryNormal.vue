@@ -43,6 +43,7 @@ import '../../../i18n/project';
 import '../../../i18n/input';
 import '../../../i18n/planSelection';
 import '../../../i18n/insuredInfoEntryHealthSub';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     HolderInfo,
@@ -119,8 +120,8 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.setItem('policy', JSON.stringify(this.policy));
-        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        SessionContext.put('policy', JSON.stringify(this.policy), true);
+        let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         // this.$router.push("/project/proposal/ah/InsuredInfoConfirmNormal");
         this.$router.push({
           path: '/bind/' + route.route3,

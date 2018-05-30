@@ -32,6 +32,7 @@ import HolderInfo from '../../../components/HolderInfo';
 import InsuredInfo from '../../../components/InsuredInfo';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import '../../../i18n/businessFillIn';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
     components: {
         HolderInfo,
@@ -106,7 +107,7 @@ export default {
     },
     methods: {
         onClick: function() {
-            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
             if (route && route.route2 && route.route2 != '') {
                 this.$router.push({
                     path: '/bind/' + route.route3,

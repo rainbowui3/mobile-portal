@@ -20,6 +20,7 @@
 <script>
 import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/BusinessConfirm';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
     components: {
         ProposalConfirm
@@ -35,7 +36,7 @@ export default {
     },
     methods: {
         onClick() {
-            let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+            let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
             if (route && route.route4 && route.route4 != '') {
                 this.$router.push({
                     path: '/issue/' + route.route4,

@@ -51,6 +51,7 @@ import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
 import config from '../../../../../config/config';
 import {LoadingApi} from 'rainbow-mobile-core';
 import {UrlUtil} from 'rainbow-foundation-tools';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
     data() {
         return {
@@ -146,8 +147,9 @@ export default {
             });
         },
         accurateAndGoNextPage() {
+            const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
             this.$router.push({
-                path: '/bind/auto2c',
+                path: `/bind/${routerType.route3}`,
                 query: this.$route.query
             });
             // let url = config['POLICY_API']['ACCURATE_QUOTE'];

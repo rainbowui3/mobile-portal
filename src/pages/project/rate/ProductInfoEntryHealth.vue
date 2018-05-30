@@ -43,6 +43,7 @@ import ProposalConfirm from '../../../components/ProposalConfirm';
 import Jtgj from '../../../assets/jtgj.jpg';
 import '../../../i18n/ProductInfoEntryHealth';
 import config from 'config';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -76,34 +77,11 @@ export default {
   },
   methods: {
     onClick: function() {
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       this.$router.push({
         path: '/quote/' + route.route2,
         query: this.$route.query
       });
-      // switch (this.templateFlag) {
-      //   case '1':
-      //   this.$router.push({
-      //     path: '/quote/' + route.route2,
-      //     query: this.$route.query
-      //   });
-      //     // this.$router.push('/project/proposal/ah/InsuredInfoEntryHealth');
-      //     break;
-      //   case '2':
-      //   this.$router.push({
-      //     path: '/quote/' + route.route2,
-      //     query: this.$route.query
-      //   });
-      //     // this.$router.push('/proposal/ah/AHRouterEntry/' + this.$route.params.productCode + '/' + this.$route.params.agentCode + '/' + route.route2);
-      //     break;
-      //   default:
-      //   this.$router.push({
-      //     path: '/bind/' + route.route3,
-      //     query: this.$route.query
-      //   });
-      //     // this.$router.push('/project/proposal/ah/InsuredInfoEntryHealth');
-      //     break;
-      // }
     },
     onChange() {
 

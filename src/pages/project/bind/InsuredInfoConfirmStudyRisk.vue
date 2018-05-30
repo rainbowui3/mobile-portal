@@ -43,6 +43,7 @@ import Poi from '../../../components/Poi';
 import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import '../../../i18n/insuredInfoStudyRisk';
 import '../../../i18n/insuredInfoEntryHealthSub';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     ProposalConfirm,
@@ -93,8 +94,8 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.removeItem('policy');
-        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        SessionContext.remove('policy');
+        let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         // this.$router.push("/project/proposal/payStatus");
         if (route && route.route4 && route.route4 != '') {
           this.$router.push({
@@ -108,7 +109,7 @@ export default {
     }
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem('policy'));
+    this.policy = JSON.parse(SessionContext.get('policy'));
   }
 };
 </script>

@@ -6,6 +6,7 @@
 
 <script>
 import { UrlUtil } from 'rainbow-foundation-tools';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   beforeRouteEnter(to, from, next) {
     // 读配置表
@@ -35,7 +36,7 @@ export default {
             route3: data[0].route3,
             route4: data[0].route4
           };
-          sessionStorage.setItem('ROUTE_TYPE', JSON.stringify(vm.routeType));
+          SessionContext.put('ROUTE_TYPE', JSON.stringify(vm.routeType), true);
         } else {
           this.tips.show1 = true;
         }
@@ -151,12 +152,12 @@ export default {
     });
   },
   created: function() {
-    let loadingPageFlag = sessionStorage.getItem('LOADING_PAGE_FLAG');
+    let loadingPageFlag = SessionContext.get('LOADING_PAGE_FLAG');
     if (loadingPageFlag) {
-      sessionStorage.removeItem('LOADING_PAGE_FLAG');
+      SessionContext.remove('LOADING_PAGE_FLAG');
       this.$router.go(-1);
     } else {
-      sessionStorage.setItem('LOADING_PAGE_FLAG', 'loadingPage');
+      SessionContext.put('LOADING_PAGE_FLAG', 'loadingPage', true);
     }
   },
   mounted() {},

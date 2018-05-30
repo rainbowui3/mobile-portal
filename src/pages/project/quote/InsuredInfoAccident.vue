@@ -26,6 +26,7 @@ import ProposalConfirm from '../../../components/ProposalConfirm';
 import HolderInfo from '../../../components/HolderInfo';
 import '../../../i18n/insuredInfoAccident';
 import '../../../i18n/input';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     ProposalConfirm,
@@ -105,8 +106,8 @@ export default {
       }
     },
     onClick: function() {
-      sessionStorage.setItem('policy', JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      SessionContext.put('policy', JSON.stringify(this.policy), true);
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       if (route && route.route3 && route.route3 != '') {
         this.$router.push({
           path: '/bind/' + route.route3,
@@ -121,7 +122,7 @@ export default {
     }
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem('policy'));
+    this.policy = JSON.parse(SessionContext.get('policy'));
     this.policy.passengerInfo = {relationToHolder: true};
     this.policy.holderInfo = {
         name: '',

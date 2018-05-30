@@ -32,6 +32,7 @@ import ProposalCopies from '../../../components/ProposalCopies';
 import ProposalConfirm from '../../../components/ProposalConfirm';
 import Jtgj from '../../../assets/jtgj.jpg';
 import '../../../i18n/productInfoEntryNormal';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     ProductTop,
@@ -54,7 +55,7 @@ export default {
   },
   methods: {
     onClick: function() {
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       if (route && route.route2 && route.route2 != '') {
         this.$router.push({
           path: '/quote/' + route.route2,
@@ -122,9 +123,7 @@ export default {
     this.policy = policy;
     this.productInfo = productInfo;
     this.templateFlag = templateFlag;
-    sessionStorage.setItem('POLICY', JSON.stringify(this.policy));
-
-    // console.log(this.$route.params.flag);
+    SessionContext.put('POLICY', JSON.stringify(this.policy), true);
   }
 };
 </script>

@@ -21,6 +21,7 @@
 <script>
 import '../../../../../i18n/autoPlan';
 import config from '../../../../../config/config';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   data() {
@@ -33,12 +34,12 @@ export default {
   methods: {
     confirm() {
         this.model['IsRealProposal'] = 'Y';
-        sessionStorage.setItem('Policy_Coverage_Item', JSON.stringify(this.ctList));
+        SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.ctList), true);
         this.$router.go(-1);
     }
   },
   async created() {
-    this.ctList = sessionStorage.getItem('Policy_Coverage_Item') ? JSON.parse(sessionStorage.getItem('Policy_Coverage_Item')) : undefined;
+    this.ctList = SessionContext.get('Policy_Coverage_Item') ? JSON.parse(SessionContext.get('Policy_Coverage_Item')) : undefined;
     this.model = _.find(this.ctList, (ctItem) => {
         return ctItem['ProductElementCode'] == config['PASSENGER_DUTY_MAINCODE'];
     });

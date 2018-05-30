@@ -47,6 +47,7 @@ import Poi from '../../../components/Poi';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import '../../../i18n/proposalConfirm';
 import '../../../i18n/holderInfo';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -108,8 +109,8 @@ export default {
       if (this.pageModel.clauseConfirmed) {
         // Todo:跳转到下一个页面,确认页面
         // console.log("goto");
-        sessionStorage.setItem('policy', JSON.stringify(this.policy));
-        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        SessionContext.put('policy', JSON.stringify(this.policy), true);
+        let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         this.$router.push({
           path: '/bind/' + route.route3,
           query: this.$route.query

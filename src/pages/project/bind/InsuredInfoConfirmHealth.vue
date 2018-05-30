@@ -34,6 +34,7 @@ import Poi from '../../../components/Poi';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import '../../../i18n/proposalConfirm';
 import '../../../i18n/holderInfo';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -91,8 +92,8 @@ export default {
   },
   methods: {
     goto: function() {
-      sessionStorage.removeItem('policy');
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      SessionContext.remove('policy');
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       if (route && route.route4 && route.route4 != '') {
         this.$router.push({
             path: '/issue/' + route.route4,
@@ -112,7 +113,7 @@ export default {
   watch: {},
   computed: {},
   created: function() {
-    let policyStr = sessionStorage.getItem('policy');
+    let policyStr = SessionContext.get('policy');
     this.policy = JSON.parse(policyStr);
     // if (this.$route.params.policy) {
     //   this.policy = this.$route.params.policy;

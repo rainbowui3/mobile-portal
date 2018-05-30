@@ -42,6 +42,7 @@ import '../../../i18n/insuredInfoEntryShortTerm';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import '../../../i18n/input';
 import '../../../i18n/project';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -124,8 +125,8 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        sessionStorage.setItem('policy', JSON.stringify(this.policy));
-        let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+        SessionContext.put('policy', JSON.stringify(this.policy), true);
+        let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         if (route && route.route3 && route.route3 != '') {
           this.$router.push({
             path: '/bind/' + route.route3,
@@ -140,7 +141,7 @@ export default {
     clickHome: function() {}
   },
   created: function() {
-    this.policy = JSON.parse(sessionStorage.getItem('policy'));
+    this.policy = JSON.parse(SessionContext.get('policy'));
   }
   // ,
   // watch:{

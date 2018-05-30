@@ -18,6 +18,7 @@
 import Validate from './utils/Valitate';
 import Getbirthday from './utils/Getbirthday';
 import '../i18n/holderInfo';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   data() {
     return {
@@ -41,9 +42,10 @@ export default {
   },
   methods: {
     onChange: function(val) {
-      sessionStorage.setItem(
+      SessionContext.put(
         'model-relationToHolder',
-        this.model.relationToHolder
+        this.model.relationToHolder,
+        true
       );
       this.model.relationToHolder = this.model.relationToHolder;
       this.certificate.effortDate = val;
@@ -67,7 +69,7 @@ export default {
   mounted: function() {
   },
   created: function() {
-    sessionStorage.setItem('model-relationToHolder', '本人');
+    SessionContext.put('model-relationToHolder', '本人', true);
   },
   computed: {
     onChangeCertiType: function() {

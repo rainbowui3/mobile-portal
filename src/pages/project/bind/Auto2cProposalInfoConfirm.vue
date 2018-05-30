@@ -61,6 +61,7 @@ import ProposalClauseConfirm from '../../../components/ProposalClauseConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {LoadingApi} from 'rainbow-mobile-core';
 import config from 'config';
+import {SessionContext} from 'rainbow-foundation-cache';
 
 export default {
   components: {
@@ -91,7 +92,7 @@ export default {
       });
     },
     gotoCarInfo: function() {
-      let planFlag = JSON.parse(sessionStorage.getItem('PLAN_FLAG'));
+      let planFlag = JSON.parse(SessionContext.get('PLAN_FLAG'));
       if (planFlag && planFlag == config['CUSTOMER_PLAN_FLAG']) {
         this.$router.go(-3);
       } else {
@@ -103,8 +104,10 @@ export default {
     },
     gotoPay() {
       if (this.pageModel.clauseConfirm) {
+        const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
+
         this.$router.push({
-          path: '/issue/auto2c',
+          path: `/issue/${routerType.route4}`,
           query: this.$route.query
         });
       } else {

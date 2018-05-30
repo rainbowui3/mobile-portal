@@ -30,6 +30,7 @@ import HolderInfo from '../../../components/HolderInfo';
 import ProposalConfirm from '../../../components/ProposalConfirm';
 import '../../../i18n/insuredInfoEntryPassenger';
 import '../../../i18n/planSelection';
+import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   components: {
     Poi,
@@ -62,8 +63,8 @@ export default {
     getVehicleUseNatureCode: function() {
     },
     goto: function() {
-      sessionStorage.setItem('policy', JSON.stringify(this.policy));
-      let route = JSON.parse(sessionStorage.getItem('ROUTE_TYPE'));
+      SessionContext.put('policy', JSON.stringify(this.policy), true);
+      let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
       if (route && route.route3 && route.route3 != '') {
         this.$router.push({
           path: '/bind/' + route.route3,
