@@ -58,6 +58,7 @@ export default {
        policyRiskComp['EngineNo'] = this.policyRisk['EngineNo'];
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
+       SubmissionStore.setSubmission(submission);
           this.$router.push({
              path: '/project/proposal/auto2c/Auto2cPlan',
              query: this.$route.query

@@ -51,6 +51,7 @@ export default {
         let compCustomers = PolicyStore.getChild(policyCustomerParam, policyComp);
         PolicyStore.deleteChild(compCustomers, policyComp);
         policyComp['PolicyCustomerList'] = this.policyCustomers;
+        SubmissionStore.setSubmission(submission);
         this.$router.go(-1);
       }
   },

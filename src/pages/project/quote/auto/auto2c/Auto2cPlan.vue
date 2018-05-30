@@ -77,7 +77,7 @@ export default {
             });
         },
         // initPlan,init是全量CT,删除多余的CT
-        initPlan(param, policy) {
+        initPlan(param, policy, submission) {
             let childCoverageList = this.planItemList[this.index]['ChildPlanCoverageList'];
             PolicyStore.initPlan(param, policy).then((plans) => {
                 _.each(plans, (planItem) => {
@@ -99,6 +99,7 @@ export default {
                         }
                     });
                 });
+                SubmissionStore.setSubmission(submission);
                 this.accurateAndGoNextPage();
             });
         },
@@ -141,7 +142,7 @@ export default {
                     //     this.initPlan(param, policy);
                     // }
                 }
-                this.initPlan(param, policy);
+                this.initPlan(param, policy, submission);
             });
         },
         accurateAndGoNextPage() {

@@ -63,7 +63,6 @@ export default {
         const urlObject = UrlUtil.parseURL(window.location.href);
         const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
         let product = await ProductStore.getProductByCodeVersion(param);
-
         this.productDes = product.ProductElementName;
         const submission = SubmissionStore.getSubmission();
 
@@ -123,6 +122,7 @@ export default {
             this.policyRisk = policyRisk;
             this.IsNewVehicle = this.policyRisk['IsNewVehicle'];
             SubmissionStore.setPolicy(policyComm, submission, true);
+            SubmissionStore.setSubmission(submission);
         }
         LoadingApi.hide(this);
   },
@@ -157,6 +157,7 @@ export default {
         const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
         policyRiskComp['LicenseNo'] = policyRiskComm['LicenseNo'];
         policyRiskComp['IsNewVehicle'] = policyRiskComm['IsNewVehicle'];
+        SubmissionStore.setSubmission(submission);
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',
             query: this.$route.query

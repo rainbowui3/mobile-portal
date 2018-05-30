@@ -153,13 +153,8 @@ export default {
   created: function() {
     let loadingPageFlag = sessionStorage.getItem('LOADING_PAGE_FLAG');
     if (loadingPageFlag) {
-      sessionStorage.clear('LOADING_PAGE_FLAG');
-      AjaxUtil.call('./static/config.json').then(data => {
-        sessionStorage.setItem('project_config', JSON.stringify(data));
-      });
-      this.$router.push({
-        path: '/demo'
-      });
+      sessionStorage.removeItem('LOADING_PAGE_FLAG');
+      this.$router.go(-1);
     } else {
       sessionStorage.setItem('LOADING_PAGE_FLAG', 'loadingPage');
     }

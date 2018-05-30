@@ -265,6 +265,7 @@ export default {
             if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
                 PolicyStore.deleteChild(child, policyComm);
             }
+            SubmissionStore.setSubmission(submission);
             LoadingApi.hide(this);
             this.$router.go(-1);
         });
