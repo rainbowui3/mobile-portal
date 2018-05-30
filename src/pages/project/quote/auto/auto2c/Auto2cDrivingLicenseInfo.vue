@@ -16,7 +16,7 @@
                 <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
                 <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" />
-                <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicelType" :options="carTypeList" />
+                <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicleKindTcCode" :options="carTypeList" />
             </r-card>
         </r-body>
         <r-tab-bar>

@@ -75,7 +75,7 @@ export default {
             });
             const policyCustomers = PolicyStore.getChild(policyCustomerParam, policyComm);
             this.policyCustomerOwner = _.find(policyCustomers, (customer) => {
-                return customer['CustomerRoeCode'] == '3';
+                return customer['CustomerRoleCode'] == '3';
             });
             const policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
             this.policyRisk = policyRisk;
@@ -86,7 +86,7 @@ export default {
             const policyComp = await PolicyStore.initPolicy({'productCode': 'DFA', 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
             // 交强险policyCustomerList创建
             const policyCustomerOwnerComp = PolicyStore.createChild(policyCustomerParam, policyComp);
-            policyCustomerOwnerComp['CustomerRoeCode'] = '3';
+            policyCustomerOwnerComp['CustomerRoleCode'] = '3';
             const policyCustomerHolderComp = PolicyStore.createChild(policyCustomerParam, policyComp);
             policyCustomerHolderComp['CustomerRoleCode'] = '1';
             const policyCustomerInsuredComp = PolicyStore.createChild(policyCustomerParam, policyComp);
@@ -106,7 +106,7 @@ export default {
             const policyComm = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
             // 商业险policyCustomerList创建
             const policyCustomerOwner = PolicyStore.createChild(policyCustomerParam, policyComm);
-            policyCustomerOwner['CustomerRoeCode'] = '3';
+            policyCustomerOwner['CustomerRoleCode'] = '3';
             this.policyCustomerOwner = policyCustomerOwner;
             const policyCustomerHolder = PolicyStore.createChild(policyCustomerParam, policyComm);
             policyCustomerHolder['CustomerRoleCode'] = '1';
@@ -122,6 +122,7 @@ export default {
             this.policyRisk = policyRisk;
             this.IsNewVehicle = this.policyRisk['IsNewVehicle'];
             SubmissionStore.setPolicy(policyComm, submission, true);
+            submission['SubmissionProductList'][1]['IsRealProposal'] = 'Y';
             SubmissionStore.setSubmission(submission);
         }
         LoadingApi.hide(this);
@@ -135,9 +136,14 @@ export default {
         const policyComm = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DEA';
         });
+        policyComm['IssueOrgId'] = 300817196;
+        policyComm['IssueUserId'] = 300804283;
+        policyComm['OrgCode'] = '34010904';
+        policyComm['OrgId'] = 26002851045;
+        policyComm['BelongToHandlerId'] = 3401090409;
         const policyCustomers = PolicyStore.getChild(policyCustomerParam, policyComm);
         _.each(policyCustomers, (customer) => {
-            if (customer['CustomerRoeCode'] != '3') {
+            if (customer['CustomerRoleCode'] != '3') {
                 customer['CustomerName'] = this.policyCustomerOwner['CustomerName'];
                 customer['IdNo'] = this.policyCustomerOwner['IdNo'];
                 customer['IndiMobile'] = this.policyCustomerOwner['IndiMobile'];
@@ -148,6 +154,10 @@ export default {
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
         });
+        policyComp['IssueOrgId'] = 300817196;
+        policyComp['IssueUserId'] = 300804283;
+        policyComp['OrgCode'] = '34010904';
+        policyComp['OrgId'] = 26002851045;
         const policyCustomersComp = PolicyStore.getChild(policyCustomerParam, policyComp);
         _.each(policyCustomersComp, (customer) => {
             customer['CustomerName'] = this.policyCustomerOwner['CustomerName'];
