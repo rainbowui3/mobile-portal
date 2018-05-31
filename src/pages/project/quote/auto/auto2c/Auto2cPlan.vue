@@ -161,7 +161,7 @@ export default {
                     path: `/bind/${routerType.route3}`,
                     query: this.$route.query
                 });
-                AjaxUtil.hide();
+                // AjaxUtil.hide();
             // UIMessageHelper.info("操作成功！",null, null);
             // });
         }
