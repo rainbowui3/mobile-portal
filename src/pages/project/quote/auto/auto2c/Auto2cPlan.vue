@@ -71,11 +71,12 @@ export default {
         },
         gotoCustomPlan: function() {
             // Todo:跳转到自定义险种页面
-            this.$router.push({
-                path: '/project/proposal/auto2C/Auto2cCustomPlan',
-                name: 'Auto2cCustomPlan',
-                query: this.$route.query
-            });
+            this.$emit('showPackage', false);
+            // this.$router.push({
+            //     path: '/project/proposal/auto2C/Auto2cCustomPlan',
+            //     name: 'Auto2cCustomPlan',
+            //     query: this.$route.query
+            // });
         },
         // initPlan,init是全量CT,删除多余的CT
         initPlan(param, policy, submission) {
@@ -93,6 +94,8 @@ export default {
                                 if (selectedCtItem['SumInsured']) {
                                     initCtItem['SumInsured'] = selectedCtItem['SumInsured'];
                                 }
+                                // 临时删除模型的字段
+                                initCtItem['IsSelectedByDefault'] = undefined;
                             }
                         });
                         if (!isSaved) {
@@ -101,7 +104,7 @@ export default {
                     });
                 });
                 SubmissionStore.setSubmission(submission);
-                this.accurateAndGoNextPage();
+                this.accurateAndGoNextPage(submission);
             });
         },
         getParams(schema) {
@@ -146,22 +149,20 @@ export default {
                 this.initPlan(param, policy, submission);
             });
         },
-        accurateAndGoNextPage() {
+        accurateAndGoNextPage(submission) {
+            // debugger;
+            // let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
+            // console.log(JSON.stringify(submission));
+            // SubmissionStore.call(url, submission, {'method': 'POST'}).then((submission) => {
+            //     // debugger;
+            // this.setState({submission: submission});
             const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
             this.$router.push({
                 path: `/bind/${routerType.route3}`,
                 query: this.$route.query
             });
-            // let url = config['POLICY_API']['ACCURATE_QUOTE'];
-            // SubmissionStore.call(url, submission, {'method': 'POST'}).then((submission) => {
-            //     debugger;
-            // this.setState({submission: submission});
-            // AjaxUtil.hide();
-            // // UIMessageHelper.info("操作成功！",null, null);
-            // });
-            // this.$router.push({
-            //     path: '/bind/auto2c',
-            //     query: this.$route.query
+            AjaxUtil.hide();
+            // UIMessageHelper.info("操作成功！",null, null);
             // });
         }
     },
