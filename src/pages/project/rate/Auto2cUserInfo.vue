@@ -152,8 +152,8 @@ export default {
         const policyRiskComm = PolicyStore.getChild(policyRiskParam, policyComm);
         policyRiskComm['IsNewVehicle'] = this.IsNewVehicle;// 新车
         policyRiskComm['IsNotRegistered'] = this.IsNewVehicle;// 未上牌
-        // 临时写死是否外地车
-        policyRiskComm['NonlocalVehicleFlag'] = 'N';
+        // 临时写死是否本地车
+        policyRiskComm['IsNonLocalVehicle'] = 'Y';
 
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
@@ -172,7 +172,7 @@ export default {
         policyRiskComp['LicenseNo'] = policyRiskComm['LicenseNo'];
         policyRiskComp['IsNewVehicle'] = policyRiskComm['IsNewVehicle'];
         policyRiskComp['IsNotRegistered'] = policyRiskComm['IsNotRegistered'];
-        policyRiskComp['NonlocalVehicleFlag'] = policyRiskComm['NonlocalVehicleFlag'];
+        policyRiskComp['IsNonLocalVehicle'] = policyRiskComm['IsNonLocalVehicle'];
         const PolicyCoverageList = [{
                     '@type': 'PolicyCoverage-CF1100047',
                     BusinessObjectId: 26001496359,
