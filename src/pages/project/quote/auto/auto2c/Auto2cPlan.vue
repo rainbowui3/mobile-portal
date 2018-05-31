@@ -155,13 +155,13 @@ export default {
             // console.log(JSON.stringify(submission));
             // SubmissionStore.call(url, submission, {'method': 'POST'}).then((submission) => {
             //     // debugger;
-            // this.setState({submission: submission});
-            const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
-            this.$router.push({
-                path: `/bind/${routerType.route3}`,
-                query: this.$route.query
-            });
-            AjaxUtil.hide();
+            //     this.setState({submission: submission});
+                const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
+                this.$router.push({
+                    path: `/bind/${routerType.route3}`,
+                    query: this.$route.query
+                });
+                AjaxUtil.hide();
             // UIMessageHelper.info("操作成功！",null, null);
             // });
         }
