@@ -167,6 +167,22 @@ export default {
         const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
         policyRiskComp['LicenseNo'] = policyRiskComm['LicenseNo'];
         policyRiskComp['IsNewVehicle'] = policyRiskComm['IsNewVehicle'];
+        const PolicyCoverageList = [{
+                    '@type': 'PolicyCoverage-CF1100047',
+                    BusinessObjectId: 26001496359,
+                    ProductElementCode: 'CF1100047',
+                    ProductElementId: 26001497905,
+                    SequenceNumber: 1,
+                    PolicyCoverageList: [{
+                        '@type': 'PolicyCoverage-C100120',
+                        BusinessObjectId: '26001496368',
+                        ProductElementCode: 'C100120',
+                        ProductElementId: 26001497907,
+                        SequenceNumber: 1,
+                        SumInsured: 122000
+                    }]
+                }];
+        policyRiskComp['PolicyCoverageList'] = PolicyCoverageList;
         SubmissionStore.setSubmission(submission);
         this.$router.push({
             path: '/project/proposal/auto2c/Auto2cDrivingLicenseInfo',

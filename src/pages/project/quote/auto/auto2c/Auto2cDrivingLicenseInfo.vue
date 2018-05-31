@@ -59,10 +59,10 @@ export default {
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
        SubmissionStore.setSubmission(submission);
-          this.$router.push({
-             path: '/project/proposal/auto2c/Auto2cPlan',
-             query: this.$route.query
-          });
+       this.$router.push({
+           path: '/quote/plan',
+           query: this.$route.query
+       });
       },
         validateVinInput(value) {
             // debugger;
@@ -98,7 +98,6 @@ export default {
     },
     'policyRisk.Vin': {
       handler: function(value) {
-        //   debugger;
         if (value) {
           this.policyRisk.Vin = value.toUpperCase();
         }

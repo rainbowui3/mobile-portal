@@ -144,10 +144,8 @@ export default {
         submission: undefined,
         policyComp: undefined,
         policyComm: undefined,
-        // allUsedCts: [],
         nonDeductibleCts: undefined,
         deductibleCtsCts: undefined,
-        // IsNonDeductible: 'N',
         vehicleLossMianCode: undefined,
         thirdDutyMainCode: undefined,
         carRobberyMianCode: undefined,
@@ -183,13 +181,6 @@ export default {
             this.isReminder = true;
         } else {
             this.isReminder = false;
-            // console.log(this.deductibleCtsCts);
-            // const submission = SubmissionStore.getSubmission();
-            // const submissionProductList = SubmissionStore.getPolicy(submission);
-            // const policy = _.find(submissionProductList, (policyItem) => {
-            //     return policyItem['ProductCode'] == 'DEA';
-            // });
-
             let productId = this.policyComm['ProductId'];
             SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
                 let param = this.getParams(schema);
@@ -266,14 +257,12 @@ export default {
             }
             SubmissionStore.setSubmission(submission);
             LoadingApi.hide(this);
-            this.$router.go(-1);
+            SessionContext.remove('PLAN_TYPE');
+            this.$emit('showPackage', true);
         });
     },
     onChange() {
 
-    },
-    IsNonDeductibleOnChange(event, index) {
-        // console.log(index);
     },
     gotoVL() {
         SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
@@ -318,7 +307,6 @@ export default {
         });
     },
     goto(code, event) {
-        // debugger;
         SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.deductibleCtsCts), true);
         switch (code) {
             case config['VEHICLE_LOSS_MIANCODE']:
@@ -495,6 +483,7 @@ export default {
       LoadingApi.show(this, {
           text: this.$t('common.processing')
       });
+      SessionContext.put('PLAN_TYPE', 'custom', true);
       const submissionStore = SubmissionStore.getSubmission();
       const submission = ObjectUtil.clone(submissionStore);
       this.submission = submission;

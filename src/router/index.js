@@ -116,7 +116,7 @@ const Auto2cDrivingLicenseInfo = r => require.ensure([], () => r(require('@/page
 const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cPlan'), 'Auto2cPlan'));
 const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/rate/Auto2cUserInfo'), 'Auto2cUserInfo'));
 const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
-
+const Auto2cPlanRouter = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cPlanRouter'), 'Auto2cPlanRouter'));
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/component/business/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/component/business/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -897,8 +897,12 @@ const router = new Router({
     path: '/mine',
     name: 'Mine',
     component: Mine
+  },
+  {
+    path: '/quote/plan',
+    name: 'auto2cPlanRouter',
+    component: Auto2cPlanRouter
   }
-
   ]
 });
 
