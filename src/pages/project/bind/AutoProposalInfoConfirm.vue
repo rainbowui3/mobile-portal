@@ -10,7 +10,7 @@
                 </r-row>
                 <r-input :title="$t('insuredInfoEntryPassenger.licenseNo')" :model="model" value="licenseNo" :readonly="true" />
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="model" value="model" :readonly="true" />
-                <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="model" value="vehicleCode" :readonly="true" />
+                <r-input :title="$t('autoProposalInfoConfirm.vin')" :model="model" value="Vin" :readonly="true" />
                 <r-input :title="$t('carInfo.engineNo')" :model="model" value="engineNo" :readonly="true" />
                 <r-input :title="$t('carInfo.regiDate')" :model="model" value="VehicleInitialRegDate" :readonly="true" />
             </r-card>

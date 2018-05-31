@@ -13,7 +13,7 @@
                     </r-cell>
                 </r-cell>-->
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :required="true" :placeholder="$t('carInfo.inputModel')" />
-                <r-input :title="$t('autoProposalInfoConfirm.vehicleCode')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVehicleCode')" :validator="validateVinInput" :novalidate="false" />
+                <r-input :title="$t('autoProposalInfoConfirm.vin')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVin')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
                 <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" />
                 <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicleKindTcCode" :options="carTypeList" />
@@ -36,9 +36,7 @@ export default {
   data() {
     return {
       carTypeList: [
-        { key: '1', value: '小型汽车' },
-        { key: '2', value: '大型汽车' },
-        { key: '3', value: '专用汽车' }
+        { key: 'K31', value: '小型普通客车' }
       ],
       policyRisk: undefined
     };
@@ -52,9 +50,25 @@ export default {
        });
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
+
+       // 临时写死"Power": 96, "VehicleQuality": 1315, "VehicleCode": "DZAAND0085"
+       this.policyRisk['Power'] = 96;
+       this.policyRisk['VehicleQuality'] = 1315;
+       this.policyRisk['VehicleCode'] = 'DZAAND0085';
+       this.policyRisk['IndustryModelCode'] = 'BYQKBMUC0002';
+       this.policyRisk['GasType'] = 'D1';
+       this.policyRisk['AnnouncedModel'] = 'FV7142TXG';
+       policyRiskComp['Power'] = this.policyRisk['Power'];
+       policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
+       policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
+       policyRiskComp['IndustryModelCode'] = this.policyRisk['IndustryModelCode'];
+       policyRiskComp['GasType'] = this.policyRisk['GasType'];
+       policyRiskComp['AnnouncedModel'] = this.policyRisk['AnnouncedModel'];
+
+       // 正常数据
        policyRiskComp['LicenseNo'] = this.policyRisk['LicenseNo'];
        policyRiskComp['Model'] = this.policyRisk['Model'];
-       policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
+       policyRiskComp['Vin'] = this.policyRisk['Vin'];
        policyRiskComp['EngineNo'] = this.policyRisk['EngineNo'];
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
@@ -69,7 +83,7 @@ export default {
             var isValidateVin = Validate.CheckVinReg(value);
             return {
                 valid: isValidateVin === true,
-                msg: this.$t('auto2cDrivingLicenseInfo.validateVehicleCode')
+                msg: this.$t('auto2cDrivingLicenseInfo.validateVin')
             };
         }
   },
