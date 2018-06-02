@@ -2,13 +2,8 @@
     <r-page>
         <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
-            <div class='planTab'>
-                <div>
+            <div >
                     <r-tab :tabItems="tabItems" class="tab" />
-                </div>
-                <div class="customPlan" v-on:click="gotoCustomPlan">
-                    <span class="planEdit">定制方案</span>
-                </div>
             </div>
             <div class="auto2cPlan" v-if="planItemList && planItemList.length > 0 && planItemList[index].ChildPlanCoverageList">
                 <div class="selectedPlan">
@@ -21,8 +16,7 @@
                         {{$t('auto2cPlan.insured')}}
                     </div>
                 </div>
-                <div v-for="(ctLstItem,ProductElementId) in planItemList[index].ChildPlanCoverageList" :key="ctLstItem.ProductElementId" class="selectedPlan">
-                                   
+                <div v-for="(ctLstItem,ProductElementId) in planItemList[index].ChildPlanCoverageList" :key="ctLstItem.ProductElementId" class="selectedPlan" v-if="ctLstItem.IsRealProposal && ctLstItem.IsRealProposal == 'Y'">
                     <div class="selectedPlanContent">
                         <div class="planName">
                             {{ctLstItem.PlanCoverageName}}
@@ -37,21 +31,25 @@
                 </div>
             </div>
         </r-body>
+        <div class="autoPlanBottom">
         <r-tab-bar>
-            <r-card class="bottom">
-
+            <div class="bottom">
+                <div class="autoPlan" v-on:click="gotoCustomPlan">
+                    <span class="planEditAuto">定制方案</span>
+                </div>
                 <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
-            </r-card>
+            </div>
         </r-tab-bar>
+        </div>
     </r-page>
 </template>
 <script>
 import '../../../../../i18n/auto2cPlan';
-import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
+import { SubmissionStore, PolicyStore, SchemaUtil } from 'rainbow-foundation-sdk';
 import config from '../../../../../config/config';
-import {LoadingApi} from 'rainbow-mobile-core';
-import {UrlUtil} from 'rainbow-foundation-tools';
-import {SessionContext} from 'rainbow-foundation-cache';
+import { LoadingApi } from 'rainbow-mobile-core';
+import { UrlUtil } from 'rainbow-foundation-tools';
+import { SessionContext } from 'rainbow-foundation-cache';
 export default {
     data() {
         return {
@@ -117,10 +115,10 @@ export default {
             };
             const parentObjectCode = SchemaUtil.getSchemaByModelName(modelNameParma, schema);
             const param = {
-                    'ModelName': 'PolicyPlan',
-                    'ObjectCode': objectCode[0].ObjectCode,
-                    'ParentModelName': 'PolicyRisk',
-                    'ParentObjectCode': parentObjectCode[0].ObjectCode
+                'ModelName': 'PolicyPlan',
+                'ObjectCode': objectCode[0].ObjectCode,
+                'ParentModelName': 'PolicyRisk',
+                'ParentObjectCode': parentObjectCode[0].ObjectCode
             };
             return param;
         },
@@ -153,16 +151,16 @@ export default {
             // debugger;
             // let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
             // console.log(JSON.stringify(submission));
-            // SubmissionStore.call(url, submission, {'method': 'POST'}).then((submission) => {
-            //     // debugger;
-            //     this.setState({submission: submission});
+            // SubmissionStore.call(url, submission, { 'method': 'POST' }).then((submission) => {
+            //     debugger;
+            //     this.setState({ submission: submission });
                 const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                 this.$router.push({
                     path: `/bind/${routerType.route3}`,
                     query: this.$route.query
                 });
                 // AjaxUtil.hide();
-            // UIMessageHelper.info("操作成功！",null, null);
+                // UIMessageHelper.info("操作成功！",null, null);
             // });
         }
     },
@@ -184,10 +182,10 @@ export default {
             AjaxUtil.call(url).then((planCodes) => {
                 // // 测试数据
                 planCodes = {
-                    'DEA180061': {'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案'},
-                    'DEA180060': {'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案'},
-                    'DEA180062': {'PlanCode': 'DEA180062', 'ProductId': '301132390', 'PlanName': '豪华方案'}
-                    };
+                    'DEA180061': { 'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案' },
+                    'DEA180060': { 'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案' },
+                    'DEA180062': { 'PlanCode': 'DEA180062', 'ProductId': '301132390', 'PlanName': '豪华方案' }
+                };
                 _.each(planCodes, (planCodeItem) => {
                     // 暂时最多取三个方案
                     if (planCodesList.length < 3) {
@@ -225,12 +223,71 @@ export default {
                             }
                             let childplanCoverageLst = planItem.PlanCoverageList[0].ChildPlanCoverageList;
                             _.each(childplanCoverageLst, (planCoverageLstItem) => {
+                                // 把方案下面的保额字段赋值到集合字段里
                                 if (planCoverageLstItem.PlanCoverageFieldList) {
                                     _.each(planCoverageLstItem.PlanCoverageFieldList, (fieldLstItem) => {
                                         if (fieldLstItem.FieldName === 'SumInsured') {
                                             planCoverageLstItem['SumInsured'] = fieldLstItem['DefaultValue'];
                                         }
                                     });
+                                }
+
+                                // 此字段只做页面控制用，页面展示不展示次险别
+                                planCoverageLstItem['IsRealProposal'] = 'Y';
+
+                                // 因为方案里不对 IsNonDeductible 做维护，所以程序处理
+                                planCoverageLstItem['IsNonDeductible'] = 'N';
+
+                                // 不计免赔逻辑 如果对应险别有不计免赔险，不显示，不计免赔字段设为Y
+                                switch (planCoverageLstItem.ProductElementCode) {
+                                    case config['VEHICLE_LOSS_MIANCODE']:
+                                        _.each(childplanCoverageLst, (item) => {
+                                            if (item['ProductElementCode'] == config['NONVEHICLE_LOSS_ADDITIONAL_CODE']) {
+                                                planCoverageLstItem['IsNonDeductible'] = 'Y';
+
+                                                // 临时填充数据，记得删除
+                                                planCoverageLstItem['SumInsured'] = '12000';
+                                            }
+                                        });
+                                        break;
+                                    case config['THIRD_DUTY_MAINCODE']:
+                                        _.each(childplanCoverageLst, (item) => {
+                                            if (item['ProductElementCode'] == config['NONTHIRD_DUTY_ADDITIONAL_CODE']) {
+                                                planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                            }
+                                        });
+                                        break;
+                                    case config['DRIVER_DUTY_MAINCODE']:
+                                        _.each(childplanCoverageLst, (item) => {
+                                            if (item['ProductElementCode'] == config['NONDRIVER_DUTY_ADDITIONAL_CODE']) {
+                                                planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                            }
+                                        });
+                                        break;
+                                    case config['PASSENGER_DUTY_MAINCODE']:
+                                        _.each(childplanCoverageLst, (item) => {
+                                            if (item['ProductElementCode'] == config['NONPASSENGER_DUTY_ADDITIONAL_CODE']) {
+                                                planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                            }
+                                        });
+                                        break;
+                                    // 不计免赔险页面不展示，临时加一个IsRealProposal来做页面控制
+                                    case config['NONVEHICLE_LOSS_ADDITIONAL_CODE']:
+                                        planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                        planCoverageLstItem['IsRealProposal'] = 'N';
+                                        break;
+                                    case config['NONTHIRD_DUTY_ADDITIONAL_CODE']:
+                                        planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                        planCoverageLstItem['IsRealProposal'] = 'N';
+                                        break;
+                                    case config['NONDRIVER_DUTY_ADDITIONAL_CODE']:
+                                        planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                        planCoverageLstItem['IsRealProposal'] = 'N';
+                                        break;
+                                    case config['NONPASSENGER_DUTY_ADDITIONAL_CODE']:
+                                        planCoverageLstItem['IsNonDeductible'] = 'Y';
+                                        planCoverageLstItem['IsRealProposal'] = 'N';
+                                        break;
                                 }
                             });
                             let ctItem = {
@@ -253,15 +310,18 @@ export default {
 .auto2cPlan {
     background-color: #fff;
 }
+
 .selectedPlanContent {
     width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.auto2cPlan > :nth-child(1) {
+
+.auto2cPlan> :nth-child(1) {
     border-bottom: 2px solid #ededed;
 }
+
 .selectedPlan {
     padding: 0 20px;
     height: 45px;
@@ -273,9 +333,11 @@ export default {
     color: #4b4949;
     font-size: 15px;
 }
+
 .bottom {
     width: 100%;
 }
+
 .planAddition {
     color: #fff;
     font-size: 11px;
@@ -286,21 +348,26 @@ export default {
     border-radius: 7px;
     line-height: 20px;
 }
+
 .link {
     font-size: 14px;
     color: #4d93e4;
 }
+
 .customPlan {
     background-color: #eee;
     text-align: center;
     padding: 5px 0;
 }
+
 .planTab {
     display: flex;
 }
-.planTab > :nth-child(1) {
+
+.planTab> :nth-child(1) {
     width: 85%;
 }
+
 .customPlan {
     position: relative;
     width: 16%;
@@ -315,14 +382,28 @@ export default {
     padding-right: 10px;
     padding-left: 10px;
 }
-.customPlan>i{
+
+.customPlan>i {
     font-size: 20px;
 }
+
 .planEdit {
     position: absolute;
     font-size: 14px;
     color: #FF9414;
     vertical-align: bottom;
+}
+.autoPlanBottom>.weui-tabbar{
+    background-color: transparent!important;
+}
+.autoPlanBottom>.weui-tabbar::before{
+    border:0px!important;
+}
+.autoPlan{
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    color: blue;
 }
 </style>
 

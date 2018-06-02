@@ -58,12 +58,22 @@ export default {
        this.policyRisk['IndustryModelCode'] = 'BYQKBMUC0002';
        this.policyRisk['GasType'] = 'D1';
        this.policyRisk['AnnouncedModel'] = 'FV7142TXG';
+       this.policyRisk['NewVehiclePurchasePrice'] = '126800';
+       this.policyRisk['ApprovalSeatCount'] = 5;
+       this.policyRisk['ApprovalQuality'] = 1000;
+       this.policyRisk['CarName'] = '车款名称';
+       this.policyRisk['LicenseType'] = '02';
        policyRiskComp['Power'] = this.policyRisk['Power'];
        policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
        policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
        policyRiskComp['IndustryModelCode'] = this.policyRisk['IndustryModelCode'];
        policyRiskComp['GasType'] = this.policyRisk['GasType'];
        policyRiskComp['AnnouncedModel'] = this.policyRisk['AnnouncedModel'];
+       policyRiskComp['NewVehiclePurchasePrice'] = this.policyRisk['NewVehiclePurchasePrice'];
+       policyRiskComp['ApprovalSeatCount'] = this.policyRisk['ApprovalSeatCount'];
+       policyRiskComp['ApprovalQuality'] = this.policyRisk['ApprovalQuality'];
+       policyRiskComp['CarName'] = this.policyRisk['CarName'];
+       policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
 
        // 正常数据
        policyRiskComp['LicenseNo'] = this.policyRisk['LicenseNo'];
