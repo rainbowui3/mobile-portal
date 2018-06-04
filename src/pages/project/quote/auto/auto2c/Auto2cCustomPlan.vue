@@ -114,6 +114,7 @@
             <div class="button_vertical-align">
                <r-button type="default" :mini="true" :onClick="resetClick">{{$t('auto2cCustomPlan.reset')}}</r-button>                        
             </div>
+            <r-toast :model="this" value="toastShow" :text="$t('auto2cCustomPlan.error')" type='text'/>
         </r-body>
         <r-tab-bar>         
             <r-button type="primary" :onClick="calculatePremium">{{$t('common.confirm')}}</r-button>          
@@ -128,7 +129,7 @@ import '../../../../../i18n/auto2cCustomPlan';
 // import config from '../../../../../config/config';
 import {LoadingApi} from 'rainbow-mobile-core';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
-import {ObjectUtil} from 'rainbow-foundation-tools';
+import {UrlUtil, ObjectUtil} from 'rainbow-foundation-tools';
 import config from 'config';
 import {SessionContext} from 'rainbow-foundation-cache';
 
@@ -166,7 +167,8 @@ export default {
         // },
         // policyPlanList: [],
         isReminder: false,
-        valueMap: ['N', 'Y']
+        valueMap: ['N', 'Y'],
+        toastShow: false
     };
   },
   methods: {
@@ -181,6 +183,9 @@ export default {
             this.isReminder = true;
         } else {
             this.isReminder = false;
+            LoadingApi.show(this, {
+                text: this.$t('common.processing')
+            });
             let productId = this.policyComm['ProductId'];
             SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
                 let param = this.getParams(schema);
@@ -225,13 +230,28 @@ export default {
                         let policyPlanList = [];
                         policyPlanList.push(planItem);
                         this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = policyPlanList;
+                        this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyCoverageList'] = planItem['TempPolicyCoverageList'];
                     });
-                    SubmissionStore.setSubmission(this.submission);
-                    SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
-                    const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
-                    this.$router.push({
-                        path: `/bind/${routerType.route3}`,
-                        query: this.$route.query
+
+                    // 请求精确报价接口
+                    let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
+                    // console.log(JSON.stringify(this.submission));
+                    SubmissionStore.call(url, this.submission, { 'method': 'POST' }).then((reponsed) => {
+                        const self = this;
+                        // console.log(JSON.stringify(reponsed));
+                        if (reponsed.Submission) {
+                            // self.setState({ submission: reponsed.Submission });
+                            SubmissionStore.setSubmission(reponsed.Submission);
+                            SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
+                            const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
+                            self.$router.push({
+                                path: `/bind/${routerType.route3}`,
+                                query: self.$route.query
+                            });
+                        } else {
+                            self.toastShow = true;
+                        }
+                        LoadingApi.hide(self);
                     });
                 });
             });
@@ -256,8 +276,8 @@ export default {
                 PolicyStore.deleteChild(child, policyComm);
             }
             SubmissionStore.setSubmission(submission);
-            LoadingApi.hide(this);
             SessionContext.remove('PLAN_TYPE');
+            LoadingApi.hide(this);
             this.$emit('showPackage', true);
         });
     },
@@ -458,7 +478,7 @@ export default {
             // 清除缓存
             SessionContext.remove('Policy_Coverage_Item');
             SessionContext.remove('PLAN_FLAG');
-        LoadingApi.hide(this);
+            LoadingApi.hide(this);
         });
     },
     getParams(schema) {

@@ -63,6 +63,7 @@ export default {
        this.policyRisk['ApprovalQuality'] = 1000;
        this.policyRisk['CarName'] = '车款名称';
        this.policyRisk['LicenseType'] = '02';
+       this.policyRisk['Displacement'] = '1.0';
        policyRiskComp['Power'] = this.policyRisk['Power'];
        policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
        policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
@@ -74,6 +75,7 @@ export default {
        policyRiskComp['ApprovalQuality'] = this.policyRisk['ApprovalQuality'];
        policyRiskComp['CarName'] = this.policyRisk['CarName'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
+       policyRiskComp['Displacement'] = this.policyRisk['Displacement'];
 
        // 正常数据
        policyRiskComp['LicenseNo'] = this.policyRisk['LicenseNo'];

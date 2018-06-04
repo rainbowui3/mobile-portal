@@ -38,7 +38,8 @@ i18n.mergeLocaleMessage('zh-CN', {
   'auto2cCustomPlan.dayNo': '天数',
   'auto2cCustomPlan.floatingRate': '浮动比例',
   'auto2cCustomPlan.reset': '恢复初始方案',
-  'auto2cCustomPlan.reminder': '请至少投保一个险别'
+  'auto2cCustomPlan.reminder': '请至少投保一个险别',
+  'auto2cCustomPlan.error': '请求出差啦'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -80,5 +81,6 @@ i18n.mergeLocaleMessage('en-US', {
   'auto2cCustomPlan.dayNo': 'DayNo',
   'auto2cCustomPlan.floatingRate': 'FloatingRate',
   'auto2cCustomPlan.reset': 'Reset',
-  'auto2cCustomPlan.reminder': 'Please choose one risk'
+  'auto2cCustomPlan.reminder': 'Please choose one risk',
+  'auto2cCustomPlan.error': 'Error'
 });

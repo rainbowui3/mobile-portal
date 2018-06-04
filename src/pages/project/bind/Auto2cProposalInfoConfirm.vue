@@ -132,7 +132,7 @@ export default {
       const policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
       this.policyRisk = policyRisk;
       if (policyRisk['PolicyPlanList'] && policyRisk['PolicyPlanList'].length > 0) {
-        const policyCoverageList = policyRisk['PolicyPlanList'][0]['TempPolicyCoverageList'][0]['PolicyCoverageList'];
+        const policyCoverageList = policyRisk['PolicyCoverageList'][0]['PolicyCoverageList'];
         let nondeductiblePremium = 0;
         let deductibleList = [];
         _.each(policyCoverageList, (policyCoverageItem) => {
@@ -185,14 +185,14 @@ export default {
             return policyItem['ProductCode'] == 'DFA';
         });
         this.policyComp = policyComp;
-        if (policyComp['DuePremium']) {
+        if (policyComp && policyComp['DuePremium']) {
           sumPremium = sumPremium + policyComp['DuePremium'];
         }
       }
       if (policyComp) {
         let param = {'ModelName': 'VehicleTax', 'ObjectCode': 'VehicleTax'};
         const vehicleTax = PolicyStore.getChild(param, policyComp);
-        if (vehicleTax['DuePremium']) {
+        if (vehicleTax['TotalTax']) {
           sumPremium = sumPremium + vehicleTax['TotalTax'];
         }
         this.vehicleTax = vehicleTax;
