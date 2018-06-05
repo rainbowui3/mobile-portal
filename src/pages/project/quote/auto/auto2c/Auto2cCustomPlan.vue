@@ -5,11 +5,11 @@
             <r-card v-if="submission && policyComp">
                 <r-switch  :title="$t('auto2cCustomPlan.compulsoryInsurance')" :model="submission['SubmissionProductList'][0]" value="IsRealProposal" :valueMap="valueMap" ></r-switch>
                 <div v-show="submission['SubmissionProductList'][0]['IsRealProposal'] == 'Y'">                    
-                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" ></r-date-time>                  
+                    <r-date-time :title="$t('auto2cCustomPlan.compStart')" :model="policyComp" value="EffectiveDate" :onChange="onChangeComp"></r-date-time>                  
                 </div>        
             </r-card>
             <r-card v-if='policyComm'>
-                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" ></r-date-time>                                
+                <r-date-time :title="$t('auto2cCustomPlan.commStart')" :model="policyComm" value="EffectiveDate" :onChange="onChangeComm"></r-date-time>                                
                 <!--<div v-if="deductibleCtsCts">
                     <div v-for="(ctItem,ProductElementCode) in deductibleCtsCts" :key="ProductElementCode" >
                         <div v-if="ctItem.ProductElementCode == config.VEHICLE_LOSS_MIANCODE
@@ -129,7 +129,7 @@ import '../../../../../i18n/auto2cCustomPlan';
 // import config from '../../../../../config/config';
 import {LoadingApi} from 'rainbow-mobile-core';
 import {SubmissionStore, PolicyStore, SchemaUtil} from 'rainbow-foundation-sdk';
-import {UrlUtil, ObjectUtil} from 'rainbow-foundation-tools';
+import {UrlUtil, ObjectUtil, DateUtil} from 'rainbow-foundation-tools';
 import config from 'config';
 import {SessionContext} from 'rainbow-foundation-cache';
 
@@ -172,6 +172,12 @@ export default {
     };
   },
   methods: {
+    onChangeComp(val) {
+        this.policyComp['ExpiryDate'] = DateUtil.add(val, 1, 'years');
+    },
+    onChangeComm(val) {
+        this.policyComm['ExpiryDate'] = DateUtil.add(val, 1, 'years');
+    },
     calculatePremium() {
         let isSubmit = false;
         _.each(this.deductibleCtsCts, (deductibleCtItem) => {
@@ -266,20 +272,21 @@ export default {
         const policyComm = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DEA';
         });
-        let productId = policyComm['ProductId'];
-        SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
-            let param = this.getParams(schema);
-            // 定制方案code
-            param['PlanCodes'] = [config['PRIVATE_PLAN_CODE']];
-            let child = PolicyStore.getChild(param, policyComm);
-            if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
-                PolicyStore.deleteChild(child, policyComm);
-            }
+        policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = [];
+        // let productId = policyComm['ProductId'];
+        // SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
+            // let param = this.getParams(schema);
+            // // 定制方案code
+            // param['PlanCodes'] = [config['PRIVATE_PLAN_CODE']];
+            // let child = PolicyStore.getChild(param, policyComm);
+            // if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+            //     PolicyStore.deleteChild(child, policyComm);
+            // }
             SubmissionStore.setSubmission(submission);
             SessionContext.remove('PLAN_TYPE');
             LoadingApi.hide(this);
             this.$emit('showPackage', true);
-        });
+        // });
     },
     onChange() {
 

@@ -37,7 +37,7 @@ import ProductTop from '../../../components/ProductTop';
 import '../../../i18n/Auto2cUserInfo';
 import Validate from '../../../components/utils/Valitate';
 import {ProductStore, SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
-import {UrlUtil} from 'rainbow-foundation-tools';
+import {UrlUtil, DateUtil} from 'rainbow-foundation-tools';
 import {LoadingApi} from 'rainbow-mobile-core';
 export default {
   components: {
@@ -61,7 +61,7 @@ export default {
             text: this.$t('common.processing')
         });
         const urlObject = UrlUtil.parseURL(window.location.href);
-        const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion };
+        const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion};
         let product = await ProductStore.getProductByCodeVersion(param);
         this.productDes = product.ProductElementName;
         const submission = SubmissionStore.getSubmission();
@@ -83,8 +83,10 @@ export default {
         } else {
             const submission = await SubmissionStore.initSubmission(SubmissionStore.POLICY_PACKAGE);
             // 交强险initPolicy 目前交强险CODE写死啦
-            const policyComp = await PolicyStore.initPolicy({'productCode': 'DFA', 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
-            // 交强险policyCustomerList创建
+            const policyComp = await PolicyStore.initPolicy({'productCode': 'DFA', 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType });
+            // 生效日期当前日期+1
+            policyComp['EffectiveDate'] = DateUtil.add(policyComp['EffectiveDate'], 1, 'days');
+            policyComp['ExpiryDate'] = DateUtil.add(policyComp['ExpiryDate'], 1, 'days');
             const policyCustomerOwnerComp = PolicyStore.createChild(policyCustomerParam, policyComp);
             policyCustomerOwnerComp['CustomerRoleCode'] = '3';
             const policyCustomerHolderComp = PolicyStore.createChild(policyCustomerParam, policyComp);
@@ -103,7 +105,9 @@ export default {
             submission['SubmissionProductList'][0]['IsRealProposal'] = 'Y';
 
             // 商业险initPolicy
-            const policyComm = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType});
+            const policyComm = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType });
+            policyComm['EffectiveDate'] = DateUtil.add(policyComm['EffectiveDate'], 1, 'days');
+            policyComm['ExpiryDate'] = DateUtil.add(policyComm['ExpiryDate'], 1, 'days');
             // 商业险policyCustomerList创建
             const policyCustomerOwner = PolicyStore.createChild(policyCustomerParam, policyComm);
             policyCustomerOwner['CustomerRoleCode'] = '3';
