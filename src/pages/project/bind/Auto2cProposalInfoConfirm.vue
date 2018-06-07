@@ -113,6 +113,26 @@ export default {
       } else {
         this.pageModel.toastShow = true;
       }
+    },
+    add(sum, addNum) {
+        let d = 0;// 定义小数位的初始长度，默认为整数，即小数位为0
+        d = this.getDecimalLength(sum, d);
+        d = this.getDecimalLength(addNum, d);
+        // 计算需要乘的数值
+        var m = Math.pow(10, d);
+        // 遍历所有参数并相加
+        sum = sum * m + addNum * m;
+        return sum / m;
+    },
+    getDecimalLength(value, length) {
+        let str = value.toString();
+        if (str.indexOf('.') != -1) { // 判断数字是否为小数
+            // 获取小数位的长度
+            let temp = str.split('.')[1].length;
+            // 比较此数的小数位与原小数位的长度，取小数位较长的存储到d中
+            length = length < temp ? temp : length;
+        }
+        return length;
     }
   },
   async created() {
@@ -141,7 +161,10 @@ export default {
               policyCoverageItem['ProductElementCode'] == config['NONTHIRD_DUTY_ADDITIONAL_CODE'] ||
               policyCoverageItem['ProductElementCode'] == config['NONDRIVER_DUTY_ADDITIONAL_CODE'] ||
               policyCoverageItem['ProductElementCode'] == config['NONPASSENGER_DUTY_ADDITIONAL_CODE']) {
-              nondeductiblePremium = nondeductiblePremium + policyCoverageItem['DuePremium'];
+                if (policyCoverageItem['DuePremium']) {
+                  nondeductiblePremium = this.add(nondeductiblePremium, policyCoverageItem['DuePremium']);
+                }
+              // nondeductiblePremium = nondeductiblePremium + policyCoverageItem['DuePremium'];
             } else {
               if (policyCoverageItem['SumInsured']) {
                   deductibleItem['label'] = `${policyCoverageItem['ProductElementCode']}(${policyCoverageItem['SumInsured']}${this.$t('auto2cProposalInfoConfirm.thousand')})`;
@@ -177,7 +200,8 @@ export default {
       // 算保费合计
       let sumPremium = 0;
       if (policyComm['DuePremium']) {
-        sumPremium = sumPremium + policyComm['DuePremium'];
+        sumPremium = this.add(sumPremium, policyComm['DuePremium']);
+        // sumPremium = sumPremium + policyComm['DuePremium'];
       }
       let policyComp = null;
       if (IsRealProposal == 'Y') {
@@ -186,14 +210,16 @@ export default {
         });
         this.policyComp = policyComp;
         if (policyComp && policyComp['DuePremium']) {
-          sumPremium = sumPremium + policyComp['DuePremium'];
+          sumPremium = this.add(sumPremium, policyComp['DuePremium']);
+          // sumPremium = sumPremium + policyComp['DuePremium'];
         }
       }
       if (policyComp) {
         let param = {'ModelName': 'VehicleTax', 'ObjectCode': 'VehicleTax'};
         const vehicleTax = PolicyStore.getChild(param, policyComp);
         if (vehicleTax['TotalTax']) {
-          sumPremium = sumPremium + vehicleTax['TotalTax'];
+          sumPremium = this.add(sumPremium, vehicleTax['TotalTax']);
+          // sumPremium = sumPremium + vehicleTax['TotalTax'];
         }
         this.vehicleTax = vehicleTax;
       }
