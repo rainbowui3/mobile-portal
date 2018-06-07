@@ -117,6 +117,8 @@ const Auto2cPlan = r => require.ensure([], () => r(require('@/pages/project/quot
 const Auto2cUserInfo = r => require.ensure([], () => r(require('@/pages/project/rate/Auto2cUserInfo'), 'Auto2cUserInfo'));
 const Auto2cCustomPlan = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cCustomPlan'), 'Auto2cCustomPlan'));
 const Auto2cPlanRouter = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/Auto2cPlanRouter'), 'Auto2cPlanRouter'));
+const AutoModel = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2c/AutoModel'), 'AutoModel'));
+
 // business
 const ProjectHolderInfo = r => require.ensure([], () => r(require('@/pages/component/business/HolderInfo')), 'HolderInfo');
 const ProjectInsuranceDurationCurrency = r => require.ensure([], () => r(require('@/pages/component/business/InsuranceDurationCurrency')), 'InsuranceDurationCurrency');
@@ -902,6 +904,12 @@ const router = new Router({
     path: '/quote/plan',
     name: 'auto2cPlanRouter',
     component: Auto2cPlanRouter
+  },
+  {
+    path: '/quote/autoModel',
+    name: 'autoModel',
+    component: AutoModel
+
   }
   ]
 });

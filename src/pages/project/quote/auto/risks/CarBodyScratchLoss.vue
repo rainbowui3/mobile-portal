@@ -3,7 +3,7 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card>
-                <r-selector :title="$t('autoPlan.sumInsured')" :options="options" :model="model" value="SumInsured"></r-selector>
+                <r-selector :title="$t('autoPlan.sumInsured')" :options="options" :model="model" value="SumInsured" :required="true"></r-selector>
             </r-card>
         </r-body>
         <r-tab-bar>         

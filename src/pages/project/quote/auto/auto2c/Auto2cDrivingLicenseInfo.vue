@@ -15,7 +15,7 @@
                 <r-input :title="$t('autoProposalInfoConfirm.model')" :model="policyRisk" value="Model" :required="true" :placeholder="$t('carInfo.inputModel')" />
                 <r-input :title="$t('autoProposalInfoConfirm.vin')" :model="policyRisk" value="Vin" :required="true" :placeholder="$t('auto2cDrivingLicenseInfo.inputVin')" :validator="validateVinInput" :novalidate="false" />
                 <r-input :title="$t('carInfo.engineNo')" :model="policyRisk" value="EngineNo" :required="true" :placeholder="$t('carInfo.inputEngineNo')" />
-                <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" />
+                <r-date-time :title="$t('auto2cDrivingLicenseInfo.registryDate')" :model="policyRisk" value="VehicleInitialRegDate" :required="true" :endDate="EffectiveDate"/>
                 <r-selector :title="$t('auto2cDrivingLicenseInfo.carType')" :model="policyRisk" value="VehicleKindTcCode" :options="carTypeList" />
             </r-card>
         </r-body>
@@ -32,13 +32,17 @@ import '../../../../../i18n/autoProposalInfoConfirm';
 import {SubmissionStore, PolicyStore} from 'rainbow-foundation-sdk';
 import {LoadingApi} from 'rainbow-mobile-core';
 import Validate from '../../../../../components/utils/Valitate';
+import config from 'config';
+import {DateUtil} from 'rainbow-foundation-tools';
+const dayjs = require('dayjs');
 export default {
   data() {
     return {
       carTypeList: [
         { key: 'K31', value: '小型普通客车' }
       ],
-      policyRisk: undefined
+      policyRisk: undefined,
+      EffectiveDate: undefined
     };
   },
   methods: {
@@ -85,6 +89,10 @@ export default {
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
        SubmissionStore.setSubmission(submission);
+    //    this.$router.push({
+    //        path: '/quote/autoModel',
+    //        query: this.$route.query
+    //    });
        this.$router.push({
            path: '/quote/plan',
            query: this.$route.query
@@ -108,6 +116,9 @@ export default {
        const policyComm = _.find(submissionProductList, (policyItem) => {
            return policyItem['ProductCode'] == 'DEA';
        });
+
+       // 初登日期小于起保日期
+       this.EffectiveDate = dayjs(DateUtil.subtract(policyComm['EffectiveDate'], 1, 'days')).format(config.DEFAULT_DATE_FORMATER); ;
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
        LoadingApi.hide(this);

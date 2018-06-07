@@ -51,7 +51,7 @@ export default {
       policyCustomerOwner: undefined,
       policyRisk: undefined,
       IsNewVehicle: undefined,
-      drivingCity: '上海',
+      drivingCity: '安徽',
       valueMap: ['N', 'Y'],
       isvalidatelicenseNo: true
     };
@@ -156,6 +156,7 @@ export default {
         const policyRiskComm = PolicyStore.getChild(policyRiskParam, policyComm);
         policyRiskComm['IsNewVehicle'] = this.IsNewVehicle;// 新车
         policyRiskComm['IsNotRegistered'] = this.IsNewVehicle;// 未上牌
+        policyRiskComm['LicenseNo'] = this.policyRisk['LicenseNo'];// 车牌号赋值
         // 临时写死是否本地车
         policyRiskComm['IsNonlocalVehicle'] = 'Y';
 

@@ -207,6 +207,10 @@ export default {
                             if (ctItem['IsRealProposal'] == 'Y') {
                                 const saveCtItem = ObjectUtil.clone(ctItem);
                                 saveCtItem['IsRealProposal'] = undefined;
+                                // 临时给没有保额的险别附上保额
+                                if (!saveCtItem['SumInsured']) {
+                                    saveCtItem['SumInsured'] = '10000';
+                                }
                                 newCtList.push(saveCtItem);
                                 if (ctItem['IsNonDeductible'] == 'Y') {
                                     let nonDeductibleCtItem = {};

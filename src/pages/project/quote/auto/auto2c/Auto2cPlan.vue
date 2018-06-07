@@ -93,6 +93,8 @@ export default {
                                 initCtItem['IsNonDeductible'] = selectedCtItem['IsNonDeductible'];
                                 if (selectedCtItem['SumInsured']) {
                                     initCtItem['SumInsured'] = selectedCtItem['SumInsured'];
+                                } else { // 临时给没有保额的险别附上保额
+                                    initCtItem['SumInsured'] = '10000';
                                 }
                                 // 临时删除模型的字段
                                 initCtItem['IsSelectedByDefault'] = undefined;
@@ -153,7 +155,6 @@ export default {
                 const self = this;
                 // console.log(JSON.stringify(reponsed));
                 if (reponsed.Submission) {
-                    // self.setState({ submission: reponsed.Submission });
                     SubmissionStore.setSubmission(reponsed.Submission);
                     const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                     self.$router.push({

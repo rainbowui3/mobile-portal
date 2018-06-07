@@ -4,9 +4,9 @@
         <r-body>
             <r-card v-if="model">
                 <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>-->
-                <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false"></r-input>
+                <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false" :required="true"></r-input>
                 <!--//车辆损失保险免赔额表 VehicleDamageInsDeductible-->
-                <r-selector :title="$t('autoPlan.franchise')" :options="options" :model="model" value="DeductibleAmount"></r-selector>         
+                <r-selector :title="$t('autoPlan.franchise')" :options="options" :model="model" value="DeductibleAmount" :required="true"></r-selector>         
             </r-card>
         </r-body>
         <r-tab-bar>         

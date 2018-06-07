@@ -15,7 +15,8 @@ module.exports = {
     POLICY_API: {
         ACCURATE_QUOTE: 'auto/accurateQuote',
         QUOTE_TO_PROPOSAL: 'auto/quoteToProposal',
-        AUTO_QUERY_VEHICLE: 'auto/queryVehicleInfo'
+        AUTO_QUERY_VEHICLE: 'auto/queryVehicleInfo',
+        AUTO_VALIDATE_VEHICLE: 'auto/validateVehicleModel'
     },
     ROUTE_INFO: {
         GET_ROUTE: '/ratetable/public/ratetable/v1/lookupForList?code=mobileRouteConfig'
