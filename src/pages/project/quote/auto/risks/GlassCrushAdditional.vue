@@ -3,6 +3,7 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card>
+                <r-switch  :title="$t('autoPlan.insured')"  :model="model" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                <!--<r-checker :max="1" :model="model" value="GlassType" :data="options"  type="list"/>-->
                <r-selector :title="$t('autoPlan.glassType')" :options="options" :model="model" value="GlassType" :required="true"></r-selector>  
             </r-card>
@@ -23,12 +24,13 @@ export default {
     return {
       options: [{'key': '20001', 'value': '国产'}, {'key': '20002', 'value': '进口'}],
       model: undefined,
-      ctList: undefined
+      ctList: undefined,
+      valueMap: ['N', 'Y']
     };
   },
   methods: {
     confirm() {
-        this.model['IsRealProposal'] = 'Y';
+        // this.model['IsRealProposal'] = 'Y';
         SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.ctList), true);
         this.$router.go(-1);
     }

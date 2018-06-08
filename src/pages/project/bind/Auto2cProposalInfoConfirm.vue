@@ -30,7 +30,7 @@
           </div>
         </r-row>
         <r-input :title="$t('auto2cProposalInfoConfirm.proposalRegion')" :model="this" value="Region" :readonly="true"/>
-        <r-date-time v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComp" value="EffectiveDate" :readonly="true"></r-date-time>
+        <r-date-time v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.compStart')" :model="policyComp" value="EffectiveDate" :readonly="true"></r-date-time>
         <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
@@ -167,7 +167,18 @@ export default {
               // nondeductiblePremium = nondeductiblePremium + policyCoverageItem['DuePremium'];
             } else {
               if (policyCoverageItem['SumInsured']) {
-                  deductibleItem['label'] = `${policyCoverageItem['ProductElementCode']}(${policyCoverageItem['SumInsured']}${this.$t('auto2cProposalInfoConfirm.thousand')})`;
+                let temp = 0;
+                if (policyCoverageItem['SumInsured'].toString().indexOf('.') != -1) {
+                  temp = policyCoverageItem['SumInsured'].toString().split('.')[0].length;
+                } else {
+                   temp = policyCoverageItem['SumInsured'].toString().length;
+                }
+                if (temp > 4) {
+                  let sumInsuredDivided = policyCoverageItem['SumInsured'] / 10000;
+                  deductibleItem['label'] = `${policyCoverageItem['ProductElementCode']}(${sumInsuredDivided}${this.$t('auto2cProposalInfoConfirm.thousand')})`;
+                } else {
+                  deductibleItem['label'] = `${policyCoverageItem['ProductElementCode']}(${policyCoverageItem['SumInsured']})`;
+                }
               } else {
                 deductibleItem['label'] = policyCoverageItem['ProductElementCode'];
               }

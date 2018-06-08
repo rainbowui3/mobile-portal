@@ -6,8 +6,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'auto2cPlan.advance': '高端方案',
     'auto2cPlan.modifyPlan': '修改投保方案',
     'auto2cPlan.insured': '投保',
-    'auto2cPlan.risk': '险别',
-    'auto2cPlan.error': '请求出错啦'
+    'auto2cPlan.risk': '交强险',
+    'auto2cPlan.error': '开小差啦'
 });
 i18n.mergeLocaleMessage('en-US', {
     'auto2cPlan.title': 'Choose Plan',

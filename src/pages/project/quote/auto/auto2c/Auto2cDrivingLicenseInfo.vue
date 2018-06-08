@@ -66,8 +66,14 @@ export default {
        this.policyRisk['ApprovalSeatCount'] = 5;
        this.policyRisk['ApprovalQuality'] = 1000;
        this.policyRisk['CarName'] = '车款名称';
-       this.policyRisk['LicenseType'] = '02';
        this.policyRisk['Displacement'] = '1.0';
+       if (this.policyRisk['IsNewVehicle'] == 'N') {
+         this.policyRisk['LicenseType'] = '02';
+         policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
+       } else {
+         this.policyRisk['LicenseType'] = '';
+         policyRiskComp['LicenseType'] = '';
+       }
        policyRiskComp['Power'] = this.policyRisk['Power'];
        policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
        policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
@@ -78,7 +84,6 @@ export default {
        policyRiskComp['ApprovalSeatCount'] = this.policyRisk['ApprovalSeatCount'];
        policyRiskComp['ApprovalQuality'] = this.policyRisk['ApprovalQuality'];
        policyRiskComp['CarName'] = this.policyRisk['CarName'];
-       policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
        policyRiskComp['Displacement'] = this.policyRisk['Displacement'];
 
        // 正常数据
@@ -118,7 +123,7 @@ export default {
        });
 
        // 初登日期小于起保日期
-       this.EffectiveDate = dayjs(DateUtil.subtract(policyComm['EffectiveDate'], 1, 'days')).format(config.DEFAULT_DATE_FORMATER); ;
+       this.EffectiveDate = dayjs(DateUtil.subtract(policyComm['EffectiveDate'], 2, 'days')).format(config.DEFAULT_DATE_FORMATER); ;
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
        LoadingApi.hide(this);

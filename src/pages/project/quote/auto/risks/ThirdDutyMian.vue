@@ -3,7 +3,7 @@
         <top :title="$t('autoPlan.riskInformation')" :showBack="true" />
         <r-body>
             <r-card v-if="model">
-                <!--<r-switch  :title="$t('autoPlan.sdew')"  :model="policy" value="sdew" ></r-switch>   -->
+                <r-switch  :title="$t('autoPlan.insured')"  :model="model" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false" :required="true"></r-input>
             </r-card>
         </r-body>
@@ -22,12 +22,13 @@ export default {
   data() {
     return {
         model: undefined,
-        ctList: undefined
+        ctList: undefined,
+        valueMap: ['N', 'Y']
     };
   },
   methods: {
     confirm() {
-        this.model['IsRealProposal'] = 'Y';
+        // this.model['IsRealProposal'] = 'Y';
         SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.ctList), true);
         this.$router.go(-1);
     }

@@ -248,10 +248,13 @@ export default {
                     // console.log(JSON.stringify(this.submission));
                     SubmissionStore.call(url, this.submission, { 'method': 'POST' }).then((reponsed) => {
                         const self = this;
+                        // debugger;
                         // console.log(JSON.stringify(reponsed));
                         if (reponsed.Submission) {
-                            // self.setState({ submission: reponsed.Submission });
-                            SubmissionStore.setSubmission(reponsed.Submission);
+                            const responsedSubmission = reponsed.Submission;
+                            const policyRiskBack = responsedSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0];
+                            responsedSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList = policyRiskBack.PolicyCoverageList;
+                            SubmissionStore.setSubmission(responsedSubmission);
                             SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
                             const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                             self.$router.push({
@@ -383,7 +386,10 @@ export default {
                 const sessionCtList = SessionContext.get('Policy_Coverage_Item') ? JSON.parse(SessionContext.get('Policy_Coverage_Item')) : undefined;
                 // console.log(sessionCtList);
                 // 先存储已有ct数据
-                const child = PolicyStore.getChild(param, policy);
+                let child = null;
+                if (policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList && policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList.length > 0 && policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList) {
+                    child = policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0];
+                }
                 _.each(PolicyCoverageList, (initCtItem) => {
                     // 有session数据说明操作险别页面存储数据
                     if (sessionCtList && sessionCtList.length > 0) {

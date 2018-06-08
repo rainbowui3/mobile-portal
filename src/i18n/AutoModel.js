@@ -6,7 +6,7 @@ i18n.mergeLocaleMessage('zh-CN', {
     'AutoModel.newCarPrice': '新车参考价:',
     'AutoModel.style': '款',
     'AutoModel.submit': '提交',
-    'AutoModel.error': '请求出错啦'
+    'AutoModel.error': '开小差啦'
 });
 i18n.mergeLocaleMessage('en-US', {
     'AutoModel.models': 'Model List',

@@ -38,7 +38,8 @@ i18n.mergeLocaleMessage('zh-CN', {
   'autoPlan.dayPay': '日赔偿金',
   'autoPlan.dayNo': '天数',
   'autoPlan.floatingRate': '浮动比例',
-  'autoPlan.glassType': '玻璃类型'
+  'autoPlan.glassType': '玻璃类型',
+  'autoPlan.insured': '投保'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -80,5 +81,6 @@ i18n.mergeLocaleMessage('en-US', {
   'autoPlan.dayPay': 'DayPay',
   'autoPlan.dayNo': 'DayNo',
   'autoPlan.floatingRate': 'FloatingRate',
-  'autoPlan.glassType': 'Glass Type'
+  'autoPlan.glassType': 'Glass Type',
+  'autoPlan.insured': 'Insured'
 });

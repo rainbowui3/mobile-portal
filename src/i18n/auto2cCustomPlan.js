@@ -39,7 +39,7 @@ i18n.mergeLocaleMessage('zh-CN', {
   'auto2cCustomPlan.floatingRate': '浮动比例',
   'auto2cCustomPlan.reset': '恢复初始方案',
   'auto2cCustomPlan.reminder': '请至少投保一个险别',
-  'auto2cCustomPlan.error': '请求出差啦'
+  'auto2cCustomPlan.error': '开小差啦'
 
 });
 i18n.mergeLocaleMessage('en-US', {
