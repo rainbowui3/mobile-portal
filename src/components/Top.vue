@@ -1,6 +1,6 @@
 <template>
 <div>
-        <r-header :title="title" :showBack="showBack" :backText="this.$t('common.back')" :showMore="true" :onClickMore="onClickMore"></r-header>
+        <r-header :title="title" :showBack="showBack" :backText="this.$t('common.back')"></r-header>
         <r-actionsheet :model="showMenu" value="status" :menuList="menuList" :headerHtml="headerHtml" :onClick="onClickSheet"/>
 </div>
 </template>

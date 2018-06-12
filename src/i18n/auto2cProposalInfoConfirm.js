@@ -9,7 +9,9 @@ i18n.mergeLocaleMessage('zh-CN', {
     'auto2cProposalInfoConfirm.sumPremium': '保费共计',
     'auto2cProposalInfoConfirm.compulsoryInsurance': '交强险',
     'auto2cProposalInfoConfirm.commericalInsurance': '商业险',
-    'auto2cProposalInfoConfirm.carShipTax': '车船税'
+    'auto2cProposalInfoConfirm.carShipTax': '车船税',
+    'auto2cProposalInfoConfirm.address': '保单递送地址：',
+    'auto2cProposalInfoConfirm.consignee': '收货人：'
 });
 i18n.mergeLocaleMessage('en-US', {
     'auto2cProposalInfoConfirm.payNow': 'Pay Now',
@@ -21,5 +23,7 @@ i18n.mergeLocaleMessage('en-US', {
     'auto2cProposalInfoConfirm.sumPremium': 'SumPremium',
     'auto2cProposalInfoConfirm.compulsoryInsurance': 'Compulsory Insurance',
     'auto2cProposalInfoConfirm.commericalInsurance': 'Commerical Insurance',
-    'auto2cProposalInfoConfirm.carShipTax': 'CarShipTax'
+    'auto2cProposalInfoConfirm.carShipTax': 'CarShipTax',
+    'auto2cProposalInfoConfirm.address': 'Address',
+    'auto2cProposalInfoConfirm.consignee': 'Consignee'
 });
