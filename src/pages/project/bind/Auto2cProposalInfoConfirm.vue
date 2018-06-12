@@ -285,7 +285,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .addressRow {
   height: 80px;
   line-height: 80px;
@@ -306,6 +306,12 @@ export default {
 .address_show_card{
   height: 80px;
   text-align: center;
-  margin-top: 10px;
+  /*margin-top: 10px;   */
+}
+.vux-flexbox-item{
+   margin-left: 0!important;
+}
+.vux-flex-col {
+    padding: 14px 0;
 }
 </style>
