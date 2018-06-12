@@ -3,11 +3,42 @@
     <top :showBack="true" :title="$t('autoProposalInfoConfirm.title')" />
     <r-body>
       <!-- 添加递送地址 -->
-      <r-card>
-        <div class="addressRow" v-on:click="addAddress">
-          <!-- <r-row :model="pageModel" :title="$t('auto2cProposalInfoConfirm.addAdd')" :isLink="true" /> -->
-          <span>{{$t('auto2cProposalInfoConfirm.addAdd')}}</span>
-        </div>
+      <r-card >
+          <div v-if="holderCustomer && holderCustomer.Address" class="address_show_card">       
+            <r-cell :type="row" :vertical="true">
+                <r-cell :top='top' :type="row">
+                    <r-cell :span="2"></r-cell>
+                    <r-cell :span="8" :type="row">
+                      <r-cell :span="6"><div class="address_text_left"><span>{{$t('auto2cProposalInfoConfirm.consignee')}}</span><span>{{relationCustomer.CustomerName}}</span></div></r-cell>
+                      <r-cell><div class="address_text_right"><span >{{relationCustomer.IndiMobile}}</span></div></r-cell>
+                    </r-cell>
+                    <r-cell></r-cell>
+                </r-cell>
+                <r-cell :top='top':type="row">
+                  <r-cell :span="2"><div class="address_icon"><span class="fa fa-map-marker fa-2x"></span></div></r-cell>  
+                    <r-cell :span="8"> 
+                        <div class="address_text_left"><span>{{$t('auto2cProposalInfoConfirm.address')}}</span><span>{{holderCustomer.Address}}</span></div>                 
+                    </r-cell>
+                  <r-cell><div v-on:click="addAddress" class="address_icon"><span class="fa fa-angle-right fa-2x" ></span></div></r-cell>
+                </r-cell>
+            </r-cell>  
+            <!--<r-cell :type ="row">
+              <r-cell :span="2"><div class="address_icon"><span class="fa fa-map-marker fa-2x"></span></div></r-cell>  
+                <r-cell :span="8"> 
+                    <r-cell :type="row" :vertical="true">
+                        <r-cell :top='top' :type="row">
+                            <r-cell :span="6"><div class="address_text_left"><span>{{$t('auto2cProposalInfoConfirm.consignee')}}</span><span>{{holderCustomer.Address}}</span></div></r-cell>
+                            <r-cell><div class="address_text_right"><span>{{holderCustomer.IndiMobile}}</span></div></r-cell>
+                        </r-cell>
+                        <r-cell :top='top'><div class="address_text_left"><span>{{$t('auto2cProposalInfoConfirm.address')}}</span><span>{{holderCustomer.Address}}</span></div></r-cell>
+                    </r-cell>          
+                </r-cell>
+              <r-cell :onClick="addAddress"><div class="address_icon"><span class="fa fa-angle-right fa-2x" ></span></div></r-cell>
+            </r-cell>   -->
+       </div>
+       <div v-else class="addressRow" v-on:click="addAddress">
+         <span>{{$t('auto2cProposalInfoConfirm.addAdd')}}</span>
+       </div>
       </r-card>
       <!-- 车辆信息 -->
       <r-card v-if="policyRisk">
@@ -81,7 +112,11 @@ export default {
       policyComp: undefined,
       sumPremium: undefined,
       policyComm: undefined,
-      deductibleList: []
+      deductibleList: [],
+      holderCustomer: undefined,
+      relationCustomer: undefined,
+      row: 'row',
+      top: '0px'
     };
   },
   methods: {
@@ -148,11 +183,21 @@ export default {
           return policyItem['ProductCode'] == 'DEA';
       });
       this.policyComm = policyComm;
+
+      // 拿到被保险人的联系地址
+     this.holderCustomer = _.find(policyComm['PolicyCustomerList'], (customer) => {
+        return customer['CustomerRoleCode'] == '1';
+      });
+
+      // 拿到联系人的姓名和电话
+      this.relationCustomer = _.find(policyComm['PolicyCustomerList'], (customer) => {
+          return customer['CustomerRoleCode'] == '4';
+      });
       const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
       const policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
       this.policyRisk = policyRisk;
       if (policyRisk['PolicyPlanList'] && policyRisk['PolicyPlanList'].length > 0) {
-        const policyCoverageList = policyRisk['PolicyCoverageList'][0]['PolicyCoverageList'];
+        const policyCoverageList = policyRisk['PolicyPlanList'][0]['TempPolicyCoverageList'][0]['PolicyCoverageList'];
         let nondeductiblePremium = 0;
         let deductibleList = [];
         _.each(policyCoverageList, (policyCoverageItem) => {
@@ -248,5 +293,19 @@ export default {
 }
 .cardTitle {
   color: #999;
+}
+.address_icon{
+  text-align: center;
+}
+.address_text_left{
+  text-align: left;
+}
+.address_text_right{
+  text-align: right;
+}
+.address_show_card{
+  height: 80px;
+  text-align: center;
+  margin-top: 10px;
 }
 </style>

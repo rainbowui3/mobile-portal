@@ -68,11 +68,11 @@ export default {
       const policyCustomersStore = PolicyStore.getChild(policyCustomerParam, policyComm);
       const policyCustomers = ObjectUtil.clone(policyCustomersStore);
       this.policyCustomers = policyCustomers;
-      this.relationCustomer = _.find(policyCustomers, (custome) => {
-          return custome['CustomerRoleCode'] == '4';
+      this.relationCustomer = _.find(policyCustomers, (customer) => {
+          return customer['CustomerRoleCode'] == '4';
       });
-      this.holderCustomer = _.find(policyCustomers, (custome) => {
-          return custome['CustomerRoleCode'] == '1';
+      this.holderCustomer = _.find(policyCustomers, (customer) => {
+          return customer['CustomerRoleCode'] == '1';
       });
       LoadingApi.hide(this);
   }
