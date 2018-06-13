@@ -111,13 +111,13 @@ export default {
                     policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyCoverageList'] = child['TempPolicyCoverageList'];
                 }
                 SubmissionStore.setSubmission(submission);
-                const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
-                    this.$router.push({
-                        path: `/bind/${routerType.route3}`,
-                        query: this.$route.query
-                    });
+                // const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
+                //     this.$router.push({
+                //         path: `/bind/${routerType.route3}`,
+                //         query: this.$route.query
+                //     });
                 // console.log(JSON.stringify(submission));
-                // this.accurateAndGoNextPage(submission);
+                this.accurateAndGoNextPage(submission);
             });
         },
         getParams(schema) {

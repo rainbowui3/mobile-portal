@@ -42,10 +42,13 @@
                         <r-checker :model="vehicleLossMianCode" value="IsNonDeductible" :text="$t('auto2cCustomPlan.sdew')" type="icon" :valueMap="valueMap"></r-checker>                     
                     </r-cell>
                     <r-cell  :padding="padding" class="padding_brage" >
-                        <r-row v-if="vehicleLossMianCode.IsRealProposal && vehicleLossMianCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoVL" :isLink="true"></r-row>
-                        <r-row v-else :model="this" value="notInsured"  :onClick="gotoVL" :isLink="true"></r-row>
+                         <r-selector :options="options" :model="vehicleLossMianCode" value="IsRealProposal" ></r-selector>
+                        <!--<r-switch  :model="vehicleLossMianCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
+                        <!--<r-row v-if="vehicleLossMianCode.IsRealProposal && vehicleLossMianCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoVL(vehicleLossMianCode)"></r-row>
+                        <r-row v-else :model="this" value="notInsured"  :onClick="gotoVL(vehicleLossMianCode)" ></r-row>-->
                     </r-cell>
-                </r-cell>               
+                </r-cell>  
+                <!--<r-actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></r-actionsheet>             -->
                 <r-cell :type="row" class="margin_brage" v-if='thirdDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.thirdDutyMian')" />
@@ -71,6 +74,7 @@
                         <r-row v-else :model="this" value="notInsured" :onClick="gotoDriverDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
+                
                 <r-cell :type="row" class="margin_brage" v-if='passengerDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.passengerDutyMian')" />
@@ -106,7 +110,7 @@
                 </r-cell>
                 <!--<r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-switch v-if='repairCompenstoryPaymentAdditionalCode' :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <!--<r-switch v-if='repairCompenstoryPaymentAdditionalCode' :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <!--<r-switch v-if='noFondThirdAdditionalCode' :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-switch v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
                 <r-toast :model="this" value="isReminder" :text="$t('auto2cCustomPlan.reminder')" type='warn'/>         
@@ -156,7 +160,7 @@ export default {
         naturalLossAdditionalCode: undefined,
         carBodyScratchLossAdditionalCode: undefined,
         engineWadLossAdditionalCode: undefined,
-        repairCompenstoryPaymentAdditionalCode: undefined,
+        // repairCompenstoryPaymentAdditionalCode: undefined,
         appointRepairShopAdditionalCode: undefined,
         // model: [{
         //     isNonDeductible: false
@@ -168,7 +172,12 @@ export default {
         // policyPlanList: [],
         isReminder: false,
         valueMap: ['N', 'Y'],
-        toastShow: false
+        toastShow: false,
+        menus1: {
+            Y: this.$t('auto2cCustomPlan.insured'),
+            N: this.$t('auto2cCustomPlan.notInsured')
+        },
+        options: [{'key': 'N', 'value': '不投保'}, {'key': 'Y', 'value': '投保'}]
     };
   },
   methods: {
@@ -249,12 +258,9 @@ export default {
                     SubmissionStore.call(url, this.submission, { 'method': 'POST' }).then((reponsed) => {
                         const self = this;
                         // debugger;
-                        // console.log(JSON.stringify(reponsed));
+                        console.log(JSON.stringify(reponsed));
                         if (reponsed.Submission) {
-                            const responsedSubmission = reponsed.Submission;
-                            const policyRiskBack = responsedSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0];
-                            responsedSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList = policyRiskBack.PolicyCoverageList;
-                            SubmissionStore.setSubmission(responsedSubmission);
+                            this.showBackSubmission(reponsed.Submission);
                             SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
                             const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                             self.$router.push({
@@ -390,6 +396,11 @@ export default {
                 if (policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList && policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList.length > 0 && policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList) {
                     child = policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0];
                 }
+                // 是否是初始进入自定义方案，不是选定后查看
+                let isNewCustomerPlan = true;
+                if (!sessionCtList && child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+                    isNewCustomerPlan = false;
+                }
                 _.each(PolicyCoverageList, (initCtItem) => {
                     // 有session数据说明操作险别页面存储数据
                     if (sessionCtList && sessionCtList.length > 0) {
@@ -410,6 +421,9 @@ export default {
                     // initCtItem['IsRealProposal'] = 'N';
                     switch (initCtItem['ProductElementCode']) {
                         case config['VEHICLE_LOSS_MIANCODE'] :
+                             if (isNewCustomerPlan) {
+                                 initCtItem['IsRealProposal'] = 'Y';
+                             }
                              this.vehicleLossMianCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
@@ -445,10 +459,10 @@ export default {
                              this.engineWadLossAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
-                        case config['REPAIR_COMPENSTORY_PAYMENT_ADDITIONAL_CODE'] :
-                             this.repairCompenstoryPaymentAdditionalCode = initCtItem;
-                             deductibleCtsCts.push(initCtItem);
-                        break;
+                        // case config['REPAIR_COMPENSTORY_PAYMENT_ADDITIONAL_CODE'] :
+                        //      this.repairCompenstoryPaymentAdditionalCode = initCtItem;
+                        //      deductibleCtsCts.push(initCtItem);
+                        // break;
                         case config['APPOINT_REPAIRSHOP_ADDITIONAL_CODE'] :
                              this.appointRepairShopAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
@@ -514,6 +528,11 @@ export default {
                 'ParentObjectCode': parentObjectCode[0].ObjectCode
         };
         return param;
+    },
+    showBackSubmission(returnSubmission) {
+        const policyRiskBack = returnSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0];
+        returnSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList = policyRiskBack.PolicyCoverageList;
+        SubmissionStore.setSubmission(returnSubmission);
     }
   },
   async created() {
