@@ -157,7 +157,6 @@ export default {
         accurateAndGoNextPage(submission) {
             let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
             SubmissionStore.call(url, submission, { 'method': 'POST' }).then((reponsed) => {
-                debugger;
                 const self = this;
                 if (reponsed.Submission) {
                     self.showBackSubmission(reponsed.Submission);

@@ -48,7 +48,6 @@
                         <r-row v-else :model="this" value="notInsured"  :onClick="gotoVL(vehicleLossMianCode)" ></r-row>-->
                     </r-cell>
                 </r-cell>  
-                <!--<r-actionsheet :model="policy" value="show2" :menuList="menus1" :onClick="click" :onClickMask="click" theme="android"></r-actionsheet>             -->
                 <r-cell :type="row" class="margin_brage" v-if='thirdDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.thirdDutyMian')" />
@@ -61,7 +60,8 @@
                         <r-row v-else :model="this" value="notInsured"  :onClick="gotoThirdDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-switch v-if='carRobberyMianCode' :title="$t('auto2cCustomPlan.carRobberyMain')"  :model="carRobberyMianCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-selector v-if='carRobberyMianCode' :title="$t('auto2cCustomPlan.carRobberyMain')" :options="options" :model="carRobberyMianCode" value="IsRealProposal" ></r-selector>
+                <!--<r-switch v-if='carRobberyMianCode' :title="$t('auto2cCustomPlan.carRobberyMain')"  :model="carRobberyMianCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-cell :type="row" class="margin_brage" v-if='driverDutyMainCode'>
                     <r-cell  :padding="padding" :span="4">
                         <div v-text="$t('auto2cCustomPlan.driverDutyMian')" />
@@ -87,7 +87,7 @@
                         <r-row v-else :model="this" value="notInsured" :onClick="gotoPassengerDuty" :isLink="true"></r-row>
                     </r-cell>
                 </r-cell>
-                <r-cell :type="row" class="margin_brage" v-if='glassCrushAdditionalCode'>
+                <!--<r-cell :type="row" class="margin_brage" v-if='glassCrushAdditionalCode'>
                     <r-cell  :padding="padding" :span="8">
                         <div v-text="$t('auto2cCustomPlan.glassCrushAdditional')" />
                     </r-cell>
@@ -95,10 +95,11 @@
                         <r-row v-if="glassCrushAdditionalCode.IsRealProposal && glassCrushAdditionalCode.IsRealProposal == 'Y'" :model="this" value="insured"  :onClick="gotoGlassCrush" :isLink="true"></r-row>
                         <r-row v-else :model="this" value="notInsured"  :onClick="gotoGlassCrush" :isLink="true"></r-row>
                     </r-cell>
-                </r-cell>
+                </r-cell>-->
+                <r-selector v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')" :options="options" :model="glassCrushAdditionalCode" value="IsRealProposal" ></r-selector>
                 <!--<r-switch v-if='glassCrushAdditionalCode' :title="$t('auto2cCustomPlan.glassCrushAdditional')"  :model="glassCrushAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
-                <r-switch v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                
+                <r-selector v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')" :options="options" :model="naturalLossAdditionalCode" value="IsRealProposal" ></r-selector>
+                <!--<r-switch v-if='naturalLossAdditionalCode' :title="$t('auto2cCustomPlan.naturalDamage')"  :model="naturalLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-cell :type="row" class="margin_brage" v-if='carBodyScratchLossAdditionalCode'>
                     <r-cell  :padding="padding" :span="8">
                         <div v-text="$t('auto2cCustomPlan.carBodyScratchLoss')" />
@@ -109,10 +110,12 @@
                     </r-cell>
                 </r-cell>
                 <!--<r-switch v-if='carBodyScratchLossAdditionalCode' :title="$t('auto2cCustomPlan.carBodyScratchLoss')"  :model="carBodyScratchLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
-                <r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-selector v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')" :options="options" :model="engineWadLossAdditionalCode" value="IsRealProposal" ></r-selector>
+                <!--<r-switch v-if='engineWadLossAdditionalCode' :title="$t('auto2cCustomPlan.engineWadLoss')"  :model="engineWadLossAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <!--<r-switch v-if='repairCompenstoryPaymentAdditionalCode' :title="$t('auto2cCustomPlan.repairPayment')" :model="repairCompenstoryPaymentAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <!--<r-switch v-if='noFondThirdAdditionalCode' :title="$t('auto2cCustomPlan.notFoundThirdAdditional')"  :model="noFondThirdAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
-                <r-switch v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>
+                <r-selector v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')" :options="options" :model="appointRepairShopAdditionalCode" value="IsRealProposal" ></r-selector>
+                <!--<r-switch v-if='appointRepairShopAdditionalCode' :title="$t('auto2cCustomPlan.appointRepairShop')"  :model="appointRepairShopAdditionalCode" value="IsRealProposal" :valueMap="valueMap"></r-switch>-->
                 <r-toast :model="this" value="isReminder" :text="$t('auto2cCustomPlan.reminder')" type='warn'/>         
             </r-card>
             <div class="button_vertical-align">
@@ -173,10 +176,6 @@ export default {
         isReminder: false,
         valueMap: ['N', 'Y'],
         toastShow: false,
-        menus1: {
-            Y: this.$t('auto2cCustomPlan.insured'),
-            N: this.$t('auto2cCustomPlan.notInsured')
-        },
         options: [{'key': 'N', 'value': '不投保'}, {'key': 'Y', 'value': '投保'}]
     };
   },
@@ -258,7 +257,7 @@ export default {
                     SubmissionStore.call(url, this.submission, { 'method': 'POST' }).then((reponsed) => {
                         const self = this;
                         // debugger;
-                        console.log(JSON.stringify(reponsed));
+                        // console.log(JSON.stringify(reponsed));
                         if (reponsed.Submission) {
                             this.showBackSubmission(reponsed.Submission);
                             SessionContext.put('PLAN_FLAG', JSON.stringify(config['CUSTOMER_PLAN_FLAG']), true);
@@ -432,6 +431,9 @@ export default {
                              deductibleCtsCts.push(initCtItem);
                         break;
                         case config['CAR_ROBBERY_MIANCODE'] :
+                             if (isNewCustomerPlan) {
+                                 initCtItem['IsRealProposal'] = 'Y';
+                             }
                              this.carRobberyMianCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
@@ -444,10 +446,16 @@ export default {
                              deductibleCtsCts.push(initCtItem);
                         break;
                         case config['GLASS_CRUSH_ADDITIONAL_CODE'] :
+                             if (!initCtItem['IsRealProposal']) {
+                                  initCtItem['IsRealProposal'] = 'N';
+                             }
                              this.glassCrushAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
                         case config['NATURAL_LOSS_ADDITIONAL_CODE'] :
+                             if (!initCtItem['IsRealProposal']) {
+                                  initCtItem['IsRealProposal'] = 'N';
+                             }
                              this.naturalLossAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
@@ -456,6 +464,9 @@ export default {
                              deductibleCtsCts.push(initCtItem);
                         break;
                         case config['ENGINE_WAD_LOSS_ADDITIONAL_CODE'] :
+                             if (!initCtItem['IsRealProposal']) {
+                                  initCtItem['IsRealProposal'] = 'N';
+                             }
                              this.engineWadLossAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
@@ -464,6 +475,9 @@ export default {
                         //      deductibleCtsCts.push(initCtItem);
                         // break;
                         case config['APPOINT_REPAIRSHOP_ADDITIONAL_CODE'] :
+                             if (!initCtItem['IsRealProposal']) {
+                                  initCtItem['IsRealProposal'] = 'N';
+                             }
                              this.appointRepairShopAdditionalCode = initCtItem;
                              deductibleCtsCts.push(initCtItem);
                         break;
