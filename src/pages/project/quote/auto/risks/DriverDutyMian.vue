@@ -38,6 +38,9 @@ export default {
     this.model = _.find(this.ctList, (ctItem) => {
         return ctItem['ProductElementCode'] == config['DRIVER_DUTY_MAINCODE'];
     });
+    if (!this.model['SumInsured']) {
+        this.model['SumInsured'] = '20000';
+    }
   }
 };
 </script>

@@ -159,6 +159,8 @@ export default {
         policyRiskComm['LicenseNo'] = this.policyRisk['LicenseNo'];// 车牌号赋值
         // 临时写死是否本地车
         policyRiskComm['IsNonlocalVehicle'] = 'Y';
+        // 过户车临时写死
+        policyRiskComm['TransferVehicle'] = 'N';
 
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
@@ -178,6 +180,7 @@ export default {
         policyRiskComp['IsNewVehicle'] = policyRiskComm['IsNewVehicle'];
         policyRiskComp['IsNotRegistered'] = policyRiskComm['IsNotRegistered'];
         policyRiskComp['IsNonlocalVehicle'] = policyRiskComm['IsNonlocalVehicle'];
+        policyRiskComp['TransferVehicle'] = policyRiskComm['TransferVehicle'];
         const PolicyCoverageList = [{
                     '@type': 'PolicyCoverage-CF1100047',
                     BusinessObjectId: 26001496359,

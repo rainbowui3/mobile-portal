@@ -111,7 +111,13 @@ export default {
                     policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyCoverageList'] = child['TempPolicyCoverageList'];
                 }
                 SubmissionStore.setSubmission(submission);
-                this.accurateAndGoNextPage(submission);
+                const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
+                    this.$router.push({
+                        path: `/bind/${routerType.route3}`,
+                        query: this.$route.query
+                    });
+                // console.log(JSON.stringify(submission));
+                // this.accurateAndGoNextPage(submission);
             });
         },
         getParams(schema) {
@@ -150,12 +156,11 @@ export default {
         },
         accurateAndGoNextPage(submission) {
             let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
-            // console.log(JSON.stringify(submission));
             SubmissionStore.call(url, submission, { 'method': 'POST' }).then((reponsed) => {
+                debugger;
                 const self = this;
-                // console.log(JSON.stringify(reponsed));
                 if (reponsed.Submission) {
-                    SubmissionStore.setSubmission(reponsed.Submission);
+                    self.showBackSubmission(reponsed.Submission);
                     const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
                     self.$router.push({
                         path: `/bind/${routerType.route3}`,
@@ -164,8 +169,13 @@ export default {
                 } else {
                     self.toastShow = true;
                 }
-                LoadingApi.hide(this);
+                LoadingApi.hide(self);
             });
+        },
+        showBackSubmission(returnSubmission) {
+            const policyRiskBack = returnSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0];
+            returnSubmission.SubmissionProductList[1].Policy.PolicyLobList[0].PolicyRiskList[0].PolicyPlanList[0].TempPolicyCoverageList = policyRiskBack.PolicyCoverageList;
+            SubmissionStore.setSubmission(returnSubmission);
         }
     },
     async created() {
