@@ -141,7 +141,7 @@ export default{
     CheckNameReg(value) {
         if (value) {
             // ^[A-Za-z0-9\u4e00-\u9fa5]{2,60}$
-            let reg = '^[\u4E00-\u9FA5A-Za-z0-9]{2,60}$';
+            let reg = '^[\u4E00-\u9FA5]{2,60}$';
             if (value.match(reg)) {
                 return true;
             } else {
