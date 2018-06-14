@@ -219,6 +219,13 @@ export default {
                                 if (!saveCtItem['SumInsured']) {
                                     saveCtItem['SumInsured'] = '10000';
                                 }
+                                if (ctItem['ProductElementCode'] == config['GLASS_CRUSH_ADDITIONAL_CODE']) {
+                                    if (this.policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['ImportType'] == '1') {
+                                        ctItem['GlassType'] = '20002';
+                                    } else {
+                                        ctItem['GlassType'] = '20001';
+                                    }
+                                }
                                 newCtList.push(saveCtItem);
                                 if (ctItem['IsNonDeductible'] == 'Y') {
                                     let nonDeductibleCtItem = {};

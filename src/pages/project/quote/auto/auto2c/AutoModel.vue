@@ -202,6 +202,7 @@ export default {
             policyRiskComm['ApprovalSeatCount'] = JyVehicleSelect['Seat'];// 核定载客/核定座位数
             policyRiskComm['ApprovalQuality'] = JyVehicleSelect['Tonnage'];// 核定载质量
             policyRiskComm['Displacement'] = JyVehicleSelect['Displacement'];// 排量
+            policyRiskComm['ImportType'] = JyVehicleSelect['VehicleType'];// 排量
             if (policyRiskComm['IsNewVehicle'] == 'N') {
                 if (JyVehicleSelect['PowerTypeCode'] && (JyVehicleSelect['PowerTypeCode'] == 'D12' || JyVehicleSelect['PowerTypeCode'] == 'D9')) {
                     policyRiskComm['LicenseType'] = '16';// 号牌种类
@@ -224,6 +225,7 @@ export default {
             policyRiskComp['ApprovalQuality'] = policyRiskComm['ApprovalQuality'];
             policyRiskComp['CarName'] = policyRiskComm['CarName'];
             policyRiskComp['Displacement'] = policyRiskComm['Displacement'];
+            policyRiskComp['ImportType'] = policyRiskComm['ImportType'];
             SubmissionStore.setSubmission(submission);
       },
       pushUrl() {

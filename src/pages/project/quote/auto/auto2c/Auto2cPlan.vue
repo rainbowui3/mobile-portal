@@ -3,7 +3,7 @@
         <top :title="$t('auto2cPlan.title')" :showBack="true" />
         <r-body>
             <div >
-                    <r-tab :tabItems="tabItems" class="tab" />
+                    <r-tab :tabItems="tabItems" class="tab" id="planId"/>
             </div>
             <div class="auto2cPlan" v-if="planItemList && planItemList.length > 0 && planItemList[index].ChildPlanCoverageList">
                 <div class="selectedPlan">
