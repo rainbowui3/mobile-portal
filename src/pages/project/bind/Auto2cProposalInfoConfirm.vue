@@ -65,11 +65,31 @@
         <r-date-time v-if="policyComm" :title="$t('auto2cProposalInfoConfirm.commStart')" :model="policyComm" value="EffectiveDate" :readonly="true"></r-date-time>
       </r-card>
       <r-card>
-        <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')" :value="policyComm.DuePremium" :data="deductibleList" />
+        <r-row v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')">
+          <div>
+              <span style="color:#FF9414">{{`${policyComm.DuePremium}`}}</span>
+          </div>
+        </r-row>
+        <!--<r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :title="$t('auto2cProposalInfoConfirm.commericalInsurance')" :value="policyComm.DuePremium" :data="deductibleList" />-->
+        <r-list v-if="policyComm && deductibleList && deductibleList.length > 0" :data="deductibleList" />
         <r-list v-if="nondeductibleList && nondeductibleList.length > 0" :data="nondeductibleList" />
-        <r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')" :model="policyComp" value="DuePremium" :readonly="true" />
-        <r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y' && vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')" :model="vehicleTax" value="TotalTax" :readonly="true" />
-        <r-input :title="$t('auto2cProposalInfoConfirm.sumPremium')" :model="this" value="sumPremium" :readonly="true" />
+        <!--<r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')" :model="policyComp" value="DuePremium" :readonly="true" />-->      
+        <r-row v-if="policyComp && IsRealProposal && IsRealProposal == 'Y'" :title="$t('auto2cProposalInfoConfirm.compulsoryInsurance')">
+          <div>
+              <span style="color:#FF9414">{{`${policyComp.DuePremium}`}}</span>
+          </div>
+        </r-row>
+        <!--<r-input v-if="policyComp && IsRealProposal && IsRealProposal == 'Y' && vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')" :model="vehicleTax" value="TotalTax" :readonly="true" />-->
+        <r-row v-if="policyComp && IsRealProposal && IsRealProposal == 'Y' && vehicleTax" :title="$t('auto2cProposalInfoConfirm.carShipTax')">
+          <div>
+              <span style="color:#FF9414">{{`${vehicleTax.TotalTax}`}}</span>
+          </div>
+        </r-row>
+        <r-cell :type="row">
+          <r-cell :span='6'><div class="sum-title-class"><span >{{ $t('auto2cProposalInfoConfirm.sumPremium')}}</span></div></r-cell>
+          <r-cell> <div  class="sum-number-class"><span >{{`${sumPremium}`}}</span></div></r-cell>
+        </r-cell>
+        <!--</r-input>-->
       </r-card>
       <!-- 条款确认 -->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
@@ -313,5 +333,17 @@ export default {
 }
 .vux-flex-col {
     padding: 14px 0;
+}
+.sum-number-class{
+    text-align: -webkit-right!important;
+    color: #FF9414;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+.sum-title-class{
+    text-align: -webkit-left;
+    color: #FF9414;
+    font-size: 18px;   
+    padding: 10px 10px;
 }
 </style>
