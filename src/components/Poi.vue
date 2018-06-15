@@ -61,8 +61,15 @@ export default {
     onChange(event) {
     },
     onStartDateChange() {
-      this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATE_FORMATER);
-      console.log(this.model['expireDate']);
+      // this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATE_FORMATER);
+      // this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      // this.$forceUpdate();
+      // console.log(this.model['expireDate']);
+      /*eslint-disable*/
+      let a = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      console.log(a)
+      this.$set(this.model, 'expireDate', a);
+      /*eslint-disable*/
     }
   },
   created: function() {
