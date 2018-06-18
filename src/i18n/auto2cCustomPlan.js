@@ -40,7 +40,8 @@ i18n.mergeLocaleMessage('zh-CN', {
   'auto2cCustomPlan.reset': '恢复初始方案',
   'auto2cCustomPlan.reminder': '请至少投保一个险别',
   'auto2cCustomPlan.error': '开小差啦',
-  'auto2cCustomPlan.insured': '投保'
+  'auto2cCustomPlan.insured': '投保',
+  'auto2cCustomPlan.quoted': '我要报价'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -84,5 +85,6 @@ i18n.mergeLocaleMessage('en-US', {
   'auto2cCustomPlan.reset': 'Reset',
   'auto2cCustomPlan.reminder': 'Please choose one risk',
   'auto2cCustomPlan.error': 'Error',
-  'auto2cCustomPlan.insured': 'Insured'
+  'auto2cCustomPlan.insured': 'Insured',
+  'auto2cCustomPlan.quoted': 'Quoted'
 });

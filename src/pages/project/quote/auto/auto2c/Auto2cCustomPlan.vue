@@ -124,7 +124,7 @@
             <r-toast :model="this" value="toastShow" :text="$t('auto2cCustomPlan.error')" type='text'/>
         </r-body>
         <r-tab-bar>         
-            <r-button type="primary" :onClick="calculatePremium">{{$t('common.confirm')}}</r-button>          
+            <r-button type="primary" :onClick="calculatePremium">{{$t('auto2cCustomPlan.quoted')}}</r-button>          
         </r-tab-bar>
     </r-page>
 
@@ -291,7 +291,10 @@ export default {
         const policyComm = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DEA';
         });
-        policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = [];
+
+        if (policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] && policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'].length > 0 && policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'][0]['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+            policyComm['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = [];
+        }
         // let productId = policyComm['ProductId'];
         // SchemaUtil.loadModelObjectSchema('Policy', 'Policy', productId, '-2').then((schema) => {
             // let param = this.getParams(schema);
@@ -415,7 +418,7 @@ export default {
                                 initCtItem = sessionCtItem;
                             }
                         });
-                    } else if (child && child['PlanCode'] == config['PRIVATE_PLAN_CODE']) {
+                    } else if (child) {
                         const oldPolicyCoverageList = child.TempPolicyCoverageList[0].PolicyCoverageList;
                         _.each(oldPolicyCoverageList, (oldPolicyCoverageItem) => {
                             if (oldPolicyCoverageItem['ProductElementCode'] == initCtItem['ProductElementCode']) {

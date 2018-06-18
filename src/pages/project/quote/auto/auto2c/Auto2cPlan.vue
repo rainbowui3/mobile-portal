@@ -38,7 +38,7 @@
                 <div class="autoPlan" v-on:click="gotoCustomPlan">
                     <span class="planEditAuto">{{$t('auto2cPlan.modifyPlan')}}</span>
                 </div>
-                <r-button type="primary" :onClick="confirmClick">{{$t('common.confirm')}}</r-button>
+                <r-button type="primary" :onClick="confirmClick">{{$t('auto2cPlan.quoted')}}</r-button>
             </div>
         </r-tab-bar>
         </div>
@@ -70,9 +70,11 @@ export default {
         goto: function(index) {
             this.index = index;
         },
-        gotoCustomPlan: function() {
+        async gotoCustomPlan() {
+            let isConfirm = false;
+            this.savePlan(isConfirm);
             // Todo:跳转到自定义险种页面
-            this.$emit('showPackage', false);
+            // this.$emit('showPackage', false);
             // this.$router.push({
             //     path: '/project/proposal/auto2C/Auto2cCustomPlan',
             //     name: 'Auto2cCustomPlan',
@@ -80,7 +82,7 @@ export default {
             // });
         },
         // initPlan,init是全量CT,删除多余的CT
-        initPlan(param, policy, submission) {
+        initPlan(param, policy, submission, isConfirm) {
             let childCoverageList = this.planItemList[this.index]['ChildPlanCoverageList'];
             PolicyStore.initPlan(param, policy).then((plans) => {
                 _.each(plans, (planItem) => {
@@ -117,7 +119,11 @@ export default {
                 //         query: this.$route.query
                 //     });
                 // console.log(JSON.stringify(submission));
-                this.accurateAndGoNextPage(submission);
+                if (isConfirm) {
+                    this.accurateAndGoNextPage(submission);
+                } else {
+                    this.$emit('showPackage', false);
+                }
             });
         },
         getParams(schema) {
@@ -138,6 +144,10 @@ export default {
             return param;
         },
         async confirmClick() {
+            let isConfirm = true;
+            this.savePlan(isConfirm);
+        },
+        savePlan(isConfirm) {
             LoadingApi.show(this, {
                 text: this.$t('common.processing')
             });
@@ -151,7 +161,7 @@ export default {
                 planCodesList.push(selectCode);
                 param['PlanCodes'] = planCodesList;
                 policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] = [];
-                this.initPlan(param, policy, submission);
+                this.initPlan(param, policy, submission, isConfirm);
             });
         },
         accurateAndGoNextPage(submission) {

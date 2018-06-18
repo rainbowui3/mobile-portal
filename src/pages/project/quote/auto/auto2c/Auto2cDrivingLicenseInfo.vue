@@ -125,7 +125,7 @@ export default {
        });
 
        // 初登日期小于起保日期
-       this.EffectiveDate = dayjs(DateUtil.subtract(policyComm['EffectiveDate'], 2, 'days')).format(config.DEFAULT_DATE_FORMATER); ;
+       this.EffectiveDate = dayjs(DateUtil.subtract(policyComm['EffectiveDate'], 2, 'days')).format(config.DEFAULT_DATE_FORMATER);
        const policyRiskParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'R10005'};
        this.policyRisk = PolicyStore.getChild(policyRiskParam, policyComm);
        LoadingApi.hide(this);
