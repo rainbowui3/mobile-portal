@@ -56,19 +56,33 @@ export default {
     };
   },
   methods: {
-    onHide: function() {
-    },
-    onChange(event) {
-    },
+    onHide: function() {},
+    onChange(event) {},
     onStartDateChange() {
-      this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATE_FORMATER);
-      console.log(this.model['expireDate']);
+      // this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATE_FORMATER);
+      // this.model['expireDate'] = dayjs(DateUtil.add(this.model['effectiveDate'], 1, 'years')).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      // this.$forceUpdate();
+      // console.log(this.model['expireDate']);
+      /*eslint-disable*/
+      let a = dayjs(
+        DateUtil.add(this.model["effectiveDate"], 1, "years")
+      ).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      console.log(a);
+      this.model["expireDate"] = dayjs(
+        DateUtil.add(this.model["effectiveDate"], 1, "years")
+      ).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      this.model.expireDate = dayjs(
+        DateUtil.add(this.model["effectiveDate"], 1, "years")
+      ).format(config.DEFAULT_DATETIME_SUBMIT_FORMATER);
+      this.$set(this.model, "expireDate", a);
+      this.$emit("dateChange", this.model);
+      /*eslint-disable*/
     }
   },
   created: function() {
-    if (this.type == 'day') {
+    if (this.type == "day") {
       this.timeFormat = config.DEFAULT_DATE_FORMATER;
-    } else if (this.type == 'minute') {
+    } else if (this.type == "minute") {
       this.timeFormat = config.DEFAULT_DATETIME_FORMATER;
     } else {
       this.timeFormat = config.DEFAULT_DATE_FORMATER;
@@ -76,48 +90,51 @@ export default {
 
     // 设定起保日期默认值：当前日期后一天0时0分0秒
     if (
-      this.model['effectiveDate'] == '' ||
-      this.model['effectiveDate'] == undefined
+      this.model["effectiveDate"] == "" ||
+      this.model["effectiveDate"] == undefined
     ) {
       let dd = new Date();
       let day,
         month,
-        year = '';
+        year = "";
       let d = dd.getDate() + 1;
       let m = dd.getMonth() + 1;
       let y = dd.getFullYear();
       if (d.toString().length == 1) {
-        day = '0' + d.toString();
+        day = "0" + d.toString();
       } else {
         day = d.toString();
       }
 
       if (m.toString().length == 1) {
-        month = '0' + m.toString();
+        month = "0" + m.toString();
       } else {
         month = m.toString();
       }
 
       year = y.toString();
-      if (this.type == 'day') {
-        this.model['effectiveDate'] = year + '-' + month + '-' + day;
+      if (this.type == "day") {
+        this.model["effectiveDate"] = year + "-" + month + "-" + day;
         // 计算期限
-        this.effStartDate = year + '-' + month + '-' + day;
-        this.effEndDate = DateUtil.add(this.effStartDate, 6, 'months');
-        this.effEndDate = this.effEndDate.split('T')[0];
-        this.expStartDate = DateUtil.add(this.effStartDate, 1, 'days').split('T')[0];
+        this.effStartDate = year + "-" + month + "-" + day;
+        this.effEndDate = DateUtil.add(this.effStartDate, 6, "months");
+        this.effEndDate = this.effEndDate.split("T")[0];
+        this.expStartDate = DateUtil.add(this.effStartDate, 1, "days").split(
+          "T"
+        )[0];
 
-        this.model['expireDate'] = (y + 1).toString() + '-' + month + '-' + day;
+        this.model["expireDate"] = (y + 1).toString() + "-" + month + "-" + day;
       } else {
-        this.model['effectiveDate'] =
-          year + '-' + month + '-' + day + ' ' + '00:00';
-        this.model['expireDate'] =
-          (y + 1).toString() + '-' + month + '-' + day + ' ' + '00:00';
+        this.model["effectiveDate"] =
+          year + "-" + month + "-" + day + " " + "00:00";
+        this.model["expireDate"] =
+          (y + 1).toString() + "-" + month + "-" + day + " " + "00:00";
       }
     }
   },
   mounted() {},
   updated() {
+    debugger;
   }
 };
 </script>
