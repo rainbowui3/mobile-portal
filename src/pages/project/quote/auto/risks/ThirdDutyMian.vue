@@ -4,7 +4,8 @@
         <r-body>
             <r-card v-if="model">
                 <r-switch  :title="$t('autoPlan.insured')"  :model="model" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false" :required="true"></r-input>
+                <!--<r-input  :title="$t('autoPlan.sumInsured')"  :model="model" value="SumInsured" :isNumber="true" :novalidate="false" :required="true"></r-input>-->
+                <r-selector :title="$t('autoPlan.sumInsured')" :options="options" :model="model" value="SumInsured" :required="true"></r-selector>
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -23,7 +24,34 @@ export default {
     return {
         model: undefined,
         ctList: undefined,
-        valueMap: ['N', 'Y']
+        valueMap: ['N', 'Y'],
+        options: [
+            { 'key': 50000, 'value': '5万' },
+            { 'key': 100000, 'value': '10万' },
+            { 'key': 150000, 'value': '15万' },
+            { 'key': 200000, 'value': '20万' },
+            { 'key': 300000, 'value': '30万' },
+            { 'key': 500000, 'value': '50万' },
+            { 'key': 1000000, 'value': '100万' },
+            { 'key': 1500000, 'value': '150万' },
+            { 'key': 2000000, 'value': '200万' },
+            { 'key': 2500000, 'value': '250万' },
+            { 'key': 3000000, 'value': '300万' },
+            { 'key': 3500000, 'value': '350万' },
+            { 'key': 4000000, 'value': '400万' },
+            { 'key': 4500000, 'value': '450万' },
+            { 'key': 5000000, 'value': '500万' },
+            { 'key': 5500000, 'value': '550万' },
+            { 'key': 6000000, 'value': '600万' },
+            { 'key': 6500000, 'value': '650万' },
+            { 'key': 7000000, 'value': '700万' },
+            { 'key': 7500000, 'value': '750万' },
+            { 'key': 8000000, 'value': '800万' },
+            { 'key': 8500000, 'value': '850万' },
+            { 'key': 9000000, 'value': '900万' },
+            { 'key': 9500000, 'value': '950万' },
+            { 'key': 10000000, 'value': '1000万' }
+        ]
     };
   },
   methods: {
