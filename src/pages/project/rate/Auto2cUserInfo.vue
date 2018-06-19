@@ -7,15 +7,18 @@
             </r-card>
             <r-card>
                 <r-row :title="$t('productInfoEntryAutoC.drivingCity')" :model="this" value="drivingCity" :isLink="true" ></r-row>
-                <r-cell :type="row" v-if="policyRisk">
-                    <r-cell :span="7">
-                        <r-input v-if="isvalidatelicenseNo" :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" :required="true"></r-input>
-                        <r-input v-else :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :readonly="true"></r-input>
+                <div v-if="policyRisk">
+                    <r-cell :type="row">
+                        <r-cell :span="7">
+                            <r-input v-if="isvalidatelicenseNo" :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :validator="validateLicenseNo" :novalidate="false" :required="true"></r-input>
+                            <r-input v-else :title="$t('productInfoEntryAutoC.carLicense')" :model="policyRisk" value="LicenseNo" :placeholder="$t('productInfoEntryAutoC.InputCarLicense')" :readonly="true"></r-input>
+                        </r-cell>
+                        <r-cell :span="5">
+                            <r-checker :model="this" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap" ></r-checker>
+                        </r-cell>
                     </r-cell>
-                    <r-cell :span="5">
-                        <r-checker :model="this" value="IsNewVehicle" :text="$t('productInfoEntryAutoC.newCar')" type="icon" :valueMap="valueMap" ></r-checker>
-                    </r-cell>
-                </r-cell>
+                    <r-switch :title="$t('productInfoEntryAutoC.TransferCar')" :model="policyRisk" value="TransferVehicle" :valueMap="valueMap"></r-switch>
+                </div>
                 <div v-if="policyCustomerOwner">
                     <r-input :title="$t('productInfoEntryAutoC.name')" :model="policyCustomerOwner" value="CustomerName" :required="true" :placeholder="$t('productInfoEntryAutoC.InputName')" :validator="validateName" :novalidate="false"></r-input>
                     <r-input :title="$t('productInfoEntryAutoC.certificateNo')" :model="policyCustomerOwner" value="IdNo" :validator="validateNumInput" :novalidate="false" :required="true" :placeholder="$t('productInfoEntryAutoC.InputCertificateNo')" ></r-input>
@@ -157,10 +160,9 @@ export default {
         policyRiskComm['IsNewVehicle'] = this.IsNewVehicle;// 新车
         policyRiskComm['IsNotRegistered'] = this.IsNewVehicle;// 未上牌
         policyRiskComm['LicenseNo'] = this.policyRisk['LicenseNo'];// 车牌号赋值
+        policyRiskComm['TransferVehicle'] = this.policyRisk['TransferVehicle'];// 过户车
         // 临时写死是否本地车
         policyRiskComm['IsNonlocalVehicle'] = 'Y';
-        // 过户车临时写死
-        policyRiskComm['TransferVehicle'] = 'N';
 
         const policyComp = _.find(submissionProductList, (policyItem) => {
             return policyItem['ProductCode'] == 'DFA';
