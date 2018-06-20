@@ -19,7 +19,7 @@
                 <div v-for="(ctLstItem,ProductElementId) in planItemList[index].ChildPlanCoverageList" :key="ctLstItem.ProductElementId" class="selectedPlan" v-if="ctLstItem.IsRealProposal && ctLstItem.IsRealProposal == 'Y'">
                     <div class="selectedPlanContent">
                         <div class="planName">
-                            {{ctLstItem.PlanCoverageName}}
+                            {{ctLstItem.ProductElementCode}}
                         </div>
                         <div class="planAddition" v-if="ctLstItem.IsNonDeductible && ctLstItem.IsNonDeductible == 'Y' ">
                             {{"不计免赔"}}
@@ -195,50 +195,67 @@ export default {
         const submission = ObjectUtil.clone(submissionStore);
         this.submission = submission;
         const policy = submission['SubmissionProductList'][1]['Policy'];
-        let productId = policy['ProductId'];
-        let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLANE_CODES_BY_PRODUCTID_AH')}?productId=${productId}`;
-        const planCodesList = [];
+        // let productId = policy['ProductId'];
+        // let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLANE_CODES_BY_PRODUCTID_AH')}?productId=${productId}`;
+        // const planCodesList = [];
         let planTabItems = [];
         let planItemList = [];
-        AjaxUtil.call(url).then((planCodes) => {
+        // AjaxUtil.call(url).then((planCodes) => {
             // // 测试数据
-            planCodes = {
-                'DEA180061': { 'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案' },
-                'DEA180060': { 'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案' },
-                'DEA180062': { 'PlanCode': 'DEA180062', 'ProductId': '301132390', 'PlanName': '豪华方案' }
-            };
-            _.each(planCodes, (planCodeItem) => {
-                // 暂时最多取三个方案
-                if (planCodesList.length < 3) {
-                    planCodesList.push(planCodeItem['PlanCode']);
-                }
-            });
-            url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
-            AjaxUtil.call(url, planCodesList, { 'method': 'POST' }).then((planList) => {
+            // planCodes = {
+            //     'DEA180061': { 'PlanCode': 'DEA180061', 'ProductId': '301132390', 'PlanName': '经济方案' },
+            //     'DEA180060': { 'PlanCode': 'DEA180060', 'ProductId': '301132390', 'PlanName': '景点方案' },
+            //     'DEA180062': { 'PlanCode': 'DEA180062', 'ProductId': '301132390', 'PlanName': '豪华方案' }
+            // };
+            // _.each(planCodes, (planCodeItem) => {
+            //     // 暂时最多取三个方案
+            //     if (planCodesList.length < 3) {
+            //         planCodesList.push(planCodeItem['PlanCode']);
+            //     }
+            // });
+            // url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
+            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERAL')}`;
+            const urlObject = UrlUtil.parseURL(window.location.href);
+            const param = { 'ProductCode': urlObject.params.productCode};
+            AjaxUtil.call(url, param, { 'method': 'POST' }).then((planList) => {
+                // console.log(JSON.stringify(planList));
                     let child;
                     if (policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] && policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'].length > 0) {
                         child = policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'][0];
                     };
-                    _.each(planList, (planItem, i) => {
+                    let clonePlanList = {};
+                    // if (planList.l) {
+                    //     clonePlanList.l = planList.l;
+                    // }
+                    if (planList.m) {
+                        clonePlanList.m = planList.m;
+                    }
+                    if (planList.h) {
+                        clonePlanList.h = planList.h;
+                    }
+                    let showIndex = 0;
+                    _.each(clonePlanList, (planItem, key) => {
                         let planTabItem = {};
-                        if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && i == 0)) {
+                        if ((child && child['PlanCode'] == planItem['PlanCode']) || (!child && showIndex == '0')) {
+                            this.index = showIndex;
                             planTabItem['selected'] = true;
-                            planTabItem['showdot'] = false;
-                            planTabItem['disabled'] = false;
-                            planTabItem['badge'] = '';
-                            planTabItem['onClick'] = this.goto;
-                            planTabItem['text'] = planItem['PlanName'];
-                            planTabItems.push(planTabItem);
-                            this.index = i;
                         } else {
                             planTabItem['selected'] = false;
-                            planTabItem['showdot'] = false;
-                            planTabItem['disabled'] = false;
-                            planTabItem['badge'] = '';
-                            planTabItem['onClick'] = this.goto;
-                            planTabItem['text'] = planItem['PlanName'];
-                            planTabItems.push(planTabItem);
                         }
+                        planTabItem['showdot'] = false;
+                        planTabItem['disabled'] = false;
+                        planTabItem['badge'] = '';
+                        planTabItem['onClick'] = this.goto;
+                        if (key == 'l') {
+                            planTabItem['text'] = '超值';
+                        } else if (key == 'm') {
+                            planTabItem['text'] = '人气';
+                        } else {
+                            planTabItem['text'] = '尊享';
+                        }
+                        planTabItem['text'] = planItem['PlanName'];
+                        planTabItems.push(planTabItem);
+
                         let childplanCoverageLst = planItem.PlanCoverageList[0].ChildPlanCoverageList;
                         _.each(childplanCoverageLst, (planCoverageLstItem) => {
                             // 把方案下面的保额字段赋值到集合字段里
@@ -313,12 +330,13 @@ export default {
                             'ChildPlanCoverageList': childplanCoverageLst
                         };
                         planItemList.push(ctItem);
+                        showIndex++;
                     });
                     this.planTabItems = planTabItems;
                     this.planItemList = planItemList;
                     LoadingApi.hide(this);
             });
-        });
+        // });
     }
 };
 </script>
