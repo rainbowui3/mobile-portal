@@ -56,37 +56,37 @@ export default {
        const policyRiskComp = PolicyStore.getChild(policyRiskParam, policyComp);
 
        // 临时写死"Power": 96, "VehicleQuality": 1315, "VehicleCode": "DZAAND0085"
-    //    this.policyRisk['Power'] = 96;
-    //    this.policyRisk['VehicleQuality'] = 1315;
-    //    this.policyRisk['VehicleCode'] = 'DZAAND0085';
-    //    this.policyRisk['IndustryModelCode'] = 'BYQKBMUC0002';
-    //    this.policyRisk['GasType'] = 'D1';
-    //    this.policyRisk['AnnouncedModel'] = 'FV7142TXG';
-    //    this.policyRisk['NewVehiclePurchasePrice'] = '126800';
-    //    this.policyRisk['ApprovalSeatCount'] = 5;
-    //    this.policyRisk['ApprovalQuality'] = 1000;
-    //    this.policyRisk['CarName'] = '车款名称';
-    //    this.policyRisk['Displacement'] = '1.0';
-    //    if (this.policyRisk['IsNewVehicle'] == 'N') {
-    //      this.policyRisk['LicenseType'] = '02';
-    //      policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
-    //    } else {
-    //      this.policyRisk['LicenseType'] = '';
-    //      policyRiskComp['LicenseType'] = '';
-    //    }
-    //    policyRiskComp['Power'] = this.policyRisk['Power'];
-    //    policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
-    //    policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
-    //    policyRiskComp['IndustryModelCode'] = this.policyRisk['IndustryModelCode'];
-    //    policyRiskComp['GasType'] = this.policyRisk['GasType'];
-    //    policyRiskComp['AnnouncedModel'] = this.policyRisk['AnnouncedModel'];
-    //    policyRiskComp['NewVehiclePurchasePrice'] = this.policyRisk['NewVehiclePurchasePrice'];
-    //    policyRiskComp['ApprovalSeatCount'] = this.policyRisk['ApprovalSeatCount'];
-    //    policyRiskComp['ApprovalQuality'] = this.policyRisk['ApprovalQuality'];
-    //    policyRiskComp['CarName'] = this.policyRisk['CarName'];
-    //    policyRiskComp['Displacement'] = this.policyRisk['Displacement'];
-    //    this.policyRisk['VehicleKindTcCode'] = 'K31';
-    //    policyRiskComp['VehicleKindTcCode'] = 'K31';
+       this.policyRisk['Power'] = 96;
+       this.policyRisk['VehicleQuality'] = 1315;
+       this.policyRisk['VehicleCode'] = 'DZAAND0085';
+       this.policyRisk['IndustryModelCode'] = 'BYQKBMUC0002';
+       this.policyRisk['GasType'] = 'D1';
+       this.policyRisk['AnnouncedModel'] = 'FV7142TXG';
+       this.policyRisk['NewVehiclePurchasePrice'] = '126800';
+       this.policyRisk['ApprovalSeatCount'] = 5;
+       this.policyRisk['ApprovalQuality'] = 1000;
+       this.policyRisk['CarName'] = '车款名称';
+       this.policyRisk['Displacement'] = '1.0';
+       if (this.policyRisk['IsNewVehicle'] == 'N') {
+         this.policyRisk['LicenseType'] = '02';
+         policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
+       } else {
+         this.policyRisk['LicenseType'] = '';
+         policyRiskComp['LicenseType'] = '';
+       }
+       policyRiskComp['Power'] = this.policyRisk['Power'];
+       policyRiskComp['VehicleQuality'] = this.policyRisk['VehicleQuality'];
+       policyRiskComp['VehicleCode'] = this.policyRisk['VehicleCode'];
+       policyRiskComp['IndustryModelCode'] = this.policyRisk['IndustryModelCode'];
+       policyRiskComp['GasType'] = this.policyRisk['GasType'];
+       policyRiskComp['AnnouncedModel'] = this.policyRisk['AnnouncedModel'];
+       policyRiskComp['NewVehiclePurchasePrice'] = this.policyRisk['NewVehiclePurchasePrice'];
+       policyRiskComp['ApprovalSeatCount'] = this.policyRisk['ApprovalSeatCount'];
+       policyRiskComp['ApprovalQuality'] = this.policyRisk['ApprovalQuality'];
+       policyRiskComp['CarName'] = this.policyRisk['CarName'];
+       policyRiskComp['Displacement'] = this.policyRisk['Displacement'];
+       this.policyRisk['VehicleKindTcCode'] = 'K31';
+       policyRiskComp['VehicleKindTcCode'] = 'K31';
 
        // 正常数据
        policyRiskComp['LicenseNo'] = this.policyRisk['LicenseNo'];
@@ -96,14 +96,14 @@ export default {
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
        SubmissionStore.setSubmission(submission);
-       this.$router.push({
-           path: '/quote/autoModel',
-           query: this.$route.query
-       });
     //    this.$router.push({
-    //        path: '/quote/plan',
+    //        path: '/quote/autoModel',
     //        query: this.$route.query
     //    });
+       this.$router.push({
+           path: '/quote/plan',
+           query: this.$route.query
+       });
       },
         validateVinInput(value) {
             // debugger;

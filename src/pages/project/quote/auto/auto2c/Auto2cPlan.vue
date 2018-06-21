@@ -253,7 +253,7 @@ export default {
                         } else {
                             planTabItem['text'] = '尊享';
                         }
-                        planTabItem['text'] = planItem['PlanName'];
+                        // planTabItem['text'] = planItem['PlanName'];
                         planTabItems.push(planTabItem);
 
                         let childplanCoverageLst = planItem.PlanCoverageList[0].ChildPlanCoverageList;
