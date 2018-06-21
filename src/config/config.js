@@ -9,8 +9,9 @@ module.exports = {
     DEFAULT_HOURS_FORMATER: 'YYYY-MM-DD HH',
 	API_GATEWAY_PROXY: API_GATEWAY_PROXY,
     PRODUCT_API: {
-        GET_PLANE_CODES_BY_PRODUCTID_AH: 'product/plan/v1/getPlanDefCodesByPrdIdForAH',
-        GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes'
+        // GET_PLANE_CODES_BY_PRODUCTID_AH: 'product/plan/v1/getPlanDefCodesByPrdIdForAH',
+        // GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes',
+        PLAN_LIST_FOR_GENERAL: 'product/plan/v1/planListForGeneral'
     },
     POLICY_API: {
         ACCURATE_QUOTE: 'auto/accurateQuote',

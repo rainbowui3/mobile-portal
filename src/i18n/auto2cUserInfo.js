@@ -13,7 +13,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'productInfoEntryAutoC.InputCertificateNo': '请输入身份证号',
     'productInfoEntryAutoC.InputMobile': '请输入手机号码',
     'productInfoEntryAutoC.validateCarLicense': '请输入正确的车牌号',
-    'productInfoEntryAutoC.InputValidateName': '请输入真实的车主姓名'
+    'productInfoEntryAutoC.InputValidateName': '请输入真实的车主姓名',
+    'productInfoEntryAutoC.TransferCar': '过户车'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -30,6 +31,7 @@ i18n.mergeLocaleMessage('en-US', {
     'productInfoEntryAutoC.InputCertificateNo': 'Input CertificateNo',
     'productInfoEntryAutoC.InputMobile': 'Input Mobile',
     'productInfoEntryAutoC.validateCarLicense': 'Input Validate Car LicenseNo',
-    'productInfoEntryAutoC.InputValidateName': 'Input Validate Name'
+    'productInfoEntryAutoC.InputValidateName': 'Input Validate Name',
+    'productInfoEntryAutoC.TransferCar': 'Transfer Car'
 
 });

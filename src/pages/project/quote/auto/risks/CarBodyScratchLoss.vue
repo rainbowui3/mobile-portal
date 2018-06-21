@@ -21,10 +21,15 @@ import {SessionContext} from 'rainbow-foundation-cache';
 export default {
   data() {
     return {
-      options: [{'key': '2000', 'value': '2000'}, {'key': '5000', 'value': '5000'}, {'key': '10000', 'value': '10000'}, {'key': '20000', 'value': '20000'}],
       model: undefined,
       ctList: undefined,
-      valueMap: ['N', 'Y']
+      valueMap: ['N', 'Y'],
+      options: [
+          { 'key': 2000, 'value': '2000' },
+          { 'key': 5000, 'value': '5000' },
+          { 'key': 10000, 'value': '10000' },
+          { 'key': 20000, 'value': '20000' }
+      ]
     };
   },
   methods: {
