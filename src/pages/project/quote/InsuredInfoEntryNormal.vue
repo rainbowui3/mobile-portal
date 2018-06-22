@@ -137,7 +137,6 @@ export default {
       }
     },
     clickHome: function() {
-      debugger;
       this.$forceUpdate();
     },
     // onClickInsured: function(data) {
