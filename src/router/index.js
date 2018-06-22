@@ -107,6 +107,8 @@ const CarGoods = r => require.ensure([], () => r(require('@/pages/project/quote/
 const MetalDamage = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/MetalDamage'), 'MetalDamage'));
 const AppointRepairShop = r => require.ensure([], () => r(require('@/pages/project/quote/auto/risks/AppointRepairShop'), 'AppointRepairShop'));
 const AutoPay = r => require.ensure([], () => r(require('@/pages/project/issue/AutoPay'), 'AutoPay'));
+const AutoMannuallyUW = r => require.ensure([], () => r(require('@/pages/project/issue/AutoMannuallyUW'), 'AutoMannuallyUW'));
+const AutoUWFail = r => require.ensure([], () => r(require('@/pages/project/issue/AutoUWFail'), 'AutoUWFail'));
 const AutoSendUnderwriting = r => require.ensure([], () => r(require('@/pages/project/quote/auto/auto2e/AutoSendUnderwriting'), 'AutoSendUnderwriting'));
 const AutoProposalInfoConfirm = r => require.ensure([], () => r(require('@/pages/project/bind/AutoProposalInfoConfirm'), 'AutoProposalInfoConfirm'));
 // auto2c
@@ -567,6 +569,13 @@ const router = new Router({
     {
       path: 'auto2c',
       component: AutoPay
+    },
+    {
+      path: 'autoMannuallyUW',
+      component: AutoMannuallyUW
+    }, {
+      path: 'autoUWFail',
+      component: AutoUWFail
     }
     ]
   },
