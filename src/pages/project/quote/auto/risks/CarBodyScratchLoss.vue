@@ -4,7 +4,7 @@
         <r-body>
             <r-card>
                 <r-switch  :title="$t('autoPlan.insured')"  :model="model" value="IsRealProposal" :valueMap="valueMap"></r-switch>
-                <r-selector :title="$t('autoPlan.sumInsured')" :options="options" :model="model" value="SumInsured" :required="true"></r-selector>
+                <r-selector :title="$t('autoPlan.sumInsured')" :options="options" :model="this" value="sumInsured" :required="true"></r-selector>
             </r-card>
         </r-body>
         <r-tab-bar>         
@@ -24,6 +24,7 @@ export default {
       model: undefined,
       ctList: undefined,
       valueMap: ['N', 'Y'],
+      sumInsured: 2000,
       options: [
           { 'key': 2000, 'value': '2000' },
           { 'key': 5000, 'value': '5000' },
@@ -35,6 +36,7 @@ export default {
   methods: {
     confirm() {
         // this.model['IsRealProposal'] = 'Y';
+        this.model.SumInsured = this.sumInsured;
         SessionContext.put('Policy_Coverage_Item', JSON.stringify(this.ctList), true);
         this.$router.go(-1);
     }
@@ -44,6 +46,9 @@ export default {
     this.model = _.find(this.ctList, (ctItem) => {
         return ctItem['ProductElementCode'] == config['CAR_BODY_SCRATCH_LOSS_ADDITIONAL_CODE'];
     });
+    if (this.model.SumInsured) {
+        this.sumInsured = this.model.SumInsured;
+    }
   }
 };
 </script>
