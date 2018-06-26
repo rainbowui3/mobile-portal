@@ -96,14 +96,14 @@ export default {
        policyRiskComp['VehicleInitialRegDate'] = this.policyRisk['VehicleInitialRegDate'];
        policyRiskComp['LicenseType'] = this.policyRisk['LicenseType'];
        SubmissionStore.setSubmission(submission);
-    //    this.$router.push({
-    //        path: '/quote/autoModel',
-    //        query: this.$route.query
-    //    });
        this.$router.push({
-           path: '/quote/plan',
+           path: '/quote/autoModel',
            query: this.$route.query
        });
+    //    this.$router.push({
+    //        path: '/quote/plan',
+    //        query: this.$route.query
+    //    });
       },
         validateVinInput(value) {
             // debugger;

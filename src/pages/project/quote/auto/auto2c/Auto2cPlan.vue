@@ -223,7 +223,6 @@ export default {
                     if (policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'] && policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'].length > 0) {
                         child = policy['PolicyLobList'][0]['PolicyRiskList'][0]['PolicyPlanList'][0];
                     };
-                    debugger;
                     let clonePlanList = {};
                     if (planList.l) {
                         clonePlanList.l = planList.l;
