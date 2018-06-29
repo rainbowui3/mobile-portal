@@ -55,6 +55,7 @@ const ProposalClauseConfirm = r => require.ensure([], () => r(require('@/compone
 const CarInfo = r => require.ensure([], () => r(require('@/components/CarInfo')), 'CarInfo');
 const CarOwner = r => require.ensure([], () => r(require('@/components/CarOwner')), 'CarOwner');
 const TreeTest = r => require.ensure([], () => r(require('@/components/TreeTest')), 'TreeTest');
+const IndexList = r => require.ensure([], () => r(require('@/pages/component/advanced/IndexList')), 'IndexList');
 
 // ah
 const InsuredInfoEntryNormal = r => require.ensure([], () => r(require('@/pages/project/quote/InsuredInfoEntryNormal')), 'InsuredInfoEntryNormal');
@@ -180,6 +181,11 @@ const router = new Router({
     path: '/component/example/badge',
     name: 'Badge',
     component: Badge
+  },
+  {
+    path: '/component/example/indexList',
+    name: 'IndexList',
+    component: IndexList
   },
   {
     path: '/component/example/marquee',
