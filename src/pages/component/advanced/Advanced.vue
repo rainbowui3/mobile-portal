@@ -45,7 +45,8 @@ export default {
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.sticky') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.swipeout') },
         { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.timeline') },
-        { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.progress') }
+        { 'icon': 'fa fa-camera-retro ', 'text': this.$t('component.progress') },
+        { 'icon': 'fa fa-list-ul', 'text': this.$t('component.list'), 'link': '/component/example/indexList'}
       ];
     }
   },
