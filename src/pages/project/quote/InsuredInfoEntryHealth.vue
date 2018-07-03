@@ -3,15 +3,28 @@
     <top :title="$t('project.jtyw')" :showBack="true" />
     <r-body>
       <r-card>
-        <poi type="day" :model="policy.policyData" effectiveDate="effectiveDate" expireDate="expireDate" />
+        <poi type="day" :model="policy" :readonlyEx="true" />
       </r-card>
-      <r-card :title="$t('common.holder')">
-        <holder-info :model="policy.holderInfo" :required="required"/>
+      <r-card :title="$t('common.holder')" v-if='policyHoder'>
+        <holder-info :model="policyHoder" :required="required"/>
       </r-card>
-      <r-card :title="$t('common.insured')">
-        <choose-relationship :datas="datas1" :title="'holderInfo.relationToHolder'" :model="policy.insuredInfo" value="relationToHolder" />
-        <insured-info v-if="policy.insuredInfo.relationToHolder && policy.insuredInfo.relationToHolder != '' && policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :required="required"/>
-      </r-card>
+      <div>
+        <r-card :title="$t('common.insured')">
+          <div v-for="(personInsured,BusinessObjectId) in personInsuredList" :key="personInsured.BusinessObjectId">
+            <choose-relationship :data="datas1" :title="'holderInfo.relationToHolder'" :model="personInsured" />
+            <insured-info v-if="personInsured.PolHolderInsuredRelaCode && personInsured.PolHolderInsuredRelaCode != '' && personInsured.PolHolderInsuredRelaCode != '00'" :model="personInsured" :required="required"/>
+          </div>
+        </r-card>
+        <!--<r-card v-if='personInsuredList && personInsuredList.length > 1' :title="$t('common.insured')">
+          <div v-for="(personInsured,BusinessObjectId) in personInsuredList" :key="personInsured.BusinessObjectId">
+            <choose-relationship :data="datas1" :title="'holderInfo.relationToHolder'" :model="personInsured" />
+            <insured-info v-if="personInsured.PolHolderInsuredRelaCode && personInsured.PolHolderInsuredRelaCode != '' && personInsured.PolHolderInsuredRelaCode != '00'" :model="personInsured" :required="required"/>
+            
+        <choose-relationship :datas="datas1" :model="policy.subsidiaryInfo" value="relationToMainInsured" :title="$t('holderInfo.relationToInsured')" />
+            <subsidiary-insured-info v-if="policy.subsidiaryInfo.relationToHolder != '1' && policy.insuredInfo.relationToHolder != '1'" :model="policy.subsidiaryInfo" :required="required"/>
+          </div>
+        </r-card>-->
+      </div>
       <r-card>
         <r-row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></r-row>
       </r-card>
@@ -41,6 +54,10 @@ import '../../../i18n/input';
 import '../../../i18n/planSelection';
 import '../../../i18n/insuredInfoEntryHealthSub';
 import {SessionContext} from 'rainbow-foundation-cache';
+import {LoadingApi} from 'rainbow-mobile-core';
+import {PolicyStore} from 'rainbow-foundation-sdk';
+import AhUtil from '../../../components/utils/AhUtil';
+import {Util} from 'rainbow-foundation-tools';
 export default {
   components: {
     HolderInfo,
@@ -53,39 +70,9 @@ export default {
   },
   data() {
     return {
-      policy: {
-        policyData: {
-          // effectiveDate: "",
-          // expireDate: ""
-        },
-        holderInfo: {
-          // name: "王小明",
-          // certificateId: "10000",
-          // certificateNum: "65300119520705283x",
-          // birthdate: "2000-01-01",
-          // mobileNum: "18398768724",
-          // email: "wangxm@outlook.com"
-        },
-        insuredInfo: {
-          relationToHolder: '1'
-          // name: "王小明",
-          // certificateId: "10000",
-          // certificateNum: "65300119520705283x",
-          // birthdate: "2000-01-01",
-          // mobileNum: "18398768724",
-          // email: "wangxm@outlook.com"
-        },
-        dubsidiaryInsuranceInfo: {
-          // relationToHolder: "本人",
-          // relationToMainInsured: "本人",
-          // name: "王小明",
-          // certificateId: "10000",
-          // certificateNum: "65300119520705283x",
-          // birthdate: "2000-01-01",
-          // mobileNum: "18398768724",
-          // email: "wangxm@outlook.com"
-        }
-      },
+      policy: undefined,
+      policyHoder: undefined,
+      personInsuredList: undefined,
       pageModel: {
         clauseConfirm: false,
         toastShow: false
@@ -94,25 +81,25 @@ export default {
       buttonName: 'proposalConfirm.immediatelyInsure',
       datas1: [
         {
-          key: '1',
+          key: '00',
           value: '本人',
           active: true
           // onClick: this.onClickInsured
         },
         {
-          key: '2',
+          key: '01',
           value: '配偶',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: '3',
+          key: '03',
           value: '子女',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: '4',
+          key: '02',
           value: '父母',
           active: false
           // onClick: this.onClickInsured
@@ -124,7 +111,18 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        SessionContext.put('policy', JSON.stringify(this.policy), true);
+        console.log(JSON.stringify(this.policy));
+        let insuredOwer = _.find(this.personInsuredList, (personInsured) => {
+          return personInsured['SequenceNumber'] == 1;
+        });
+        if (insuredOwer.PolHolderInsuredRelaCode == '00') {
+          insuredOwer['CustomerName'] = this.HolderInfo['CustomerName'];
+          insuredOwer['IdType'] = this.HolderInfo['IdType'];
+          insuredOwer['IdNo'] = this.HolderInfo['IdNo'];
+          insuredOwer['DateOfBirth'] = this.HolderInfo['DateOfBirth'];
+          insuredOwer['IndiMobile'] = this.HolderInfo['IndiMobile'];
+          insuredOwer['Email'] = this.HolderInfo['Email'];
+        }
         let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         this.$router.push({
           path: '/bind/' + route.route3,
@@ -144,12 +142,28 @@ export default {
       });
     }
   },
-  //   created: function() {
-  //     this.policy = JSON.parse(SessionContext.get("POLICY"));
-  //     console.log("policy", this.policy);
-  //   },
-  mounted: function() {},
-  beforeDestroy: function() {}
+  async created() {
+    LoadingApi.show(this, {
+        text: this.$t('common.processing')
+    });
+    let policy = PolicyStore.getPolicy();
+    this.policy = policy;
+    // const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+    // const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
+    this.policyHoder = _.find(policy.PolicyCustomerList, (customer) => {
+        return customer['CustomerRoleCode'] == '1';
+    });
+    const riskParam = AhUtil.getRiskParam(policy);
+    const personInsuredData = PolicyStore.getChild(riskParam, policy);
+    if (Util.isArray(personInsuredData)) {
+      this.personInsuredList = personInsuredData;
+    } else {
+      let personInsuredList = [];
+      personInsuredList.push(personInsuredData);
+      this.personInsuredList = personInsuredList;
+    }
+    LoadingApi.hide(this);
+  }
 };
 </script>
 

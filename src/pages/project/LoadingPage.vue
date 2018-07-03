@@ -34,7 +34,8 @@ export default {
             route1: data[0].route1,
             route2: data[0].route2,
             route3: data[0].route3,
-            route4: data[0].route4
+            route4: data[0].route4,
+            imgSrc: data[0].imgSrc
           };
           SessionContext.put('ROUTE_TYPE', JSON.stringify(vm.routeType), true);
         } else {

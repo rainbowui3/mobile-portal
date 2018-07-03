@@ -11,7 +11,9 @@ i18n.mergeLocaleMessage('zh-CN', {
     'holderInfo.placeholderMobile': '请填写手机号码',
     'holderInfo.placeholderEmail': 'email@email.com',
     'holderInfo.relationToHolder': '与投保人关系:',
-    'holderInfo.relationToInsured': '与主被保险人关系:'
+    'holderInfo.relationToInsured': '与主被保险人关系:',
+    'holderInfo.rightID': '请填写正确身份证号:',
+    'holderInfo.rightName': '请填写正确姓名:'
 
 });
 i18n.mergeLocaleMessage('en-US', {
@@ -26,5 +28,7 @@ i18n.mergeLocaleMessage('en-US', {
     'holderInfo.placeholderMobile': 'Please fill in the phone number',
     'holderInfo.placeholderEmail': 'email@email.com',
     'holderInfo.relationToHolder': 'Relation To Holder:',
-    'holderInfo.relationToInsured': 'Relation To Insured:'
+    'holderInfo.relationToInsured': 'Relation To Insured:',
+    'holderInfo.rightID': 'Right ID:',
+    'holderInfo.rightName': 'Right Name:'
 });

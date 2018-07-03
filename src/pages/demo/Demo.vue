@@ -33,9 +33,9 @@ export default {
           onClick: this.goto,
           param: {
             url: '/proposal/LoadingPage',
-            productCode: 'PV1',
+            productCode: 'WVA',
             productVersion: '1.0',
-            proposalTemplate: '1'
+            policyType: '1'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -47,7 +47,8 @@ export default {
             url: '/proposal/LoadingPage',
             productCode: 'PV1',
             productVersion: '1.0',
-            proposalTemplate: '2'
+            proposalTemplate: '2',
+            policyType: '1'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -60,7 +61,8 @@ export default {
             url: '/proposal/LoadingPage',
             productCode: 'PV1',
             productVersion: '1.0',
-            proposalTemplate: '3'
+            proposalTemplate: '3',
+            policyType: '1'
           }
 
           // param: "/project/proposal/ah/productInfoEntryNormal"
@@ -73,7 +75,8 @@ export default {
             url: '/proposal/LoadingPage',
             productCode: 'PV1',
             productVersion: '1.0',
-            proposalTemplate: '4'
+            proposalTemplate: '4',
+            policyType: '1'
           }
           // param: "/project/proposal/ah/productInfoEntryNormal"
         },
@@ -85,7 +88,8 @@ export default {
             url: '/proposal/LoadingPage',
             productCode: 'PV1',
             productVersion: '1.0',
-            proposalTemplate: '5'
+            proposalTemplate: '5',
+            policyType: '1'
           }
           // param: "/project/proposal/ah/InsuredInfoAccident"
         },
@@ -127,7 +131,7 @@ export default {
         query: {
           productCode: param.productCode,
           productVersion: param.productVersion,
-          proposalTemplate: param.proposalTemplate
+          policyType: param.policyType
         }
     });
  },

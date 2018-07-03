@@ -214,7 +214,7 @@ export default {
             //     }
             // });
             // url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
-            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERAL')}`;
+            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERALFORAUTO')}`;
             const urlObject = UrlUtil.parseURL(window.location.href);
             const param = { 'ProductCode': urlObject.params.productCode};
             AjaxUtil.call(url, param, { 'method': 'POST' }).then((planList) => {

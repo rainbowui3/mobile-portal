@@ -5,12 +5,12 @@
         <r-input :title='$t(title)' :model="this" value="nullValue" ></r-input>
       </r-cell>
       <r-cell class="chooseRelationship">
-        <r-checker v-if="isToHolder" :model="model" value="relationToHolder" :data='data' type="default" :onChange="_onChange"/>
+        <r-checker v-if="isToHolder" :model="model" value="PolHolderInsuredRelaCode" :data='data' type="default" :onChange="_onChange"/>
         <r-checker v-else :model="model" value="relationToMainInsured" :data='data' type="default" :onChange="_onChange"/>
       </r-cell>
     </r-cell>
     <div v-else>    
-      <r-selector v-if="isToHolder" :title="$t(title)" :options="data" :readonly="readonly" :model="model" value="relationToHolder" :onChange="_onChange"></r-selector>
+      <r-selector v-if="isToHolder" :title="$t(title)" :options="data" :readonly="readonly" :model="model" value="PolHolderInsuredRelaCode" :onChange="_onChange"></r-selector>
       <r-selector v-else :title="$t(title)" :options="data" :readonly="readonly" :model="model" value="relationToMainInsured" :onChange="_onChange"></r-selector>
     </div>
   </div>

@@ -8,6 +8,7 @@
                 <r-row :title="$t('auto2cUserAddr.area')" :model="this" value="value" :isLink="true" :onClick="gotoChooseArea.bind(this)"/>
                 <r-textarea :title="$t('auto2cUserAddr.address')" :model="holderCustomer" value="Address" :required="true"/>
             </div>
+            <r-toast :model="this" value="toastShow" :text="$t('auto2cUserAddr.addressNotNull')" type='text'/>
         </r-body>
         <r-tab-bar>
             <r-button type="primary" :onClick="saveAddress">{{$t('common.save')}}</r-button>
@@ -26,7 +27,8 @@ export default {
           value: '',
           relationCustomer: undefined,
           holderCustomer: undefined,
-          policyCustomers: undefined
+          policyCustomers: undefined,
+          toastShow: false
       };
   },
   methods: {
@@ -34,25 +36,29 @@ export default {
         // Todo:跳转到选择地区页面
       },
       async saveAddress() {
-        const submission = SubmissionStore.getSubmission();
-        const submissionProductList = SubmissionStore.getPolicy(submission);
-        // 商业险
-        const policyComm = _.find(submissionProductList, (policyItem) => {
-            return policyItem['ProductCode'] == 'DEA';
-        });
-        const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-        let commCustomers = PolicyStore.getChild(policyCustomerParam, policyComm);
-        PolicyStore.deleteChild(commCustomers, policyComm);
-        policyComm['PolicyCustomerList'] = this.policyCustomers;
-        // 交强险
-        const policyComp = _.find(submissionProductList, (policyItem) => {
-            return policyItem['ProductCode'] == 'DFA';
-        });
-        let compCustomers = PolicyStore.getChild(policyCustomerParam, policyComp);
-        PolicyStore.deleteChild(compCustomers, policyComp);
-        policyComp['PolicyCustomerList'] = this.policyCustomers;
-        SubmissionStore.setSubmission(submission);
-        this.$router.go(-1);
+        if (!this.holderCustomer.Address) {
+            this.toastShow = true;
+        } else {
+            const submission = SubmissionStore.getSubmission();
+            const submissionProductList = SubmissionStore.getPolicy(submission);
+            // 商业险
+            const policyComm = _.find(submissionProductList, (policyItem) => {
+                return policyItem['ProductCode'] == 'DEA';
+            });
+            const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+            let commCustomers = PolicyStore.getChild(policyCustomerParam, policyComm);
+            PolicyStore.deleteChild(commCustomers, policyComm);
+            policyComm['PolicyCustomerList'] = this.policyCustomers;
+            // 交强险
+            const policyComp = _.find(submissionProductList, (policyItem) => {
+                return policyItem['ProductCode'] == 'DFA';
+            });
+            let compCustomers = PolicyStore.getChild(policyCustomerParam, policyComp);
+            PolicyStore.deleteChild(compCustomers, policyComp);
+            policyComp['PolicyCustomerList'] = this.policyCustomers;
+            SubmissionStore.setSubmission(submission);
+            this.$router.go(-1);
+        }
       }
   },
   async created() {

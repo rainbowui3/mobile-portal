@@ -1,6 +1,6 @@
 <template>  
   <div>
-    <r-number :title="$t('proposalCopies.insuredNum')" :model="model" styleClass="round" :min="0" :max="10" value="insuredNum"/>
+    <r-number :title="$t('proposalCopies.insuredNum')" :model="model" styleClass="round" :min="0" :max="10" value="NumberOfCopies"/>
   </div>
 </template>
 

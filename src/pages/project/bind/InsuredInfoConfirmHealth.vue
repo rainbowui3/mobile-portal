@@ -12,7 +12,7 @@
             </r-card>
             <!-- 被保人信息 -->
             <r-card :title="$t('common.insuredInfo')">
-                <choose-relationship :datas="datas1" :model="policy.insuredInfo" value="relationToHolder" :title="$t('holderInfo.relationToHolder')" :readonly="true" />
+                <choose-relationship :data="datas1" :model="policy.insuredInfo" :title="$t('holderInfo.relationToHolder')" :readonly="true" />
                 <insured-info v-if="policy.insuredInfo.relationToHolder != '1'" :model="policy.insuredInfo" :readonly="true" />
                 <r-row :model="pageModel" :title="$t('insuredInfoEntryHealthSub.healthInfo')" :isLink="true" :onClick="gotoHealthInfo" />
             </r-card>
@@ -63,25 +63,25 @@ export default {
       },
       datas1: [
         {
-          key: '1',
+          key: '00',
           value: '本人',
           active: true
           // onClick: this.onClickInsured
         },
         {
-          key: '2',
+          key: '01',
           value: '配偶',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: '3',
+          key: '03',
           value: '子女',
           active: false
           // onClick: this.onClickInsured
         },
         {
-          key: '4',
+          key: '02',
           value: '父母',
           active: false
           // onClick: this.onClickInsured
