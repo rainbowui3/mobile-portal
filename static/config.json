@@ -1,4 +1,4 @@
 {
     "login": true,
-    "API_GATEWAY_PROXY": "http://210.13.77.92:15200/"
+    "UI_API_GATEWAY_PROXY": "http://210.13.77.92:15200/"
 }

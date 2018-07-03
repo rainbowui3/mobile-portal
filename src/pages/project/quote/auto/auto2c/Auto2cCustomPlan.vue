@@ -261,7 +261,7 @@ export default {
                     // 请求精确报价接口
                     let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
                     // console.log(JSON.stringify(this.submission));
-                    SubmissionStore.call(url, this.submission, { 'method': 'POST' }).then((reponsed) => {
+                    SubmissionStore.call(url, this.submission, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'}}).then((reponsed) => {
                         const self = this;
                         // debugger;
                         // console.log(JSON.stringify(reponsed));

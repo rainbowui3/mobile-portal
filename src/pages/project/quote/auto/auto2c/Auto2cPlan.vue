@@ -166,7 +166,7 @@ export default {
         },
         accurateAndGoNextPage(submission) {
             let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
-            SubmissionStore.call(url, submission, { 'method': 'POST' }).then((reponsed) => {
+            SubmissionStore.call(url, submission, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'}}).then((reponsed) => {
                 const self = this;
                 if (reponsed.Submission) {
                     self.showBackSubmission(reponsed.Submission);
