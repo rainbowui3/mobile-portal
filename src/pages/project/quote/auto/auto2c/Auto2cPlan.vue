@@ -165,7 +165,7 @@ export default {
             });
         },
         accurateAndGoNextPage(submission) {
-            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
+            let url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'POLICY_API', 'ACCURATE_QUOTE')}`;
             SubmissionStore.call(url, submission, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'}}).then((reponsed) => {
                 const self = this;
                 if (reponsed.Submission) {
@@ -196,7 +196,7 @@ export default {
         this.submission = submission;
         const policy = submission['SubmissionProductList'][1]['Policy'];
         // let productId = policy['ProductId'];
-        // let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLANE_CODES_BY_PRODUCTID_AH')}?productId=${productId}`;
+        // let url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLANE_CODES_BY_PRODUCTID_AH')}?productId=${productId}`;
         // const planCodesList = [];
         let planTabItems = [];
         let planItemList = [];
@@ -213,8 +213,8 @@ export default {
             //         planCodesList.push(planCodeItem['PlanCode']);
             //     }
             // });
-            // url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
-            let url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERALFORAUTO')}`;
+            // url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'PRODUCT_API', 'GET_PLAN_DEF_BY_CODES')}?productId=${productId}`;
+            let url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERALFORAUTO')}`;
             const urlObject = UrlUtil.parseURL(window.location.href);
             const param = { 'ProductCode': urlObject.params.productCode};
             AjaxUtil.call(url, param, { 'method': 'POST' }).then((planList) => {

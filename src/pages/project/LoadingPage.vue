@@ -16,7 +16,7 @@ export default {
       let productVersion = vm.$route.query.productVersion;
 
       let url = UrlUtil.getConfigUrl(
-        'API_GATEWAY_PROXY',
+        'UI_API_GATEWAY_PROXY',
         'ROUTE_INFO',
         'GET_ROUTE'
       );

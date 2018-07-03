@@ -86,7 +86,7 @@ export default {
                 }
             };
             // console.log(JSON.stringify(requestParam));
-            const url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_VALIDATE_VEHICLE')}`;
+            const url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_VALIDATE_VEHICLE')}`;
             AjaxUtil.call(url, requestParam, { 'method': 'POST' }).then((response) => {
                 // debugger;
                 // console.log(JSON.stringify(response));
@@ -162,7 +162,7 @@ export default {
                 PmQueryNo: this.pmQueryNo
             }
         };
-        const url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_QUERY_VEHICLE')}`;
+        const url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_QUERY_VEHICLE')}`;
         AjaxUtil.call(url, requestParam, { 'method': 'POST' }).then((response) => {
             if (response.ResponseBody) {
                 this.getData(response.ResponseBody.CarModelList);
@@ -251,7 +251,7 @@ export default {
               ComCode: '34010904'
           }
       };
-      const url = `${UrlUtil.getConfigUrl('API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_QUERY_VEHICLE')}`;
+      const url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'POLICY_API', 'AUTO_QUERY_VEHICLE')}`;
       AjaxUtil.call(url, requestParam, { 'method': 'POST' }).then((response) => {
           if (response.ResponseBody && response.ResponseBody.checkCode) {
               this.pmQueryNo = response.ResponseBody.PmQueryNo;

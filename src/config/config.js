@@ -1,5 +1,5 @@
 'use strict';
-let API_GATEWAY_PROXY = sessionStorage.getItem('project_config') ? JSON.parse(sessionStorage.getItem('project_config')).API_GATEWAY_PROXY : undefined;
+let UI_API_GATEWAY_PROXY = sessionStorage.getItem('project_config') ? JSON.parse(sessionStorage.getItem('project_config')).UI_API_GATEWAY_PROXY : undefined;
 
 module.exports = {
     DEFAULT_DATE_FORMATER: 'YYYY-MM-DD',
@@ -7,7 +7,7 @@ module.exports = {
     DEFAULT_DATETIME_SUBMIT_FORMATER: 'YYYY-MM-DD[T]00:00:00',
     DEFAULT_YEAR_FORMATER: 'YYYY',
     DEFAULT_HOURS_FORMATER: 'YYYY-MM-DD HH',
-	API_GATEWAY_PROXY: API_GATEWAY_PROXY,
+	UI_API_GATEWAY_PROXY: UI_API_GATEWAY_PROXY,
     PRODUCT_API: {
         // GET_PLANE_CODES_BY_PRODUCTID_AH: 'product/plan/v1/getPlanDefCodesByPrdIdForAH',
         // GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes',
