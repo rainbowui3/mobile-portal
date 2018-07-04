@@ -124,6 +124,9 @@ export default {
       options: []
     };
   },
+  props: {
+    model: Object
+  },
   computed: {
     // Tab选项卡的名称
     tabItems: function() {

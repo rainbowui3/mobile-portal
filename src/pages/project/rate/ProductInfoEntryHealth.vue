@@ -6,8 +6,8 @@
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
       </r-card>
-      <r-card>
-        <plan-selection></plan-selection>
+      <r-card v-if="planList">
+        <plan-selection :model="planList"></plan-selection>
       </r-card>
       <r-card>
         <r-input :title="$t('productInfoEntryHealth.poi')" :model="this" value="poi"  :readonly="true"></r-input>
