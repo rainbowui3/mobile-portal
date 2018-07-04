@@ -11,7 +11,8 @@ module.exports = {
     PRODUCT_API: {
         // GET_PLANE_CODES_BY_PRODUCTID_AH: 'product/plan/v1/getPlanDefCodesByPrdIdForAH',
         // GET_PLAN_DEF_BY_CODES: 'product/plan/v1/getPlanDefByCodes',
-        PLAN_LIST_FOR_GENERALFORAUTO: 'product/plan/v1/planListForGeneralForAuto'
+        PLAN_LIST_FOR_GENERALFORAUTO: 'product/plan/v1/planListForGeneralForAuto',
+        PLAN_LIST_FOR_GENERALFORAH: 'product/plan/v1/planListForGeneralForAH'
     },
     POLICY_API: {
         ACCURATE_QUOTE: 'auto/accurateQuote',

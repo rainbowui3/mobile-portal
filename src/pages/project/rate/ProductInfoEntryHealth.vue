@@ -23,7 +23,6 @@
               <r-checker :max="1" :model="this" value="indiGenderCode" :data='list' type="list" :required="true"/>
             </r-cell>
           </r-cell>
-
         <!--</r-card>-->
         <r-switch  :title="$t('productInfoEntryHealth.social')"  :model="personInsured" value="MedicalInsuranceCode" :valueMap="valueMap"></r-switch>
         <proposal-copies :model="insuredGroup" v-if='insuredGroup'></proposal-copies>
@@ -74,7 +73,8 @@ export default {
       valueMap: ['N', 'Y'],
       poi: '1年',
       policy: undefined,
-      insuredGroup: undefined
+      insuredGroup: undefined,
+      planList: undefined
     };
   },
   methods: {
@@ -139,6 +139,7 @@ export default {
         personInsured['SequenceNumber'] = 1;
         personInsured['CustomerRoleCode'] = 2;
         personInsured['IndiGenderCode'] = '1';
+        // 与被保险人与投保人的关系默认本人
         personInsured['PolHolderInsuredRelaCode'] = '00';
         this.indiGenderCode = [
           personInsured['IndiGenderCode']
@@ -150,6 +151,13 @@ export default {
         PolicyStore.setPolicy(policy);
     }
     this.policy = policy;
+
+    // 请求方案
+    let url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERALFORAH')}`;
+    const planParam = { 'ProductCode': urlObject.params.productCode};
+    AjaxUtil.call(url, planParam, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'} }).then((planList) => {
+      this.planList = planList;
+    });
     LoadingApi.hide(this);
   },
   computed: {

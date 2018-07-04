@@ -111,7 +111,7 @@ export default {
   methods: {
     onClick: function() {
       if (this.pageModel.clauseConfirm) {
-        console.log(JSON.stringify(this.policy));
+        // console.log(JSON.stringify(this.policy));
         let insuredOwer = _.find(this.personInsuredList, (personInsured) => {
           return personInsured['SequenceNumber'] == 1;
         });
