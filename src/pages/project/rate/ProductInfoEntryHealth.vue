@@ -6,8 +6,8 @@
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
         </product-top>
       </r-card>
-      <r-card v-if="planList">
-        <plan-selection :model="planList"></plan-selection>
+      <r-card v-if="showPlanList && insuredGroup" >
+        <plan-selection :model="insuredGroup" :showPlanList="showPlanList"></plan-selection>
       </r-card>
       <r-card>
         <r-input :title="$t('productInfoEntryHealth.poi')" :model="this" value="poi"  :readonly="true"></r-input>
@@ -25,7 +25,7 @@
           </r-cell>
         <!--</r-card>-->
         <r-switch  :title="$t('productInfoEntryHealth.social')"  :model="personInsured" value="MedicalInsuranceCode" :valueMap="valueMap"></r-switch>
-        <proposal-copies :model="insuredGroup" v-if='insuredGroup'></proposal-copies>
+        <proposal-copies :model="insuredGroup" v-if='showPlanList && insuredGroup' :showPlanList="showPlanList" :copyMax="copyMax" :copyMin="copyMin"></proposal-copies>
       </r-card>
     </r-body>
     <r-tab-bar>
@@ -74,7 +74,11 @@ export default {
       poi: '1年',
       policy: undefined,
       insuredGroup: undefined,
-      planList: undefined
+      // planList: undefined,
+      showPlanList: undefined,
+      planCode: '',
+      copyMax: 0,
+      copyMin: 0
     };
   },
   methods: {
@@ -87,6 +91,95 @@ export default {
         path: '/quote/' + route.route2,
         query: this.$route.query
       });
+    },
+    getShowPlanList(planList) {
+      let showPlanList = [];
+      _.each(planList, (planItem) => {
+        let showPlanItem = {};
+        showPlanItem['PlanName'] = planItem['PlanName'];
+        showPlanItem['PlanCode'] = planItem['PlanCode'];
+        showPlanItem['PlanDefId'] = planItem['PlanDefId'];
+        showPlanItem['PlanCoverageList'] = planItem['PlanCoverageList'];
+        showPlanItem['ProductPlanInfo'] = planItem['ProductPlanInfo'];
+
+        let showChildPlanCoverageList = [];
+        this.getChildPlanCoverageList(planItem.PlanCoverageList[0].ChildPlanCoverageList, showChildPlanCoverageList);
+        showPlanItem['PlanCoverageList'][0]['ChildPlanCoverageList'] = showChildPlanCoverageList;
+        showPlanList.push(showPlanItem);
+      });
+      return showPlanList;
+    },
+    getChildPlanCoverageList(childPlanCoverageList, showChildPlanCoverageList) {
+      if (childPlanCoverageList && childPlanCoverageList.length > 0) {
+        _.each(childPlanCoverageList, (childPlanCoverageItem) => {
+          if (childPlanCoverageItem.childPlanCoverageList) {
+            this.getChildPlanCoverageList(childPlanCoverageItem.childPlanCoverageList, showChildPlanCoverageList);
+          } else {
+            showChildPlanCoverageList.push(childPlanCoverageItem);
+          }
+        });
+      }
+    },
+    copyMinAndMax(value) {
+      const showPlanItem = _.find(this.showPlanList, (planItem) => {
+        return planItem.PlanCode == value;
+      });
+      this.copyMax = showPlanItem.ProductPlanInfo.CopyMax;
+      this.copyMin = showPlanItem.ProductPlanInfo.CopyMin;
+    },
+    initPolicy(urlObject, policy, newPolicy) {
+      // 初始化policy
+      const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
+      const insuredGroupParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'InsuredGroup'};
+      if (!newPolicy) {
+          this.insuredGroup = PolicyStore.getChild(insuredGroupParam, policy);
+          const riskParam = AhUtil.getRiskParam(policy);
+          const personInsuredData = PolicyStore.getChild(riskParam, policy);
+          if (Util.isArray(personInsuredData)) {
+            this.personInsured = _.find(personInsuredData, (personInsuredItem) => {
+              return personInsuredItem.SequenceNumber == 1;
+            });
+          } else {
+            this.personInsured = personInsuredData;
+          }
+          if (this.personInsured.IndiGenderCode) {
+            this.indiGenderCode = [
+              this.personInsured.IndiGenderCode
+            ];
+          }
+          // console.log(JSON.stringify(personInsuredData));
+      } else {
+          // 生效日期当前日期+1
+          policy['EffectiveDate'] = DateUtil.add(policy['EffectiveDate'], 1, 'days');
+          policy['ExpiryDate'] = DateUtil.add(policy['ExpiryDate'], 1, 'days');
+          const policyCustomerHolder = PolicyStore.createChild(policyCustomerParam, policy);
+          policyCustomerHolder['CustomerRoleCode'] = '1';
+          // const policyCustomerContactComp = PolicyStore.createChild(policyCustomerParam, policy);
+          // policyCustomerContactComp['CustomerRoleCode'] = '4';
+
+          const policyLobParamComp = {'ModelName': 'PolicyLob', 'ObjectCode': 'WVA'};
+          PolicyStore.createChild(policyLobParamComp, policy);
+          // 创建risk
+          const insuredGroup = PolicyStore.createChild(insuredGroupParam, policy);
+          this.insuredGroup = insuredGroup;
+          const riskParam = AhUtil.getRiskParam(policy);
+          const personInsured = PolicyStore.createChild(riskParam, policy);
+          personInsured['SequenceNumber'] = 1;
+          personInsured['CustomerRoleCode'] = 2;
+          personInsured['IndiGenderCode'] = '1';
+          // 与被保险人与投保人的关系默认本人
+          personInsured['PolHolderInsuredRelaCode'] = '00';
+          this.indiGenderCode = [
+            personInsured['IndiGenderCode']
+          ];
+          this.personInsured = personInsured;
+
+          // PolicyStore.createChild(riskParam, policy);
+          // console.log(JSON.stringify(policy));
+          PolicyStore.setPolicy(policy);
+      }
+      this.policy = policy;
+      LoadingApi.hide(this);
     }
   },
   async created() {
@@ -95,75 +188,36 @@ export default {
     });
     // const routerType = JSON.parse(SessionContext.get('ROUTE_TYPE'));
     // this.productImgSrc = routerType.imgSrc;
+
     const urlObject = UrlUtil.parseURL(window.location.href);
     const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion};
     let product = await ProductStore.getProductByCodeVersion(param);
     this.productDes = product.ProductElementName;
+
+    let newPolicy = false;
     let policy = PolicyStore.getPolicy();
-    const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-    const insuredGroupParam = {'ModelName': 'PolicyRisk', 'ObjectCode': 'InsuredGroup'};
-    if (policy) {
-        this.insuredGroup = PolicyStore.getChild(insuredGroupParam, policy);
-        const riskParam = AhUtil.getRiskParam(policy);
-        const personInsuredData = PolicyStore.getChild(riskParam, policy);
-        if (Util.isArray(personInsuredData)) {
-          this.personInsured = _.find(personInsuredData, (personInsuredItem) => {
-            return personInsuredItem.SequenceNumber == 1;
-          });
-        } else {
-          this.personInsured = personInsuredData;
-        }
-        if (this.personInsured.IndiGenderCode) {
-          this.indiGenderCode = [
-            this.personInsured.IndiGenderCode
-          ];
-        }
-        // console.log(JSON.stringify(personInsuredData));
-    } else {
-        policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType });
-        // 生效日期当前日期+1
-        policy['EffectiveDate'] = DateUtil.add(policy['EffectiveDate'], 1, 'days');
-        policy['ExpiryDate'] = DateUtil.add(policy['ExpiryDate'], 1, 'days');
-        const policyCustomerHolder = PolicyStore.createChild(policyCustomerParam, policy);
-        policyCustomerHolder['CustomerRoleCode'] = '1';
-        // const policyCustomerContactComp = PolicyStore.createChild(policyCustomerParam, policy);
-        // policyCustomerContactComp['CustomerRoleCode'] = '4';
-
-        const policyLobParamComp = {'ModelName': 'PolicyLob', 'ObjectCode': 'WVA'};
-        PolicyStore.createChild(policyLobParamComp, policy);
-        // 创建risk
-        const insuredGroup = PolicyStore.createChild(insuredGroupParam, policy);
-        this.insuredGroup = insuredGroup;
-        const riskParam = AhUtil.getRiskParam(policy);
-        const personInsured = PolicyStore.createChild(riskParam, policy);
-        personInsured['SequenceNumber'] = 1;
-        personInsured['CustomerRoleCode'] = 2;
-        personInsured['IndiGenderCode'] = '1';
-        // 与被保险人与投保人的关系默认本人
-        personInsured['PolHolderInsuredRelaCode'] = '00';
-        this.indiGenderCode = [
-          personInsured['IndiGenderCode']
-        ];
-        this.personInsured = personInsured;
-
-        // PolicyStore.createChild(riskParam, policy);
-        // console.log(JSON.stringify(policy));
-        PolicyStore.setPolicy(policy);
+    if (!policy) {
+      newPolicy = true;
+      policy = await PolicyStore.initPolicy({'productCode': urlObject.params.productCode, 'productVersion': urlObject.params.productVersion, 'policyType': urlObject.params.productType });
     }
-    this.policy = policy;
-
     // 请求方案
     let url = `${UrlUtil.getConfigUrl('UI_API_GATEWAY_PROXY', 'PRODUCT_API', 'PLAN_LIST_FOR_GENERALFORAH')}`;
     const planParam = { 'ProductCode': urlObject.params.productCode};
     AjaxUtil.call(url, planParam, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'} }).then((planList) => {
-      this.planList = planList;
+      // this.planList = planList;
+      this.showPlanList = this.getShowPlanList(planList);
+      this.initPolicy(urlObject, policy, newPolicy);
     });
-    LoadingApi.hide(this);
   },
   computed: {
       list() {
           return [{'key': '1', 'value': '男', 'disabled': true}, {'key': '2', 'value': '女'}];
       }
+  },
+  watch: {
+    'insuredGroup.PlanCode'(curVal, oldVal) {
+      this.copyMinAndMax(curVal);
+    }
   }
 };
 </script>

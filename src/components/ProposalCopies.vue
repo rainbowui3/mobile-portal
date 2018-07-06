@@ -1,6 +1,6 @@
 <template>  
   <div>
-    <r-number :title="$t('proposalCopies.insuredNum')" :model="model" styleClass="round" :min="0" :max="10" value="NumberOfCopies"/>
+    <r-number :title="$t('proposalCopies.insuredNum')" :model="model" styleClass="round" :min="copyMin" :max="copyMax" value="NumberOfCopies"/>
   </div>
 </template>
 
@@ -12,7 +12,21 @@ export default {
     RNumber
   },
   props: {
-    model: Object
+    model: Object,
+    showPlanList: Array,
+    copyMax: Number,
+    copyMin: Number
+  },
+  created() {
+    if (this.model.NumberOfCopies) {
+      if (this.model.NumberOfCopies < this.copyMin) {
+        this.model.NumberOfCopies = this.copyMin;
+      } else if (this.model.NumberOfCopies > this.copyMax) {
+        this.model.NumberOfCopies = this.copyMax;
+      }
+    } else {
+      this.model.NumberOfCopies = this.copyMin;
+    }
   }
 };
 </script>
