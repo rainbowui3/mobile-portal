@@ -3,19 +3,27 @@
   <div>
     <div v-if="showPlanList.length < 4">
       <r-tab :tabItems="tabItems" />
-      <r-swiper height="600px" :model="index" onChange=this.onIndexChange>
+      <r-swiper height="400px" :model="index">
         <r-swiper-item v-for="(item,PlanCode) in showPlanList[index]" :key="PlanCode">
           <r-card :title="$t('planSelection.guaranteeRate')">
-            <r-table :data="item.planData" :class="{table:classStatus}" />
-            <div v-for="(coverage, idx) in coverageList" :key="idx">
-              <r-row :model="coverage" value="coverageAmount" class="fa-edit" :onClick="openCoverageDescription.bind(this, coverage)">
-                <span class="fa fa-angle-down fa-1x">{{coverage.coverageTitle}}</span>
+            <r-table :data="planData" :class="{table:classStatus}" />
+            <div v-for="(ctItem, ProductElementCode) in planItemSelector" :key="ProductElementCode">
+              <div v-if='!ctItem.ProductPlanCoverageDetail.ctDesc'>
+               <r-row :model="ctItem.ProductPlanCoverageDetail" value="SumInsuredDefualt">
+                <span>{{ctItem.ProductElementCode}}</span>
               </r-row>
-              <template v-if="coverage.showDescription">
-                <div>
-                  <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
-                </div>
-              </template>
+              </div>
+              <div v-else>
+                <r-row :model="ctItem.ProductPlanCoverageDetail" value="SumInsuredDefualt" :onClick="openCoverageDescription.bind(this, ctItem)">
+                  <span v-if='!ctItem.ProductPlanCoverageDetail.showDes' class="fa fa-angle-down fa-1x">{{ctItem.ProductElementCode}}</span>
+                  <span v-else class="fa fa-angle-up fa-1x">{{ctItem.ProductElementCode}}</span>
+                </r-row>
+                <template v-if="ctItem.ProductPlanCoverageDetail.showDes">
+                  <div>
+                    <p class="coverageDescription">{{ctItem.ProductPlanCoverageDetail.ctDesc}}</p>
+                  </div>
+                </template>
+              </div>
             </div>
           </r-card>
           <r-card :title="$t('planSelection.notes')">
@@ -32,108 +40,64 @@
           <!-- <r-row :value="$t('row.protected')" :model="coverage" :isLink="true">
           <span class="fa fa-lock fa-2x">{{$t('dfdsa')}}</span>
         </r-row> -->
-          <r-row :model="ctItem.ProductPlanCoverageDetail" value="SumInsuredDefualt" :onClick="openCoverageDescription.bind(this, ctItem)">
-            <span class="fa fa-angle-down fa-1x">{{ctItem.ProductElementCode}}</span>
-          </r-row>
-          <template>
-            <div>
-              <p class="coverageDescription">-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。</p>
-            </div>
-          </template>
+          <div v-if='!ctItem.ProductPlanCoverageDetail.ctDesc'>
+            <r-row :model="ctItem.ProductPlanCoverageDetail" value="SumInsuredDefualt">
+              <span>{{ctItem.ProductElementCode}}</span>
+            </r-row>
+          </div>
+          <div v-else>
+            <r-row :model="ctItem.ProductPlanCoverageDetail" value="SumInsuredDefualt" :onClick="openCoverageDescription.bind(this, ctItem)">
+              <span v-if='!ctItem.ProductPlanCoverageDetail.showDes' class="fa fa-angle-down fa-1x">{{ctItem.ProductElementCode}}</span>
+              <span v-else class="fa fa-angle-up fa-1x">{{ctItem.ProductElementCode}}</span>
+            </r-row>
+            <template v-if="ctItem.ProductPlanCoverageDetail.showDes">
+              <div>
+                <p class="coverageDescription">{{ctItem.ProductPlanCoverageDetail.ctDesc}}</p>
+              </div>
+            </template>
+          </div>
         </div>
       </r-card>
       <r-card :title="$t('planSelection.notes')">
         <r-list :data="getListData" />
       </r-card>
     </div>
+    <slot></slot>
+    <div v-if="showNum">
+      <r-number :title="$t('planSelection.insuredNum')" :model="model" styleClass="round" :min="copyMin" :max="copyMax" value="NumberOfCopies"/>
+    </div>
   </div>
 </template>
 <script>
 import '../i18n/planSelection';
 import {LoadingApi} from 'rainbow-mobile-core';
+import {RNumber} from 'rainbow-mobile-number';
 export default {
+  components: {
+    RNumber
+  },
   data: function() {
     return {
-      selectorModel: {
-        selectorValue: 0
-      },
-      items: [
-        {
-          planData: {
-            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
-            // body: [
-            //   [{ text: "公共交通意外伤害-飞机" }, { text: "50万" }],
-            //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "40万" }],
-            //   [{ text: "公共交通意外伤害-汽车" }, { text: "30万" }]
-            // ]
-          }
-        },
-        {
-          planData: {
-            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
-            // body: [
-            //   [{ text: "公共交通意外伤害-飞机" }, { text: "70万" }],
-            //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "60万" }],
-            //   [{ text: "公共交通意外伤害-汽车" }, { text: "50万" }]
-            // ]
-          }
-        },
-        {
-          planData: {
-            head: [[{ text: '保险责任' }, { text: '保险金额' }]]
-            // body: [
-            //   [{ text: "公共交通意外伤害-飞机" }, { text: "100万" }],
-            //   [{ text: "公共交通意外伤害-火车(地铁、轻轨)" }, { text: "90万" }],
-            //   [{ text: "公共交通意外伤害-汽车" }, { text: "80万" }]
-            // ]
-          }
-        }
-      ],
-      coverageItemList: [],
       index: 0,
       classStatus: true,
-      coverageList: [
-        {
-          coverageTitle: '公共交通意外伤害-飞机',
-          coverageAmount: '50万',
-          coverageDescription:
-            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
-          showDescription: true
-        },
-        {
-          coverageTitle: '公共交通意外伤害-火车(地铁、轻轨)',
-          coverageAmount: '70万',
-          coverageDescription:
-            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
-          showDescription: true
-        },
-        {
-          coverageTitle: '公共交通意外伤害-汽车',
-          coverageAmount: '100万',
-          coverageDescription:
-            '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
-          showDescription: true
-        }
-        // {
-        //   coverageTitle: '公共交通意外伤害-汽车',
-        //   coverageAmount: '100万',
-        //   coverageDescription:
-        //     '-在保险期间内，被保险人持有效客票乘坐民航班机，在交通工具内因发生交通事故而遭受意外的，则自遭受该意外之日起一百八十日内以该意外为直接、完全原因而身故或伤残的，保险人按照合同约定给付保险金。',
-        //   showDescription: true
-        // }
-      ],
       options: undefined,
       tabItems: undefined,
       planData: {
         head: [[{ text: '保险责任' }, { text: '保险金额' }]]
       },
-      planItemSelector: undefined
+      planItemSelector: undefined,
+      copyMax: 0,
+      copyMin: 0
     };
   },
   props: {
     showPlanList: Array,
     model: Object,
-    selectedCode: String
+    selectedCode: String,
+    showNum: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     getListData() {
@@ -152,13 +116,13 @@ export default {
     }
   },
   methods: {
-    onIndexChange: function(value) {
-    },
     onTabItemClicked: function(index) {
       this.index = index;
+      this.planItemSelector = this.showPlanList[index].PlanCoverageList[0].ChildPlanCoverageList;
+      this.copyMinAndMax(this.showPlanList[index].PlanCode);
     },
-    openCoverageDescription(coverage, event) {
-      coverage.showDescription = !coverage.showDescription;
+    openCoverageDescription(ctItem, event) {
+      ctItem.ProductPlanCoverageDetail.showDes = !ctItem.ProductPlanCoverageDetail.showDes;
     },
     changePlan(value) {
       this.model.PlanCode = value;
@@ -166,6 +130,23 @@ export default {
         return planItem.PlanCode == value;
       });
       this.planItemSelector = selectPlanItem.PlanCoverageList[0].ChildPlanCoverageList;
+      this.copyMinAndMax(value);
+    },
+    copyMinAndMax(value) {
+      const showPlanItem = _.find(this.showPlanList, (planItem) => {
+        return planItem.PlanCode == value;
+      });
+      this.copyMax = showPlanItem.ProductPlanInfo.CopyMax;
+      this.copyMin = showPlanItem.ProductPlanInfo.CopyMin;
+      if (this.model.NumberOfCopies) {
+        if (this.model.NumberOfCopies < this.copyMin) {
+          this.model.NumberOfCopies = this.copyMin;
+        } else if (this.model.NumberOfCopies > this.copyMax) {
+          this.model.NumberOfCopies = this.copyMax;
+        }
+      } else {
+        this.model.NumberOfCopies = this.copyMin;
+      }
     }
   },
   async created() {
@@ -193,6 +174,8 @@ export default {
         i++;
       });
       this.tabItems = tabItems;
+      this.planItemSelector = this.showPlanList[this.index].PlanCoverageList[0].ChildPlanCoverageList;
+      this.copyMinAndMax(this.showPlanList[this.index].PlanCode);
     } else {
       let options = [];
       let j = 0;

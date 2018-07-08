@@ -6,7 +6,8 @@ i18n.mergeLocaleMessage('zh-CN', {
     'planSelection.approvalCrowd': '适用人群',
     'planSelection.limitPurchase': '每人限购',
     'planSelection.term': '保险期限',
-    'planSelection.specialInstructions': '特别说明'
+    'planSelection.specialInstructions': '特别说明',
+    'planSelection.insuredNum': '投保份数'
 });
 i18n.mergeLocaleMessage('en-US', {
     'planSelection.guaranteeRate': 'Scope of protection',
@@ -15,5 +16,6 @@ i18n.mergeLocaleMessage('en-US', {
     'planSelection.approvalCrowd': 'Approval Crowd',
     'planSelection.limitPurchase': 'Limit Purchase',
     'planSelection.term': 'Term',
-    'planSelection.specialInstructions': 'Special Instructions'
+    'planSelection.specialInstructions': 'Special Instructions',
+    'planSelection.insuredNum': 'Insured Num'
 });

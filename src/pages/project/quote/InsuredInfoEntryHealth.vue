@@ -28,9 +28,9 @@
       <r-card>
         <r-row :title="$t('insuredInfoEntryHealthSub.healthInfo')" :model="policy" :onClick="goto" :isLink="true"></r-row>
       </r-card>
-      <r-card class="addInsured">
+      <!--<r-card class="addInsured">
         <r-button type="primary" :onClick="clickHome">{{$t('common.addmore')}}</r-button>
-      </r-card>
+      </r-card>-->
       <proposal-clause-confirm :model="pageModel" value="clauseConfirm" />
       <!-- 未确认条款后弹出的提示框 -->
       <r-toast :model="pageModel" value="toastShow" :text="$t('insuredInfoEntryHealthSub.toast')" type="text" />
@@ -116,13 +116,15 @@ export default {
           return personInsured['SequenceNumber'] == 1;
         });
         if (insuredOwer.PolHolderInsuredRelaCode == '00') {
-          insuredOwer['CustomerName'] = this.HolderInfo['CustomerName'];
-          insuredOwer['IdType'] = this.HolderInfo['IdType'];
-          insuredOwer['IdNo'] = this.HolderInfo['IdNo'];
-          insuredOwer['DateOfBirth'] = this.HolderInfo['DateOfBirth'];
-          insuredOwer['IndiMobile'] = this.HolderInfo['IndiMobile'];
-          insuredOwer['Email'] = this.HolderInfo['Email'];
+          insuredOwer['CustomerName'] = this.policyHoder['CustomerName'];
+          insuredOwer['IdType'] = this.policyHoder['IdType'];
+          insuredOwer['IdNo'] = this.policyHoder['IdNo'];
+          insuredOwer['DateOfBirth'] = this.policyHoder['IndiDateOfBirth'];
+          insuredOwer['IndiMobile'] = this.policyHoder['IndiMobile'];
+          insuredOwer['Email'] = this.policyHoder['Email'];
         }
+        PolicyStore.setPolicy(this.policy);
+        // console.log(JSON.stringify(this.policy));
         let route = JSON.parse(SessionContext.get('ROUTE_TYPE'));
         this.$router.push({
           path: '/bind/' + route.route3,
@@ -148,8 +150,6 @@ export default {
     });
     let policy = PolicyStore.getPolicy();
     this.policy = policy;
-    // const policyCustomerParam = {'ModelName': 'PolicyCustomer', 'ObjectCode': 'PolicyCustomer'};
-    // const policyCustomers = PolicyStore.getChild(policyCustomerParam, policy);
     this.policyHoder = _.find(policy.PolicyCustomerList, (customer) => {
         return customer['CustomerRoleCode'] == '1';
     });
