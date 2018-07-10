@@ -1,6 +1,6 @@
 <template>
   <r-page>
-    <top :title="$t('project.jtyw')" :showBack="true" />
+    <top :title="productElementName" :showBack="true" />
     <r-body>
       <r-card>
         <product-top :productImgSrc="productImgSrc" :productDes="productDes">
@@ -79,6 +79,7 @@ export default {
       timeFormat: config.DEFAULT_DATE_FORMATER,
       linkInsuredInfoUrl: '/project/proposal/ah/insuredInfoEntryShortTerm',
       productImgSrc: Jtgj,
+      productElementName: '',
       productDes: '',
       amount: '100',
       buttonName: 'proposalConfirm.confirmInsure',
@@ -151,6 +152,7 @@ export default {
     const urlObject = UrlUtil.parseURL(window.location.href);
     const param = { 'ProductCode': urlObject.params.productCode, 'ProductVersion': urlObject.params.productVersion};
     let product = await ProductStore.getProductByCodeVersion(param);
+    this.productElementName = product.ProductElementName;
     this.productDes = product.ProductElementName;
 
     // 初始化policy
@@ -181,6 +183,7 @@ export default {
         policy['ExpiryDate'] = DateUtil.add(policy['ExpiryDate'], 1, 'days');
         const policyCustomerHolder = PolicyStore.createChild(policyCustomerParam, policy);
         policyCustomerHolder['CustomerRoleCode'] = '1';
+        policyCustomerHolder['IdType'] = '111';
         // const policyCustomerContactComp = PolicyStore.createChild(policyCustomerParam, policy);
         // policyCustomerContactComp['CustomerRoleCode'] = '4';
 
@@ -194,6 +197,7 @@ export default {
         personInsured['SequenceNumber'] = 1;
         personInsured['CustomerRoleCode'] = 2;
         personInsured['IndiGenderCode'] = '1';
+        personInsured['IdType'] = '111';
         // 与被保险人与投保人的关系默认本人
         personInsured['PolHolderInsuredRelaCode'] = '00';
         this.indiGenderCode = [
@@ -211,7 +215,9 @@ export default {
     const planParam = { 'ProductCode': urlObject.params.productCode};
     AjaxUtil.call(url, planParam, { 'method': 'POST', 'header': {'X-ebao-user-name': 'ADMIN'} }).then((planList) => {
       // this.planList = planList;
-      this.showPlanList = this.getShowPlanList(planList);
+      if (planList && planList.length > 0) {
+        this.showPlanList = this.getShowPlanList(planList);
+      }
       LoadingApi.hide(this);
     });
   },
