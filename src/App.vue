@@ -30,6 +30,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '~rainbow-mobile-core/src/styles/orange.less';  
+@import '~rainbow-mobile-core/src/styles/blue.less';  
 @import './style/app.css';
 </style>

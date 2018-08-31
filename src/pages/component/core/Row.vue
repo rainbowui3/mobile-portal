@@ -10,10 +10,10 @@
                       <r-row :title="$t('row.withdraw')" :disabled="true" :onClick="goto"  :isLink="true"></r-row>
             </r-card>
             <r-card :title="$t('row.title')">
-                      <r-row  :value="$t('row.protected')" :isLink="true">
+                      <r-row    :value="$t('row.protected')" :isLink="true">
                         <span style="color:#4D93E4;"><span style="vertical-align:middle;">{{ $t('row.withdraw') }}</span></span>
                       </r-row>
-                      <r-row  :value="$t('row.protected')" :isLink="true">
+                      <r-row    :isLink="true">
                          <span class="fa fa-lock fa-2x"></span>
                       </r-row>
             </r-card>

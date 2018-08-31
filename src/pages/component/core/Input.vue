@@ -49,7 +49,7 @@
                 <r-input :title="$t('input.onEnter')" :onEnter="onEnter" :model="policy" value="value23"/>
             </r-card>
             <r-card :title="$t('common.right')">
-                <r-input :title="$t('input.vcode')" :model="policy" value="value24" :right="true">
+                <r-input :title="$t('input.vcode')" :model="policy" value="value24" :right="true" :required="true" >
                     <img class="weui-vcode-img" src="https://i.loli.net/2017/09/18/59bf7f32425d5.jpg"/>
                 </r-input>
                  <r-input :title="$t('input.vcode')" :model="policy" value="value25" :right="true">

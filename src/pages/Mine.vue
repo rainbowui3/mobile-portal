@@ -2,9 +2,7 @@
     <r-page>
         <top :title="$t('mine.title')" :showBack="true" />
         <r-body>
-            <div class="sign">
-                <Mine />
-            </div>
+           
             <r-card>
                 <r-selector :title="$t('mine.myPolicy')" :options="options" :model="policy" value="index1" @onChange="onChange">
                 </r-selector>
